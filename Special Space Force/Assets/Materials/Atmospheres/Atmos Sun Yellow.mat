@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atmos Sun Yellow
+  m_Shader: {fileID: 4800000, guid: 8950ea4a72097c64cb9b5c113d2a045f, type: 3}
+  m_ShaderKeywords: _SUBATMOSPHERE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 72ba01dab3185214982b48accb2d9664, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsAlpha:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cloudstexture:
+        m_Texture: {fileID: 2800000, guid: e1b95afc12b486448abe975632e539cf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive:
+        m_Texture: {fileID: 2800000, guid: e761d1b5f99e4c840b58081a41de20d6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissivecities:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LookupSunset:
+        m_Texture: {fileID: 2800000, guid: 3c94491068797e54b9d16576eeb33a8c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LookuprampSunset:
+        m_Texture: {fileID: 2800000, guid: 3c94491068797e54b9d16576eeb33a8c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normalmap:
+        m_Texture: {fileID: 2800000, guid: 0b5ac22ada0e4fd43ab69e9331139f3c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Specular:
+        m_Texture: {fileID: 2800000, guid: 6a178afe4ebbc8543ae35a463a8966f4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _watermask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Ambiantatmosphereintensity: 1
+    - _Atmospherecircle: 1
+    - _Atmosphereintensity: 1.11
+    - _Atmospherepower: 3.5
+    - _Atmospheresize: 1.24
+    - _BumpScale: 1
+    - _Citiesoffset: 0
+    - _Clouds: 0
+    - _Cloudspeed: 1
+    - _Cutoff: 0.5
+    - _Desaturation: 0
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _Gloss: 0.81
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _MaskClipValue: 3.98
+    - _Metallic: 0
+    - _Mode: 0
+    - _Nightemissivecities: 0
+    - _Normalintensity: 1
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _Specularpower: 0.382126
+    - _SrcBlend: 1
+    - _SubAtmosphere: 1
+    - _SubAtmospherepower: 1.983384
+    - _Subatmosphereglobalintensity: 1
+    - _Subatmosphereintensity: 1
+    - _Subatmospherepower: 5
+    - _Transparency: 0.5
+    - _UVSec: 0
+    - _ZWrite: 1
+    - __dirty: 1
+    m_Colors:
+    - _Albedocolor: {r: 1, g: 1, b: 1, a: 1}
+    - _AmbiantLightcontrol: {r: 0, g: 0, b: 0, a: 0}
+    - _Ambiantatmospherecolor: {r: 0, g: 0, b: 0, a: 1}
+    - _AtmosphereColor: {r: 0.006704159, g: 0.9117647, b: 0.9117647, a: 1}
+    - _Atmospherecolor: {r: 1, g: 0.983745, b: 0, a: 0}
+    - _Citiescolor: {r: 1, g: 0.815662, b: 0.559, a: 0}
+    - _Citycolor: {r: 1, g: 0.7241379, b: 0, a: 1}
+    - _Cloudscolor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Specularcolor: {r: 0.9926471, g: 0.9926471, b: 0.9926471, a: 1}
+    - _Subatmospherecolor: {r: 1, g: 1, b: 1, a: 1}
+    - _cloudscolor: {r: 1, g: 1, b: 1, a: 0.547}
