@@ -21,6 +21,8 @@ public class Planet_Click : MonoBehaviour
         planetCamera.GetComponent<Camera_Targeted>().target = transform;
         systemCamera.enabled = false;
         planetCamera.enabled = true;
+        ToggleVisiblePlanets.TogglePlanetsOn(false);
+        this.gameObject.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -29,6 +31,7 @@ public class Planet_Click : MonoBehaviour
         {
             systemCamera.enabled = true;
             planetCamera.enabled = false;
+            ToggleVisiblePlanets.TogglePlanetsOn(true);
         }
     }
 }

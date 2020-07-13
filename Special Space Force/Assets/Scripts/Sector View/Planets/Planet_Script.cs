@@ -8,10 +8,13 @@ public class Planet_Script : MonoBehaviour
     public string planetName;
     public string biome;
     public int population;
-    ///
+    public Planet_Class planet;
 
     public Planet_Stats Stats;
-    
+
+    //Linked to the planets mesh renderer so we can change the material, allowing for players to create their own.
+    public MeshRenderer planetSkin;
+
     //Generates then sets planet stats
     private void Start()
     {
@@ -19,7 +22,7 @@ public class Planet_Script : MonoBehaviour
         Invoke("PlanetGen", 2.0f);
     }
 
-    //Displays Planet Stats on Debug Log
+    //Displays Planet Stats in Debug Log
     public void ShowMe()
     {
         Debug.Log("Name: " + Stats.PName);
@@ -29,9 +32,21 @@ public class Planet_Script : MonoBehaviour
         Debug.Log("Population Happiness: " + Stats.popHappiness);
     }
 
+    //Generates the planetary stats
     public void PlanetGen()
     {
-        Stats = new Planet_Stats(planetName, biome, population);
-        ShowMe();
+        Planet_Class temp = new Planet_Class();
+        Stats = new Planet_Stats(temp, planetSkin);
+    }
+
+    //Generates the planetary stats
+    public void PlanetGen(Planet_Class planetClass)
+    {
+        //planetSkin = gameObject.transform.Find("PlanetSurface").GetComponent<MeshRenderer>();
+        Stats = new Planet_Stats(planetClass, planetSkin);
+        planet = planetClass;
+        planetName = planetClass.planetName;
+        biome = planetClass.biome;
+        population = planetClass.population;
     }
 }

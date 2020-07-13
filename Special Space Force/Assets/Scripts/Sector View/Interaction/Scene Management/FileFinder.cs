@@ -8,14 +8,28 @@ using UnityEngine;
 
 public class FileFinder : MonoBehaviour
 {
+    public string savePath;
     public string defaultPath;
     public string modsPath;
     FileInfo[] fileArray1;
     FileInfo[] fileArray2;
+    public Biome_Manager biomeManager;
+    public Galaxy_Generation_Manager GenerationManager;
+    public bool foundSave;
 
     //Finds all files under the two paths, Resources and Mods, and places them in arrays.
-    void Start()
+    public bool Run()
     {
+        bool done = false;
+
+        if (savePath == "" || savePath == null)
+        {
+            foundSave = false;
+        } 
+        else
+        {
+            foundSave = true;
+        }
         if (defaultPath == "" || defaultPath == null)
         {
             defaultPath = Application.dataPath + "/Resources";
@@ -49,6 +63,8 @@ public class FileFinder : MonoBehaviour
         {
             Console.WriteLine(FileNull.Message);
         }
+
+        return done;
     }
 
     //Sorts through the file arrays to get the dedicated files the script has called for

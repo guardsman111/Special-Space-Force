@@ -10,11 +10,11 @@ public class Planet_Stats
     public float popHappiness = 0.8f;
 
     //Constructor for Planet_Stats - takes input from planet_script and creates the Planet_Stats
-    public Planet_Stats(string name, string biome, int population)
+    public Planet_Stats(Planet_Class pClass, MeshRenderer skin)
     {
-        PName = name;
-        Biome = new Planet_Biome(biome);
-        Population = population;
+        PName = pClass.planetName;
+        Biome = new Planet_Biome(pClass.biome, skin);
+        Population = pClass.population;
         BiomeEffect();
     }
 

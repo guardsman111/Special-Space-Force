@@ -65,7 +65,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Emissivecities:
-        m_Texture: {fileID: 2800000, guid: 58199e0ba327aea45863d33ec243db20, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LookupSunset:
@@ -81,7 +81,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1e3a3a7e53ea34f4f884d92ec60d6b32, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0.45, y: 0}
     - _MetalRGBRough:
@@ -177,7 +177,7 @@ Material:
     - _Float5: 0
     - _Float6: 0.9
     - _Float8: 0
-    - _Gloss: 0.736
+    - _Gloss: 0.596
     - _Glossiness: 0.5
     - _MaskClipValue: 0.5
     - _Metallic: 0

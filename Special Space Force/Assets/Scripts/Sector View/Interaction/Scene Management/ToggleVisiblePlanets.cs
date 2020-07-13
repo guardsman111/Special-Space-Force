@@ -8,7 +8,7 @@ public class ToggleVisiblePlanets : MonoBehaviour
     public static bool hidden = false;
 
 
-    private void Start()
+    public void Run()
     {
         FindPlanets();
         //Debug.Log(Planets[0].name);

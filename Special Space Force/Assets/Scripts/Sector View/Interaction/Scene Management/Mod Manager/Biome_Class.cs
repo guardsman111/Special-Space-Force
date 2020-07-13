@@ -15,7 +15,16 @@ public class Biome_Class
     public bool SurfacePop = true;
     [XmlElement("Breathable_Atmosphere")]
     public bool Atmo = true;
-    
+
+    [XmlElement("Base_Biome")]
+    public string baseBiome;
+    [XmlElement("Material_Texture_Path")]
+    public string materialTexture;
+    [XmlElement("Material_Normal_Path")]
+    public string materialNormal;
+    [XmlElement("Material_Mask_Path")]
+    public string materialMask;
+
     public Biome_Class()
     {
     }

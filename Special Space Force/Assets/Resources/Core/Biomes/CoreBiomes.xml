@@ -5,101 +5,179 @@
     <Happiness_Modifier>-0.3</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Alpine</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Arctic</Name>
     <Happiness_Modifier>-0.4</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Arctic</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
+  </Biome_Class>
+  <Biome_Class>
+    <Name>Arid</Name>
+    <Happiness_Modifier>-0.2</Happiness_Modifier>
+    <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
+    <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Arid</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Asteroid</Name>
     <Happiness_Modifier>-0.5</Happiness_Modifier>
     <Can_Have_Surface_Pop>false</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Asteroid</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Barren</Name>
     <Happiness_Modifier>-0.6</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Barren</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Continental</Name>
     <Happiness_Modifier>0.2</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Continental</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Desert</Name>
     <Happiness_Modifier>-0.45</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Desert</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Gas Giant</Name>
     <Happiness_Modifier>-0.5</Happiness_Modifier>
     <Can_Have_Surface_Pop>false</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Gas Giant</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Glacial</Name>
     <Happiness_Modifier>-0.5</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Glacial</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Mediterranean</Name>
     <Happiness_Modifier>0.3</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Mediterranean</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Molten</Name>
     <Happiness_Modifier>-0.6</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Molten</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Moon</Name>
     <Happiness_Modifier>-0.5</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Moon</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Oasis</Name>
-    <Happiness_Modifier>-0.2</Happiness_Modifier>
+    <Happiness_Modifier>-0.1</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Oasis</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Ocean</Name>
-    <Happiness_Modifier>-0.3</Happiness_Modifier>
+    <Happiness_Modifier>-0.2</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Ocean</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Swamp</Name>
     <Happiness_Modifier>-0.55</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Base_Biome>Swamp</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Toxic</Name>
     <Happiness_Modifier>-0.6</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Toxic</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Tropical</Name>
     <Happiness_Modifier>0.1</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Tropical</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
     <Name>Tundra</Name>
-    <Happiness_Modifier>-0.35</Happiness_Modifier>
+    <Happiness_Modifier>-0.25</Happiness_Modifier>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Tundra</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
 </ArrayOfBiome_Class>
