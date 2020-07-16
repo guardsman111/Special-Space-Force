@@ -8,8 +8,16 @@ public class Biome_Class
     //Biome Class is where biome information is stored.
     [XmlElement("Name")]
     public string biomeName;
+    [XmlElement("Source")]
+    public string source;
     [XmlElement("Happiness_Modifier")]
     public float happinessModifier;
+    [XmlElement("Food_Production_Modifier")]
+    public float foodModifier;
+    [XmlElement("Min_Usable_Space")]
+    public float minSpace;
+    [XmlElement("Max_Usable_Space")]
+    public float maxSpace;
 
     [XmlElement("Can_Have_Surface_Pop")]
     public bool SurfacePop = true;

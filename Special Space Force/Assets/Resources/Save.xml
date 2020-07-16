@@ -1,227 +1,330 @@
 <?xml version="1.0"?>
 <ArrayOfSystem_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <System_Class>
-    <systemName>Othorix</systemName>
-    <colour>Blue_Light</colour>
-    <posX>4710</posX>
-    <posZ>-4625</posZ>
-    <nPlanets>4</nPlanets>
-    <Array>
-      <Planet_Class>
-        <planetName>Othorix 0</planetName>
-        <biome>Asteroid</biome>
-        <population>891524288</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Othorix 1</planetName>
-        <biome>Molten</biome>
-        <population>631372032</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Othorix 2</planetName>
-        <biome>Desert</biome>
-        <population>151880816</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Othorix 3</planetName>
-        <biome>Ocean</biome>
-        <population>46763304</population>
-      </Planet_Class>
-    </Array>
-  </System_Class>
-  <System_Class>
-    <systemName>Othorix</systemName>
-    <colour>Green</colour>
-    <posX>4535</posX>
-    <posZ>-1817</posZ>
+    <systemName>Durack</systemName>
+    <colour>Red</colour>
+    <posX>4094</posX>
+    <posZ>1125</posZ>
     <nPlanets>3</nPlanets>
     <Array>
       <Planet_Class>
-        <planetName>Othorix 0</planetName>
-        <biome>Moon</biome>
-        <population>646469952</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Othorix 1</planetName>
-        <biome>Asteroid</biome>
-        <population>795401664</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Othorix 2</planetName>
-        <biome>Toxic</biome>
-        <population>630572608</population>
-      </Planet_Class>
-    </Array>
-  </System_Class>
-  <System_Class>
-    <systemName>Korus</systemName>
-    <colour>Purple</colour>
-    <posX>-1476</posX>
-    <posZ>-3757</posZ>
-    <nPlanets>2</nPlanets>
-    <Array>
-      <Planet_Class>
-        <planetName>Korus 0</planetName>
-        <biome>Tundra</biome>
-        <population>418727392</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Korus 1</planetName>
-        <biome>Gas Giant</biome>
-        <population>727029824</population>
-      </Planet_Class>
-    </Array>
-  </System_Class>
-  <System_Class>
-    <systemName>Korus</systemName>
-    <colour>Green</colour>
-    <posX>-2230</posX>
-    <posZ>-4831</posZ>
-    <nPlanets>2</nPlanets>
-    <Array>
-      <Planet_Class>
-        <planetName>Korus 0</planetName>
-        <biome>Desert</biome>
-        <population>853506496</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Korus 1</planetName>
-        <biome>Swamp</biome>
-        <population>595006784</population>
-      </Planet_Class>
-    </Array>
-  </System_Class>
-  <System_Class>
-    <systemName>Traous</systemName>
-    <colour>Red</colour>
-    <posX>1556</posX>
-    <posZ>107</posZ>
-    <nPlanets>2</nPlanets>
-    <Array>
-      <Planet_Class>
-        <planetName>Traous 0</planetName>
-        <biome>Asteroid</biome>
-        <population>302034944</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Traous 1</planetName>
+        <planetName>Durack 0</planetName>
         <biome>Ocean</biome>
-        <population>113001832</population>
+        <population>13903696</population>
+        <size>91</size>
+        <usableSpace>0.233106047</usableSpace>
       </Planet_Class>
-    </Array>
-  </System_Class>
-  <System_Class>
-    <systemName>Traous</systemName>
-    <colour>White</colour>
-    <posX>-637</posX>
-    <posZ>-4491</posZ>
-    <nPlanets>1</nPlanets>
-    <Array>
       <Planet_Class>
-        <planetName>Traous 0</planetName>
+        <planetName>Durack 1</planetName>
+        <biome>Glass World</biome>
+        <population>672029120</population>
+        <size>73</size>
+        <usableSpace>0.382603</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Durack 2</planetName>
         <biome>Gas Giant</biome>
-        <population>977217216</population>
-      </Planet_Class>
-    </Array>
-  </System_Class>
-  <System_Class>
-    <systemName>Korus</systemName>
-    <colour>Red</colour>
-    <posX>2351</posX>
-    <posZ>-3789</posZ>
-    <nPlanets>1</nPlanets>
-    <Array>
-      <Planet_Class>
-        <planetName>Korus 0</planetName>
-        <biome>Swamp</biome>
-        <population>64490976</population>
+        <population>102283648</population>
+        <size>71</size>
+        <usableSpace>0</usableSpace>
       </Planet_Class>
     </Array>
   </System_Class>
   <System_Class>
     <systemName>Durack</systemName>
-    <colour>Green</colour>
-    <posX>3566</posX>
-    <posZ>-1967</posZ>
-    <nPlanets>4</nPlanets>
+    <colour>Orange</colour>
+    <posX>-3306</posX>
+    <posZ>1549</posZ>
+    <nPlanets>2</nPlanets>
     <Array>
       <Planet_Class>
         <planetName>Durack 0</planetName>
-        <biome>Molten</biome>
-        <population>167549312</population>
+        <biome>Desert</biome>
+        <population>770030528</population>
+        <size>69</size>
+        <usableSpace>0.6304548</usableSpace>
       </Planet_Class>
       <Planet_Class>
         <planetName>Durack 1</planetName>
         <biome>Barren</biome>
-        <population>970734592</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Durack 2</planetName>
-        <biome>Arctic</biome>
-        <population>188751056</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Durack 3</planetName>
-        <biome>Swamp</biome>
-        <population>120516416</population>
+        <population>950664384</population>
+        <size>57</size>
+        <usableSpace>0.80573</usableSpace>
       </Planet_Class>
     </Array>
   </System_Class>
   <System_Class>
-    <systemName>Urnin</systemName>
+    <systemName>Dendo</systemName>
     <colour>Red</colour>
-    <posX>-1017</posX>
-    <posZ>-2819</posZ>
-    <nPlanets>3</nPlanets>
-    <Array>
-      <Planet_Class>
-        <planetName>Urnin 0</planetName>
-        <biome>Asteroid</biome>
-        <population>366840736</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Urnin 1</planetName>
-        <biome>Arctic</biome>
-        <population>66747184</population>
-      </Planet_Class>
-      <Planet_Class>
-        <planetName>Urnin 2</planetName>
-        <biome>Swamp</biome>
-        <population>976678464</population>
-      </Planet_Class>
-    </Array>
-  </System_Class>
-  <System_Class>
-    <systemName>Traous</systemName>
-    <colour>Blue_Light</colour>
-    <posX>3200</posX>
-    <posZ>-883</posZ>
+    <posX>1207</posX>
+    <posZ>3981</posZ>
     <nPlanets>5</nPlanets>
     <Array>
       <Planet_Class>
-        <planetName>Traous 0</planetName>
-        <biome>Arctic</biome>
-        <population>564760896</population>
+        <planetName>Dendo 0</planetName>
+        <biome>Alpine</biome>
+        <population>205150640</population>
+        <size>53</size>
+        <usableSpace>0.3402096</usableSpace>
       </Planet_Class>
       <Planet_Class>
-        <planetName>Traous 1</planetName>
+        <planetName>Dendo 1</planetName>
+        <biome>Oasis</biome>
+        <population>872517760</population>
+        <size>82</size>
+        <usableSpace>0.234127834</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Dendo 2</planetName>
         <biome>Glacial</biome>
-        <population>764301376</population>
+        <population>216156624</population>
+        <size>82</size>
+        <usableSpace>0.135839984</usableSpace>
       </Planet_Class>
       <Planet_Class>
-        <planetName>Traous 2</planetName>
-        <biome>Gas Giant</biome>
-        <population>564440192</population>
+        <planetName>Dendo 3</planetName>
+        <biome>Arctic</biome>
+        <population>906266176</population>
+        <size>76</size>
+        <usableSpace>0.7591411</usableSpace>
       </Planet_Class>
       <Planet_Class>
-        <planetName>Traous 3</planetName>
-        <biome>Tropical</biome>
-        <population>475398560</population>
+        <planetName>Dendo 4</planetName>
+        <biome>Oasis</biome>
+        <population>959544576</population>
+        <size>85</size>
+        <usableSpace>0.317976058</usableSpace>
+      </Planet_Class>
+    </Array>
+  </System_Class>
+  <System_Class>
+    <systemName>Othorix</systemName>
+    <colour>Red</colour>
+    <posX>1123</posX>
+    <posZ>-4294</posZ>
+    <nPlanets>5</nPlanets>
+    <Array>
+      <Planet_Class>
+        <planetName>Othorix 0</planetName>
+        <biome>Molten</biome>
+        <population>706881984</population>
+        <size>61</size>
+        <usableSpace>0.44081986</usableSpace>
       </Planet_Class>
       <Planet_Class>
-        <planetName>Traous 4</planetName>
+        <planetName>Othorix 1</planetName>
+        <biome>Ocean</biome>
+        <population>505237952</population>
+        <size>90</size>
+        <usableSpace>0.105899177</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Othorix 2</planetName>
+        <biome>Moon</biome>
+        <population>214583888</population>
+        <size>72</size>
+        <usableSpace>0.593886435</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Othorix 3</planetName>
         <biome>Desert</biome>
-        <population>120121992</population>
+        <population>41134232</population>
+        <size>67</size>
+        <usableSpace>0.815372</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Othorix 4</planetName>
+        <biome>Arctic</biome>
+        <population>166560688</population>
+        <size>87</size>
+        <usableSpace>0.6675867</usableSpace>
+      </Planet_Class>
+    </Array>
+  </System_Class>
+  <System_Class>
+    <systemName>Alpho</systemName>
+    <colour>Green_Light</colour>
+    <posX>3647</posX>
+    <posZ>-855</posZ>
+    <nPlanets>1</nPlanets>
+    <Array>
+      <Planet_Class>
+        <planetName>Alpho 0</planetName>
+        <biome>Ocean</biome>
+        <population>587557056</population>
+        <size>73</size>
+        <usableSpace>0.2274375</usableSpace>
+      </Planet_Class>
+    </Array>
+  </System_Class>
+  <System_Class>
+    <systemName>Othorix</systemName>
+    <colour>Blue_Light</colour>
+    <posX>3894</posX>
+    <posZ>4331</posZ>
+    <nPlanets>1</nPlanets>
+    <Array>
+      <Planet_Class>
+        <planetName>Othorix 0</planetName>
+        <biome>Alpine</biome>
+        <population>604368768</population>
+        <size>52</size>
+        <usableSpace>0.396082848</usableSpace>
+      </Planet_Class>
+    </Array>
+  </System_Class>
+  <System_Class>
+    <systemName>Othorix</systemName>
+    <colour>White</colour>
+    <posX>-4800</posX>
+    <posZ>-2931</posZ>
+    <nPlanets>4</nPlanets>
+    <Array>
+      <Planet_Class>
+        <planetName>Othorix 0</planetName>
+        <biome>Desert</biome>
+        <population>468038112</population>
+        <size>80</size>
+        <usableSpace>0.4943765</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Othorix 1</planetName>
+        <biome>Alpine</biome>
+        <population>72518792</population>
+        <size>89</size>
+        <usableSpace>0.433092684</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Othorix 2</planetName>
+        <biome>Arid</biome>
+        <population>759694464</population>
+        <size>91</size>
+        <usableSpace>0.308137864</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Othorix 3</planetName>
+        <biome>Continental</biome>
+        <population>471963872</population>
+        <size>96</size>
+        <usableSpace>0.7864207</usableSpace>
+      </Planet_Class>
+    </Array>
+  </System_Class>
+  <System_Class>
+    <systemName>Pretentis</systemName>
+    <colour>White</colour>
+    <posX>-4501</posX>
+    <posZ>-2844</posZ>
+    <nPlanets>4</nPlanets>
+    <Array>
+      <Planet_Class>
+        <planetName>Pretentis 0</planetName>
+        <biome>Moon</biome>
+        <population>180229600</population>
+        <size>56</size>
+        <usableSpace>0.637069</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Pretentis 1</planetName>
+        <biome>Continental</biome>
+        <population>652863616</population>
+        <size>67</size>
+        <usableSpace>0.715359449</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Pretentis 2</planetName>
+        <biome>Moon</biome>
+        <population>163304000</population>
+        <size>96</size>
+        <usableSpace>0.7462859</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Pretentis 3</planetName>
+        <biome>Glacial</biome>
+        <population>10462452</population>
+        <size>59</size>
+        <usableSpace>0.138382435</usableSpace>
+      </Planet_Class>
+    </Array>
+  </System_Class>
+  <System_Class>
+    <systemName>Durack</systemName>
+    <colour>Blue_Light</colour>
+    <posX>4809</posX>
+    <posZ>2832</posZ>
+    <nPlanets>5</nPlanets>
+    <Array>
+      <Planet_Class>
+        <planetName>Durack 0</planetName>
+        <biome>Desert</biome>
+        <population>298624608</population>
+        <size>89</size>
+        <usableSpace>0.4122897</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Durack 1</planetName>
+        <biome>Continental</biome>
+        <population>807019584</population>
+        <size>58</size>
+        <usableSpace>0.529407</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Durack 2</planetName>
+        <biome>Oasis</biome>
+        <population>629066240</population>
+        <size>65</size>
+        <usableSpace>0.214844123</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Durack 3</planetName>
+        <biome>Alpine</biome>
+        <population>215849376</population>
+        <size>96</size>
+        <usableSpace>0.573824465</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Durack 4</planetName>
+        <biome>Arid</biome>
+        <population>256229168</population>
+        <size>71</size>
+        <usableSpace>0.354913384</usableSpace>
+      </Planet_Class>
+    </Array>
+  </System_Class>
+  <System_Class>
+    <systemName>Pretentis</systemName>
+    <colour>Orange</colour>
+    <posX>332</posX>
+    <posZ>2187</posZ>
+    <nPlanets>4</nPlanets>
+    <Array>
+      <Planet_Class>
+        <planetName>Pretentis 0</planetName>
+        <biome>Glacial</biome>
+        <population>261723136</population>
+        <size>98</size>
+        <usableSpace>0.294872254</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Pretentis 1</planetName>
+        <biome>Ocean</biome>
+        <population>529300256</population>
+        <size>89</size>
+        <usableSpace>0.3566365</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Pretentis 2</planetName>
+        <biome>Molten</biome>
+        <population>661247296</population>
+        <size>97</size>
+        <usableSpace>0.439839244</usableSpace>
+      </Planet_Class>
+      <Planet_Class>
+        <planetName>Pretentis 3</planetName>
+        <biome>Desert</biome>
+        <population>107108480</population>
+        <size>95</size>
+        <usableSpace>0.8650672</usableSpace>
       </Planet_Class>
     </Array>
   </System_Class>

@@ -8,6 +8,7 @@ public class Planet_Script : MonoBehaviour
     public string planetName;
     public string biome;
     public int population;
+    public float useSpace;
     public Planet_Class planet;
 
     public Planet_Stats Stats;
@@ -48,5 +49,6 @@ public class Planet_Script : MonoBehaviour
         planetName = planetClass.planetName;
         biome = planetClass.biome;
         population = planetClass.population;
+        useSpace = planetClass.usableSpace;
     }
 }

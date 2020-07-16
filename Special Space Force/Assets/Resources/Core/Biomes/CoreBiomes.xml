@@ -2,7 +2,11 @@
 <ArrayOfBiome_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Biome_Class>
     <Name>Alpine</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.3</Happiness_Modifier>
+    <Food_Production_Modifier>-0.2</Food_Production_Modifier>
+    <Min_Usable_Space>0.2</Min_Usable_Space>
+    <Max_Usable_Space>0.7</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Alpine</Base_Biome>
@@ -12,7 +16,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Arctic</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.4</Happiness_Modifier>
+    <Food_Production_Modifier>-0.5</Food_Production_Modifier>
+    <Min_Usable_Space>0.4</Min_Usable_Space>
+    <Max_Usable_Space>0.9</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Arctic</Base_Biome>
@@ -22,7 +30,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Arid</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.2</Happiness_Modifier>
+    <Food_Production_Modifier>-0.2</Food_Production_Modifier>
+    <Min_Usable_Space>0.4</Min_Usable_Space>
+    <Max_Usable_Space>0.9</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Arid</Base_Biome>
@@ -32,7 +44,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Asteroid</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.5</Happiness_Modifier>
+    <Food_Production_Modifier>-1</Food_Production_Modifier>
+    <Min_Usable_Space>0.2</Min_Usable_Space>
+    <Max_Usable_Space>0.5</Max_Usable_Space>
     <Can_Have_Surface_Pop>false</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
     <Base_Biome>Asteroid</Base_Biome>
@@ -42,7 +58,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Barren</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.6</Happiness_Modifier>
+    <Food_Production_Modifier>-1</Food_Production_Modifier>
+    <Min_Usable_Space>0.6</Min_Usable_Space>
+    <Max_Usable_Space>1</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
     <Base_Biome>Barren</Base_Biome>
@@ -52,7 +72,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Continental</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>0.2</Happiness_Modifier>
+    <Food_Production_Modifier>0.2</Food_Production_Modifier>
+    <Min_Usable_Space>0.3</Min_Usable_Space>
+    <Max_Usable_Space>0.8</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Continental</Base_Biome>
@@ -62,7 +86,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Desert</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.45</Happiness_Modifier>
+    <Food_Production_Modifier>-0.5</Food_Production_Modifier>
+    <Min_Usable_Space>0.4</Min_Usable_Space>
+    <Max_Usable_Space>0.9</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Desert</Base_Biome>
@@ -72,7 +100,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Gas Giant</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.5</Happiness_Modifier>
+    <Food_Production_Modifier>-1</Food_Production_Modifier>
+    <Min_Usable_Space>0</Min_Usable_Space>
+    <Max_Usable_Space>0</Max_Usable_Space>
     <Can_Have_Surface_Pop>false</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
     <Base_Biome>Gas Giant</Base_Biome>
@@ -82,7 +114,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Glacial</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.5</Happiness_Modifier>
+    <Food_Production_Modifier>-0.6</Food_Production_Modifier>
+    <Min_Usable_Space>0.1</Min_Usable_Space>
+    <Max_Usable_Space>0.3</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Glacial</Base_Biome>
@@ -92,7 +128,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Mediterranean</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>0.3</Happiness_Modifier>
+    <Food_Production_Modifier>0.1</Food_Production_Modifier>
+    <Min_Usable_Space>0.2</Min_Usable_Space>
+    <Max_Usable_Space>0.7</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Mediterranean</Base_Biome>
@@ -102,7 +142,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Molten</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.6</Happiness_Modifier>
+    <Food_Production_Modifier>-1</Food_Production_Modifier>
+    <Min_Usable_Space>0.2</Min_Usable_Space>
+    <Max_Usable_Space>0.5</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Molten</Base_Biome>
@@ -112,7 +156,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Moon</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.5</Happiness_Modifier>
+    <Food_Production_Modifier>-1</Food_Production_Modifier>
+    <Min_Usable_Space>0.3</Min_Usable_Space>
+    <Max_Usable_Space>0.9</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
     <Base_Biome>Moon</Base_Biome>
@@ -122,7 +170,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Oasis</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.1</Happiness_Modifier>
+    <Food_Production_Modifier>-0.3</Food_Production_Modifier>
+    <Min_Usable_Space>0.2</Min_Usable_Space>
+    <Max_Usable_Space>0.7</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Oasis</Base_Biome>
@@ -132,7 +184,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Ocean</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.2</Happiness_Modifier>
+    <Food_Production_Modifier>0.2</Food_Production_Modifier>
+    <Min_Usable_Space>0.1</Min_Usable_Space>
+    <Max_Usable_Space>0.4</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Ocean</Base_Biome>
@@ -142,7 +198,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Swamp</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.55</Happiness_Modifier>
+    <Food_Production_Modifier>0.1</Food_Production_Modifier>
+    <Min_Usable_Space>0.1</Min_Usable_Space>
+    <Max_Usable_Space>0.4</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Swamp</Base_Biome>
@@ -152,7 +212,11 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Toxic</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.6</Happiness_Modifier>
+    <Food_Production_Modifier>-1</Food_Production_Modifier>
+    <Min_Usable_Space>0.2</Min_Usable_Space>
+    <Max_Usable_Space>0.7</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
     <Base_Biome>Toxic</Base_Biome>
@@ -162,9 +226,13 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Tropical</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>0.1</Happiness_Modifier>
+    <Food_Production_Modifier>0.2</Food_Production_Modifier>
+    <Min_Usable_Space>0.2</Min_Usable_Space>
+    <Max_Usable_Space>0.7</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
-    <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Tropical</Base_Biome>
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
@@ -172,9 +240,13 @@
   </Biome_Class>
   <Biome_Class>
     <Name>Tundra</Name>
+    <Source>Core</Source>
     <Happiness_Modifier>-0.25</Happiness_Modifier>
+    <Food_Production_Modifier>-0.2</Food_Production_Modifier>
+    <Min_Usable_Space>0.4</Min_Usable_Space>
+    <Max_Usable_Space>0.9</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
-    <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Breathable_Atmosphere>true</Breathable_Atmosphere>
     <Base_Biome>Tundra</Base_Biome>
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>

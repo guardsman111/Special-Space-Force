@@ -23,7 +23,6 @@ public class Biome_Manager : MonoBehaviour
         //SaveDefaults();
         biomeFiles = finder.Retrieve("Biomes.xml", ".meta");
         biomes = FindBiomeFiles();
-        biomeArray = biomes.ToArray();
         CreateMaterials();
         return done;
     }
@@ -67,8 +66,33 @@ public class Biome_Manager : MonoBehaviour
                 List<Biome_Class> temp = Serializer.Deserialize<List<Biome_Class>>(s);
                 foreach (Biome_Class tempB in temp)
                 {
-                    biomeList.Add(tempB);
-                    //Debug.Log(tempB.biomeName);
+                    int counter = 0;
+                    bool duplicate = false;
+                    foreach (Biome_Class checkB in biomeList) {
+                        if (tempB.biomeName == checkB.biomeName)
+                        {
+                            duplicate = true;
+                            if(checkB.source == "Core")
+                            {
+                                Debug.Log(counter);
+                                biomeList[counter] = tempB;
+                                Debug.Log(tempB.biomeName + " Replaced Vanilla");
+                                BiomeMats.RemoveAt(counter);
+                            }
+                            else
+                            {
+                                biomeList.RemoveAt(counter);
+                                Debug.Log("Duplicates Removed");
+                            }
+                            break;
+                        }
+                        counter += 1;
+                    }
+                    if (!duplicate)
+                    {
+                        biomeList.Add(tempB);
+                        Debug.Log(tempB.biomeName);
+                    }
                 }
             }
 
@@ -103,32 +127,36 @@ public class Biome_Manager : MonoBehaviour
     {
         biomes = new List<Biome_Class>();
 
-        CreateBiome("Alpine", -0.30f, true, true);
-        CreateBiome("Arctic", -0.40f, true, true);
-        CreateBiome("Arid", -0.20f, true, true);
-        CreateBiome("Asteroid", -0.50f, false, false);
-        CreateBiome("Barren", -0.60f, true, false);
-        CreateBiome("Continental", 0.20f, true, true);
-        CreateBiome("Desert", -0.45f, true, true);
-        CreateBiome("Gas Giant", -0.50f, false, false);
-        CreateBiome("Glacial", -0.50f, true, true);
-        CreateBiome("Mediterranean", 0.30f, true, true);
-        CreateBiome("Molten", -0.60f, true, true);
-        CreateBiome("Moon", -0.50f, true, false);
-        CreateBiome("Oasis", -0.10f, true, true);
-        CreateBiome("Ocean", -0.20f, true, true);
-        CreateBiome("Swamp", -0.55f, true, true);
-        CreateBiome("Toxic", -0.60f, true, false);
-        CreateBiome("Tropical", 0.10f, true, false);
-        CreateBiome("Tundra", -0.25f, true, false);
+        CreateBiome("Alpine", "Core", -0.30f, -0.20f, 0.2f, 0.7f, true, true);
+        CreateBiome("Arctic", "Core", -0.40f, -0.50f, 0.4f, 0.9f, true, true);
+        CreateBiome("Arid", "Core", -0.20f, -0.20f, 0.4f, 0.9f, true, true);
+        CreateBiome("Asteroid", "Core", -0.50f, -1.0f, 0.2f, 0.5f, false, false);
+        CreateBiome("Barren", "Core", -0.60f, -1.0f, 0.6f, 1.0f, true, false);
+        CreateBiome("Continental", "Core", 0.20f, 0.20f, 0.3f, 0.8f, true, true);
+        CreateBiome("Desert", "Core", -0.45f, -0.50f, 0.4f, 0.9f, true, true);
+        CreateBiome("Gas Giant", "Core", -0.50f, -1.0f, 0.0f, 0.0f, false, false);
+        CreateBiome("Glacial", "Core", -0.50f, -0.60f, 0.1f, 0.3f, true, true);
+        CreateBiome("Mediterranean", "Core", 0.30f, 0.10f, 0.2f, 0.7f, true, true);
+        CreateBiome("Molten", "Core", -0.60f, -1.0f, 0.2f, 0.5f, true, true);
+        CreateBiome("Moon", "Core", -0.50f, -1.0f, 0.3f, 0.9f, true, false);
+        CreateBiome("Oasis", "Core", -0.10f, -0.30f, 0.2f, 0.7f, true, true);
+        CreateBiome("Ocean", "Core", -0.20f, 0.20f, 0.1f, 0.4f, true, true);
+        CreateBiome("Swamp", "Core", -0.55f, 0.10f, 0.1f, 0.4f, true, true);
+        CreateBiome("Toxic", "Core", -0.60f, -1.0f, 0.2f, 0.7f, true, false);
+        CreateBiome("Tropical", "Core", 0.10f, 0.20f, 0.2f, 0.7f, true, true);
+        CreateBiome("Tundra", "Core", -0.25f, -0.20f, 0.4f, 0.9f, true, true);
     }
 
     //Creates a biome_class in code (only used for core biomes)
-    public void CreateBiome(string name, float happinessMod, bool SurfacePop, bool Atmo)
+    public void CreateBiome(string name, string sourceFile, float happinessMod, float foodMod, float minUS, float maxUS, bool SurfacePop, bool Atmo)
     {
         var tempBiome = new Biome_Class();
         tempBiome.biomeName = name;
+        tempBiome.source = sourceFile;
         tempBiome.happinessModifier = happinessMod;
+        tempBiome.foodModifier = foodMod;
+        tempBiome.minSpace = minUS;
+        tempBiome.maxSpace = maxUS;
         tempBiome.SurfacePop = SurfacePop;
         tempBiome.Atmo = Atmo;
         tempBiome.baseBiome = name;
@@ -140,7 +168,7 @@ public class Biome_Manager : MonoBehaviour
 
     public void CreateMaterials()
     {
-        foreach(Biome_Class bc in biomeArray)
+        foreach(Biome_Class bc in biomes)
         {
             if(bc.materialTexture != "Core")
             {

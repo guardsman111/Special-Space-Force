@@ -37,20 +37,15 @@ public class System_Script : MonoBehaviour
         {
             var planetT = Instantiate(prefab, this.transform);
             planetT.transform.position = transform.position;
-            if (i == 0)
-            {
-                planetT.transform.position += new Vector3(400, 0, 0);
-            }
-            else
-            {
-                planetT.transform.position += new Vector3(400 + (i * 150), 0, 0);
-            }
+            planetT.transform.position += new Vector3(400 + (i * 150), 0, 0);
             Planet_Class temp = new Planet_Class();
             temp.planetName = name + " " + i;
             float random = Random.Range(0, 1000000000);
             int rand = Random.Range(0, systemGenerator.BiomeManager.CheckCount());
             temp.biome = systemGenerator.BiomeManager.Biomes[rand].biomeName;
             temp.population = (int)random;
+            temp.size = Random.Range(50,100); //replace with reference to min/max planet size
+            temp.usableSpace = Random.Range(systemGenerator.BiomeManager.Biomes[rand].minSpace, systemGenerator.BiomeManager.Biomes[rand].maxSpace);
             planetT.GetComponent<Planet_Script>().PlanetGen(temp);
             star.Array.Add(temp);
         }
@@ -64,18 +59,15 @@ public class System_Script : MonoBehaviour
         {
             var planetT = Instantiate(prefab, this.transform);
             planetT.transform.position = transform.position;
-            if (i == 0)
-            {
-                planetT.transform.position += new Vector3(400, 0, 0);
-            }
-            else
-            {
-                planetT.transform.position += new Vector3(400 + (i * 150), 0, 0);
-            }
+            planetT.transform.position += new Vector3(400 + (i * 150), 0, 0);
+
+
             Planet_Class temp = new Planet_Class();
             temp.planetName = system.Array[i].planetName;
             temp.biome = system.Array[i].biome;
             temp.population = system.Array[i].population;
+            temp.size = system.Array[i].size;
+            temp.usableSpace = system.Array[i].usableSpace;
             planetT.GetComponent<Planet_Script>().PlanetGen(temp);
         }
     }
