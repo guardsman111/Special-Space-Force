@@ -112,7 +112,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     }
 
     //Kicks off generation of preselected values 
-    void Start()
+    public void Generate()
     {
         //Start File Finder
         fileFinder.Run();
