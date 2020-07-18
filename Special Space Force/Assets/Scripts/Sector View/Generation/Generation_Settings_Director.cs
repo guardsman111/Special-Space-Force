@@ -7,10 +7,15 @@ public class Generation_Settings_Director : MonoBehaviour
 {
     public Galaxy_Generation_Manager generationManager;
 
+    [SerializeField]
     private int height;
+    [SerializeField]
     private int width;
+    [SerializeField]
     private int numberofStars;
+    [SerializeField]
     private int minimumPlanets;
+    [SerializeField]
     private int maximumPlanets;
 
     void Start()
@@ -18,9 +23,14 @@ public class Generation_Settings_Director : MonoBehaviour
         
     }
 
-    public void StartGeneration()
+    public void StartGeneration(bool loading)
     {
-        generationManager.Generate();
+        generationManager.SectorHeight = height * 10;
+        generationManager.SectorWidth = width * 10;
+        generationManager.NSystems = numberofStars;
+        generationManager.MinPlanets = minimumPlanets;
+        generationManager.MaxPlanets = maximumPlanets;
+        generationManager.Generate(loading);
         this.gameObject.SetActive(false);
     }
     //

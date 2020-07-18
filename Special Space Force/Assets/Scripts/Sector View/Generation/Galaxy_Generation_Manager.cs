@@ -17,11 +17,15 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     [SerializeField, Header("Maximum 7")]
     private int maxPlanets;
 
+    public Camera_Movement cameraTrolley;
+
     public FileFinder fileFinder;
     public System_Generator systemGenerator;
     public Biome_Manager biomeManager;
 
     public ToggleVisiblePlanets planetToggle;
+
+    public Save_Class save;
 
     [SerializeField]
     private List<string> starNames;
@@ -112,7 +116,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     }
 
     //Kicks off generation of preselected values 
-    public void Generate()
+    public void Generate(bool loading)
     {
         //Start File Finder
         fileFinder.Run();
@@ -120,17 +124,17 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         //Setup Biomes
         biomeManager.Run();
 
-        if (fileFinder.foundSave)
+        if (loading)
         {
             List<System_Class> loadSystems = new List<System_Class>();
-            List<string> tempList = fileFinder.Retrieve("Save.xml", ".meta");
+            List<string> tempList = fileFinder.Retrieve("NewSave.xml", ".meta");
 
             try
             {
                 foreach (string s in tempList)
                 {
-                    List<System_Class> temp = Serializer.Deserialize<List<System_Class>>(s);
-                    foreach (System_Class tempS in temp)
+                    save = Serializer.Deserialize<Save_Class>(s);
+                    foreach (System_Class tempS in save.systems)
                     {
                         loadSystems.Add(tempS);
                         //Debug.Log(tempB.biomeName);
@@ -151,15 +155,31 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             }
 
             systemGenerator.BeginGeneration(loadSystems);
-            planetToggle.Run();
+            SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
+
         }
         else 
         {
 
             systemGenerator.BeginGeneration(sectorWidth, sectorHeight, nSystems, minPlanets, maxPlanets, starNames);
-            Serializer.Serialize(systemGenerator.systemsList, Application.dataPath + "/Resources/Save.xml");
 
-            planetToggle.Run();
+            save = new Save_Class();
+            save.saveName = "NewSave";
+            save.height = sectorHeight;
+            save.width = sectorWidth;
+            save.systems = systemGenerator.systemsList;
+            SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
+            Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
+
         }
+        planetToggle.Run();
+    }
+
+    public void SetCameraLimits(int minX, int maxX, int minZ, int maxZ)
+    {
+        cameraTrolley.cameraMinX = minX;
+        cameraTrolley.cameraMaxX = maxX;
+        cameraTrolley.cameraMinZ = minZ;
+        cameraTrolley.cameraMaxZ = maxZ;
     }
 }
