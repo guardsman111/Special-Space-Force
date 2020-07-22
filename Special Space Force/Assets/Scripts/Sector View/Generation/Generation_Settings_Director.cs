@@ -17,6 +17,14 @@ public class Generation_Settings_Director : MonoBehaviour
     private int minimumPlanets;
     [SerializeField]
     private int maximumPlanets;
+    [SerializeField]
+    private int averagePlanetSize;
+    [SerializeField]
+    private int habitableChance;
+    [SerializeField]
+    private int habitationChance;
+    [SerializeField]
+    private int resourceAbundancy;
 
     void Start()
     {
@@ -25,14 +33,20 @@ public class Generation_Settings_Director : MonoBehaviour
 
     public void StartGeneration(bool loading)
     {
-        generationManager.SectorHeight = height * 10;
-        generationManager.SectorWidth = width * 10;
-        generationManager.NSystems = numberofStars;
-        generationManager.MinPlanets = minimumPlanets;
-        generationManager.MaxPlanets = maximumPlanets;
-        generationManager.Generate(loading);
+        Generation_Class product = new Generation_Class();
+        product.height = height * 10;
+        product.width = width * 10;
+        product.numberofStars = numberofStars;
+        product.minimumPlanets = minimumPlanets;
+        product.maximumPlanets = maximumPlanets;
+        product.averagePlanetSize = averagePlanetSize;
+        product.habitableChance = habitableChance;
+        product.habitationChance = habitationChance;
+        product.resourceAbundancy = resourceAbundancy;
+        generationManager.Generate(loading, product);
         this.gameObject.SetActive(false);
     }
+
     //
     // Height
     //
@@ -251,4 +265,43 @@ public class Generation_Settings_Director : MonoBehaviour
         }
     }
 
+    //
+    // Average Planet Size
+    //
+    public void ChangeAvgPlanetSize(Text input)
+    {
+        int temp = (int)input.transform.GetComponentInParent<Slider>().value;
+        input.text = temp.ToString();
+        averagePlanetSize = temp;
+    }
+
+    //
+    // Average Habitable planets
+    //
+    public void ChangeHabitable(Text input)
+    {
+        int temp = (int)input.transform.GetComponentInParent<Slider>().value;
+        input.text = temp.ToString();
+        habitableChance = temp;
+    }
+
+    //
+    // Average Inhabited planets
+    //
+    public void ChangeInhabited(Text input)
+    {
+        int temp = (int)input.transform.GetComponentInParent<Slider>().value;
+        input.text = temp.ToString();
+        habitationChance = temp;
+    }
+
+    //
+    // Average Resource Abundancy
+    //
+    public void ChangeAbundancy(Text input)
+    {
+        int temp = (int)input.transform.GetComponentInParent<Slider>().value;
+        input.text = temp.ToString();
+        resourceAbundancy = temp;
+    }
 }

@@ -23,6 +23,7 @@ public class System_Generator : MonoBehaviour
 
     private int secHeight;
     private int secWidth;
+    private int avgPlanetSize;
 
     public string[] colours;
     [SerializeField]
@@ -32,23 +33,40 @@ public class System_Generator : MonoBehaviour
     [SerializeField]
     public GameObject[] prefabs;
     public GameObject planetPrefab;
+    public Generation_Class generatedProduct;
 
-    public void BeginGeneration(int width, int height, int nSystems, int minP, int maxP, List<string> sNames)
+    public int AvgPlanetSize
+    {
+        get { return avgPlanetSize; }
+
+        set
+        {
+            if
+              (value != avgPlanetSize)
+            {
+                avgPlanetSize = value;
+            }
+        }
+    }
+
+    public void BeginGeneration(Generation_Class product, List<string> sNames)
     {
         systemsList = new List<System_Class>();
         generatedSystems = new List<GameObject>();
-        for(int i = 0; i < nSystems; i++)
+        avgPlanetSize = product.averagePlanetSize;
+        generatedProduct = product;
+        for(int i = 0; i < product.numberofStars; i++)
         {
-            int posX = Random.Range(-(width / 2), (width / 2));
-            int posZ = Random.Range(-(height / 2), (height / 2));
+            int posX = Random.Range(-(product.width / 2), (product.width / 2));
+            int posZ = Random.Range(-(product.height / 2), (product.height / 2));
             string rColour = colours[Random.Range(0, colours.Length)];
-            int randP = Random.Range(minP, maxP + 1);
+            int randP = Random.Range(product.minimumPlanets, product.maximumPlanets + 1);
             int randN = Random.Range(0, sNames.Count);
 
             CreateStar(sNames[randN], rColour, posX, posZ, randP);
         }
-        secHeight = height;
-        secWidth = width;
+        secHeight = product.height;
+        secWidth = product.width;
     }
 
     public void BeginGeneration(List<System_Class> loadSystems)

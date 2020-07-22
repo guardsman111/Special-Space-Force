@@ -16,6 +16,8 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     private int minPlanets;
     [SerializeField, Header("Maximum 7")]
     private int maxPlanets;
+    [SerializeField]
+    private int avgPlanetSize;
 
     public Camera_Movement cameraTrolley;
 
@@ -101,6 +103,20 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         }
     }
 
+    public int AvgPlanetSize
+    {
+        get { return avgPlanetSize; }
+
+        set
+        {
+            if
+              (value != avgPlanetSize)
+            {
+                avgPlanetSize = value;
+            }
+        }
+    }
+
     public List<string> StarNames
     {
         get { return starNames; }
@@ -116,7 +132,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     }
 
     //Kicks off generation of preselected values 
-    public void Generate(bool loading)
+    public void Generate(bool loading, Generation_Class product)
     {
         //Start File Finder
         fileFinder.Run();
@@ -161,7 +177,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         else 
         {
 
-            systemGenerator.BeginGeneration(sectorWidth, sectorHeight, nSystems, minPlanets, maxPlanets, starNames);
+            systemGenerator.BeginGeneration(product, starNames);
 
             save = new Save_Class();
             save.saveName = "NewSave";
