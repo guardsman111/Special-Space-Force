@@ -41,7 +41,7 @@ public class Generation_Settings_Director : MonoBehaviour
         product.maximumPlanets = maximumPlanets;
         product.averagePlanetSize = averagePlanetSize;
         product.habitableChance = habitableChance;
-        product.habitationChance = habitationChance;
+        product.inhabitedChance = habitationChance;
         product.resourceAbundancy = resourceAbundancy;
         generationManager.Generate(loading, product);
         this.gameObject.SetActive(false);

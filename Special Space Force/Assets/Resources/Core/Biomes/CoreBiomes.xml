@@ -99,7 +99,7 @@
     <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
-    <Name>Gas Giant</Name>
+    <Name>Gas Giant Helium</Name>
     <Source>Core</Source>
     <Happiness_Modifier>-0.5</Happiness_Modifier>
     <Food_Production_Modifier>-1</Food_Production_Modifier>
@@ -107,7 +107,35 @@
     <Max_Usable_Space>0</Max_Usable_Space>
     <Can_Have_Surface_Pop>false</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
-    <Base_Biome>Gas Giant</Base_Biome>
+    <Base_Biome>Gas Giant Helium</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
+  </Biome_Class>
+  <Biome_Class>
+    <Name>Gas Giant Hydrogen</Name>
+    <Source>Core</Source>
+    <Happiness_Modifier>-0.5</Happiness_Modifier>
+    <Food_Production_Modifier>-1</Food_Production_Modifier>
+    <Min_Usable_Space>0</Min_Usable_Space>
+    <Max_Usable_Space>0</Max_Usable_Space>
+    <Can_Have_Surface_Pop>false</Can_Have_Surface_Pop>
+    <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Gas Giant Hydrogen</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
+  </Biome_Class>
+  <Biome_Class>
+    <Name>Gas Giant Methane</Name>
+    <Source>Core</Source>
+    <Happiness_Modifier>-0.5</Happiness_Modifier>
+    <Food_Production_Modifier>-1</Food_Production_Modifier>
+    <Min_Usable_Space>0</Min_Usable_Space>
+    <Max_Usable_Space>0</Max_Usable_Space>
+    <Can_Have_Surface_Pop>false</Can_Have_Surface_Pop>
+    <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Gas Giant Methane</Base_Biome>
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
@@ -148,7 +176,7 @@
     <Min_Usable_Space>0.2</Min_Usable_Space>
     <Max_Usable_Space>0.5</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
-    <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Breathable_Atmosphere>false</Breathable_Atmosphere>
     <Base_Biome>Molten</Base_Biome>
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
@@ -211,7 +239,7 @@
     <Material_Mask_Path>Core</Material_Mask_Path>
   </Biome_Class>
   <Biome_Class>
-    <Name>Toxic</Name>
+    <Name>Toxic (Phosphor)</Name>
     <Source>Core</Source>
     <Happiness_Modifier>-0.6</Happiness_Modifier>
     <Food_Production_Modifier>-1</Food_Production_Modifier>
@@ -219,7 +247,21 @@
     <Max_Usable_Space>0.7</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
     <Breathable_Atmosphere>false</Breathable_Atmosphere>
-    <Base_Biome>Toxic</Base_Biome>
+    <Base_Biome>Toxic (Phosphor)</Base_Biome>
+    <Material_Texture_Path>Core</Material_Texture_Path>
+    <Material_Normal_Path>Core</Material_Normal_Path>
+    <Material_Mask_Path>Core</Material_Mask_Path>
+  </Biome_Class>
+  <Biome_Class>
+    <Name>Toxic (Sulphur)</Name>
+    <Source>Core</Source>
+    <Happiness_Modifier>-0.6</Happiness_Modifier>
+    <Food_Production_Modifier>-1</Food_Production_Modifier>
+    <Min_Usable_Space>0.2</Min_Usable_Space>
+    <Max_Usable_Space>0.7</Max_Usable_Space>
+    <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
+    <Breathable_Atmosphere>false</Breathable_Atmosphere>
+    <Base_Biome>Toxic (Sulphur)</Base_Biome>
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>

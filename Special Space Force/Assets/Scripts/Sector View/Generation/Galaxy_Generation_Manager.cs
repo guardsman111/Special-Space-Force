@@ -24,6 +24,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     public FileFinder fileFinder;
     public System_Generator systemGenerator;
     public Biome_Manager biomeManager;
+    public Race_Manager raceManager;
 
     public ToggleVisiblePlanets planetToggle;
 
@@ -139,6 +140,9 @@ public class Galaxy_Generation_Manager : MonoBehaviour
 
         //Setup Biomes
         biomeManager.Run();
+
+        //Setup Biomes
+        raceManager.Run();
 
         if (loading)
         {

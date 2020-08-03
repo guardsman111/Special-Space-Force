@@ -6,9 +6,14 @@ public class Planet_Class
 {
     public string planetName;
     public string biome;
+    public bool inhabited;
     public int population;
     public int size;
     public float usableSpace;
+    public float baseMetalsAmount;
+    public float preciousMetalsAmount;
+    public float foodAvailability;
+
 
     public Planet_Class()
     {

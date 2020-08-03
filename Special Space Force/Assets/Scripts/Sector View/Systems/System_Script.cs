@@ -33,6 +33,7 @@ public class System_Script : MonoBehaviour
         totaluninhabitable = 0;
         systemGenerator = sysGen;
         int avgSize = sysGen.AvgPlanetSize;
+        float avgResource = systemGenerator.generatedProduct.resourceAbundancy;
         star = new System_Class();
         star.systemName = name;
         star.colour = colour;
@@ -53,17 +54,28 @@ public class System_Script : MonoBehaviour
 
             //Generate population and biome
             float random;
+            float random2;
             bool habitable;
             habitable = true;
+            bool inhabited;
+            inhabited = true;
             random = Random.Range(0, 100);
+            random2 = Random.Range(0, 100);
             int biomeID;
 
             if (random > systemGenerator.generatedProduct.habitableChance) { habitable = false; }
+            if (random2 > systemGenerator.generatedProduct.inhabitedChance && i != 0) { inhabited = false; }
+
             if (habitable)
             {
-                random = Random.Range(0, 1000000000);
-                temp.population = (int)random;
+                if (inhabited) { random = Random.Range(0, 1000000000); temp.population = (int)random; }
+                else { temp.population = 0; }
+
                 int rand = Random.Range(0, systemGenerator.BiomeManager.CheckCount());
+                while (!systemGenerator.BiomeManager.Biomes[rand].Atmo)
+                {
+                    rand = Random.Range(0, systemGenerator.BiomeManager.CheckCount());
+                }
                 temp.biome = systemGenerator.BiomeManager.Biomes[rand].biomeName;
                 biomeID = rand;
                 totalPlanets += 1;
@@ -71,9 +83,14 @@ public class System_Script : MonoBehaviour
             } 
             else
             {
-                random = Random.Range(0, 10000000);
-                temp.population = (int)random;
+                if (inhabited) { random = Random.Range(0, 10000000); temp.population = (int)random; } 
+                else { temp.population = 0; }
+
                 int rand = Random.Range(0, systemGenerator.BiomeManager.CheckCount());
+                while (systemGenerator.BiomeManager.Biomes[rand].Atmo)
+                {
+                    rand = Random.Range(0, systemGenerator.BiomeManager.CheckCount());
+                }
                 temp.biome = systemGenerator.BiomeManager.Biomes[rand].biomeName;
                 biomeID = rand;
                 totalPlanets += 1;
@@ -91,6 +108,23 @@ public class System_Script : MonoBehaviour
                     break;
                 } 
             }
+
+            //Generate Resources
+
+            //Base Metals
+            temp.baseMetalsAmount = Weighting(avgResource);
+
+            //Debug.Log("Base Metals - " + temp.baseMetalsAmount);
+
+            //Precious Metals
+            temp.preciousMetalsAmount = Weighting(avgResource);
+
+            //Debug.Log(temp.preciousMetalsAmount);
+
+            //Food Availability
+            temp.foodAvailability = Weighting(avgResource);
+
+            //Debug.Log(temp.foodAvailability);
 
             temp.usableSpace = Random.Range(systemGenerator.BiomeManager.Biomes[biomeID].minSpace, systemGenerator.BiomeManager.Biomes[biomeID].maxSpace);
             planetT.GetComponent<Planet_Script>().PlanetGen(temp);
@@ -117,5 +151,61 @@ public class System_Script : MonoBehaviour
             temp.usableSpace = system.Array[i].usableSpace;
             planetT.GetComponent<Planet_Script>().PlanetGen(temp);
         }
+    }
+
+    public float Weighting(float abundancy)
+    {
+        float weight;
+        float weighting;
+        weighting = Random.Range(0, 100);
+        weight = 1f;
+        if (weighting > 90)
+        {
+            weight = 100f;
+        }
+        if (weighting < 90)
+        {
+            weight = 50f;
+        }
+        if (weighting < 70)
+        {
+            weight = 20f;
+        }
+        if (weighting < 50)
+        {
+            weight = 10f;
+        }
+        if (weighting < 30)
+        {
+            weight = 5f;
+        }
+        if (weighting < 10)
+        {
+            weight = 1f;
+        }
+
+        float modifier;
+        bool negative = false;
+
+        float randomNegative = Random.Range(0, 100);
+
+        if (randomNegative >= 50)
+        {
+            negative = true;
+        }
+
+        modifier = Random.Range(0, weight);
+
+        if(negative)
+        {
+            modifier = -modifier;
+        }
+
+        Debug.Log(modifier);
+        Debug.Log(weight);
+
+        modifier = modifier + abundancy;
+
+        return modifier;
     }
 }

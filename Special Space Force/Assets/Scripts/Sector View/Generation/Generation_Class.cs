@@ -11,7 +11,7 @@ public class Generation_Class
     public int maximumPlanets;
     public int averagePlanetSize;
     public int habitableChance;
-    public int habitationChance;
+    public int inhabitedChance;
     public int resourceAbundancy;
 
     public Generation_Class()

@@ -5960,36 +5960,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3179005509909518484, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: savePath
-      value: dd
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179005509909518487, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: cameraTrolley
-      value: 
-      objectReference: {fileID: 1239240861}
-    - target: {fileID: 3179005509777647169, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: cameraMaxHeight
-      value: 7000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179005509777647169, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: cameraSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179005511494181456, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: far clip plane
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179005510907711595, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: far clip plane
-      value: 7500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
 --- !u!114 &768328980 stripped
@@ -10081,18 +10051,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218624991}
   m_CullTransparentMesh: 0
---- !u!114 &1239240861 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3179005509777647169, guid: f49dfd96ae8ba7246909b769fb8956f5,
-    type: 3}
-  m_PrefabInstance: {fileID: 768328979}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18657a5784f5a614d9af13611efb31ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1264754138
 GameObject:
   m_ObjectHideFlags: 0
@@ -10252,7 +10210,18 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2046461950}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1281973329
 GameObject:

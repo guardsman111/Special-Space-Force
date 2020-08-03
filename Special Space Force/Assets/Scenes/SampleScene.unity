@@ -271,6 +271,7 @@ MonoBehaviour:
   planetName: Arid World
   biome: 
   population: 0
+  useSpace: 0
   planetSkin: {fileID: 661831119}
 --- !u!114 &454219204
 MonoBehaviour:
@@ -286,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
+  gasGiantCamera: {fileID: 0}
 --- !u!1 &456765541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 112406, guid: 9a1096a62ee865344a0549a465aa2f3e,
@@ -334,6 +336,7 @@ MonoBehaviour:
   planetName: Arid World
   biome: 
   population: 0
+  useSpace: 0
   planetSkin: {fileID: 1858936736}
 --- !u!114 &461198690
 MonoBehaviour:
@@ -349,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
+  gasGiantCamera: {fileID: 0}
 --- !u!1001 &516473846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
+  gasGiantCamera: {fileID: 0}
 --- !u!114 &516473851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +525,7 @@ MonoBehaviour:
   planetName: Arid World
   biome: 
   population: 0
+  useSpace: 0
   planetSkin: {fileID: 516473848}
 --- !u!114 &516473852
 MonoBehaviour:
@@ -939,6 +945,7 @@ MonoBehaviour:
   planetName: Arid World
   biome: 
   population: 0
+  useSpace: 0
   planetSkin: {fileID: 1536528658}
 --- !u!114 &1128070507
 MonoBehaviour:
@@ -954,6 +961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
+  gasGiantCamera: {fileID: 0}
 --- !u!1001 &1231086300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1109,6 +1117,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newSpeed: 1
+--- !u!4 &1658497344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3179005511494181460, guid: f49dfd96ae8ba7246909b769fb8956f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 3179005511597096216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1669739615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,6 +1159,102 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 3179005511597096216}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1713511339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1713511340}
+  - component: {fileID: 1713511342}
+  - component: {fileID: 1713511341}
+  m_Layer: 0
+  m_Name: GasGiantCamera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1713511340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713511339}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1658497344}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713511341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713511339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb98ed4cfa2c7a44be4d5cd8f86d76c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  distance: 70
+  xSpeed: 0.3
+  ySpeed: 10
+  yMinLimit: -90
+  yMaxLimit: 90
+  distanceMin: 40
+  distanceMax: 100
+  smoothTime: 5
+--- !u!20 &1713511342
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713511339}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 256
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &1739779446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
+  gasGiantCamera: {fileID: 0}
 --- !u!114 &1902828992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1434,6 +1545,7 @@ MonoBehaviour:
   planetName: Arid World
   biome: 
   population: 0
+  useSpace: 0
   planetSkin: {fileID: 1902828989}
 --- !u!114 &1902828993
 MonoBehaviour:
@@ -1604,6 +1716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
+  gasGiantCamera: {fileID: 0}
 --- !u!114 &1913562406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,6 +1732,7 @@ MonoBehaviour:
   planetName: Arid World
   biome: 
   population: 0
+  useSpace: 0
   planetSkin: {fileID: 1913562403}
 --- !u!114 &1913562407
 MonoBehaviour:
@@ -2174,6 +2288,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3179005511494181456, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
 --- !u!1001 &4555783291149379874
@@ -2267,6 +2386,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 7490782013786738096, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7493953184428542820, guid: 7535ff93f4637ed4ba7453279420dc25,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2332,6 +2456,66 @@ PrefabInstance:
       propertyPath: planetCamera
       value: 
       objectReference: {fileID: 442392392}
+    - target: {fileID: 7467939585733680666, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 407bd2c252366ed49a09069ab0844448, type: 2}
+    - target: {fileID: 7490921621009344190, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489666708470973784, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489666708470973784, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490352231256183914, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489666706685411909, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489666707116549921, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489666707462872847, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489666707808567076, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489666708107682739, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489666708513377913, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468283710030937248, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e7da3b2b89e3e5645b9a4c43fd9d23a0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7535ff93f4637ed4ba7453279420dc25, type: 3}
 --- !u!1001 &7594146580042878640
