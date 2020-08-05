@@ -26,9 +26,48 @@ public class Generation_Settings_Director : MonoBehaviour
     [SerializeField]
     private int resourceAbundancy;
 
+    public int AI1I;
+    public int AI2I;
+    public int AI3I;
+    public int AI4I;
+    private bool[] AIBoolArray;
+
+    public FileFinder fileFinder;
+    public Race_Manager raceManager;
+    public GameObject[] AIBoxes;
+    public Toggle[] AIToggles;
+    public Dropdown[] AIBoxesDropDowns;
+
     void Start()
     {
-        
+        //Start File Finder
+        fileFinder.Run();
+
+        //Setup Races
+        raceManager.Run();
+        foreach(Dropdown d in AIBoxesDropDowns)
+        {
+            d.ClearOptions();
+            List<string> raceNames = new List<string>();
+            foreach(Race_Class r in raceManager.Races)
+            {
+                raceNames.Add(r.raceName);
+            }
+            d.AddOptions(raceNames);
+        }
+
+        AIBoolArray = new bool[4] { true, true, true, false};
+        AIBoxesDropDowns[0].value = 0;
+        AIBoxesDropDowns[1].value = 1;
+        AIBoxesDropDowns[2].value = 2;
+        AIBoxesDropDowns[3].value = 0;
+
+        AI1I = 0;
+        AI2I = 1;
+        AI3I = 2;
+        AI4I = 0;
+
+        AIToggle(3);
     }
 
     public void StartGeneration(bool loading)
@@ -303,5 +342,43 @@ public class Generation_Settings_Director : MonoBehaviour
         int temp = (int)input.transform.GetComponentInParent<Slider>().value;
         input.text = temp.ToString();
         resourceAbundancy = temp;
+    }
+
+    //
+    // AI Toggle (AI Number)
+    //
+    public void AIToggle(int AIN)
+    {
+        if (AIToggles[AIN].isOn == false)
+        {
+            AIBoxes[AIN].SetActive(false);
+        } 
+        else
+        {
+            AIBoxes[AIN].SetActive(true);
+        }
+    }
+
+    //
+    // AI Selection Changed (AI Number)
+    //
+    public void AISelectionChanged(int AIN)
+    {
+        if (AIN == 0)
+        {
+            AI1I = AIBoxesDropDowns[AIN].value;
+        }
+        if (AIN == 1)
+        {
+            AI2I = AIBoxesDropDowns[AIN].value;
+        }
+        if (AIN == 2)
+        {
+            AI3I = AIBoxesDropDowns[AIN].value;
+        }
+        if (AIN == 3)
+        {
+            AI4I = AIBoxesDropDowns[AIN].value;
+        }
     }
 }

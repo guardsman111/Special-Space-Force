@@ -13,9 +13,7 @@ public class Biome_Manager : MonoBehaviour
     private List<Biome_Class> biomes;
     [SerializeField]
     private List<Material> biomeMats;
-
-    public Biome_Class[] biomeArray = new Biome_Class[] { };
-
+    
     public bool Run()
     {
         bool done = false;

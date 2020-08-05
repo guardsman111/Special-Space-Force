@@ -11,8 +11,6 @@ public class Race_Manager : MonoBehaviour
     private List<string> raceFiles;
     private List<Race_Class> races;
 
-    public Race_Class[] raceArray = new Race_Class[] { };
-
     public bool Run()
     {
         bool done = false;

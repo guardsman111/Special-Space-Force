@@ -135,14 +135,8 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     //Kicks off generation of preselected values 
     public void Generate(bool loading, Generation_Class product)
     {
-        //Start File Finder
-        fileFinder.Run();
-
         //Setup Biomes
         biomeManager.Run();
-
-        //Setup Biomes
-        raceManager.Run();
 
         if (loading)
         {
