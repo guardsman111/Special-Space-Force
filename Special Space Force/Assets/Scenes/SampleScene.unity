@@ -287,7 +287,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
-  gasGiantCamera: {fileID: 0}
 --- !u!1 &456765541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 112406, guid: 9a1096a62ee865344a0549a465aa2f3e,
@@ -352,7 +351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
-  gasGiantCamera: {fileID: 0}
 --- !u!1001 &516473846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -509,7 +507,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
-  gasGiantCamera: {fileID: 0}
 --- !u!114 &516473851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,7 +958,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
-  gasGiantCamera: {fileID: 0}
 --- !u!1001 &1231086300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1529,7 +1525,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
-  gasGiantCamera: {fileID: 0}
 --- !u!114 &1902828992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1716,7 +1711,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 1701647573}
   planetCamera: {fileID: 442392392}
-  gasGiantCamera: {fileID: 0}
 --- !u!114 &1913562406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1754,6 +1748,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8330928915633929105, guid: 977479832fcff894abbd04d30807fc44,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4601597828393439910, guid: 977479832fcff894abbd04d30807fc44,
         type: 3}
       propertyPath: m_Name
@@ -1833,6 +1832,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 149445371245090897, guid: f6b072fcb74965d4d829d7218fa82b4f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8787125026165283263, guid: f6b072fcb74965d4d829d7218fa82b4f,
         type: 3}
       propertyPath: m_Name
@@ -1912,6 +1916,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6219488914947887271, guid: 6f050820656730c4abafbb3e59ee5dbb,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7679378229916890881, guid: 6f050820656730c4abafbb3e59ee5dbb,
         type: 3}
       propertyPath: m_Name
@@ -1991,6 +2000,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2736191967115302634, guid: bab7a3e3300a945478039416115849b3,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 968163447760693231, guid: bab7a3e3300a945478039416115849b3,
         type: 3}
       propertyPath: m_Name
@@ -2070,6 +2084,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2407533779915417482, guid: b643d0b2c0631b049945ce8527e2b07d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1600110776119103830, guid: b643d0b2c0631b049945ce8527e2b07d,
         type: 3}
       propertyPath: m_Name
@@ -2149,6 +2168,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5728409908598857844, guid: f29046834799e964080cbd0fe8417672,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5809802894206767701, guid: f29046834799e964080cbd0fe8417672,
         type: 3}
       propertyPath: m_Name
@@ -2302,6 +2326,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6473993126821940849, guid: d83c826cb98bd2f468b33898c69767aa,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5250431722926826078, guid: d83c826cb98bd2f468b33898c69767aa,
         type: 3}
       propertyPath: m_Name
@@ -2525,6 +2554,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1072383480977031717, guid: d78a4d18dbb0194499313d0213d03b29,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1482186424168393671, guid: d78a4d18dbb0194499313d0213d03b29,
         type: 3}
       propertyPath: m_Name
@@ -2604,6 +2638,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1291396497940712487, guid: 9c02f4c6fe9601e46b6d32cbe2c2c411,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8659800344936979645, guid: 9c02f4c6fe9601e46b6d32cbe2c2c411,
         type: 3}
       propertyPath: m_Name
@@ -2683,6 +2722,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7079920025412846445, guid: a7b6c28b6fa7734439182441c18f20a6,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 204114617024032569, guid: a7b6c28b6fa7734439182441c18f20a6,
         type: 3}
       propertyPath: m_Name

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Molten
-  m_Shader: {fileID: 4800000, guid: 2b63a18536f01a84ea44b4a20e3d9950, type: 3}
+  m_Shader: {fileID: 4800000, guid: 68952a72141f2fb4f881242853439609, type: 3}
   m_ShaderKeywords: _ACTIVATECLOUDS_ON _ACTIVATESPECULAR_ON _CLOUDS_ON _METALLICGLOSSMAP
     _NIGHTEMISSIVECITIES_ON _NORMALMAP _SUBATMOSPHERE_ON
   m_LightmapFlags: 1
@@ -177,13 +177,13 @@ Material:
     - _Float5: 0
     - _Float6: 0.9
     - _Float8: 0
-    - _Gloss: 0.168
+    - _Gloss: 0.693
     - _Glossiness: 0.5
     - _MaskClipValue: 0.5
     - _Metallic: 0
     - _Mode: 0
     - _Nightemissivecities: 1
-    - _Normalintensity: 0.136
+    - _Normalintensity: 0.519
     - _OcclusionStrength: 0
     - _Parallax: 0.0186
     - _PlanetSize: 0
@@ -197,6 +197,7 @@ Material:
     - _Subatmospherepower: 0.69
     - _Subatmospheresize: 5
     - _ToggleSwitch0: 0
+    - _Transparency: 0.5
     - _UVSec: 0
     - _UseNormalmap: 1.581139
     - _ZWrite: 1
@@ -209,7 +210,7 @@ Material:
     - _node_9558: 0
     m_Colors:
     - _Albedocolor: {r: 1, g: 1, b: 1, a: 1}
-    - _AmbiantLightcontrol: {r: 0.13207549, g: 0, b: 0.0055031246, a: 1}
+    - _AmbiantLightcontrol: {r: 0.3773585, g: 0, b: 0.01109879, a: 1}
     - _Ambiantalbedo: {r: 0, g: 0, b: 0, a: 0}
     - _Ambiantatmospherecolor: {r: 0, g: 0, b: 0, a: 1}
     - _Ambiantcolor: {r: 0, g: 0, b: 0, a: 0}

@@ -34,6 +34,8 @@ public class System_Generator : MonoBehaviour
     public GameObject[] prefabs;
     public GameObject planetPrefab;
     public Generation_Class generatedProduct;
+    [SerializeField]
+    public Color32[] AIColors;
 
     public int AvgPlanetSize
     {

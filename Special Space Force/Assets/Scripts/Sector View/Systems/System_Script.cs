@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class System_Script : MonoBehaviour
@@ -33,10 +34,22 @@ public class System_Script : MonoBehaviour
         totaluninhabitable = 0;
         systemGenerator = sysGen;
         int avgSize = sysGen.AvgPlanetSize;
-        float avgResource = systemGenerator.generatedProduct.resourceAbundancy;
+        float avgResource = sysGen.generatedProduct.resourceAbundancy;
+        int playerStrength = sysGen.generatedProduct.playerStrength;
         star = new System_Class();
         star.systemName = name;
+        this.gameObject.GetComponentInChildren<TextMeshPro>().text = name;
         star.colour = colour;
+        float playerRand = Random.Range(0, 100);
+        int aiRand = Random.Range(0, sysGen.generatedProduct.toggledAI.Count);
+        if (playerStrength * 20 >= playerRand)
+        {
+            star.allegiance = 0;
+        }
+        else
+        {
+            star.allegiance = aiRand;
+        }
         star.posX = x;
         star.posZ = z;
         star.nPlanets = planets;
@@ -95,6 +108,13 @@ public class System_Script : MonoBehaviour
                 biomeID = rand;
                 totalPlanets += 1;
                 totaluninhabitable += 1;
+                foreach(CloudRotation cr in planetT.gameObject.GetComponentsInChildren<CloudRotation>())
+                {
+                    if (cr.gameObject.name == "Clouds_Stormy")
+                    {
+                        cr.gameObject.SetActive(false);
+                    }
+                }
             }
 
             //Generate size and usable space

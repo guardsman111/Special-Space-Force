@@ -25,6 +25,8 @@ public class Generation_Settings_Director : MonoBehaviour
     private int habitationChance;
     [SerializeField]
     private int resourceAbundancy;
+    [SerializeField]
+    private int playerStrength;
 
     public int AI1I;
     public int AI2I;
@@ -37,6 +39,9 @@ public class Generation_Settings_Director : MonoBehaviour
     public GameObject[] AIBoxes;
     public Toggle[] AIToggles;
     public Dropdown[] AIBoxesDropDowns;
+
+
+    public ToggleVisiblePlanets planetToggle;
 
     void Start()
     {
@@ -82,7 +87,28 @@ public class Generation_Settings_Director : MonoBehaviour
         product.habitableChance = habitableChance;
         product.inhabitedChance = habitationChance;
         product.resourceAbundancy = resourceAbundancy;
+        product.playerStrength = playerStrength;
+        product.toggledAI = SortToggledAI();
         generationManager.Generate(loading, product);
+        Invoke("DisableCustomization", 1.0f);
+    }
+
+    private List<Race_Class> SortToggledAI()
+    {
+        List<Race_Class> ToggledAI;
+        ToggledAI = new List<Race_Class>();
+
+        if(AIBoolArray[0] == true)
+        {
+            ToggledAI.Add(raceManager.Races[AI1I]);
+        }
+
+        return ToggledAI;
+    }
+
+    private void DisableCustomization()
+    {
+        planetToggle.Run();
         this.gameObject.SetActive(false);
     }
 
@@ -342,6 +368,14 @@ public class Generation_Settings_Director : MonoBehaviour
         int temp = (int)input.transform.GetComponentInParent<Slider>().value;
         input.text = temp.ToString();
         resourceAbundancy = temp;
+    }
+
+    //
+    // AI Selection Changed (AI Number)
+    //
+    public void PlayerStrengthChanged(Dropdown dropdown)
+    {
+        playerStrength = dropdown.value;
     }
 
     //

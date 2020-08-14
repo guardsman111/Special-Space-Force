@@ -26,12 +26,12 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     public Biome_Manager biomeManager;
     public Race_Manager raceManager;
 
-    public ToggleVisiblePlanets planetToggle;
-
     public Save_Class save;
 
     [SerializeField]
     private List<string> starNames;
+
+    private bool done;
 
 
     public int SectorWidth
@@ -179,14 +179,14 @@ public class Galaxy_Generation_Manager : MonoBehaviour
 
             save = new Save_Class();
             save.saveName = "NewSave";
-            save.height = sectorHeight;
-            save.width = sectorWidth;
+            save.height = product.height;
+            save.width = product.width;
             save.systems = systemGenerator.systemsList;
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
 
         }
-        planetToggle.Run();
+
     }
 
     public void SetCameraLimits(int minX, int maxX, int minZ, int maxZ)

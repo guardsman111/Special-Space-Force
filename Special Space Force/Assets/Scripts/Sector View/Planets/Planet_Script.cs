@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Planet_Script : MonoBehaviour
@@ -10,6 +11,8 @@ public class Planet_Script : MonoBehaviour
     public int population;
     public float useSpace;
     public Planet_Class planet;
+    public TextMeshPro tName;
+    public TextMeshPro tStats;
 
     public Planet_Stats Stats;
 
@@ -19,8 +22,6 @@ public class Planet_Script : MonoBehaviour
     //Generates then sets planet stats
     private void Start()
     {
-        //Put Generation code here
-        Invoke("PlanetGen", 2.0f);
     }
 
     //Displays Planet Stats in Debug Log
@@ -38,6 +39,16 @@ public class Planet_Script : MonoBehaviour
     {
         Planet_Class temp = new Planet_Class();
         Stats = new Planet_Stats(temp, planetSkin);
+        tName.text = Stats.PName;
+        if (Stats.Population != 0)
+        {
+            tStats.text = "Population: " + Stats.Population + "\nPopulation Happiness: " + Stats.popHappiness;
+        }
+        else
+        {
+            tStats.text = "Uninhabited";
+        }
+        Debug.Log("Generated Planets");
     }
 
     //Generates the planetary stats
@@ -50,5 +61,15 @@ public class Planet_Script : MonoBehaviour
         biome = planetClass.biome;
         population = planetClass.population;
         useSpace = planetClass.usableSpace;
+        tName.text = Stats.PName;
+        if (Stats.Population != 0)
+        {
+            tStats.text = "Population: " + Stats.Population + "\nPopulation Happiness: " + Stats.popHappiness;
+        }
+        else
+        {
+            tStats.text = "Uninhabited";
+        }
+        Debug.Log("Generated Planets");
     }
 }

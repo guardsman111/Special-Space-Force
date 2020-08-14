@@ -13,6 +13,8 @@ public class Generation_Class
     public int habitableChance;
     public int inhabitedChance;
     public int resourceAbundancy;
+    public int playerStrength;
+    public List<Race_Class> toggledAI;
 
     public Generation_Class()
     {

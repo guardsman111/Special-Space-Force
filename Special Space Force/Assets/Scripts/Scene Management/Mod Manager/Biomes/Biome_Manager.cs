@@ -138,7 +138,7 @@ public class Biome_Manager : MonoBehaviour
         CreateBiome("Glacial", "Core", -0.50f, -0.60f, 0.1f, 0.3f, true, true);
         CreateBiome("Mediterranean", "Core", 0.30f, 0.10f, 0.2f, 0.7f, true, true);
         CreateBiome("Molten", "Core", -0.60f, -1.0f, 0.2f, 0.5f, true, false);
-        CreateBiome("Moon", "Core", -0.50f, -1.0f, 0.3f, 0.9f, true, false);
+        CreateBiome("Moon", "Core", -0.50f, -1.0f, 0.3f, 0.9f, false, false);
         CreateBiome("Oasis", "Core", -0.10f, -0.30f, 0.2f, 0.7f, true, true);
         CreateBiome("Ocean", "Core", -0.20f, 0.20f, 0.1f, 0.4f, true, true);
         CreateBiome("Swamp", "Core", -0.55f, 0.10f, 0.1f, 0.4f, true, true);
