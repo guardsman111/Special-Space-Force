@@ -14,7 +14,7 @@ public class Generation_Class
     public int inhabitedChance;
     public int resourceAbundancy;
     public int playerStrength;
-    public List<Race_Class> toggledAI;
+    public List<AI_Class> toggledAI;
 
     public Generation_Class()
     {

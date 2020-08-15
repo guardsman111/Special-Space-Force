@@ -28,15 +28,17 @@ public class Generation_Settings_Director : MonoBehaviour
     [SerializeField]
     private int playerStrength;
 
-    public int AI1I;
-    public int AI2I;
-    public int AI3I;
-    public int AI4I;
     private bool[] AIBoolArray;
 
     public FileFinder fileFinder;
     public Race_Manager raceManager;
     public GameObject[] AIBoxes;
+    [SerializeField]
+    public int[] AIDifficulty;
+    [SerializeField]
+    public int[] AIStartingThreat;
+    [SerializeField]
+    public Image[] AIColour;
     public Toggle[] AIToggles;
     public Dropdown[] AIBoxesDropDowns;
 
@@ -67,10 +69,6 @@ public class Generation_Settings_Director : MonoBehaviour
         AIBoxesDropDowns[2].value = 2;
         AIBoxesDropDowns[3].value = 0;
 
-        AI1I = 0;
-        AI2I = 1;
-        AI3I = 2;
-        AI4I = 0;
 
         AIToggle(3);
     }
@@ -93,14 +91,52 @@ public class Generation_Settings_Director : MonoBehaviour
         Invoke("DisableCustomization", 1.0f);
     }
 
-    private List<Race_Class> SortToggledAI()
+    private List<AI_Class> SortToggledAI()
     {
-        List<Race_Class> ToggledAI;
-        ToggledAI = new List<Race_Class>();
+        List<AI_Class> ToggledAI;
+        ToggledAI = new List<AI_Class>();
 
         if(AIBoolArray[0] == true)
         {
-            ToggledAI.Add(raceManager.Races[AI1I]);
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDowns[0].value];
+            AI.difficulty = AIDifficulty[0];
+            AI.startThreat = AIStartingThreat[0];
+            AI.colour = AIColour[0].color;
+
+            ToggledAI.Add(AI);
+        }
+
+        if (AIBoolArray[01] == true)
+        {
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDowns[1].value];
+            AI.difficulty = AIDifficulty[1];
+            AI.startThreat = AIStartingThreat[1];
+            AI.colour = AIColour[1].color;
+
+            ToggledAI.Add(AI);
+        }
+
+        if (AIBoolArray[2] == true)
+        {
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDowns[2].value];
+            AI.difficulty = AIDifficulty[2];
+            AI.startThreat = AIStartingThreat[2];
+            AI.colour = AIColour[2].color;
+
+            ToggledAI.Add(AI);
+        }
+        if (AIBoolArray[3] == true)
+        {
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDowns[3].value];
+            AI.difficulty = AIDifficulty[3];
+            AI.startThreat = AIStartingThreat[3];
+            AI.colour = AIColour[3].color;
+
+            ToggledAI.Add(AI);
         }
 
         return ToggledAI;
@@ -386,33 +422,90 @@ public class Generation_Settings_Director : MonoBehaviour
         if (AIToggles[AIN].isOn == false)
         {
             AIBoxes[AIN].SetActive(false);
+            AIBoolArray[AIN] = false;
         } 
         else
         {
             AIBoxes[AIN].SetActive(true);
+            AIBoolArray[AIN] = true;
         }
     }
 
-    //
-    // AI Selection Changed (AI Number)
-    //
-    public void AISelectionChanged(int AIN)
-    {
-        if (AIN == 0)
-        {
-            AI1I = AIBoxesDropDowns[AIN].value;
-        }
-        if (AIN == 1)
-        {
-            AI2I = AIBoxesDropDowns[AIN].value;
-        }
-        if (AIN == 2)
-        {
-            AI3I = AIBoxesDropDowns[AIN].value;
-        }
-        if (AIN == 3)
-        {
-            AI4I = AIBoxesDropDowns[AIN].value;
-        }
-    }
+
+    ////
+    //// AI Selection Changed (Dropdown Input)
+    ////
+    //public void AISelectionChanged(Dropdown input)
+    //{
+    //    input.gameObject
+
+    //    if (input.gameObject.name == "Difficulty")
+    //    {
+    //        if (AIN == 0)
+    //        {
+    //            AIDifficulty[0] = input.value;
+    //        }
+    //        if (AIN == 1)
+    //        {
+    //            AIDifficulty[1] = input.value;
+    //        }
+    //        if (AIN == 2)
+    //        {
+    //            AIDifficulty[2] = input.value;
+    //        }
+    //        if (AIN == 3)
+    //        {
+    //            AIDifficulty[3] = input.value;
+    //        }
+    //    }
+
+    //    if (input.gameObject.name == "Starting Threat")
+    //    {
+    //        if (AIN == 0)
+    //        {
+    //            AIStartingThreat[0] = input.value;
+    //        }
+    //        if (AIN == 1)
+    //        {
+    //            AIStartingThreat[1] = input.value;
+    //        }
+    //        if (AIN == 2)
+    //        {
+    //            AIStartingThreat[2] = input.value;
+    //        }
+    //        if (AIN == 3)
+    //        {
+    //            AIStartingThreat[3] = input.value;
+    //        }
+    //    }
+
+    //    if (input2.gameObject.name == "Image")
+    //    {
+    //        if (AIN == 0)
+    //        {
+    //            AIColour[0] = input2.color;
+    //        }
+    //        if (AIN == 1)
+    //        {
+    //            AIColour[1] = input2.color;
+    //        }
+    //        if (AIN == 2)
+    //        {
+    //            AIColour[2] = input2.color;
+    //        }
+    //        if (AIN == 3)
+    //        {
+    //            AIColour[3] = input2.color;
+    //        }
+    //    }
+
+    //}
+
+    ////
+    //// AI Selection Changed (Image Input)
+    ////
+    //public void AISelectionChanged(Image input)
+    //{
+
+    //}
 }

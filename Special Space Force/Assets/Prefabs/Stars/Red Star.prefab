@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6219488914947887271}
   - component: {fileID: 6542933172660980773}
   - component: {fileID: 3428552721625919541}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,8 +120,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278223872
+  m_fontColor: {r: 0.0031271463, g: 0.5188679, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1638,6 +1638,7 @@ MonoBehaviour:
   totalPlanets: 0
   totalinhabitable: 0
   totaluninhabitable: 0
+  allegiance: 
 --- !u!1 &7679378229917071045
 GameObject:
   m_ObjectHideFlags: 0

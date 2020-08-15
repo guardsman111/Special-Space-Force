@@ -6,6 +6,7 @@ public class Planet_Class
 {
     public string planetName;
     public string biome;
+    public int biomeID;
     public bool inhabited;
     public int population;
     public int size;

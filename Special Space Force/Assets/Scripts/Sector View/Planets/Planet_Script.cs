@@ -70,6 +70,6 @@ public class Planet_Script : MonoBehaviour
         {
             tStats.text = "Uninhabited";
         }
-        Debug.Log("Generated Planets");
+        //Debug.Log("Generated Planets");
     }
 }

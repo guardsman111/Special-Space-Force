@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5614926324927456493}
   - component: {fileID: 6422932418404290094}
   - component: {fileID: 3700241126581240377}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 4960286407832793990}
   - component: {fileID: 7576592299688228204}
   - component: {fileID: 2382609088808121264}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Details
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30540,7 +30540,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7490782013786738096}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 26.883686
@@ -30559,6 +30559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 0}
   planetCamera: {fileID: 0}
+  planetScreen: {fileID: 0}
 --- !u!114 &5314573060193589924
 MonoBehaviour:
   m_ObjectHideFlags: 0

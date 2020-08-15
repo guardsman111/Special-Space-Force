@@ -10,6 +10,8 @@ public class System_Script : MonoBehaviour
     public int totalPlanets;
     public int totalinhabitable;
     public int totaluninhabitable;
+    public string allegiance;
+
 
 
     public System_Class Star
@@ -40,15 +42,20 @@ public class System_Script : MonoBehaviour
         star.systemName = name;
         this.gameObject.GetComponentInChildren<TextMeshPro>().text = name;
         star.colour = colour;
-        float playerRand = Random.Range(0, 100);
+        float playerRand = Random.Range(0, 120);
         int aiRand = Random.Range(0, sysGen.generatedProduct.toggledAI.Count);
-        if (playerStrength * 20 >= playerRand)
+        star.allegiance = 0;
+        allegiance = "Player";
+        Debug.Log("Player Random " + playerRand);
+        Debug.Log("Player Required " + (playerStrength + 1) * 20);
+        if ((playerStrength + 1) * 20 >= playerRand)
         {
-            star.allegiance = 0;
         }
         else
         {
-            star.allegiance = aiRand;
+            star.allegiance = aiRand + 1;
+            allegiance = sysGen.generatedProduct.toggledAI[aiRand].race.empireName;
+            gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[aiRand].colour;
         }
         star.posX = x;
         star.posZ = z;
@@ -63,7 +70,36 @@ public class System_Script : MonoBehaviour
 
             //Generate planet Class to fill with planet details
             Planet_Class temp = new Planet_Class();
-            temp.planetName = name + " " + i;
+            string number = "I";
+            if(i == 0)
+            {
+                number = "I";
+            }
+            if (i == 1)
+            {
+                number = "II";
+            }
+            if (i == 2)
+            {
+                number = "III";
+            }
+            if (i == 3)
+            {
+                number = "IV";
+            }
+            if (i == 4)
+            {
+                number = "V";
+            }
+            if (i == 5)
+            {
+                number = "VI";
+            }
+            if (i == 6)
+            {
+                number = "VII";
+            }
+            temp.planetName = name + " " + number;
 
             //Generate population and biome
             float random;
@@ -105,6 +141,7 @@ public class System_Script : MonoBehaviour
                     rand = Random.Range(0, systemGenerator.BiomeManager.CheckCount());
                 }
                 temp.biome = systemGenerator.BiomeManager.Biomes[rand].biomeName;
+                temp.biomeID = rand;
                 biomeID = rand;
                 totalPlanets += 1;
                 totaluninhabitable += 1;
@@ -132,17 +169,38 @@ public class System_Script : MonoBehaviour
             //Generate Resources
 
             //Base Metals
-            temp.baseMetalsAmount = Weighting(avgResource);
+            if (sysGen.BiomeManager.Biomes[temp.biomeID].SurfacePop)
+            {
+                temp.baseMetalsAmount = Weighting(avgResource);
+            }
+            else
+            {
+                temp.baseMetalsAmount = 0;
+            }
 
             //Debug.Log("Base Metals - " + temp.baseMetalsAmount);
 
             //Precious Metals
-            temp.preciousMetalsAmount = Weighting(avgResource);
+            if (sysGen.BiomeManager.Biomes[temp.biomeID].SurfacePop)
+            {
+                temp.preciousMetalsAmount = Weighting(avgResource);
+            }
+            else
+            {
+                temp.preciousMetalsAmount = 0;
+            }
 
             //Debug.Log(temp.preciousMetalsAmount);
 
             //Food Availability
-            temp.foodAvailability = Weighting(avgResource);
+            if (habitable)
+            {
+                temp.foodAvailability = Weighting(avgResource);
+            }
+            else
+            {
+                temp.foodAvailability = 0;
+            }
 
             //Debug.Log(temp.foodAvailability);
 
@@ -221,10 +279,15 @@ public class System_Script : MonoBehaviour
             modifier = -modifier;
         }
 
-        Debug.Log(modifier);
-        Debug.Log(weight);
+        //Debug.Log(modifier);
+        //Debug.Log(weight);
 
         modifier = modifier + abundancy;
+
+        if (modifier < 0)
+        {
+            modifier = 0;
+        }
 
         return modifier;
     }
