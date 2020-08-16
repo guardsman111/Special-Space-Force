@@ -42,20 +42,61 @@ public class System_Script : MonoBehaviour
         star.systemName = name;
         this.gameObject.GetComponentInChildren<TextMeshPro>().text = name;
         star.colour = colour;
-        float playerRand = Random.Range(0, 120);
-        int aiRand = Random.Range(0, sysGen.generatedProduct.toggledAI.Count);
+        float playerRand = Random.Range(0, 100);
         star.allegiance = 0;
         allegiance = "Player";
-        Debug.Log("Player Random " + playerRand);
-        Debug.Log("Player Required " + (playerStrength + 1) * 20);
-        if ((playerStrength + 1) * 20 >= playerRand)
+        if (playerRand + (playerStrength * 10) >= 90)
         {
+
         }
         else
         {
-            star.allegiance = aiRand + 1;
-            allegiance = sysGen.generatedProduct.toggledAI[aiRand].race.empireName;
-            gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[aiRand].colour;
+
+            for (int i = 0; i < sysGen.generatedProduct.toggledAI.Count; i++)
+            {
+                bool created = false;
+                float aiRand = Random.Range(0, 100);
+                if (created)
+                {
+                    if (sysGen.generatedProduct.toggledAI[i].startThreat > sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat)
+                    {
+                        if (aiRand + (sysGen.generatedProduct.toggledAI[i].startThreat * 10) >= 90)
+                        {
+                            created = true;
+                            star.allegiance = i + 1;
+                            allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
+                            gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
+                        }
+                    }
+
+                    if (sysGen.generatedProduct.toggledAI[i].startThreat == sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat)
+                    {
+                        int chanceRand = Random.Range(0, 100);
+
+                        //if chanceRand - start threat is greater than current allegiance start threat, set allegiance to this
+                        if (chanceRand >= 10 + sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat)
+                        {
+                            if (aiRand + (sysGen.generatedProduct.toggledAI[i].startThreat * 10) >= 90)
+                            {
+                                created = true;
+                                star.allegiance = i + 1;
+                                allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
+                                gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
+                            }
+                        }
+                    }
+                } 
+                else
+                {
+                    if (aiRand + (sysGen.generatedProduct.toggledAI[i].startThreat * 10) >= 90)
+                    {
+                        created = true;
+                        star.allegiance = i + 1;
+                        allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
+                        gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
+                    }
+                }
+            }
         }
         star.posX = x;
         star.posZ = z;

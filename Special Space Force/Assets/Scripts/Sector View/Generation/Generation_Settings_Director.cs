@@ -407,7 +407,7 @@ public class Generation_Settings_Director : MonoBehaviour
     }
 
     //
-    // AI Selection Changed (AI Number)
+    // Player Strength Changed
     //
     public void PlayerStrengthChanged(Dropdown dropdown)
     {
@@ -431,81 +431,19 @@ public class Generation_Settings_Director : MonoBehaviour
         }
     }
 
+    //
+    // AI Difficulty Changed
+    //
+    public void AIDifficultyChanged(Dropdown dropdown)
+    {
+        AIDifficulty[dropdown.gameObject.GetComponent<Dropdown_Helper>().aiNumber] = dropdown.value;
+    }
 
-    ////
-    //// AI Selection Changed (Dropdown Input)
-    ////
-    //public void AISelectionChanged(Dropdown input)
-    //{
-    //    input.gameObject
-
-    //    if (input.gameObject.name == "Difficulty")
-    //    {
-    //        if (AIN == 0)
-    //        {
-    //            AIDifficulty[0] = input.value;
-    //        }
-    //        if (AIN == 1)
-    //        {
-    //            AIDifficulty[1] = input.value;
-    //        }
-    //        if (AIN == 2)
-    //        {
-    //            AIDifficulty[2] = input.value;
-    //        }
-    //        if (AIN == 3)
-    //        {
-    //            AIDifficulty[3] = input.value;
-    //        }
-    //    }
-
-    //    if (input.gameObject.name == "Starting Threat")
-    //    {
-    //        if (AIN == 0)
-    //        {
-    //            AIStartingThreat[0] = input.value;
-    //        }
-    //        if (AIN == 1)
-    //        {
-    //            AIStartingThreat[1] = input.value;
-    //        }
-    //        if (AIN == 2)
-    //        {
-    //            AIStartingThreat[2] = input.value;
-    //        }
-    //        if (AIN == 3)
-    //        {
-    //            AIStartingThreat[3] = input.value;
-    //        }
-    //    }
-
-    //    if (input2.gameObject.name == "Image")
-    //    {
-    //        if (AIN == 0)
-    //        {
-    //            AIColour[0] = input2.color;
-    //        }
-    //        if (AIN == 1)
-    //        {
-    //            AIColour[1] = input2.color;
-    //        }
-    //        if (AIN == 2)
-    //        {
-    //            AIColour[2] = input2.color;
-    //        }
-    //        if (AIN == 3)
-    //        {
-    //            AIColour[3] = input2.color;
-    //        }
-    //    }
-
-    //}
-
-    ////
-    //// AI Selection Changed (Image Input)
-    ////
-    //public void AISelectionChanged(Image input)
-    //{
-
-    //}
+    //
+    // AI Start Threat Changed
+    //
+    public void AIStartThreatChanged(Dropdown dropdown)
+    {
+        AIStartingThreat[dropdown.gameObject.GetComponent<Dropdown_Helper>().aiNumber] = dropdown.value;
+    }
 }
