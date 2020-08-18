@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class System_Class
 {
+    /// <summary>
+    /// This script holds information about a system including all of the planets in a list
+    /// </summary>
+   
     public string systemName;
     public string colour;
     public int allegiance;

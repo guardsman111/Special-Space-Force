@@ -8,12 +8,16 @@ using UnityEngine;
 
 public class Biome_Manager : MonoBehaviour
 {
+    /// <summary>
+    /// The Biome manager retrieves (and can save core) biomes and makes them easily available to the game
+    /// </summary>
     public FileFinder finder;
     private List<string> biomeFiles;
     private List<Biome_Class> biomes;
     [SerializeField]
     private List<Material> biomeMats;
     
+    //Finds files and saves core biomes. Ignores .meta files
     public bool Run()
     {
         bool done = false;
@@ -62,6 +66,7 @@ public class Biome_Manager : MonoBehaviour
             foreach (string s in biomeFiles)
             {
                 List<Biome_Class> temp = Serializer.Deserialize<List<Biome_Class>>(s);
+                //For each Biome_Class, check for duplicates. Delete non-core biome duplicates, and overwrite core biome with duplicates.
                 foreach (Biome_Class tempB in temp)
                 {
                     int counter = 0;
@@ -167,10 +172,12 @@ public class Biome_Manager : MonoBehaviour
         biomes.Add(tempBiome);
     }
 
+    //Creates the materials for any new biomes the player adds using the file names given in the new biome xml
     public void CreateMaterials()
     {
         foreach(Biome_Class bc in biomes)
         {
+            //If not core biome, create new material. Core materials do not need to be created
             if(bc.materialTexture != "Core")
             {
                 Material temp = null;
@@ -207,6 +214,7 @@ public class Biome_Manager : MonoBehaviour
         }
     }
 
+    //Check number of Biomes
     public int CheckCount()
     {
         int count = biomes.Count();

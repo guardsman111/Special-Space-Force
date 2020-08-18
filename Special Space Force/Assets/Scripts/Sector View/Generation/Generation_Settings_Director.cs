@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Generation_Settings_Director : MonoBehaviour
 {
+    /// <summary>
+    /// This script collects users generation settings and outputs them to the Galaxy_Generation_Manager
+    /// This script contains event handles from all of the UI Customization game obejcts
+    /// </summary>
     public Galaxy_Generation_Manager generationManager;
 
     [SerializeField]
@@ -32,6 +36,8 @@ public class Generation_Settings_Director : MonoBehaviour
 
     public FileFinder fileFinder;
     public Race_Manager raceManager;
+
+    //AI Stuff, used to remember which AI is set to what.
     public GameObject[] AIBoxes;
     [SerializeField]
     public int[] AIDifficulty;
@@ -40,11 +46,12 @@ public class Generation_Settings_Director : MonoBehaviour
     [SerializeField]
     public Image[] AIColour;
     public Toggle[] AIToggles;
-    public Dropdown[] AIBoxesDropDowns;
+    public Dropdown[] AIBoxesDropDowns; //Race Selection Dropdown
 
 
     public ToggleVisiblePlanets planetToggle;
 
+    //This starts on Game Start
     void Start()
     {
         //Start File Finder
@@ -63,16 +70,18 @@ public class Generation_Settings_Director : MonoBehaviour
             d.AddOptions(raceNames);
         }
 
+        //Set Default Races
         AIBoolArray = new bool[4] { true, true, true, false};
         AIBoxesDropDowns[0].value = 0;
         AIBoxesDropDowns[1].value = 1;
         AIBoxesDropDowns[2].value = 2;
         AIBoxesDropDowns[3].value = 0;
 
-
+        //Turn off AI 4 for fun
         AIToggle(3);
     }
 
+    //Starts the generation, grabs all the values and packages them into a Generation_Class
     public void StartGeneration(bool loading)
     {
         Generation_Class product = new Generation_Class();
@@ -91,11 +100,14 @@ public class Generation_Settings_Director : MonoBehaviour
         Invoke("DisableCustomization", 1.0f);
     }
 
+    //Collects the AI data, packages them into an AI_Class Individually then puts them in a list for easy access
     private List<AI_Class> SortToggledAI()
     {
+        //Create empty values
         List<AI_Class> ToggledAI;
         ToggledAI = new List<AI_Class>();
 
+        //For each AI, if its toggled then copy its data
         if(AIBoolArray[0] == true)
         {
             AI_Class AI = new AI_Class();
@@ -139,9 +151,11 @@ public class Generation_Settings_Director : MonoBehaviour
             ToggledAI.Add(AI);
         }
 
+        //Return the List
         return ToggledAI;
     }
 
+    //Turns off the Customization menu
     private void DisableCustomization()
     {
         planetToggle.Run();
@@ -187,6 +201,7 @@ public class Generation_Settings_Director : MonoBehaviour
         height = temp;
         input.text = temp.ToString();
     }
+
     //
     // Width
     //
@@ -226,6 +241,7 @@ public class Generation_Settings_Director : MonoBehaviour
         width = temp;
         input.text = temp.ToString();
     }
+
     //
     // Number of Stars
     //
@@ -265,6 +281,7 @@ public class Generation_Settings_Director : MonoBehaviour
         numberofStars = temp;
         input.text = temp.ToString();
     }
+
     //
     // Minimum Planets
     //
@@ -315,6 +332,7 @@ public class Generation_Settings_Director : MonoBehaviour
             input.text = minimumPlanets.ToString();
         }
     }
+
     //
     // Maximum Planets
     //

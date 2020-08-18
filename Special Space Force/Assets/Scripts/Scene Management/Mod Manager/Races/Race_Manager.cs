@@ -7,10 +7,15 @@ using System.Linq;
 using UnityEngine;
 public class Race_Manager : MonoBehaviour
 {
+    /// <summary>
+    /// The Race Manager retrieves all of the Race_Classes and holds them to be easily read
+    /// </summary>
+    /// 
     public FileFinder finder;
     private List<string> raceFiles;
     private List<Race_Class> races;
 
+    //Retrieves (and saves the core) Race Files. Ignores .meta files
     public bool Run()
     {
         bool done = false;
@@ -42,7 +47,7 @@ public class Race_Manager : MonoBehaviour
 
         try
         {
-
+            //For each race, check for duplicates and if there are duplicates, replace any core ones and remove non-core ones
             foreach (string s in raceFiles)
             {
                 List<Race_Class> temp = Serializer.Deserialize<List<Race_Class>>(s);
@@ -63,7 +68,7 @@ public class Race_Manager : MonoBehaviour
                             }
                             else
                             {
-                                raceList.RemoveAt(counter);
+                                raceList.Remove(checkR);
                                 //Debug.Log("Duplicates Removed");
                             }
                             break;
@@ -104,7 +109,7 @@ public class Race_Manager : MonoBehaviour
         //Debug.Log("File written");
     }
 
-    //Creates the default core biomes
+    //Creates the default core Races
     public void CoreRaces()
     {
         races = new List<Race_Class>();
@@ -114,7 +119,7 @@ public class Race_Manager : MonoBehaviour
         CreateRace("Enslavers", "The Enslavers", "Core");
     }
 
-    //Creates a biome_class in code (only used for core biomes)
+    //Creates a Race_Class in code (only used for core Race)
     public void CreateRace(string name, string empire, string sourceFile)
     {
         var tempRace = new Race_Class();

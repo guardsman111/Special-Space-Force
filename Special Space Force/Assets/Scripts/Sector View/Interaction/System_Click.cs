@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class System_Click : MonoBehaviour
 {
+    /// <summary>
+    /// This script manages the cameras on clicking a system
+    /// </summary>
+
     public Transform cameraTransform;
     [SerializeField]
     private Camera mainCamera;
@@ -12,6 +16,7 @@ public class System_Click : MonoBehaviour
     [SerializeField]
     private Camera planetCamera;
 
+    //Finds all the cameras
     private void Start()
     {
         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
@@ -19,6 +24,7 @@ public class System_Click : MonoBehaviour
         planetCamera = GameObject.Find("PlanetCamera").GetComponent<Camera>();
     }
 
+    //Toggles the Cameras depending on the current enabled camera
     private void OnMouseDown()
     {
         if (!planetCamera.enabled)

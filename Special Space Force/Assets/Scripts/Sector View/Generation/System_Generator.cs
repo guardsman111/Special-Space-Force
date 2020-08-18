@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class System_Generator : MonoBehaviour
 {
+    /// <summary>
+    /// This initializes all of the systems one by one, then generates the star Game object for the System_Script to do its thang
+    /// </summary>
     [SerializeField]
     private Biome_Manager biomeManager;
 
@@ -51,12 +54,15 @@ public class System_Generator : MonoBehaviour
         }
     }
 
+    //Begins the Genreation of the stars
     public void BeginGeneration(Generation_Class product, List<string> sNames)
     {
         systemsList = new List<System_Class>();
         generatedSystems = new List<GameObject>();
         avgPlanetSize = product.averagePlanetSize;
         generatedProduct = product;
+        
+        //For each star generate position, colour, #planets and name
         for(int i = 0; i < product.numberofStars; i++)
         {
             int posX = Random.Range(-(product.width / 2), (product.width / 2));
@@ -71,6 +77,7 @@ public class System_Generator : MonoBehaviour
         secWidth = product.width;
     }
 
+    //Load and then generate
     public void BeginGeneration(List<System_Class> loadSystems)
     {
         systemsList = loadSystems;
@@ -80,13 +87,16 @@ public class System_Generator : MonoBehaviour
         }
     }
 
+    //Create Star from given values
     private void CreateStar(string name, string colour, int x, int z, int nPlanets)
     {
+        //Find colour of star (Going through array of all the star colours)
         for(int i = 0; i < colours.Length; i++)
         {
             if (colour == colours[i])
             {
                 var star = Instantiate(prefabs[i], new Vector3(x, 0, z), this.transform.rotation);
+                //Check and re-check (up the 10 times) the position of the system and make sure no systems are within 3000
                 for (int j = 0; j < 10; j++)
                 {
                     bool changed = false;
@@ -98,6 +108,7 @@ public class System_Generator : MonoBehaviour
                             changed = true;
                         }
                     }
+                    //If star was able to be created generate the system script and add it to the lists
                     if (!changed)
                     {
                         star.GetComponent<System_Script>().SystemGen(name, colour, (int)star.transform.position.x, (int)star.transform.position.z, nPlanets, planetPrefab, this);
@@ -105,6 +116,7 @@ public class System_Generator : MonoBehaviour
                         systemsList.Add(star.GetComponent<System_Script>().Star);
                         break;
                     }
+                    //If it cannot create the star (after 10 attempts) delete it and move onto the next star
                     if (j == 9)
                     {
                         Destroy(star);
@@ -114,6 +126,7 @@ public class System_Generator : MonoBehaviour
         }
     }
 
+    //Loading Star
     private void CreateStar(System_Class system)
     {
         for (int i = 0; i < colours.Length; i++)

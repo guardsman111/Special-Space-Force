@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Race_Class
 {
-    //Race Class is where Race information is stored.
+    /// <summary>
+    /// The Race Class is where Race information is stored
+    /// </summary>
     [XmlElement("Species_Name")]
     public string raceName;
     [XmlElement("Empire_Name")]

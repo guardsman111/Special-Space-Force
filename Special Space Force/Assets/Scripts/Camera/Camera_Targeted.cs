@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Camera_Targeted : MonoBehaviour
 {
+    /// <summary>
+    /// This script moves the camera around the planet in a cool way. Taken from online
+    /// </summary>
     // This Script was taken from an example here - https://answers.unity.com/questions/1257281/how-to-rotate-camera-orbit-around-a-game-object-on.html - and then modified
 
     public Transform target;
@@ -31,6 +34,7 @@ public class Camera_Targeted : MonoBehaviour
             GetComponent<Rigidbody>().freezeRotation = true;
         }
     }
+
     void LateUpdate()
     {
         if (target)

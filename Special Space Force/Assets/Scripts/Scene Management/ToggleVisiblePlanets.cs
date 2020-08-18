@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ToggleVisiblePlanets : MonoBehaviour
 {
+    /// <summary>
+    /// Toggles planets on and off, so that planets are not visible in the sector camera and are visible in the system camera
+    /// </summary>
+    
     public static GameObject[] Planets;
     public static bool hidden = false;
 
@@ -15,6 +19,7 @@ public class ToggleVisiblePlanets : MonoBehaviour
         TogglePlanetsOn(false);
     }
 
+    //Turns the planets array on or off
     public static void TogglePlanetsOn()
     {
         if (hidden) {
@@ -33,6 +38,8 @@ public class ToggleVisiblePlanets : MonoBehaviour
             hidden = true;
         }
     }
+
+    //Sets all planets to the parameter
     public static void TogglePlanetsOn(bool status)
     {
         foreach (GameObject g in Planets)
@@ -42,6 +49,7 @@ public class ToggleVisiblePlanets : MonoBehaviour
         hidden = status;
     }
 
+    //Finds all the planets first game objects
     private void FindPlanets()
     {
         Planets = GameObject.FindGameObjectsWithTag("PlanetCore");

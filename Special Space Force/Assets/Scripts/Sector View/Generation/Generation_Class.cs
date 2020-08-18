@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Generation_Class 
 {
+    /// <summary>
+    /// All user selected information from the customisation screen is stored here for easy access by other scripts
+    /// </summary>
+    
     public int height;
     public int width;
     public int numberofStars;

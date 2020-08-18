@@ -8,6 +8,10 @@ using UnityEngine;
 
 public class FileFinder : MonoBehaviour
 {
+    /// <summary>
+    /// This script gets all files under given paths and sorts them according to paramters
+    /// </summary>
+    /// 
     public string savePath;
     public string defaultPath;
     public string modsPath;

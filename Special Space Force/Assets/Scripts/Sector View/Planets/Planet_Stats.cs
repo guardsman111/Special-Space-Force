@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Planet_Stats
 {
+    /// <summary>
+    /// This script holds information for the planet it will be attatched too - is slightly outdated, more information is pulled from 
+    /// planet class now
+    /// </summary>
+    
     public string PName;
     public Planet_Biome Biome;
     public int Population;

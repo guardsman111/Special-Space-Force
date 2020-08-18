@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Biome_Class
 {
-    //Biome Class is where biome information is stored.
+    /// <summary>
+    /// The Biome Class is where biome information is stored
+    /// </summary>
     [XmlElement("Name")]
     public string biomeName;
     [XmlElement("Source")]

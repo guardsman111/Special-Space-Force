@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Planet_Biome
 {
+    /// <summary>
+    /// This script finds the biome and brings its stats to the front. This script, like the Player_Script, might be outdated.
+    /// </summary>
+    
     public string biomeName;
     float happinessModifier;
     float foodModifier;

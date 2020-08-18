@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Camera_Movement : MonoBehaviour
 {
+    /// <summary>
+    /// This script hold basic camera functions like moving and scrolling
+    /// </summary>
+
     public float cameraSpeed;
     public float cameraMinHeight;
     public float cameraMaxHeight;

@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Planet_Click : MonoBehaviour
 {
+    /// <summary>
+    /// This script manages the cameras on clicking a planet
+    /// </summary>
+    
     [SerializeField]
     private Camera systemCamera;
     [SerializeField]
@@ -20,7 +24,7 @@ public class Planet_Click : MonoBehaviour
 
     private bool previous;
 
-    // Start is called before the first frame update
+    //Finds all the cameras
     void Start()
     {
         planetCamera = GameObject.Find("PlanetCamera").GetComponent<Camera>();
@@ -30,6 +34,7 @@ public class Planet_Click : MonoBehaviour
         planetScreen = planetCamera.GetComponentInChildren<Planet_Screen>();
     }
 
+    //Toggles the Cameras depending on the current enabled camera
     private void OnMouseDown()
     {
         if (!previous)
@@ -41,6 +46,8 @@ public class Planet_Click : MonoBehaviour
             planetScreenCamera.enabled = true;
             ToggleVisiblePlanets.TogglePlanetsOn(false);
             this.gameObject.SetActive(true);
+
+            //Changes the planetScreen text 
             planetScreen.planetName.text = gameObject.GetComponent<Planet_Script>().planet.planetName;
             float earthRelativePlanetSize = gameObject.GetComponent<Planet_Script>().planet.size + 25;
             planetScreen.planetSize.text = "Earth Size Ratio: " + earthRelativePlanetSize / 100.0f + " Earth(s)";
@@ -59,6 +66,7 @@ public class Planet_Click : MonoBehaviour
         }
     }
 
+    //On escape returns to the system camera
     private void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

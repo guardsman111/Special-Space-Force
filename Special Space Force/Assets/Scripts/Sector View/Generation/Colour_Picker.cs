@@ -6,11 +6,16 @@ using UnityEngine.UI;
 
 public class Colour_Picker : MonoBehaviour
 {
+    /// <summary>
+    /// This script handles picking colours for the AI and will handle colour picking for player uniforms later
+    /// </summary>
+    
     public GameObject picker;
     public Image pickerImage;
     public RectTransform pickerRect;
     public Image preview;
 
+    //Makes the colour picker visible or invisible depending
     public void TogglePicker()
     {
         if(picker.activeSelf)
@@ -34,6 +39,7 @@ public class Colour_Picker : MonoBehaviour
         }
     }
 
+    //Handles click and drag on the colour chart
     public void handleColorChartDrag(BaseEventData eventData)
     {
         PointerEventData pEventData = eventData as PointerEventData;

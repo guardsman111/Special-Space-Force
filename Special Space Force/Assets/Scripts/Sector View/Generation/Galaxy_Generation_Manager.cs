@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class Galaxy_Generation_Manager : MonoBehaviour
 {
+    /// <summary>
+    /// This script manages the initiation of the generation sequence and the order in which elements are created
+    /// </summary>
+    
     [SerializeField]
     private int sectorWidth;
     [SerializeField]
@@ -33,7 +37,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
 
     private bool done;
 
-
+    //Getters and Setters
     public int SectorWidth
     {
         get { return sectorWidth; }
@@ -138,6 +142,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         //Setup Biomes
         biomeManager.Run();
 
+        //If loading, retrieve and go through loading system
         if (loading)
         {
             List<System_Class> loadSystems = new List<System_Class>();
@@ -172,7 +177,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
 
         }
-        else 
+        else //Else generate everything from scratch using user inputed creation values
         {
 
             systemGenerator.BeginGeneration(product, starNames);
@@ -189,6 +194,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
 
     }
 
+    //Set Camera limits
     public void SetCameraLimits(int minX, int maxX, int minZ, int maxZ)
     {
         cameraTrolley.cameraMinX = minX;

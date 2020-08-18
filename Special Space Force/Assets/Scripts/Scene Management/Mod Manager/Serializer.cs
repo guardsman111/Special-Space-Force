@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class Serializer : MonoBehaviour
 {
+    /// <summary>
+    /// This script serializes objects put into it or deserializes documents sent to it and returns them
+    /// </summary>
+    /// <param name="toSerialize"></param>
+    /// <param name="path"></param>
     //Saves objects sent to it
     public static void Serialize(object toSerialize, string path)
     {

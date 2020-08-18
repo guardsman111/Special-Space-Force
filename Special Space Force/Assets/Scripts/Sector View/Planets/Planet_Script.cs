@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Planet_Script : MonoBehaviour
 {
-    ///Testing Scripts
+    /// <summary>
+    /// This script generates planetary stats and sets the UI text the user sees in the system view
+    /// </summary>
     public string planetName;
     public string biome;
     public int population;
@@ -18,12 +20,7 @@ public class Planet_Script : MonoBehaviour
 
     //Linked to the planets mesh renderer so we can change the material, allowing for players to create their own.
     public MeshRenderer planetSkin;
-
-    //Generates then sets planet stats
-    private void Start()
-    {
-    }
-
+    
     //Displays Planet Stats in Debug Log
     public void ShowMe()
     {
@@ -39,6 +36,8 @@ public class Planet_Script : MonoBehaviour
     {
         Planet_Class temp = new Planet_Class();
         Stats = new Planet_Stats(temp, planetSkin);
+
+        //Set the texts of the UI with Name, population and happiness
         tName.text = Stats.PName;
         if (Stats.Population != 0)
         {
@@ -48,10 +47,9 @@ public class Planet_Script : MonoBehaviour
         {
             tStats.text = "Uninhabited";
         }
-        Debug.Log("Generated Planets");
     }
 
-    //Generates the planetary stats
+    //Loading the planetary stats
     public void PlanetGen(Planet_Class planetClass)
     {
         //planetSkin = gameObject.transform.Find("PlanetSurface").GetComponent<MeshRenderer>();

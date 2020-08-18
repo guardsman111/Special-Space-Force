@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Planet_Class
 {
+    /// <summary>
+    /// This script holds planet information, which is then passed all over the place
+    /// </summary>
+    
     public string planetName;
     public string biome;
     public int biomeID;

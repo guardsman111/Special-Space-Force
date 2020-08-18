@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Save_Class
 {
+    /// <summary>
+    /// A Class that holds save information to be easily serialized
+    /// </summary>
     public string saveName;
     public int height;
     public int width;
