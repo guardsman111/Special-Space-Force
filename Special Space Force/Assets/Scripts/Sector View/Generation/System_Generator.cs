@@ -78,12 +78,12 @@ public class System_Generator : MonoBehaviour
     }
 
     //Load and then generate
-    public void BeginGeneration(List<System_Class> loadSystems)
+    public void BeginGeneration(List<System_Class> loadSystems, Save_Class save)
     {
         systemsList = loadSystems;
         foreach(System_Class s in systemsList)
         {
-            CreateStar(s);
+            CreateStar(s, save);
         }
     }
 
@@ -127,14 +127,15 @@ public class System_Generator : MonoBehaviour
     }
 
     //Loading Star
-    private void CreateStar(System_Class system)
+    private void CreateStar(System_Class system, Save_Class save)
     {
         for (int i = 0; i < colours.Length; i++)
         {
             if (system.colour == colours[i])
             {
                 GameObject star = Instantiate(prefabs[i], new Vector3(system.posX, 0, system.posZ), this.transform.rotation);
-                star.GetComponent<System_Script>().SystemGen(system, planetPrefab, this);
+                star.GetComponent<System_Script>().SystemGen(system, planetPrefab, this, save);
+                break;
             }
         }
     }

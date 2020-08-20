@@ -173,7 +173,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
                 Console.WriteLine(FileNull.Message);
             }
 
-            systemGenerator.BeginGeneration(loadSystems);
+            systemGenerator.BeginGeneration(loadSystems, save);
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
 
         }
@@ -187,6 +187,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             save.height = product.height;
             save.width = product.width;
             save.systems = systemGenerator.systemsList;
+            save.generatedProduct = product;
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
 

@@ -115,6 +115,7 @@ public class Generation_Settings_Director : MonoBehaviour
             AI.difficulty = AIDifficulty[0];
             AI.startThreat = AIStartingThreat[0];
             AI.colour = AIColour[0].color;
+            AI.nPlanets = 0;
 
             ToggledAI.Add(AI);
         }
@@ -126,6 +127,7 @@ public class Generation_Settings_Director : MonoBehaviour
             AI.difficulty = AIDifficulty[1];
             AI.startThreat = AIStartingThreat[1];
             AI.colour = AIColour[1].color;
+            AI.nPlanets = 0;
 
             ToggledAI.Add(AI);
         }
@@ -137,6 +139,7 @@ public class Generation_Settings_Director : MonoBehaviour
             AI.difficulty = AIDifficulty[2];
             AI.startThreat = AIStartingThreat[2];
             AI.colour = AIColour[2].color;
+            AI.nPlanets = 0;
 
             ToggledAI.Add(AI);
         }
@@ -147,6 +150,7 @@ public class Generation_Settings_Director : MonoBehaviour
             AI.difficulty = AIDifficulty[3];
             AI.startThreat = AIStartingThreat[3];
             AI.colour = AIColour[3].color;
+            AI.nPlanets = 0;
 
             ToggledAI.Add(AI);
         }

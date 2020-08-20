@@ -12,6 +12,7 @@ public class Save_Class
     public int width;
 
     public List<System_Class> systems;
+    public Generation_Class generatedProduct;
 
     public Save_Class()
     {

@@ -40,53 +40,56 @@ public class System_Script : MonoBehaviour
 
         //Set System Allegiance
         float playerRand = Random.Range(0, 100);
-        star.allegiance = 0;
-        allegiance = "Player";
+        star.allegiance = -1;
 
         //If rand + player faction strength more than 90, keep as player
-        if (playerRand + (playerStrength * 10) >= 90)
+        if (playerRand + (playerStrength * 10) <= 90)
         {
-
-        }
-        else //For each ai toggled on, generate if star allegiance
-        {
-
+            //For each ai toggled on, generate if star allegiance
             for (int i = 0; i < sysGen.generatedProduct.toggledAI.Count; i++)
             {
-                bool created = false;
                 float aiRand = Random.Range(0, 100);
 
                 //If star has already got an allegiance
-                if (created) 
+                if (star.allegiance == 0) 
                 {
                     //If the star's current owner has a lower start strength than the current AI (i)
                     if (sysGen.generatedProduct.toggledAI[i].startThreat > sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat)
                     {
-                        if (aiRand + (sysGen.generatedProduct.toggledAI[i].startThreat * 10) >= 90)
+                        if (aiRand + ((sysGen.generatedProduct.toggledAI[i].startThreat - sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat / 2) * 10) >= 90 && sysGen.generatedProduct.toggledAI[i].nPlanets > 0)
                         {
-                            created = true;
                             star.allegiance = i + 1;
                             allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
                             gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
+                            sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
                         }
                     }
 
                     //If Star's current owner has same start strength as the current AI (i)
                     if (sysGen.generatedProduct.toggledAI[i].startThreat == sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat)
                     {
-                        int chanceRand = Random.Range(0, 100);
+                        int chanceRand = Random.Range(0, 2);
 
                         //if chanceRand - start threat is greater than current allegiance start threat, set allegiance to this
-                        if (chanceRand >= 10 + sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat)
+                        if (chanceRand == 0)
                         {
-                            if (aiRand + (sysGen.generatedProduct.toggledAI[i].startThreat * 10) >= 90)
+                            if (aiRand + (sysGen.generatedProduct.toggledAI[i].startThreat * 10) >= 90 && sysGen.generatedProduct.toggledAI[i].nPlanets > 0)
                             {
-                                created = true;
                                 star.allegiance = i + 1;
                                 allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
                                 gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
+                                sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
                             }
                         }
+                    }
+                    
+                    //If current AI has 0 systems and the current owner has more than 1 system, change the system anyway
+                    if (sysGen.generatedProduct.toggledAI[i].nPlanets == 0 && sysGen.generatedProduct.toggledAI[star.allegiance - 1].nPlanets > 1)
+                    {
+                        star.allegiance = i + 1;
+                        allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
+                        gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
+                        sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
                     }
                 } 
                 //Else, if the random number + start threat is greater than 90, set as this allegiance
@@ -94,13 +97,32 @@ public class System_Script : MonoBehaviour
                 {
                     if (aiRand + (sysGen.generatedProduct.toggledAI[i].startThreat * 10) >= 90)
                     {
-                        created = true;
                         star.allegiance = i + 1;
                         allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
                         gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
+                        sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
+                    }
+
+                    //If the AI has 0 systems, make this system for that AI
+                    if (sysGen.generatedProduct.toggledAI[i].nPlanets == 0)
+                    {
+                        star.allegiance = i + 1;
+                        allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
+                        gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
+                        sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
                     }
                 }
             }
+        }
+        else
+        {
+            star.allegiance = 0;
+            allegiance = "Player";
+        }
+        if (star.allegiance == -1)
+        {
+            star.allegiance = 0;
+            allegiance = "Player";
         }
 
         //Set Star_Class position
@@ -261,10 +283,20 @@ public class System_Script : MonoBehaviour
     }
 
     //Generates the planetary stats from a save (Loading)
-    public void SystemGen(System_Class system, GameObject prefab, System_Generator sysGen)
+    public void SystemGen(System_Class system, GameObject prefab, System_Generator sysGen, Save_Class save)
     {
         //Simply copies required information from the save to the live map
         star = system;
+
+        star.allegiance = system.allegiance;
+        if (star.allegiance > 0)
+        {
+            allegiance = save.generatedProduct.toggledAI[star.allegiance - 1].race.empireName;
+            gameObject.GetComponentInChildren<TextMeshPro>().color = save.generatedProduct.toggledAI[star.allegiance - 1].colour;
+        }
+
+        this.gameObject.GetComponentInChildren<TextMeshPro>().text = star.systemName;
+
         for (int i = 0; i < system.Array.Count; i++)
         {
             var planetT = Instantiate(prefab, this.transform);
@@ -272,11 +304,7 @@ public class System_Script : MonoBehaviour
             planetT.transform.position += new Vector3(400 + (i * 150), 0, 0);
 
             Planet_Class temp = new Planet_Class();
-            temp.planetName = system.Array[i].planetName;
-            temp.biome = system.Array[i].biome;
-            temp.population = system.Array[i].population;
-            temp.size = system.Array[i].size;
-            temp.usableSpace = system.Array[i].usableSpace;
+            temp = system.Array[i];
             planetT.GetComponent<Planet_Script>().PlanetGen(temp);
         }
     }

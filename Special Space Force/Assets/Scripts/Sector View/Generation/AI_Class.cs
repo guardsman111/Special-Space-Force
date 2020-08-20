@@ -11,6 +11,7 @@ public class AI_Class
     public int difficulty;
     public int startThreat;
     public Color colour;
+    public int nPlanets;
 
     public AI_Class()
     {

@@ -41,7 +41,7 @@ public class Planet_Script : MonoBehaviour
         tName.text = Stats.PName;
         if (Stats.Population != 0)
         {
-            tStats.text = "Population: " + Stats.Population + "\nPopulation Happiness: " + Stats.popHappiness;
+            tStats.text = "Population: " + Stats.Population.ToString("00,0") + "\nPopulation Happiness: " + Stats.popHappiness;
         }
         else
         {

@@ -27,7 +27,7 @@ public class Camera_Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
@@ -65,14 +65,14 @@ public class Camera_Movement : MonoBehaviour
         {
             if (transform.position.y < cameraMaxHeight)
             {
-                transform.position += new Vector3(0, cameraSpeed * 5, 0);
+                transform.position += new Vector3(0, cameraSpeed * 50, 0);
             }
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0.0f)
         {
             if (transform.position.y > cameraMinHeight)
             {
-                transform.position += new Vector3(0, -cameraSpeed * 5, 0);
+                transform.position += new Vector3(0, -cameraSpeed * 50, 0);
             }
         }
     }

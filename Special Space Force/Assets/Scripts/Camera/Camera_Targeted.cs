@@ -41,8 +41,8 @@ public class Camera_Targeted : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.02f;
-                velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.02f;
+                velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.01f;
+                velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.01f;
             }
             rotationYAxis += velocityX;
             rotationXAxis -= velocityY;

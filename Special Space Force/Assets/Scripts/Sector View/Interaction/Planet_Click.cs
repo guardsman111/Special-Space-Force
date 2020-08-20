@@ -67,7 +67,7 @@ public class Planet_Click : MonoBehaviour
     }
 
     //On escape returns to the system camera
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
