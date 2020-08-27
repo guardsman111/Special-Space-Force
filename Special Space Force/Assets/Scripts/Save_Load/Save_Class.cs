@@ -13,6 +13,7 @@ public class Save_Class
 
     public List<System_Class> systems;
     public Generation_Class generatedProduct;
+    public List<Slot_Class> topSlots;
 
     public Save_Class()
     {

@@ -29,6 +29,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     public System_Generator systemGenerator;
     public Biome_Manager biomeManager;
     public Race_Manager raceManager;
+    public Slot_Generator slotGenerator;
 
     public Save_Class save;
 
@@ -174,6 +175,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             }
 
             systemGenerator.BeginGeneration(loadSystems, save);
+            slotGenerator.LoadSlots(save.topSlots);
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
 
         }
@@ -188,6 +190,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             save.width = product.width;
             save.systems = systemGenerator.systemsList;
             save.generatedProduct = product;
+            save.topSlots = slotGenerator.FindDefaultSlots();
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
 
