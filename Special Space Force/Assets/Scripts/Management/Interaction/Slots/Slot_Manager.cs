@@ -38,6 +38,24 @@ public class Slot_Manager : MonoBehaviour
         }
     }
 
+    public void UpSlot()
+    {
+        viewedSlot = viewedSlot.slotParent;
+        foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
+        {
+            ss.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
+        }
+    }
+
+    public void TopSlot()
+    {
+        viewedSlot = slotN1.GetComponent<Slot_Script>();
+        foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
+        {
+            ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
+        }
+    }
+
     void Awake()
     {
         // Get both of the components we need to do this

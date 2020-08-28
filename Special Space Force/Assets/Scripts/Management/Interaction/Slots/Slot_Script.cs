@@ -81,7 +81,6 @@ public class Slot_Script : MonoBehaviour
         background.gameObject.SetActive(true);
         input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 400f);
 
-
         //Set Scale depending on its size compared too parent (anything else should not appear)
         switch (viewedSlot.slotHeight - slotHeight)
         {
@@ -335,12 +334,29 @@ public class Slot_Script : MonoBehaviour
             gameObject.GetComponent<Image>().enabled = false;
             background.gameObject.SetActive(false);
         }
+        else if(slotHeight == 0 && viewedSlot.slotHeight == -1)
+        {
+            SetPosition(manager.slotN1.GetComponent<Slot_Script>(), viewedSlot);
+        }
         else
         {
             foreach (Slot_Script ss in containedSlots)
             {
                 ss.SetPosition(ss.slotParent, ss.slotParent.containedSlots.Count, viewedSlot);
             }
+        }
+
+        if (slotParent == viewedSlot || slotParent.slotParent == viewedSlot || slotParent.slotParent.slotParent == viewedSlot)
+        {
+            input.gameObject.SetActive(true);
+            gameObject.GetComponent<Image>().enabled = true;
+            background.gameObject.SetActive(true);
+        } 
+        else
+        {
+            input.gameObject.SetActive(false);
+            gameObject.GetComponent<Image>().enabled = false;
+            background.gameObject.SetActive(false);
         }
     }
 
@@ -375,6 +391,9 @@ public class Slot_Script : MonoBehaviour
                 break;
 
         }
+        gameObject.transform.localScale = new Vector3(1, 1);
+        input.transform.localScale = new Vector3(1, 1);
+        input.textComponent.transform.localScale = new Vector3(1, 1);
 
         gameObject.transform.localScale = new Vector3(1, 1);
 
@@ -383,7 +402,20 @@ public class Slot_Script : MonoBehaviour
             ss.gameObject.transform.localScale = new Vector3(1, 1);
             ss.SetPosition(this, containedSlots.Count, viewedSlot);
         }
-}
+
+        if (slotParent == viewedSlot)
+        {
+            input.gameObject.SetActive(true);
+            gameObject.GetComponent<Image>().enabled = true;
+            background.gameObject.SetActive(true);
+        }
+        else
+        {
+            input.gameObject.SetActive(false);
+            gameObject.GetComponent<Image>().enabled = false;
+            background.gameObject.SetActive(false);
+        }
+    }
 
     public Slot_Class MasterSaveClass()
     {
