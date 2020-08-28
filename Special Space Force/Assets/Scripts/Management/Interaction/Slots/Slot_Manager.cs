@@ -31,9 +31,9 @@ public class Slot_Manager : MonoBehaviour
     public void OpenSlot(Slot_Script newViewed)
     {
         viewedSlot = newViewed;
-        foreach(Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
+        foreach(Slot_Script ss in newViewed.containedSlots)
         {
-            ss.SetPosition(ss.slotParent, ss.slotParent.containedSlots.Count, viewedSlot);
+            ss.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
         }
     }
 
@@ -56,24 +56,32 @@ public class Slot_Manager : MonoBehaviour
             pointerData.position = Input.mousePosition;
             this.raycaster.Raycast(pointerData, results);
 
-            Slot_Script Highest = new Slot_Script();
-            Highest.slotHeight = -1;
+            //Create blank script
+            int highestSlotHeight;
+            highestSlotHeight = -2;
+
+            Slot_Script Highest = results[0].gameObject.GetComponent<Slot_Script>();
             //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
             foreach (RaycastResult result in results)
             {
                 if (result.gameObject.GetComponent<Slot_Script>() != null)
                 {
                     Slot_Script temp = result.gameObject.GetComponent<Slot_Script>();
-                    if (temp.slotHeight > Highest.slotHeight)
+                    if (temp.slotHeight > highestSlotHeight)
                     {
                         Highest = temp;
+                        highestSlotHeight = temp.slotHeight;
                     }
                     Debug.Log("Hit " + result.gameObject.name);
                 }
             }
 
-            OpenSlot(Highest);
-            Debug.Log("Opening " + Highest.slotName);
+            if(highestSlotHeight > -2)
+            {
+                OpenSlot(Highest);
+                Debug.Log("Opening " + Highest.slotName);
+            }
+
         }
     }
 }

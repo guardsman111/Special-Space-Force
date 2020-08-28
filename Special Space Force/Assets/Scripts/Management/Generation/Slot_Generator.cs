@@ -85,6 +85,7 @@ public class Slot_Generator : MonoBehaviour
                 slotN1.GetComponent<Slot_Script>().containedSlots.Add(temp.GetComponent<Slot_Script>());
             }
         }
+        manager.gameObject.SetActive(false);
     }
 
     public List<Slot_Script> FillSlots(Slot_Class slot, Slot_Script slotScript)
