@@ -71,105 +71,21 @@ public class Slot_Script : MonoBehaviour
     public void SetPosition(Slot_Script parent, int nSlots, Slot_Script viewedSlot)
     {
         RectTransform rTransform = GetComponent<RectTransform>();
-        //if (slotHeight != -1)
-        //{
-        //    if (nSlots < 5)
-        //    {
-        //        switch (ID)
-        //        {
 
-        //            case 1:
-        //                rTransform.position = parent.positions4[0].transform.position;
-        //                break;
+        //Set to default showing
+        gameObject.transform.localScale = new Vector3(1, 1);
+        input.transform.localScale = new Vector3(1, 1);
+        input.textComponent.transform.localScale = new Vector3(1, 1);
+        input.gameObject.SetActive(true);
+        gameObject.GetComponent<Image>().enabled = true;
+        background.gameObject.SetActive(true);
+        input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 400f);
 
-        //            case 2:
-        //                rTransform.position = parent.positions4[1].transform.position;
-        //                break;
-
-        //            case 3:
-        //                rTransform.position = parent.positions4[2].transform.position;
-        //                break;
-
-        //        }
-        //    }
-        //    if (nSlots >= 5 && nSlots < 7)
-        //    {
-        //        switch (ID)
-        //        {
-        //            case 1:
-        //                rTransform.position = parent.positions6[0].transform.position;
-        //                break;
-
-        //            case 2:
-        //                rTransform.position = parent.positions6[1].transform.position;
-        //                break;
-
-        //            case 3:
-        //                rTransform.position = parent.positions6[2].transform.position;
-        //                break;
-
-        //            case 4:
-        //                rTransform.position = parent.positions6[3].transform.position;
-        //                break;
-
-        //            case 5:
-        //                rTransform.position = parent.positions6[4].transform.position;
-        //                break;
-
-        //            case 6:
-        //                rTransform.position = parent.positions6[5].transform.position;
-        //                break;
-
-        //        }
-        //    }
-        //    if (nSlots > 7)
-        //    {
-        //        switch (ID)
-        //        {
-        //            case 1:
-        //                rTransform.position = parent.positions9[0].transform.position;
-        //                break;
-
-        //            case 2:
-        //                rTransform.position = parent.positions9[1].transform.position;
-        //                break;
-
-        //            case 3:
-        //                rTransform.position = parent.positions9[2].transform.position;
-        //                break;
-
-        //            case 4:
-        //                rTransform.position = parent.positions9[3].transform.position;
-        //                break;
-
-        //            case 5:
-        //                rTransform.position = parent.positions9[4].transform.position;
-        //                break;
-
-        //            case 6:
-        //                rTransform.position = parent.positions9[5].transform.position;
-        //                break;
-
-        //            case 7:
-        //                rTransform.position = parent.positions9[6].transform.position;
-        //                break;
-
-        //            case 8:
-        //                rTransform.position = parent.positions9[7].transform.position;
-        //                break;
-
-        //            case 9:
-        //                rTransform.position = parent.positions9[8].transform.position;
-        //                break;
-
-        //        }
-        //    }
-        //}
 
         //Set Scale depending on its size compared too parent (anything else should not appear)
         switch (viewedSlot.slotHeight - slotHeight)
         {
-            case -1:
+            case -2:
                 if (nSlots < 5)
                 {
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 60), -((transform.localScale.y / 100) * 60));
@@ -277,12 +193,12 @@ public class Slot_Script : MonoBehaviour
                 gameObject.GetComponent<Image>().enabled = true;
                 background.gameObject.SetActive(true);
                 break;
-            case -2:
+            case -3:
                 if (nSlots < 5)
                 {
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 60), -((transform.localScale.y / 100) * 60));
-                    input.transform.localScale = new Vector3(2.4f, 2.4f);
-                    input.textComponent.transform.localScale = new Vector3(2.4f, 2.4f);
+                    //input.transform.localScale = new Vector3(2.4f, 2.4f);
+                    //input.textComponent.transform.localScale = new Vector3(2.4f, 2.4f);
                     input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 300f);
 
                     switch (ID)
@@ -305,8 +221,8 @@ public class Slot_Script : MonoBehaviour
                 if (nSlots >= 5 && nSlots < 7)
                 {
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 70), -((transform.localScale.y / 100) * 70));
-                    input.transform.localScale = new Vector3(2.3f, 2.3f);
-                    input.textComponent.transform.localScale = new Vector3(2.3f, 2.3f);
+                    //input.transform.localScale = new Vector3(2.3f, 2.3f);
+                    //input.textComponent.transform.localScale = new Vector3(2.3f, 2.3f);
                     input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 300f);
 
                     switch (ID)
@@ -340,8 +256,8 @@ public class Slot_Script : MonoBehaviour
                 if (nSlots >= 7)
                 {
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 71), -((transform.localScale.y / 100) * 71));
-                    input.transform.localScale = new Vector3(2.2f, 2.2f);
-                    input.textComponent.transform.localScale = new Vector3(2.2f, 2.2f);
+                    //input.transform.localScale = new Vector3(2.2f, 2.2f);
+                    //input.textComponent.transform.localScale = new Vector3(2.2f, 2.2f);
                     input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 300f);
 
                     switch (ID)
@@ -391,22 +307,18 @@ public class Slot_Script : MonoBehaviour
             default:
                 if (viewedSlot.slotHeight - slotHeight > 0)
                 {
-                    gameObject.transform.localScale = new Vector3(1, 1);
                     input.gameObject.SetActive(false);
                     gameObject.GetComponent<Image>().enabled = false;
                     background.gameObject.SetActive(false);
+                    rTransform.localPosition = new Vector3(0, 0);
                 }
-                else if (viewedSlot.slotHeight - slotHeight == 0)
-                {
-                } 
                 else
                 {
-                    gameObject.transform.localScale = new Vector3(1, 1);
                     input.gameObject.SetActive(false);
                     gameObject.GetComponent<Image>().enabled = false;
                     background.gameObject.SetActive(false);
+                    rTransform.localPosition = new Vector3(0, 0);
                 }
-                rTransform.position = new Vector3(0,0);
                 break;
         }
 
@@ -414,9 +326,14 @@ public class Slot_Script : MonoBehaviour
         {
             foreach (Slot_Script ss in containedSlots)
             {
-                ss.SetPosition(viewedSlot, viewedSlot);
+                ss.SetPosition(manager.slotN1.GetComponent<Slot_Script>(), viewedSlot);
                 gameObject.SetActive(true);
             }
+            rTransform.localPosition = new Vector3(0, -30);
+            gameObject.transform.localScale = new Vector3(1, 1);
+            input.gameObject.SetActive(false);
+            gameObject.GetComponent<Image>().enabled = false;
+            background.gameObject.SetActive(false);
         }
         else
         {
@@ -459,9 +376,12 @@ public class Slot_Script : MonoBehaviour
 
         }
 
+        gameObject.transform.localScale = new Vector3(1, 1);
+
         foreach (Slot_Script ss in containedSlots)
         {
-            ss.SetPosition(ss.slotParent, ss.slotParent.containedSlots.Count, viewedSlot);
+            ss.gameObject.transform.localScale = new Vector3(1, 1);
+            ss.SetPosition(this, containedSlots.Count, viewedSlot);
         }
 }
 

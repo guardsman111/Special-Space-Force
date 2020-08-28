@@ -12,6 +12,7 @@ public class Slot_Manager : MonoBehaviour
     public List<Slot_Class> slots;
     public GameObject slotN1;
     public GraphicRaycaster raycaster;
+    public Slot_Script Highest;
 
     public void NewSlotTop()
     {
@@ -31,9 +32,9 @@ public class Slot_Manager : MonoBehaviour
     public void OpenSlot(Slot_Script newViewed)
     {
         viewedSlot = newViewed;
-        foreach(Slot_Script ss in newViewed.containedSlots)
+        foreach(Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
         {
-            ss.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
+            ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
         }
     }
 
@@ -60,7 +61,7 @@ public class Slot_Manager : MonoBehaviour
             int highestSlotHeight;
             highestSlotHeight = -2;
 
-            Slot_Script Highest = results[0].gameObject.GetComponent<Slot_Script>();
+            Highest = results[0].gameObject.GetComponent<Slot_Script>();
             //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
             foreach (RaycastResult result in results)
             {

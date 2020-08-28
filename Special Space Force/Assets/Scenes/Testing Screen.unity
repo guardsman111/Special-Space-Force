@@ -4453,6 +4453,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3179005509909518482, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_Name
+      value: Scene Manager
+      objectReference: {fileID: 0}
     - target: {fileID: 8302215076380025951, guid: f49dfd96ae8ba7246909b769fb8956f5,
         type: 3}
       propertyPath: m_ClearFlags
@@ -4497,11 +4502,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179005509909518482, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: m_Name
-      value: Scene Manager
       objectReference: {fileID: 0}
     - target: {fileID: 3179005509909518485, guid: f49dfd96ae8ba7246909b769fb8956f5,
         type: 3}
@@ -10356,6 +10356,11 @@ PrefabInstance:
       propertyPath: positions.Array.data[5]
       value: 
       objectReference: {fileID: 1151613049}
+    - target: {fileID: 967278948403837369, guid: b54679af37f89304daef2c40603be563,
+        type: 3}
+      propertyPath: slotHeight
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6934395186961082718, guid: b54679af37f89304daef2c40603be563,
         type: 3}
       propertyPath: m_Layer
