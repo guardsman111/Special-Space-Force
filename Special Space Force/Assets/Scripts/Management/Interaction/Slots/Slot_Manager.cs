@@ -23,7 +23,7 @@ public class Slot_Manager : MonoBehaviour
         tempS.slotHeight = viewedSlot.slotHeight + 1;
         tempS.ID = viewedSlot.containedSlots.Count + 1;
         tempS.MakeSlot(tempS, viewedSlot, this);
-        tempS.SetPosition(viewedSlot, viewedSlot);
+        tempS.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
         viewedSlot.containedSlots.Add(tempS);
         slots = new List<Slot_Class>();
         slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());

@@ -190,6 +190,7 @@ public class Slot_Script : MonoBehaviour
                 }
                 input.enabled = true;
                 gameObject.GetComponent<Image>().enabled = true;
+                gameObject.GetComponent<Image>().color = new Color32(169, 169, 169,100);
                 background.gameObject.SetActive(true);
                 break;
             case -3:
@@ -302,6 +303,7 @@ public class Slot_Script : MonoBehaviour
                 input.enabled = true;
                 gameObject.GetComponent<Image>().enabled = true;
                 background.gameObject.SetActive(true);
+                gameObject.GetComponent<Image>().color = new Color32(180, 180, 180, 100);
                 break;
             default:
                 if (viewedSlot.slotHeight - slotHeight > 0)
@@ -328,7 +330,7 @@ public class Slot_Script : MonoBehaviour
                 ss.SetPosition(manager.slotN1.GetComponent<Slot_Script>(), viewedSlot);
                 gameObject.SetActive(true);
             }
-            rTransform.localPosition = new Vector3(0, -30);
+            rTransform.localPosition = new Vector3(0, 0);
             gameObject.transform.localScale = new Vector3(1, 1);
             input.gameObject.SetActive(false);
             gameObject.GetComponent<Image>().enabled = false;
@@ -394,8 +396,10 @@ public class Slot_Script : MonoBehaviour
         gameObject.transform.localScale = new Vector3(1, 1);
         input.transform.localScale = new Vector3(1, 1);
         input.textComponent.transform.localScale = new Vector3(1, 1);
+        input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 400f);
 
         gameObject.transform.localScale = new Vector3(1, 1);
+        gameObject.GetComponent<Image>().color = new Color32(191, 191, 191,100);
 
         foreach (Slot_Script ss in containedSlots)
         {
