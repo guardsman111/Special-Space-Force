@@ -5,218 +5,102 @@
   <width>20000</width>
   <systems>
     <System_Class>
-      <systemName>Urnin</systemName>
-      <colour>Blue_Light</colour>
+      <systemName>Alpho</systemName>
+      <colour>Orange</colour>
       <allegiance>3</allegiance>
-      <posX>-9716</posX>
-      <posZ>2319</posZ>
-      <nPlanets>5</nPlanets>
+      <posX>-5970</posX>
+      <posZ>3063</posZ>
+      <nPlanets>1</nPlanets>
       <Array>
         <Planet_Class>
-          <planetName>Urnin I</planetName>
-          <biome>Moon</biome>
-          <biomeID>13</biomeID>
+          <planetName>Alpho I</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>2531481</population>
-          <size>68</size>
-          <usableSpace>0.580688357</usableSpace>
+          <population>286703008</population>
+          <size>75</size>
+          <usableSpace>0.276599079</usableSpace>
+          <baseMetalsAmount>34.6615677</baseMetalsAmount>
+          <preciousMetalsAmount>52.3660431</preciousMetalsAmount>
+          <foodAvailability>53.48339</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Erzaf</systemName>
+      <colour>White</colour>
+      <allegiance>0</allegiance>
+      <posX>1630</posX>
+      <posZ>9414</posZ>
+      <nPlanets>6</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Erzaf I</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>9414872</population>
+          <size>54</size>
+          <usableSpace>0.475258619</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Urnin II</planetName>
-          <biome>Swamp</biome>
-          <biomeID>0</biomeID>
+          <planetName>Erzaf II</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>64</size>
-          <usableSpace>0.384033948</usableSpace>
-          <baseMetalsAmount>11.5594139</baseMetalsAmount>
-          <preciousMetalsAmount>50.8461876</preciousMetalsAmount>
-          <foodAvailability>40.95337</foodAvailability>
+          <size>82</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Urnin III</planetName>
+          <planetName>Erzaf III</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>52</size>
+          <usableSpace>0.367198</usableSpace>
+          <baseMetalsAmount>49.6239548</baseMetalsAmount>
+          <preciousMetalsAmount>46.69604</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Erzaf IV</planetName>
           <biome>Molten</biome>
           <biomeID>12</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
           <size>63</size>
-          <usableSpace>0.348285</usableSpace>
-          <baseMetalsAmount>52.1069756</baseMetalsAmount>
-          <preciousMetalsAmount>45.49389</preciousMetalsAmount>
+          <usableSpace>0.4707614</usableSpace>
+          <baseMetalsAmount>49.8346062</baseMetalsAmount>
+          <preciousMetalsAmount>47.4413757</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Urnin IV</planetName>
-          <biome>Barren</biome>
-          <biomeID>4</biomeID>
-          <inhabited>false</inhabited>
-          <population>5883273</population>
-          <size>56</size>
-          <usableSpace>0.6899352</usableSpace>
-          <baseMetalsAmount>45.02181</baseMetalsAmount>
-          <preciousMetalsAmount>46.90398</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Urnin V</planetName>
-          <biome>Desert</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>206398160</population>
-          <size>52</size>
-          <usableSpace>0.7785123</usableSpace>
-          <baseMetalsAmount>49.3925934</baseMetalsAmount>
-          <preciousMetalsAmount>32.886055</preciousMetalsAmount>
-          <foodAvailability>51.8343163</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Dendo</systemName>
-      <colour>Pink</colour>
-      <allegiance>1</allegiance>
-      <posX>-6198</posX>
-      <posZ>6379</posZ>
-      <nPlanets>1</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Dendo I</planetName>
-          <biome>Moon</biome>
-          <biomeID>13</biomeID>
-          <inhabited>false</inhabited>
-          <population>8333350</population>
-          <size>85</size>
-          <usableSpace>0.796953261</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Dendo</systemName>
-      <colour>Blue_Light</colour>
-      <allegiance>0</allegiance>
-      <posX>101</posX>
-      <posZ>-7039</posZ>
-      <nPlanets>6</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Dendo I</planetName>
-          <biome>Continental</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>111882736</population>
-          <size>83</size>
-          <usableSpace>0.6570507</usableSpace>
-          <baseMetalsAmount>51.98264</baseMetalsAmount>
-          <preciousMetalsAmount>51.9448051</preciousMetalsAmount>
-          <foodAvailability>29.9824028</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Dendo II</planetName>
-          <biome>Moon</biome>
-          <biomeID>13</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>62</size>
-          <usableSpace>0.540985644</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Dendo III</planetName>
-          <biome>Alpine</biome>
+          <planetName>Erzaf V</planetName>
+          <biome>Oasis</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>87</size>
-          <usableSpace>0.36690402</usableSpace>
-          <baseMetalsAmount>46.4964333</baseMetalsAmount>
-          <preciousMetalsAmount>52.6268654</preciousMetalsAmount>
-          <foodAvailability>49.07193</foodAvailability>
+          <size>94</size>
+          <usableSpace>0.2013848</usableSpace>
+          <baseMetalsAmount>23.1811485</baseMetalsAmount>
+          <preciousMetalsAmount>58.15035</preciousMetalsAmount>
+          <foodAvailability>46.4385643</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Dendo IV</planetName>
-          <biome>Gas Giant Methane</biome>
-          <biomeID>9</biomeID>
-          <inhabited>false</inhabited>
-          <population>7592886</population>
-          <size>71</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Dendo V</planetName>
-          <biome>Moon</biome>
-          <biomeID>13</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>59</size>
-          <usableSpace>0.5887981</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Dendo VI</planetName>
-          <biome>Molten</biome>
-          <biomeID>12</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>58</size>
-          <usableSpace>0.373467922</usableSpace>
-          <baseMetalsAmount>65.513</baseMetalsAmount>
-          <preciousMetalsAmount>67.56435</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Pretentis</systemName>
-      <colour>Yellow</colour>
-      <allegiance>0</allegiance>
-      <posX>6900</posX>
-      <posZ>650</posZ>
-      <nPlanets>3</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Pretentis I</planetName>
-          <biome>Mediterranean</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>191888224</population>
-          <size>52</size>
-          <usableSpace>0.3832467</usableSpace>
-          <baseMetalsAmount>46.2232437</baseMetalsAmount>
-          <preciousMetalsAmount>41.39665</preciousMetalsAmount>
-          <foodAvailability>45.4726448</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Pretentis II</planetName>
-          <biome>Molten</biome>
-          <biomeID>12</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>60</size>
-          <usableSpace>0.3068695</usableSpace>
-          <baseMetalsAmount>41.028244</baseMetalsAmount>
-          <preciousMetalsAmount>78.7488861</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Pretentis III</planetName>
+          <planetName>Erzaf VI</planetName>
           <biome>Gas Giant Hydrogen</biome>
           <biomeID>8</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>58</size>
+          <size>73</size>
           <usableSpace>0</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
@@ -225,154 +109,258 @@
       </Array>
     </System_Class>
     <System_Class>
-      <systemName>Korus</systemName>
-      <colour>Green</colour>
-      <allegiance>3</allegiance>
-      <posX>4561</posX>
-      <posZ>7980</posZ>
-      <nPlanets>7</nPlanets>
+      <systemName>Durack</systemName>
+      <colour>Blue</colour>
+      <allegiance>0</allegiance>
+      <posX>-8926</posX>
+      <posZ>-6553</posZ>
+      <nPlanets>6</nPlanets>
       <Array>
         <Planet_Class>
-          <planetName>Korus I</planetName>
-          <biome>Tropical</biome>
+          <planetName>Durack I</planetName>
+          <biome>Ocean</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>672802368</population>
-          <size>83</size>
-          <usableSpace>0.27967608</usableSpace>
-          <baseMetalsAmount>114.662491</baseMetalsAmount>
-          <preciousMetalsAmount>47.8853226</preciousMetalsAmount>
-          <foodAvailability>44.4163322</foodAvailability>
+          <population>525586112</population>
+          <size>57</size>
+          <usableSpace>0.200692683</usableSpace>
+          <baseMetalsAmount>50.232708</baseMetalsAmount>
+          <preciousMetalsAmount>37.13276</preciousMetalsAmount>
+          <foodAvailability>109.570328</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Korus II</planetName>
-          <biome>Arid</biome>
+          <planetName>Durack II</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>8596859</population>
+          <size>77</size>
+          <usableSpace>0.6512638</usableSpace>
+          <baseMetalsAmount>54.87637</baseMetalsAmount>
+          <preciousMetalsAmount>46.438446</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack III</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>2640534</population>
+          <size>67</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack IV</planetName>
+          <biome>Tundra</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>62</size>
-          <usableSpace>0.1988638</usableSpace>
-          <baseMetalsAmount>80.1618652</baseMetalsAmount>
-          <preciousMetalsAmount>56.7461052</preciousMetalsAmount>
-          <foodAvailability>6.28482056</foodAvailability>
+          <size>50</size>
+          <usableSpace>0.6609582</usableSpace>
+          <baseMetalsAmount>50.8907852</baseMetalsAmount>
+          <preciousMetalsAmount>47.87037</preciousMetalsAmount>
+          <foodAvailability>63.4803658</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Korus III</planetName>
+          <planetName>Durack V</planetName>
           <biome>Barren</biome>
           <biomeID>4</biomeID>
           <inhabited>false</inhabited>
-          <population>7525516</population>
-          <size>86</size>
-          <usableSpace>0.6859284</usableSpace>
-          <baseMetalsAmount>41.5748634</baseMetalsAmount>
-          <preciousMetalsAmount>50.9991264</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Korus IV</planetName>
-          <biome>Molten</biome>
-          <biomeID>12</biomeID>
-          <inhabited>false</inhabited>
           <population>0</population>
-          <size>75</size>
-          <usableSpace>0.24230212</usableSpace>
-          <baseMetalsAmount>44.426403</baseMetalsAmount>
-          <preciousMetalsAmount>57.00247</preciousMetalsAmount>
+          <size>70</size>
+          <usableSpace>0.646497</usableSpace>
+          <baseMetalsAmount>65.3054352</baseMetalsAmount>
+          <preciousMetalsAmount>55.5999756</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Korus V</planetName>
-          <biome>Swamp</biome>
+          <planetName>Durack VI</planetName>
+          <biome>Arctic</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>538599552</population>
-          <size>59</size>
-          <usableSpace>0.102079891</usableSpace>
-          <baseMetalsAmount>39.0172119</baseMetalsAmount>
-          <preciousMetalsAmount>53.87377</preciousMetalsAmount>
-          <foodAvailability>44.4961739</foodAvailability>
+          <population>0</population>
+          <size>51</size>
+          <usableSpace>0.58524096</usableSpace>
+          <baseMetalsAmount>58.5386276</baseMetalsAmount>
+          <preciousMetalsAmount>40.5214844</preciousMetalsAmount>
+          <foodAvailability>47.90705</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Durack</systemName>
+      <colour>White</colour>
+      <allegiance>3</allegiance>
+      <posX>0</posX>
+      <posZ>0</posZ>
+      <nPlanets>4</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Durack I</planetName>
+          <biome>Alpine</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>553025216</population>
+          <size>90</size>
+          <usableSpace>0.430284947</usableSpace>
+          <baseMetalsAmount>79.72991</baseMetalsAmount>
+          <preciousMetalsAmount>35.0425453</preciousMetalsAmount>
+          <foodAvailability>50.3596649</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Korus VI</planetName>
+          <planetName>Durack II</planetName>
+          <biome>Oasis</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>55</size>
+          <usableSpace>0.6578707</usableSpace>
+          <baseMetalsAmount>48.6018181</baseMetalsAmount>
+          <preciousMetalsAmount>41.4760132</preciousMetalsAmount>
+          <foodAvailability>46.9258</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack III</planetName>
+          <biome>Arctic</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>918600320</population>
+          <size>50</size>
+          <usableSpace>0.6558332</usableSpace>
+          <baseMetalsAmount>51.83212</baseMetalsAmount>
+          <preciousMetalsAmount>33.19138</preciousMetalsAmount>
+          <foodAvailability>53.4360466</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack IV</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>211677216</population>
+          <size>53</size>
+          <usableSpace>0.16804561</usableSpace>
+          <baseMetalsAmount>50.51895</baseMetalsAmount>
+          <preciousMetalsAmount>56.93512</preciousMetalsAmount>
+          <foodAvailability>65.3267441</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Erzaf</systemName>
+      <colour>White</colour>
+      <allegiance>2</allegiance>
+      <posX>5300</posX>
+      <posZ>8246</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Erzaf I</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>485757184</population>
+          <size>67</size>
+          <usableSpace>0.211575061</usableSpace>
+          <baseMetalsAmount>41.2189636</baseMetalsAmount>
+          <preciousMetalsAmount>51.6775055</preciousMetalsAmount>
+          <foodAvailability>54.6818581</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Alpho</systemName>
+      <colour>Purple</colour>
+      <allegiance>3</allegiance>
+      <posX>2875</posX>
+      <posZ>6476</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Alpho I</planetName>
+          <biome>Arctic</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>263139840</population>
+          <size>62</size>
+          <usableSpace>0.606049538</usableSpace>
+          <baseMetalsAmount>55.94085</baseMetalsAmount>
+          <preciousMetalsAmount>37.21955</preciousMetalsAmount>
+          <foodAvailability>18.1122952</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho II</planetName>
           <biome>Glass World</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>87</size>
-          <usableSpace>0.18447715</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>58.9167252</preciousMetalsAmount>
-          <foodAvailability>60.35799</foodAvailability>
+          <size>83</size>
+          <usableSpace>0.290807068</usableSpace>
+          <baseMetalsAmount>53.4226379</baseMetalsAmount>
+          <preciousMetalsAmount>54.03503</preciousMetalsAmount>
+          <foodAvailability>22.3902321</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Korus VII</planetName>
-          <biome>Toxic (Sulphur)</biome>
-          <biomeID>18</biomeID>
+          <planetName>Alpho III</planetName>
+          <biome>Arctic</biome>
+          <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>3714902</population>
+          <population>0</population>
+          <size>59</size>
+          <usableSpace>0.666178942</usableSpace>
+          <baseMetalsAmount>48.8453636</baseMetalsAmount>
+          <preciousMetalsAmount>50.4028854</preciousMetalsAmount>
+          <foodAvailability>38.00372</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho IV</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
           <size>53</size>
-          <usableSpace>0.290489376</usableSpace>
-          <baseMetalsAmount>32.7281647</baseMetalsAmount>
-          <preciousMetalsAmount>59.2935944</preciousMetalsAmount>
+          <usableSpace>0.899451435</usableSpace>
+          <baseMetalsAmount>76.69808</baseMetalsAmount>
+          <preciousMetalsAmount>46.5811119</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Traous</systemName>
-      <colour>Blue_Light</colour>
-      <allegiance>0</allegiance>
-      <posX>6639</posX>
-      <posZ>5789</posZ>
-      <nPlanets>4</nPlanets>
-      <Array>
         <Planet_Class>
-          <planetName>Traous I</planetName>
-          <biome>Gas Giant Hydrogen</biome>
-          <biomeID>8</biomeID>
+          <planetName>Alpho V</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
           <inhabited>false</inhabited>
-          <population>4944578</population>
-          <size>61</size>
-          <usableSpace>0</usableSpace>
+          <population>9085717</population>
+          <size>67</size>
+          <usableSpace>0.8503648</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Traous II</planetName>
-          <biome>Asteroid</biome>
-          <biomeID>3</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>79</size>
-          <usableSpace>0.226056159</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Traous III</planetName>
-          <biome>Glacial</biome>
+          <planetName>Alpho VI</planetName>
+          <biome>Arctic</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>63</size>
-          <usableSpace>0.26437518</usableSpace>
-          <baseMetalsAmount>52.8283424</baseMetalsAmount>
-          <preciousMetalsAmount>55.2282524</preciousMetalsAmount>
-          <foodAvailability>36.3792572</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Traous IV</planetName>
-          <biome>Glacial</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>489586880</population>
           <size>69</size>
-          <usableSpace>0.196502239</usableSpace>
-          <baseMetalsAmount>33.49446</baseMetalsAmount>
-          <preciousMetalsAmount>38.78192</preciousMetalsAmount>
-          <foodAvailability>44.34748</foodAvailability>
+          <usableSpace>0.8433181</usableSpace>
+          <baseMetalsAmount>51.57736</baseMetalsAmount>
+          <preciousMetalsAmount>27.4292564</preciousMetalsAmount>
+          <foodAvailability>58.1352119</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho VII</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>3721765</population>
+          <size>63</size>
+          <usableSpace>0.277590632</usableSpace>
+          <baseMetalsAmount>47.3402328</baseMetalsAmount>
+          <preciousMetalsAmount>57.8153038</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
         </Planet_Class>
       </Array>
     </System_Class>
@@ -380,555 +368,173 @@
       <systemName>Othorix</systemName>
       <colour>Purple</colour>
       <allegiance>0</allegiance>
-      <posX>2038</posX>
-      <posZ>-3588</posZ>
-      <nPlanets>4</nPlanets>
+      <posX>8396</posX>
+      <posZ>2152</posZ>
+      <nPlanets>2</nPlanets>
       <Array>
         <Planet_Class>
           <planetName>Othorix I</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>7858174</population>
+          <size>75</size>
+          <usableSpace>0.413411617</usableSpace>
+          <baseMetalsAmount>60.6651077</baseMetalsAmount>
+          <preciousMetalsAmount>33.18065</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix II</planetName>
           <biome>Asteroid</biome>
           <biomeID>3</biomeID>
           <inhabited>false</inhabited>
-          <population>97571</population>
-          <size>66</size>
-          <usableSpace>0.284847617</usableSpace>
+          <population>9657311</population>
+          <size>72</size>
+          <usableSpace>0.27057445</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Erzaf</systemName>
+      <colour>White</colour>
+      <allegiance>0</allegiance>
+      <posX>-2836</posX>
+      <posZ>-7553</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Erzaf I</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>7172779</population>
+          <size>83</size>
+          <usableSpace>0.467054725</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Othorix II</planetName>
-          <biome>Continental</biome>
-          <biomeID>0</biomeID>
+          <planetName>Erzaf II</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
           <inhabited>false</inhabited>
-          <population>256638944</population>
-          <size>79</size>
-          <usableSpace>0.6915778</usableSpace>
-          <baseMetalsAmount>35.93194</baseMetalsAmount>
-          <preciousMetalsAmount>44.85225</preciousMetalsAmount>
-          <foodAvailability>47.20674</foodAvailability>
+          <population>7470310</population>
+          <size>94</size>
+          <usableSpace>0.369992942</usableSpace>
+          <baseMetalsAmount>50.6659851</baseMetalsAmount>
+          <preciousMetalsAmount>25.69594</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Othorix III</planetName>
+          <planetName>Erzaf III</planetName>
           <biome>Tropical</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
           <size>84</size>
-          <usableSpace>0.3746357</usableSpace>
-          <baseMetalsAmount>45.13551</baseMetalsAmount>
-          <preciousMetalsAmount>56.72254</preciousMetalsAmount>
-          <foodAvailability>49.3092957</foodAvailability>
+          <usableSpace>0.2837034</usableSpace>
+          <baseMetalsAmount>54.6077271</baseMetalsAmount>
+          <preciousMetalsAmount>51.460453</preciousMetalsAmount>
+          <foodAvailability>98.24879</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Othorix IV</planetName>
-          <biome>Tropical</biome>
+          <planetName>Erzaf IV</planetName>
+          <biome>Mediterranean</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>0</population>
-          <size>55</size>
-          <usableSpace>0.660249233</usableSpace>
-          <baseMetalsAmount>53.705986</baseMetalsAmount>
-          <preciousMetalsAmount>50.94897</preciousMetalsAmount>
-          <foodAvailability>47.4108849</foodAvailability>
+          <population>510187840</population>
+          <size>56</size>
+          <usableSpace>0.232594445</usableSpace>
+          <baseMetalsAmount>87.03624</baseMetalsAmount>
+          <preciousMetalsAmount>57.4757576</preciousMetalsAmount>
+          <foodAvailability>27.235508</foodAvailability>
         </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Durack</systemName>
-      <colour>Green</colour>
-      <allegiance>0</allegiance>
-      <posX>0</posX>
-      <posZ>0</posZ>
-      <nPlanets>2</nPlanets>
-      <Array>
         <Planet_Class>
-          <planetName>Durack I</planetName>
-          <biome>Gas Giant Helium</biome>
-          <biomeID>7</biomeID>
+          <planetName>Erzaf V</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
           <inhabited>false</inhabited>
-          <population>1245608</population>
-          <size>63</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <population>542049</population>
+          <size>72</size>
+          <usableSpace>0.6645783</usableSpace>
+          <baseMetalsAmount>45.39274</baseMetalsAmount>
+          <preciousMetalsAmount>142.309357</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack II</planetName>
-          <biome>Ocean</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>83</size>
-          <usableSpace>0.161015928</usableSpace>
-          <baseMetalsAmount>49.92034</baseMetalsAmount>
-          <preciousMetalsAmount>49.0826721</preciousMetalsAmount>
-          <foodAvailability>84.49049</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Dendo</systemName>
-      <colour>Yellow</colour>
-      <allegiance>3</allegiance>
-      <posX>9574</posX>
-      <posZ>-8320</posZ>
-      <nPlanets>1</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Dendo I</planetName>
-          <biome>Arid</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>483274176</population>
-          <size>58</size>
-          <usableSpace>0.31823805</usableSpace>
-          <baseMetalsAmount>37.3201675</baseMetalsAmount>
-          <preciousMetalsAmount>1.8127861</preciousMetalsAmount>
-          <foodAvailability>49.4154243</foodAvailability>
         </Planet_Class>
       </Array>
     </System_Class>
     <System_Class>
       <systemName>Urnin</systemName>
-      <colour>Blue</colour>
+      <colour>Orange</colour>
       <allegiance>0</allegiance>
-      <posX>-9667</posX>
-      <posZ>-5965</posZ>
+      <posX>-9615</posX>
+      <posZ>1024</posZ>
       <nPlanets>5</nPlanets>
       <Array>
         <Planet_Class>
           <planetName>Urnin I</planetName>
-          <biome>Continental</biome>
-          <biomeID>0</biomeID>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
           <inhabited>false</inhabited>
-          <population>252416544</population>
-          <size>79</size>
-          <usableSpace>0.5564134</usableSpace>
-          <baseMetalsAmount>51.45655</baseMetalsAmount>
-          <preciousMetalsAmount>45.4526</preciousMetalsAmount>
-          <foodAvailability>49.4118729</foodAvailability>
+          <population>2394847</population>
+          <size>71</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Urnin II</planetName>
-          <biome>Ocean</biome>
-          <biomeID>0</biomeID>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
           <inhabited>false</inhabited>
-          <population>0</population>
-          <size>59</size>
-          <usableSpace>0.2234725</usableSpace>
-          <baseMetalsAmount>49.0589447</baseMetalsAmount>
-          <preciousMetalsAmount>58.31421</preciousMetalsAmount>
-          <foodAvailability>41.11648</foodAvailability>
+          <population>1642934</population>
+          <size>56</size>
+          <usableSpace>0.299574852</usableSpace>
+          <baseMetalsAmount>44.33495</baseMetalsAmount>
+          <preciousMetalsAmount>50.1492233</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Urnin III</planetName>
-          <biome>Glacial</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>89</size>
-          <usableSpace>0.1713022</usableSpace>
-          <baseMetalsAmount>49.63546</baseMetalsAmount>
-          <preciousMetalsAmount>67.43219</preciousMetalsAmount>
-          <foodAvailability>50.542263</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Urnin IV</planetName>
-          <biome>Mediterranean</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>731407104</population>
-          <size>58</size>
-          <usableSpace>0.510514</usableSpace>
-          <baseMetalsAmount>81.59665</baseMetalsAmount>
-          <preciousMetalsAmount>50.81961</preciousMetalsAmount>
-          <foodAvailability>50.2526855</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Urnin V</planetName>
-          <biome>Moon</biome>
-          <biomeID>13</biomeID>
-          <inhabited>false</inhabited>
-          <population>2475147</population>
-          <size>70</size>
-          <usableSpace>0.463542819</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Durack</systemName>
-      <colour>Green_Light</colour>
-      <allegiance>0</allegiance>
-      <posX>-6150</posX>
-      <posZ>-5611</posZ>
-      <nPlanets>7</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Durack I</planetName>
-          <biome>Gas Giant Hydrogen</biome>
-          <biomeID>8</biomeID>
-          <inhabited>false</inhabited>
-          <population>1682867</population>
-          <size>85</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack II</planetName>
-          <biome>Oasis</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>6382727</population>
-          <size>89</size>
-          <usableSpace>0.5822489</usableSpace>
-          <baseMetalsAmount>56.4310265</baseMetalsAmount>
-          <preciousMetalsAmount>52.5122681</preciousMetalsAmount>
-          <foodAvailability>50.4944954</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack III</planetName>
-          <biome>Gas Giant Helium</biome>
-          <biomeID>7</biomeID>
-          <inhabited>false</inhabited>
-          <population>4056102</population>
-          <size>57</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack IV</planetName>
-          <biome>Molten</biome>
-          <biomeID>12</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>86</size>
-          <usableSpace>0.2595698</usableSpace>
-          <baseMetalsAmount>46.98049</baseMetalsAmount>
-          <preciousMetalsAmount>56.86953</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack V</planetName>
-          <biome>Arid</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>65</size>
-          <usableSpace>0.174552158</usableSpace>
-          <baseMetalsAmount>41.3301277</baseMetalsAmount>
-          <preciousMetalsAmount>54.0192261</preciousMetalsAmount>
-          <foodAvailability>44.7638321</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack VI</planetName>
-          <biome>Asteroid</biome>
-          <biomeID>3</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>63</size>
-          <usableSpace>0.334074974</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack VII</planetName>
-          <biome>Desert</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>306118848</population>
-          <size>54</size>
-          <usableSpace>0.72022</usableSpace>
-          <baseMetalsAmount>49.7567253</baseMetalsAmount>
-          <preciousMetalsAmount>53.32745</preciousMetalsAmount>
-          <foodAvailability>85.84177</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Pretentis</systemName>
-      <colour>Blue_Light</colour>
-      <allegiance>0</allegiance>
-      <posX>-7176</posX>
-      <posZ>-9055</posZ>
-      <nPlanets>3</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Pretentis I</planetName>
-          <biome>Gas Giant Helium</biome>
-          <biomeID>7</biomeID>
-          <inhabited>false</inhabited>
-          <population>8669537</population>
-          <size>59</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Pretentis II</planetName>
-          <biome>Barren</biome>
-          <biomeID>4</biomeID>
-          <inhabited>false</inhabited>
-          <population>480901</population>
-          <size>89</size>
-          <usableSpace>0.85666275</usableSpace>
-          <baseMetalsAmount>50.0310478</baseMetalsAmount>
-          <preciousMetalsAmount>61.7995148</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Pretentis III</planetName>
-          <biome>Ocean</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>42308680</population>
-          <size>83</size>
-          <usableSpace>0.274021924</usableSpace>
-          <baseMetalsAmount>36.5761566</baseMetalsAmount>
-          <preciousMetalsAmount>31.5775185</preciousMetalsAmount>
-          <foodAvailability>52.56446</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Korus</systemName>
-      <colour>Orange</colour>
-      <allegiance>0</allegiance>
-      <posX>-8111</posX>
-      <posZ>-3298</posZ>
-      <nPlanets>2</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Korus I</planetName>
-          <biome>Gas Giant Helium</biome>
-          <biomeID>7</biomeID>
-          <inhabited>false</inhabited>
-          <population>9504750</population>
-          <size>65</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Korus II</planetName>
           <biome>Glass World</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>999662912</population>
-          <size>51</size>
-          <usableSpace>0.415584981</usableSpace>
-          <baseMetalsAmount>53.0302048</baseMetalsAmount>
-          <preciousMetalsAmount>46.9918137</preciousMetalsAmount>
-          <foodAvailability>17.2703438</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Alpho</systemName>
-      <colour>Green</colour>
-      <allegiance>0</allegiance>
-      <posX>-4088</posX>
-      <posZ>3482</posZ>
-      <nPlanets>4</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Alpho I</planetName>
-          <biome>Glacial</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>69031008</population>
-          <size>87</size>
-          <usableSpace>0.211668044</usableSpace>
-          <baseMetalsAmount>54.36977</baseMetalsAmount>
-          <preciousMetalsAmount>49.1945457</preciousMetalsAmount>
-          <foodAvailability>21.4497128</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Alpho II</planetName>
-          <biome>Barren</biome>
-          <biomeID>4</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>91</size>
-          <usableSpace>0.7389369</usableSpace>
-          <baseMetalsAmount>68.44133</baseMetalsAmount>
-          <preciousMetalsAmount>49.0974121</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Alpho III</planetName>
-          <biome>Moon</biome>
-          <biomeID>13</biomeID>
-          <inhabited>false</inhabited>
-          <population>2003082</population>
-          <size>52</size>
-          <usableSpace>0.429644674</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Alpho IV</planetName>
-          <biome>Glacial</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>418501536</population>
-          <size>62</size>
-          <usableSpace>0.251642257</usableSpace>
-          <baseMetalsAmount>58.45924</baseMetalsAmount>
-          <preciousMetalsAmount>44.5939865</preciousMetalsAmount>
-          <foodAvailability>51.4662247</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Dendo</systemName>
-      <colour>Green</colour>
-      <allegiance>0</allegiance>
-      <posX>-4122</posX>
-      <posZ>9609</posZ>
-      <nPlanets>6</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Dendo I</planetName>
-          <biome>Mediterranean</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>319332480</population>
-          <size>65</size>
-          <usableSpace>0.3281896</usableSpace>
-          <baseMetalsAmount>49.8614349</baseMetalsAmount>
-          <preciousMetalsAmount>47.9146156</preciousMetalsAmount>
-          <foodAvailability>50.5605164</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Dendo II</planetName>
-          <biome>Oasis</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>149199712</population>
-          <size>58</size>
-          <usableSpace>0.651726</usableSpace>
-          <baseMetalsAmount>46.2590866</baseMetalsAmount>
-          <preciousMetalsAmount>45.92009</preciousMetalsAmount>
-          <foodAvailability>51.6858864</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Dendo III</planetName>
-          <biome>Gas Giant Methane</biome>
-          <biomeID>9</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>68</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Dendo IV</planetName>
-          <biome>Desert</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
           <size>67</size>
-          <usableSpace>0.7089279</usableSpace>
-          <baseMetalsAmount>33.14914</baseMetalsAmount>
-          <preciousMetalsAmount>48.1422234</preciousMetalsAmount>
-          <foodAvailability>44.94405</foodAvailability>
+          <usableSpace>0.471595</usableSpace>
+          <baseMetalsAmount>48.68397</baseMetalsAmount>
+          <preciousMetalsAmount>56.70404</preciousMetalsAmount>
+          <foodAvailability>3.83887482</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Dendo V</planetName>
-          <biome>Gas Giant Methane</biome>
-          <biomeID>9</biomeID>
+          <planetName>Urnin IV</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>2183231</population>
-          <size>89</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <population>644362176</population>
+          <size>87</size>
+          <usableSpace>0.295525521</usableSpace>
+          <baseMetalsAmount>72.99722</baseMetalsAmount>
+          <preciousMetalsAmount>49.8936844</preciousMetalsAmount>
+          <foodAvailability>50.9839935</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin V</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>6835090</population>
+          <size>57</size>
+          <usableSpace>0.215817988</usableSpace>
+          <baseMetalsAmount>35.2108574</baseMetalsAmount>
+          <preciousMetalsAmount>55.7813644</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Dendo VI</planetName>
-          <biome>Continental</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>530153856</population>
-          <size>79</size>
-          <usableSpace>0.5069281</usableSpace>
-          <baseMetalsAmount>51.9347572</baseMetalsAmount>
-          <preciousMetalsAmount>49.1752129</preciousMetalsAmount>
-          <foodAvailability>62.4287567</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Othorix</systemName>
-      <colour>Green</colour>
-      <allegiance>0</allegiance>
-      <posX>1147</posX>
-      <posZ>6241</posZ>
-      <nPlanets>4</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Othorix I</planetName>
-          <biome>Toxic (Sulphur)</biome>
-          <biomeID>18</biomeID>
-          <inhabited>false</inhabited>
-          <population>9735929</population>
-          <size>76</size>
-          <usableSpace>0.6777677</usableSpace>
-          <baseMetalsAmount>57.21428</baseMetalsAmount>
-          <preciousMetalsAmount>37.9646454</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Othorix II</planetName>
-          <biome>Glacial</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>692127488</population>
-          <size>68</size>
-          <usableSpace>0.2354118</usableSpace>
-          <baseMetalsAmount>45.61687</baseMetalsAmount>
-          <preciousMetalsAmount>41.36686</preciousMetalsAmount>
-          <foodAvailability>30.8120346</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Othorix III</planetName>
-          <biome>Desert</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>42643284</population>
-          <size>62</size>
-          <usableSpace>0.786551535</usableSpace>
-          <baseMetalsAmount>70.01688</baseMetalsAmount>
-          <preciousMetalsAmount>35.7888947</preciousMetalsAmount>
-          <foodAvailability>10.5239639</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Othorix IV</planetName>
-          <biome>Continental</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>71</size>
-          <usableSpace>0.761507869</usableSpace>
-          <baseMetalsAmount>49.09922</baseMetalsAmount>
-          <preciousMetalsAmount>50.14764</preciousMetalsAmount>
-          <foodAvailability>38.49755</foodAvailability>
         </Planet_Class>
       </Array>
     </System_Class>
@@ -936,203 +542,99 @@
       <systemName>Durack</systemName>
       <colour>White</colour>
       <allegiance>0</allegiance>
-      <posX>5760</posX>
-      <posZ>-3780</posZ>
-      <nPlanets>2</nPlanets>
+      <posX>3132</posX>
+      <posZ>-5628</posZ>
+      <nPlanets>6</nPlanets>
       <Array>
         <Planet_Class>
           <planetName>Durack I</planetName>
-          <biome>Asteroid</biome>
-          <biomeID>3</biomeID>
+          <biome>Oasis</biome>
+          <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>9031652</population>
-          <size>69</size>
-          <usableSpace>0.4134412</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
+          <population>935525504</population>
+          <size>62</size>
+          <usableSpace>0.3120352</usableSpace>
+          <baseMetalsAmount>70.53473</baseMetalsAmount>
+          <preciousMetalsAmount>50.739315</preciousMetalsAmount>
+          <foodAvailability>54.00693</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Durack II</planetName>
           <biome>Glacial</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>443472544</population>
-          <size>55</size>
-          <usableSpace>0.246535555</usableSpace>
-          <baseMetalsAmount>89.84637</baseMetalsAmount>
-          <preciousMetalsAmount>56.8267</preciousMetalsAmount>
-          <foodAvailability>50.5721359</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Colosk</systemName>
-      <colour>Yellow</colour>
-      <allegiance>0</allegiance>
-      <posX>-5256</posX>
-      <posZ>-212</posZ>
-      <nPlanets>4</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Colosk I</planetName>
-          <biome>Ocean</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>706165824</population>
-          <size>81</size>
-          <usableSpace>0.2709919</usableSpace>
-          <baseMetalsAmount>82.96951</baseMetalsAmount>
-          <preciousMetalsAmount>49.1566238</preciousMetalsAmount>
-          <foodAvailability>59.1265869</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Colosk II</planetName>
-          <biome>Barren</biome>
-          <biomeID>4</biomeID>
-          <inhabited>false</inhabited>
-          <population>9967545</population>
-          <size>62</size>
-          <usableSpace>0.9123792</usableSpace>
-          <baseMetalsAmount>48.24184</baseMetalsAmount>
-          <preciousMetalsAmount>98.5868</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Colosk III</planetName>
-          <biome>Toxic (Phosphor)</biome>
-          <biomeID>17</biomeID>
-          <inhabited>false</inhabited>
-          <population>6436055</population>
-          <size>65</size>
-          <usableSpace>0.564481854</usableSpace>
-          <baseMetalsAmount>7.083828</baseMetalsAmount>
-          <preciousMetalsAmount>67.54017</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Colosk IV</planetName>
-          <biome>Gas Giant Methane</biome>
-          <biomeID>9</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>97</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Durack</systemName>
-      <colour>Orange</colour>
-      <allegiance>0</allegiance>
-      <posX>3079</posX>
-      <posZ>2177</posZ>
-      <nPlanets>7</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Durack I</planetName>
-          <biome>Gas Giant Methane</biome>
-          <biomeID>9</biomeID>
-          <inhabited>false</inhabited>
-          <population>8164572</population>
-          <size>72</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack II</planetName>
-          <biome>Gas Giant Hydrogen</biome>
-          <biomeID>8</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>99</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
+          <population>132757632</population>
+          <size>61</size>
+          <usableSpace>0.145357758</usableSpace>
+          <baseMetalsAmount>49.92389</baseMetalsAmount>
+          <preciousMetalsAmount>68.54262</preciousMetalsAmount>
+          <foodAvailability>49.2853279</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Durack III</planetName>
-          <biome>Asteroid</biome>
-          <biomeID>3</biomeID>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>545295744</population>
+          <size>52</size>
+          <usableSpace>0.287848324</usableSpace>
+          <baseMetalsAmount>50.9072838</baseMetalsAmount>
+          <preciousMetalsAmount>52.5904579</preciousMetalsAmount>
+          <foodAvailability>123.542465</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack IV</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>75</size>
-          <usableSpace>0.26013118</usableSpace>
+          <size>93</size>
+          <usableSpace>0</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Durack IV</planetName>
-          <biome>Continental</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>58</size>
-          <usableSpace>0.3912084</usableSpace>
-          <baseMetalsAmount>36.7249146</baseMetalsAmount>
-          <preciousMetalsAmount>49.73627</preciousMetalsAmount>
-          <foodAvailability>53.6673279</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
           <planetName>Durack V</planetName>
-          <biome>Gas Giant Hydrogen</biome>
-          <biomeID>8</biomeID>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>97</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <size>75</size>
+          <usableSpace>0.370687962</usableSpace>
+          <baseMetalsAmount>49.1340675</baseMetalsAmount>
+          <preciousMetalsAmount>38.4230232</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Durack VI</planetName>
-          <biome>Swamp</biome>
+          <biome>Arctic</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>0</population>
-          <size>53</size>
-          <usableSpace>0.32563445</usableSpace>
-          <baseMetalsAmount>91.2641449</baseMetalsAmount>
-          <preciousMetalsAmount>52.5081558</preciousMetalsAmount>
-          <foodAvailability>62.856163</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack VII</planetName>
-          <biome>Arid</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>77291088</population>
-          <size>61</size>
-          <usableSpace>0.349702328</usableSpace>
-          <baseMetalsAmount>88.36214</baseMetalsAmount>
-          <preciousMetalsAmount>60.6705322</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
+          <population>37154080</population>
+          <size>63</size>
+          <usableSpace>0.7047957</usableSpace>
+          <baseMetalsAmount>34.7568054</baseMetalsAmount>
+          <preciousMetalsAmount>49.14901</preciousMetalsAmount>
+          <foodAvailability>54.99144</foodAvailability>
         </Planet_Class>
       </Array>
     </System_Class>
     <System_Class>
       <systemName>Erzaf</systemName>
-      <colour>Red</colour>
-      <allegiance>1</allegiance>
-      <posX>9974</posX>
-      <posZ>-4785</posZ>
+      <colour>Orange</colour>
+      <allegiance>0</allegiance>
+      <posX>-3987</posX>
+      <posZ>-4534</posZ>
       <nPlanets>5</nPlanets>
       <Array>
         <Planet_Class>
           <planetName>Erzaf I</planetName>
-          <biome>Gas Giant Hydrogen</biome>
-          <biomeID>8</biomeID>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
           <inhabited>false</inhabited>
-          <population>636032</population>
-          <size>56</size>
+          <population>747130</population>
+          <size>66</size>
           <usableSpace>0</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
@@ -1140,311 +642,337 @@
         </Planet_Class>
         <Planet_Class>
           <planetName>Erzaf II</planetName>
-          <biome>Arctic</biome>
+          <biome>Desert</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>833276096</population>
-          <size>54</size>
-          <usableSpace>0.508570433</usableSpace>
-          <baseMetalsAmount>35.1283264</baseMetalsAmount>
-          <preciousMetalsAmount>46.4894753</preciousMetalsAmount>
-          <foodAvailability>63.53714</foodAvailability>
+          <population>132736960</population>
+          <size>60</size>
+          <usableSpace>0.5801201</usableSpace>
+          <baseMetalsAmount>49.702</baseMetalsAmount>
+          <preciousMetalsAmount>47.98848</preciousMetalsAmount>
+          <foodAvailability>50.79925</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Erzaf III</planetName>
-          <biome>Arctic</biome>
+          <biome>Tundra</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>556015552</population>
-          <size>91</size>
-          <usableSpace>0.41047582</usableSpace>
-          <baseMetalsAmount>62.1598625</baseMetalsAmount>
-          <preciousMetalsAmount>35.6265335</preciousMetalsAmount>
-          <foodAvailability>54.24187</foodAvailability>
+          <population>201827632</population>
+          <size>59</size>
+          <usableSpace>0.413706869</usableSpace>
+          <baseMetalsAmount>49.31326</baseMetalsAmount>
+          <preciousMetalsAmount>76.348465</preciousMetalsAmount>
+          <foodAvailability>54.13799</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Erzaf IV</planetName>
-          <biome>Oasis</biome>
-          <biomeID>0</biomeID>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
           <inhabited>false</inhabited>
-          <population>630804736</population>
-          <size>96</size>
-          <usableSpace>0.6863086</usableSpace>
-          <baseMetalsAmount>90.14018</baseMetalsAmount>
-          <preciousMetalsAmount>14.7469177</preciousMetalsAmount>
-          <foodAvailability>54.6193924</foodAvailability>
+          <population>2254592</population>
+          <size>80</size>
+          <usableSpace>0.252465</usableSpace>
+          <baseMetalsAmount>50.18495</baseMetalsAmount>
+          <preciousMetalsAmount>93.03284</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Erzaf V</planetName>
-          <biome>Tropical</biome>
+          <biome>Desert</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>178723568</population>
-          <size>74</size>
-          <usableSpace>0.203341261</usableSpace>
-          <baseMetalsAmount>80.6004639</baseMetalsAmount>
-          <preciousMetalsAmount>50.8470039</preciousMetalsAmount>
-          <foodAvailability>20.0177822</foodAvailability>
+          <population>718678208</population>
+          <size>54</size>
+          <usableSpace>0.554504931</usableSpace>
+          <baseMetalsAmount>66.6506653</baseMetalsAmount>
+          <preciousMetalsAmount>54.5381355</preciousMetalsAmount>
+          <foodAvailability>60.7592735</foodAvailability>
         </Planet_Class>
       </Array>
     </System_Class>
     <System_Class>
-      <systemName>Traous</systemName>
-      <colour>Purple</colour>
+      <systemName>Alpho</systemName>
+      <colour>Blue_Light</colour>
       <allegiance>0</allegiance>
-      <posX>-3174</posX>
-      <posZ>-4342</posZ>
-      <nPlanets>1</nPlanets>
+      <posX>-4147</posX>
+      <posZ>7952</posZ>
+      <nPlanets>5</nPlanets>
       <Array>
         <Planet_Class>
-          <planetName>Traous I</planetName>
-          <biome>Asteroid</biome>
-          <biomeID>3</biomeID>
+          <planetName>Alpho I</planetName>
+          <biome>Ocean</biome>
+          <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>4678294</population>
-          <size>69</size>
-          <usableSpace>0.359853446</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <population>848242944</population>
+          <size>85</size>
+          <usableSpace>0.343933374</usableSpace>
+          <baseMetalsAmount>51.51897</baseMetalsAmount>
+          <preciousMetalsAmount>75.60557</preciousMetalsAmount>
+          <foodAvailability>65.13475</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho II</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>2547337</population>
+          <size>78</size>
+          <usableSpace>0.939934969</usableSpace>
+          <baseMetalsAmount>52.2896576</baseMetalsAmount>
+          <preciousMetalsAmount>45.72738</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho III</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>52</size>
+          <usableSpace>0.6889431</usableSpace>
+          <baseMetalsAmount>62.8931732</baseMetalsAmount>
+          <preciousMetalsAmount>47.43691</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho IV</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>516595200</population>
+          <size>75</size>
+          <usableSpace>0.345381469</usableSpace>
+          <baseMetalsAmount>46.93693</baseMetalsAmount>
+          <preciousMetalsAmount>48.850502</preciousMetalsAmount>
+          <foodAvailability>40.071022</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho V</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>8530934</population>
+          <size>68</size>
+          <usableSpace>0.9458283</usableSpace>
+          <baseMetalsAmount>31.2150841</baseMetalsAmount>
+          <preciousMetalsAmount>50.5276375</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
       </Array>
     </System_Class>
     <System_Class>
       <systemName>Othorix</systemName>
-      <colour>Orange</colour>
+      <colour>Purple</colour>
       <allegiance>0</allegiance>
-      <posX>-2977</posX>
-      <posZ>-9319</posZ>
-      <nPlanets>5</nPlanets>
+      <posX>9743</posX>
+      <posZ>-5252</posZ>
+      <nPlanets>6</nPlanets>
       <Array>
         <Planet_Class>
           <planetName>Othorix I</planetName>
-          <biome>Gas Giant Hydrogen</biome>
-          <biomeID>8</biomeID>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>2993798</population>
-          <size>69</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
+          <population>765387200</population>
+          <size>56</size>
+          <usableSpace>0.5071561</usableSpace>
+          <baseMetalsAmount>90.64575</baseMetalsAmount>
+          <preciousMetalsAmount>50.8751335</preciousMetalsAmount>
+          <foodAvailability>32.49601</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Othorix II</planetName>
-          <biome>Moon</biome>
-          <biomeID>13</biomeID>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
           <inhabited>false</inhabited>
-          <population>8304114</population>
-          <size>93</size>
-          <usableSpace>0.535117865</usableSpace>
+          <population>5811043</population>
+          <size>78</size>
+          <usableSpace>0.372725427</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Othorix III</planetName>
-          <biome>Tropical</biome>
+          <biome>Tundra</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
           <size>65</size>
-          <usableSpace>0.6261727</usableSpace>
-          <baseMetalsAmount>34.21089</baseMetalsAmount>
-          <preciousMetalsAmount>35.3813858</preciousMetalsAmount>
-          <foodAvailability>49.3887138</foodAvailability>
+          <usableSpace>0.83921504</usableSpace>
+          <baseMetalsAmount>51.4362335</baseMetalsAmount>
+          <preciousMetalsAmount>49.5012474</preciousMetalsAmount>
+          <foodAvailability>50.3738365</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Othorix IV</planetName>
-          <biome>Swamp</biome>
-          <biomeID>0</biomeID>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>78</size>
-          <usableSpace>0.318907857</usableSpace>
-          <baseMetalsAmount>47.8179932</baseMetalsAmount>
-          <preciousMetalsAmount>23.2901878</preciousMetalsAmount>
-          <foodAvailability>34.13303</foodAvailability>
+          <size>70</size>
+          <usableSpace>0.6258648</usableSpace>
+          <baseMetalsAmount>59.0316162</baseMetalsAmount>
+          <preciousMetalsAmount>47.6698227</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Othorix V</planetName>
-          <biome>Continental</biome>
+          <biome>Mediterranean</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>0</population>
-          <size>84</size>
-          <usableSpace>0.3091042</usableSpace>
-          <baseMetalsAmount>45.9895668</baseMetalsAmount>
-          <preciousMetalsAmount>39.1680374</preciousMetalsAmount>
-          <foodAvailability>43.9858551</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Othorix</systemName>
-      <colour>Green_Light</colour>
-      <allegiance>3</allegiance>
-      <posX>5114</posX>
-      <posZ>-9609</posZ>
-      <nPlanets>3</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Othorix I</planetName>
-          <biome>Arid</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>209751744</population>
-          <size>53</size>
-          <usableSpace>0.437134355</usableSpace>
-          <baseMetalsAmount>63.81987</baseMetalsAmount>
-          <preciousMetalsAmount>18.1532326</preciousMetalsAmount>
-          <foodAvailability>50.0764847</foodAvailability>
+          <population>175283312</population>
+          <size>71</size>
+          <usableSpace>0.593136668</usableSpace>
+          <baseMetalsAmount>53.3942871</baseMetalsAmount>
+          <preciousMetalsAmount>41.37455</preciousMetalsAmount>
+          <foodAvailability>58.2862</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Othorix II</planetName>
-          <biome>Gas Giant Helium</biome>
-          <biomeID>7</biomeID>
-          <inhabited>false</inhabited>
-          <population>0</population>
-          <size>85</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Othorix III</planetName>
-          <biome>Gas Giant Helium</biome>
-          <biomeID>7</biomeID>
-          <inhabited>false</inhabited>
-          <population>8851329</population>
-          <size>77</size>
-          <usableSpace>0</usableSpace>
-          <baseMetalsAmount>0</baseMetalsAmount>
-          <preciousMetalsAmount>0</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Othorix</systemName>
-      <colour>White</colour>
-      <allegiance>2</allegiance>
-      <posX>7904</posX>
-      <posZ>9071</posZ>
-      <nPlanets>1</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Othorix I</planetName>
+          <planetName>Othorix VI</planetName>
           <biome>Gas Giant Hydrogen</biome>
           <biomeID>8</biomeID>
           <inhabited>false</inhabited>
-          <population>2966061</population>
-          <size>79</size>
+          <population>0</population>
+          <size>83</size>
           <usableSpace>0</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Erzaf</systemName>
+      <colour>Blue</colour>
+      <allegiance>0</allegiance>
+      <posX>-8167</posX>
+      <posZ>-3001</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Erzaf I</planetName>
+          <biome>Ocean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>724849216</population>
+          <size>53</size>
+          <usableSpace>0.291338235</usableSpace>
+          <baseMetalsAmount>15.836441</baseMetalsAmount>
+          <preciousMetalsAmount>63.77983</preciousMetalsAmount>
+          <foodAvailability>93.03355</foodAvailability>
         </Planet_Class>
       </Array>
     </System_Class>
     <System_Class>
       <systemName>Korus</systemName>
-      <colour>Orange</colour>
+      <colour>Blue</colour>
       <allegiance>0</allegiance>
-      <posX>-7404</posX>
-      <posZ>9989</posZ>
-      <nPlanets>3</nPlanets>
+      <posX>9652</posX>
+      <posZ>5030</posZ>
+      <nPlanets>7</nPlanets>
       <Array>
         <Planet_Class>
           <planetName>Korus I</planetName>
-          <biome>Desert</biome>
+          <biome>Glacial</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
-          <population>907001408</population>
-          <size>64</size>
-          <usableSpace>0.551288962</usableSpace>
-          <baseMetalsAmount>16.798645</baseMetalsAmount>
-          <preciousMetalsAmount>50.6128922</preciousMetalsAmount>
-          <foodAvailability>51.361557</foodAvailability>
+          <population>679714176</population>
+          <size>75</size>
+          <usableSpace>0.202810779</usableSpace>
+          <baseMetalsAmount>68.56273</baseMetalsAmount>
+          <preciousMetalsAmount>49.0687447</preciousMetalsAmount>
+          <foodAvailability>49.48796</foodAvailability>
         </Planet_Class>
         <Planet_Class>
           <planetName>Korus II</planetName>
-          <biome>Arctic</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>749103232</population>
-          <size>78</size>
-          <usableSpace>0.722981632</usableSpace>
-          <baseMetalsAmount>49.0400047</baseMetalsAmount>
-          <preciousMetalsAmount>56.9075966</preciousMetalsAmount>
-          <foodAvailability>50.75601</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Korus III</planetName>
-          <biome>Continental</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>440208512</population>
-          <size>94</size>
-          <usableSpace>0.668879449</usableSpace>
-          <baseMetalsAmount>50.44808</baseMetalsAmount>
-          <preciousMetalsAmount>33.4235</preciousMetalsAmount>
-          <foodAvailability>49.1090851</foodAvailability>
-        </Planet_Class>
-      </Array>
-    </System_Class>
-    <System_Class>
-      <systemName>Dendo</systemName>
-      <colour>Blue</colour>
-      <allegiance>2</allegiance>
-      <posX>9932</posX>
-      <posZ>4798</posZ>
-      <nPlanets>4</nPlanets>
-      <Array>
-        <Planet_Class>
-          <planetName>Dendo I</planetName>
-          <biome>Ocean</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>361064544</population>
-          <size>84</size>
-          <usableSpace>0.148889244</usableSpace>
-          <baseMetalsAmount>48.40148</baseMetalsAmount>
-          <preciousMetalsAmount>52.6780968</preciousMetalsAmount>
-          <foodAvailability>63.5438423</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Dendo II</planetName>
-          <biome>Toxic (Sulphur)</biome>
-          <biomeID>18</biomeID>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>72</size>
-          <usableSpace>0.6502134</usableSpace>
-          <baseMetalsAmount>40.8271179</baseMetalsAmount>
+          <size>66</size>
+          <usableSpace>0.242666721</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Dendo III</planetName>
-          <biome>Swamp</biome>
+          <planetName>Korus III</planetName>
+          <biome>Oasis</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>412054624</population>
+          <size>75</size>
+          <usableSpace>0.6559769</usableSpace>
+          <baseMetalsAmount>50.92407</baseMetalsAmount>
+          <preciousMetalsAmount>118.526337</preciousMetalsAmount>
+          <foodAvailability>49.77487</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus IV</planetName>
+          <biome>Oasis</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>693570048</population>
+          <size>55</size>
+          <usableSpace>0.5042857</usableSpace>
+          <baseMetalsAmount>43.01979</baseMetalsAmount>
+          <preciousMetalsAmount>53.715847</preciousMetalsAmount>
+          <foodAvailability>31.0290222</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus V</planetName>
+          <biome>Arctic</biome>
           <biomeID>0</biomeID>
           <inhabited>false</inhabited>
           <population>0</population>
-          <size>83</size>
-          <usableSpace>0.385425776</usableSpace>
-          <baseMetalsAmount>48.01559</baseMetalsAmount>
-          <preciousMetalsAmount>50.5804939</preciousMetalsAmount>
-          <foodAvailability>62.5515747</foodAvailability>
+          <size>61</size>
+          <usableSpace>0.49803865</usableSpace>
+          <baseMetalsAmount>50.2539864</baseMetalsAmount>
+          <preciousMetalsAmount>41.56924</preciousMetalsAmount>
+          <foodAvailability>53.0274849</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Dendo IV</planetName>
-          <biome>Gas Giant Helium</biome>
-          <biomeID>7</biomeID>
+          <planetName>Korus VI</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
           <inhabited>false</inhabited>
-          <population>0</population>
-          <size>90</size>
+          <population>7731156</population>
+          <size>59</size>
+          <usableSpace>0.46727705</usableSpace>
+          <baseMetalsAmount>42.04453</baseMetalsAmount>
+          <preciousMetalsAmount>69.12956</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus VII</planetName>
+          <biome>Alpine</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>686394304</population>
+          <size>64</size>
+          <usableSpace>0.348355472</usableSpace>
+          <baseMetalsAmount>106.800575</baseMetalsAmount>
+          <preciousMetalsAmount>50.40422</preciousMetalsAmount>
+          <foodAvailability>53.72536</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Alpho</systemName>
+      <colour>Green</colour>
+      <allegiance>0</allegiance>
+      <posX>4690</posX>
+      <posZ>-2527</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Alpho I</planetName>
+          <biome>Gas Giant Methane</biome>
+          <biomeID>9</biomeID>
+          <inhabited>false</inhabited>
+          <population>4338953</population>
+          <size>67</size>
           <usableSpace>0</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
@@ -1453,59 +981,301 @@
       </Array>
     </System_Class>
     <System_Class>
-      <systemName>Durack</systemName>
-      <colour>Red</colour>
-      <allegiance>2</allegiance>
-      <posX>3616</posX>
-      <posZ>-892</posZ>
-      <nPlanets>4</nPlanets>
+      <systemName>Erzaf</systemName>
+      <colour>Blue_Light</colour>
+      <allegiance>0</allegiance>
+      <posX>-7328</posX>
+      <posZ>6685</posZ>
+      <nPlanets>2</nPlanets>
       <Array>
         <Planet_Class>
-          <planetName>Durack I</planetName>
-          <biome>Asteroid</biome>
-          <biomeID>3</biomeID>
+          <planetName>Erzaf I</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
           <inhabited>false</inhabited>
-          <population>8130338</population>
-          <size>78</size>
-          <usableSpace>0.3761573</usableSpace>
+          <population>1997614</population>
+          <size>69</size>
+          <usableSpace>0.40591225</usableSpace>
+          <baseMetalsAmount>1.76868439</baseMetalsAmount>
+          <preciousMetalsAmount>61.1493149</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Erzaf II</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>52</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Urnin</systemName>
+      <colour>Pink</colour>
+      <allegiance>0</allegiance>
+      <posX>-430</posX>
+      <posZ>3229</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Urnin I</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>8348863</population>
+          <size>66</size>
+          <usableSpace>0.513948441</usableSpace>
           <baseMetalsAmount>0</baseMetalsAmount>
           <preciousMetalsAmount>0</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
         <Planet_Class>
-          <planetName>Durack II</planetName>
-          <biome>Toxic (Phosphor)</biome>
-          <biomeID>17</biomeID>
-          <inhabited>false</inhabited>
-          <population>5233704</population>
-          <size>73</size>
-          <usableSpace>0.515474558</usableSpace>
-          <baseMetalsAmount>52.4444847</baseMetalsAmount>
-          <preciousMetalsAmount>46.9237442</preciousMetalsAmount>
-          <foodAvailability>0</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack III</planetName>
-          <biome>Alpine</biome>
-          <biomeID>0</biomeID>
-          <inhabited>false</inhabited>
-          <population>345706688</population>
-          <size>65</size>
-          <usableSpace>0.282195061</usableSpace>
-          <baseMetalsAmount>29.1928673</baseMetalsAmount>
-          <preciousMetalsAmount>42.83004</preciousMetalsAmount>
-          <foodAvailability>50.5765762</foodAvailability>
-        </Planet_Class>
-        <Planet_Class>
-          <planetName>Durack IV</planetName>
+          <planetName>Urnin II</planetName>
           <biome>Toxic (Sulphur)</biome>
           <biomeID>18</biomeID>
           <inhabited>false</inhabited>
-          <population>2693214</population>
-          <size>71</size>
-          <usableSpace>0.325719416</usableSpace>
-          <baseMetalsAmount>16.4705276</baseMetalsAmount>
-          <preciousMetalsAmount>57.1457443</preciousMetalsAmount>
+          <population>2032615</population>
+          <size>56</size>
+          <usableSpace>0.363067269</usableSpace>
+          <baseMetalsAmount>52.16324</baseMetalsAmount>
+          <preciousMetalsAmount>42.83405</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin III</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>86</size>
+          <usableSpace>0.383149356</usableSpace>
+          <baseMetalsAmount>46.141407</baseMetalsAmount>
+          <preciousMetalsAmount>68.3641739</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin IV</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>2128137</population>
+          <size>65</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin V</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>1064964</population>
+          <size>70</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Urnin</systemName>
+      <colour>Yellow</colour>
+      <allegiance>0</allegiance>
+      <posX>4976</posX>
+      <posZ>976</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Urnin I</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>1732817</population>
+          <size>99</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>White</colour>
+      <allegiance>3</allegiance>
+      <posX>7359</posX>
+      <posZ>-8539</posZ>
+      <nPlanets>2</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Arctic</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>208670976</population>
+          <size>58</size>
+          <usableSpace>0.8465837</usableSpace>
+          <baseMetalsAmount>45.7204247</baseMetalsAmount>
+          <preciousMetalsAmount>21.3611813</preciousMetalsAmount>
+          <foodAvailability>52.0787163</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>69</size>
+          <usableSpace>0.5471631</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>Blue</colour>
+      <allegiance>1</allegiance>
+      <posX>-4487</posX>
+      <posZ>-1093</posZ>
+      <nPlanets>3</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>851025664</population>
+          <size>57</size>
+          <usableSpace>0.116509587</usableSpace>
+          <baseMetalsAmount>53.4708176</baseMetalsAmount>
+          <preciousMetalsAmount>40.21478</preciousMetalsAmount>
+          <foodAvailability>41.51509</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>50</size>
+          <usableSpace>0.460806459</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>67.1761</preciousMetalsAmount>
+          <foodAvailability>50.4755173</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis III</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>75527952</population>
+          <size>50</size>
+          <usableSpace>0.133993626</usableSpace>
+          <baseMetalsAmount>104.870659</baseMetalsAmount>
+          <preciousMetalsAmount>43.4055862</preciousMetalsAmount>
+          <foodAvailability>51.8088264</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Traous</systemName>
+      <colour>Green_Light</colour>
+      <allegiance>3</allegiance>
+      <posX>667</posX>
+      <posZ>-8679</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Traous I</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>5050229</population>
+          <size>92</size>
+          <usableSpace>0.600196362</usableSpace>
+          <baseMetalsAmount>56.7427521</baseMetalsAmount>
+          <preciousMetalsAmount>41.7080879</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous II</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>6973535</population>
+          <size>54</size>
+          <usableSpace>0.7357476</usableSpace>
+          <baseMetalsAmount>46.5895844</baseMetalsAmount>
+          <preciousMetalsAmount>3.63749313</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous III</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>62</size>
+          <usableSpace>0.772964835</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous IV</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>54</size>
+          <usableSpace>0.162810415</usableSpace>
+          <baseMetalsAmount>58.663147</baseMetalsAmount>
+          <preciousMetalsAmount>55.5231171</preciousMetalsAmount>
+          <foodAvailability>50.8487854</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous V</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>52</size>
+          <usableSpace>0.284263164</usableSpace>
+          <baseMetalsAmount>31.2585983</baseMetalsAmount>
+          <preciousMetalsAmount>50.2161255</preciousMetalsAmount>
+          <foodAvailability>50.2562027</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous VI</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>4043639</population>
+          <size>91</size>
+          <usableSpace>0.371280074</usableSpace>
+          <baseMetalsAmount>51.5583878</baseMetalsAmount>
+          <preciousMetalsAmount>46.62912</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous VII</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>89</size>
+          <usableSpace>0.622210443</usableSpace>
+          <baseMetalsAmount>54.1767654</baseMetalsAmount>
+          <preciousMetalsAmount>50.5379143</preciousMetalsAmount>
           <foodAvailability>0</foodAvailability>
         </Planet_Class>
       </Array>
@@ -1537,7 +1307,7 @@
           <b>0</b>
           <a>1</a>
         </colour>
-        <nPlanets>3</nPlanets>
+        <nPlanets>2</nPlanets>
       </AI_Class>
       <AI_Class>
         <race>
@@ -1553,7 +1323,7 @@
           <b>0.9150943</b>
           <a>1</a>
         </colour>
-        <nPlanets>4</nPlanets>
+        <nPlanets>2</nPlanets>
       </AI_Class>
       <AI_Class>
         <race>
@@ -1569,7 +1339,7 @@
           <b>0</b>
           <a>1</a>
         </colour>
-        <nPlanets>4</nPlanets>
+        <nPlanets>5</nPlanets>
       </AI_Class>
     </toggledAI>
   </generatedProduct>

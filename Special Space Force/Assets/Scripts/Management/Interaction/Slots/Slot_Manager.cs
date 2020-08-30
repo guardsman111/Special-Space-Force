@@ -13,6 +13,9 @@ public class Slot_Manager : MonoBehaviour
     public GameObject slotN1;
     public GraphicRaycaster raycaster;
     public Slot_Script Highest;
+    public Slot_Button moveToDropdown;
+    public Text currentName;
+    public bool menu;
 
     public void NewSlotTop()
     {
@@ -27,11 +30,13 @@ public class Slot_Manager : MonoBehaviour
         viewedSlot.containedSlots.Add(tempS);
         slots = new List<Slot_Class>();
         slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+        moveToDropdown.SetDropdown();
     }
 
     public void OpenSlot(Slot_Script newViewed)
     {
         viewedSlot = newViewed;
+        currentName.text = newViewed.slotName;
         foreach(Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
         {
             ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
@@ -41,6 +46,7 @@ public class Slot_Manager : MonoBehaviour
     public void UpSlot()
     {
         viewedSlot = viewedSlot.slotParent;
+        currentName.text = viewedSlot.slotName;
         foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
         {
             ss.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
@@ -50,22 +56,35 @@ public class Slot_Manager : MonoBehaviour
     public void TopSlot()
     {
         viewedSlot = slotN1.GetComponent<Slot_Script>();
+        currentName.text = viewedSlot.slotName;
         foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
         {
             ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
         }
     }
 
+    public void MoveToSlot(GameObject Dropdown)
+    {
+        FindSelected(Dropdown.GetComponent<Dropdown>());
+        Debug.Log("Moving to Slot " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
+    }
+
+    public void MovingSlot(bool setting)
+    {
+        menu = setting;
+    }
+
     void Awake()
     {
-        // Get both of the components we need to do this
+        // Get the components we need to do this
         raycaster = GetComponent<GraphicRaycaster>();
+        menu = false;
     }
 
     void Update()
     {
         //Check if the left Mouse button is clicked
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !menu)
         {
             //Set up the new Pointer Event
             PointerEventData pointerData = new PointerEventData(EventSystem.current);
@@ -91,16 +110,47 @@ public class Slot_Manager : MonoBehaviour
                         Highest = temp;
                         highestSlotHeight = temp.slotHeight;
                     }
-                    Debug.Log("Hit " + result.gameObject.name);
                 }
             }
 
-            if(highestSlotHeight > -2)
+            if(highestSlotHeight > -2 && !menu)
             {
                 OpenSlot(Highest);
-                Debug.Log("Opening " + Highest.slotName);
             }
 
+        }
+    }
+
+    public void FindSelected(Dropdown dropdown)
+    {
+        CheckSlot(slotN1.GetComponent<Slot_Script>(), dropdown.options[dropdown.value].text);
+    }
+
+    private void CheckSlot(Slot_Script slot, string name)
+    {
+        string dash = "-";
+        string noDashes;
+
+        noDashes = name.Replace(dash, "");
+
+        if (noDashes == slot.slotName)
+        {
+            viewedSlot.transform.position = new Vector3(0, 0, 0);
+            slot.containedSlots.Add(viewedSlot);
+            viewedSlot.slotParent.containedSlots.Remove(viewedSlot);
+            viewedSlot.slotParent = slot;
+            viewedSlot.transform.SetParent(slot.transform,false);
+            OpenSlot(slot);
+            slots = new List<Slot_Class>();
+            slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+        }
+        else
+        {
+
+            foreach (Slot_Script sc in slot.containedSlots)
+            {
+                CheckSlot(sc, name);
+            }
         }
     }
 }

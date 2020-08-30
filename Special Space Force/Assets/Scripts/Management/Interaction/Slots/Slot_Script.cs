@@ -216,6 +216,10 @@ public class Slot_Script : MonoBehaviour
                             rTransform.position = parent.positions4[2].transform.position;
                             break;
 
+                        case 4:
+                            rTransform.position = parent.positions4[3].transform.position;
+                            break;
+
                     }
                 }
                 if (nSlots >= 5 && nSlots < 7)
@@ -377,19 +381,31 @@ public class Slot_Script : MonoBehaviour
                 break;
 
             case 3:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 2) + 25, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 2) + 50, 0);
                 break;
 
             case 4:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 3) + 25, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 3) + 50, 0);
                 break;
 
             case 5:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 4) + 25, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 4) + 50, 0);
                 break;
 
             case 6:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 5) + 25, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 5) + 50, 0);
+                break;
+
+            case 7:
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 6) + 50, 0);
+                break;
+
+            case 8:
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 7) + 50, 0);
+                break;
+
+            case 9:
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 8) + 25, 0);
                 break;
 
         }
