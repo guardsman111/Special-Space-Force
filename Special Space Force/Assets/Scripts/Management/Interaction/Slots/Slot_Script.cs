@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ public class Slot_Script : MonoBehaviour
     public Transform firstPosition;
     public RectTransform background;
     public int ID;
-    public InputField input;
+    public TMP_InputField input;
     public Slot_Manager manager;
 
     public GameObject[] positions4;
@@ -85,11 +86,14 @@ public class Slot_Script : MonoBehaviour
         switch (viewedSlot.slotHeight - slotHeight)
         {
             case -2:
+                input.textComponent.enableWordWrapping = true;
                 if (nSlots < 5)
                 {
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 60), -((transform.localScale.y / 100) * 60));
                     input.transform.localScale = new Vector3(1.4f, 1.4f);
                     input.textComponent.transform.localScale = new Vector3(1.4f, 1.4f);
+                    input.textComponent.fontSize = 36;
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
 
                     switch (ID)
                     {
@@ -106,6 +110,10 @@ public class Slot_Script : MonoBehaviour
                             rTransform.position = parent.positions4[2].transform.position;
                             break;
 
+                        case 4:
+                            rTransform.position = parent.positions4[3].transform.position;
+                            break;
+
                     }
                 }
                 if (nSlots >= 5 && nSlots < 7)
@@ -113,6 +121,8 @@ public class Slot_Script : MonoBehaviour
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 70), -((transform.localScale.y / 100) * 70));
                     input.transform.localScale = new Vector3(1.5f, 1.5f);
                     input.textComponent.transform.localScale = new Vector3(1.5f, 1.5f);
+                    input.textComponent.fontSize = 36;
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
 
                     switch (ID)
                     {
@@ -147,6 +157,8 @@ public class Slot_Script : MonoBehaviour
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 71), -((transform.localScale.y / 100) * 71));
                     input.transform.localScale = new Vector3(1.6f, 1.6f);
                     input.textComponent.transform.localScale = new Vector3(1.6f, 1.6f);
+                    input.textComponent.fontSize = 36;
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
 
                     switch (ID)
                     {
@@ -194,12 +206,15 @@ public class Slot_Script : MonoBehaviour
                 background.gameObject.SetActive(true);
                 break;
             case -3:
+                input.textComponent.enableWordWrapping = true;
                 if (nSlots < 5)
                 {
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 60), -((transform.localScale.y / 100) * 60));
-                    //input.transform.localScale = new Vector3(2.4f, 2.4f);
-                    //input.textComponent.transform.localScale = new Vector3(2.4f, 2.4f);
-                    input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 300f);
+                    input.transform.localScale = new Vector3(2.4f, 2.4f);
+                    input.textComponent.transform.localScale = new Vector3(1, 1);
+                    input.textComponent.fontSize = 72;
+                    input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(375,300);
 
                     switch (ID)
                     {
@@ -225,9 +240,11 @@ public class Slot_Script : MonoBehaviour
                 if (nSlots >= 5 && nSlots < 7)
                 {
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 70), -((transform.localScale.y / 100) * 70));
-                    //input.transform.localScale = new Vector3(2.3f, 2.3f);
-                    //input.textComponent.transform.localScale = new Vector3(2.3f, 2.3f);
-                    input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 300f);
+                    input.transform.localScale = new Vector3(2.3f, 2.3f);
+                    input.textComponent.transform.localScale = new Vector3(1, 1);
+                    input.textComponent.fontSize = 72;
+                    input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 300);
 
                     switch (ID)
                     {
@@ -260,9 +277,11 @@ public class Slot_Script : MonoBehaviour
                 if (nSlots >= 7)
                 {
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 71), -((transform.localScale.y / 100) * 71));
-                    //input.transform.localScale = new Vector3(2.2f, 2.2f);
-                    //input.textComponent.transform.localScale = new Vector3(2.2f, 2.2f);
-                    input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 300f);
+                    input.transform.localScale = new Vector3(2.2f, 2.2f);
+                    input.textComponent.transform.localScale = new Vector3(1, 1);
+                    input.textComponent.fontSize = 72;
+                    input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 300);
 
                     switch (ID)
                     {
@@ -385,34 +404,37 @@ public class Slot_Script : MonoBehaviour
                 break;
 
             case 4:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 3) + 50, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 3) + 75, 0);
                 break;
 
             case 5:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 4) + 50, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 4) + 100, 0);
                 break;
 
             case 6:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 5) + 50, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 5) + 125, 0);
                 break;
 
             case 7:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 6) + 50, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 6) + 150, 0);
                 break;
 
             case 8:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 7) + 50, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 7) + 175, 0);
                 break;
 
             case 9:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 8) + 25, 0);
+                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 8) + 200, 0);
                 break;
 
         }
         gameObject.transform.localScale = new Vector3(1, 1);
         input.transform.localScale = new Vector3(1, 1);
         input.textComponent.transform.localScale = new Vector3(1, 1);
-        input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 400f);
+        input.textComponent.fontSize = 36;
+        input.textComponent.enableWordWrapping = true;
+        input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 400);
+        input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
 
         gameObject.transform.localScale = new Vector3(1, 1);
         gameObject.GetComponent<Image>().color = new Color32(191, 191, 191,100);
@@ -449,6 +471,27 @@ public class Slot_Script : MonoBehaviour
         }
 
         return slotClass;
+    }
+
+    public void SetName(TMP_Text nName)
+    {
+        slotName = nName.text;
+        input.text = nName.text;
+    }
+
+    public void SetName(string nName)
+    {
+        slotName = nName;
+        input.text = nName;
+    }
+
+    public void NameSelected()
+    {
+        manager.menu = true;
+    }
+    public void NameDeselected()
+    {
+        manager.menu = false;
     }
 
     public Slot_Class SaveClass()

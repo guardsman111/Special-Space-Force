@@ -14,7 +14,8 @@ public class Slot_Manager : MonoBehaviour
     public GraphicRaycaster raycaster;
     public Slot_Script Highest;
     public Slot_Button moveToDropdown;
-    public Text currentName;
+    public InputField currentName;
+    public Scrollbar slotFieldScroll;
     public bool menu;
 
     public void NewSlotTop()
@@ -41,6 +42,7 @@ public class Slot_Manager : MonoBehaviour
         {
             ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
         }
+        slotFieldScroll.value = 0;
     }
 
     public void UpSlot()
@@ -51,6 +53,7 @@ public class Slot_Manager : MonoBehaviour
         {
             ss.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
         }
+        slotFieldScroll.value = 0;
     }
 
     public void TopSlot()
@@ -61,12 +64,19 @@ public class Slot_Manager : MonoBehaviour
         {
             ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
         }
+        slotFieldScroll.value = 0;
+    }
+
+    public void SetName(Text textBox)
+    {
+        viewedSlot.SetName(textBox.text);
     }
 
     public void MoveToSlot(GameObject Dropdown)
     {
         FindSelected(Dropdown.GetComponent<Dropdown>());
         Debug.Log("Moving to Slot " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
+        slotFieldScroll.value = 0;
     }
 
     public void MovingSlot(bool setting)

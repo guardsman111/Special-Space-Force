@@ -50,6 +50,7 @@ public class Generation_Settings_Director : MonoBehaviour
 
 
     public ToggleVisiblePlanets planetToggle;
+    public bool generateOnPlay;
 
     //This starts on Game Start
     void Start()
@@ -79,6 +80,11 @@ public class Generation_Settings_Director : MonoBehaviour
 
         //Turn off AI 4 for fun
         AIToggle(3);
+
+        if (generateOnPlay)
+        {
+            StartGeneration(true);
+        }
     }
 
     //Starts the generation, grabs all the values and packages them into a Generation_Class
