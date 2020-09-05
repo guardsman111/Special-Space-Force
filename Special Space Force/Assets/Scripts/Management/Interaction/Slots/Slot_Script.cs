@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Slot_Script : MonoBehaviour
 {
+    /// <summary>
+    /// This Script holds the information for a single slot, but also contains Lists of slots and troopers stored within it.
+    /// </summary>
     public List<Slot_Script> containedSlots;
     public List<Trooper_Script> containedTroopers;
     public string slotName;
@@ -16,10 +19,12 @@ public class Slot_Script : MonoBehaviour
     public int ID;
     public TMP_InputField input;
     public Slot_Manager manager;
+    public bool squad;
 
     public GameObject[] positions4;
     public GameObject[] positions6;
     public GameObject[] positions9;
+    public GameObject[] squadPositions;
 
     public int slotHeight;
 
@@ -32,6 +37,7 @@ public class Slot_Script : MonoBehaviour
         slotHeight = newSlotHeight;
         containedSlots = new List<Slot_Script>();
         containedTroopers = new List<Trooper_Script>();
+        squad = false;
         input.text = slotName;
         manager = nManager;
     }
@@ -41,6 +47,9 @@ public class Slot_Script : MonoBehaviour
         slotClass = slot;
         slotName = slot.slotName;
         slotHeight = slot.slotHeight;
+        containedSlots = new List<Slot_Script>();
+        containedTroopers = new List<Trooper_Script>();
+        squad = slot.squad;
 
         ID = positionID;
         input.text = slotName;
@@ -57,6 +66,8 @@ public class Slot_Script : MonoBehaviour
         input.text = slotName;
         manager = nManager;
         background = slot.background;
+        containedSlots = slot.containedSlots;
+        containedTroopers = slot.containedTroopers;
     }
 
     public void AddContainedSlots(List<Slot_Script> slotList)
@@ -69,6 +80,7 @@ public class Slot_Script : MonoBehaviour
         containedTroopers = trooperList;
     }
 
+    //Sets the position of the slot according to its slot height relative to the currently viewed slot
     public void SetPosition(Slot_Script parent, int nSlots, Slot_Script viewedSlot)
     {
         RectTransform rTransform = GetComponent<RectTransform>();
@@ -82,9 +94,10 @@ public class Slot_Script : MonoBehaviour
         background.gameObject.SetActive(true);
         input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 400f);
 
-        //Set Scale depending on its size compared too parent (anything else should not appear)
+        //Set Scale and position depending on its size compared too parent (anything else should not appear)
         switch (viewedSlot.slotHeight - slotHeight)
         {
+            //If the height difference is -2 (meaning the slot is 2 higher, i.e. height 3 vs viewed slot height 1)
             case -2:
                 input.textComponent.enableWordWrapping = true;
                 if (nSlots < 5)
@@ -201,10 +214,9 @@ public class Slot_Script : MonoBehaviour
                     }
                 }
                 input.enabled = true;
-                gameObject.GetComponent<Image>().enabled = true;
                 gameObject.GetComponent<Image>().color = new Color32(169, 169, 169,100);
-                background.gameObject.SetActive(true);
                 break;
+            //If the height difference is -3 (meaning the slot is 3 higher, i.e. height 4 vs viewed slot height 1)
             case -3:
                 input.textComponent.enableWordWrapping = true;
                 if (nSlots < 5)
@@ -324,10 +336,9 @@ public class Slot_Script : MonoBehaviour
                     }
                 }
                 input.enabled = true;
-                gameObject.GetComponent<Image>().enabled = true;
-                background.gameObject.SetActive(true);
                 gameObject.GetComponent<Image>().color = new Color32(180, 180, 180, 100);
                 break;
+            //By default, hide the slot and return positions to neutral
             default:
                 if (viewedSlot.slotHeight - slotHeight > 0)
                 {
@@ -346,24 +357,26 @@ public class Slot_Script : MonoBehaviour
                 break;
         }
 
+        //If height is the same, set its children using the second method
         if (slotHeight == viewedSlot.slotHeight)
         {
             foreach (Slot_Script ss in containedSlots)
             {
                 ss.SetPosition(manager.slotN1.GetComponent<Slot_Script>(), viewedSlot);
                 gameObject.SetActive(true);
-            }
+            } 
             rTransform.localPosition = new Vector3(0, 0);
             gameObject.transform.localScale = new Vector3(1, 1);
             input.gameObject.SetActive(false);
             gameObject.GetComponent<Image>().enabled = false;
             background.gameObject.SetActive(false);
         }
+        //If viewing the top slot, sets the positions of 0 height slots using the second method (They aren't caught by above code individually
         else if(slotHeight == 0 && viewedSlot.slotHeight == -1)
         {
             SetPosition(manager.slotN1.GetComponent<Slot_Script>(), viewedSlot);
         }
-        else
+        else //else set its children with this method
         {
             foreach (Slot_Script ss in containedSlots)
             {
@@ -371,6 +384,8 @@ public class Slot_Script : MonoBehaviour
             }
         }
 
+        //If the slot should be visible (is child of the viewed slot or one of its children, or is a child of a child of the viewed slot(Mad eh?))
+        //then it is set to visible here
         if (slotParent == viewedSlot || slotParent.slotParent == viewedSlot || slotParent.slotParent.slotParent == viewedSlot)
         {
             input.gameObject.SetActive(true);
@@ -383,8 +398,29 @@ public class Slot_Script : MonoBehaviour
             gameObject.GetComponent<Image>().enabled = false;
             background.gameObject.SetActive(false);
         }
+
+        if (squad)
+        {
+            if (slotHeight == viewedSlot.slotHeight && slotParent == viewedSlot.slotParent)
+            {
+                foreach (Trooper_Script ts in containedTroopers)
+                {
+                    ts.SetPosition(manager.slotN1.GetComponent<Slot_Script>(), viewedSlot);
+                    gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                foreach (Trooper_Script ts in containedTroopers)
+                {
+                    ts.SetPosition(this, viewedSlot);
+                    gameObject.SetActive(true);
+                }
+            }
+        }
     }
 
+    //Sets the position and scale of the slot according to its slot height relative to the currently viewed slot
     public void SetPosition(Slot_Script parent, Slot_Script viewedSlot)
     {
         RectTransform rTransform = GetComponent<RectTransform>();
@@ -439,12 +475,8 @@ public class Slot_Script : MonoBehaviour
         gameObject.transform.localScale = new Vector3(1, 1);
         gameObject.GetComponent<Image>().color = new Color32(191, 191, 191,100);
 
-        foreach (Slot_Script ss in containedSlots)
-        {
-            ss.gameObject.transform.localScale = new Vector3(1, 1);
-            ss.SetPosition(this, containedSlots.Count, viewedSlot);
-        }
 
+        //If its parent is the viewed slot it is set visible here
         if (slotParent == viewedSlot)
         {
             input.gameObject.SetActive(true);
@@ -457,12 +489,50 @@ public class Slot_Script : MonoBehaviour
             gameObject.GetComponent<Image>().enabled = false;
             background.gameObject.SetActive(false);
         }
+
+        if (squad)
+        {
+            foreach (Trooper_Script ts in containedTroopers)
+            {
+                ts.SetPosition(this, viewedSlot);
+                gameObject.SetActive(true);
+            }
+        } else
+        {
+            //Sets children's positions with the first method
+            foreach (Slot_Script ss in containedSlots)
+            {
+                ss.gameObject.transform.localScale = new Vector3(1, 1);
+                ss.SetPosition(this, containedSlots.Count, viewedSlot);
+            }
+        }
     }
 
+    //Master Script save code that only runs on the top script. Forces the saving of all other scripts below it.
     public Slot_Class MasterSaveClass()
     {
         slotClass = new Slot_Class();
         slotClass.slotHeight = slotHeight;
+        slotClass.containedSlots = new List<Slot_Class>();
+        slotClass.squad = squad;
+
+        foreach (Slot_Script ss in containedSlots)
+        {
+            slotClass.containedSlots.Add(ss.SaveClass());
+        }
+
+        return slotClass;
+    }
+
+    //Saves the Script as a Class
+    public Slot_Class SaveClass()
+    {
+        slotClass = new Slot_Class();
+        slotClass.slotName = slotName;
+        slotClass.slotHeight = slotHeight;
+        slotClass.positionID = ID;
+        slotClass.squad = squad;
+
         slotClass.containedSlots = new List<Slot_Class>();
 
         foreach (Slot_Script ss in containedSlots)
@@ -489,25 +559,9 @@ public class Slot_Script : MonoBehaviour
     {
         manager.menu = true;
     }
+
     public void NameDeselected()
     {
         manager.menu = false;
-    }
-
-    public Slot_Class SaveClass()
-    {
-        slotClass = new Slot_Class();
-        slotClass.slotName = slotName;
-        slotClass.slotHeight = slotHeight;
-        slotClass.positionID = ID;
-
-        slotClass.containedSlots = new List<Slot_Class>();
-
-        foreach (Slot_Script ss in containedSlots)
-        {
-            slotClass.containedSlots.Add(ss.SaveClass());
-        }
-
-        return slotClass;
     }
 }
