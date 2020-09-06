@@ -102,12 +102,6 @@ public class Slot_Script : MonoBehaviour
                 input.textComponent.enableWordWrapping = true;
                 if (nSlots < 5)
                 {
-                    transform.localScale += new Vector3(-((transform.localScale.x / 100) * 60), -((transform.localScale.y / 100) * 60));
-                    input.transform.localScale = new Vector3(1.4f, 1.4f);
-                    input.textComponent.transform.localScale = new Vector3(1.4f, 1.4f);
-                    input.textComponent.fontSize = 36;
-                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
-
                     switch (ID)
                     {
 
@@ -116,27 +110,27 @@ public class Slot_Script : MonoBehaviour
                             break;
 
                         case 2:
-                            rTransform.position = parent.positions4[1].transform.position;
+                            rTransform.position = parent.positions4[0].transform.position + new Vector3(450, 0);
                             break;
 
                         case 3:
-                            rTransform.position = parent.positions4[2].transform.position;
+                            rTransform.position = parent.positions4[0].transform.position + new Vector3(0, -400);
                             break;
 
                         case 4:
-                            rTransform.position = parent.positions4[3].transform.position;
+                            rTransform.position = parent.positions4[0].transform.position + new Vector3(450, -400);
                             break;
 
                     }
+
+                    transform.localScale += new Vector3(-((transform.localScale.x / 100) * 60), -((transform.localScale.y / 100) * 60));
+                    input.transform.localScale = new Vector3(1.4f, 1.4f);
+                    input.textComponent.transform.localScale = new Vector3(1.4f, 1.4f);
+                    input.textComponent.fontSize = 36;
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
                 }
                 if (nSlots >= 5 && nSlots < 7)
                 {
-                    transform.localScale += new Vector3(-((transform.localScale.x / 100) * 70), -((transform.localScale.y / 100) * 70));
-                    input.transform.localScale = new Vector3(1.5f, 1.5f);
-                    input.textComponent.transform.localScale = new Vector3(1.5f, 1.5f);
-                    input.textComponent.fontSize = 36;
-                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
-
                     switch (ID)
                     {
                         case 1:
@@ -144,35 +138,35 @@ public class Slot_Script : MonoBehaviour
                             break;
 
                         case 2:
-                            rTransform.position = parent.positions6[1].transform.position;
+                            rTransform.position = parent.positions6[0].transform.position + new Vector3(300, 0);
                             break;
 
                         case 3:
-                            rTransform.position = parent.positions6[2].transform.position;
+                            rTransform.position = parent.positions6[0].transform.position + new Vector3(600, 0);
                             break;
 
                         case 4:
-                            rTransform.position = parent.positions6[3].transform.position;
+                            rTransform.position = parent.positions6[0].transform.position + new Vector3(0, -400);
                             break;
 
                         case 5:
-                            rTransform.position = parent.positions6[4].transform.position;
+                            rTransform.position = parent.positions6[0].transform.position + new Vector3(300, -400);
                             break;
 
                         case 6:
-                            rTransform.position = parent.positions6[5].transform.position;
+                            rTransform.position = parent.positions6[0].transform.position + new Vector3(600, -400);
                             break;
 
                     }
+
+                    transform.localScale += new Vector3(-((transform.localScale.x / 100) * 70), -((transform.localScale.y / 100) * 70));
+                    input.transform.localScale = new Vector3(1.5f, 1.5f);
+                    input.textComponent.transform.localScale = new Vector3(1.5f, 1.5f);
+                    input.textComponent.fontSize = 36;
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
                 }
                 if (nSlots >= 7)
                 {
-                    transform.localScale += new Vector3(-((transform.localScale.x / 100) * 71), -((transform.localScale.y / 100) * 71));
-                    input.transform.localScale = new Vector3(1.6f, 1.6f);
-                    input.textComponent.transform.localScale = new Vector3(1.6f, 1.6f);
-                    input.textComponent.fontSize = 36;
-                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
-
                     switch (ID)
                     {
                         case 1:
@@ -180,38 +174,44 @@ public class Slot_Script : MonoBehaviour
                             break;
 
                         case 2:
-                            rTransform.position = parent.positions9[1].transform.position;
+                            rTransform.position = parent.positions9[0].transform.position + new Vector3(300, 0);
                             break;
 
                         case 3:
-                            rTransform.position = parent.positions9[2].transform.position;
+                            rTransform.position = parent.positions9[0].transform.position + new Vector3(600, 0);
                             break;
 
                         case 4:
-                            rTransform.position = parent.positions9[3].transform.position;
+                            rTransform.position = parent.positions9[0].transform.position + new Vector3(0, -265);
                             break;
 
                         case 5:
-                            rTransform.position = parent.positions9[4].transform.position;
+                            rTransform.position = parent.positions9[0].transform.position + new Vector3(300, -265);
                             break;
 
                         case 6:
-                            rTransform.position = parent.positions9[5].transform.position;
+                            rTransform.position = parent.positions9[0].transform.position + new Vector3(600, -265);
                             break;
 
                         case 7:
-                            rTransform.position = parent.positions9[6].transform.position;
+                            rTransform.position = parent.positions9[0].transform.position + new Vector3(0, -530);
                             break;
 
                         case 8:
-                            rTransform.position = parent.positions9[7].transform.position;
+                            rTransform.position = parent.positions9[0].transform.position + new Vector3(300, -530);
                             break;
 
                         case 9:
-                            rTransform.position = parent.positions9[8].transform.position;
+                            rTransform.position = parent.positions9[0].transform.position + new Vector3(600, -530);
                             break;
 
                     }
+
+                    transform.localScale += new Vector3(-((transform.localScale.x / 100) * 71), -((transform.localScale.y / 100) * 71));
+                    input.transform.localScale = new Vector3(1.6f, 1.6f);
+                    input.textComponent.transform.localScale = new Vector3(1.6f, 1.6f);
+                    input.textComponent.fontSize = 36;
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
                 }
                 input.enabled = true;
                 gameObject.GetComponent<Image>().color = new Color32(169, 169, 169,100);
@@ -221,119 +221,119 @@ public class Slot_Script : MonoBehaviour
                 input.textComponent.enableWordWrapping = true;
                 if (nSlots < 5)
                 {
+                    switch (ID)
+                    {
+
+                        case 1:
+                            rTransform.localPosition = new Vector3(-225, 175);
+                            break;
+
+                        case 2:
+                            rTransform.localPosition = new Vector3(225, 175);
+                            break;
+
+                        case 3:
+                            rTransform.localPosition = new Vector3(-225, -225);
+                            break;
+
+                        case 4:
+                            rTransform.localPosition = new Vector3(225, -225);
+                            break;
+
+                    }
+
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 60), -((transform.localScale.y / 100) * 60));
                     input.transform.localScale = new Vector3(2.4f, 2.4f);
                     input.textComponent.transform.localScale = new Vector3(1, 1);
                     input.textComponent.fontSize = 72;
                     input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
-                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(375,300);
-
-                    switch (ID)
-                    {
-
-                        case 1:
-                            rTransform.position = parent.positions4[0].transform.position;
-                            break;
-
-                        case 2:
-                            rTransform.position = parent.positions4[1].transform.position;
-                            break;
-
-                        case 3:
-                            rTransform.position = parent.positions4[2].transform.position;
-                            break;
-
-                        case 4:
-                            rTransform.position = parent.positions4[3].transform.position;
-                            break;
-
-                    }
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 300);
                 }
                 if (nSlots >= 5 && nSlots < 7)
                 {
+                    switch (ID)
+                    {
+                        case 1:
+                            rTransform.localPosition = new Vector3(-300, 200);
+                            break;
+
+                        case 2:
+                            rTransform.localPosition = new Vector3(0, 200);
+                            break;
+
+                        case 3:
+                            rTransform.localPosition = new Vector3(300, 200);
+                            break;
+
+                        case 4:
+                            rTransform.localPosition = new Vector3(-300, -200);
+                            break;
+
+                        case 5:
+                            rTransform.localPosition = new Vector3(0, 200);
+                            break;
+
+                        case 6:
+                            rTransform.localPosition = new Vector3(300, -200);
+                            break;
+
+                    }
+
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 70), -((transform.localScale.y / 100) * 70));
                     input.transform.localScale = new Vector3(2.3f, 2.3f);
                     input.textComponent.transform.localScale = new Vector3(1, 1);
                     input.textComponent.fontSize = 72;
                     input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
                     input.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 300);
-
-                    switch (ID)
-                    {
-                        case 1:
-                            rTransform.position = parent.positions6[0].transform.position;
-                            break;
-
-                        case 2:
-                            rTransform.position = parent.positions6[1].transform.position;
-                            break;
-
-                        case 3:
-                            rTransform.position = parent.positions6[2].transform.position;
-                            break;
-
-                        case 4:
-                            rTransform.position = parent.positions6[3].transform.position;
-                            break;
-
-                        case 5:
-                            rTransform.position = parent.positions6[4].transform.position;
-                            break;
-
-                        case 6:
-                            rTransform.position = parent.positions6[5].transform.position;
-                            break;
-
-                    }
                 }
                 if (nSlots >= 7)
                 {
+                    switch (ID)
+                    {
+                        case 1:
+                            rTransform.localPosition = new Vector3(-300, 240);
+                            break;
+
+                        case 2:
+                            rTransform.localPosition = new Vector3(0, 240);
+                            break;
+
+                        case 3:
+                            rTransform.localPosition = new Vector3(300, 240);
+                            break;
+
+                        case 4:
+                            rTransform.localPosition = new Vector3(-300, -25);
+                            break;
+
+                        case 5:
+                            rTransform.localPosition = new Vector3(0, -25);
+                            break;
+
+                        case 6:
+                            rTransform.localPosition = new Vector3(300, -25);
+                            break;
+
+                        case 7:
+                            rTransform.localPosition = new Vector3(-300, -290);
+                            break;
+
+                        case 8:
+                            rTransform.localPosition = new Vector3(0, -290);
+                            break;
+
+                        case 9:
+                            rTransform.localPosition = new Vector3(300, -290);
+                            break;
+
+                    }
+
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 71), -((transform.localScale.y / 100) * 71));
                     input.transform.localScale = new Vector3(2.2f, 2.2f);
                     input.textComponent.transform.localScale = new Vector3(1, 1);
                     input.textComponent.fontSize = 72;
                     input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
                     input.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 300);
-
-                    switch (ID)
-                    {
-                        case 1:
-                            rTransform.position = parent.positions9[0].transform.position;
-                            break;
-
-                        case 2:
-                            rTransform.position = parent.positions9[1].transform.position;
-                            break;
-
-                        case 3:
-                            rTransform.position = parent.positions9[2].transform.position;
-                            break;
-
-                        case 4:
-                            rTransform.position = parent.positions9[3].transform.position;
-                            break;
-
-                        case 5:
-                            rTransform.position = parent.positions9[4].transform.position;
-                            break;
-
-                        case 6:
-                            rTransform.position = parent.positions9[5].transform.position;
-                            break;
-
-                        case 7:
-                            rTransform.position = parent.positions9[6].transform.position;
-                            break;
-
-                        case 8:
-                            rTransform.position = parent.positions9[7].transform.position;
-                            break;
-
-                        case 9:
-                            rTransform.position = parent.positions9[8].transform.position;
-                            break;
-
-                    }
                 }
                 input.enabled = true;
                 gameObject.GetComponent<Image>().color = new Color32(180, 180, 180, 100);
@@ -428,39 +428,39 @@ public class Slot_Script : MonoBehaviour
         {
 
             case 1:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3(0,0);
+                rTransform.localPosition = new Vector3(-420,0);
                 break;
 
             case 2:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3(rTransform.rect.width + 25, 0);
+                rTransform.localPosition = new Vector3(530, 0);
                 break;
 
             case 3:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 2) + 50, 0);
+                rTransform.localPosition = new Vector3(1480, 0);
                 break;
 
             case 4:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 3) + 75, 0);
+                rTransform.localPosition = new Vector3(2430, 0);
                 break;
 
             case 5:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 4) + 100, 0);
+                rTransform.localPosition = new Vector3(3380, 0);
                 break;
 
             case 6:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 5) + 125, 0);
+                rTransform.localPosition = new Vector3(4330, 0);
                 break;
 
             case 7:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 6) + 150, 0);
+                rTransform.localPosition = new Vector3(5280, 0);
                 break;
 
             case 8:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 7) + 175, 0);
+                rTransform.localPosition = new Vector3(6230, 0);
                 break;
 
             case 9:
-                rTransform.position = parent.positions6[0].transform.position + new Vector3((rTransform.rect.width * 8) + 200, 0);
+                rTransform.localPosition = new Vector3(7180, 0);
                 break;
 
         }
@@ -547,6 +547,7 @@ public class Slot_Script : MonoBehaviour
     {
         slotName = nName.text;
         input.text = nName.text;
+        manager.SetDropdown();
     }
 
     public void SetName(string nName)

@@ -2386,12 +2386,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241868059}
   m_CullTransparentMesh: 0
---- !u!1 &252095160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2329141848989994397, guid: b54679af37f89304daef2c40603be563,
-    type: 3}
-  m_PrefabInstance: {fileID: 967278948682243699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &258366280
 GameObject:
   m_ObjectHideFlags: 0
@@ -9443,12 +9437,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142988765}
   m_CullTransparentMesh: 0
---- !u!1 &1151613049 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6934395186961082718, guid: b54679af37f89304daef2c40603be563,
-    type: 3}
-  m_PrefabInstance: {fileID: 967278948682243699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1164359838
 GameObject:
   m_ObjectHideFlags: 0
@@ -9526,12 +9514,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164359838}
   m_CullTransparentMesh: 0
---- !u!1 &1165315355 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 997745519450431846, guid: b54679af37f89304daef2c40603be563,
-    type: 3}
-  m_PrefabInstance: {fileID: 967278948682243699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1168634027
 GameObject:
   m_ObjectHideFlags: 0
@@ -11772,12 +11754,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1558782870 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3811756533053590068, guid: b54679af37f89304daef2c40603be563,
-    type: 3}
-  m_PrefabInstance: {fileID: 967278948682243699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1558890472
 GameObject:
   m_ObjectHideFlags: 0
@@ -14658,12 +14634,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947465535}
   m_CullTransparentMesh: 0
---- !u!1 &1952118727 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8449041082027858646, guid: b54679af37f89304daef2c40603be563,
-    type: 3}
-  m_PrefabInstance: {fileID: 967278948682243699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1958636300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16174,27 +16144,27 @@ PrefabInstance:
         type: 3}
       propertyPath: positions.Array.data[1]
       value: 
-      objectReference: {fileID: 1952118727}
+      objectReference: {fileID: 0}
     - target: {fileID: 967278948403837369, guid: b54679af37f89304daef2c40603be563,
         type: 3}
       propertyPath: positions.Array.data[2]
       value: 
-      objectReference: {fileID: 252095160}
+      objectReference: {fileID: 0}
     - target: {fileID: 967278948403837369, guid: b54679af37f89304daef2c40603be563,
         type: 3}
       propertyPath: positions.Array.data[3]
       value: 
-      objectReference: {fileID: 1558782870}
+      objectReference: {fileID: 0}
     - target: {fileID: 967278948403837369, guid: b54679af37f89304daef2c40603be563,
         type: 3}
       propertyPath: positions.Array.data[4]
       value: 
-      objectReference: {fileID: 1165315355}
+      objectReference: {fileID: 0}
     - target: {fileID: 967278948403837369, guid: b54679af37f89304daef2c40603be563,
         type: 3}
       propertyPath: positions.Array.data[5]
       value: 
-      objectReference: {fileID: 1151613049}
+      objectReference: {fileID: 0}
     - target: {fileID: 967278948403837369, guid: b54679af37f89304daef2c40603be563,
         type: 3}
       propertyPath: slotHeight

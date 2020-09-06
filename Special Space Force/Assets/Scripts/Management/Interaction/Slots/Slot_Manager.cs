@@ -131,12 +131,19 @@ public class Slot_Manager : MonoBehaviour
         viewedSlot.SetName(textBox.text);
     }
 
+    public void SetDropdown()
+    {
+        moveToDropdown.SetDropdown();
+    }
+
     //Moves the Slot to be a child of the selected slot from the dropdown
     public void MoveToSlot(GameObject Dropdown)
     {
         FindSelected(Dropdown.GetComponent<Dropdown>());
         Debug.Log("Moving to Slot " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
         slotFieldScroll.value = 0;
+        moveToDropdown.SetDropdown();
+        //Dropdown.GetComponent<Dropdown>().value = 0;
     }
 
     //Registers opening of the menu to prevent users from clicking through it
@@ -204,20 +211,27 @@ public class Slot_Manager : MonoBehaviour
         if (noDashes == slot.slotName)
         {
             viewedSlot.transform.position = new Vector3(0, 0, 0);
-            slot.containedSlots.Add(viewedSlot);
             viewedSlot.slotParent.containedSlots.Remove(viewedSlot);
+            foreach (Slot_Script ss in viewedSlot.slotParent.containedSlots)
+            {
+                if(ss.ID >= viewedSlot.ID)
+                {
+                    ss.ID -= 1;
+                }
+            }
+            slot.containedSlots.Add(viewedSlot);
             viewedSlot.slotParent = slot;
             viewedSlot.transform.SetParent(slot.transform,false);
-            OpenSlot(slot);
             slots = new List<Slot_Class>();
             slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+            OpenSlot(slot);
         }
         else
         {
             //Repeats the process with every slot until a name match is found
-            foreach (Slot_Script sc in slot.containedSlots)
+            foreach (Slot_Script ss in slot.containedSlots)
             {
-                CheckSlot(sc, name);
+                CheckSlot(ss, name);
             }
         }
     }
