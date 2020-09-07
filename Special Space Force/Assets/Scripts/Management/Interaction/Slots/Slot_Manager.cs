@@ -19,6 +19,7 @@ public class Slot_Manager : MonoBehaviour
     public Slider slotSlider;
     public List<GameObject> buttonsSwappable;
     public bool menu;
+    bool matched = false;
 
     //Gets the graphics raycaster
     void Awake()
@@ -31,26 +32,95 @@ public class Slot_Manager : MonoBehaviour
     //Creates a new Slot below the viewed slot
     public void NewSlotTop()
     {
-        GameObject temp = Instantiate(prefabSlot, viewedSlot.transform);
-        Slot_Script tempS = temp.GetComponent<Slot_Script>();
-        tempS.input.text = "New Slot";
-        tempS.slotName = "New Slot";
-        tempS.slotHeight = viewedSlot.slotHeight + 1;
-        tempS.ID = viewedSlot.containedSlots.Count + 1;
-        tempS.containedSlots = new List<Slot_Script>();
-        tempS.containedTroopers = new List<Trooper_Script>();
-        tempS.MakeSlot(tempS, viewedSlot, this);
-        tempS.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
-        viewedSlot.containedSlots.Add(tempS);
-        slots = new List<Slot_Class>();
-        slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
-        moveToDropdown.SetDropdown();
+        if (viewedSlot.containedSlots.Count < 9)
+        {
+            GameObject temp = Instantiate(prefabSlot, viewedSlot.transform);
+            Slot_Script tempS = temp.GetComponent<Slot_Script>();
+            tempS.input.text = "New Slot";
+            tempS.slotName = "New Slot";
+            tempS.slotHeight = viewedSlot.slotHeight + 1;
+            tempS.ID = viewedSlot.containedSlots.Count + 1;
+            tempS.containedSlots = new List<Slot_Script>();
+            tempS.containedTroopers = new List<Trooper_Script>();
+            tempS.MakeSlot(tempS, viewedSlot, this);
+            tempS.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
+            viewedSlot.containedSlots.Add(tempS);
+            slots = new List<Slot_Class>();
+            slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+        }
+        else
+        {
+            Debug.Log("Maximum slots reached");
+        }
     }
 
     //Creates a new squad below the viewed slot
     public void NewSquadTop()
     {
+        if (viewedSlot.containedSlots.Count < 9)
+        {
+            GameObject temp = Instantiate(prefabSlot, viewedSlot.transform);
+            Slot_Script tempS = temp.GetComponent<Slot_Script>();
+            tempS.input.text = "New Squad";
+            tempS.slotName = "New Squad";
+            tempS.slotHeight = viewedSlot.slotHeight + 1;
+            tempS.ID = viewedSlot.containedSlots.Count + 1;
+            tempS.squad = true;
+            tempS.containedSlots = new List<Slot_Script>();
+            tempS.containedTroopers = new List<Trooper_Script>();
+            tempS.MakeSlot(tempS, viewedSlot, this);
+            tempS.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
+            viewedSlot.containedSlots.Add(tempS);
+            slots = new List<Slot_Class>();
+            slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+        }
+        else
+        {
+            Debug.Log("Maximum slots reached");
+        }
+    }
 
+    public void NewSlot(Slot_Script newParent)
+    {
+        if (newParent.containedSlots.Count < 9)
+        {
+            Debug.Log("new Slot " + newParent.slotName);
+            GameObject temp = Instantiate(prefabSlot, newParent.transform);
+            Slot_Script tempS = temp.GetComponent<Slot_Script>();
+            tempS.input.text = "New Slot";
+            tempS.slotName = "New Slot";
+            tempS.slotHeight = newParent.slotHeight + 1;
+            tempS.ID = newParent.containedSlots.Count + 1;
+            tempS.containedSlots = new List<Slot_Script>();
+            tempS.containedTroopers = new List<Trooper_Script>();
+            tempS.MakeSlot(tempS, newParent, this);
+            newParent.containedSlots.Add(tempS);
+            OpenSlot(viewedSlot);
+            slots = new List<Slot_Class>();
+            slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+        }
+        else
+        {
+            Debug.Log("Maximum slots reached");
+        }
+    }
+
+    public void DeleteSlot(Slot_Script slot)
+    {
+        Debug.Log("delete " + slot.slotName);
+        foreach (Slot_Script ss in slot.slotParent.containedSlots)
+        {
+            if (ss.ID >= slot.ID)
+            {
+                ss.ID -= 1;
+            }
+        }
+        slot.slotParent.containedSlots.Remove(slot);
+        Slot_Script slotParent = slot.slotParent;
+        Destroy(slot.gameObject);
+        OpenSlot(viewedSlot);
+        slots = new List<Slot_Class>();
+        slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
     }
 
     //Opens the clicked slot
@@ -149,6 +219,7 @@ public class Slot_Manager : MonoBehaviour
     //Registers opening of the menu to prevent users from clicking through it
     public void MovingSlot(bool setting)
     {
+        moveToDropdown.SetDropdown();
         menu = setting;
     }
 
@@ -220,7 +291,9 @@ public class Slot_Manager : MonoBehaviour
                 }
             }
             slot.containedSlots.Add(viewedSlot);
+            viewedSlot.ID = slot.containedSlots.Count;
             viewedSlot.slotParent = slot;
+            viewedSlot.ChangeHeight(slot.slotHeight);
             viewedSlot.transform.SetParent(slot.transform,false);
             slots = new List<Slot_Class>();
             slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
@@ -229,9 +302,9 @@ public class Slot_Manager : MonoBehaviour
         else
         {
             //Repeats the process with every slot until a name match is found
-            foreach (Slot_Script ss in slot.containedSlots)
+            for (int i = 0; i< slot.containedSlots.Count; i++)
             {
-                CheckSlot(ss, name);
+                CheckSlot(slot.containedSlots[i], name);
             }
         }
     }

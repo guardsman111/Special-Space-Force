@@ -17,16 +17,19 @@ public class Slot_Button : MonoBehaviour
 
     private void AddNames(Slot_Script slot)
     {
-        string dashes = "";
-        for (int i = 0; i < slot.slotHeight; i++)
+        if (!slot.squad)
         {
-            dashes += "-";
-        }
-        OptionData temp = new OptionData(dashes + slot.slotName);
-        GetComponent<Dropdown>().options.Add(temp);
-        foreach (Slot_Script sc in slot.containedSlots)
-        {
-            AddNames(sc);
+            string dashes = "";
+            for (int i = 0; i < slot.slotHeight; i++)
+            {
+                dashes += "-";
+            }
+            OptionData temp = new OptionData(dashes + slot.slotName);
+            GetComponent<Dropdown>().options.Add(temp);
+            foreach (Slot_Script sc in slot.containedSlots)
+            {
+                AddNames(sc);
+            }
         }
     }
 }

@@ -127,7 +127,7 @@ public class Slot_Script : MonoBehaviour
                     input.transform.localScale = new Vector3(1.4f, 1.4f);
                     input.textComponent.transform.localScale = new Vector3(1.4f, 1.4f);
                     input.textComponent.fontSize = 36;
-                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 60);
                 }
                 if (nSlots >= 5 && nSlots < 7)
                 {
@@ -163,7 +163,7 @@ public class Slot_Script : MonoBehaviour
                     input.transform.localScale = new Vector3(1.5f, 1.5f);
                     input.textComponent.transform.localScale = new Vector3(1.5f, 1.5f);
                     input.textComponent.fontSize = 36;
-                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 60);
                 }
                 if (nSlots >= 7)
                 {
@@ -211,7 +211,7 @@ public class Slot_Script : MonoBehaviour
                     input.transform.localScale = new Vector3(1.6f, 1.6f);
                     input.textComponent.transform.localScale = new Vector3(1.6f, 1.6f);
                     input.textComponent.fontSize = 36;
-                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
+                    input.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 60);
                 }
                 input.enabled = true;
                 gameObject.GetComponent<Image>().color = new Color32(169, 169, 169,100);
@@ -470,7 +470,7 @@ public class Slot_Script : MonoBehaviour
         input.textComponent.fontSize = 36;
         input.textComponent.enableWordWrapping = true;
         input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 400);
-        input.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 60);
+        input.GetComponent<RectTransform>().sizeDelta = new Vector2(500, 60);
 
         gameObject.transform.localScale = new Vector3(1, 1);
         gameObject.GetComponent<Image>().color = new Color32(191, 191, 191,100);
@@ -543,6 +543,19 @@ public class Slot_Script : MonoBehaviour
         return slotClass;
     }
 
+    public void Add()
+    {
+        if (!squad)
+        {
+            manager.NewSlot(this);
+        }
+    }
+
+    public void Delete()
+    {
+        manager.DeleteSlot(this);
+    }
+
     public void SetName(TMP_Text nName)
     {
         slotName = nName.text;
@@ -564,5 +577,14 @@ public class Slot_Script : MonoBehaviour
     public void NameDeselected()
     {
         manager.menu = false;
+    }
+
+    public void ChangeHeight(int Height)
+    {
+        slotHeight = Height + 1;
+        foreach(Slot_Script ss in containedSlots)
+        {
+            ss.ChangeHeight(slotHeight);
+        }
     }
 }
