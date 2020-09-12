@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<Slot_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <containedSlots>
+    <Slot_Class>
+      <containedSlots>
+    	<Slot_Class>
+      	  <containedSlots>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>20</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>5</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>1st Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+          </containedSlots>
+          <slotName>1st Platoon</slotName>
+	  <squad>false</squad>
+      	  <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <slotName>2nd Platoon</slotName>
+	  <squad>false</squad>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <slotName>3rd Platoon</slotName>
+	  <squad>false</squad>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <slotName>4th Platoon</slotName>
+	  <squad>false</squad>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <slotName>5th Platoon</slotName>
+	  <squad>false</squad>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <slotName>6th Platoon</slotName>
+	  <squad>false</squad>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+      </containedSlots>
+      <slotName>1st Company</slotName>
+      <squad>false</squad>
+      <slotHeight>0</slotHeight>
+    </Slot_Class>
+  </containedSlots>
+  <slotName>-1</slotName>
+  <squad>false</squad>
+  <slotHeight>-1</slotHeight>
+  <TemplateImageLocation>F:\BitSpark Entertainment\Special Space Force\Special-Space-Force\Special Space Force\Assets\Mods\Charlie's Organisation Templates\Organisation\Slot1Image.png</TemplateImageLocation>
+</Slot_Class>

@@ -13,8 +13,11 @@ public class Slot_Class
     public string slotName;
     public int positionID;
     public bool squad;
+    public int numberOfTroopers;
 
     public int slotHeight;
+
+    public string TemplateImageLocation;
 
     public Slot_Class()
     {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Slot_Generator : MonoBehaviour
 {
@@ -14,17 +15,58 @@ public class Slot_Generator : MonoBehaviour
     public GameObject genericTrooper;
     public GameObject slotN1;
     public List<Slot_Script> squads;
+    public int troopersPerSquad;
+    public bool createTroopersFromTemplate;
+
+    public Text nTroopersText;
+    public Dropdown templateDropdown;
+    public Image templatePreview;
 
     //public void Start()
     //{
     //    SaveDefaults();
     //}
 
+    public void SetupTemplateDropdown()
+    {
+        templateDropdown.ClearOptions();
+
+        List<string> fileLocations = finder.Retrieve("SlotLayout", ".meta");
+        List<string> names = new List<string>();
+
+        foreach (string s in fileLocations)
+        {
+            string name = Path.GetFileName(s);
+            names.Add(name);
+        }
+        templateDropdown.AddOptions(names);
+        ChangedTemplateDropdown();
+    }
+
+    public void ChangedTemplateDropdown()
+    {
+        List<string> fileLocations = finder.Retrieve(templateDropdown.options[templateDropdown.value].text, ".meta");
+        Slot_Class temp = Serializer.Deserialize<Slot_Class>(fileLocations[0]);
+        string imagePath = temp.TemplateImageLocation;
+        if (imagePath != null) {
+            Texture2D texture;
+            byte[] imageData = File.ReadAllBytes(imagePath);
+            texture = new Texture2D(400, 400);
+            if (texture.LoadImage(imageData))
+            {
+                templatePreview.sprite = Sprite.Create(texture,new Rect(0,0,texture.width,texture.height), new Vector2(0, 0));
+            }
+        } else
+        {
+            templatePreview.sprite = null;
+        }
+    }
+
     //Creates new slots from template
     public List<Slot_Class> FindDefaultSlots()
     {
         slots = new List<Slot_Class>();
-        List<string> fileLocations = finder.Retrieve("DefaultSlotLayout.xml", ".meta");
+        List<string> fileLocations = finder.Retrieve(templateDropdown.options[templateDropdown.value].text, ".meta");
         fileLocation = fileLocations[0];
 
         if (fileLocation == null)
@@ -111,16 +153,46 @@ public class Slot_Generator : MonoBehaviour
                 tempS.slotParent = slotScript;
                 if (tempS.squad)
                 {
-                    sc.containedTroopers = new List<Trooper_Class>();
-                    for(int i = 0; i < 10; i++)
+                    if (createTroopersFromTemplate && sc.containedTroopers.Count == 0)
                     {
-                        Trooper_Class tempTC = new Trooper_Class();
-                        tempTC.trooperName = "Name";
-                        tempTC.trooperRank = "Private";
-                        tempTC.trooperPosition = i + 1;
-                        sc.containedTroopers.Add(tempTC);
+                        if(sc.numberOfTroopers == 0)
+                        {
+                            sc.numberOfTroopers = troopersPerSquad;
+                        }
+                        sc.containedTroopers = new List<Trooper_Class>();
+                        tempS.containedTroopers = new List<Trooper_Script>();
+                        for (int i = 0; i < sc.numberOfTroopers; i++)
+                        {
+                            Trooper_Class tempTC = new Trooper_Class();
+                            tempTC.trooperName = "Name";
+                            tempTC.trooperRank = "Private";
+                            tempTC.trooperPosition = i + 1;
+                            sc.containedTroopers.Add(tempTC);
+                        }
+                        tempS.containedTroopers = FillSlots(sc, tempS, 0);
+                        Debug.Log(sc.numberOfTroopers);
                     }
-                    tempS.containedTroopers = FillSlots(sc, tempS, 0);
+                    else if (createTroopersFromTemplate)
+                    {
+                        tempS.containedTroopers = new List<Trooper_Script>();
+                        tempS.containedTroopers = FillSlots(sc, tempS, 0);
+                        Debug.Log(sc.numberOfTroopers);
+                    }
+                    else
+                    {
+                        sc.containedTroopers = new List<Trooper_Class>();
+                        tempS.containedTroopers = new List<Trooper_Script>();
+                        for (int i = 0; i < troopersPerSquad; i++)
+                        {
+                            Trooper_Class tempTC = new Trooper_Class();
+                            tempTC.trooperName = "Name";
+                            tempTC.trooperRank = "Private";
+                            tempTC.trooperPosition = i + 1;
+                            sc.containedTroopers.Add(tempTC);
+                        }
+                        tempS.containedTroopers = FillSlots(sc, tempS, 0);
+                        Debug.Log(troopersPerSquad);
+                    }
                 }
                 else
                 {
@@ -230,5 +302,16 @@ public class Slot_Generator : MonoBehaviour
         Slot_Class fileToSave = GenerateDefaultLayout();
         Serializer.Serialize(fileToSave, finder.defaultPath + "/Resources/Core/Organisation/DefaultSlotLayout.xml");
         //Debug.Log("File written");
+    }
+
+    public void ToggleTroopersFromTemplate(Toggle toggle)
+    {
+        createTroopersFromTemplate = toggle.isOn;
+    }
+
+    public void ChangeTroopersPerSquad(Slider slider)
+    {
+        troopersPerSquad = (int)slider.value;
+        nTroopersText.text = troopersPerSquad.ToString();
     }
 }

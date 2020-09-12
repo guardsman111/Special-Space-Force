@@ -10,6 +10,7 @@ public class Generation_Settings_Director : MonoBehaviour
     /// This script contains event handles from all of the UI Customization game obejcts
     /// </summary>
     public Galaxy_Generation_Manager generationManager;
+    public Slot_Generator slotGenerator;
 
     [SerializeField]
     private int height;
@@ -85,6 +86,8 @@ public class Generation_Settings_Director : MonoBehaviour
         {
             StartGeneration(true);
         }
+
+        slotGenerator.SetupTemplateDropdown();
     }
 
     //Starts the generation, grabs all the values and packages them into a Generation_Class

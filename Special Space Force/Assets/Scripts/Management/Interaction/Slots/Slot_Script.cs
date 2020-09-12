@@ -48,7 +48,6 @@ public class Slot_Script : MonoBehaviour
         slotName = slot.slotName;
         slotHeight = slot.slotHeight;
         containedSlots = new List<Slot_Script>();
-        containedTroopers = new List<Trooper_Script>();
         squad = slot.squad;
 
         ID = positionID;
