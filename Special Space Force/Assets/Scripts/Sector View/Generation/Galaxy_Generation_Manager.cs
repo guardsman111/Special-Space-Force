@@ -30,6 +30,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     public Biome_Manager biomeManager;
     public Race_Manager raceManager;
     public Slot_Generator slotGenerator;
+    public Localisation_Manager localisationManager;
 
     public Save_Class save;
 

@@ -11,6 +11,7 @@ public class Generation_Settings_Director : MonoBehaviour
     /// </summary>
     public Galaxy_Generation_Manager generationManager;
     public Slot_Generator slotGenerator;
+    public Localisation_Manager localisationManager;
 
     [SerializeField]
     private int height;
@@ -88,6 +89,7 @@ public class Generation_Settings_Director : MonoBehaviour
         }
 
         slotGenerator.SetupTemplateDropdown();
+        localisationManager.FindLocalisationFiles();
     }
 
     //Starts the generation, grabs all the values and packages them into a Generation_Class
