@@ -107,6 +107,8 @@ public class Generation_Settings_Director : MonoBehaviour
         product.resourceAbundancy = resourceAbundancy;
         product.playerStrength = playerStrength;
         product.toggledAI = SortToggledAI();
+        product.trooperNamesList = localisationManager.chosenTrooperNamesList.name;
+        localisationManager.SeperateStringLists();
         generationManager.Generate(loading, product);
         Invoke("DisableCustomization", 1.0f);
     }

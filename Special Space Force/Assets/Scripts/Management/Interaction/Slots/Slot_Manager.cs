@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Slot_Manager : MonoBehaviour
 {
+    public Galaxy_Generation_Manager manager;
     public Slot_Generator generator;
     public GameObject prefabSlot;
     public Slot_Script viewedSlot;

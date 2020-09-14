@@ -11,9 +11,13 @@ public class Localisation_Manager : MonoBehaviour
 {
     public FileFinder finder;
 
-    public List<String_List_Class> localisationList;
+    public List<String_List_Class> trooperNameStrings;
+    public List<String_List_Class> hierachyNameStrings;
 
-    public String_List_Class chosenNamesList;
+    public String_List_Class chosenTrooperNamesList;
+    public List<string> surnames;
+    public List<string> forenamesM;
+    public List<string> forenamesF;
 
     public Dropdown trooperNamesDropdown;
     public Dropdown hierachyNamesDropdown;
@@ -21,7 +25,8 @@ public class Localisation_Manager : MonoBehaviour
     public void FindLocalisationFiles()
     {
         SaveDefaults();
-        localisationList = new List<String_List_Class>();
+        trooperNameStrings = new List<String_List_Class>();
+        hierachyNameStrings = new List<String_List_Class>();
         List<string> fileLocations = finder.Retrieve("Localisation", ".meta");
         List<string> trooperNames = new List<string>();
         List<string> hierarchyNames = new List<string>();
@@ -29,12 +34,12 @@ public class Localisation_Manager : MonoBehaviour
         foreach (string s in fileLocations)
         {
             String_List_Class temp = Serializer.Deserialize<String_List_Class>(s);
-            localisationList.Add(temp);
-            if (temp.listType == "Names")
+            if (temp.listType == "TrooperNames")
             {
+                trooperNameStrings.Add(temp);
                 trooperNames.Add(temp.name);
             } 
-            else if (temp.listType == "Hierarchy")
+            else if (temp.listType == "HierarchyNames")
             {
 
             }
@@ -47,6 +52,104 @@ public class Localisation_Manager : MonoBehaviour
 
     public void ChangedTemplateDropdown(Dropdown dropdown)
     {
+        if (dropdown.name == "Trooper Names")
+        {
+            chosenTrooperNamesList = trooperNameStrings[dropdown.value];
+        } 
+        else if (dropdown.name == "Slot Names")
+        {
+
+        }
+    }
+
+    public void LoadStringListClass(string name, string type)
+    {
+        if (type == "TrooperNames")
+        {
+            foreach(String_List_Class slc in trooperNameStrings)
+            {
+                if (slc.name == name)
+                {
+                    chosenTrooperNamesList = slc;
+                }
+            }
+        }
+    }
+
+    public void SeperateStringLists()
+    {
+        int sectionCounter = -1;
+        surnames = new List<string>();
+        forenamesM = new List<string>();
+        forenamesF = new List<string>();
+
+        foreach (string s in chosenTrooperNamesList.stringList)
+        {
+            if (sectionCounter == -1)
+            {
+                if (s.Contains("/Surnames"))
+                {
+                    sectionCounter = 0;
+                }
+                else
+                {
+                    surnames.Add(s);
+                }
+            }
+            else if (sectionCounter == 0)
+            {
+                if (s.Contains("/"))
+                {
+                    sectionCounter = 1;
+                }
+                else
+                {
+                    surnames.Add(s);
+                }
+            }
+            else if (sectionCounter == 1)
+            {
+                if (s.Contains("/"))
+                {
+                    sectionCounter = 2;
+                }
+                else
+                {
+                    forenamesM.Add(s);
+                }
+            }
+            else if (sectionCounter == 2)
+            {
+                forenamesF.Add(s);
+            }
+        }
+    }
+
+    public string CreateName(string type, int integer)
+    {
+        string name = "Name";
+        if (type == "TrooperNames")
+        {
+            if (integer == 0)
+            {
+                name = forenamesF[UnityEngine.Random.Range(0, forenamesF.Count)];
+            }
+            else if (integer == 1)
+            {
+                name = forenamesM[UnityEngine.Random.Range(0, forenamesM.Count)];
+            }
+            else
+            {
+                Debug.Log("Gender Int out of range");
+            }
+            name += " " + surnames[UnityEngine.Random.Range(0, surnames.Count)];
+        } 
+        else
+        {
+            Debug.Log("Type was not recognized");
+        }
+
+        return name;
     }
 
     //Creates default trooper names String Lists
@@ -55,7 +158,7 @@ public class Localisation_Manager : MonoBehaviour
         //English Troopers List
         String_List_Class tempSL = new String_List_Class();
         tempSL.name = "English Names";
-        tempSL.listType = "Names";
+        tempSL.listType = "TrooperNames";
         tempSL.stringList = new List<string>
         {
             "/Surnames",
@@ -140,7 +243,7 @@ public class Localisation_Manager : MonoBehaviour
         //English Troopers List
         tempSL = new String_List_Class();
         tempSL.name = "American Names";
-        tempSL.listType = "Names";
+        tempSL.listType = "TrooperNames";
         tempSL.stringList = new List<string>
         {
             "/Surnames",

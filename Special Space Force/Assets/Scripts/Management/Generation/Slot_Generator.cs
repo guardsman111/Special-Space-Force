@@ -221,9 +221,11 @@ public class Slot_Generator : MonoBehaviour
         foreach (Trooper_Class tc in squad.containedTroopers)
         {
             count += 1;
-            ////
+            //// Troop Generation Script
+            tc.gender = UnityEngine.Random.Range(0, 2);
+            tc.trooperName = manager.manager.localisationManager.CreateName("TrooperNames", tc.gender);
 
-            //Insert generation for troopers here?
+            //Rank still needs to be done
 
             ////
             GameObject temp = Instantiate(genericTrooper, slotParent.transform);

@@ -19,6 +19,7 @@ public class Generation_Class
     public int resourceAbundancy;
     public int playerStrength;
     public List<AI_Class> toggledAI;
+    public string trooperNamesList;
 
     public Generation_Class()
     {

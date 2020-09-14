@@ -177,6 +177,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
 
             systemGenerator.BeginGeneration(loadSystems, save);
             slotGenerator.LoadSlots(save.topSlots);
+            localisationManager.LoadStringListClass(product.trooperNamesList, "TrooperNames");
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
 
         }
