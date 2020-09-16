@@ -6952,7 +6952,6 @@ GameObject:
   - component: {fileID: 732775611}
   - component: {fileID: 732775610}
   - component: {fileID: 732775614}
-  - component: {fileID: 732775615}
   m_Layer: 5
   m_Name: Force Organisation
   m_TagString: Untagged
@@ -7082,18 +7081,46 @@ MonoBehaviour:
   - {fileID: 1947465535}
   - {fileID: 84908714}
   menu: 0
---- !u!114 &732775615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732775609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2503dc2745ea9dc4b957456b4b63e045, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  trooperSkinPack: {fileID: 0}
+  trooperSkinSprites:
+  - {fileID: 21300000, guid: 4aebd8d542fae694e8d4ee93a8a85e02, type: 3}
+  - {fileID: 21300000, guid: 935e7251bec02b743888ea9444965d7a, type: 3}
+  - {fileID: 21300000, guid: ec2135e65e3ae2e4e8499ef9f505485d, type: 3}
+  - {fileID: 21300000, guid: bf84d6d23450cd04592e08434ea76117, type: 3}
+  - {fileID: 21300000, guid: 0a47a568d6854c443ae111d8f200ecb4, type: 3}
+  - {fileID: 21300000, guid: baaa5ff5b4bcd0d40bbbc4eafa043db7, type: 3}
+  - {fileID: 21300000, guid: 4b1250846df56764dbb9a92e87428261, type: 3}
+  - {fileID: 21300000, guid: 6a12aa42c29aac24698dff0cc1209e74, type: 3}
+  maleHairPack: {fileID: 0}
+  maleHairSprites:
+  - {fileID: 21300000, guid: 6ef4b5f8842cd184cbd835fb2c53c763, type: 3}
+  - {fileID: 21300000, guid: 4071c6f7838bde9428947a08526ab053, type: 3}
+  - {fileID: 21300000, guid: 3cbe46b80c12f1d49a0ab4296699f761, type: 3}
+  femaleHairPack: {fileID: 0}
+  femaleHairSprites:
+  - {fileID: 21300000, guid: 67ee58d8011ec32419fe46933fb73e8f, type: 3}
+  - {fileID: 21300000, guid: 2506c069892510f46be39421b60344f0, type: 3}
+  hairColours:
+  - serializedVersion: 2
+    rgba: 4281019179
+  - serializedVersion: 2
+    rgba: 4285647833
+  - serializedVersion: 2
+    rgba: 4282680773
+  - serializedVersion: 2
+    rgba: 4280307315
+  - serializedVersion: 2
+    rgba: 4278919477
+  - serializedVersion: 2
+    rgba: 4288662218
+  - serializedVersion: 2
+    rgba: 4284813471
+  - serializedVersion: 2
+    rgba: 4278236168
+  - serializedVersion: 2
+    rgba: 4286251022
+  - serializedVersion: 2
+    rgba: 4278218973
 --- !u!1 &734138503
 GameObject:
   m_ObjectHideFlags: 0

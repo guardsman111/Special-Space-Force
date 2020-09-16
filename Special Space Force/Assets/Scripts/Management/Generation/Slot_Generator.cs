@@ -225,6 +225,19 @@ public class Slot_Generator : MonoBehaviour
             tc.gender = UnityEngine.Random.Range(0, 2);
             tc.trooperName = manager.manager.localisationManager.CreateName("TrooperNames", tc.gender);
 
+            tc.trooperFace = UnityEngine.Random.Range(0, manager.trooperSkinPack.containedSprites.Count);
+
+            if (tc.gender == 0)
+            {
+                tc.trooperHair = UnityEngine.Random.Range(0, manager.femaleHairPack.containedSprites.Count);
+            }
+            if (tc.gender == 1)
+            {
+                tc.trooperHair = UnityEngine.Random.Range(0, manager.maleHairPack.containedSprites.Count);
+            }
+
+            tc.hairColour = UnityEngine.Random.Range(0, manager.hairColours.Length);
+
             //Rank still needs to be done
 
             ////

@@ -22,11 +22,48 @@ public class Slot_Manager : MonoBehaviour
     public bool menu;
     bool matched = false;
 
+    public Sprite_Pack trooperSkinPack;
+    public Sprite[] trooperSkinSprites;
+    public Sprite_Pack maleHairPack;
+    public Sprite[] maleHairSprites;
+    public Sprite_Pack femaleHairPack;
+    public Sprite[] femaleHairSprites;
+
+    public Color32[] hairColours;
+
+
     //Gets the graphics raycaster
-    void Awake()
+    void Start()
     {
         raycaster = GetComponent<GraphicRaycaster>();
         menu = false;
+        trooperSkinPack = new Sprite_Pack();
+        maleHairPack = new Sprite_Pack();
+        femaleHairPack = new Sprite_Pack();
+        trooperSkinPack.containedSprites = new List<Sprite>();
+        maleHairPack.containedSprites = new List<Sprite>();
+        femaleHairPack.containedSprites = new List<Sprite>();
+
+        foreach (Sprite s in trooperSkinSprites)
+        {
+            trooperSkinPack.packName = "Trooper Skins";
+            trooperSkinPack.packName = "Skins";
+            trooperSkinPack.containedSprites.Add(s);
+        }
+
+        foreach (Sprite s in maleHairSprites)
+        {
+            maleHairPack.packName = "Male Hair";
+            maleHairPack.packType = "Hair";
+            maleHairPack.containedSprites.Add(s);
+        }
+
+        foreach (Sprite s in femaleHairSprites)
+        {
+            femaleHairPack.packName = "Female Hair";
+            femaleHairPack.packType = "Hair";
+            femaleHairPack.containedSprites.Add(s);
+        }
     }
 
 
@@ -129,10 +166,6 @@ public class Slot_Manager : MonoBehaviour
     {
         viewedSlot = newViewed;
         currentName.text = newViewed.slotName;
-
-        ///
-        //If squad, use different code??
-        ///
 
         if (viewedSlot.squad == true)
         {

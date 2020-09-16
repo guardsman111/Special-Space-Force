@@ -9,6 +9,9 @@ public class Trooper_Script : MonoBehaviour
     public string trooperName;
     public string trooperRank;
     public int trooperPosition;
+    public int trooperFace;
+    public int trooperHair;
+    public int hairColour;
     public Trooper_Class trooperClass;
     public Slot_Script trooperSquad;
 
@@ -16,15 +19,34 @@ public class Trooper_Script : MonoBehaviour
     public GameObject image;
     public TMP_InputField input;
 
+    public Image[] trooperImages; //Trooper Outline, T Colour, Hair Colour, Fatigue Primary, F Secondary, F Tertiary, F Special, F Outline,
+                                  //Armour Primary, A Secondary, A Tertiary, A Special, A Equipment, A Force Icon, A Outline, Helmet Primary,
+                                  //H Secondary, H Tertiary, H Equipment, H Visor, H Outline, Weapon, W Colour
+
     public void MakeTrooper(Trooper_Class trooper, int positionID, Slot_Manager nManager)
     {
+        manager = nManager;
         trooperClass = trooper;
         trooperName = trooper.trooperName;
         trooperRank = trooper.trooperRank;
         trooperPosition = positionID;
+        trooperFace = trooper.trooperFace;
+        trooperHair = trooper.trooperHair;
+        hairColour = trooper.hairColour;
+
+        trooperImages[1].sprite = manager.trooperSkinPack.containedSprites[trooperFace];
+        if (trooper.gender == 0)
+        {
+            trooperImages[2].sprite = manager.femaleHairPack.containedSprites[trooperHair];
+        }
+        if (trooper.gender == 1)
+        {
+            trooperImages[2].sprite = manager.maleHairPack.containedSprites[trooperHair];
+        }
+
+        trooperImages[2].color = manager.hairColours[hairColour];
 
         input.text = trooperName;
-        manager = nManager;
     }
 
 
