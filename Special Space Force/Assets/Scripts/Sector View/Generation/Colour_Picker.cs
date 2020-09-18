@@ -11,9 +11,19 @@ public class Colour_Picker : MonoBehaviour
     /// </summary>
     
     public GameObject picker;
-    public Image pickerImage;
+    public Image pickerImageColour;
+    public Image pickerImageGrey;
     public RectTransform pickerRect;
+    public Image boxBackup;
     public Image preview;
+
+    private void Awake()
+    {
+        if (boxBackup != null)
+        {
+            preview.color = boxBackup.color;
+        }
+    }
 
     //Makes the colour picker visible or invisible depending
     public void TogglePicker()
@@ -45,6 +55,17 @@ public class Colour_Picker : MonoBehaviour
         PointerEventData pEventData = eventData as PointerEventData;
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(pickerRect, pEventData.position, null, out localPoint);
-        preview.color = pickerImage.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
+        preview.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
+        boxBackup.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
+    }
+
+    //Handles click and drag on the colour chart
+    public void handleGreyChartDrag(BaseEventData eventData)
+    {
+        PointerEventData pEventData = eventData as PointerEventData;
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(pickerRect, pEventData.position, null, out localPoint);
+        preview.color = pickerImageGrey.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
+        boxBackup.color = pickerImageGrey.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
     }
 }

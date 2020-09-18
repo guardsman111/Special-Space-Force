@@ -36,11 +36,11 @@ public class FileFinder : MonoBehaviour
         }
         if (defaultPath == "" || defaultPath == null)
         {
-            defaultPath = Application.dataPath + "/Resources";
+            defaultPath = Application.dataPath + "/Resources/Core";
         }
         if (modsPath == "" || modsPath == null)
         {
-            modsPath = Application.dataPath + "/Mods";
+            modsPath = Application.dataPath + "/Resources/Mods";
         }
 
         List<string> fileList = new List<string>();
@@ -87,6 +87,30 @@ public class FileFinder : MonoBehaviour
         foreach (FileInfo s in fileArray2)
         {
             if (s.Name.Contains(have) && !s.Name.Contains(avoid))
+            {
+                Debug.Log(s.FullName + " Added");
+                fileList.Add(s.FullName);
+            }
+        }
+        return fileList;
+    }
+
+    //Sorts through the file arrays to get the dedicated files the script has called for
+    //by default avoids .meta files but this can be changed if other issues occur
+    public List<string> Retrieve(string have, string avoid, string avoid2, string avoid3)
+    {
+        List<string> fileList = new List<string>();
+        foreach (FileInfo s in fileArray1)
+        {
+            if (s.Name.Contains(have) && !s.Name.Contains(avoid) && !s.Name.Contains(avoid2) && !s.Name.Contains(avoid3))
+            {
+                Debug.Log(s.FullName + " Added");
+                fileList.Add(s.FullName);
+            }
+        }
+        foreach (FileInfo s in fileArray2)
+        {
+            if (s.Name.Contains(have) && !s.Name.Contains(avoid) && !s.Name.Contains(avoid2) && !s.Name.Contains(avoid3))
             {
                 Debug.Log(s.FullName + " Added");
                 fileList.Add(s.FullName);

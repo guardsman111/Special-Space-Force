@@ -14,8 +14,14 @@ public class Trooper_Script : MonoBehaviour
     public int hairColour;
     public Trooper_Class trooperClass;
     public Slot_Script trooperSquad;
+    public string armour;
+    public string armourPattern;
+    public string fatiguePattern;
+    public string helmetPattern;
+    public string EquipmentPattern;
 
     public Slot_Manager manager;
+    public Equipment_Manager equipmentManager;
     public GameObject image;
     public TMP_InputField input;
 
@@ -26,6 +32,7 @@ public class Trooper_Script : MonoBehaviour
     public void MakeTrooper(Trooper_Class trooper, int positionID, Slot_Manager nManager)
     {
         manager = nManager;
+        equipmentManager = GameObject.FindGameObjectWithTag("EquipmentManager").GetComponent<Equipment_Manager>();
         trooperClass = trooper;
         trooperName = trooper.trooperName;
         trooperRank = trooper.trooperRank;
@@ -47,6 +54,9 @@ public class Trooper_Script : MonoBehaviour
         trooperImages[2].color = manager.hairColours[hairColour];
 
         input.text = trooperName;
+
+        armour = "Mk1 Armour";
+        armourPattern = "Primary1";
     }
 
 
@@ -248,4 +258,12 @@ public class Trooper_Script : MonoBehaviour
         }
     }
 
+    public void ChangeEquipment(Dropdown dropdown)
+    {
+        equipmentManager.ChangeEquipment(this, dropdown);
+    }
+    public void ChangePattern(Dropdown dropdown)
+    {
+        equipmentManager.ChangePattern(this, dropdown);
+    }
 }

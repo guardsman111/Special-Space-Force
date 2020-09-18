@@ -119,9 +119,9 @@ public class Biome_Manager : MonoBehaviour
     //Saves the default Biomes
     public void SaveDefaults()
     {
-        var file = File.Create(finder.defaultPath + "/Core/Biomes/CoreBiomes.xml");
+        var file = File.Create(finder.defaultPath + "/Biomes/CoreBiomes.xml");
         file.Close();
-        Serializer.Serialize(biomes, finder.defaultPath + "/Core/Biomes/CoreBiomes.xml");
+        Serializer.Serialize(biomes, finder.defaultPath + "/Biomes/CoreBiomes.xml");
         //Debug.Log("File written");
     }
 

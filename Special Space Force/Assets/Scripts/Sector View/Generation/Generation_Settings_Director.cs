@@ -38,6 +38,7 @@ public class Generation_Settings_Director : MonoBehaviour
 
     public FileFinder fileFinder;
     public Race_Manager raceManager;
+    public Equipment_Manager equipmentManager;
 
     //AI Stuff, used to remember which AI is set to what.
     public GameObject[] AIBoxes;
@@ -90,6 +91,7 @@ public class Generation_Settings_Director : MonoBehaviour
 
         slotGenerator.SetupTemplateDropdown();
         localisationManager.FindLocalisationFiles();
+        equipmentManager.Begin();
     }
 
     //Starts the generation, grabs all the values and packages them into a Generation_Class
@@ -481,4 +483,6 @@ public class Generation_Settings_Director : MonoBehaviour
     {
         AIStartingThreat[dropdown.gameObject.GetComponent<Dropdown_Helper>().aiNumber] = dropdown.value;
     }
+
+
 }

@@ -236,9 +236,9 @@ public class Localisation_Manager : MonoBehaviour
             "Zara", "Zoe",
         };
 
-        var file = File.Create(finder.defaultPath + "/Core/Localisation/EnglishLocalisation.xml");
+        var file = File.Create(finder.defaultPath + "/Localisation/EnglishLocalisation.xml");
         file.Close();
-        Serializer.Serialize(tempSL, finder.defaultPath + "/Core/Localisation/EnglishLocalisation.xml");
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/EnglishLocalisation.xml");
 
         //English Troopers List
         tempSL = new String_List_Class();
@@ -321,9 +321,9 @@ public class Localisation_Manager : MonoBehaviour
             "Zara", "Zoe",
         };
 
-        file = File.Create(finder.defaultPath + "/Core/Localisation/AmericanLocalisation.xml");
+        file = File.Create(finder.defaultPath + "/Localisation/AmericanLocalisation.xml");
         file.Close();
-        Serializer.Serialize(tempSL, finder.defaultPath + "/Core/Localisation/AmericanLocalisation.xml");
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/AmericanLocalisation.xml");
     }
 
     //Creates default hierarchy names String Lists

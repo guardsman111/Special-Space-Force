@@ -1179,6 +1179,7 @@ MonoBehaviour:
   biomeManager: {fileID: 3179005509872979497}
   raceManager: {fileID: 966474628}
   slotGenerator: {fileID: 0}
+  localisationManager: {fileID: 0}
   starNames:
   - Korus
   - Alpho
@@ -1472,6 +1473,7 @@ Transform:
   m_Children:
   - {fileID: 3179005509872979496}
   - {fileID: 966474627}
+  - {fileID: 2136901804762985615}
   m_Father: {fileID: 3179005509909518485}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1975,3 +1977,48 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4010488823036013618}
   m_Enabled: 1
+--- !u!1 &7250333219486014741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136901804762985615}
+  - component: {fileID: 3899211672308924088}
+  m_Layer: 0
+  m_Name: Equipment
+  m_TagString: EquipmentManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136901804762985615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7250333219486014741}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3179005510138525858}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3899211672308924088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7250333219486014741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7e72aecb2b79d459f56e4afa1b7316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finder: {fileID: 0}
+  Mk1Primary1: []

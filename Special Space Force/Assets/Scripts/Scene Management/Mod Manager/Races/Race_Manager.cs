@@ -103,9 +103,9 @@ public class Race_Manager : MonoBehaviour
     //Saves the default Biomes
     public void SaveDefaults()
     {
-        var file = File.Create(finder.defaultPath + "/Core/Races/CoreRaces.xml");
+        var file = File.Create(finder.defaultPath + "/Races/CoreRaces.xml");
         file.Close();
-        Serializer.Serialize(races, finder.defaultPath + "/Core/Races/CoreRaces.xml");
+        Serializer.Serialize(races, finder.defaultPath + "/Races/CoreRaces.xml");
         //Debug.Log("File written");
     }
 

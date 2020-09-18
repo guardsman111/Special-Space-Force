@@ -259,8 +259,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   picker: {fileID: 194630506}
-  pickerImage: {fileID: 1136823259}
+  pickerImageColour: {fileID: 1136823259}
+  pickerImageGrey: {fileID: 0}
   pickerRect: {fileID: 1136823256}
+  boxBackup: {fileID: 0}
   preview: {fileID: 370489192}
 --- !u!1 &1136823255
 GameObject:
