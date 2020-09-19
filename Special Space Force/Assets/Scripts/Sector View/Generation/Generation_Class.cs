@@ -20,6 +20,7 @@ public class Generation_Class
     public int playerStrength;
     public List<AI_Class> toggledAI;
     public string trooperNamesList;
+    public List<Color32> playerColours;
 
     public Generation_Class()
     {

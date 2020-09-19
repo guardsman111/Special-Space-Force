@@ -15,8 +15,10 @@ public class Trooper_Script : MonoBehaviour
     public Trooper_Class trooperClass;
     public Slot_Script trooperSquad;
     public string armour;
+    public string fatigues;
+    public string helmet;
     public string armourPattern;
-    public string fatiguePattern;
+    public string fatiguesPattern;
     public string helmetPattern;
     public string EquipmentPattern;
 
@@ -57,6 +59,7 @@ public class Trooper_Script : MonoBehaviour
 
         armour = "Mk1 Armour";
         armourPattern = "Primary1";
+        TrooperColours();
     }
 
 
@@ -262,8 +265,27 @@ public class Trooper_Script : MonoBehaviour
     {
         equipmentManager.ChangeEquipment(this, dropdown);
     }
+
     public void ChangePattern(Dropdown dropdown)
     {
         equipmentManager.ChangePattern(this, dropdown);
+    }
+
+    public void TrooperColours()
+    {
+        trooperImages[3].color = equipmentManager.playerDefaultColours[5];
+        trooperImages[4].color = equipmentManager.playerDefaultColours[6];
+        trooperImages[5].color = equipmentManager.playerDefaultColours[7];
+        trooperImages[6].color = equipmentManager.playerDefaultColours[9];
+        trooperImages[7].color = equipmentManager.playerDefaultColours[8];
+        trooperImages[9].color = equipmentManager.playerDefaultColours[0];
+        trooperImages[10].color = equipmentManager.playerDefaultColours[1];
+        trooperImages[11].color = equipmentManager.playerDefaultColours[2];
+        trooperImages[12].color = equipmentManager.playerDefaultColours[4];
+        trooperImages[13].color = equipmentManager.playerDefaultColours[3];
+        trooperImages[16].color = equipmentManager.playerDefaultColours[10];
+        trooperImages[17].color = equipmentManager.playerDefaultColours[11];
+        trooperImages[18].color = equipmentManager.playerDefaultColours[12];
+        trooperImages[19].color = equipmentManager.playerDefaultColours[13];
     }
 }

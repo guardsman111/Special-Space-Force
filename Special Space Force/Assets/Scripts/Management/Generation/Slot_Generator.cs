@@ -47,16 +47,13 @@ public class Slot_Generator : MonoBehaviour
     {
         List<string> fileLocations = finder.Retrieve(templateDropdown.options[templateDropdown.value].text, ".meta");
         Slot_Class temp = Serializer.Deserialize<Slot_Class>(fileLocations[0]);
-        string imagePath = temp.TemplateImageLocation;
-        if (imagePath != null) {
-            Texture2D texture;
-            byte[] imageData = File.ReadAllBytes(imagePath);
-            texture = new Texture2D(400, 400);
-            if (texture.LoadImage(imageData))
-            {
-                templatePreview.sprite = Sprite.Create(texture,new Rect(0,0,texture.width,texture.height), new Vector2(0, 0));
-            }
-        } else
+        if (temp.TemplateImageLocation != null)
+        {
+            Texture2D tempTex = Resources.Load<Texture2D>(temp.TemplateImageLocation);
+            tempTex.filterMode = FilterMode.Point;
+            templatePreview.sprite = Sprite.Create(tempTex,new Rect(0,0, tempTex.width, tempTex.height), new Vector2(0, 0));
+        } 
+        else
         {
             templatePreview.sprite = null;
         }

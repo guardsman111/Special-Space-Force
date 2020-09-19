@@ -50,6 +50,8 @@ public class Generation_Settings_Director : MonoBehaviour
     public Image[] AIColour;
     public Toggle[] AIToggles;
     public Dropdown[] AIBoxesDropDowns; //Race Selection Dropdown
+    [SerializeField]
+    public Image[] PlayerColours;
 
 
     public ToggleVisiblePlanets planetToggle;
@@ -110,6 +112,7 @@ public class Generation_Settings_Director : MonoBehaviour
         product.playerStrength = playerStrength;
         product.toggledAI = SortToggledAI();
         product.trooperNamesList = localisationManager.chosenTrooperNamesList.name;
+        product.playerColours = equipmentManager.GetColours(PlayerColours);
         localisationManager.SeperateStringLists();
         generationManager.Generate(loading, product);
         Invoke("DisableCustomization", 1.0f);

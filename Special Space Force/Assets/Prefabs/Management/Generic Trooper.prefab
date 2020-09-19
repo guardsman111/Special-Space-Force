@@ -63,7 +63,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85f0084f8fab9934f9e929fc684593a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 745a953c6566d9a4989b0af056fcbbf5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9805d3efafce4b5458059509b9141f17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98b2679f89c4b6548a496cba4d62bbe7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -879,7 +879,15 @@ MonoBehaviour:
   trooperHair: 0
   hairColour: 0
   trooperSquad: {fileID: 0}
+  armour: 
+  fatigues: 
+  helmet: 
+  armourPattern: 
+  fatiguesPattern: 
+  helmetPattern: 
+  EquipmentPattern: 
   manager: {fileID: 0}
+  equipmentManager: {fileID: 0}
   image: {fileID: 6371425902676106219}
   input: {fileID: 4497139921975595689}
   trooperImages:
@@ -889,8 +897,8 @@ MonoBehaviour:
   - {fileID: 505552692603242873}
   - {fileID: 698112792899555397}
   - {fileID: 2166529539524067347}
-  - {fileID: 8855194403956715709}
   - {fileID: 1110417081105598127}
+  - {fileID: 8855194403956715709}
   - {fileID: 4730436403250403248}
   - {fileID: 766365032640830159}
   - {fileID: 178896621172233381}
@@ -1043,7 +1051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 608e02824718bd3408244bf3dbc4f98a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dae26ecb2e20e9e49b5f2adfab0fe309, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1980,7 +1988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d5c0a75e2a0747f418af79a9ace9fbf9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14a5beb4ab599be4ba563c8fd45f5c12, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
