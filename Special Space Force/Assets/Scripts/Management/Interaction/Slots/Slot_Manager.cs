@@ -299,12 +299,12 @@ public class Slot_Manager : MonoBehaviour
     //Finds the selected string from the dropdown menu
     public void FindSelected(Dropdown dropdown)
     {
-        CheckSlot(slotN1.GetComponent<Slot_Script>(), dropdown.options[dropdown.value].text);
+        CheckSlot(slotN1.GetComponent<Slot_Script>(), dropdown.options[dropdown.value].text, dropdown);
     }
 
     //Converts the dropdown string into a returnable slot and sends the viewed slot to that slot
     //Cannot handle duplicate names, just finds the first name in the list that has that name. need to use some ID's or something
-    private void CheckSlot(Slot_Script slot, string name)
+    private void CheckSlot(Slot_Script slot, string name, Dropdown dropdown)
     {
         //Remove the dashes that help the user determine children
         string dash = "-";
@@ -315,30 +315,33 @@ public class Slot_Manager : MonoBehaviour
         //Sends and sets details of the slot and its new parent, then saves all slots
         if (noDashes == slot.slotName)
         {
-            viewedSlot.transform.position = new Vector3(0, 0, 0);
-            viewedSlot.slotParent.containedSlots.Remove(viewedSlot);
-            foreach (Slot_Script ss in viewedSlot.slotParent.containedSlots)
+            if (dropdown.GetComponent<Slot_Button>().ids[dropdown.value] == slot.uID)
             {
-                if(ss.ID >= viewedSlot.ID)
+                viewedSlot.transform.position = new Vector3(0, 0, 0);
+                viewedSlot.slotParent.containedSlots.Remove(viewedSlot);
+                foreach (Slot_Script ss in viewedSlot.slotParent.containedSlots)
                 {
-                    ss.ID -= 1;
+                    if (ss.ID >= viewedSlot.ID)
+                    {
+                        ss.ID -= 1;
+                    }
                 }
+                slot.containedSlots.Add(viewedSlot);
+                viewedSlot.ID = slot.containedSlots.Count;
+                viewedSlot.slotParent = slot;
+                viewedSlot.ChangeHeight(slot.slotHeight);
+                viewedSlot.transform.SetParent(slot.transform, false);
+                slots = new List<Slot_Class>();
+                slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+                OpenSlot(slot);
             }
-            slot.containedSlots.Add(viewedSlot);
-            viewedSlot.ID = slot.containedSlots.Count;
-            viewedSlot.slotParent = slot;
-            viewedSlot.ChangeHeight(slot.slotHeight);
-            viewedSlot.transform.SetParent(slot.transform,false);
-            slots = new List<Slot_Class>();
-            slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
-            OpenSlot(slot);
         }
         else
         {
             //Repeats the process with every slot until a name match is found
             for (int i = 0; i< slot.containedSlots.Count; i++)
             {
-                CheckSlot(slot.containedSlots[i], name);
+                CheckSlot(slot.containedSlots[i], name, dropdown);
             }
         }
     }

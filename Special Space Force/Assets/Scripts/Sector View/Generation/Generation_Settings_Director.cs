@@ -52,6 +52,7 @@ public class Generation_Settings_Director : MonoBehaviour
     public Dropdown[] AIBoxesDropDowns; //Race Selection Dropdown
     [SerializeField]
     public Image[] PlayerColours;
+    public Page_Manager[] Pages;
 
 
     public ToggleVisiblePlanets planetToggle;
@@ -99,6 +100,10 @@ public class Generation_Settings_Director : MonoBehaviour
     //Starts the generation, grabs all the values and packages them into a Generation_Class
     public void StartGeneration(bool loading)
     {
+        foreach(Page_Manager p in Pages)
+        {
+            p.gameObject.SetActive(true);
+        }
         Generation_Class product = new Generation_Class();
         product.height = height * 10;
         product.width = width * 10;

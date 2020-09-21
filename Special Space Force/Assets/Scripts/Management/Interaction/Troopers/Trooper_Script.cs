@@ -133,7 +133,7 @@ public class Trooper_Script : MonoBehaviour
                     break;
 
                 case 16:
-                    rTransform.position = parent.squadPositions[0].transform.position + new Vector3(1750, 0);
+                    rTransform.position = parent.squadPositions[1].transform.position + new Vector3(1750, 0);
                     break;
 
                 case 17:

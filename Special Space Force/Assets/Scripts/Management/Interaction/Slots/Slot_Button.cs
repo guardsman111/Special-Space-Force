@@ -7,11 +7,12 @@ using static UnityEngine.UI.Dropdown;
 public class Slot_Button : MonoBehaviour
 {
     public Slot_Manager manager;
-    public Slot_Script currentScript;
+    public List<int> ids;
 
     public void SetDropdown()
     {
         this.GetComponent<Dropdown>().options.Clear();
+        ids = new List<int>();
         AddNames(manager.slotN1.GetComponent<Slot_Script>());
     }
 
@@ -26,6 +27,12 @@ public class Slot_Button : MonoBehaviour
             }
             OptionData temp = new OptionData(dashes + slot.slotName);
             GetComponent<Dropdown>().options.Add(temp);
+            while (ids.Contains(slot.uID))
+            {
+                slot.RegenerateUID();
+                Debug.Log("Unique ID not Unique");
+            }
+            ids.Add(slot.uID);
             foreach (Slot_Script sc in slot.containedSlots)
             {
                 AddNames(sc);

@@ -17,6 +17,7 @@ public class Slot_Script : MonoBehaviour
     public Transform firstPosition;
     public RectTransform background;
     public int ID;
+    public int uID; // Unique ID given on creation
     public TMP_InputField input;
     public Slot_Manager manager;
     public bool squad;
@@ -40,6 +41,10 @@ public class Slot_Script : MonoBehaviour
         squad = false;
         input.text = slotName;
         manager = nManager;
+        if (uID == 0)
+        {
+            uID = Random.Range(1, 10000000);
+        }
     }
 
     public void MakeSlot(Slot_Class slot, int positionID, Slot_Manager nManager)
@@ -53,6 +58,10 @@ public class Slot_Script : MonoBehaviour
         ID = positionID;
         input.text = slotName;
         manager = nManager;
+        if (uID == 0)
+        {
+            uID = Random.Range(1, 10000000);
+        }
     }
 
     public void MakeSlot(Slot_Script slot, Slot_Script parent, Slot_Manager nManager)
@@ -67,6 +76,15 @@ public class Slot_Script : MonoBehaviour
         background = slot.background;
         containedSlots = slot.containedSlots;
         containedTroopers = slot.containedTroopers;
+        if (uID == 0)
+        {
+            uID = Random.Range(1, 10000000);
+        }
+    }
+
+    public void RegenerateUID()
+    {
+        uID = Random.Range(1, 10000000);
     }
 
     public void AddContainedSlots(List<Slot_Script> slotList)
@@ -269,7 +287,7 @@ public class Slot_Script : MonoBehaviour
                             break;
 
                         case 5:
-                            rTransform.localPosition = new Vector3(0, 200);
+                            rTransform.localPosition = new Vector3(0, -200);
                             break;
 
                         case 6:
