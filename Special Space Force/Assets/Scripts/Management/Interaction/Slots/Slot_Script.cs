@@ -27,6 +27,8 @@ public class Slot_Script : MonoBehaviour
     public GameObject[] positions9;
     public GameObject[] squadPositions;
 
+    public Image addImage;
+
     public int slotHeight;
 
     public void MakeSlot(string newSlotName, int newSlotHeight, Slot_Manager nManager)
@@ -434,6 +436,7 @@ public class Slot_Script : MonoBehaviour
                     gameObject.SetActive(true);
                 }
             }
+            addImage.enabled = false;
         }
     }
 

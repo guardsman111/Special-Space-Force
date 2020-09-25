@@ -257,6 +257,11 @@ public class Slot_Manager : MonoBehaviour
         menu = setting;
     }
 
+    public void UIPressed(bool setting)
+    {
+        menu = setting;
+    }
+
     //If the mouse is pressed and there isnt a menu open, fire the raycast and work out which slot is the highest (the one visible to the user)
     void Update()
     {

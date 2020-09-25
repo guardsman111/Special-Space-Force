@@ -288,4 +288,15 @@ public class Trooper_Script : MonoBehaviour
         trooperImages[18].color = equipmentManager.playerDefaultColours[12];
         trooperImages[19].color = equipmentManager.playerDefaultColours[13];
     }
+
+    public void ChangeName(TMP_InputField input)
+    {
+        trooperClass.trooperName = input.text;
+        trooperName = input.text;
+    }
+
+    public void UIPressed(bool setting)
+    {
+        manager.UIPressed(setting);
+    }
 }
