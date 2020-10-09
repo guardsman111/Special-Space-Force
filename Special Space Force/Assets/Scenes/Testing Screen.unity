@@ -10916,6 +10916,7 @@ MonoBehaviour:
     rgba: 4286251022
   - serializedVersion: 2
     rgba: 4278218973
+  selectedTroopers: []
 --- !u!1 &734138503
 GameObject:
   m_ObjectHideFlags: 0
@@ -17117,7 +17118,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 732775614}
-        m_MethodName: NewSlotTop
+        m_MethodName: NewSquadTop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

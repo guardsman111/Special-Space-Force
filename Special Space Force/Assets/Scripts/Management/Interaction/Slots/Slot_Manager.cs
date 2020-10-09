@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Slot_Manager : MonoBehaviour
 {
+    /// <summary>
+    /// This Script manages all interactions between the slots presented on screen to the player.
+    /// </summary>
     public Galaxy_Generation_Manager manager;
     public Slot_Generator generator;
     public GameObject prefabSlot;
@@ -31,6 +34,8 @@ public class Slot_Manager : MonoBehaviour
 
     public Color32[] hairColours;
 
+
+    public List<Trooper_Script> selectedTroopers;
 
     //Gets the graphics raycaster
     void Start()
@@ -263,6 +268,7 @@ public class Slot_Manager : MonoBehaviour
     }
 
     //If the mouse is pressed and there isnt a menu open, fire the raycast and work out which slot is the highest (the one visible to the user)
+    //If there was a trooper image seleted then it selects that trooper and cancels everything else. If a shift is being held, it adds the trooper to the list.
     void Update()
     {
         //Check if the left Mouse button is clicked
@@ -289,6 +295,21 @@ public class Slot_Manager : MonoBehaviour
                         Highest = temp;
                         highestSlotHeight = temp.slotHeight;
                     }
+                }
+                if (result.gameObject.transform.parent.CompareTag("Trooper"))
+                {
+                    if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+                    {
+                        foreach(Trooper_Script ts in selectedTroopers)
+                        {
+                            ts.imageManager.TurnOff("selected");
+                        }
+                        selectedTroopers.Clear();
+                    }
+                    result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>().imageManager.TurnOn("selected");
+                    Debug.Log(result.gameObject.name);
+                    selectedTroopers.Add(result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>());
+                    break;
                 }
             }
 

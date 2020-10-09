@@ -31,6 +31,8 @@ public class Trooper_Script : MonoBehaviour
                                   //Armour Primary, A Secondary, A Tertiary, A Special, A Equipment, A Force Icon, A Outline, Helmet Primary,
                                   //H Secondary, H Tertiary, H Equipment, H Visor, H Outline, Weapon, W Colour
 
+    public Image_Manager imageManager;
+
     public void MakeTrooper(Trooper_Class trooper, int positionID, Slot_Manager nManager)
     {
         manager = nManager;
