@@ -1,0 +1,12 @@
+# Special-Space-Force
+Special forces in space
+Special Space Force is a Strategy game with a difference. Where most strategy games have generally much further spread focuses, such as resources, troops, diplomacy, and other motives, Special Space Forces focuses on the use of Special Forces in a Galactic setting. The player takes on the roll of a commander of a Special Forces Unit and is given a section of space to watch over. 
+
+To keep their space safe, the player will have to counter threats from alien races, political upheaval and even natural disasters. To do so, they are given complete control over their forces, from what weapons to have to how they are organised. Players can split their forces however they please and send them to wherever they are needed. Each trooper is an individual, who will act and react based on their personality, resulting in some troops that will freeze when the shooting starts, and others who will charge into certain death to attempt to win the battle. Troops grow with experience, from the greenest of recruits to the hardest of veterans, a trait which the player could utilize in many ways, from forming Crack, elite squads of veterans, to promoting veterans to lead new squads of green troops.
+
+The game is a sandbox, and each galaxy you fight in will never be the same as another. A player can edit many features, from how many troops and what organisation they start with, to what research is unlocked, even too the starting strength of their faction. Many other features of the game, such as equipment, enemy Races and their threats, can be freely modded, allowing unlimited freedom on what equipment you choose to use. Perhaps you don’t like the rifle you start with, and choose to create another, custom weapon your troopers will be armed with.
+Special Space Force is a game that will offer a great amount of replay ability, player touch and an intimacy with troops 
+
+For Large Scale Strategy Gamers, whose games do not provide enough micromanagement or connection to their units. Special Space Forces is a Sandbox Strategy game that offers unparalleled player control over their troops, a large, sandbox galaxy full of threats to conquer, with a narrative combat system that really makes you feel like your soldiers are individuals, where one man could be the difference between victory and defeat
+
+It is different from other sci-fi strategy games, which usually focus on control of an entire empire, control of formations of generic troops with no personality in graphically intensive combat, or a mix of the two.
