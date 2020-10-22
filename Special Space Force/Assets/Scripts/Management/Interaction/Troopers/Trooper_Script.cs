@@ -62,6 +62,7 @@ public class Trooper_Script : MonoBehaviour
         armour = "Mk1 Armour";
         armourPattern = "Primary1";
         TrooperColours();
+        manager.ChangeTroopers(1);
     }
 
 

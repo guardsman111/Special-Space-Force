@@ -21,7 +21,8 @@ public class Slot_Manager : MonoBehaviour
     public InputField currentName;
     public Scrollbar slotFieldScroll;
     public Slider slotSlider;
-    public List<GameObject> buttonsSwappable;
+    public GameObject slotOptions;
+    public GameObject squadOptions;
     public bool menu;
     bool matched = false;
 
@@ -36,6 +37,8 @@ public class Slot_Manager : MonoBehaviour
 
 
     public List<Trooper_Script> selectedTroopers;
+
+    public int nTroopers;
 
     //Gets the graphics raycaster
     void Start()
@@ -69,6 +72,8 @@ public class Slot_Manager : MonoBehaviour
             femaleHairPack.packType = "Hair";
             femaleHairPack.containedSprites.Add(s);
         }
+
+        nTroopers = 0;
     }
 
 
@@ -379,10 +384,8 @@ public class Slot_Manager : MonoBehaviour
             if (viewedSlot.containedSlots.Count == 0)
             {
                 viewedSlot.squad = true;
-                buttonsSwappable[0].SetActive(false);
-                buttonsSwappable[1].SetActive(false);
-                buttonsSwappable[2].SetActive(true);
-                buttonsSwappable[3].SetActive(true);
+                slotOptions.SetActive(false);
+                squadOptions.SetActive(true);
             }
             else
             {
@@ -396,10 +399,8 @@ public class Slot_Manager : MonoBehaviour
             if (viewedSlot.containedTroopers.Count == 0)
             {
                 viewedSlot.squad = false;
-                buttonsSwappable[2].SetActive(false);
-                buttonsSwappable[3].SetActive(false);
-                buttonsSwappable[0].SetActive(true);
-                buttonsSwappable[1].SetActive(true);
+                squadOptions.SetActive(false);
+                slotOptions.SetActive(true);
             }
             else
             {
@@ -408,5 +409,18 @@ public class Slot_Manager : MonoBehaviour
                 slider.interactable = false;
             }
         }
+    }
+
+    public void ChangeTroopers(int change)
+    {
+        nTroopers += change;
+    }
+
+    public string GetTroopers()
+    {
+        string number;
+
+        number = nTroopers.ToString();
+        return number;
     }
 }

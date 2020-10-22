@@ -9,6 +9,7 @@ public class Slot_Script : MonoBehaviour
     /// <summary>
     /// This Script holds the information for a single slot, but also contains Lists of slots and troopers stored within it.
     /// </summary>
+    
     public List<Slot_Script> containedSlots;
     public List<Trooper_Script> containedTroopers;
     public string slotName;
@@ -19,6 +20,7 @@ public class Slot_Script : MonoBehaviour
     public int ID;
     public int uID; // Unique ID given on creation
     public TMP_InputField input;
+    public TextMeshProUGUI nTroops;
     public Slot_Manager manager;
     public bool squad;
 
@@ -31,6 +33,7 @@ public class Slot_Script : MonoBehaviour
 
     public int slotHeight;
 
+    //Creates a slot from blank with just a name and height
     public void MakeSlot(string newSlotName, int newSlotHeight, Slot_Manager nManager)
     {
         slotClass = new Slot_Class();
@@ -49,6 +52,7 @@ public class Slot_Script : MonoBehaviour
         }
     }
 
+    //Creates a slot from a slot class
     public void MakeSlot(Slot_Class slot, int positionID, Slot_Manager nManager)
     {
         slotClass = slot;
@@ -66,6 +70,7 @@ public class Slot_Script : MonoBehaviour
         }
     }
 
+    //Creates a slot from a slot script and inserts a new parent
     public void MakeSlot(Slot_Script slot, Slot_Script parent, Slot_Manager nManager)
     {
         slotClass = slot.slotClass;
@@ -84,6 +89,7 @@ public class Slot_Script : MonoBehaviour
         }
     }
 
+    //Creates a new unique ID
     public void RegenerateUID()
     {
         uID = Random.Range(1, 10000000);
@@ -116,7 +122,7 @@ public class Slot_Script : MonoBehaviour
         //Set Scale and position depending on its size compared too parent (anything else should not appear)
         switch (viewedSlot.slotHeight - slotHeight)
         {
-            //If the height difference is -2 (meaning the slot is 2 higher, i.e. height 3 vs viewed slot height 1)
+            //If the height difference is -2 (meaning it is a middle size slot)
             case -2:
                 input.textComponent.enableWordWrapping = true;
                 if (nSlots < 5)
@@ -232,10 +238,20 @@ public class Slot_Script : MonoBehaviour
                     input.textComponent.fontSize = 36;
                     input.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 60);
                 }
+                if (containedTroopers.Count != 0)
+                {
+                    nTroops.enabled = true;
+                    nTroops.fontSize = 200;
+                    nTroops.text = containedTroopers.Count.ToString();
+                }
+                else
+                {
+                    nTroops.enabled = false;
+                }
                 input.enabled = true;
                 gameObject.GetComponent<Image>().color = new Color32(169, 169, 169,100);
                 break;
-            //If the height difference is -3 (meaning the slot is 3 higher, i.e. height 4 vs viewed slot height 1)
+            //If the height difference is -3 (meaning the slot is the smallest visible slot)
             case -3:
                 input.textComponent.enableWordWrapping = true;
                 if (nSlots < 5)
@@ -354,6 +370,15 @@ public class Slot_Script : MonoBehaviour
                     input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
                     input.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 300);
                 }
+                if (containedTroopers.Count != 0)
+                {
+                    nTroops.enabled = true;
+                    nTroops.fontSize = 200;
+                    nTroops.text = containedTroopers.Count.ToString();
+                } else
+                {
+                    nTroops.enabled = false;
+                }
                 input.enabled = true;
                 gameObject.GetComponent<Image>().color = new Color32(180, 180, 180, 100);
                 break;
@@ -386,6 +411,7 @@ public class Slot_Script : MonoBehaviour
             } 
             rTransform.localPosition = new Vector3(0, 0);
             gameObject.transform.localScale = new Vector3(1, 1);
+            nTroops.gameObject.SetActive(false);
             input.gameObject.SetActive(false);
             gameObject.GetComponent<Image>().enabled = false;
             background.gameObject.SetActive(false);
@@ -413,6 +439,7 @@ public class Slot_Script : MonoBehaviour
         } 
         else
         {
+            nTroops.enabled = false;
             input.gameObject.SetActive(false);
             gameObject.GetComponent<Image>().enabled = false;
             background.gameObject.SetActive(false);
@@ -484,6 +511,7 @@ public class Slot_Script : MonoBehaviour
                 break;
 
         }
+        nTroops.enabled = false;
         gameObject.transform.localScale = new Vector3(1, 1);
         input.transform.localScale = new Vector3(1, 1);
         input.textComponent.transform.localScale = new Vector3(1, 1);
