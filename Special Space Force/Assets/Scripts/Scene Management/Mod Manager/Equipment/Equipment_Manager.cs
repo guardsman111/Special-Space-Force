@@ -28,17 +28,16 @@ public class Equipment_Manager : MonoBehaviour
     public Dropdown EquipmentPatternCustom;
     public Dropdown WeaponPatternCustom;
 
-    public Dropdown HelmetDropdownSquad;
-    public Dropdown FatiguesDropdownSquad;
-    public Dropdown ArmourDropdownSquad;
-    public Dropdown EquipmentDropdownSquad;
-    public Dropdown WeaponDropdownSquad;
-
     public Dropdown HelmetDropdownTrooper;
     public Dropdown FatiguesDropdownTrooper;
     public Dropdown ArmourDropdownTrooper;
     public Dropdown EquipmentDropdownTrooper;
     public Dropdown WeaponDropdownTrooper;
+    public Dropdown HelmetPatternTrooper;
+    public Dropdown FatiguesPatternTrooper;
+    public Dropdown ArmourPatternTrooper;
+    public Dropdown EquipmentPatternTrooper;
+    public Dropdown WeaponPatternTrooper;
 
     public void Begin()
     {
@@ -291,8 +290,14 @@ public class Equipment_Manager : MonoBehaviour
         SetupDropdown(ArmourDropdownCustom);
         SetupDropdown(FatiguesDropdownCustom);
 
+        SetupDropdown(HelmetDropdownTrooper);
+        SetupDropdown(ArmourDropdownTrooper);
+        SetupDropdown(FatiguesDropdownTrooper);
+
         HelmetDropdownCustom.value = 1;
         ArmourDropdownCustom.value = 1;
+        HelmetDropdownTrooper.value = 1;
+        ArmourDropdownTrooper.value = 1;
     }
 
     public void SaveExamples()
@@ -636,7 +641,7 @@ public class Equipment_Manager : MonoBehaviour
 
     public void ChangePattern(Trooper_Script trooper, Dropdown dropdown)
     {
-        if (dropdown == ArmourPatternCustom)
+        if (dropdown.name == "Armor")
         {
             Sprite_Pack pack = new Sprite_Pack();
 
@@ -683,7 +688,7 @@ public class Equipment_Manager : MonoBehaviour
             }
         }
 
-        if (dropdown == FatiguesPatternCustom)
+        if (dropdown.name == "Fatigues")
         {
             Sprite_Pack pack = new Sprite_Pack();
 
@@ -703,7 +708,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[8].sprite = pack.containedSprites[0];
                 trooper.trooperImages[4].gameObject.SetActive(false);
                 trooper.trooperImages[5].gameObject.SetActive(false);
-                trooper.fatigues = pack.packName;
+                trooper.fatiguesPattern = pack.patternName;
             }
             if (pack.numberOfColours == 2)
             {
@@ -714,7 +719,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[7].sprite = pack.containedSprites[3];
                 trooper.trooperImages[8].sprite = pack.containedSprites[0];
                 trooper.trooperImages[5].gameObject.SetActive(false);
-                trooper.fatigues = pack.packName;
+                trooper.fatiguesPattern = pack.patternName;
             }
             if (pack.numberOfColours == 3)
             {
@@ -726,11 +731,11 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[6].sprite = pack.containedSprites[5];
                 trooper.trooperImages[7].sprite = pack.containedSprites[4];
                 trooper.trooperImages[8].sprite = pack.containedSprites[0];
-                trooper.fatigues = pack.packName;
+                trooper.fatiguesPattern = pack.patternName;
             }
         }
 
-        if (dropdown == HelmetPatternCustom)
+        if (dropdown.name == "Helmet")
         {
             Sprite_Pack pack = new Sprite_Pack();
 
@@ -739,6 +744,16 @@ public class Equipment_Manager : MonoBehaviour
                 if (p.packName == trooper.helmet && p.patternName == dropdown.options[dropdown.value].text)
                 {
                     pack = p;
+                    //Debug.Log("Success! Matched Pack - ");
+                    //Debug.Log("Sprite pack pattern |" + p.patternName + "| and dropdown text |" + dropdown.options[dropdown.value].text);
+                    //Debug.Log("Pack name |" + p.packName + "| and trooper gear name |" + trooper.helmet);
+                    break;
+                }
+                else
+                {
+                    //Debug.Log("Missing Pack");
+                    //Debug.Log("Sprite pack pattern |" + p.patternName + "| and dropdown text |" + dropdown.options[dropdown.value].text);
+                    //Debug.Log("Pack name |" + p.packName + "| and trooper gear name |" + trooper.helmet);
                 }
             }
 
@@ -749,7 +764,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[21].sprite = pack.containedSprites[0];
                 trooper.trooperImages[17].gameObject.SetActive(false);
                 trooper.trooperImages[18].gameObject.SetActive(false);
-                trooper.helmet = pack.packName;
+                trooper.helmetPattern = pack.patternName;
             }
             if (pack.numberOfColours == 2)
             {
@@ -759,7 +774,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[19].sprite = pack.containedSprites[3];
                 trooper.trooperImages[21].sprite = pack.containedSprites[0];
                 trooper.trooperImages[18].gameObject.SetActive(false);
-                trooper.helmet = pack.packName;
+                trooper.helmetPattern = pack.patternName;
             }
             if (pack.numberOfColours == 3)
             {
@@ -770,7 +785,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[18].sprite = pack.containedSprites[3];
                 trooper.trooperImages[19].sprite = pack.containedSprites[4];
                 trooper.trooperImages[21].sprite = pack.containedSprites[0];
-                trooper.helmet = pack.packName;
+                trooper.helmetPattern = pack.patternName;
             }
         }
     }

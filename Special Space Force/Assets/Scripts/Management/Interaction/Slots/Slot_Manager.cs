@@ -182,7 +182,7 @@ public class Slot_Manager : MonoBehaviour
             if (viewedSlot.containedTroopers.Count != 0)
             {
                 slotSlider.interactable = false;
-            } 
+            }
             else
             {
                 slotSlider.interactable = true;
@@ -192,13 +192,14 @@ public class Slot_Manager : MonoBehaviour
                 ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
             }
             slotSlider.value = 1;
-        } 
+        }
         else
         {
             if (viewedSlot.containedSlots.Count != 0)
             {
                 slotSlider.interactable = false;
-            } else 
+            }
+            else
             {
                 slotSlider.interactable = true;
             }
@@ -223,6 +224,7 @@ public class Slot_Manager : MonoBehaviour
         slotFieldScroll.value = 0;
         slotSlider.value = 0;
         slotSlider.interactable = false;
+        DeselectTroopers();
     }
 
     //Returns to the top slot
@@ -237,6 +239,7 @@ public class Slot_Manager : MonoBehaviour
         slotFieldScroll.value = 0;
         slotSlider.value = 0;
         slotSlider.interactable = false;
+        DeselectTroopers();
     }
 
     //Sets the name of the slot
@@ -305,7 +308,7 @@ public class Slot_Manager : MonoBehaviour
                 {
                     if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
                     {
-                        foreach(Trooper_Script ts in selectedTroopers)
+                        foreach (Trooper_Script ts in selectedTroopers)
                         {
                             ts.imageManager.TurnOff("selected");
                         }
@@ -319,7 +322,7 @@ public class Slot_Manager : MonoBehaviour
             }
 
             //If there was a slot in the selection and menu isn't open (double checking incase of slowness on a script's part) open the clicked slot
-            if(highestSlotHeight > -2 && !menu)
+            if (highestSlotHeight > -2 && !menu)
             {
                 OpenSlot(Highest);
             }
@@ -370,7 +373,7 @@ public class Slot_Manager : MonoBehaviour
         else
         {
             //Repeats the process with every slot until a name match is found
-            for (int i = 0; i< slot.containedSlots.Count; i++)
+            for (int i = 0; i < slot.containedSlots.Count; i++)
             {
                 CheckSlot(slot.containedSlots[i], name, dropdown);
             }
@@ -422,5 +425,14 @@ public class Slot_Manager : MonoBehaviour
 
         number = nTroopers.ToString();
         return number;
+    }
+
+    public void DeselectTroopers()
+    {
+        foreach (Trooper_Script ts in selectedTroopers)
+        {
+            ts.imageManager.TurnOff("selected");
+        }
+        selectedTroopers.Clear();
     }
 }
