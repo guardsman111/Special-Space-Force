@@ -18,11 +18,13 @@ public class Slot_Manager : MonoBehaviour
     public GraphicRaycaster raycaster;
     public Slot_Script Highest;
     public Slot_Button moveToDropdown;
+    public Slot_Button transferDropdown;
     public InputField currentName;
     public Scrollbar slotFieldScroll;
     public Slider slotSlider;
     public GameObject slotOptions;
     public GameObject squadOptions;
+    public Dropdown slotRoleDropdown;
     public bool menu;
     bool matched = false;
 
@@ -90,6 +92,8 @@ public class Slot_Manager : MonoBehaviour
             tempS.ID = viewedSlot.containedSlots.Count + 1;
             tempS.containedSlots = new List<Slot_Script>();
             tempS.containedTroopers = new List<Trooper_Script>();
+            tempS.squad = false;
+            tempS.squadRole = 0;
             tempS.MakeSlot(tempS, viewedSlot, this);
             tempS.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
             viewedSlot.containedSlots.Add(tempS);
@@ -114,6 +118,7 @@ public class Slot_Manager : MonoBehaviour
             tempS.slotHeight = viewedSlot.slotHeight + 1;
             tempS.ID = viewedSlot.containedSlots.Count + 1;
             tempS.squad = true;
+            tempS.squadRole = 0;
             tempS.containedSlots = new List<Slot_Script>();
             tempS.containedTroopers = new List<Trooper_Script>();
             tempS.MakeSlot(tempS, viewedSlot, this);
@@ -141,6 +146,8 @@ public class Slot_Manager : MonoBehaviour
             tempS.ID = newParent.containedSlots.Count + 1;
             tempS.containedSlots = new List<Slot_Script>();
             tempS.containedTroopers = new List<Trooper_Script>();
+            tempS.squad = false;
+            tempS.squadRole = 0;
             tempS.MakeSlot(tempS, newParent, this);
             newParent.containedSlots.Add(tempS);
             OpenSlot(viewedSlot);
@@ -192,6 +199,9 @@ public class Slot_Manager : MonoBehaviour
                 ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
             }
             slotSlider.value = 1;
+            squadOptions.SetActive(true);
+            slotOptions.SetActive(false);
+            slotRoleDropdown.value = viewedSlot.squadRole;
         }
         else
         {
@@ -208,6 +218,8 @@ public class Slot_Manager : MonoBehaviour
                 ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
             }
             slotSlider.value = 0;
+            squadOptions.SetActive(false);
+            slotOptions.SetActive(true);
         }
         slotFieldScroll.value = 0;
     }
@@ -224,6 +236,8 @@ public class Slot_Manager : MonoBehaviour
         slotFieldScroll.value = 0;
         slotSlider.value = 0;
         slotSlider.interactable = false;
+        squadOptions.SetActive(false);
+        slotOptions.SetActive(true);
         DeselectTroopers();
     }
 
@@ -239,6 +253,8 @@ public class Slot_Manager : MonoBehaviour
         slotFieldScroll.value = 0;
         slotSlider.value = 0;
         slotSlider.interactable = false;
+        squadOptions.SetActive(false);
+        slotOptions.SetActive(true);
         DeselectTroopers();
     }
 
@@ -250,7 +266,8 @@ public class Slot_Manager : MonoBehaviour
 
     public void SetDropdown()
     {
-        moveToDropdown.SetDropdown();
+        moveToDropdown.SetDropdownSlot();
+        transferDropdown.SetDropdownSlot();
     }
 
     //Moves the Slot to be a child of the selected slot from the dropdown
@@ -259,14 +276,25 @@ public class Slot_Manager : MonoBehaviour
         FindSelected(Dropdown.GetComponent<Dropdown>());
         Debug.Log("Moving to Slot " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
         slotFieldScroll.value = 0;
-        moveToDropdown.SetDropdown();
+        moveToDropdown.SetDropdownSlot();
         //Dropdown.GetComponent<Dropdown>().value = 0;
+    }
+
+    //Moves the Slot to be a child of the selected slot from the dropdown
+    public void MoveToSquad(GameObject Dropdown)
+    {
+        FindSelectedSquad(Dropdown.GetComponent<Dropdown>());
+        Debug.Log("Moving to Squad " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
+        slotFieldScroll.value = 0;
+        transferDropdown.SetDropdownSquad();
+        Dropdown.GetComponent<Dropdown>().value = 0;
     }
 
     //Registers opening of the menu to prevent users from clicking through it
     public void MovingSlot(bool setting)
     {
-        moveToDropdown.SetDropdown();
+        moveToDropdown.SetDropdownSlot();
+        transferDropdown.SetDropdownSquad();
         menu = setting;
     }
 
@@ -336,6 +364,12 @@ public class Slot_Manager : MonoBehaviour
         CheckSlot(slotN1.GetComponent<Slot_Script>(), dropdown.options[dropdown.value].text, dropdown);
     }
 
+    //Finds the selected string from the dropdown menu
+    public void FindSelectedSquad(Dropdown dropdown)
+    {
+        CheckSquad(slotN1.GetComponent<Slot_Script>(), dropdown.options[dropdown.value].text, dropdown);
+    }
+
     //Converts the dropdown string into a returnable slot and sends the viewed slot to that slot
     //Cannot handle duplicate names, just finds the first name in the list that has that name. need to use some ID's or something
     private void CheckSlot(Slot_Script slot, string name, Dropdown dropdown)
@@ -380,6 +414,60 @@ public class Slot_Manager : MonoBehaviour
         }
     }
 
+    //Same as checkslot, but for transfering troopers. 
+    private void CheckSquad(Slot_Script slot, string name, Dropdown dropdown)
+    {
+        //Remove the dashes that help the user determine children
+        string dash = "-";
+        string noDashes;
+
+        noDashes = name.Replace(dash, "");
+
+        //Sends and sets details of the slot and its new parent, then saves all slots
+        if (noDashes == slot.slotName)
+        {
+            if (dropdown.GetComponent<Slot_Button>().ids[dropdown.value] == slot.uID)
+            {
+                foreach (Trooper_Script ts in selectedTroopers)
+                {
+                    if (slot.containedTroopers.Count <= 19)
+                    {
+                        slot.containedTroopers.Add(ts);
+                        viewedSlot.containedTroopers.Remove(ts);
+                    } 
+                    else
+                    {
+                        Debug.Log("Squad Full - " + slot.slotName);
+                    }
+                }
+                //viewedSlot.transform.position = new Vector3(0, 0, 0);
+                //viewedSlot.slotParent.containedSlots.Remove(viewedSlot);
+                //foreach (Slot_Script ss in viewedSlot.slotParent.containedSlots)
+                //{
+                //    if (ss.ID >= viewedSlot.ID)
+                //    {
+                //        ss.ID -= 1;
+                //    }
+                //}
+                //slot.containedSlots.Add(viewedSlot);
+                //viewedSlot.ID = slot.containedSlots.Count;
+                //viewedSlot.slotParent = slot;
+                //viewedSlot.ChangeHeight(slot.slotHeight);
+                //viewedSlot.transform.SetParent(slot.transform, false);
+                slots = new List<Slot_Class>();
+                slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+            }
+        }
+        else
+        {
+            //Repeats the process with every slot until a name match is found
+            for (int i = 0; i < slot.containedSlots.Count; i++)
+            {
+                CheckSquad(slot.containedSlots[i], name, dropdown);
+            }
+        }
+    }
+
     public void SetSquad(Slider slider)
     {
         if (slider.value == 1)
@@ -412,6 +500,11 @@ public class Slot_Manager : MonoBehaviour
                 slider.interactable = false;
             }
         }
+    }
+
+    public void SetRole(Dropdown dropdown)
+    {
+        viewedSlot.squadRole = dropdown.value;
     }
 
     public void ChangeTroopers(int change)

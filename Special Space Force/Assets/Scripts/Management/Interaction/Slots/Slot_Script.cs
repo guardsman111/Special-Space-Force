@@ -23,6 +23,7 @@ public class Slot_Script : MonoBehaviour
     public TextMeshProUGUI nTroops;
     public Slot_Manager manager;
     public bool squad;
+    public int squadRole;
 
     public GameObject[] positions4;
     public GameObject[] positions6;
@@ -44,6 +45,7 @@ public class Slot_Script : MonoBehaviour
         containedSlots = new List<Slot_Script>();
         containedTroopers = new List<Trooper_Script>();
         squad = false;
+        squadRole = 0;
         input.text = slotName;
         manager = nManager;
         if (uID == 0)
@@ -60,6 +62,7 @@ public class Slot_Script : MonoBehaviour
         slotHeight = slot.slotHeight;
         containedSlots = new List<Slot_Script>();
         squad = slot.squad;
+        squadRole = slot.squadRole;
 
         ID = positionID;
         input.text = slotName;
@@ -87,6 +90,8 @@ public class Slot_Script : MonoBehaviour
         {
             uID = Random.Range(1, 10000000);
         }
+        squad = slot.squad;
+        squadRole = slot.squadRole;
     }
 
     //Creates a new unique ID

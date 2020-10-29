@@ -13,6 +13,7 @@ public class Slot_Class
     public string slotName;
     public int positionID;
     public bool squad;
+    public int squadRole;
     public int numberOfTroopers;
 
     public int slotHeight;
