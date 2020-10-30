@@ -273,21 +273,27 @@ public class Slot_Manager : MonoBehaviour
     //Moves the Slot to be a child of the selected slot from the dropdown
     public void MoveToSlot(GameObject Dropdown)
     {
-        FindSelected(Dropdown.GetComponent<Dropdown>());
-        Debug.Log("Moving to Slot " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
-        slotFieldScroll.value = 0;
-        moveToDropdown.SetDropdownSlot();
-        //Dropdown.GetComponent<Dropdown>().value = 0;
+        if (Dropdown.GetComponent<Dropdown>().value != 0)
+        {
+            FindSelected(Dropdown.GetComponent<Dropdown>());
+            Debug.Log("Moving to Slot " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
+            slotFieldScroll.value = 0;
+            moveToDropdown.SetDropdownSlot();
+            Dropdown.GetComponent<Dropdown>().value = 0;
+        }
     }
 
     //Moves the Slot to be a child of the selected slot from the dropdown
     public void MoveToSquad(GameObject Dropdown)
     {
-        FindSelectedSquad(Dropdown.GetComponent<Dropdown>());
-        Debug.Log("Moving to Squad " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
-        slotFieldScroll.value = 0;
-        transferDropdown.SetDropdownSquad();
-        Dropdown.GetComponent<Dropdown>().value = 0;
+        if (Dropdown.GetComponent<Dropdown>().value != 0)
+        {
+            FindSelectedSquad(Dropdown.GetComponent<Dropdown>());
+            Debug.Log("Moving to Squad " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
+            slotFieldScroll.value = 0;
+            transferDropdown.SetDropdownSquad();
+            Dropdown.GetComponent<Dropdown>().value = 0;
+        }
     }
 
     //Registers opening of the menu to prevent users from clicking through it
@@ -361,6 +367,7 @@ public class Slot_Manager : MonoBehaviour
     //Finds the selected string from the dropdown menu
     public void FindSelected(Dropdown dropdown)
     {
+        dropdown.value -= 1;
         CheckSlot(slotN1.GetComponent<Slot_Script>(), dropdown.options[dropdown.value].text, dropdown);
     }
 
@@ -432,28 +439,25 @@ public class Slot_Manager : MonoBehaviour
                 {
                     if (slot.containedTroopers.Count <= 19)
                     {
+                        slot.gameObject.SetActive(true);
+                        ts.gameObject.transform.parent = slot.gameObject.transform;
+                        ts.trooperPosition = slot.containedTroopers.Count + 1;
+                        ts.trooperSquad = slot;
                         slot.containedTroopers.Add(ts);
                         viewedSlot.containedTroopers.Remove(ts);
+                        slot.gameObject.SetActive(false);
                     } 
                     else
                     {
                         Debug.Log("Squad Full - " + slot.slotName);
                     }
                 }
-                //viewedSlot.transform.position = new Vector3(0, 0, 0);
-                //viewedSlot.slotParent.containedSlots.Remove(viewedSlot);
-                //foreach (Slot_Script ss in viewedSlot.slotParent.containedSlots)
-                //{
-                //    if (ss.ID >= viewedSlot.ID)
-                //    {
-                //        ss.ID -= 1;
-                //    }
-                //}
-                //slot.containedSlots.Add(viewedSlot);
-                //viewedSlot.ID = slot.containedSlots.Count;
-                //viewedSlot.slotParent = slot;
-                //viewedSlot.ChangeHeight(slot.slotHeight);
-                //viewedSlot.transform.SetParent(slot.transform, false);
+                int counter = 0;
+                foreach(Trooper_Script ts in viewedSlot.containedTroopers)
+                {
+                    counter += 1;
+                    ts.trooperPosition = counter;
+                }
                 slots = new List<Slot_Class>();
                 slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
             }

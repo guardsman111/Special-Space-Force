@@ -2054,7 +2054,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 732775614}
-          m_MethodName: MovingSlot
+          m_MethodName: UIPressed
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2078,6 +2078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 732775614}
   ids: 
+  changedRecently: 0
 --- !u!114 &84908719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15641,6 +15642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 732775614}
   ids: 
+  changedRecently: 0
 --- !u!114 &821004932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34644,6 +34646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 732775614}
   ids: 
+  changedRecently: 0
 --- !u!114 &1947465540
 MonoBehaviour:
   m_ObjectHideFlags: 0

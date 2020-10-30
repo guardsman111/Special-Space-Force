@@ -12,13 +12,20 @@ public class Slot_Button : MonoBehaviour
     public void SetDropdownSlot()
     {
         this.GetComponent<Dropdown>().options.Clear();
+        OptionData basic = new OptionData("Move Slot");
+        GetComponent<Dropdown>().options.Add(basic);
         ids = new List<int>();
+        ids.Add(0);
         AddNames(manager.slotN1.GetComponent<Slot_Script>());
     }
+
     public void SetDropdownSquad()
     {
         this.GetComponent<Dropdown>().options.Clear();
+        OptionData basic = new OptionData("Transfer Troopers");
+        GetComponent<Dropdown>().options.Add(basic);
         ids = new List<int>();
+        ids.Add(0);
         AddNames2(manager.slotN1.GetComponent<Slot_Script>());
     }
 

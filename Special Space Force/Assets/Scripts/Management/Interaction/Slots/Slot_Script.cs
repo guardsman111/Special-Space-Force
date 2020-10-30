@@ -613,7 +613,6 @@ public class Slot_Script : MonoBehaviour
     {
         slotName = nName.text;
         input.text = nName.text;
-        manager.SetDropdown();
     }
 
     public void SetName(string nName)
