@@ -148,7 +148,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         if (loading)
         {
             List<System_Class> loadSystems = new List<System_Class>();
-            List<string> tempList = fileFinder.Retrieve("NewSave.xml", ".meta");
+            List<string> tempList = fileFinder.Retrieve("NewSave.Save.xml", ".meta");
 
             try
             {
@@ -187,7 +187,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             systemGenerator.BeginGeneration(product, starNames);
 
             save = new Save_Class();
-            save.saveName = "NewSave";
+            save.saveName = "NewSave.Save";
             save.height = product.height;
             save.width = product.width;
             save.systems = systemGenerator.systemsList;

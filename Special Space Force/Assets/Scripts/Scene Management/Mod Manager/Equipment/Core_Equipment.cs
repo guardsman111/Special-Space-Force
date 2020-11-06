@@ -14,6 +14,13 @@ public class Core_Equipment : MonoBehaviour
     public Sprite[] BDUUBACSP1;
     public Sprite[] BDUUBACSPS1;
     public Sprite[] BDUUBACS3C1;
+    public Sprite[] Backpack1;
+    public Sprite[] Pistol1;
+    public Sprite[] PistolS1;
+    public Sprite[] Rifle1;
+    public Sprite[] Sniper1;
+    public Sprite[] Sword1;
+    public Sprite[] SwordS1;
 
     public List<Sprite_Pack> CoreArmour()
     {
@@ -138,5 +145,110 @@ public class Core_Equipment : MonoBehaviour
         fatiguesPacks.Add(tempSP);
 
         return fatiguesPacks;
+    }
+
+    public List<Sprite_Pack> CoreEquipment()
+    {
+        List<Sprite_Pack> equipPacks = new List<Sprite_Pack>();
+
+        Sprite_Pack tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Backpack";
+        tempSP.patternName = "Primary1";
+        tempSP.packType = "Equipment";
+        tempSP.numberOfColours = 1;
+        foreach (Sprite s in Backpack1)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        equipPacks.Add(tempSP);
+
+        return equipPacks;
+    }
+
+    public List<Sprite_Pack> CoreWeapons()
+    {
+        List<Sprite_Pack> weaponPacks = new List<Sprite_Pack>();
+
+        Sprite_Pack tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Pistol1";
+        tempSP.patternName = "Primary1";
+        tempSP.packType = "WeaponP";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in Pistol1)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        weaponPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "PistolSec1";
+        tempSP.patternName = "Primary1";
+        tempSP.packType = "WeaponS";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in PistolS1)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        weaponPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Rifle1";
+        tempSP.patternName = "Primary1";
+        tempSP.packType = "WeaponP";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in Rifle1)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        weaponPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Sniper";
+        tempSP.patternName = "Primary1";
+        tempSP.packType = "WeaponP";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in Sniper1)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        weaponPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Sword1";
+        tempSP.patternName = "Primary1";
+        tempSP.packType = "WeaponP";
+        tempSP.numberOfColours = 1;
+        foreach (Sprite s in Sword1)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        weaponPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "SwordSec1";
+        tempSP.patternName = "Primary1";
+        tempSP.packType = "WeaponS";
+        tempSP.numberOfColours = 1;
+        foreach (Sprite s in SwordS1)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        weaponPacks.Add(tempSP);
+
+        return weaponPacks;
     }
 }

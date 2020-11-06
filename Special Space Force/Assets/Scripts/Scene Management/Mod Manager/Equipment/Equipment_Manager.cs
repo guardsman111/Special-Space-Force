@@ -21,31 +21,29 @@ public class Equipment_Manager : MonoBehaviour
     public Dropdown FatiguesDropdownCustom;
     public Dropdown ArmourDropdownCustom;
     public Dropdown EquipmentDropdownCustom;
-    public Dropdown WeaponDropdownCustom;
+    public Dropdown Weapon1DropdownCustom;
+    public Dropdown Weapon2DropdownCustom;
     public Dropdown HelmetPatternCustom;
     public Dropdown FatiguesPatternCustom;
     public Dropdown ArmourPatternCustom;
-    public Dropdown EquipmentPatternCustom;
-    public Dropdown WeaponPatternCustom;
 
     public Dropdown HelmetDropdownTrooper;
     public Dropdown FatiguesDropdownTrooper;
     public Dropdown ArmourDropdownTrooper;
     public Dropdown EquipmentDropdownTrooper;
     public Dropdown WeaponDropdownTrooper;
+    public Dropdown Weapon2DropdownTrooper;
     public Dropdown HelmetPatternTrooper;
     public Dropdown FatiguesPatternTrooper;
     public Dropdown ArmourPatternTrooper;
-    public Dropdown EquipmentPatternTrooper;
-    public Dropdown WeaponPatternTrooper;
 
     public void Begin()
     {
         armourPacks = coreEquipment.CoreArmour();
         fatiguesPacks = coreEquipment.CoreFatigues();
         helmetPacks = coreEquipment.CoreHelmet();
-        equipmentPacks = new List<Sprite_Pack>();
-        weaponPacks = new List<Sprite_Pack>();
+        equipmentPacks = coreEquipment.CoreEquipment();
+        weaponPacks = coreEquipment.CoreWeapons();
 
         Sprite_Pack tempSP;
 
@@ -226,7 +224,7 @@ public class Equipment_Manager : MonoBehaviour
         {
             Equipment_Class temp = Serializer.Deserialize<Equipment_Class>(s);
             tempSP = new Sprite_Pack();
-            tempSP.packName = temp.equipmentName;
+            tempSP.packName = temp.EquipmentName;
             tempSP.containedSprites = new List<Sprite>();
             try
             {
@@ -260,17 +258,19 @@ public class Equipment_Manager : MonoBehaviour
         {
             Equipment_Class temp = Serializer.Deserialize<Equipment_Class>(s);
             tempSP = new Sprite_Pack();
-            tempSP.packName = temp.equipmentName;
+            tempSP.packName = temp.EquipmentName.Replace("_", " ");
             tempSP.containedSprites = new List<Sprite>();
             try
             {
                 Texture2D tempTex = Resources.Load<Texture2D>(temp.EquipmentOutlinePath);
+                tempTex.filterMode = FilterMode.Point;
                 tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
             }
             catch { }
             try
             {
                 Texture2D tempTex = Resources.Load<Texture2D>(temp.EquipmentPrimaryPath);
+                tempTex.filterMode = FilterMode.Point;
                 tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
                 tempSP.numberOfColours = 1;
             }
@@ -278,17 +278,21 @@ public class Equipment_Manager : MonoBehaviour
             try
             {
                 Texture2D tempTex = Resources.Load<Texture2D>(temp.EquipmentSecondaryPath);
+                tempTex.filterMode = FilterMode.Point;
                 tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
                 tempSP.numberOfColours = 2;
             }
             catch { }
-            tempSP.packType = "Weapon";
+            tempSP.packType = temp.EquipmentType;
             weaponPacks.Add(tempSP);
         }
 
         SetupDropdown(HelmetDropdownCustom);
         SetupDropdown(ArmourDropdownCustom);
         SetupDropdown(FatiguesDropdownCustom);
+        SetupDropdown(Weapon1DropdownCustom);
+        SetupDropdown(Weapon2DropdownCustom);
+        SetupDropdown(EquipmentDropdownCustom);
 
         SetupDropdown(HelmetDropdownTrooper);
         SetupDropdown(ArmourDropdownTrooper);
@@ -354,6 +358,7 @@ public class Equipment_Manager : MonoBehaviour
 
             PatternDropdown("Armour", "Mk1 Armour", ArmourPatternCustom);
         }
+
         if (dropdown.name == "Fatigues Dropdown")
         {
             List<string> names = new List<string>();
@@ -368,6 +373,57 @@ public class Equipment_Manager : MonoBehaviour
             dropdown.AddOptions(names);
 
             PatternDropdown("Fatigues", "BDU Casual", FatiguesPatternCustom);
+        }
+
+        if (dropdown.name == "Weapons Dropdown")
+        {
+            List<string> names = new List<string>();
+            names.Add("None");
+            foreach (Sprite_Pack p in weaponPacks)
+            {
+                if (!names.Contains(p.packName))
+                {
+                    if (p.packType == "WeaponP")
+                    {
+                        names.Add(p.packName);
+                    }
+                }
+            }
+            dropdown.ClearOptions();
+            dropdown.AddOptions(names);
+        }
+
+        if (dropdown.name == "Weapons 2 Dropdown")
+        {
+            List<string> names = new List<string>();
+            names.Add("None");
+            foreach (Sprite_Pack p in weaponPacks)
+            {
+                if (!names.Contains(p.packName))
+                {
+                    if (p.packType == "WeaponS")
+                    {
+                        names.Add(p.packName);
+                    }
+                }
+            }
+            dropdown.ClearOptions();
+            dropdown.AddOptions(names);
+        }
+
+        if (dropdown.name == "Equipment Dropdown")
+        {
+            List<string> names = new List<string>();
+            names.Add("None");
+            foreach (Sprite_Pack p in equipmentPacks)
+            {
+                if (!names.Contains(p.packName))
+                {
+                    names.Add(p.packName);
+                }
+            }
+            dropdown.ClearOptions();
+            dropdown.AddOptions(names);
         }
     }
 
@@ -635,6 +691,159 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[20].gameObject.SetActive(false);
                 trooper.trooperImages[21].gameObject.SetActive(false);
                 trooper.trooperImages[2].gameObject.SetActive(true);
+            }
+        }
+
+        if (dropdown.name == "Weapons Dropdown")
+        {
+            if (dropdown.options[dropdown.value].text != "None")
+            {
+                Sprite_Pack pack = new Sprite_Pack();
+                trooper.trooperImages[25].gameObject.SetActive(true);
+                trooper.trooperImages[26].gameObject.SetActive(true);
+                trooper.trooperImages[27].gameObject.SetActive(true);
+
+                foreach (Sprite_Pack p in weaponPacks)
+                {
+                    if (p.packName == dropdown.options[dropdown.value].text)
+                    {
+                        pack = p;
+                    }
+                }
+                if (pack.packName == null)
+                {
+                    foreach (Sprite_Pack p in weaponPacks)
+                    {
+                        if (p.packName == dropdown.options[dropdown.value].text)
+                        {
+                            pack = p;
+                            break;
+                        }
+                    }
+                }
+                
+                if (pack.numberOfColours == 1)
+                {
+                    trooper.trooperImages[25].sprite = pack.containedSprites[0];
+                    trooper.trooperImages[26].sprite = pack.containedSprites[1];
+                    trooper.trooperImages[27].gameObject.SetActive(false);
+                    trooper.helmet = pack.packName;
+                }
+                if (pack.numberOfColours == 2)
+                {
+                    trooper.trooperImages[25].sprite = pack.containedSprites[0];
+                    trooper.trooperImages[26].sprite = pack.containedSprites[1];
+                    trooper.trooperImages[27].sprite = pack.containedSprites[2];
+                    trooper.helmet = pack.packName;
+                }
+            }
+            else
+            {
+                trooper.trooperImages[25].gameObject.SetActive(false);
+                trooper.trooperImages[26].gameObject.SetActive(false);
+                trooper.trooperImages[27].gameObject.SetActive(false);
+            }
+        }
+
+        if (dropdown.name == "Weapons 2 Dropdown")
+        {
+            if (dropdown.options[dropdown.value].text != "None")
+            {
+                Sprite_Pack pack = new Sprite_Pack();
+                trooper.trooperImages[28].gameObject.SetActive(true);
+                trooper.trooperImages[29].gameObject.SetActive(true);
+                trooper.trooperImages[30].gameObject.SetActive(true);
+
+                foreach (Sprite_Pack p in weaponPacks)
+                {
+                    if (p.packName == dropdown.options[dropdown.value].text)
+                    {
+                        pack = p;
+                    }
+                }
+                if (pack.packName == null)
+                {
+                    foreach (Sprite_Pack p in weaponPacks)
+                    {
+                        if (p.packName == dropdown.options[dropdown.value].text)
+                        {
+                            pack = p;
+                            break;
+                        }
+                    }
+                }
+
+                if (pack.numberOfColours == 1)
+                {
+                    trooper.trooperImages[28].sprite = pack.containedSprites[0];
+                    trooper.trooperImages[29].sprite = pack.containedSprites[1];
+                    trooper.trooperImages[30].gameObject.SetActive(false);
+                    trooper.helmet = pack.packName;
+                }
+                if (pack.numberOfColours == 2)
+                {
+                    trooper.trooperImages[28].sprite = pack.containedSprites[0];
+                    trooper.trooperImages[29].sprite = pack.containedSprites[1];
+                    trooper.trooperImages[30].sprite = pack.containedSprites[2];
+                    trooper.helmet = pack.packName;
+                }
+            }
+            else
+            {
+                trooper.trooperImages[28].gameObject.SetActive(false);
+                trooper.trooperImages[29].gameObject.SetActive(false);
+                trooper.trooperImages[30].gameObject.SetActive(false);
+            }
+        }
+
+        if (dropdown.name == "Equipment Dropdown")
+        {
+            if (dropdown.options[dropdown.value].text != "None")
+            {
+                Sprite_Pack pack = new Sprite_Pack();
+                trooper.trooperImages[21].gameObject.SetActive(true);
+                trooper.trooperImages[22].gameObject.SetActive(true);
+                trooper.trooperImages[23].gameObject.SetActive(true);
+
+                foreach (Sprite_Pack p in weaponPacks)
+                {
+                    if (p.packName == dropdown.options[dropdown.value].text)
+                    {
+                        pack = p;
+                    }
+                }
+                if (pack.packName == null)
+                {
+                    foreach (Sprite_Pack p in weaponPacks)
+                    {
+                        if (p.packName == dropdown.options[dropdown.value].text)
+                        {
+                            pack = p;
+                            break;
+                        }
+                    }
+                }
+
+                if (pack.numberOfColours == 1)
+                {
+                    trooper.trooperImages[21].sprite = pack.containedSprites[0];
+                    trooper.trooperImages[22].sprite = pack.containedSprites[1];
+                    trooper.trooperImages[23].gameObject.SetActive(false);
+                    trooper.helmet = pack.packName;
+                }
+                if (pack.numberOfColours == 2)
+                {
+                    trooper.trooperImages[21].sprite = pack.containedSprites[0];
+                    trooper.trooperImages[22].sprite = pack.containedSprites[1];
+                    trooper.trooperImages[23].sprite = pack.containedSprites[2];
+                    trooper.helmet = pack.packName;
+                }
+            }
+            else
+            {
+                trooper.trooperImages[21].gameObject.SetActive(false);
+                trooper.trooperImages[22].gameObject.SetActive(false);
+                trooper.trooperImages[23].gameObject.SetActive(false);
             }
         }
     }

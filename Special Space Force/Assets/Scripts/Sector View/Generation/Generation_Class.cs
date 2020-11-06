@@ -19,6 +19,7 @@ public class Generation_Class
     public int resourceAbundancy;
     public int playerStrength;
     public List<AI_Class> toggledAI;
+    public List<Trait_Class> selectedTraits;
     public string trooperNamesList;
     public List<Color32> playerColours;
 

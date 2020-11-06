@@ -587,10 +587,15 @@ public class Slot_Script : MonoBehaviour
         slotClass.squad = squad;
 
         slotClass.containedSlots = new List<Slot_Class>();
+        slotClass.containedTroopers = new List<Trooper_Class>();
 
         foreach (Slot_Script ss in containedSlots)
         {
             slotClass.containedSlots.Add(ss.SaveClass());
+        }
+        foreach (Trooper_Script ts in containedTroopers)
+        {
+            slotClass.containedTroopers.Add(ts.SaveTrooper());
         }
 
         return slotClass;

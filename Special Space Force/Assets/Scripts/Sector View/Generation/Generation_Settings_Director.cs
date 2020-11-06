@@ -12,6 +12,7 @@ public class Generation_Settings_Director : MonoBehaviour
     public Galaxy_Generation_Manager generationManager;
     public Slot_Generator slotGenerator;
     public Localisation_Manager localisationManager;
+    public Trait_Manager traitManager;
 
     [SerializeField]
     private int height;
@@ -87,14 +88,16 @@ public class Generation_Settings_Director : MonoBehaviour
         //Turn off AI 4 for fun
         AIToggle(3);
 
-        if (generateOnPlay)
-        {
-            StartGeneration(true);
-        }
 
         slotGenerator.SetupTemplateDropdown();
         localisationManager.FindLocalisationFiles();
         equipmentManager.Begin();
+        traitManager.Run();
+
+        if (generateOnPlay)
+        {
+            StartGeneration(true);
+        }
     }
 
     //Starts the generation, grabs all the values and packages them into a Generation_Class
@@ -119,6 +122,7 @@ public class Generation_Settings_Director : MonoBehaviour
         product.trooperNamesList = localisationManager.chosenTrooperNamesList.name;
         product.playerColours = equipmentManager.GetColours(PlayerColours);
         localisationManager.SeperateStringLists();
+        product.selectedTraits = traitManager.GetTraits(); ;
         generationManager.Generate(loading, product);
         Invoke("DisableCustomization", 1.0f);
     }

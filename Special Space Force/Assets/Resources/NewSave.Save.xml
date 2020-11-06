@@ -1,0 +1,2244 @@
+<?xml version="1.0"?>
+<Save_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <saveName>NewSave.Save</saveName>
+  <height>20000</height>
+  <width>20000</width>
+  <systems>
+    <System_Class>
+      <systemName>Durack</systemName>
+      <colour>Orange</colour>
+      <allegiance>3</allegiance>
+      <posX>-9698</posX>
+      <posZ>-641</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Durack I</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>414165824</population>
+          <size>61</size>
+          <usableSpace>0.763778269</usableSpace>
+          <baseMetalsAmount>14.7516441</baseMetalsAmount>
+          <preciousMetalsAmount>47.9779358</preciousMetalsAmount>
+          <foodAvailability>26.5057774</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack II</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>85</size>
+          <usableSpace>0.218864232</usableSpace>
+          <baseMetalsAmount>54.0955734</baseMetalsAmount>
+          <preciousMetalsAmount>48.1524353</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack III</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>54</size>
+          <usableSpace>0.4422039</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack IV</planetName>
+          <biome>Mediterranean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>178020336</population>
+          <size>59</size>
+          <usableSpace>0.677824</usableSpace>
+          <baseMetalsAmount>44.39196</baseMetalsAmount>
+          <preciousMetalsAmount>59.5006561</preciousMetalsAmount>
+          <foodAvailability>71.72099</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack V</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>451771136</population>
+          <size>52</size>
+          <usableSpace>0.405275553</usableSpace>
+          <baseMetalsAmount>47.78643</baseMetalsAmount>
+          <preciousMetalsAmount>67.96737</preciousMetalsAmount>
+          <foodAvailability>59.66954</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack VI</planetName>
+          <biome>Mediterranean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>79</size>
+          <usableSpace>0.257318556</usableSpace>
+          <baseMetalsAmount>50.26776</baseMetalsAmount>
+          <preciousMetalsAmount>50.7561226</preciousMetalsAmount>
+          <foodAvailability>50.0783653</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack VII</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>5935738</population>
+          <size>93</size>
+          <usableSpace>0.248585582</usableSpace>
+          <baseMetalsAmount>44.9224968</baseMetalsAmount>
+          <preciousMetalsAmount>49.18729</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Traous</systemName>
+      <colour>Yellow</colour>
+      <allegiance>0</allegiance>
+      <posX>-5604</posX>
+      <posZ>673</posZ>
+      <nPlanets>4</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Traous I</planetName>
+          <biome>Desert</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>743590336</population>
+          <size>55</size>
+          <usableSpace>0.8052273</usableSpace>
+          <baseMetalsAmount>49.149044</baseMetalsAmount>
+          <preciousMetalsAmount>47.2326775</preciousMetalsAmount>
+          <foodAvailability>47.81663</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous II</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>63</size>
+          <usableSpace>0.28772825</usableSpace>
+          <baseMetalsAmount>56.5817261</baseMetalsAmount>
+          <preciousMetalsAmount>83.99588</preciousMetalsAmount>
+          <foodAvailability>93.62653</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous III</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>3525829</population>
+          <size>56</size>
+          <usableSpace>0.749917</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous IV</planetName>
+          <biome>Gas Giant Methane</biome>
+          <biomeID>9</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>65</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Othorix</systemName>
+      <colour>Blue</colour>
+      <allegiance>0</allegiance>
+      <posX>289</posX>
+      <posZ>-1012</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Othorix I</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>4229855</population>
+          <size>58</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix II</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>6691759</population>
+          <size>55</size>
+          <usableSpace>0.351846784</usableSpace>
+          <baseMetalsAmount>49.00862</baseMetalsAmount>
+          <preciousMetalsAmount>48.57548</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix III</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>415692032</population>
+          <size>71</size>
+          <usableSpace>0.179704949</usableSpace>
+          <baseMetalsAmount>47.97683</baseMetalsAmount>
+          <preciousMetalsAmount>49.487587</preciousMetalsAmount>
+          <foodAvailability>37.546093</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix IV</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>7908981</population>
+          <size>79</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix V</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>242836</population>
+          <size>70</size>
+          <usableSpace>0.5517564</usableSpace>
+          <baseMetalsAmount>55.46106</baseMetalsAmount>
+          <preciousMetalsAmount>50.1997375</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Urnin</systemName>
+      <colour>Pink</colour>
+      <allegiance>3</allegiance>
+      <posX>-993</posX>
+      <posZ>3784</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Urnin I</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>280113248</population>
+          <size>59</size>
+          <usableSpace>0.393459469</usableSpace>
+          <baseMetalsAmount>30.67769</baseMetalsAmount>
+          <preciousMetalsAmount>60.29901</preciousMetalsAmount>
+          <foodAvailability>50.2261467</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Colosk</systemName>
+      <colour>Red</colour>
+      <allegiance>0</allegiance>
+      <posX>9256</posX>
+      <posZ>3840</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Colosk I</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>2359149</population>
+          <size>51</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Korus</systemName>
+      <colour>Red</colour>
+      <allegiance>0</allegiance>
+      <posX>3459</posX>
+      <posZ>1485</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Korus I</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>56375360</population>
+          <size>92</size>
+          <usableSpace>0.289591253</usableSpace>
+          <baseMetalsAmount>47.46242</baseMetalsAmount>
+          <preciousMetalsAmount>44.90232</preciousMetalsAmount>
+          <foodAvailability>55.5002</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus II</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>9607101</population>
+          <size>67</size>
+          <usableSpace>0.769371569</usableSpace>
+          <baseMetalsAmount>52.6481628</baseMetalsAmount>
+          <preciousMetalsAmount>48.7485466</preciousMetalsAmount>
+          <foodAvailability>48.19742</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus III</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>60</size>
+          <usableSpace>0.416586</usableSpace>
+          <baseMetalsAmount>69.84202</baseMetalsAmount>
+          <preciousMetalsAmount>93.65221</preciousMetalsAmount>
+          <foodAvailability>52.6673546</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus IV</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>61</size>
+          <usableSpace>0.863171756</usableSpace>
+          <baseMetalsAmount>49.45399</baseMetalsAmount>
+          <preciousMetalsAmount>14.3730812</preciousMetalsAmount>
+          <foodAvailability>48.08658</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus V</planetName>
+          <biome>Arctic</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>80</size>
+          <usableSpace>0.6575071</usableSpace>
+          <baseMetalsAmount>49.14629</baseMetalsAmount>
+          <preciousMetalsAmount>87.88701</preciousMetalsAmount>
+          <foodAvailability>53.4976234</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus VI</planetName>
+          <biome>Mediterranean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>85</size>
+          <usableSpace>0.252197623</usableSpace>
+          <baseMetalsAmount>43.208992</baseMetalsAmount>
+          <preciousMetalsAmount>50.8160362</preciousMetalsAmount>
+          <foodAvailability>51.48606</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus VII</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>92</size>
+          <usableSpace>0.2783084</usableSpace>
+          <baseMetalsAmount>50.98299</baseMetalsAmount>
+          <preciousMetalsAmount>54.4280357</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Traous</systemName>
+      <colour>Green</colour>
+      <allegiance>0</allegiance>
+      <posX>3863</posX>
+      <posZ>5547</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Traous I</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>4763067</population>
+          <size>54</size>
+          <usableSpace>0.63365525</usableSpace>
+          <baseMetalsAmount>45.343792</baseMetalsAmount>
+          <preciousMetalsAmount>48.9887657</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous II</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>6358806</population>
+          <size>71</size>
+          <usableSpace>0.373018742</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous III</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>719543168</population>
+          <size>65</size>
+          <usableSpace>0.315719962</usableSpace>
+          <baseMetalsAmount>80.92936</baseMetalsAmount>
+          <preciousMetalsAmount>31.01617</preciousMetalsAmount>
+          <foodAvailability>51.0803642</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous IV</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>61</size>
+          <usableSpace>0.330025434</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous V</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>2463067</population>
+          <size>66</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous VI</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>52</size>
+          <usableSpace>0.392629325</usableSpace>
+          <baseMetalsAmount>54.20804</baseMetalsAmount>
+          <preciousMetalsAmount>1.42562485</preciousMetalsAmount>
+          <foodAvailability>49.8941</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous VII</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>78</size>
+          <usableSpace>0.490990818</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Alpho</systemName>
+      <colour>Pink</colour>
+      <allegiance>2</allegiance>
+      <posX>1587</posX>
+      <posZ>-5382</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Alpho I</planetName>
+          <biome>Alpine</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>876439616</population>
+          <size>90</size>
+          <usableSpace>0.3868822</usableSpace>
+          <baseMetalsAmount>115.195549</baseMetalsAmount>
+          <preciousMetalsAmount>34.3535461</preciousMetalsAmount>
+          <foodAvailability>57.9097061</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho II</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>3136441</population>
+          <size>51</size>
+          <usableSpace>0.743165255</usableSpace>
+          <baseMetalsAmount>47.3347359</baseMetalsAmount>
+          <preciousMetalsAmount>58.879776</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho III</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>2067028</population>
+          <size>95</size>
+          <usableSpace>0.825244665</usableSpace>
+          <baseMetalsAmount>59.6601257</baseMetalsAmount>
+          <preciousMetalsAmount>50.98136</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho IV</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>71</size>
+          <usableSpace>0.8680949</usableSpace>
+          <baseMetalsAmount>56.69082</baseMetalsAmount>
+          <preciousMetalsAmount>51.90974</preciousMetalsAmount>
+          <foodAvailability>36.8756676</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho V</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>9373434</population>
+          <size>69</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>Green</colour>
+      <allegiance>0</allegiance>
+      <posX>8173</posX>
+      <posZ>-4740</posZ>
+      <nPlanets>3</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Desert</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>916376256</population>
+          <size>84</size>
+          <usableSpace>0.652081</usableSpace>
+          <baseMetalsAmount>46.03444</baseMetalsAmount>
+          <preciousMetalsAmount>24.0850239</preciousMetalsAmount>
+          <foodAvailability>58.76761</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>4815051</population>
+          <size>75</size>
+          <usableSpace>0.376510739</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis III</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>63</size>
+          <usableSpace>0.332064033</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Durack</systemName>
+      <colour>Yellow</colour>
+      <allegiance>0</allegiance>
+      <posX>-6014</posX>
+      <posZ>-9535</posZ>
+      <nPlanets>4</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Durack I</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>6546186</population>
+          <size>67</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack II</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>65</size>
+          <usableSpace>0.221725747</usableSpace>
+          <baseMetalsAmount>43.3562546</baseMetalsAmount>
+          <preciousMetalsAmount>69.49448</preciousMetalsAmount>
+          <foodAvailability>41.2661324</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack III</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>72</size>
+          <usableSpace>0.257003158</usableSpace>
+          <baseMetalsAmount>106.276375</baseMetalsAmount>
+          <preciousMetalsAmount>54.4060745</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack IV</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>946061440</population>
+          <size>70</size>
+          <usableSpace>0.234689653</usableSpace>
+          <baseMetalsAmount>34.75856</baseMetalsAmount>
+          <preciousMetalsAmount>58.6275024</preciousMetalsAmount>
+          <foodAvailability>110.744209</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>Green</colour>
+      <allegiance>0</allegiance>
+      <posX>-5822</posX>
+      <posZ>9922</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>167952976</population>
+          <size>64</size>
+          <usableSpace>0.225268543</usableSpace>
+          <baseMetalsAmount>51.45688</baseMetalsAmount>
+          <preciousMetalsAmount>63.284874</preciousMetalsAmount>
+          <foodAvailability>113.701065</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>58</size>
+          <usableSpace>0.34307158</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis III</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>875857536</population>
+          <size>78</size>
+          <usableSpace>0.208696961</usableSpace>
+          <baseMetalsAmount>61.32002</baseMetalsAmount>
+          <preciousMetalsAmount>132.758072</preciousMetalsAmount>
+          <foodAvailability>47.0543556</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis IV</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>64</size>
+          <usableSpace>0.28034538</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis V</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>72</size>
+          <usableSpace>0.7876039</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis VI</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>5930237</population>
+          <size>71</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis VII</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>142200032</population>
+          <size>53</size>
+          <usableSpace>0.18388781</usableSpace>
+          <baseMetalsAmount>40.6722832</baseMetalsAmount>
+          <preciousMetalsAmount>50.9802055</preciousMetalsAmount>
+          <foodAvailability>62.13337</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Traous</systemName>
+      <colour>Blue</colour>
+      <allegiance>0</allegiance>
+      <posX>3793</posX>
+      <posZ>-8878</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Traous I</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>919437568</population>
+          <size>74</size>
+          <usableSpace>0.5836006</usableSpace>
+          <baseMetalsAmount>56.7525063</baseMetalsAmount>
+          <preciousMetalsAmount>59.2947922</preciousMetalsAmount>
+          <foodAvailability>66.09921</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Dendo</systemName>
+      <colour>Yellow</colour>
+      <allegiance>3</allegiance>
+      <posX>7011</posX>
+      <posZ>8192</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Dendo I</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>239730768</population>
+          <size>70</size>
+          <usableSpace>0.232139379</usableSpace>
+          <baseMetalsAmount>49.861084</baseMetalsAmount>
+          <preciousMetalsAmount>50.5202751</preciousMetalsAmount>
+          <foodAvailability>42.9410248</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Othorix</systemName>
+      <colour>Pink</colour>
+      <allegiance>0</allegiance>
+      <posX>-9584</posX>
+      <posZ>4762</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Othorix I</planetName>
+          <biome>Gas Giant Methane</biome>
+          <biomeID>9</biomeID>
+          <inhabited>false</inhabited>
+          <population>436564</population>
+          <size>85</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Othorix</systemName>
+      <colour>Green</colour>
+      <allegiance>0</allegiance>
+      <posX>-2115</posX>
+      <posZ>7185</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Othorix I</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>1318311</population>
+          <size>69</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Dendo</systemName>
+      <colour>Blue</colour>
+      <allegiance>0</allegiance>
+      <posX>9276</posX>
+      <posZ>-1299</posZ>
+      <nPlanets>2</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Dendo I</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>8291080</population>
+          <size>98</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Dendo II</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>60</size>
+          <usableSpace>0.6722685</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Colosk</systemName>
+      <colour>Pink</colour>
+      <allegiance>0</allegiance>
+      <posX>677</posX>
+      <posZ>9466</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Colosk I</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>4494441</population>
+          <size>78</size>
+          <usableSpace>0.386422932</usableSpace>
+          <baseMetalsAmount>118.860939</baseMetalsAmount>
+          <preciousMetalsAmount>45.38822</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk II</planetName>
+          <biome>Gas Giant Methane</biome>
+          <biomeID>9</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>70</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk III</planetName>
+          <biome>Gas Giant Methane</biome>
+          <biomeID>9</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>62</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk IV</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>84097288</population>
+          <size>96</size>
+          <usableSpace>0.119768478</usableSpace>
+          <baseMetalsAmount>32.45379</baseMetalsAmount>
+          <preciousMetalsAmount>57.4170723</preciousMetalsAmount>
+          <foodAvailability>50.42024</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk V</planetName>
+          <biome>Gas Giant Methane</biome>
+          <biomeID>9</biomeID>
+          <inhabited>false</inhabited>
+          <population>6207586</population>
+          <size>65</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>Red</colour>
+      <allegiance>0</allegiance>
+      <posX>4275</posX>
+      <posZ>9863</posZ>
+      <nPlanets>2</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Alpine</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>807318976</population>
+          <size>50</size>
+          <usableSpace>0.467031449</usableSpace>
+          <baseMetalsAmount>18.5027771</baseMetalsAmount>
+          <preciousMetalsAmount>46.2551041</preciousMetalsAmount>
+          <foodAvailability>60.10514</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>6176316</population>
+          <size>52</size>
+          <usableSpace>0.658589661</usableSpace>
+          <baseMetalsAmount>40.24092</baseMetalsAmount>
+          <preciousMetalsAmount>44.1054535</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Alpho</systemName>
+      <colour>Pink</colour>
+      <allegiance>0</allegiance>
+      <posX>-3452</posX>
+      <posZ>-2982</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Alpho I</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>1341763</population>
+          <size>81</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho II</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>52</size>
+          <usableSpace>0.3666316</usableSpace>
+          <baseMetalsAmount>39.8753929</baseMetalsAmount>
+          <preciousMetalsAmount>62.75379</preciousMetalsAmount>
+          <foodAvailability>22.6661243</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho III</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>5495682</population>
+          <size>62</size>
+          <usableSpace>0.930781</usableSpace>
+          <baseMetalsAmount>46.800808</baseMetalsAmount>
+          <preciousMetalsAmount>53.3995628</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho IV</planetName>
+          <biome>Tropical</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>50</size>
+          <usableSpace>0.4579182</usableSpace>
+          <baseMetalsAmount>53.10827</baseMetalsAmount>
+          <preciousMetalsAmount>47.23402</preciousMetalsAmount>
+          <foodAvailability>48.5449524</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho V</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>54</size>
+          <usableSpace>0.6146481</usableSpace>
+          <baseMetalsAmount>11.8040009</baseMetalsAmount>
+          <preciousMetalsAmount>45.6104355</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>Green</colour>
+      <allegiance>3</allegiance>
+      <posX>5379</posX>
+      <posZ>-5984</posZ>
+      <nPlanets>2</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>7634529</population>
+          <size>69</size>
+          <usableSpace>0.368765652</usableSpace>
+          <baseMetalsAmount>9.071911</baseMetalsAmount>
+          <preciousMetalsAmount>49.9724274</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>975076352</population>
+          <size>95</size>
+          <usableSpace>0.209543645</usableSpace>
+          <baseMetalsAmount>69.27273</baseMetalsAmount>
+          <preciousMetalsAmount>53.57119</preciousMetalsAmount>
+          <foodAvailability>57.8480835</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Durack</systemName>
+      <colour>Blue</colour>
+      <allegiance>0</allegiance>
+      <posX>-6695</posX>
+      <posZ>6135</posZ>
+      <nPlanets>3</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Durack I</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>7852610</population>
+          <size>88</size>
+          <usableSpace>0.677696347</usableSpace>
+          <baseMetalsAmount>60.1101227</baseMetalsAmount>
+          <preciousMetalsAmount>43.8292961</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack II</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>50</size>
+          <usableSpace>0.475117534</usableSpace>
+          <baseMetalsAmount>13.6086655</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>54.35204</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack III</planetName>
+          <biome>Mediterranean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>460763136</population>
+          <size>96</size>
+          <usableSpace>0.2556581</usableSpace>
+          <baseMetalsAmount>46.0352058</baseMetalsAmount>
+          <preciousMetalsAmount>47.29287</preciousMetalsAmount>
+          <foodAvailability>9.398315</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Erzaf</systemName>
+      <colour>White</colour>
+      <allegiance>0</allegiance>
+      <posX>527</posX>
+      <posZ>-9783</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Erzaf I</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>643043776</population>
+          <size>54</size>
+          <usableSpace>0.677511156</usableSpace>
+          <baseMetalsAmount>54.11232</baseMetalsAmount>
+          <preciousMetalsAmount>65.79212</preciousMetalsAmount>
+          <foodAvailability>39.0463829</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Othorix</systemName>
+      <colour>Pink</colour>
+      <allegiance>0</allegiance>
+      <posX>-7947</posX>
+      <posZ>-3321</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Othorix I</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>699647808</population>
+          <size>58</size>
+          <usableSpace>0.228290766</usableSpace>
+          <baseMetalsAmount>58.59706</baseMetalsAmount>
+          <preciousMetalsAmount>62.2160263</preciousMetalsAmount>
+          <foodAvailability>7.63980865</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+  </systems>
+  <generatedProduct>
+    <height>20000</height>
+    <width>20000</width>
+    <numberofStars>100</numberofStars>
+    <minimumPlanets>1</minimumPlanets>
+    <maximumPlanets>7</maximumPlanets>
+    <averagePlanetSize>50</averagePlanetSize>
+    <habitableChance>50</habitableChance>
+    <inhabitedChance>50</inhabitedChance>
+    <resourceAbundancy>50</resourceAbundancy>
+    <playerStrength>0</playerStrength>
+    <toggledAI>
+      <AI_Class>
+        <race>
+          <Species_Name>Orx</Species_Name>
+          <Empire_Name>Orx Territory</Empire_Name>
+          <Source>Core</Source>
+        </race>
+        <difficulty>0</difficulty>
+        <startThreat>0</startThreat>
+        <colour>
+          <r>0.7924528</r>
+          <g>0</g>
+          <b>0</b>
+          <a>1</a>
+        </colour>
+        <nPlanets>2</nPlanets>
+      </AI_Class>
+      <AI_Class>
+        <race>
+          <Species_Name>Ivorian</Species_Name>
+          <Empire_Name>The Ivorian Empire</Empire_Name>
+          <Source>Core</Source>
+        </race>
+        <difficulty>0</difficulty>
+        <startThreat>0</startThreat>
+        <colour>
+          <r>0</r>
+          <g>0.0254663154</g>
+          <b>0.9150943</b>
+          <a>1</a>
+        </colour>
+        <nPlanets>2</nPlanets>
+      </AI_Class>
+      <AI_Class>
+        <race>
+          <Species_Name>Enslavers</Species_Name>
+          <Empire_Name>The Enslavers</Empire_Name>
+          <Source>Core</Source>
+        </race>
+        <difficulty>0</difficulty>
+        <startThreat>0</startThreat>
+        <colour>
+          <r>0.9056604</r>
+          <g>0.890356541</g>
+          <b>0</b>
+          <a>1</a>
+        </colour>
+        <nPlanets>4</nPlanets>
+      </AI_Class>
+    </toggledAI>
+    <selectedTraits>
+      <Trait_Class>
+        <traitName>Hero</traitName>
+        <traitDesc>The hero type</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength>+20</strength>
+        <size />
+        <morale>+30</morale>
+        <breakValue>/5</breakValue>
+        <melee />
+        <ranged />
+        <stealth />
+        <stamina>+40</stamina>
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Strong</traitName>
+        <traitDesc>Unusually strong</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength>+20</strength>
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged />
+        <stealth />
+        <stamina>+10</stamina>
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Jogger</traitName>
+        <traitDesc>Passionate jogger</traitDesc>
+        <source>Core</source>
+        <speed>+10</speed>
+        <agility />
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged />
+        <stealth />
+        <stamina>+20</stamina>
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Sharpshooter</traitName>
+        <traitDesc>Eagle eyed</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged>+25</ranged>
+        <stealth />
+        <stamina />
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Duellist</traitName>
+        <traitDesc>Skilled swordsman</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee>+25</melee>
+        <ranged />
+        <stealth />
+        <stamina />
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Nimble</traitName>
+        <traitDesc>Doesn't hang around</traitDesc>
+        <source>Core</source>
+        <speed>+10</speed>
+        <agility>+20</agility>
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged />
+        <stealth />
+        <stamina />
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Quiet</traitName>
+        <traitDesc>Strangely silent</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged />
+        <stealth>-20</stealth>
+        <stamina />
+      </Trait_Class>
+    </selectedTraits>
+    <trooperNamesList>American Names</trooperNamesList>
+    <playerColours>
+      <Color32>
+        <r>202</r>
+        <g>0</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>36</g>
+        <b>214</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>255</g>
+        <b>37</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>147</r>
+        <g>147</g>
+        <b>147</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>241</r>
+        <g>255</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>202</r>
+        <g>0</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>36</g>
+        <b>214</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>255</g>
+        <b>37</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>147</r>
+        <g>147</g>
+        <b>147</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>241</r>
+        <g>255</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>202</r>
+        <g>0</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>36</g>
+        <b>214</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>255</g>
+        <b>37</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>147</r>
+        <g>147</g>
+        <b>147</b>
+        <a>255</a>
+      </Color32>
+    </playerColours>
+  </generatedProduct>
+  <topSlots>
+    <Slot_Class>
+      <containedSlots>
+        <Slot_Class>
+          <containedSlots>
+            <Slot_Class>
+              <containedSlots>
+                <Slot_Class>
+                  <containedSlots />
+                  <containedTroopers>
+                    <Trooper_Class>
+                      <trooperName>Finley Fisher</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>6</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>1</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Harrison Spencer</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>4</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>2</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Millie Lee</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>0</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>5</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>3</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Imogen Morgan</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>5</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>2</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>4</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Kyle Spencer</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>0</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>5</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Harrison Kelly</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>3</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>6</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Lily Taylor</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>1</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>4</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>7</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Alexander Jones</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>0</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>8</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Rosie Dixon</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>2</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>9</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Mia Arnold</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>2</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>10</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                  </containedTroopers>
+                  <slotName>1st Section</slotName>
+                  <positionID>0</positionID>
+                  <squad>true</squad>
+                  <squadRole>0</squadRole>
+                  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <containedSlots />
+                  <containedTroopers>
+                    <Trooper_Class>
+                      <trooperName>Sebastien Reynolds</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>1</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Samuel O’Bryan</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>5</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>2</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Xander Morgan</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>2</trooperHair>
+                      <hairColour>1</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>3</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Alex Dodds</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>6</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>4</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Blake Simpson</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>0</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>5</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Jude Morris</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>0</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>2</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>6</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Jack Valor</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>6</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>7</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Lily Wilkinson</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>6</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>8</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Edward Oddy</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>0</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>9</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Scarlett Scott</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>0</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>10</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                  </containedTroopers>
+                  <slotName>2nd Section</slotName>
+                  <positionID>0</positionID>
+                  <squad>true</squad>
+                  <squadRole>0</squadRole>
+                  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <containedSlots />
+                  <containedTroopers>
+                    <Trooper_Class>
+                      <trooperName>Sophie Nicholes</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>0</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>9</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>1</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Isaac Dawson</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>2</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>2</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Jamie Quigg</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>1</trooperFace>
+                      <trooperHair>2</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>3</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Ruby Oddy</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>5</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>1</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>4</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Nancy Fletcher</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>5</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Florence Smith</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>3</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>6</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Mason Henderson</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>2</trooperHair>
+                      <hairColour>3</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>7</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Elijah Kerbain</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>0</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>8</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Ava Gibson</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>0</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>9</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Stanley Jenkins</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>1</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>1</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>10</trooperPosition>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                  </containedTroopers>
+                  <slotName>3rd Section</slotName>
+                  <positionID>0</positionID>
+                  <squad>true</squad>
+                  <squadRole>0</squadRole>
+                  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <containedTroopers />
+              <slotName>1st Squad</slotName>
+              <positionID>0</positionID>
+              <squad>false</squad>
+              <squadRole>0</squadRole>
+              <numberOfTroopers>0</numberOfTroopers>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+          </containedSlots>
+          <containedTroopers />
+          <slotName>1st Platoon</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>2nd Platoon</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>3rd Platoon</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>4th Platoon</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>5th Platoon</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>6th Platoon</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+      </containedSlots>
+      <containedTroopers />
+      <slotName>1st Company</slotName>
+      <positionID>0</positionID>
+      <squad>false</squad>
+      <squadRole>0</squadRole>
+      <numberOfTroopers>0</numberOfTroopers>
+      <slotHeight>0</slotHeight>
+    </Slot_Class>
+  </topSlots>
+</Save_Class>

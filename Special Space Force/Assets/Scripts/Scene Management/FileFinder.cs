@@ -15,8 +15,9 @@ public class FileFinder : MonoBehaviour
     public string savePath;
     public string defaultPath;
     public string modsPath;
-    FileInfo[] fileArray1;
-    FileInfo[] fileArray2;
+    FileInfo[] fileArrayDef;
+    FileInfo[] fileArrayMod;
+    FileInfo[] fileArraySav;
     public Biome_Manager biomeManager;
     public Galaxy_Generation_Manager GenerationManager;
     public bool foundSave;
@@ -33,6 +34,7 @@ public class FileFinder : MonoBehaviour
         else
         {
             foundSave = true;
+            savePath = Application.dataPath + "/Resources";
         }
         if (defaultPath == "" || defaultPath == null)
         {
@@ -46,13 +48,15 @@ public class FileFinder : MonoBehaviour
         List<string> fileList = new List<string>();
         DirectoryInfo info = new DirectoryInfo(defaultPath);
         DirectoryInfo modInfo = new DirectoryInfo(modsPath);
+        DirectoryInfo saveInfo = new DirectoryInfo(savePath);
 
         try
         {
             string path = Application.dataPath;
 
-            fileArray1 = info.GetFiles("*.*", SearchOption.AllDirectories);
-            fileArray2 = modInfo.GetFiles("*.*", SearchOption.AllDirectories);
+            fileArrayDef = info.GetFiles("*.*", SearchOption.AllDirectories);
+            fileArrayMod = modInfo.GetFiles("*.*", SearchOption.AllDirectories);
+            fileArraySav = saveInfo.GetFiles("*.*", SearchOption.AllDirectories);
 
         }
         catch (UnauthorizedAccessException UAEx)
@@ -76,7 +80,7 @@ public class FileFinder : MonoBehaviour
     public List<string> Retrieve(string have, string avoid)
     {
         List<string> fileList = new List<string>();
-        foreach (FileInfo s in fileArray1)
+        foreach (FileInfo s in fileArrayDef)
         {
             if (s.Name.Contains(have) && !s.Name.Contains(avoid))
             {
@@ -84,12 +88,23 @@ public class FileFinder : MonoBehaviour
                 fileList.Add(s.FullName);
             }
         }
-        foreach (FileInfo s in fileArray2)
+        foreach (FileInfo s in fileArrayMod)
         {
             if (s.Name.Contains(have) && !s.Name.Contains(avoid))
             {
                 Debug.Log(s.FullName + " Added");
                 fileList.Add(s.FullName);
+            }
+        }
+        if (have.Contains(".Save."))
+        {
+            foreach (FileInfo s in fileArraySav)
+            {
+                if (s.Name.Contains(have) && !s.Name.Contains(avoid))
+                {
+                    Debug.Log(s.FullName + " Added");
+                    fileList.Add(s.FullName);
+                }
             }
         }
         return fileList;
@@ -100,7 +115,7 @@ public class FileFinder : MonoBehaviour
     public List<string> Retrieve(string have, string avoid, string avoid2, string avoid3)
     {
         List<string> fileList = new List<string>();
-        foreach (FileInfo s in fileArray1)
+        foreach (FileInfo s in fileArrayDef)
         {
             if (s.Name.Contains(have) && !s.Name.Contains(avoid) && !s.Name.Contains(avoid2) && !s.Name.Contains(avoid3))
             {
@@ -108,7 +123,7 @@ public class FileFinder : MonoBehaviour
                 fileList.Add(s.FullName);
             }
         }
-        foreach (FileInfo s in fileArray2)
+        foreach (FileInfo s in fileArrayMod)
         {
             if (s.Name.Contains(have) && !s.Name.Contains(avoid) && !s.Name.Contains(avoid2) && !s.Name.Contains(avoid3))
             {

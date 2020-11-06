@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<ArrayOfTrait_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Trait_Class>
+    <traitName>Hero</traitName>
+    <traitDesc>The hero type</traitDesc>
+    <source>Core</source>
+    <speed />
+    <agility />
+    <strength>+20</strength>
+    <size />
+    <morale>+30</morale>
+    <breakValue>/5</breakValue>
+    <melee />
+    <ranged />
+    <stealth />
+    <stamina>+40</stamina>
+  </Trait_Class>
+  <Trait_Class>
+    <traitName>Strong</traitName>
+    <traitDesc>Unusually strong</traitDesc>
+    <source>Core</source>
+    <speed />
+    <agility />
+    <strength>+20</strength>
+    <size />
+    <morale />
+    <breakValue />
+    <melee />
+    <ranged />
+    <stealth />
+    <stamina>+10</stamina>
+  </Trait_Class>
+  <Trait_Class>
+    <traitName>Jogger</traitName>
+    <traitDesc>Passionate jogger</traitDesc>
+    <source>Core</source>
+    <speed>+10</speed>
+    <agility />
+    <strength />
+    <size />
+    <morale />
+    <breakValue />
+    <melee />
+    <ranged />
+    <stealth />
+    <stamina>+20</stamina>
+  </Trait_Class>
+  <Trait_Class>
+    <traitName>Sharpshooter</traitName>
+    <traitDesc>Eagle eyed</traitDesc>
+    <source>Core</source>
+    <speed />
+    <agility />
+    <strength />
+    <size />
+    <morale />
+    <breakValue />
+    <melee />
+    <ranged>+25</ranged>
+    <stealth />
+    <stamina />
+  </Trait_Class>
+  <Trait_Class>
+    <traitName>Duellist</traitName>
+    <traitDesc>Skilled swordsman</traitDesc>
+    <source>Core</source>
+    <speed />
+    <agility />
+    <strength />
+    <size />
+    <morale />
+    <breakValue />
+    <melee>+25</melee>
+    <ranged />
+    <stealth />
+    <stamina />
+  </Trait_Class>
+  <Trait_Class>
+    <traitName>Nimble</traitName>
+    <traitDesc>Doesn't hang around</traitDesc>
+    <source>Core</source>
+    <speed>+10</speed>
+    <agility>+20</agility>
+    <strength />
+    <size />
+    <morale />
+    <breakValue />
+    <melee />
+    <ranged />
+    <stealth />
+    <stamina />
+  </Trait_Class>
+  <Trait_Class>
+    <traitName>Quiet</traitName>
+    <traitDesc>Strangely silent</traitDesc>
+    <source>Core</source>
+    <speed />
+    <agility />
+    <strength />
+    <size />
+    <morale />
+    <breakValue />
+    <melee />
+    <ranged />
+    <stealth>-20</stealth>
+    <stamina />
+  </Trait_Class>
+</ArrayOfTrait_Class>

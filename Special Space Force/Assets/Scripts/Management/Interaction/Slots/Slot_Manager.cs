@@ -10,6 +10,7 @@ public class Slot_Manager : MonoBehaviour
     /// This Script manages all interactions between the slots presented on screen to the player.
     /// </summary>
     public Galaxy_Generation_Manager manager;
+    public Manager_Script modManager;
     public Slot_Generator generator;
     public GameObject prefabSlot;
     public Slot_Script viewedSlot;
@@ -27,6 +28,7 @@ public class Slot_Manager : MonoBehaviour
     public Dropdown slotRoleDropdown;
     public bool menu;
     bool matched = false;
+    int selectionExtension = 0;
 
     public Sprite_Pack trooperSkinPack;
     public Sprite[] trooperSkinSprites;
@@ -318,6 +320,7 @@ public class Slot_Manager : MonoBehaviour
         {
             PointerEventData pointerData = new PointerEventData(EventSystem.current);
             List<RaycastResult> results = new List<RaycastResult>();
+            bool keepSelection = false;
 
             pointerData.position = Input.mousePosition;
             this.raycaster.Raycast(pointerData, results);
@@ -337,6 +340,11 @@ public class Slot_Manager : MonoBehaviour
                         Highest = temp;
                         highestSlotHeight = temp.slotHeight;
                     }
+                    foreach (Trooper_Script ts in selectedTroopers)
+                    {
+                        ts.imageManager.TurnOff("selected");
+                    }
+                    selectedTroopers.Clear();
                 }
                 if (result.gameObject.transform.parent.CompareTag("Trooper"))
                 {
@@ -351,8 +359,29 @@ public class Slot_Manager : MonoBehaviour
                     result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>().imageManager.TurnOn("selected");
                     Debug.Log(result.gameObject.name);
                     selectedTroopers.Add(result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>());
+                    keepSelection = true;
                     break;
                 }
+                else if (result.gameObject.transform.parent.CompareTag("UIForce"))
+                {
+                    Debug.Log("UI Force Detected");
+                    keepSelection = true;
+                    selectionExtension = 1;
+                }
+            }
+
+            if (!keepSelection && selectionExtension == 0)
+            {
+                foreach (Trooper_Script ts in selectedTroopers)
+                {
+                    ts.imageManager.TurnOff("selected");
+                }
+                selectedTroopers.Clear();
+            }
+
+            if (selectionExtension > 0 && !keepSelection)
+            {
+                selectionExtension -= 1;
             }
 
             //If there was a slot in the selection and menu isn't open (double checking incase of slowness on a script's part) open the clicked slot

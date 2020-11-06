@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Equipment_Class
 {
-    public string equipmentName;
+    public string EquipmentName;
     public string EquipmentType;
     public string EquipmentOutlinePath;
     public string EquipmentPrimaryPath;

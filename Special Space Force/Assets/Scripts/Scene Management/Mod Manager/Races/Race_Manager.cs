@@ -19,10 +19,10 @@ public class Race_Manager : MonoBehaviour
     public bool Run()
     {
         bool done = false;
-        CoreRaces();
-        SaveDefaults();
+        //CoreRaces();
+        //SaveDefaults();
         raceFiles = finder.Retrieve("Races.xml", ".meta");
-        races = FindBiomeFiles();
+        races = FindRaceFiles();
         return done;
     }
 
@@ -41,7 +41,7 @@ public class Race_Manager : MonoBehaviour
     }
 
     //Send the Files over to the serializer to be converted into Race_Classes, for use in game
-    private List<Race_Class> FindBiomeFiles()
+    private List<Race_Class> FindRaceFiles()
     {
         List<Race_Class> raceList = new List<Race_Class>();
 
