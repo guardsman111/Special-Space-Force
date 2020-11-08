@@ -58,15 +58,15 @@ public class Slot_Script : MonoBehaviour
     public void MakeSlot(Slot_Class slot, int positionID, Slot_Manager nManager)
     {
         slotClass = slot;
-        slotName = slot.slotName;
         slotHeight = slot.slotHeight;
         containedSlots = new List<Slot_Script>();
         squad = slot.squad;
         squadRole = slot.squadRole;
-
-        ID = positionID;
-        input.text = slotName;
         manager = nManager;
+        ID = positionID;
+        slotName = manager.manager.localisationManager.CreateName("SlotNames", this);
+
+        input.text = slotName;
         if (uID == 0)
         {
             uID = Random.Range(1, 10000000);
@@ -77,21 +77,22 @@ public class Slot_Script : MonoBehaviour
     public void MakeSlot(Slot_Script slot, Slot_Script parent, Slot_Manager nManager)
     {
         slotClass = slot.slotClass;
-        slotName = slot.slotName;
         slotHeight = slot.slotHeight;
         ID = slot.ID;
         slotParent = parent;
-        input.text = slotName;
         manager = nManager;
         background = slot.background;
         containedSlots = slot.containedSlots;
         containedTroopers = slot.containedTroopers;
+
         if (uID == 0)
         {
             uID = Random.Range(1, 10000000);
         }
         squad = slot.squad;
         squadRole = slot.squadRole;
+        slotName = manager.manager.localisationManager.CreateName("SlotNames", this);
+        input.text = slotName;
     }
 
     //Creates a new unique ID

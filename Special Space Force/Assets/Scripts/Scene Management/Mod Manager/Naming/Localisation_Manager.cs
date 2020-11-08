@@ -13,23 +13,37 @@ public class Localisation_Manager : MonoBehaviour
 
     public List<String_List_Class> trooperNameStrings;
     public List<String_List_Class> hierachyNameStrings;
+    public List<String_List_Class> slotNameStrings;
 
     public String_List_Class chosenTrooperNamesList;
+    public String_List_Class chosenHierachyNamesList;
+    public String_List_Class chosenSlotNamesList;
     public List<string> surnames;
     public List<string> forenamesM;
     public List<string> forenamesF;
 
+    public List<string> hierachyNames;
+    public List<string> squadHierachyNames;
+
+    public List<string> slotNames;
+    public List<string> squadNames;
+
     public Dropdown trooperNamesDropdown;
     public Dropdown hierachyNamesDropdown;
+    public Dropdown slotNamesDropdown;
 
     public void FindLocalisationFiles()
     {
         SaveDefaults();
         trooperNameStrings = new List<String_List_Class>();
         hierachyNameStrings = new List<String_List_Class>();
+        slotNameStrings = new List<String_List_Class>();
         List<string> fileLocations = finder.Retrieve("Localisation", ".meta");
         List<string> trooperNames = new List<string>();
-        List<string> hierarchyNames = new List<string>();
+        List<string> hierachyNames = new List<string>();
+        List<string> squadHierachyNames = new List<string>();
+        List<string> slotNames = new List<string>();
+        List<string> squadNames = new List<string>();
 
         foreach (string s in fileLocations)
         {
@@ -39,15 +53,29 @@ public class Localisation_Manager : MonoBehaviour
                 trooperNameStrings.Add(temp);
                 trooperNames.Add(temp.name);
             } 
-            else if (temp.listType == "HierarchyNames")
+            else if (temp.listType == "HierachyNames")
             {
-
+                hierachyNameStrings.Add(temp);
+                hierachyNames.Add(temp.name);
+            }
+            else if (temp.listType == "SlotNames")
+            {
+                slotNameStrings.Add(temp);
+                slotNames.Add(temp.name);
             }
         }
 
         trooperNamesDropdown.ClearOptions();
         trooperNamesDropdown.AddOptions(trooperNames);
         ChangedTemplateDropdown(trooperNamesDropdown);
+
+        hierachyNamesDropdown.ClearOptions();
+        hierachyNamesDropdown.AddOptions(hierachyNames);
+        ChangedTemplateDropdown(hierachyNamesDropdown);
+
+        slotNamesDropdown.ClearOptions();
+        slotNamesDropdown.AddOptions(slotNames);
+        ChangedTemplateDropdown(slotNamesDropdown);
     }
 
     public void ChangedTemplateDropdown(Dropdown dropdown)
@@ -56,9 +84,13 @@ public class Localisation_Manager : MonoBehaviour
         {
             chosenTrooperNamesList = trooperNameStrings[dropdown.value];
         } 
+        else if (dropdown.name == "Hierachy Names")
+        {
+            chosenHierachyNamesList = hierachyNameStrings[dropdown.value];
+        }
         else if (dropdown.name == "Slot Names")
         {
-
+            chosenSlotNamesList = slotNameStrings[dropdown.value];
         }
     }
 
@@ -67,6 +99,26 @@ public class Localisation_Manager : MonoBehaviour
         if (type == "TrooperNames")
         {
             foreach(String_List_Class slc in trooperNameStrings)
+            {
+                if (slc.name == name)
+                {
+                    chosenTrooperNamesList = slc;
+                }
+            }
+        }
+        if (type == "HierachyNames")
+        {
+            foreach (String_List_Class slc in hierachyNameStrings)
+            {
+                if (slc.name == name)
+                {
+                    chosenHierachyNamesList = slc;
+                }
+            }
+        }
+        if (type == "SlotNames")
+        {
+            foreach (String_List_Class slc in slotNameStrings)
             {
                 if (slc.name == name)
                 {
@@ -123,9 +175,71 @@ public class Localisation_Manager : MonoBehaviour
                 forenamesF.Add(s);
             }
         }
+        
+        sectionCounter = -1;
+        foreach (string s in chosenSlotNamesList.stringList)
+        {
+            if (sectionCounter == -1)
+            {
+                if (s.Contains("/Slots"))
+                {
+                    sectionCounter = 0;
+                }
+                else
+                {
+                    slotNames.Add(s);
+                }
+            }
+            else if (sectionCounter == 0)
+            {
+                if (s.Contains("/"))
+                {
+                    sectionCounter = 1;
+                }
+                else
+                {
+                    slotNames.Add(s);
+                }
+            }
+            else if (sectionCounter == 1)
+            {
+                squadNames.Add(s);
+            }
+        }
+
+        sectionCounter = -1;
+        foreach (string s in chosenHierachyNamesList.stringList)
+        {
+            if (sectionCounter == -1)
+            {
+                if (s.Contains("/Slots"))
+                {
+                    sectionCounter = 0;
+                }
+                else
+                {
+                    hierachyNames.Add(s);
+                }
+            }
+            else if (sectionCounter == 0)
+            {
+                if (s.Contains("/"))
+                {
+                    sectionCounter = 1;
+                }
+                else
+                {
+                    hierachyNames.Add(s);
+                }
+            }
+            else if (sectionCounter == 1)
+            {
+                squadHierachyNames.Add(s);
+            }
+        }
     }
 
-    public string CreateName(string type, int integer)
+    public string CreateTrooperName(string type, int integer)
     {
         string name = "Name";
         if (type == "TrooperNames")
@@ -144,6 +258,48 @@ public class Localisation_Manager : MonoBehaviour
             }
             name += " " + surnames[UnityEngine.Random.Range(0, surnames.Count)];
         } 
+        else if (type == "TrooperNames")
+        {
+
+        }
+        else
+        {
+            Debug.Log("Type was not recognized");
+        }
+
+        return name;
+    }
+
+    public string CreateName(string type, Slot_Script slot)
+    {
+        string name = "Name";
+        if (type == "SlotNames")
+        {
+            int number = slot.ID - 1;
+
+            string firstString;
+            string secondString;
+
+
+
+            if (slot.squad)
+            {
+                firstString = squadNames[number];
+                secondString = squadHierachyNames[0];
+
+                name = firstString + " " + secondString;
+            } 
+            else
+            {
+                if (number >= 0)
+                {
+                    firstString = slotNames[number];
+                    secondString = hierachyNames[slot.slotHeight];
+
+                    name = firstString + " " + secondString;
+                }
+            }
+        }
         else
         {
             Debug.Log("Type was not recognized");
@@ -236,9 +392,9 @@ public class Localisation_Manager : MonoBehaviour
             "Zara", "Zoe",
         };
 
-        var file = File.Create(finder.defaultPath + "/Localisation/EnglishLocalisation.xml");
+        var file = File.Create(finder.defaultPath + "/Localisation/Trooper Names/EnglishLocalisation.xml");
         file.Close();
-        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/EnglishLocalisation.xml");
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Trooper Names/EnglishLocalisation.xml");
 
         //English Troopers List
         tempSL = new String_List_Class();
@@ -321,19 +477,156 @@ public class Localisation_Manager : MonoBehaviour
             "Zara", "Zoe",
         };
 
-        file = File.Create(finder.defaultPath + "/Localisation/AmericanLocalisation.xml");
+        file = File.Create(finder.defaultPath + "/Localisation/Trooper Names/AmericanLocalisation.xml");
         file.Close();
-        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/AmericanLocalisation.xml");
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Trooper Names/AmericanLocalisation.xml");
+    }
+
+    //Creates default Slot names String Lists
+    public void DefaultSlotNames()
+    {
+        //Number Slots List
+        String_List_Class tempSL = new String_List_Class();
+        tempSL.name = "Number Slots";
+        tempSL.listType = "SlotNames";
+        tempSL.stringList = new List<string>
+        {
+            "/Slots",
+            "1st",
+            "2nd",
+            "3rd",
+            "4th",
+            "5th",
+            "6th",
+            "7th",
+            "8th",
+            "9th",
+            "/Squads",
+            "1st",
+            "2nd",
+            "3rd",
+            "4th",
+            "5th",
+            "6th",
+            "7th",
+            "8th",
+            "9th",
+        };
+
+        var file = File.Create(finder.defaultPath + "/Localisation/Slot Names/NumberLocalisation.xml");
+        file.Close();
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Slot Names/NumberLocalisation.xml");
+
+        //Colour Slots List
+        tempSL = new String_List_Class();
+        tempSL.name = "Colour Slots";
+        tempSL.listType = "SlotNames";
+        tempSL.stringList = new List<string>
+        {
+            "/Slots",
+            "White",
+            "Red",
+            "Blue",
+            "Green",
+            "Black",
+            "Yellow",
+            "Purple",
+            "Orange",
+            "Cyan",
+            "/Squads",
+            "White",
+            "Red",
+            "Blue",
+            "Green",
+            "Black",
+            "Yellow",
+            "Purple",
+            "Orange",
+            "Cyan",
+        };
+
+        file = File.Create(finder.defaultPath + "/Localisation/Slot Names/ColourLocalisation.xml");
+        file.Close();
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Slot Names/ColourLocalisation.xml");
+
+        //Alphabetical Slots List
+        tempSL = new String_List_Class();
+        tempSL.name = "Alphabet Slots";
+        tempSL.listType = "SlotNames";
+        tempSL.stringList = new List<string>
+        {
+            "/Slots",
+            "Alpha",
+            "Bravo",
+            "Charlie",
+            "Delta",
+            "Echo",
+            "Foxtrot",
+            "Gamma",
+            "Hotel",
+            "India",
+            "/Squads",
+            "Able",
+            "Baker",
+            "Charlie",
+            "Dog",
+            "Easy",
+            "Fox",
+            "Golf",
+            "Hotel",
+            "Indigo",
+        };
+
+        file = File.Create(finder.defaultPath + "/Localisation/Slot Names/AlphabeticalLocalisation.xml");
+        file.Close();
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Slot Names/AlphabeticalLocalisation.xml");
     }
 
     //Creates default hierarchy names String Lists
-    public void DefaultSlotNames()
+    public void DefaultHierachyNames()
     {
+        //US Hierachy List
+        String_List_Class tempSL = new String_List_Class();
+        tempSL.name = "American Hierachy";
+        tempSL.listType = "HierachyNames";
+        tempSL.stringList = new List<string>
+        {
+            "/Slots",
+            "Battalion",
+            "Company",
+            "Platoon",
+            "Squad",
+            "/Squads",
+            "Section",
+        };
 
+        var file = File.Create(finder.defaultPath + "/Localisation/Hierachy Names/AmericanLocalisation.xml");
+        file.Close();
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Hierachy Names/AmericanLocalisation.xml");
+
+        //British Hierachy List
+        tempSL = new String_List_Class();
+        tempSL.name = "British Hierachy";
+        tempSL.listType = "HierachyNames";
+        tempSL.stringList = new List<string>
+        {
+            "/Slots",
+            "Battalion",
+            "Company",
+            "Platoon",
+            "/Squads",
+            "Squad",
+        };
+
+        file = File.Create(finder.defaultPath + "/Localisation/Hierachy Names/BritishLocalisation.xml");
+        file.Close();
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Hierachy Names/BritishLocalisation.xml");
     }
 
     public void SaveDefaults()
     {
         DefaultTrooperNames();
+        DefaultSlotNames();
+        DefaultHierachyNames();
     }
 }

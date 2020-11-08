@@ -220,7 +220,7 @@ public class Slot_Generator : MonoBehaviour
             count += 1;
             //// Troop Generation Script
             tc.gender = UnityEngine.Random.Range(0, 2);
-            tc.trooperName = manager.manager.localisationManager.CreateName("TrooperNames", tc.gender);
+            tc.trooperName = manager.manager.localisationManager.CreateTrooperName("TrooperNames", tc.gender);
 
             tc.trooperFace = UnityEngine.Random.Range(0, manager.trooperSkinPack.containedSprites.Count);
 
