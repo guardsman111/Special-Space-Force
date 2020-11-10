@@ -10,7 +10,7 @@
                 <Slot_Class>
                   <slotName>1st Section</slotName>
 		  <squad>true</squad>
-		  <numberOfTroopers>20</numberOfTroopers>
+		  <numberOfTroopers>10</numberOfTroopers>
                   <slotHeight>3</slotHeight>
                 </Slot_Class>
                 <Slot_Class>
@@ -22,11 +22,61 @@
                 <Slot_Class>
                   <slotName>3rd Section</slotName>
 		  <squad>true</squad>
-		  <numberOfTroopers>5</numberOfTroopers>
+		  <numberOfTroopers>10</numberOfTroopers>
                   <slotHeight>3</slotHeight>
                 </Slot_Class>
               </containedSlots>
               <slotName>1st Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>2nd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>3rd Squad</slotName>
 	      <squad>false</squad>
               <slotHeight>2</slotHeight>
             </Slot_Class>
@@ -36,26 +86,411 @@
       	  <slotHeight>1</slotHeight>
         </Slot_Class>
         <Slot_Class>
+      	  <containedSlots>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>1st Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>2nd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>3rd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+          </containedSlots>
           <slotName>2nd Platoon</slotName>
 	  <squad>false</squad>
           <slotHeight>1</slotHeight>
         </Slot_Class>
         <Slot_Class>
+      	  <containedSlots>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>1st Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>2nd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>3rd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+          </containedSlots>
           <slotName>3rd Platoon</slotName>
 	  <squad>false</squad>
           <slotHeight>1</slotHeight>
         </Slot_Class>
         <Slot_Class>
+      	  <containedSlots>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>1st Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>2nd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>3rd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+          </containedSlots>
           <slotName>4th Platoon</slotName>
 	  <squad>false</squad>
           <slotHeight>1</slotHeight>
         </Slot_Class>
         <Slot_Class>
+      	  <containedSlots>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>1st Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>2nd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>3rd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+          </containedSlots>
           <slotName>5th Platoon</slotName>
 	  <squad>false</squad>
           <slotHeight>1</slotHeight>
         </Slot_Class>
         <Slot_Class>
+      	  <containedSlots>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>1st Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>2nd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+            <Slot_Class>
+      	      <containedSlots>
+                <Slot_Class>
+                  <slotName>1st Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>2nd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <slotName>3rd Section</slotName>
+		  <squad>true</squad>
+		  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <slotName>3rd Squad</slotName>
+	      <squad>false</squad>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+          </containedSlots>
           <slotName>6th Platoon</slotName>
 	  <squad>false</squad>
           <slotHeight>1</slotHeight>
