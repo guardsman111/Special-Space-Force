@@ -27,6 +27,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
 
     public FileFinder fileFinder;
     public System_Generator systemGenerator;
+    public Manager_Script modManager;
     public Biome_Manager biomeManager;
     public Race_Manager raceManager;
     public Slot_Generator slotGenerator;
@@ -176,8 +177,11 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             }
 
             systemGenerator.BeginGeneration(loadSystems, save);
-            slotGenerator.LoadSlots(save.topSlots);
+            product = save.generatedProduct;
+            modManager.traitManager.Run();
+            modManager.equipmentManager.playerDefaultColours = product.playerColours;
             localisationManager.LoadStringListClass(product.trooperNamesList, "TrooperNames");
+            slotGenerator.LoadSlots(save.topSlots);
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
 
         }

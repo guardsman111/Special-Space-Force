@@ -11,6 +11,15 @@ public class Trooper_Class
     public int hairColour;
     public int gender; // 0 for female, 1 for male
     public int trooperPosition;
+    public string armour;
+    public string helmet;
+    public string fatigues;
+    public string armourP;
+    public string helmetP;
+    public string fatiguesP;
+    public string equipment;
+    public string weapon1;
+    public string weapon2;
 
     //Base values
     public int movement;

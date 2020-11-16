@@ -30,8 +30,16 @@ public class Sprite_Changer : MonoBehaviour
                 {
                     ts.ChangePattern(dropdownChild);
                 }
+
             }
-        } 
+            else if (type == "Weap")
+            {
+                foreach (Trooper_Script ts in manager.viewedSlot.containedTroopers)
+                {
+                    ts.ChangeEquipment(dropdownMain);
+                }
+            }
+        }
         else
         {
             if (type == "Equip")
@@ -46,6 +54,13 @@ public class Sprite_Changer : MonoBehaviour
                 foreach (Trooper_Script ts in selectedTroopers)
                 {
                     ts.ChangePattern(dropdownChild);
+                }
+            }
+            else if (type == "Weap")
+            {
+                foreach (Trooper_Script ts in selectedTroopers)
+                {
+                    ts.ChangeEquipment(dropdownMain);
                 }
             }
         }

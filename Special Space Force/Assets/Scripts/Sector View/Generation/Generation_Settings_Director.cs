@@ -103,28 +103,36 @@ public class Generation_Settings_Director : MonoBehaviour
     //Starts the generation, grabs all the values and packages them into a Generation_Class
     public void StartGeneration(bool loading)
     {
-        foreach(Page_Manager p in Pages)
-        {
-            p.gameObject.SetActive(true);
-        }
         Generation_Class product = new Generation_Class();
-        product.height = height * 10;
-        product.width = width * 10;
-        product.numberofStars = numberofStars;
-        product.minimumPlanets = minimumPlanets;
-        product.maximumPlanets = maximumPlanets;
-        product.averagePlanetSize = averagePlanetSize;
-        product.habitableChance = habitableChance;
-        product.inhabitedChance = habitationChance;
-        product.resourceAbundancy = resourceAbundancy;
-        product.playerStrength = playerStrength;
-        product.toggledAI = SortToggledAI();
-        product.trooperNamesList = localisationManager.chosenTrooperNamesList.name;
-        product.playerColours = equipmentManager.GetColours(PlayerColours);
-        localisationManager.SeperateStringLists();
-        product.selectedTraits = traitManager.GetTraits(); ;
-        generationManager.Generate(loading, product);
-        Invoke("DisableCustomization", 1.0f);
+        if (!loading)
+        {
+            foreach (Page_Manager p in Pages)
+            {
+                p.gameObject.SetActive(true);
+            }
+            product.height = height * 10;
+            product.width = width * 10;
+            product.numberofStars = numberofStars;
+            product.minimumPlanets = minimumPlanets;
+            product.maximumPlanets = maximumPlanets;
+            product.averagePlanetSize = averagePlanetSize;
+            product.habitableChance = habitableChance;
+            product.inhabitedChance = habitationChance;
+            product.resourceAbundancy = resourceAbundancy;
+            product.playerStrength = playerStrength;
+            product.toggledAI = SortToggledAI();
+            product.trooperNamesList = localisationManager.chosenTrooperNamesList.name;
+            product.playerColours = equipmentManager.GetColours(PlayerColours);
+            localisationManager.SeperateStringLists();
+            product.selectedTraits = traitManager.GetTraits(); ;
+            generationManager.Generate(loading, product);
+            Invoke("DisableCustomization", 1.0f);
+        }
+        else
+        {
+            generationManager.Generate(loading, product);
+            Invoke("DisableCustomization", 1.0f);
+        }
     }
 
     //Collects the AI data, packages them into an AI_Class Individually then puts them in a list for easy access

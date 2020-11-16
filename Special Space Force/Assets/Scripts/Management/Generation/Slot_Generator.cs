@@ -17,6 +17,7 @@ public class Slot_Generator : MonoBehaviour
     public List<Slot_Script> squads;
     public int troopersPerSquad;
     public bool createTroopersFromTemplate;
+    private bool loading = false;
 
     public Text nTroopersText;
     public Dropdown templateDropdown;
@@ -101,6 +102,7 @@ public class Slot_Generator : MonoBehaviour
     public void LoadSlots(List<Slot_Class> slotClasses)
     {
         slots = slotClasses;
+        loading = true;
         CreateTopSlots();
     }
 
@@ -123,7 +125,14 @@ public class Slot_Generator : MonoBehaviour
                 temp.GetComponent<Slot_Script>().squad = false;
                 temp.GetComponent<Slot_Script>().ID = count;
                 temp.GetComponent<Slot_Script>().slotParent = slotN1.GetComponent<Slot_Script>();
-                temp.GetComponent<Slot_Script>().MakeSlot(sc, count, manager);
+                if (loading)
+                {
+                    temp.GetComponent<Slot_Script>().LoadSlot(sc, count, manager);
+                }
+                else
+                {
+                    temp.GetComponent<Slot_Script>().MakeSlot(sc, count, manager);
+                }
                 temp.GetComponent<Slot_Script>().containedSlots = FillSlots(sc, temp.GetComponent<Slot_Script>());
                 temp.GetComponent<Slot_Script>().SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>());
                 slotN1.GetComponent<Slot_Script>().containedSlots.Add(temp.GetComponent<Slot_Script>());
@@ -145,7 +154,14 @@ public class Slot_Generator : MonoBehaviour
                 count += 1;
                 GameObject temp = Instantiate(genericSlot, slotScript.transform);
                 Slot_Script tempS = temp.GetComponent<Slot_Script>();
-                tempS.MakeSlot(sc, count, manager);
+                if (loading)
+                {
+                    tempS.LoadSlot(sc, count, manager);
+                } 
+                else
+                {
+                    tempS.MakeSlot(sc, count, manager);
+                }
                 tempS.ID = count;
                 tempS.slotParent = slotScript;
                 if (tempS.squad)
@@ -217,32 +233,45 @@ public class Slot_Generator : MonoBehaviour
         int count = 0;
         foreach (Trooper_Class tc in squad.containedTroopers)
         {
-            count += 1;
-            //// Troop Generation Script
-            tc.gender = UnityEngine.Random.Range(0, 2);
-            tc.trooperName = manager.manager.localisationManager.CreateTrooperName("TrooperNames", tc.gender);
-
-            tc.trooperFace = UnityEngine.Random.Range(0, manager.trooperSkinPack.containedSprites.Count);
-
-            if (tc.gender == 0)
+            if (loading)
             {
-                tc.trooperHair = UnityEngine.Random.Range(0, manager.femaleHairPack.containedSprites.Count);
-            }
-            if (tc.gender == 1)
+                count += 1;
+
+                GameObject temp = Instantiate(genericTrooper, slotParent.transform);
+                Trooper_Script tempS = temp.GetComponent<Trooper_Script>();
+                tempS.MakeTrooper(tc, count, manager);
+                tempS.trooperSquad = slotParent;
+                tempTroopers.Add(tempS);
+            } 
+            else
             {
-                tc.trooperHair = UnityEngine.Random.Range(0, manager.maleHairPack.containedSprites.Count);
+                count += 1;
+                //// Troop Generation Script
+                tc.gender = UnityEngine.Random.Range(0, 2);
+                tc.trooperName = manager.manager.localisationManager.CreateTrooperName("TrooperNames", tc.gender);
+
+                tc.trooperFace = UnityEngine.Random.Range(0, manager.trooperSkinPack.containedSprites.Count);
+
+                if (tc.gender == 0)
+                {
+                    tc.trooperHair = UnityEngine.Random.Range(0, manager.femaleHairPack.containedSprites.Count);
+                }
+                if (tc.gender == 1)
+                {
+                    tc.trooperHair = UnityEngine.Random.Range(0, manager.maleHairPack.containedSprites.Count);
+                }
+
+                tc.hairColour = UnityEngine.Random.Range(0, manager.hairColours.Length);
+
+                //Rank still needs to be done
+
+                ////
+                GameObject temp = Instantiate(genericTrooper, slotParent.transform);
+                Trooper_Script tempS = temp.GetComponent<Trooper_Script>();
+                tempS.MakeTrooper(tc, count, manager);
+                tempS.trooperSquad = slotParent;
+                tempTroopers.Add(tempS);
             }
-
-            tc.hairColour = UnityEngine.Random.Range(0, manager.hairColours.Length);
-
-            //Rank still needs to be done
-
-            ////
-            GameObject temp = Instantiate(genericTrooper, slotParent.transform);
-            Trooper_Script tempS = temp.GetComponent<Trooper_Script>();
-            tempS.MakeTrooper(tc, count, manager);
-            tempS.trooperSquad = slotParent;
-            tempTroopers.Add(tempS);
         }
 
         return tempTroopers;
