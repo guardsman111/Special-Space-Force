@@ -26,6 +26,8 @@ public class Slot_Manager : MonoBehaviour
     public GameObject slotOptions;
     public GameObject squadOptions;
     public Dropdown slotRoleDropdown;
+    public Trooper_Show_Script trooperShowManager;
+    public Promote_Script promoter;
     public bool menu;
     bool matched = false;
     int selectionExtension = 0;
@@ -355,6 +357,8 @@ public class Slot_Manager : MonoBehaviour
                             ts.imageManager.TurnOff("selected");
                         }
                         selectedTroopers.Clear();
+                        trooperShowManager.ChangeTrooper(result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>());
+                        promoter.ChangeRank(result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>().trooperRank);
                     }
                     result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>().imageManager.TurnOn("selected");
                     Debug.Log(result.gameObject.name);

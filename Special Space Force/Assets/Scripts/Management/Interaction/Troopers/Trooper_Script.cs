@@ -101,314 +101,16 @@ public class Trooper_Script : MonoBehaviour
 
             GenerateTraits(manager.modManager.traitManager.GetTraits());
 
-            if (trait1 != 0)
+            if (trait1 != -1)
             {
                 Trait_Class traitTemp = manager.modManager.traitManager.GetTraits()[trait1];
-                if (traitTemp.speed != "")
-                {
-                    string newSpeed = traitTemp.speed;
-                    if (traitTemp.speed.Contains("+"))
-                    {
-                        newSpeed.Replace("+", "");
-                        speed += int.Parse(newSpeed);
-                    }
-                    if (traitTemp.speed.Contains("-"))
-                    {
-                        newSpeed.Replace("-", "");
-                        speed -= int.Parse(newSpeed);
-                    }
-                    if (traitTemp.speed.Contains("*"))
-                    {
-                        newSpeed.Replace("*", "");
-                        if (speed > 1)
-                        {
-                            speed = speed * int.Parse(newSpeed);
-                        }
-                    }
-                    if (traitTemp.speed.Contains("/"))
-                    {
-                        newSpeed.Replace("/", "");
-                        if (speed > 1)
-                        {
-                            speed = speed / int.Parse(newSpeed);
-                        }
-                    }
-                }
-                if (traitTemp.agility != "")
-                {
-                    string newAgility = traitTemp.agility;
-                    if (traitTemp.agility.Contains("+"))
-                    {
-                        newAgility.Replace("+", "");
-                        agility += int.Parse(newAgility);
-                    }
-                    if (traitTemp.agility.Contains("-"))
-                    {
-                        newAgility.Replace("-", "");
-                        agility -= int.Parse(newAgility);
-                    }
-                    if (traitTemp.agility.Contains("*"))
-                    {
-                        newAgility.Replace("*", "");
-                        if (agility > 1)
-                        {
-                            agility = agility * int.Parse(newAgility);
-                        }
-                    }
-                    if (traitTemp.agility.Contains("/"))
-                    {
-                        newAgility.Replace("/", "");
-                        if (agility > 1)
-                        {
-                            agility = agility / int.Parse(newAgility);
-                        }
-                    }
-                }
-                if (traitTemp.strength != "")
-                {
-                    string newStrength = traitTemp.strength;
-                    if (traitTemp.strength.Contains("+"))
-                    {
-                        newStrength.Replace("+", "");
-                        strength += int.Parse(newStrength);
-                    }
-                    if (traitTemp.strength.Contains("-"))
-                    {
-                        newStrength.Replace("-", "");
-                        strength -= int.Parse(newStrength);
-                    }
-                    if (traitTemp.strength.Contains("*"))
-                    {
-                        newStrength.Replace("*", "");
-                        if (strength > 1)
-                        {
-                            strength = strength * int.Parse(newStrength);
-                        }
-                    }
-                    if (traitTemp.strength.Contains("/"))
-                    {
-                        newStrength.Replace("/", "");
-                        if (strength > 1)
-                        {
-                            strength = strength / int.Parse(newStrength);
-                        }
-                    }
-                }
-                if (traitTemp.size != "")
-                {
-                    string newStrength = traitTemp.size;
-                    if (traitTemp.size.Contains("+"))
-                    {
-                        newStrength.Replace("+", "");
-                        size += int.Parse(newStrength);
-                    }
-                    if (traitTemp.size.Contains("-"))
-                    {
-                        newStrength.Replace("-", "");
-                        size -= int.Parse(newStrength);
-                    }
-                    if (traitTemp.size.Contains("*"))
-                    {
-                        newStrength.Replace("*", "");
-                        if (size > 1)
-                        {
-                            size = size * int.Parse(newStrength);
-                        }
-                    }
-                    if (traitTemp.size.Contains("/"))
-                    {
-                        newStrength.Replace("/", "");
-                        if (size > 1)
-                        {
-                            size = size / int.Parse(newStrength);
-                        }
-                    }
-                }
-                if (traitTemp.morale != "")
-                {
-                    string newMorale = traitTemp.morale;
-                    if (traitTemp.morale.Contains("+"))
-                    {
-                        newMorale.Replace("+", "");
-                        morale += int.Parse(newMorale);
-                    }
-                    if (traitTemp.morale.Contains("-"))
-                    {
-                        newMorale.Replace("-", "");
-                        morale -= int.Parse(newMorale);
-                    }
-                    if (traitTemp.morale.Contains("*"))
-                    {
-                        newMorale.Replace("*", "");
-                        if (morale > 1)
-                        {
-                            morale = morale * int.Parse(newMorale);
-                        }
-                    }
-                    if (traitTemp.morale.Contains("/"))
-                    {
-                        newMorale.Replace("/", "");
-                        if (morale > 1)
-                        {
-                            morale = morale / int.Parse(newMorale);
-                        }
-                    }
-                }
-                if (traitTemp.breakValue != "")
-                {
-                    string newBreakValue = traitTemp.breakValue;
-                    if (traitTemp.breakValue.Contains("+"))
-                    {
-                        newBreakValue.Replace("+", "");
-                        breakValue += int.Parse(newBreakValue);
-                    }
-                    if (traitTemp.breakValue.Contains("-"))
-                    {
-                        newBreakValue.Replace("-", "");
-                        breakValue -= int.Parse(newBreakValue);
-                    }
-                    if (traitTemp.breakValue.Contains("*"))
-                    {
-                        newBreakValue.Replace("*", "");
-                        if (breakValue > 1)
-                        {
-                            breakValue = breakValue * int.Parse(newBreakValue);
-                        }
-                    }
-                    if (traitTemp.breakValue.Contains("/"))
-                    {
-                        newBreakValue.Replace("/", "");
-                        if (breakValue > 1)
-                        {
-                            breakValue = breakValue / int.Parse(newBreakValue);
-                        }
-                    }
-                }
-                if (traitTemp.melee != "")
-                {
-                    string newMelee = traitTemp.melee;
-                    if (traitTemp.melee.Contains("+"))
-                    {
-                        newMelee.Replace("+", "");
-                        melee += int.Parse(newMelee);
-                    }
-                    if (traitTemp.melee.Contains("-"))
-                    {
-                        newMelee.Replace("-", "");
-                        melee -= int.Parse(newMelee);
-                    }
-                    if (traitTemp.melee.Contains("*"))
-                    {
-                        newMelee.Replace("*", "");
-                        if (melee > 1)
-                        {
-                            melee = melee * int.Parse(newMelee);
-                        }
-                    }
-                    if (traitTemp.melee.Contains("/"))
-                    {
-                        newMelee.Replace("/", "");
-                        if (melee > 1)
-                        {
-                            melee = melee / int.Parse(newMelee);
-                        }
-                    }
-                }
-                if (traitTemp.ranged != "")
-                {
-                    string newRanged = traitTemp.ranged;
-                    if (traitTemp.ranged.Contains("+"))
-                    {
-                        newRanged.Replace("+", "");
-                        ranged += int.Parse(newRanged);
-                    }
-                    if (traitTemp.ranged.Contains("-"))
-                    {
-                        newRanged.Replace("-", "");
-                        ranged -= int.Parse(newRanged);
-                    }
-                    if (traitTemp.ranged.Contains("*"))
-                    {
-                        newRanged.Replace("*", "");
-                        if (ranged > 1)
-                        {
-                            ranged = ranged * int.Parse(newRanged);
-                        }
-                    }
-                    if (traitTemp.ranged.Contains("/"))
-                    {
-                        newRanged.Replace("/", "");
-                        if (ranged > 1)
-                        {
-                            ranged = ranged / int.Parse(newRanged);
-                        }
-                    }
-                }
-                if (traitTemp.stealth != "")
-                {
-                    string newStealth = traitTemp.stealth;
-                    if (traitTemp.stealth.Contains("+"))
-                    {
-                        newStealth.Replace("+", "");
-                        stealth += int.Parse(newStealth);
-                    }
-                    if (traitTemp.stealth.Contains("-"))
-                    {
-                        newStealth.Replace("-", "");
-                        stealth -= int.Parse(newStealth);
-                    }
-                    if (traitTemp.stealth.Contains("*"))
-                    {
-                        newStealth.Replace("*", "");
-                        if (stealth > 1)
-                        {
-                            stealth = stealth * int.Parse(newStealth);
-                        }
-                    }
-                    if (traitTemp.stealth.Contains("/"))
-                    {
-                        newStealth.Replace("/", "");
-                        if (stealth > 1)
-                        {
-                            stealth = stealth / int.Parse(newStealth);
-                        }
-                    }
-                }
-                if (traitTemp.stamina != "")
-                {
-                    string newStamina = traitTemp.stamina;
-                    if (traitTemp.stamina.Contains("+"))
-                    {
-                        newStamina.Replace("+", "");
-                        stamina += int.Parse(newStamina);
-                    }
-                    if (traitTemp.stamina.Contains("-"))
-                    {
-                        newStamina.Replace("-", "");
-                        stamina -= int.Parse(newStamina);
-                    }
-                    if (traitTemp.stamina.Contains("*"))
-                    {
-                        newStamina.Replace("*", "");
-                        if (stamina > 1)
-                        {
-                            stamina = stamina * int.Parse(newStamina);
-                        }
-                    }
-                    if (traitTemp.stamina.Contains("/"))
-                    {
-                        newStamina.Replace("/", "");
-                        if (stamina > 1)
-                        {
-                            stamina = stamina / int.Parse(newStamina);
-                        }
-                    }
-                }
+                AffectTrait(traitTemp);
             }
 
-            if (trait2 != 0)
+            if (trait2 != -1)
             {
                 Trait_Class traitTemp = manager.modManager.traitManager.GetTraits()[trait2];
+                AffectTrait(traitTemp);
             }
         } 
         else
@@ -500,22 +202,23 @@ public class Trooper_Script : MonoBehaviour
 
     public void GenerateTraits(List<Trait_Class> traits)
     {
-
+        trait1 = -1;
+        trait2 = -1;
         int random1 = Random.Range(0, 10);
         int random2 = Random.Range(0, 10);
 
         if (random1 > 5 && random2 > 5)
         {
-            trait1 = Random.Range(0, traits.Count);
-            trait2 = Random.Range(0, traits.Count);
+            trait1 = Random.Range(1, traits.Count);
+            trait2 = Random.Range(1, traits.Count);
             if (trait1 == trait2)
             {
-                trait2 = Random.Range(0, traits.Count);
+                trait2 = -1;
             }
         }
         else if (random1 > 5 && random2 <= 5 || random1 <= 5 && random2 > 5)
         {
-            trait1 = Random.Range(0, traits.Count);
+            trait1 = Random.Range(1, traits.Count);
         }
     }
 
@@ -793,5 +496,376 @@ public class Trooper_Script : MonoBehaviour
         newClass.trait2 = trait2;
 
         return newClass;
+    }
+
+    public int GetStat(string name)
+    {
+        int returner = 0;
+        switch (name)
+        {
+            case "Speed":
+                returner = speed;
+                break;
+            case "Agility":
+                returner = agility;
+                break;
+            case "Strength":
+                returner = strength;
+                break;
+            case "Size":
+                returner = size;
+                break;
+            case "Morale":
+                returner = morale;
+                break;
+            case "Break Value":
+                returner = breakValue;
+                break;
+            case "Melee":
+                returner = melee;
+                break;
+            case "Ranged":
+                returner = ranged;
+                break;
+            case "Stealth":
+                returner = stealth;
+                break;
+            case "Stamina":
+                returner = stamina;
+                break;
+            default:
+                return 0;
+        }
+        return returner;
+    }
+
+    public string GetTrait(string name)
+    {
+        string returner = "";
+        Trait_Class traitTemp;
+
+        switch (name)
+        {
+            case "Trait1":
+                if (trait1 != -1)
+                {
+                    traitTemp = manager.modManager.traitManager.GetTraits()[trait1];
+                    returner = traitTemp.traitName;
+                }
+                break;
+            case "Trait2":
+                if (trait2 != -1)
+                {
+                    traitTemp = manager.modManager.traitManager.GetTraits()[trait2];
+                    returner = traitTemp.traitName;
+                }
+                break;
+        }
+
+        return returner;
+    }
+
+    public void AffectTrait(Trait_Class traitTemp)
+    {
+        if (traitTemp.speed != "")
+        {
+            string newSpeed = traitTemp.speed;
+            if (traitTemp.speed.Contains("+"))
+            {
+                newSpeed.Replace("+", "");
+                speed += int.Parse(newSpeed);
+            }
+            if (traitTemp.speed.Contains("-"))
+            {
+                newSpeed.Replace("-", "");
+                speed -= int.Parse(newSpeed);
+            }
+            if (traitTemp.speed.Contains("*"))
+            {
+                newSpeed.Replace("*", "");
+                if (speed > 1)
+                {
+                    speed = speed * int.Parse(newSpeed);
+                }
+            }
+            if (traitTemp.speed.Contains("/"))
+            {
+                newSpeed.Replace("/", "");
+                if (speed > 1)
+                {
+                    speed = speed / int.Parse(newSpeed);
+                }
+            }
+        }
+        if (traitTemp.agility != "")
+        {
+            string newAgility = traitTemp.agility;
+            if (traitTemp.agility.Contains("+"))
+            {
+                newAgility.Replace("+", "");
+                agility += int.Parse(newAgility);
+            }
+            if (traitTemp.agility.Contains("-"))
+            {
+                newAgility.Replace("-", "");
+                agility -= int.Parse(newAgility);
+            }
+            if (traitTemp.agility.Contains("*"))
+            {
+                newAgility.Replace("*", "");
+                if (agility > 1)
+                {
+                    agility = agility * int.Parse(newAgility);
+                }
+            }
+            if (traitTemp.agility.Contains("/"))
+            {
+                newAgility.Replace("/", "");
+                if (agility > 1)
+                {
+                    agility = agility / int.Parse(newAgility);
+                }
+            }
+        }
+        if (traitTemp.strength != "")
+        {
+            string newStrength = traitTemp.strength;
+            if (traitTemp.strength.Contains("+"))
+            {
+                newStrength.Replace("+", "");
+                strength += int.Parse(newStrength);
+            }
+            if (traitTemp.strength.Contains("-"))
+            {
+                newStrength.Replace("-", "");
+                strength -= int.Parse(newStrength);
+            }
+            if (traitTemp.strength.Contains("*"))
+            {
+                newStrength.Replace("*", "");
+                if (strength > 1)
+                {
+                    strength = strength * int.Parse(newStrength);
+                }
+            }
+            if (traitTemp.strength.Contains("/"))
+            {
+                newStrength.Replace("/", "");
+                if (strength > 1)
+                {
+                    strength = strength / int.Parse(newStrength);
+                }
+            }
+        }
+        if (traitTemp.size != "")
+        {
+            string newStrength = traitTemp.size;
+            if (traitTemp.size.Contains("+"))
+            {
+                newStrength.Replace("+", "");
+                size += int.Parse(newStrength);
+            }
+            if (traitTemp.size.Contains("-"))
+            {
+                newStrength.Replace("-", "");
+                size -= int.Parse(newStrength);
+            }
+            if (traitTemp.size.Contains("*"))
+            {
+                newStrength.Replace("*", "");
+                if (size > 1)
+                {
+                    size = size * int.Parse(newStrength);
+                }
+            }
+            if (traitTemp.size.Contains("/"))
+            {
+                newStrength.Replace("/", "");
+                if (size > 1)
+                {
+                    size = size / int.Parse(newStrength);
+                }
+            }
+        }
+        if (traitTemp.morale != "")
+        {
+            string newMorale = traitTemp.morale;
+            if (traitTemp.morale.Contains("+"))
+            {
+                newMorale.Replace("+", "");
+                morale += int.Parse(newMorale);
+            }
+            if (traitTemp.morale.Contains("-"))
+            {
+                newMorale.Replace("-", "");
+                morale -= int.Parse(newMorale);
+            }
+            if (traitTemp.morale.Contains("*"))
+            {
+                newMorale.Replace("*", "");
+                if (morale > 1)
+                {
+                    morale = morale * int.Parse(newMorale);
+                }
+            }
+            if (traitTemp.morale.Contains("/"))
+            {
+                newMorale.Replace("/", "");
+                if (morale > 1)
+                {
+                    morale = morale / int.Parse(newMorale);
+                }
+            }
+        }
+        if (traitTemp.breakValue != "")
+        {
+            string newBreakValue = traitTemp.breakValue;
+            if (traitTemp.breakValue.Contains("+"))
+            {
+                newBreakValue = newBreakValue.Replace("+", "");
+                breakValue += int.Parse(newBreakValue);
+            }
+            if (traitTemp.breakValue.Contains("-"))
+            {
+                newBreakValue = newBreakValue.Replace("-", "");
+                breakValue -= int.Parse(newBreakValue);
+            }
+            if (traitTemp.breakValue.Contains("*"))
+            {
+                newBreakValue = newBreakValue.Replace("*", "");
+                if (breakValue > 1)
+                {
+                    breakValue = breakValue * int.Parse(newBreakValue);
+                }
+            }
+            if (traitTemp.breakValue.Contains("/"))
+            {
+                newBreakValue = newBreakValue.Replace("/", "");
+                if (breakValue > 1)
+                {
+                    breakValue = breakValue / int.Parse(newBreakValue);
+                }
+            }
+        }
+        if (traitTemp.melee != "")
+        {
+            string newMelee = traitTemp.melee;
+            if (traitTemp.melee.Contains("+"))
+            {
+                newMelee.Replace("+", "");
+                melee += int.Parse(newMelee);
+            }
+            if (traitTemp.melee.Contains("-"))
+            {
+                newMelee.Replace("-", "");
+                melee -= int.Parse(newMelee);
+            }
+            if (traitTemp.melee.Contains("*"))
+            {
+                newMelee.Replace("*", "");
+                if (melee > 1)
+                {
+                    melee = melee * int.Parse(newMelee);
+                }
+            }
+            if (traitTemp.melee.Contains("/"))
+            {
+                newMelee.Replace("/", "");
+                if (melee > 1)
+                {
+                    melee = melee / int.Parse(newMelee);
+                }
+            }
+        }
+        if (traitTemp.ranged != "")
+        {
+            string newRanged = traitTemp.ranged;
+            if (traitTemp.ranged.Contains("+"))
+            {
+                newRanged.Replace("+", "");
+                ranged += int.Parse(newRanged);
+            }
+            if (traitTemp.ranged.Contains("-"))
+            {
+                newRanged.Replace("-", "");
+                ranged -= int.Parse(newRanged);
+            }
+            if (traitTemp.ranged.Contains("*"))
+            {
+                newRanged.Replace("*", "");
+                if (ranged > 1)
+                {
+                    ranged = ranged * int.Parse(newRanged);
+                }
+            }
+            if (traitTemp.ranged.Contains("/"))
+            {
+                newRanged.Replace("/", "");
+                if (ranged > 1)
+                {
+                    ranged = ranged / int.Parse(newRanged);
+                }
+            }
+        }
+        if (traitTemp.stealth != "")
+        {
+            string newStealth = traitTemp.stealth;
+            if (traitTemp.stealth.Contains("+"))
+            {
+                newStealth.Replace("+", "");
+                stealth += int.Parse(newStealth);
+            }
+            if (traitTemp.stealth.Contains("-"))
+            {
+                newStealth.Replace("-", "");
+                stealth -= int.Parse(newStealth);
+            }
+            if (traitTemp.stealth.Contains("*"))
+            {
+                newStealth.Replace("*", "");
+                if (stealth > 1)
+                {
+                    stealth = stealth * int.Parse(newStealth);
+                }
+            }
+            if (traitTemp.stealth.Contains("/"))
+            {
+                newStealth.Replace("/", "");
+                if (stealth > 1)
+                {
+                    stealth = stealth / int.Parse(newStealth);
+                }
+            }
+        }
+        if (traitTemp.stamina != "")
+        {
+            string newStamina = traitTemp.stamina;
+            if (traitTemp.stamina.Contains("+"))
+            {
+                newStamina.Replace("+", "");
+                stamina += int.Parse(newStamina);
+            }
+            if (traitTemp.stamina.Contains("-"))
+            {
+                newStamina.Replace("-", "");
+                stamina -= int.Parse(newStamina);
+            }
+            if (traitTemp.stamina.Contains("*"))
+            {
+                newStamina.Replace("*", "");
+                if (stamina > 1)
+                {
+                    stamina = stamina * int.Parse(newStamina);
+                }
+            }
+            if (traitTemp.stamina.Contains("/"))
+            {
+                newStamina.Replace("/", "");
+                if (stamina > 1)
+                {
+                    stamina = stamina / int.Parse(newStamina);
+                }
+            }
+        }
     }
 }

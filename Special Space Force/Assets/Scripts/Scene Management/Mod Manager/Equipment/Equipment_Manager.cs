@@ -37,6 +37,8 @@ public class Equipment_Manager : MonoBehaviour
     public Dropdown FatiguesPatternTrooper;
     public Dropdown ArmourPatternTrooper;
 
+    public Texture2D templateTexture;
+
     public void Begin()
     {
         armourPacks = coreEquipment.CoreArmour();
@@ -62,49 +64,69 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.containedSprites = new List<Sprite>();
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.ArmourOutlinePath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourOutlinePath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.ArmourPrimaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourPrimaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
             }
             catch { }
-            try {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.ArmourSecondaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+            try
+            {
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourSecondaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.ArmourTertiaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourTertiaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 3;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.ArmourEquipmentPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourEquipmentPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.ArmourSpecialPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourSpecialPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
-                tempSP.packType = "Armour";
+
+            tempSP.packType = "Armour";
             armourPacks.Add(tempSP);
         }
 
@@ -117,47 +139,65 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.containedSprites = new List<Sprite>();
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.FatiguesOutlinePath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesOutlinePath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.FatiguesPrimaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesPrimaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.FatiguesSecondaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesSecondaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.FatiguesTertiaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesTertiaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 3;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.FatiguesEquipmentPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesEquipmentPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.FatiguesSpecialPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesSpecialPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             tempSP.packType = "Fatigues";
@@ -173,47 +213,65 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.containedSprites = new List<Sprite>();
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.HelmetOutlinePath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetOutlinePath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.HelmetPrimaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetPrimaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.HelmetSecondaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetSecondaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.HelmetTertiaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetTertiaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 3;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.HelmetEquipmentPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetEquipmentPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.HelmetVisorPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetVisorPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             tempSP.packType = "Helmet";
@@ -228,24 +286,33 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.containedSprites = new List<Sprite>();
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.EquipmentOutlinePath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentOutlinePath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.EquipmentPrimaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentPrimaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.EquipmentSecondaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentSecondaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
             }
             catch { }
@@ -262,27 +329,37 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.containedSprites = new List<Sprite>();
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.EquipmentOutlinePath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentOutlinePath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.EquipmentPrimaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentPrimaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
             }
             catch { }
             try
             {
-                Texture2D tempTex = Resources.Load<Texture2D>(temp.EquipmentSecondaryPath);
-                tempTex.filterMode = FilterMode.Point;
-                tempSP.containedSprites.Add(Sprite.Create(tempTex, new Rect(0, 0, tempTex.width, tempTex.height), new Vector2(0.5f, 0.5f)));
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentSecondaryPath);
+                newTex.LoadImage(bytes);
+                newTex.filterMode = FilterMode.Point;
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
             }
             catch { }
+            
             tempSP.packType = temp.EquipmentType;
             weaponPacks.Add(tempSP);
         }
