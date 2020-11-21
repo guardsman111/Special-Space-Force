@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class Slot_Generator : MonoBehaviour
 {
+    /// <summary>
+    /// Generates the slots for the force organisation UI
+    /// </summary>
+    /// 
     public FileFinder finder;
     public Slot_Manager manager;
     public List<Slot_Class> slots;
@@ -28,6 +32,7 @@ public class Slot_Generator : MonoBehaviour
     //    SaveDefaults();
     //}
 
+    //Sets the dropdown for Force organisation templates
     public void SetupTemplateDropdown()
     {
         templateDropdown.ClearOptions();
@@ -44,6 +49,7 @@ public class Slot_Generator : MonoBehaviour
         ChangedTemplateDropdown();
     }
 
+    //Loads new image for the new template when selected from the dropdown
     public void ChangedTemplateDropdown()
     {
         List<string> fileLocations = finder.Retrieve(templateDropdown.options[templateDropdown.value].text, ".meta");
@@ -125,6 +131,8 @@ public class Slot_Generator : MonoBehaviour
                 temp.GetComponent<Slot_Script>().squad = false;
                 temp.GetComponent<Slot_Script>().ID = count;
                 temp.GetComponent<Slot_Script>().slotParent = slotN1.GetComponent<Slot_Script>();
+
+                //if loading, load the slots intead
                 if (loading)
                 {
                     temp.GetComponent<Slot_Script>().LoadSlot(sc, count, manager);
@@ -133,6 +141,7 @@ public class Slot_Generator : MonoBehaviour
                 {
                     temp.GetComponent<Slot_Script>().MakeSlot(sc, count, manager);
                 }
+
                 temp.GetComponent<Slot_Script>().containedSlots = FillSlots(sc, temp.GetComponent<Slot_Script>());
                 temp.GetComponent<Slot_Script>().SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>());
                 slotN1.GetComponent<Slot_Script>().containedSlots.Add(temp.GetComponent<Slot_Script>());
@@ -147,6 +156,8 @@ public class Slot_Generator : MonoBehaviour
         List<Slot_Script> tempSlots = new List<Slot_Script>();
 
         int count = 0;
+
+        //Create a Slot_Script for each slot_class the current slot_class contains
         foreach (Slot_Class sc in slot.containedSlots)
         {
             if (sc.slotHeight == slot.slotHeight + 1)
@@ -164,6 +175,9 @@ public class Slot_Generator : MonoBehaviour
                 }
                 tempS.ID = count;
                 tempS.slotParent = slotScript;
+
+                //if the slot is a squad, create troopers for it
+
                 if (tempS.squad)
                 {
                     if (createTroopersFromTemplate && sc.containedTroopers.Count == 0)
@@ -226,6 +240,7 @@ public class Slot_Generator : MonoBehaviour
         return tempSlots;
     }
 
+    //Fills the trooper slots of squads
     public List<Trooper_Script> FillSlots(Slot_Class squad, Slot_Script slotParent, int squadV)
     {
         List<Trooper_Script> tempTroopers = new List<Trooper_Script>();
@@ -345,11 +360,13 @@ public class Slot_Generator : MonoBehaviour
         //Debug.Log("File written");
     }
 
+    //Sets whether to follow the templates number of troops or the sliders
     public void ToggleTroopersFromTemplate(Toggle toggle)
     {
         createTroopersFromTemplate = toggle.isOn;
     }
 
+    //Sets the number of troops to be generated if not following the template numbers
     public void ChangeTroopersPerSquad(Slider slider)
     {
         troopersPerSquad = (int)slider.value;

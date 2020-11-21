@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class Equipment_Manager : MonoBehaviour
 {
+    /// <summary>
+    /// This code manages equipment for the slot manager and troopers - performs the change equipment and pattern functions
+    /// Also stores the equipments available loaded from files
+    /// </summary>
+    
     public FileFinder finder;
     public Core_Equipment coreEquipment;
     
@@ -39,6 +44,7 @@ public class Equipment_Manager : MonoBehaviour
 
     public Texture2D templateTexture;
 
+    //Sets up sprite packs for all the equipments in files (mod and default) also sets up dropdowns to be usable
     public void Begin()
     {
         armourPacks = coreEquipment.CoreArmour();
@@ -55,6 +61,8 @@ public class Equipment_Manager : MonoBehaviour
         List<string> equipmentFileLocations = finder.Retrieve("Equipment", ".meta", ".png", ".jpg");
         List<string> weaponFileLocations = finder.Retrieve("Weapon", ".meta", ".png", ".jpg");
 
+        //For each file in resources with specific naming scheme, takes the file and 
+        //turns it into the relevant class then stores it as a Sprite_Pack
         foreach (string s in armourFileLocations)
         {
             Armour_Class temp = Serializer.Deserialize<Armour_Class>(s);
@@ -391,6 +399,7 @@ public class Equipment_Manager : MonoBehaviour
         //Serializer.Serialize(Mk1Primary, finder.defaultPath + "/Equipment/Armour/Mk1/Mk1ArmourPrimary1.xml");
     }
 
+    //Gets players default colours
     public List<Color32> GetColours(Image[] images)
     {
         List<Color32> colours = new List<Color32>();
@@ -404,6 +413,31 @@ public class Equipment_Manager : MonoBehaviour
         return colours;
     }
 
+    //Get players chosen starting equipment
+    public List<string> GetDefault(string type)
+    {
+        List<string> strings = new List<string>();
+
+        if (type == "Equipment")
+        {
+            strings.Add(HelmetDropdownCustom.options[HelmetDropdownCustom.value].text);
+            strings.Add(ArmourDropdownCustom.options[ArmourDropdownCustom.value].text);
+            strings.Add(FatiguesDropdownCustom.options[FatiguesDropdownCustom.value].text);
+            strings.Add(Weapon1DropdownCustom.options[Weapon1DropdownCustom.value].text);
+            strings.Add(Weapon2DropdownCustom.options[Weapon2DropdownCustom.value].text);
+            strings.Add(EquipmentDropdownCustom.options[EquipmentDropdownCustom.value].text);
+        }
+        else if (type == "Patterns")
+        {
+            strings.Add(HelmetPatternCustom.options[HelmetPatternCustom.value].text);
+            strings.Add(ArmourPatternCustom.options[ArmourPatternCustom.value].text);
+            strings.Add(FatiguesPatternCustom.options[FatiguesPatternCustom.value].text);
+        }
+
+        return strings;
+    }
+
+    //Sets up the passed dropdown to display all the equipment of its chosen type
     public void SetupDropdown(Dropdown dropdown)
     {
         if (dropdown.name == "Helmet Dropdown")
@@ -471,6 +505,7 @@ public class Equipment_Manager : MonoBehaviour
             }
             dropdown.ClearOptions();
             dropdown.AddOptions(names);
+            dropdown.value = 2;
         }
 
         if (dropdown.name == "Weapons 2 Dropdown")
@@ -489,6 +524,7 @@ public class Equipment_Manager : MonoBehaviour
             }
             dropdown.ClearOptions();
             dropdown.AddOptions(names);
+            dropdown.value = 1;
         }
 
         if (dropdown.name == "Equipment Dropdown")
@@ -504,9 +540,12 @@ public class Equipment_Manager : MonoBehaviour
             }
             dropdown.ClearOptions();
             dropdown.AddOptions(names);
+            dropdown.value = 1;
         }
     }
 
+    //Sets up pattern dropdowns for the currently selected equipment
+    //Note that only the current equipment pattern can be changed
     public void PatternDropdown(string type, string pName, Dropdown dropdown)
     {
         if (type == "Helmet")
@@ -550,6 +589,7 @@ public class Equipment_Manager : MonoBehaviour
         }
     }
 
+    //Changes a troopers equipment according to the dropdown that was changed
     public void ChangeEquipment(Trooper_Script trooper, Dropdown dropdown)
     {
         if (dropdown.name == "Armour Dropdown")
@@ -567,6 +607,7 @@ public class Equipment_Manager : MonoBehaviour
                     if (p.packName == dropdown.options[dropdown.value].text && p.patternName == trooper.armourPattern)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
@@ -626,6 +667,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[13].gameObject.SetActive(false);
                 trooper.trooperImages[14].gameObject.SetActive(false);
                 trooper.trooperImages[15].gameObject.SetActive(false);
+                trooper.armour = "None";
             }
         }
 
@@ -638,6 +680,7 @@ public class Equipment_Manager : MonoBehaviour
                 if (p.packName == dropdown.options[dropdown.value].text && p.patternName == trooper.fatiguesPattern)
                 {
                     pack = p;
+                    break;
                 }
             }
             if(pack.packName == null)
@@ -705,6 +748,7 @@ public class Equipment_Manager : MonoBehaviour
                     if (p.packName == dropdown.options[dropdown.value].text && p.patternName == trooper.helmetPattern)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
@@ -761,6 +805,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[20].gameObject.SetActive(false);
                 trooper.trooperImages[21].gameObject.SetActive(false);
                 trooper.trooperImages[2].gameObject.SetActive(true);
+                trooper.helmet = "None";
             }
         }
 
@@ -778,6 +823,7 @@ public class Equipment_Manager : MonoBehaviour
                     if (p.packName == dropdown.options[dropdown.value].text)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
@@ -797,14 +843,14 @@ public class Equipment_Manager : MonoBehaviour
                     trooper.trooperImages[25].sprite = pack.containedSprites[0];
                     trooper.trooperImages[26].sprite = pack.containedSprites[1];
                     trooper.trooperImages[27].gameObject.SetActive(false);
-                    trooper.helmet = pack.packName;
+                    trooper.primaryWeapon = pack.packName;
                 }
                 if (pack.numberOfColours == 2)
                 {
                     trooper.trooperImages[25].sprite = pack.containedSprites[0];
                     trooper.trooperImages[26].sprite = pack.containedSprites[1];
                     trooper.trooperImages[27].sprite = pack.containedSprites[2];
-                    trooper.helmet = pack.packName;
+                    trooper.primaryWeapon = pack.packName;
                 }
             }
             else
@@ -812,6 +858,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[25].gameObject.SetActive(false);
                 trooper.trooperImages[26].gameObject.SetActive(false);
                 trooper.trooperImages[27].gameObject.SetActive(false);
+                trooper.primaryWeapon = "None";
             }
         }
 
@@ -829,6 +876,7 @@ public class Equipment_Manager : MonoBehaviour
                     if (p.packName == dropdown.options[dropdown.value].text)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
@@ -848,14 +896,14 @@ public class Equipment_Manager : MonoBehaviour
                     trooper.trooperImages[28].sprite = pack.containedSprites[0];
                     trooper.trooperImages[29].sprite = pack.containedSprites[1];
                     trooper.trooperImages[30].gameObject.SetActive(false);
-                    trooper.helmet = pack.packName;
+                    trooper.secondaryWeapon = pack.packName;
                 }
                 if (pack.numberOfColours == 2)
                 {
                     trooper.trooperImages[28].sprite = pack.containedSprites[0];
                     trooper.trooperImages[29].sprite = pack.containedSprites[1];
                     trooper.trooperImages[30].sprite = pack.containedSprites[2];
-                    trooper.helmet = pack.packName;
+                    trooper.secondaryWeapon = pack.packName;
                 }
             }
             else
@@ -863,6 +911,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[28].gameObject.SetActive(false);
                 trooper.trooperImages[29].gameObject.SetActive(false);
                 trooper.trooperImages[30].gameObject.SetActive(false);
+                trooper.secondaryWeapon = "None";
             }
         }
 
@@ -875,16 +924,17 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[23].gameObject.SetActive(true);
                 trooper.trooperImages[24].gameObject.SetActive(true);
 
-                foreach (Sprite_Pack p in weaponPacks)
+                foreach (Sprite_Pack p in equipmentPacks)
                 {
                     if (p.packName == dropdown.options[dropdown.value].text)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
                 {
-                    foreach (Sprite_Pack p in weaponPacks)
+                    foreach (Sprite_Pack p in equipmentPacks)
                     {
                         if (p.packName == dropdown.options[dropdown.value].text)
                         {
@@ -899,14 +949,14 @@ public class Equipment_Manager : MonoBehaviour
                     trooper.trooperImages[22].sprite = pack.containedSprites[0];
                     trooper.trooperImages[23].sprite = pack.containedSprites[1];
                     trooper.trooperImages[24].gameObject.SetActive(false);
-                    trooper.helmet = pack.packName;
+                    trooper.equipment = pack.packName;
                 }
                 if (pack.numberOfColours == 2)
                 {
                     trooper.trooperImages[22].sprite = pack.containedSprites[0];
                     trooper.trooperImages[23].sprite = pack.containedSprites[1];
                     trooper.trooperImages[24].sprite = pack.containedSprites[2];
-                    trooper.helmet = pack.packName;
+                    trooper.equipment = pack.packName;
                 }
             }
             else
@@ -914,10 +964,12 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[22].gameObject.SetActive(false);
                 trooper.trooperImages[23].gameObject.SetActive(false);
                 trooper.trooperImages[24].gameObject.SetActive(false);
+                trooper.equipment = "None";
             }
         }
     }
 
+    //Changes trooper equipment pattern according to which dropdown was selected
     public void ChangePattern(Trooper_Script trooper, Dropdown dropdown)
     {
         if (dropdown.name == "Armor")
@@ -929,6 +981,7 @@ public class Equipment_Manager : MonoBehaviour
                 if (p.packName == trooper.armour && p.patternName == dropdown.options[dropdown.value].text)
                 {
                     pack = p;
+                    break;
                 }
             }
 
@@ -976,6 +1029,7 @@ public class Equipment_Manager : MonoBehaviour
                 if (p.packName == trooper.fatigues && p.patternName == dropdown.options[dropdown.value].text)
                 {
                     pack = p;
+                    break;
                 }
             }
 
@@ -1069,7 +1123,7 @@ public class Equipment_Manager : MonoBehaviour
         }
     }
 
-
+    //Loads trooper equipment from the save file
     public void LoadEquipment(Trooper_Script trooper, string type, string name)
     {
         if (type == "Armour")
@@ -1087,6 +1141,7 @@ public class Equipment_Manager : MonoBehaviour
                     if (p.packName == name && p.patternName == trooper.armourPattern)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
@@ -1146,6 +1201,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[13].gameObject.SetActive(false);
                 trooper.trooperImages[14].gameObject.SetActive(false);
                 trooper.trooperImages[15].gameObject.SetActive(false);
+                trooper.armour = "None";
             }
         }
 
@@ -1158,6 +1214,7 @@ public class Equipment_Manager : MonoBehaviour
                 if (p.packName == name && p.patternName == trooper.fatiguesPattern)
                 {
                     pack = p;
+                    break;
                 }
             }
             if (pack.packName == null)
@@ -1225,6 +1282,7 @@ public class Equipment_Manager : MonoBehaviour
                     if (p.packName == name && p.patternName == trooper.helmetPattern)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
@@ -1281,6 +1339,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[20].gameObject.SetActive(false);
                 trooper.trooperImages[21].gameObject.SetActive(false);
                 trooper.trooperImages[2].gameObject.SetActive(true);
+                trooper.helmet = "None";
             }
         }
 
@@ -1298,6 +1357,7 @@ public class Equipment_Manager : MonoBehaviour
                     if (p.packName == name)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
@@ -1317,14 +1377,14 @@ public class Equipment_Manager : MonoBehaviour
                     trooper.trooperImages[25].sprite = pack.containedSprites[0];
                     trooper.trooperImages[26].sprite = pack.containedSprites[1];
                     trooper.trooperImages[27].gameObject.SetActive(false);
-                    trooper.helmet = pack.packName;
+                    trooper.primaryWeapon = pack.packName;
                 }
                 if (pack.numberOfColours == 2)
                 {
                     trooper.trooperImages[25].sprite = pack.containedSprites[0];
                     trooper.trooperImages[26].sprite = pack.containedSprites[1];
                     trooper.trooperImages[27].sprite = pack.containedSprites[2];
-                    trooper.helmet = pack.packName;
+                    trooper.primaryWeapon = pack.packName;
                 }
             }
             else
@@ -1332,6 +1392,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[25].gameObject.SetActive(false);
                 trooper.trooperImages[26].gameObject.SetActive(false);
                 trooper.trooperImages[27].gameObject.SetActive(false);
+                trooper.primaryWeapon = "None";
             }
         }
 
@@ -1349,6 +1410,7 @@ public class Equipment_Manager : MonoBehaviour
                     if (p.packName == name)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
@@ -1368,14 +1430,14 @@ public class Equipment_Manager : MonoBehaviour
                     trooper.trooperImages[28].sprite = pack.containedSprites[0];
                     trooper.trooperImages[29].sprite = pack.containedSprites[1];
                     trooper.trooperImages[30].gameObject.SetActive(false);
-                    trooper.helmet = pack.packName;
+                    trooper.secondaryWeapon = pack.packName;
                 }
                 if (pack.numberOfColours == 2)
                 {
                     trooper.trooperImages[28].sprite = pack.containedSprites[0];
                     trooper.trooperImages[29].sprite = pack.containedSprites[1];
                     trooper.trooperImages[30].sprite = pack.containedSprites[2];
-                    trooper.helmet = pack.packName;
+                    trooper.secondaryWeapon = pack.packName;
                 }
             }
             else
@@ -1383,6 +1445,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[28].gameObject.SetActive(false);
                 trooper.trooperImages[29].gameObject.SetActive(false);
                 trooper.trooperImages[30].gameObject.SetActive(false);
+                trooper.secondaryWeapon = "None";
             }
         }
 
@@ -1391,15 +1454,16 @@ public class Equipment_Manager : MonoBehaviour
             if (name != "None")
             {
                 Sprite_Pack pack = new Sprite_Pack();
-                trooper.trooperImages[21].gameObject.SetActive(true);
                 trooper.trooperImages[22].gameObject.SetActive(true);
                 trooper.trooperImages[23].gameObject.SetActive(true);
+                trooper.trooperImages[24].gameObject.SetActive(true);
 
                 foreach (Sprite_Pack p in weaponPacks)
                 {
                     if (p.packName == name)
                     {
                         pack = p;
+                        break;
                     }
                 }
                 if (pack.packName == null)
@@ -1416,24 +1480,174 @@ public class Equipment_Manager : MonoBehaviour
 
                 if (pack.numberOfColours == 1)
                 {
-                    trooper.trooperImages[21].sprite = pack.containedSprites[0];
-                    trooper.trooperImages[22].sprite = pack.containedSprites[1];
-                    trooper.trooperImages[23].gameObject.SetActive(false);
-                    trooper.helmet = pack.packName;
+                    trooper.trooperImages[22].sprite = pack.containedSprites[0];
+                    trooper.trooperImages[23].sprite = pack.containedSprites[1];
+                    trooper.trooperImages[24].gameObject.SetActive(false);
+                    trooper.equipment = pack.packName;
                 }
                 if (pack.numberOfColours == 2)
                 {
-                    trooper.trooperImages[21].sprite = pack.containedSprites[0];
-                    trooper.trooperImages[22].sprite = pack.containedSprites[1];
-                    trooper.trooperImages[23].sprite = pack.containedSprites[2];
-                    trooper.helmet = pack.packName;
+                    trooper.trooperImages[22].sprite = pack.containedSprites[0];
+                    trooper.trooperImages[23].sprite = pack.containedSprites[1];
+                    trooper.trooperImages[24].sprite = pack.containedSprites[2];
+                    trooper.equipment = pack.packName;
                 }
             }
             else
             {
-                trooper.trooperImages[21].gameObject.SetActive(false);
                 trooper.trooperImages[22].gameObject.SetActive(false);
                 trooper.trooperImages[23].gameObject.SetActive(false);
+                trooper.trooperImages[24].gameObject.SetActive(false);
+                trooper.equipment = "None";
+            }
+        }
+    }
+
+    //Sets dropdowns on trooper selection
+    public void SetDropdowns(Trooper_Script trooper)
+    {
+        if (ArmourDropdownTrooper.options[ArmourDropdownTrooper.value].text != trooper.armour)
+        {
+            if (trooper.armour == "None")
+            {
+                ArmourDropdownTrooper.value = 0;
+            }
+            else
+            {
+                for (int i = 0; i < ArmourDropdownTrooper.options.Count; i++)
+                {
+                    if (ArmourDropdownTrooper.options[i].text == trooper.armour)
+                    {
+                        ArmourDropdownTrooper.value = i;
+                    }
+                }
+            }
+        }
+
+        if (HelmetDropdownTrooper.options[HelmetDropdownTrooper.value].text != trooper.helmet)
+        {
+            if (trooper.helmet == "None")
+            {
+                HelmetDropdownTrooper.value = 0;
+            }
+            else
+            {
+                for (int i = 0; i < HelmetDropdownTrooper.options.Count; i++)
+                {
+                    if (HelmetDropdownTrooper.options[i].text == trooper.helmet)
+                    {
+                        HelmetDropdownTrooper.value = i;
+                    }
+                }
+            }
+        }
+
+        if (FatiguesDropdownTrooper.options[FatiguesDropdownTrooper.value].text != trooper.fatigues)
+        {
+            if (trooper.fatigues == "None")
+            {
+                FatiguesDropdownTrooper.value = 0;
+            }
+            else
+            {
+                for (int i = 0; i < FatiguesDropdownTrooper.options.Count; i++)
+                {
+                    if (FatiguesDropdownTrooper.options[i].text == trooper.fatigues)
+                    {
+                        FatiguesDropdownTrooper.value = i;
+                    }
+                }
+            }
+        }
+
+        if (Weapon1DropdownTrooper.options[Weapon1DropdownTrooper.value].text != trooper.primaryWeapon)
+        {
+            {
+                if (trooper.primaryWeapon == "None")
+                {
+                    Weapon1DropdownTrooper.value = 0;
+                }
+                else
+                {
+                    for (int i = 0; i < Weapon1DropdownTrooper.options.Count; i++)
+                    {
+                        if (Weapon1DropdownTrooper.options[i].text == trooper.primaryWeapon)
+                        {
+                            Weapon1DropdownTrooper.value = i;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (Weapon2DropdownTrooper.options[Weapon2DropdownTrooper.value].text != trooper.secondaryWeapon)
+        {
+            {
+                if (trooper.secondaryWeapon == "None")
+                {
+                    Weapon2DropdownTrooper.value = 0;
+                }
+                else
+                {
+                    for (int i = 0; i < Weapon2DropdownTrooper.options.Count; i++)
+                    {
+                        if (Weapon2DropdownTrooper.options[i].text == trooper.secondaryWeapon)
+                        {
+                            Weapon2DropdownTrooper.value = i;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (EquipmentDropdownTrooper.options[EquipmentDropdownTrooper.value].text != trooper.equipment)
+        {
+            if (trooper.equipment == "None")
+            {
+                EquipmentDropdownTrooper.value = 0;
+            }
+            else
+            {
+                for (int i = 0; i < EquipmentDropdownTrooper.options.Count; i++)
+                {
+                    if (EquipmentDropdownTrooper.options[i].text == trooper.equipment)
+                    {
+                        EquipmentDropdownTrooper.value = i;
+                    }
+                }
+            }
+        }
+
+        if (ArmourPatternTrooper.options[ArmourPatternTrooper.value].text != trooper.armourPattern)
+        {
+            for (int i = 0; i < ArmourPatternTrooper.options.Count; i++)
+            {
+                if (ArmourPatternTrooper.options[i].text == trooper.armourPattern)
+                {
+                    ArmourPatternTrooper.value = i;
+                }
+            }
+        }
+
+        if (HelmetPatternTrooper.options[HelmetPatternTrooper.value].text != trooper.helmetPattern)
+        {
+            for (int i = 0; i < HelmetPatternTrooper.options.Count; i++)
+            {
+                if (HelmetPatternTrooper.options[i].text == trooper.helmetPattern)
+                {
+                    HelmetPatternTrooper.value = i;
+                }
+            }
+        }
+
+        if (FatiguesPatternTrooper.options[FatiguesPatternTrooper.value].text != trooper.fatiguesPattern)
+        {
+            for (int i = 0; i < FatiguesPatternTrooper.options.Count; i++)
+            {
+                if (FatiguesPatternTrooper.options[i].text == trooper.fatiguesPattern)
+                {
+                    FatiguesPatternTrooper.value = i;
+                }
             }
         }
     }

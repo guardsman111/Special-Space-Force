@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Sprite_Changer : MonoBehaviour
 {
+    /// <summary>
+    /// Manager script for the dropdowns in the force organisation UI, Manages the changes to sprites for equipment and weapons
+    /// </summary>
     public Dropdown dropdownMain;
     public Dropdown dropdownChild;
     public Toggle changeAll;
@@ -12,6 +15,7 @@ public class Sprite_Changer : MonoBehaviour
 
     public List<Trooper_Script> selectedTroopers;
 
+    //Registers a dropdown has been changed, takes a type and sends changes to currently selected troopers
     public void DropdownChanged(string type)
     {
         selectedTroopers = manager.selectedTroopers;

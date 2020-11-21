@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Equipment_Class
 {
+    /// <summary>
+    /// Contains information for equipment sprite packs
+    /// </summary>
     public string EquipmentName;
     public string EquipmentType;
     public string EquipmentOutlinePath;

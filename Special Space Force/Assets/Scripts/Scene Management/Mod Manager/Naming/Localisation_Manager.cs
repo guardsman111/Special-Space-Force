@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 public class Localisation_Manager : MonoBehaviour
 {
+    /// <summary>
+    /// Manages the localisation files that can be inputted into the game. Loads files from resources and breaks them into strings.
+    /// </summary>
     public FileFinder finder;
 
     public List<String_List_Class> trooperNameStrings;
@@ -32,6 +35,7 @@ public class Localisation_Manager : MonoBehaviour
     public Dropdown hierachyNamesDropdown;
     public Dropdown slotNamesDropdown;
 
+    //Finds the localisation files from the resources folder and filters them by type. Expandable
     public void FindLocalisationFiles()
     {
         SaveDefaults();
@@ -78,6 +82,7 @@ public class Localisation_Manager : MonoBehaviour
         ChangedTemplateDropdown(slotNamesDropdown);
     }
 
+    //Handles changes to the dropdowns on the customisation menu
     public void ChangedTemplateDropdown(Dropdown dropdown)
     {
         if (dropdown.name == "Trooper Names")
@@ -94,11 +99,37 @@ public class Localisation_Manager : MonoBehaviour
         }
     }
 
+    //Returns the names of all the currently selected string list classes
+    public List<string> FindChosenLocalisation()
+    {
+        List<string> localisations = new List<string>();
+
+        if(chosenTrooperNamesList == null)
+        {
+            LoadStringListClass(trooperNamesDropdown.options[trooperNamesDropdown.value].text, "TrooperNames");
+        }
+        if (chosenHierachyNamesList == null)
+        {
+            LoadStringListClass(hierachyNamesDropdown.options[hierachyNamesDropdown.value].text, "TrooperNames");
+        }
+        if (chosenSlotNamesList == null)
+        {
+            LoadStringListClass(slotNamesDropdown.options[slotNamesDropdown.value].text, "TrooperNames");
+        }
+
+        localisations.Add(chosenTrooperNamesList.name);
+        localisations.Add(chosenHierachyNamesList.name);
+        localisations.Add(chosenSlotNamesList.name);
+
+        return localisations;
+    }
+
+    //Finds the selected string list from the given name
     public void LoadStringListClass(string name, string type)
     {
         if (type == "TrooperNames")
         {
-            foreach(String_List_Class slc in trooperNameStrings)
+            foreach (String_List_Class slc in trooperNameStrings)
             {
                 if (slc.name == name)
                 {
@@ -106,7 +137,7 @@ public class Localisation_Manager : MonoBehaviour
                 }
             }
         }
-        if (type == "HierachyNames")
+        else if (type == "HierachyNames")
         {
             foreach (String_List_Class slc in hierachyNameStrings)
             {
@@ -116,7 +147,7 @@ public class Localisation_Manager : MonoBehaviour
                 }
             }
         }
-        if (type == "SlotNames")
+        else if (type == "SlotNames")
         {
             foreach (String_List_Class slc in slotNameStrings)
             {
@@ -126,8 +157,13 @@ public class Localisation_Manager : MonoBehaviour
                 }
             }
         }
+        else 
+        {
+            Debug.Log("Couldn't Find Localisation called " + name);
+        }
     }
 
+    //Seperates the string lists into individual strings
     public void SeperateStringLists()
     {
         int sectionCounter = -1;
@@ -239,6 +275,7 @@ public class Localisation_Manager : MonoBehaviour
         }
     }
 
+    //Creates trooper name
     public string CreateTrooperName(string type, int integer)
     {
         string name = "Name";
@@ -270,6 +307,7 @@ public class Localisation_Manager : MonoBehaviour
         return name;
     }
 
+    //Creates slot name
     public string CreateName(string type, Slot_Script slot)
     {
         string name = "Name";
@@ -623,6 +661,7 @@ public class Localisation_Manager : MonoBehaviour
         Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Hierachy Names/BritishLocalisation.xml");
     }
 
+    //Saves the default localisation files
     public void SaveDefaults()
     {
         DefaultTrooperNames();

@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Trait_Manager : MonoBehaviour
 {
+    /// <summary>
+    /// This script grabs all trait files to be used in the game
+    /// </summary>
     public FileFinder finder;
 
     private List<string> traitFiles;
@@ -13,7 +16,7 @@ public class Trait_Manager : MonoBehaviour
     private List<Trait_Class> traits;
 
 
-    //Retrieves (and saves the core) Race Files. Ignores .meta files
+    //Retrieves (and saves the core) Trait Files. Ignores .meta files
     public bool Run()
     {
         bool done = false;
@@ -85,6 +88,7 @@ public class Trait_Manager : MonoBehaviour
         return null;
     }
 
+    //Creates the core traits
     public void CoreTraits()
     {
         traits = new List<Trait_Class>();
@@ -98,6 +102,7 @@ public class Trait_Manager : MonoBehaviour
         CreateTrait("Quiet", "Strangely silent", "", "", "", "", "", "", "", "", "-20", "", "Core");
     }
 
+    //Creates a trait from code above
     public void CreateTrait(string name, string desc, string speed, string agility, string strength, string size, string morale, string breakValue, string melee, string ranged, string stealth, string stamina, string source)
     {
         Trait_Class newClass = new Trait_Class();
@@ -119,6 +124,7 @@ public class Trait_Manager : MonoBehaviour
         traits.Add(newClass);
     }
 
+    //Saves the core traits
     public void SaveDefaults()
     {
         var file = File.Create(finder.defaultPath + "/Traits/CoreTraits.xml");
@@ -127,6 +133,7 @@ public class Trait_Manager : MonoBehaviour
         //Debug.Log("File written");
     }
 
+    //Returns the list of traits
     public List<Trait_Class> GetTraits()
     {
         return traits;

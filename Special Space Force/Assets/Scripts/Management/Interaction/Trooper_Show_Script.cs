@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Trooper_Show_Script : MonoBehaviour
 {
+    /// <summary>
+    /// Updates squad ui to show selected troopers stats and traits
+    /// </summary>
     public Text Speed;
     public Text Agility;
     public Text Strength;
@@ -18,7 +21,7 @@ public class Trooper_Show_Script : MonoBehaviour
     public Text Trait1;
     public Text Trait2;
 
-
+    //Updates the UI
     public void ChangeTrooper(Trooper_Script trooper)
     {
         Speed.text = trooper.GetStat("Speed").ToString();

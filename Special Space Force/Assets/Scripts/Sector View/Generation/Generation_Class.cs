@@ -20,7 +20,9 @@ public class Generation_Class
     public int playerStrength;
     public List<AI_Class> toggledAI;
     public List<Trait_Class> selectedTraits;
-    public string trooperNamesList;
+    public List<string> defaultEquipment;
+    public List<string> defaultPatterns;
+    public List<string> chosenLocalisationList;
     public List<Color32> playerColours;
 
     public Generation_Class()

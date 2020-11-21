@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Fatigues_Class
 {
+    /// <summary>
+    /// Contains information for fatigue srite packs
+    /// </summary>
     public string fatiguesName;
     public string patternName;
     public string FatiguesOutlinePath;

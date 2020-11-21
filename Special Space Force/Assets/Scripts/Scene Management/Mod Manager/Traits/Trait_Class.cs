@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Trait_Class
 {
+    /// <summary>
+    /// Contains information for an individual trait
+    /// </summary>
     public string traitName;
     public string traitDesc;
     public string source;

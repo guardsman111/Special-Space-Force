@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class Trooper_Script : MonoBehaviour
 {
+    /// <summary>
+    /// This script contains all the code for the trooper it is attatched too.
+    /// Sets the images and positions in the visual layout.
+    /// </summary>
     public string trooperName;
     public string trooperRank;
     public int trooperPosition;
@@ -54,6 +58,7 @@ public class Trooper_Script : MonoBehaviour
     [SerializeField]
     private int stamina;
 
+    //Traits by integer position in the generated product's list of traits
     public int trait1;
     public int trait2;
 
@@ -69,6 +74,7 @@ public class Trooper_Script : MonoBehaviour
 
     public Image_Manager imageManager;
 
+    //Makes trooper from existing trooper_class
     public void MakeTrooper(Trooper_Class trooper, int positionID, Slot_Manager nManager)
     {
         manager = nManager;
@@ -154,11 +160,11 @@ public class Trooper_Script : MonoBehaviour
         if (trooper.armour != null)
         {
             armour = trooper.armour;
-            armourPattern = "Primary1";
+            armourPattern = trooper.armourP;
             helmet = trooper.helmet;
-            armourPattern = "Primary1";
+            helmetPattern = trooper.helmetP;
             fatigues = trooper.fatigues;
-            armourPattern = "Primary1";
+            fatiguesPattern = trooper.fatiguesP;
             primaryWeapon = trooper.weapon1;
             secondaryWeapon = trooper.weapon2;
             equipment = trooper.equipment;
@@ -171,23 +177,23 @@ public class Trooper_Script : MonoBehaviour
         }
         else
         {
-            armour = "Mk1 Armour";
+            armour = manager.manager.save.generatedProduct.defaultEquipment[1];
             trooper.armour = armour;
-            armourPattern = "Primary1";
+            armourPattern = manager.manager.save.generatedProduct.defaultPatterns[1];
             trooper.armourP = armourPattern;
-            helmet = "Mk1 Helmet";
+            helmet = manager.manager.save.generatedProduct.defaultEquipment[0];
             trooper.helmet = helmet;
-            helmetPattern = "Primary1";
+            helmetPattern = manager.manager.save.generatedProduct.defaultPatterns[0];
             trooper.helmetP = helmetPattern;
-            fatigues = "BDU UBACS";
+            fatigues = manager.manager.save.generatedProduct.defaultEquipment[2];
             trooper.fatigues = fatigues;
-            fatiguesPattern = "Primary1";
+            fatiguesPattern = manager.manager.save.generatedProduct.defaultPatterns[2]; ;
             trooper.fatiguesP = fatiguesPattern;
-            primaryWeapon = "Pistol1";
+            primaryWeapon = manager.manager.save.generatedProduct.defaultEquipment[3];
             trooper.weapon1 = primaryWeapon;
-            secondaryWeapon = "SwordSec1";
+            secondaryWeapon = manager.manager.save.generatedProduct.defaultEquipment[4];
             trooper.weapon2 = secondaryWeapon;
-            equipment = "Backpack";
+            equipment = manager.manager.save.generatedProduct.defaultEquipment[5];
             trooper.equipment = equipment;
             equipmentManager.LoadEquipment(this, "Armour", armour);
             equipmentManager.LoadEquipment(this, "Helmet", helmet);
@@ -200,6 +206,7 @@ public class Trooper_Script : MonoBehaviour
         manager.ChangeTroopers(1);
     }
 
+    //Generates up to 2 random traits
     public void GenerateTraits(List<Trait_Class> traits)
     {
         trait1 = -1;
@@ -421,16 +428,19 @@ public class Trooper_Script : MonoBehaviour
         }
     }
 
+    //Changes the troopers equipment of the dropdown type
     public void ChangeEquipment(Dropdown dropdown)
     {
         equipmentManager.ChangeEquipment(this, dropdown);
     }
 
+    //Changes the troopers pattern of the dropdown type
     public void ChangePattern(Dropdown dropdown)
     {
         equipmentManager.ChangePattern(this, dropdown);
     }
 
+    //Sets the troopers colour scheme
     public void TrooperColours()
     {
         trooperImages[3].color = equipmentManager.playerDefaultColours[5];
@@ -455,6 +465,7 @@ public class Trooper_Script : MonoBehaviour
         trooperImages[30].color = equipmentManager.playerDefaultColours[15];
     }
 
+    //Changes the troopers name according to the input
     public void ChangeName(TMP_InputField input)
     {
         trooperClass.trooperName = input.text;
@@ -466,6 +477,7 @@ public class Trooper_Script : MonoBehaviour
         manager.UIPressed(setting);
     }
 
+    //Saves the trooper to a trooper_class
     public Trooper_Class SaveTrooper()
     {
         Trooper_Class newClass = new Trooper_Class();
@@ -498,6 +510,7 @@ public class Trooper_Script : MonoBehaviour
         return newClass;
     }
 
+    //Returns the stat of the given string
     public int GetStat(string name)
     {
         int returner = 0;
@@ -539,6 +552,7 @@ public class Trooper_Script : MonoBehaviour
         return returner;
     }
 
+    //Returns the trait string of the requested trait 
     public string GetTrait(string name)
     {
         string returner = "";
@@ -565,6 +579,7 @@ public class Trooper_Script : MonoBehaviour
         return returner;
     }
 
+    //Adds the effect of the traits to the trooper's stats
     public void AffectTrait(Trait_Class traitTemp)
     {
         if (traitTemp.speed != "")

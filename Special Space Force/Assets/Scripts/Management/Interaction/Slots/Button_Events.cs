@@ -5,5 +5,5 @@ using UnityEngine.EventSystems;
 
 public class Button_Events : EventTrigger
 {
-
+    //Currently Unused
 }

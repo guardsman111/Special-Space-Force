@@ -126,11 +126,13 @@ public class Slot_Script : MonoBehaviour
         uID = Random.Range(1, 10000000);
     }
 
+    //Replaces contained slots with a passed slot_script list
     public void AddContainedSlots(List<Slot_Script> slotList)
     {
         containedSlots = slotList;
     }
 
+    //Replaces contained troopers with a passed trooper_script list
     public void AddContainedTroopers(List<Trooper_Script> trooperList)
     {
         containedTroopers = trooperList;
@@ -627,6 +629,7 @@ public class Slot_Script : MonoBehaviour
         return slotClass;
     }
 
+    
     public void Add()
     {
         if (!squad)
@@ -640,28 +643,33 @@ public class Slot_Script : MonoBehaviour
         manager.DeleteSlot(this);
     }
 
+    //Sets the squad name according to the input
     public void SetName(TMP_Text nName)
     {
         slotName = nName.text;
         input.text = nName.text;
     }
 
+    //Sets the squad name according to the input
     public void SetName(string nName)
     {
         slotName = nName;
         input.text = nName;
     }
 
+    //Sets the manager UI pressed value, so that the user can interact easier with the name
     public void NameSelected()
     {
         manager.menu = true;
     }
 
+    //De-sets the manager UI pressed value, so that the user can interact easier with the name
     public void NameDeselected()
     {
         manager.menu = false;
     }
 
+    //Changes the slot height 
     public void ChangeHeight(int Height)
     {
         slotHeight = Height + 1;

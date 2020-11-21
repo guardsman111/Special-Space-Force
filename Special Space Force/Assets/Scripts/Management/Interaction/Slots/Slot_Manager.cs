@@ -137,6 +137,7 @@ public class Slot_Manager : MonoBehaviour
         }
     }
 
+    //Creates a new squad below the given slot, provided that slot doesn't have 9 squads already
     public void NewSlot(Slot_Script newParent)
     {
         if (newParent.containedSlots.Count < 9)
@@ -164,6 +165,7 @@ public class Slot_Manager : MonoBehaviour
         }
     }
 
+    //Deletes the passed slot and removes it from its parent
     public void DeleteSlot(Slot_Script slot)
     {
         Debug.Log("delete " + slot.slotName);
@@ -308,6 +310,7 @@ public class Slot_Manager : MonoBehaviour
         menu = setting;
     }
 
+    //Same as above but without the dropdowns
     public void UIPressed(bool setting)
     {
         menu = setting;
@@ -357,8 +360,10 @@ public class Slot_Manager : MonoBehaviour
                             ts.imageManager.TurnOff("selected");
                         }
                         selectedTroopers.Clear();
-                        trooperShowManager.ChangeTrooper(result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>());
-                        promoter.ChangeRank(result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>().trooperRank);
+                        Trooper_Script tempT = result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>();
+                        trooperShowManager.ChangeTrooper(tempT);
+                        modManager.equipmentManager.SetDropdowns(tempT);
+                        promoter.ChangeRank(tempT.trooperRank);
                     }
                     result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>().imageManager.TurnOn("selected");
                     Debug.Log(result.gameObject.name);
@@ -505,6 +510,7 @@ public class Slot_Manager : MonoBehaviour
         }
     }
 
+    //Turns the slot into a squad 
     public void SetSquad(Slider slider)
     {
         if (slider.value == 1)
@@ -539,16 +545,19 @@ public class Slot_Manager : MonoBehaviour
         }
     }
 
+    //Sets the squad role according to the passed dropdown
     public void SetRole(Dropdown dropdown)
     {
         viewedSlot.squadRole = dropdown.value;
     }
 
+    //Changes the number of troopers 
     public void ChangeTroopers(int change)
     {
         nTroopers += change;
     }
 
+    //Returns the number of troopers in the slot
     public string GetTroopers()
     {
         string number;
@@ -557,6 +566,7 @@ public class Slot_Manager : MonoBehaviour
         return number;
     }
 
+    //Deselects the troopers (turns off the background selected image)
     public void DeselectTroopers()
     {
         foreach (Trooper_Script ts in selectedTroopers)

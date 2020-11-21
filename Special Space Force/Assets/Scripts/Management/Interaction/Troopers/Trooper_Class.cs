@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Trooper_Class
 {
+    /// <summary>
+    /// Contains save information for troopers
+    /// </summary>
     public string trooperName;
     public string trooperRank;
     public int trooperFace;
@@ -38,6 +41,7 @@ public class Trooper_Class
     public int stealth;
     public int stamina;
 
+    //Trait values
     public int trait1;
     public int trait2;
 

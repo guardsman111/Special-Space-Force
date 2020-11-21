@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Helmet_Class
 {
+    /// <summary>
+    /// Contains information for helmet sprite packs
+    /// </summary>
     public string helmetName;
     public string patternName;
     public string HelmetOutlinePath;

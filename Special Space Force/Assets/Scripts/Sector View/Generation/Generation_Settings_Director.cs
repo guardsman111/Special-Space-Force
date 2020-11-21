@@ -121,10 +121,12 @@ public class Generation_Settings_Director : MonoBehaviour
             product.resourceAbundancy = resourceAbundancy;
             product.playerStrength = playerStrength;
             product.toggledAI = SortToggledAI();
-            product.trooperNamesList = localisationManager.chosenTrooperNamesList.name;
+            product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
             product.playerColours = equipmentManager.GetColours(PlayerColours);
             localisationManager.SeperateStringLists();
-            product.selectedTraits = traitManager.GetTraits(); ;
+            product.selectedTraits = traitManager.GetTraits();
+            product.defaultEquipment = equipmentManager.GetDefault("Equipment");
+            product.defaultPatterns = equipmentManager.GetDefault("Patterns");
             generationManager.Generate(loading, product);
             Invoke("DisableCustomization", 1.0f);
         }

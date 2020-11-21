@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Armour_Class
 {
+    /// <summary>
+    /// Contains information for armour sprite packs
+    /// </summary>
     public string armourName;
     public string patternName;
     public string ArmourOutlinePath;

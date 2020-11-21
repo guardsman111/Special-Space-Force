@@ -180,7 +180,9 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             product = save.generatedProduct;
             modManager.traitManager.Run();
             modManager.equipmentManager.playerDefaultColours = product.playerColours;
-            localisationManager.LoadStringListClass(product.trooperNamesList, "TrooperNames");
+            localisationManager.LoadStringListClass(product.chosenLocalisationList[0], "TrooperNames");
+            localisationManager.LoadStringListClass(product.chosenLocalisationList[1], "HierachyNames");
+            localisationManager.LoadStringListClass(product.chosenLocalisationList[2], "SlotNames");
             slotGenerator.LoadSlots(save.topSlots);
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
 

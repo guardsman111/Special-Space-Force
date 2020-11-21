@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Core_Equipment : MonoBehaviour
 {
+    /// <summary>
+    /// Defines default equipment that is not in the resources folder to protect any assets used
+    /// </summary>
+
     public Equipment_Manager manager;
 
     public Sprite[] Mk1ArmourP1;
@@ -22,6 +26,7 @@ public class Core_Equipment : MonoBehaviour
     public Sprite[] Sword1;
     public Sprite[] SwordS1;
 
+    //Core armour packs
     public List<Sprite_Pack> CoreArmour()
     {
         List<Sprite_Pack> armourPacks = new List<Sprite_Pack>();
@@ -55,6 +60,7 @@ public class Core_Equipment : MonoBehaviour
         return armourPacks;
     }
 
+    //Core helmet packs
     public List<Sprite_Pack> CoreHelmet()
     {
         List<Sprite_Pack> helmetPacks = new List<Sprite_Pack>();
@@ -88,6 +94,7 @@ public class Core_Equipment : MonoBehaviour
         return helmetPacks;
     }
 
+    //Core fatigues packs
     public List<Sprite_Pack> CoreFatigues()
     {
         List<Sprite_Pack> fatiguesPacks = new List<Sprite_Pack>();
@@ -147,6 +154,7 @@ public class Core_Equipment : MonoBehaviour
         return fatiguesPacks;
     }
 
+    //Core equipment packs
     public List<Sprite_Pack> CoreEquipment()
     {
         List<Sprite_Pack> equipPacks = new List<Sprite_Pack>();
@@ -156,7 +164,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Backpack";
         tempSP.patternName = "Primary1";
         tempSP.packType = "Equipment";
-        tempSP.numberOfColours = 1;
+        tempSP.numberOfColours = 2;
         foreach (Sprite s in Backpack1)
         {
             tempSP.containedSprites.Add(s);
@@ -167,6 +175,7 @@ public class Core_Equipment : MonoBehaviour
         return equipPacks;
     }
 
+    //Core weapons packs (both primary and secondary)
     public List<Sprite_Pack> CoreWeapons()
     {
         List<Sprite_Pack> weaponPacks = new List<Sprite_Pack>();
