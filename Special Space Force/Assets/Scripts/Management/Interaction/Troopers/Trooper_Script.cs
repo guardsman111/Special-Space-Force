@@ -157,7 +157,73 @@ public class Trooper_Script : MonoBehaviour
         input.text = trooperName;
 
 
-        if (trooper.armour != null)
+        if (manager.modManager.equipmentManager.selectFromTemplate.isOn)
+        {
+            if (trooper.armour != null)
+            {
+                armour = trooper.armour;
+                armourPattern = trooper.armourP;
+            }
+            else
+            {
+                armour = manager.manager.save.generatedProduct.defaultEquipment[1];
+                trooper.armour = armour;
+                armourPattern = manager.manager.save.generatedProduct.defaultPatterns[1];
+                trooper.armourP = armourPattern;
+            }
+            if (trooper.helmet != null)
+            {
+                helmet = trooper.helmet;
+                helmetPattern = trooper.helmetP;
+            }
+            else
+            {
+                helmet = manager.manager.save.generatedProduct.defaultEquipment[0];
+                trooper.helmet = helmet;
+                helmetPattern = manager.manager.save.generatedProduct.defaultPatterns[0];
+                trooper.helmetP = helmetPattern;
+            }
+            if (trooper.fatigues != null)
+            {
+                fatigues = trooper.fatigues;
+                fatiguesPattern = trooper.fatiguesP;
+            }
+            else
+            {
+                fatigues = manager.manager.save.generatedProduct.defaultEquipment[2];
+                trooper.fatigues = fatigues;
+                fatiguesPattern = manager.manager.save.generatedProduct.defaultPatterns[2]; ;
+                trooper.fatiguesP = fatiguesPattern;
+            }
+            if (trooper.weapon1 != null)
+            {
+                primaryWeapon = trooper.weapon1;
+            }
+            else
+            {
+                primaryWeapon = manager.manager.save.generatedProduct.defaultEquipment[3];
+                trooper.weapon1 = primaryWeapon;
+            }
+            if (trooper.weapon2 != null)
+            {
+                secondaryWeapon = trooper.weapon2;
+            }
+            else
+            {
+                secondaryWeapon = manager.manager.save.generatedProduct.defaultEquipment[4];
+                trooper.weapon2 = secondaryWeapon;
+            }
+            if (trooper.equipment != null)
+            {
+                equipment = trooper.equipment;
+            }
+            else
+            {
+                equipment = manager.manager.save.generatedProduct.defaultEquipment[5];
+                trooper.equipment = equipment;
+            }
+        }
+        else if (trooper.armour != null)
         {
             armour = trooper.armour;
             armourPattern = trooper.armourP;

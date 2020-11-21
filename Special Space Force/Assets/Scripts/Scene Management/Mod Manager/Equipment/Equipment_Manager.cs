@@ -43,6 +43,7 @@ public class Equipment_Manager : MonoBehaviour
     public Dropdown ArmourPatternTrooper;
 
     public Texture2D templateTexture;
+    public Toggle selectFromTemplate;
 
     //Sets up sprite packs for all the equipments in files (mod and default) also sets up dropdowns to be usable
     public void Begin()

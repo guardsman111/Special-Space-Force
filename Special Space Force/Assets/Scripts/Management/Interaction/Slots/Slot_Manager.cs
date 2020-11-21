@@ -299,6 +299,12 @@ public class Slot_Manager : MonoBehaviour
             slotFieldScroll.value = 0;
             transferDropdown.SetDropdownSquad();
             Dropdown.GetComponent<Dropdown>().value = 0;
+            foreach (Trooper_Script ts in selectedTroopers)
+            {
+                ts.imageManager.TurnOff("selected");
+            }
+            selectedTroopers.Clear();
+            OpenSlot(viewedSlot);
         }
     }
 
