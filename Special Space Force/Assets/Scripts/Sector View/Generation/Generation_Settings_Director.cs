@@ -14,26 +14,21 @@ public class Generation_Settings_Director : MonoBehaviour
     public Localisation_Manager localisationManager;
     public Trait_Manager traitManager;
 
-    [SerializeField]
-    private int height;
-    [SerializeField]
-    private int width;
-    [SerializeField]
-    private int numberofStars;
-    [SerializeField]
-    private int minimumPlanets;
-    [SerializeField]
-    private int maximumPlanets;
-    [SerializeField]
-    private int averagePlanetSize;
-    [SerializeField]
-    private int habitableChance;
-    [SerializeField]
-    private int habitationChance;
-    [SerializeField]
-    private int resourceAbundancy;
-    [SerializeField]
-    private int playerStrength;
+    private int height = 2000;
+    private int width = 2000;
+    private int numberofStars = 100;
+    private int minimumPlanets = 1;
+    private int maximumPlanets = 7;
+    private int averagePlanetSize = 50;
+    private int habitableChance = 50;
+    private int habitationChance = 50;
+    private int resourceAbundancy = 50;
+    private int playerStrength = 0;
+    private int xenophobia = 50;
+    private int militarism = 0;
+    private int expansionism = 50;
+    private int industrialism = 0;
+    private int funding = 50;
 
     private bool[] AIBoolArray;
 
@@ -79,14 +74,16 @@ public class Generation_Settings_Director : MonoBehaviour
         }
 
         //Set Default Races
-        AIBoolArray = new bool[4] { true, true, true, false};
+        AIBoolArray = new bool[5] { true, true, true, false, false};
         AIBoxesDropDowns[0].value = 0;
         AIBoxesDropDowns[1].value = 1;
         AIBoxesDropDowns[2].value = 2;
         AIBoxesDropDowns[3].value = 0;
+        AIBoxesDropDowns[4].value = 0;
 
-        //Turn off AI 4 for fun
+        //Turn off AI 4 and 5 for fun
         AIToggle(3);
+        AIToggle(4);
 
 
         slotGenerator.SetupTemplateDropdown();
@@ -103,38 +100,58 @@ public class Generation_Settings_Director : MonoBehaviour
     //Starts the generation, grabs all the values and packages them into a Generation_Class
     public void StartGeneration(bool loading)
     {
-        Generation_Class product = new Generation_Class();
         if (!loading)
         {
-            foreach (Page_Manager p in Pages)
-            {
-                p.gameObject.SetActive(true);
-            }
-            product.height = height * 10;
-            product.width = width * 10;
-            product.numberofStars = numberofStars;
-            product.minimumPlanets = minimumPlanets;
-            product.maximumPlanets = maximumPlanets;
-            product.averagePlanetSize = averagePlanetSize;
-            product.habitableChance = habitableChance;
-            product.inhabitedChance = habitationChance;
-            product.resourceAbundancy = resourceAbundancy;
-            product.playerStrength = playerStrength;
-            product.toggledAI = SortToggledAI();
-            product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
-            product.playerColours = equipmentManager.GetColours(PlayerColours);
-            localisationManager.SeperateStringLists();
-            product.selectedTraits = traitManager.GetTraits();
-            product.defaultEquipment = equipmentManager.GetDefault("Equipment");
-            product.defaultPatterns = equipmentManager.GetDefault("Patterns");
-            generationManager.Generate(loading, product);
-            Invoke("DisableCustomization", 1.0f);
+            TurnOnLoadScreen();
+            Invoke("StartGen", 0.1f);
         }
         else
         {
-            generationManager.Generate(loading, product);
-            Invoke("DisableCustomization", 1.0f);
+            TurnOnLoadScreen();
+            Invoke("StartLoad", 0.1f);
         }
+    }
+
+    private void StartGen()
+    {
+        Generation_Class product = new Generation_Class();
+
+        foreach (Page_Manager p in Pages)
+        {
+            p.gameObject.SetActive(true);
+        }
+        product.height = height * 10;
+        product.width = width * 10;
+        product.numberofStars = numberofStars;
+        product.minimumPlanets = minimumPlanets;
+        product.maximumPlanets = maximumPlanets;
+        product.averagePlanetSize = averagePlanetSize;
+        product.habitableChance = habitableChance;
+        product.inhabitedChance = habitationChance;
+        product.resourceAbundancy = resourceAbundancy;
+        product.playerStrength = playerStrength;
+        product.xenophobia = xenophobia;
+        product.militarism = militarism;
+        product.expansionism = expansionism;
+        product.industrialism = industrialism;
+        product.funding = funding;
+        product.toggledAI = SortToggledAI();
+        product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
+        product.playerColours = equipmentManager.GetColours(PlayerColours);
+        localisationManager.SeperateStringLists();
+        product.selectedTraits = traitManager.GetTraits();
+        product.defaultEquipment = equipmentManager.GetDefault("Equipment");
+        product.defaultPatterns = equipmentManager.GetDefault("Patterns");
+        generationManager.Generate(false, product);
+        Invoke("DisableCustomization", 1.0f);
+    }
+
+    private void StartLoad()
+    {
+        Generation_Class product = new Generation_Class();
+
+        generationManager.Generate(true, product);
+        Invoke("DisableCustomization", 1.0f);
     }
 
     //Collects the AI data, packages them into an AI_Class Individually then puts them in a list for easy access
@@ -474,6 +491,149 @@ public class Generation_Settings_Director : MonoBehaviour
     }
 
     //
+    // Xenophobia Changed
+    //
+    public void ChangeXenophobia(Text input)
+    {
+        int temp = (int)input.transform.GetComponentInParent<Slider>().value;
+        if(temp < 5)
+        {
+            input.text = "Space Commies";
+        }
+        else if (temp < 15)
+        {
+            input.text = "Xenophilic";
+        }
+        else if (temp < 25)
+        {
+            input.text = "Very Friendly";
+        }
+        else if (temp < 35)
+        {
+            input.text = "Friendly";
+        }
+        else if (temp < 45)
+        {
+            input.text = "Polite";
+        }
+        else if (temp < 55)
+        {
+            input.text = "Neutral";
+        }
+        else if (temp < 65)
+        {
+            input.text = "Cautious";
+        }
+        else if (temp < 75)
+        {
+            input.text = "Insulting";
+        }
+        else if (temp < 85)
+        {
+            input.text = "Open Aggression";
+        }
+        else if (temp < 95)
+        {
+            input.text = "Xenophobic";
+        }
+        else if (temp <= 100)
+        {
+            input.text = "Genocidal Purist";
+        }
+        xenophobia = temp;
+    }
+
+    //
+    // Player Militarism Changed
+    //
+    public void PlayerMilitaryChanged(Dropdown dropdown)
+    {
+        militarism = dropdown.value;
+    }
+
+    //
+    // Expansionism Changed
+    //
+    public void ChangeExpansionism(Text input)
+    {
+        int temp = (int)input.transform.GetComponentInParent<Slider>().value;
+        if (temp < 5)
+        {
+            input.text = "Scared of Change";
+        }
+        else if (temp < 25)
+        {
+            input.text = "Internalist";
+        }
+        else if (temp < 45)
+        {
+            input.text = "Scientific Annexation";
+        }
+        else if (temp < 55)
+        {
+            input.text = "Explorer";
+        }
+        else if (temp < 75)
+        {
+            input.text = "Expansion Protocols";
+        }
+        else if (temp < 95)
+        {
+            input.text = "Aggressive Expansionist";
+        }
+        else if (temp <= 100)
+        {
+            input.text = "Galactic Dominator";
+        }
+        expansionism = temp;
+    }
+
+    //
+    // Player Industrialism Changed
+    //
+    public void PlayerIndustrialChanged(Dropdown dropdown)
+    {
+        industrialism = dropdown.value;
+    }
+
+    //
+    // Funding Changed
+    //
+    public void ChangeFunding(Text input)
+    {
+        int temp = (int)input.transform.GetComponentInParent<Slider>().value;
+        if (temp < 15)
+        {
+            input.text = "Mothballed";
+        }
+        else if (temp < 25)
+        {
+            input.text = "Scaling Down";
+        }
+        else if (temp < 45)
+        {
+            input.text = "Budget tightening";
+        }
+        else if (temp < 55)
+        {
+            input.text = "Regular Funding";
+        }
+        else if (temp < 75)
+        {
+            input.text = "Budget Excess";
+        }
+        else if (temp < 85)
+        {
+            input.text = "Growth Funding";
+        }
+        else if (temp <= 90)
+        {
+            input.text = "No Expense Spared";
+        }
+        funding = temp;
+    }
+
+    //
     // AI Toggle (AI Number)
     //
     public void AIToggle(int AIN)
@@ -506,5 +666,8 @@ public class Generation_Settings_Director : MonoBehaviour
         AIStartingThreat[dropdown.gameObject.GetComponent<Dropdown_Helper>().aiNumber] = dropdown.value;
     }
 
-
+    public void TurnOnLoadScreen()
+    {
+        Pages[0].gameObject.SetActive(true);
+    }
 }

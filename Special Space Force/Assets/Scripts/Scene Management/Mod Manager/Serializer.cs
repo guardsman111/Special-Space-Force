@@ -23,7 +23,7 @@ public class Serializer : MonoBehaviour
     //Loads from paths sent to it
     public static T Deserialize<T>(string path)
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(T));
+       XmlSerializer serializer = new XmlSerializer(typeof(T));
         StreamReader reader = new StreamReader(path);
         T deserialized = (T)serializer.Deserialize(reader.BaseStream);
         reader.Close();

@@ -239,7 +239,6 @@ public class Slot_Manager : MonoBehaviour
         {
             ss.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
         }
-        slotFieldScroll.value = 0;
         slotSlider.value = 0;
         slotSlider.interactable = false;
         squadOptions.SetActive(false);
@@ -284,7 +283,6 @@ public class Slot_Manager : MonoBehaviour
             FindSelected(Dropdown.GetComponent<Dropdown>());
             Debug.Log("Moving to Slot " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
             slotFieldScroll.value = 0;
-            moveToDropdown.SetDropdownSlot();
             Dropdown.GetComponent<Dropdown>().value = 0;
         }
     }
@@ -297,8 +295,6 @@ public class Slot_Manager : MonoBehaviour
             FindSelectedSquad(Dropdown.GetComponent<Dropdown>());
             Debug.Log("Moving to Squad " + Dropdown.GetComponent<Dropdown>().options[Dropdown.GetComponent<Dropdown>().value].text);
             slotFieldScroll.value = 0;
-            transferDropdown.SetDropdownSquad();
-            Dropdown.GetComponent<Dropdown>().value = 0;
             foreach (Trooper_Script ts in selectedTroopers)
             {
                 ts.imageManager.TurnOff("selected");
@@ -406,12 +402,16 @@ public class Slot_Manager : MonoBehaviour
             }
 
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.LogError("Hallo, Debugger Here!");
+        }
     }
 
     //Finds the selected string from the dropdown menu
     public void FindSelected(Dropdown dropdown)
     {
-        dropdown.value -= 1;
+        int newValue = dropdown.value - 1;
         CheckSlot(slotN1.GetComponent<Slot_Script>(), dropdown.options[dropdown.value].text, dropdown);
     }
 
@@ -457,10 +457,17 @@ public class Slot_Manager : MonoBehaviour
         }
         else
         {
-            //Repeats the process with every slot until a name match is found
-            for (int i = 0; i < slot.containedSlots.Count; i++)
+            if (slot == viewedSlot)
             {
-                CheckSlot(slot.containedSlots[i], name, dropdown);
+                Debug.Log("Attempting to prevent moving to children");
+            }
+            else
+            {
+                //Repeats the process with every slot until a name match is found
+                for (int i = 0; i < slot.containedSlots.Count; i++)
+                {
+                    CheckSlot(slot.containedSlots[i], name, dropdown);
+                }
             }
         }
     }

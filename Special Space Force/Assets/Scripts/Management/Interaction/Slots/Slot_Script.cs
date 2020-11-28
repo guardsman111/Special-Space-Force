@@ -497,6 +497,7 @@ public class Slot_Script : MonoBehaviour
                 }
             }
             addImage.enabled = false;
+            gameObject.GetComponent<Image>().color = new Color32(120, 233, 136, 255);
         }
     }
 
@@ -578,7 +579,9 @@ public class Slot_Script : MonoBehaviour
                 ts.SetPosition(this, viewedSlot);
                 gameObject.SetActive(true);
             }
-        } else
+            gameObject.GetComponent<Image>().color = new Color32(124, 171, 128, 255);
+        } 
+        else
         {
             //Sets children's positions with the first method
             foreach (Slot_Script ss in containedSlots)

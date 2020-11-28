@@ -56,9 +56,12 @@ public class Slot_Generator : MonoBehaviour
         Slot_Class temp = Serializer.Deserialize<Slot_Class>(fileLocations[0]);
         if (temp.TemplateImageLocation != null)
         {
-            Texture2D tempTex = Resources.Load<Texture2D>(temp.TemplateImageLocation);
-            tempTex.filterMode = FilterMode.Point;
-            templatePreview.sprite = Sprite.Create(tempTex,new Rect(0,0, tempTex.width, tempTex.height), new Vector2(0, 0));
+            Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+            byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.TemplateImageLocation);
+            newTex.LoadImage(bytes);
+            newTex.filterMode = FilterMode.Point;
+            Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+            templatePreview.sprite = newSprite;
         } 
         else
         {

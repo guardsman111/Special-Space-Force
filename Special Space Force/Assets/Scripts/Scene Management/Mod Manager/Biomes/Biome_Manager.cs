@@ -21,8 +21,8 @@ public class Biome_Manager : MonoBehaviour
     public bool Run()
     {
         bool done = false;
-        CoreBiomes();
-        SaveDefaults();
+        //CoreBiomes();
+        //SaveDefaults();
         biomeFiles = finder.Retrieve("Biomes.xml", ".meta");
         biomes = FindBiomeFiles();
         CreateMaterials();
@@ -189,14 +189,14 @@ public class Biome_Manager : MonoBehaviour
                     }
                 }
                 temp.name = bc.biomeName;
-                var bytes = System.IO.File.ReadAllBytes(bc.materialTexture);
+                var bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + bc.materialTexture);
                 Texture2D tex = new Texture2D(1, 1);
                 tex.LoadImage(bytes);
                 temp.SetTexture("_Albedo", tex);
 
                 if (bc.materialNormal != "Core")
                 {
-                    bytes = System.IO.File.ReadAllBytes(bc.materialNormal);
+                    bytes = System.IO.File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + bc.materialNormal);
                     Texture2D norm = new Texture2D(1, 1);
                     norm.LoadImage(bytes);
                     temp.SetTexture("_Normalmap", norm);
@@ -204,7 +204,7 @@ public class Biome_Manager : MonoBehaviour
 
                 if (bc.materialMask != "Core")
                 {
-                    bytes = System.IO.File.ReadAllBytes(bc.materialMask);
+                    bytes = System.IO.File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + bc.materialMask);
                     Texture2D mask = new Texture2D(1, 1);
                     mask.LoadImage(bytes);
                     temp.SetTexture("_watermask", mask);

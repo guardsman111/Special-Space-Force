@@ -51,21 +51,29 @@ public class Localisation_Manager : MonoBehaviour
 
         foreach (string s in fileLocations)
         {
-            String_List_Class temp = Serializer.Deserialize<String_List_Class>(s);
-            if (temp.listType == "TrooperNames")
+            try
             {
-                trooperNameStrings.Add(temp);
-                trooperNames.Add(temp.name);
-            } 
-            else if (temp.listType == "HierachyNames")
-            {
-                hierachyNameStrings.Add(temp);
-                hierachyNames.Add(temp.name);
+                String_List_Class temp = Serializer.Deserialize<String_List_Class>(s);
+
+                if (temp.listType == "TrooperNames")
+                {
+                    trooperNameStrings.Add(temp);
+                    trooperNames.Add(temp.name);
+                }
+                else if (temp.listType == "HierachyNames")
+                {
+                    hierachyNameStrings.Add(temp);
+                    hierachyNames.Add(temp.name);
+                }
+                else if (temp.listType == "SlotNames")
+                {
+                    slotNameStrings.Add(temp);
+                    slotNames.Add(temp.name);
+                }
             }
-            else if (temp.listType == "SlotNames")
+            catch 
             {
-                slotNameStrings.Add(temp);
-                slotNames.Add(temp.name);
+                Debug.Log("This File Failed" + s);
             }
         }
 

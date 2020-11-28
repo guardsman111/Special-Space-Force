@@ -18,6 +18,11 @@ public class Generation_Class
     public int inhabitedChance;
     public int resourceAbundancy;
     public int playerStrength;
+    public int xenophobia;
+    public int militarism;
+    public int expansionism;
+    public int industrialism;
+    public int funding;
     public List<AI_Class> toggledAI;
     public List<Trait_Class> selectedTraits;
     public List<string> defaultEquipment;
