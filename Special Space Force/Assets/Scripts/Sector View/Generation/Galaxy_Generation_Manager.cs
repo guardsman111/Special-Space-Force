@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class Galaxy_Generation_Manager : MonoBehaviour
 {
+    /// <summary>
+    /// This script manages the initiation of the generation sequence and the order in which elements are created
+    /// </summary>
+    
     [SerializeField]
     private int sectorWidth;
     [SerializeField]
@@ -16,17 +20,27 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     private int minPlanets;
     [SerializeField, Header("Maximum 7")]
     private int maxPlanets;
+    [SerializeField]
+    private int avgPlanetSize;
+
+    public Camera_Movement cameraTrolley;
 
     public FileFinder fileFinder;
     public System_Generator systemGenerator;
+    public Manager_Script modManager;
     public Biome_Manager biomeManager;
+    public Race_Manager raceManager;
+    public Slot_Generator slotGenerator;
+    public Localisation_Manager localisationManager;
 
-    public ToggleVisiblePlanets planetToggle;
+    public Save_Class save;
 
     [SerializeField]
     private List<string> starNames;
 
+    private bool done;
 
+    //Getters and Setters
     public int SectorWidth
     {
         get { return sectorWidth; }
@@ -97,6 +111,20 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         }
     }
 
+    public int AvgPlanetSize
+    {
+        get { return avgPlanetSize; }
+
+        set
+        {
+            if
+              (value != avgPlanetSize)
+            {
+                avgPlanetSize = value;
+            }
+        }
+    }
+
     public List<string> StarNames
     {
         get { return starNames; }
@@ -112,25 +140,23 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     }
 
     //Kicks off generation of preselected values 
-    void Start()
+    public void Generate(bool loading, Generation_Class product)
     {
-        //Start File Finder
-        fileFinder.Run();
-
         //Setup Biomes
         biomeManager.Run();
 
-        if (fileFinder.foundSave)
+        //If loading, retrieve and go through loading system
+        if (loading)
         {
             List<System_Class> loadSystems = new List<System_Class>();
-            List<string> tempList = fileFinder.Retrieve("Save.xml", ".meta");
+            List<string> tempList = fileFinder.Retrieve("NewSave.Save.xml", ".meta");
 
             try
             {
                 foreach (string s in tempList)
                 {
-                    List<System_Class> temp = Serializer.Deserialize<List<System_Class>>(s);
-                    foreach (System_Class tempS in temp)
+                    save = Serializer.Deserialize<Save_Class>(s);
+                    foreach (System_Class tempS in save.systems)
                     {
                         loadSystems.Add(tempS);
                         //Debug.Log(tempB.biomeName);
@@ -150,16 +176,42 @@ public class Galaxy_Generation_Manager : MonoBehaviour
                 Console.WriteLine(FileNull.Message);
             }
 
-            systemGenerator.BeginGeneration(loadSystems);
-            planetToggle.Run();
+            systemGenerator.BeginGeneration(loadSystems, save);
+            product = save.generatedProduct;
+            modManager.traitManager.Run();
+            modManager.equipmentManager.playerDefaultColours = product.playerColours;
+            localisationManager.LoadStringListClass(product.chosenLocalisationList[0], "TrooperNames");
+            localisationManager.LoadStringListClass(product.chosenLocalisationList[1], "HierachyNames");
+            localisationManager.LoadStringListClass(product.chosenLocalisationList[2], "SlotNames");
+            slotGenerator.LoadSlots(save.topSlots);
+            SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
+
         }
-        else 
+        else //Else generate everything from scratch using user inputed creation values
         {
 
-            systemGenerator.BeginGeneration(sectorWidth, sectorHeight, nSystems, minPlanets, maxPlanets, starNames);
-            Serializer.Serialize(systemGenerator.systemsList, Application.dataPath + "/Resources/Save.xml");
+            systemGenerator.BeginGeneration(product, starNames);
 
-            planetToggle.Run();
+            save = new Save_Class();
+            save.saveName = "NewSave.Save";
+            save.height = product.height;
+            save.width = product.width;
+            save.systems = systemGenerator.systemsList;
+            save.generatedProduct = product;
+            save.topSlots = slotGenerator.FindDefaultSlots();
+            SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
+            Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
+
         }
+
+    }
+
+    //Set Camera limits
+    public void SetCameraLimits(int minX, int maxX, int minZ, int maxZ)
+    {
+        cameraTrolley.cameraMinX = minX;
+        cameraTrolley.cameraMaxX = maxX;
+        cameraTrolley.cameraMinZ = minZ;
+        cameraTrolley.cameraMaxZ = maxZ;
     }
 }

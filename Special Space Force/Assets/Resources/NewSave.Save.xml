@@ -1,0 +1,3056 @@
+<?xml version="1.0"?>
+<Save_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <saveName>NewSave.Save</saveName>
+  <height>20000</height>
+  <width>20000</width>
+  <systems>
+    <System_Class>
+      <systemName>Urnin</systemName>
+      <colour>Pink</colour>
+      <allegiance>3</allegiance>
+      <posX>-6839</posX>
+      <posZ>4810</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Urnin I</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>166082656</population>
+          <size>68</size>
+          <usableSpace>0.2457979</usableSpace>
+          <baseMetalsAmount>24.87757</baseMetalsAmount>
+          <preciousMetalsAmount>56.1762047</preciousMetalsAmount>
+          <foodAvailability>48.9857635</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>White</colour>
+      <allegiance>0</allegiance>
+      <posX>-2371</posX>
+      <posZ>1550</posZ>
+      <nPlanets>4</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>1225465</population>
+          <size>52</size>
+          <usableSpace>0.7839879</usableSpace>
+          <baseMetalsAmount>48.4944725</baseMetalsAmount>
+          <preciousMetalsAmount>51.8003273</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>61</size>
+          <usableSpace>0.258831</usableSpace>
+          <baseMetalsAmount>53.765007</baseMetalsAmount>
+          <preciousMetalsAmount>45.8955231</preciousMetalsAmount>
+          <foodAvailability>53.9446526</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis III</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>77</size>
+          <usableSpace>0.277102</usableSpace>
+          <baseMetalsAmount>49.12699</baseMetalsAmount>
+          <preciousMetalsAmount>99.92877</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis IV</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>69</size>
+          <usableSpace>0.6605991</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Korus</systemName>
+      <colour>Blue_Light</colour>
+      <allegiance>0</allegiance>
+      <posX>5217</posX>
+      <posZ>-1653</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Korus I</planetName>
+          <biome>Ocean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>452201632</population>
+          <size>76</size>
+          <usableSpace>0.1957869</usableSpace>
+          <baseMetalsAmount>52.90732</baseMetalsAmount>
+          <preciousMetalsAmount>47.30704</preciousMetalsAmount>
+          <foodAvailability>46.1379</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus II</planetName>
+          <biome>Desert</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>92</size>
+          <usableSpace>0.8131847</usableSpace>
+          <baseMetalsAmount>45.8192024</baseMetalsAmount>
+          <preciousMetalsAmount>47.1159363</preciousMetalsAmount>
+          <foodAvailability>46.2793121</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus III</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>9742091</population>
+          <size>60</size>
+          <usableSpace>0.636208355</usableSpace>
+          <baseMetalsAmount>29.8454647</baseMetalsAmount>
+          <preciousMetalsAmount>13.2823639</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus IV</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>634652224</population>
+          <size>97</size>
+          <usableSpace>0.308310777</usableSpace>
+          <baseMetalsAmount>42.0412674</baseMetalsAmount>
+          <preciousMetalsAmount>51.0678024</preciousMetalsAmount>
+          <foodAvailability>41.55532</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus V</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>947968</population>
+          <size>69</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus VI</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>7930315</population>
+          <size>56</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus VII</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>6823052</population>
+          <size>67</size>
+          <usableSpace>0.633390248</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Colosk</systemName>
+      <colour>Blue_Light</colour>
+      <allegiance>0</allegiance>
+      <posX>5567</posX>
+      <posZ>5530</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Colosk I</planetName>
+          <biome>Desert</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>237429520</population>
+          <size>56</size>
+          <usableSpace>0.634281039</usableSpace>
+          <baseMetalsAmount>45.3173752</baseMetalsAmount>
+          <preciousMetalsAmount>57.50317</preciousMetalsAmount>
+          <foodAvailability>59.4225845</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk II</planetName>
+          <biome>Arctic</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>91882752</population>
+          <size>52</size>
+          <usableSpace>0.4910796</usableSpace>
+          <baseMetalsAmount>56.1587448</baseMetalsAmount>
+          <preciousMetalsAmount>55.94498</preciousMetalsAmount>
+          <foodAvailability>54.7557335</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk III</planetName>
+          <biome>Desert</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>264776336</population>
+          <size>72</size>
+          <usableSpace>0.8077543</usableSpace>
+          <baseMetalsAmount>10.57579</baseMetalsAmount>
+          <preciousMetalsAmount>49.1104431</preciousMetalsAmount>
+          <foodAvailability>2.187729</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk IV</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>2875708</population>
+          <size>73</size>
+          <usableSpace>0.884198368</usableSpace>
+          <baseMetalsAmount>21.076807</baseMetalsAmount>
+          <preciousMetalsAmount>50.4427338</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk V</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>83</size>
+          <usableSpace>0.3148418</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Alpho</systemName>
+      <colour>Purple</colour>
+      <allegiance>0</allegiance>
+      <posX>8352</posX>
+      <posZ>-7565</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Alpho I</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>5418061</population>
+          <size>50</size>
+          <usableSpace>0.6156343</usableSpace>
+          <baseMetalsAmount>51.2310638</baseMetalsAmount>
+          <preciousMetalsAmount>50.48049</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho II</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>7493348</population>
+          <size>98</size>
+          <usableSpace>0.4025477</usableSpace>
+          <baseMetalsAmount>76.19776</baseMetalsAmount>
+          <preciousMetalsAmount>50.09713</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho III</planetName>
+          <biome>Tropical</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>3427519</population>
+          <size>76</size>
+          <usableSpace>0.515175939</usableSpace>
+          <baseMetalsAmount>40.1598167</baseMetalsAmount>
+          <preciousMetalsAmount>36.379982</preciousMetalsAmount>
+          <foodAvailability>55.5982933</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho IV</planetName>
+          <biome>Mediterranean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>494735168</population>
+          <size>88</size>
+          <usableSpace>0.491620362</usableSpace>
+          <baseMetalsAmount>66.02518</baseMetalsAmount>
+          <preciousMetalsAmount>39.05124</preciousMetalsAmount>
+          <foodAvailability>53.3942337</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho V</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>7849033</population>
+          <size>97</size>
+          <usableSpace>0.2811867</usableSpace>
+          <baseMetalsAmount>57.4884872</baseMetalsAmount>
+          <preciousMetalsAmount>50.6960373</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho VI</planetName>
+          <biome>Alpine</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>86</size>
+          <usableSpace>0.307484031</usableSpace>
+          <baseMetalsAmount>49.5419922</baseMetalsAmount>
+          <preciousMetalsAmount>53.61531</preciousMetalsAmount>
+          <foodAvailability>50.0892258</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho VII</planetName>
+          <biome>Oasis</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>563177984</population>
+          <size>66</size>
+          <usableSpace>0.6649216</usableSpace>
+          <baseMetalsAmount>50.88649</baseMetalsAmount>
+          <preciousMetalsAmount>49.9630775</preciousMetalsAmount>
+          <foodAvailability>54.5588264</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Korus</systemName>
+      <colour>Red</colour>
+      <allegiance>1</allegiance>
+      <posX>-3735</posX>
+      <posZ>4341</posZ>
+      <nPlanets>6</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Korus I</planetName>
+          <biome>Continental</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>998846976</population>
+          <size>55</size>
+          <usableSpace>0.5851327</usableSpace>
+          <baseMetalsAmount>21.2697544</baseMetalsAmount>
+          <preciousMetalsAmount>88.65541</preciousMetalsAmount>
+          <foodAvailability>54.98781</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus II</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>696956416</population>
+          <size>69</size>
+          <usableSpace>0.3942863</usableSpace>
+          <baseMetalsAmount>47.302906</baseMetalsAmount>
+          <preciousMetalsAmount>43.8855133</preciousMetalsAmount>
+          <foodAvailability>57.8075523</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus III</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>95</size>
+          <usableSpace>0.319642484</usableSpace>
+          <baseMetalsAmount>40.3748</baseMetalsAmount>
+          <preciousMetalsAmount>47.22479</preciousMetalsAmount>
+          <foodAvailability>20.6910877</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus IV</planetName>
+          <biome>Oasis</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>69</size>
+          <usableSpace>0.6617663</usableSpace>
+          <baseMetalsAmount>15.199543</baseMetalsAmount>
+          <preciousMetalsAmount>49.2933</preciousMetalsAmount>
+          <foodAvailability>42.894558</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus V</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>6678520</population>
+          <size>51</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus VI</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>93</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Durack</systemName>
+      <colour>Purple</colour>
+      <allegiance>0</allegiance>
+      <posX>-9706</posX>
+      <posZ>-7294</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Durack I</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>2909436</population>
+          <size>57</size>
+          <usableSpace>0.333533078</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack II</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>144044704</population>
+          <size>94</size>
+          <usableSpace>0.255699843</usableSpace>
+          <baseMetalsAmount>47.40064</baseMetalsAmount>
+          <preciousMetalsAmount>44.9566574</preciousMetalsAmount>
+          <foodAvailability>46.2436066</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack III</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>202314608</population>
+          <size>70</size>
+          <usableSpace>0.13680616</usableSpace>
+          <baseMetalsAmount>51.19101</baseMetalsAmount>
+          <preciousMetalsAmount>50.37566</preciousMetalsAmount>
+          <foodAvailability>68.67518</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack IV</planetName>
+          <biome>Mediterranean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>70</size>
+          <usableSpace>0.327125251</usableSpace>
+          <baseMetalsAmount>77.28226</baseMetalsAmount>
+          <preciousMetalsAmount>51.70437</preciousMetalsAmount>
+          <foodAvailability>49.0690765</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack V</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>56</size>
+          <usableSpace>0.3168073</usableSpace>
+          <baseMetalsAmount>58.2503</baseMetalsAmount>
+          <preciousMetalsAmount>48.27976</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Urnin</systemName>
+      <colour>Green_Light</colour>
+      <allegiance>0</allegiance>
+      <posX>1955</posX>
+      <posZ>-5392</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Urnin I</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>4863448</population>
+          <size>58</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Colosk</systemName>
+      <colour>Purple</colour>
+      <allegiance>3</allegiance>
+      <posX>-1004</posX>
+      <posZ>7891</posZ>
+      <nPlanets>2</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Colosk I</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>229110</population>
+          <size>69</size>
+          <usableSpace>0.261506021</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk II</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>326556608</population>
+          <size>95</size>
+          <usableSpace>0.134694278</usableSpace>
+          <baseMetalsAmount>52.0948143</baseMetalsAmount>
+          <preciousMetalsAmount>49.25059</preciousMetalsAmount>
+          <foodAvailability>65.5586548</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Korus</systemName>
+      <colour>Blue</colour>
+      <allegiance>3</allegiance>
+      <posX>-2444</posX>
+      <posZ>-8961</posZ>
+      <nPlanets>2</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Korus I</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>879332864</population>
+          <size>55</size>
+          <usableSpace>0.366574377</usableSpace>
+          <baseMetalsAmount>54.1491356</baseMetalsAmount>
+          <preciousMetalsAmount>37.5692673</preciousMetalsAmount>
+          <foodAvailability>50.8193665</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Korus II</planetName>
+          <biome>Alpine</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>86</size>
+          <usableSpace>0.353718579</usableSpace>
+          <baseMetalsAmount>113.177345</baseMetalsAmount>
+          <preciousMetalsAmount>3.63851166</preciousMetalsAmount>
+          <foodAvailability>49.83394</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Erzaf</systemName>
+      <colour>Pink</colour>
+      <allegiance>0</allegiance>
+      <posX>5704</posX>
+      <posZ>1725</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Erzaf I</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>675450176</population>
+          <size>68</size>
+          <usableSpace>0.270777166</usableSpace>
+          <baseMetalsAmount>47.7406845</baseMetalsAmount>
+          <preciousMetalsAmount>71.40166</preciousMetalsAmount>
+          <foodAvailability>41.8941956</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Erzaf II</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>55</size>
+          <usableSpace>0.221516833</usableSpace>
+          <baseMetalsAmount>53.7286453</baseMetalsAmount>
+          <preciousMetalsAmount>60.88272</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Erzaf III</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>73</size>
+          <usableSpace>0.665513933</usableSpace>
+          <baseMetalsAmount>58.5045967</baseMetalsAmount>
+          <preciousMetalsAmount>54.8478737</preciousMetalsAmount>
+          <foodAvailability>27.9306927</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Erzaf IV</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>3766018</population>
+          <size>86</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Erzaf V</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>468338912</population>
+          <size>58</size>
+          <usableSpace>0.18074584</usableSpace>
+          <baseMetalsAmount>49.7227745</baseMetalsAmount>
+          <preciousMetalsAmount>43.51539</preciousMetalsAmount>
+          <foodAvailability>45.7315369</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Erzaf VI</planetName>
+          <biome>Tropical</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>97</size>
+          <usableSpace>0.293588281</usableSpace>
+          <baseMetalsAmount>55.49844</baseMetalsAmount>
+          <preciousMetalsAmount>52.0830078</preciousMetalsAmount>
+          <foodAvailability>47.3959465</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Erzaf VII</planetName>
+          <biome>Ocean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>58</size>
+          <usableSpace>0.34364292</usableSpace>
+          <baseMetalsAmount>49.9629059</baseMetalsAmount>
+          <preciousMetalsAmount>40.8303528</preciousMetalsAmount>
+          <foodAvailability>44.5428848</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Urnin</systemName>
+      <colour>Yellow</colour>
+      <allegiance>0</allegiance>
+      <posX>8903</posX>
+      <posZ>4966</posZ>
+      <nPlanets>3</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Urnin I</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>1449002</population>
+          <size>74</size>
+          <usableSpace>0.42301625</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin II</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>6122349</population>
+          <size>60</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin III</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>53</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Traous</systemName>
+      <colour>Green_Light</colour>
+      <allegiance>0</allegiance>
+      <posX>-7414</posX>
+      <posZ>1502</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Traous I</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>520474560</population>
+          <size>95</size>
+          <usableSpace>0.115628339</usableSpace>
+          <baseMetalsAmount>63.5104752</baseMetalsAmount>
+          <preciousMetalsAmount>66.30219</preciousMetalsAmount>
+          <foodAvailability>69.2266</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous II</planetName>
+          <biome>Oasis</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>462183776</population>
+          <size>61</size>
+          <usableSpace>0.345324069</usableSpace>
+          <baseMetalsAmount>54.14957</baseMetalsAmount>
+          <preciousMetalsAmount>52.8192558</preciousMetalsAmount>
+          <foodAvailability>49.93625</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous III</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>67</size>
+          <usableSpace>0.538549244</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous IV</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>80</size>
+          <usableSpace>0.15917021</usableSpace>
+          <baseMetalsAmount>49.842968</baseMetalsAmount>
+          <preciousMetalsAmount>52.12103</preciousMetalsAmount>
+          <foodAvailability>49.2462959</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous V</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>70</size>
+          <usableSpace>0.572072268</usableSpace>
+          <baseMetalsAmount>44.2658577</baseMetalsAmount>
+          <preciousMetalsAmount>49.6815</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>Orange</colour>
+      <allegiance>1</allegiance>
+      <posX>-2450</posX>
+      <posZ>-2915</posZ>
+      <nPlanets>4</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>934999872</population>
+          <size>59</size>
+          <usableSpace>0.8211322</usableSpace>
+          <baseMetalsAmount>30.4805</baseMetalsAmount>
+          <preciousMetalsAmount>114.998306</preciousMetalsAmount>
+          <foodAvailability>49.6639137</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Tropical</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>71</size>
+          <usableSpace>0.5039184</usableSpace>
+          <baseMetalsAmount>34.7835846</baseMetalsAmount>
+          <preciousMetalsAmount>36.7190857</preciousMetalsAmount>
+          <foodAvailability>73.67137</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis III</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>51</size>
+          <usableSpace>0.504229069</usableSpace>
+          <baseMetalsAmount>50.9389572</baseMetalsAmount>
+          <preciousMetalsAmount>51.6594963</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis IV</planetName>
+          <biome>Barren</biome>
+          <biomeID>4</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>70</size>
+          <usableSpace>0.761468053</usableSpace>
+          <baseMetalsAmount>47.16522</baseMetalsAmount>
+          <preciousMetalsAmount>58.215538</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Durack</systemName>
+      <colour>White</colour>
+      <allegiance>0</allegiance>
+      <posX>-4679</posX>
+      <posZ>-688</posZ>
+      <nPlanets>6</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Durack I</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>5776677</population>
+          <size>52</size>
+          <usableSpace>0.258400977</usableSpace>
+          <baseMetalsAmount>51.0587769</baseMetalsAmount>
+          <preciousMetalsAmount>50.7358</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack II</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>306376928</population>
+          <size>90</size>
+          <usableSpace>0.318195134</usableSpace>
+          <baseMetalsAmount>97.54999</baseMetalsAmount>
+          <preciousMetalsAmount>50.6032639</preciousMetalsAmount>
+          <foodAvailability>42.58442</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack III</planetName>
+          <biome>Tropical</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>613492800</population>
+          <size>59</size>
+          <usableSpace>0.260715783</usableSpace>
+          <baseMetalsAmount>65.67267</baseMetalsAmount>
+          <preciousMetalsAmount>148.995667</preciousMetalsAmount>
+          <foodAvailability>28.6826363</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack IV</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>2650831</population>
+          <size>51</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack V</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>65</size>
+          <usableSpace>0.4343143</usableSpace>
+          <baseMetalsAmount>52.7155762</baseMetalsAmount>
+          <preciousMetalsAmount>59.62709</preciousMetalsAmount>
+          <foodAvailability>47.1019363</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack VI</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>57</size>
+          <usableSpace>0.1468454</usableSpace>
+          <baseMetalsAmount>49.20046</baseMetalsAmount>
+          <preciousMetalsAmount>49.8100357</preciousMetalsAmount>
+          <foodAvailability>37.49587</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Durack</systemName>
+      <colour>Blue</colour>
+      <allegiance>0</allegiance>
+      <posX>-625</posX>
+      <posZ>4786</posZ>
+      <nPlanets>2</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Durack I</planetName>
+          <biome>Arid</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>630570880</population>
+          <size>85</size>
+          <usableSpace>0.461137384</usableSpace>
+          <baseMetalsAmount>49.492836</baseMetalsAmount>
+          <preciousMetalsAmount>49.01351</preciousMetalsAmount>
+          <foodAvailability>10.0527687</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Durack II</planetName>
+          <biome>Glacial</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>344634496</population>
+          <size>62</size>
+          <usableSpace>0.210232571</usableSpace>
+          <baseMetalsAmount>49.9480438</baseMetalsAmount>
+          <preciousMetalsAmount>50.8713455</preciousMetalsAmount>
+          <foodAvailability>80.63863</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>Blue</colour>
+      <allegiance>0</allegiance>
+      <posX>2542</posX>
+      <posZ>-9211</posZ>
+      <nPlanets>4</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Arctic</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>239238960</population>
+          <size>68</size>
+          <usableSpace>0.7334887</usableSpace>
+          <baseMetalsAmount>34.219738</baseMetalsAmount>
+          <preciousMetalsAmount>52.9473343</preciousMetalsAmount>
+          <foodAvailability>42.1600876</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>66</size>
+          <usableSpace>0.492573529</usableSpace>
+          <baseMetalsAmount>56.47246</baseMetalsAmount>
+          <preciousMetalsAmount>135.586121</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis III</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>5549287</population>
+          <size>52</size>
+          <usableSpace>0.4714028</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis IV</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>5429932</population>
+          <size>50</size>
+          <usableSpace>0.5683517</usableSpace>
+          <baseMetalsAmount>52.83374</baseMetalsAmount>
+          <preciousMetalsAmount>49.1109848</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Korus</systemName>
+      <colour>Yellow</colour>
+      <allegiance>0</allegiance>
+      <posX>-6275</posX>
+      <posZ>8756</posZ>
+      <nPlanets>1</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Korus I</planetName>
+          <biome>Gas Giant Hydrogen</biome>
+          <biomeID>8</biomeID>
+          <inhabited>false</inhabited>
+          <population>4973669</population>
+          <size>63</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Othorix</systemName>
+      <colour>Green_Light</colour>
+      <allegiance>0</allegiance>
+      <posX>-9971</posX>
+      <posZ>4823</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Othorix I</planetName>
+          <biome>Ocean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>692557376</population>
+          <size>50</size>
+          <usableSpace>0.264405847</usableSpace>
+          <baseMetalsAmount>42.71747</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>39.5153122</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix II</planetName>
+          <biome>Mediterranean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>78</size>
+          <usableSpace>0.663665652</usableSpace>
+          <baseMetalsAmount>68.7765045</baseMetalsAmount>
+          <preciousMetalsAmount>40.6484756</preciousMetalsAmount>
+          <foodAvailability>95.29951</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix III</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>62</size>
+          <usableSpace>0.266165733</usableSpace>
+          <baseMetalsAmount>40.2761726</baseMetalsAmount>
+          <preciousMetalsAmount>54.2546349</preciousMetalsAmount>
+          <foodAvailability>93.5101</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix IV</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>3264065</population>
+          <size>89</size>
+          <usableSpace>0.592772365</usableSpace>
+          <baseMetalsAmount>51.2274933</baseMetalsAmount>
+          <preciousMetalsAmount>57.1063156</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix V</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>58</size>
+          <usableSpace>0.543822765</usableSpace>
+          <baseMetalsAmount>47.33334</baseMetalsAmount>
+          <preciousMetalsAmount>41.15856</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix VI</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>921938</population>
+          <size>51</size>
+          <usableSpace>0.4294285</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix VII</planetName>
+          <biome>Arctic</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>68</size>
+          <usableSpace>0.689217</usableSpace>
+          <baseMetalsAmount>98.27782</baseMetalsAmount>
+          <preciousMetalsAmount>17.9692078</preciousMetalsAmount>
+          <foodAvailability>53.43464</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Traous</systemName>
+      <colour>Green_Light</colour>
+      <allegiance>0</allegiance>
+      <posX>8184</posX>
+      <posZ>-3507</posZ>
+      <nPlanets>2</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Traous I</planetName>
+          <biome>Oasis</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>468899968</population>
+          <size>60</size>
+          <usableSpace>0.499828875</usableSpace>
+          <baseMetalsAmount>80.839035</baseMetalsAmount>
+          <preciousMetalsAmount>50.611084</preciousMetalsAmount>
+          <foodAvailability>42.2143326</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Traous II</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>5940059</population>
+          <size>56</size>
+          <usableSpace>0.675124764</usableSpace>
+          <baseMetalsAmount>54.8398857</baseMetalsAmount>
+          <preciousMetalsAmount>34.5314026</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>Yellow</colour>
+      <allegiance>1</allegiance>
+      <posX>1701</posX>
+      <posZ>-538</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>4192673</population>
+          <size>50</size>
+          <usableSpace>0.469782054</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Asteroid</biome>
+          <biomeID>3</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>88</size>
+          <usableSpace>0.3226504</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis III</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>267389520</population>
+          <size>61</size>
+          <usableSpace>0.2800767</usableSpace>
+          <baseMetalsAmount>110.418564</baseMetalsAmount>
+          <preciousMetalsAmount>51.5348129</preciousMetalsAmount>
+          <foodAvailability>51.2623825</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis IV</planetName>
+          <biome>Ocean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>279925984</population>
+          <size>80</size>
+          <usableSpace>0.108566083</usableSpace>
+          <baseMetalsAmount>28.2130337</baseMetalsAmount>
+          <preciousMetalsAmount>49.81182</preciousMetalsAmount>
+          <foodAvailability>55.07462</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis V</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>84</size>
+          <usableSpace>0.121518083</usableSpace>
+          <baseMetalsAmount>36.4319534</baseMetalsAmount>
+          <preciousMetalsAmount>64.2211456</preciousMetalsAmount>
+          <foodAvailability>65.56821</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis VI</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>5356819</population>
+          <size>83</size>
+          <usableSpace>0.348576963</usableSpace>
+          <baseMetalsAmount>19.3656387</baseMetalsAmount>
+          <preciousMetalsAmount>63.96866</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis VII</planetName>
+          <biome>Continental</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>314962144</population>
+          <size>87</size>
+          <usableSpace>0.5766171</usableSpace>
+          <baseMetalsAmount>47.8969345</baseMetalsAmount>
+          <preciousMetalsAmount>64.1293945</preciousMetalsAmount>
+          <foodAvailability>51.6659737</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Othorix</systemName>
+      <colour>White</colour>
+      <allegiance>0</allegiance>
+      <posX>5353</posX>
+      <posZ>-7283</posZ>
+      <nPlanets>3</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Othorix I</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>7691162</population>
+          <size>71</size>
+          <usableSpace>0.212995052</usableSpace>
+          <baseMetalsAmount>50.3207626</baseMetalsAmount>
+          <preciousMetalsAmount>8.650978</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix II</planetName>
+          <biome>Mediterranean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>58</size>
+          <usableSpace>0.6997993</usableSpace>
+          <baseMetalsAmount>42.4691353</baseMetalsAmount>
+          <preciousMetalsAmount>47.9605522</preciousMetalsAmount>
+          <foodAvailability>50.6238937</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Othorix III</planetName>
+          <biome>Glass World</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>103106552</population>
+          <size>89</size>
+          <usableSpace>0.389366627</usableSpace>
+          <baseMetalsAmount>54.32638</baseMetalsAmount>
+          <preciousMetalsAmount>67.37585</preciousMetalsAmount>
+          <foodAvailability>39.0841446</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Alpho</systemName>
+      <colour>Purple</colour>
+      <allegiance>0</allegiance>
+      <posX>-5746</posX>
+      <posZ>-6966</posZ>
+      <nPlanets>2</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Alpho I</planetName>
+          <biome>Tundra</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>756908160</population>
+          <size>50</size>
+          <usableSpace>0.4362328</usableSpace>
+          <baseMetalsAmount>42.04638</baseMetalsAmount>
+          <preciousMetalsAmount>48.2796021</preciousMetalsAmount>
+          <foodAvailability>50.1689262</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Alpho II</planetName>
+          <biome>Ocean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>564479104</population>
+          <size>53</size>
+          <usableSpace>0.171376079</usableSpace>
+          <baseMetalsAmount>51.7442169</baseMetalsAmount>
+          <preciousMetalsAmount>14.0068169</preciousMetalsAmount>
+          <foodAvailability>52.92167</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Pretentis</systemName>
+      <colour>Green_Light</colour>
+      <allegiance>3</allegiance>
+      <posX>8950</posX>
+      <posZ>9747</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Pretentis I</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>2804212</population>
+          <size>63</size>
+          <usableSpace>0.389158666</usableSpace>
+          <baseMetalsAmount>46.49428</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis II</planetName>
+          <biome>Arctic</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>487825440</population>
+          <size>55</size>
+          <usableSpace>0.6622646</usableSpace>
+          <baseMetalsAmount>44.7403679</baseMetalsAmount>
+          <preciousMetalsAmount>53.3189735</preciousMetalsAmount>
+          <foodAvailability>48.2284966</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis III</planetName>
+          <biome>Toxic (Phosphor)</biome>
+          <biomeID>17</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>51</size>
+          <usableSpace>0.5708945</usableSpace>
+          <baseMetalsAmount>49.7825241</baseMetalsAmount>
+          <preciousMetalsAmount>45.9681931</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis IV</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>65</size>
+          <usableSpace>0.364029944</usableSpace>
+          <baseMetalsAmount>48.97216</baseMetalsAmount>
+          <preciousMetalsAmount>48.6859169</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Pretentis V</planetName>
+          <biome>Desert</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>77</size>
+          <usableSpace>0.591852</usableSpace>
+          <baseMetalsAmount>30.8871689</baseMetalsAmount>
+          <preciousMetalsAmount>46.2446175</preciousMetalsAmount>
+          <foodAvailability>57.71897</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Dendo</systemName>
+      <colour>Green_Light</colour>
+      <allegiance>0</allegiance>
+      <posX>8244</posX>
+      <posZ>-470</posZ>
+      <nPlanets>5</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Dendo I</planetName>
+          <biome>Swamp</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>481125920</population>
+          <size>74</size>
+          <usableSpace>0.161989421</usableSpace>
+          <baseMetalsAmount>61.1881027</baseMetalsAmount>
+          <preciousMetalsAmount>18.9306431</preciousMetalsAmount>
+          <foodAvailability>49.83334</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Dendo II</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>63</size>
+          <usableSpace>0.4577264</usableSpace>
+          <baseMetalsAmount>49.27489</baseMetalsAmount>
+          <preciousMetalsAmount>50.62427</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Dendo III</planetName>
+          <biome>Mediterranean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>51</size>
+          <usableSpace>0.310655057</usableSpace>
+          <baseMetalsAmount>52.1835442</baseMetalsAmount>
+          <preciousMetalsAmount>50.0356865</preciousMetalsAmount>
+          <foodAvailability>69.75625</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Dendo IV</planetName>
+          <biome>Gas Giant Helium</biome>
+          <biomeID>7</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>97</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Dendo V</planetName>
+          <biome>Oasis</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>139299904</population>
+          <size>92</size>
+          <usableSpace>0.5593211</usableSpace>
+          <baseMetalsAmount>52.51855</baseMetalsAmount>
+          <preciousMetalsAmount>67.39014</preciousMetalsAmount>
+          <foodAvailability>51.02753</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Urnin</systemName>
+      <colour>Green_Light</colour>
+      <allegiance>0</allegiance>
+      <posX>2836</posX>
+      <posZ>7454</posZ>
+      <nPlanets>7</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Urnin I</planetName>
+          <biome>Gas Giant Methane</biome>
+          <biomeID>9</biomeID>
+          <inhabited>false</inhabited>
+          <population>601768</population>
+          <size>87</size>
+          <usableSpace>0</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin II</planetName>
+          <biome>Toxic (Sulphur)</biome>
+          <biomeID>18</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>87</size>
+          <usableSpace>0.60066855</usableSpace>
+          <baseMetalsAmount>59.95629</baseMetalsAmount>
+          <preciousMetalsAmount>12.2148857</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin III</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>67</size>
+          <usableSpace>0.362319529</usableSpace>
+          <baseMetalsAmount>51.68946</baseMetalsAmount>
+          <preciousMetalsAmount>45.0471077</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin IV</planetName>
+          <biome>Ocean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>60</size>
+          <usableSpace>0.39551</usableSpace>
+          <baseMetalsAmount>40.3306046</baseMetalsAmount>
+          <preciousMetalsAmount>39.81481</preciousMetalsAmount>
+          <foodAvailability>53.07807</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin V</planetName>
+          <biome>Desert</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>566566784</population>
+          <size>58</size>
+          <usableSpace>0.8552624</usableSpace>
+          <baseMetalsAmount>49.1930351</baseMetalsAmount>
+          <preciousMetalsAmount>33.05573</preciousMetalsAmount>
+          <foodAvailability>43.0177574</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin VI</planetName>
+          <biome>Desert</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>305066080</population>
+          <size>58</size>
+          <usableSpace>0.605964</usableSpace>
+          <baseMetalsAmount>64.879364</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>42.48722</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Urnin VII</planetName>
+          <biome>Ocean</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>51419088</population>
+          <size>89</size>
+          <usableSpace>0.225699931</usableSpace>
+          <baseMetalsAmount>49.76469</baseMetalsAmount>
+          <preciousMetalsAmount>48.1571045</preciousMetalsAmount>
+          <foodAvailability>58.2085838</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+    <System_Class>
+      <systemName>Colosk</systemName>
+      <colour>Orange</colour>
+      <allegiance>0</allegiance>
+      <posX>2658</posX>
+      <posZ>3669</posZ>
+      <nPlanets>4</nPlanets>
+      <Array>
+        <Planet_Class>
+          <planetName>Colosk I</planetName>
+          <biome>Alpine</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>624230336</population>
+          <size>52</size>
+          <usableSpace>0.569299459</usableSpace>
+          <baseMetalsAmount>52.35313</baseMetalsAmount>
+          <preciousMetalsAmount>68.9254456</preciousMetalsAmount>
+          <foodAvailability>49.138092</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk II</planetName>
+          <biome>Alpine</biome>
+          <biomeID>0</biomeID>
+          <inhabited>false</inhabited>
+          <population>283195680</population>
+          <size>68</size>
+          <usableSpace>0.688792467</usableSpace>
+          <baseMetalsAmount>74.71355</baseMetalsAmount>
+          <preciousMetalsAmount>63.70938</preciousMetalsAmount>
+          <foodAvailability>68.7988739</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk III</planetName>
+          <biome>Moon</biome>
+          <biomeID>13</biomeID>
+          <inhabited>false</inhabited>
+          <population>2991954</population>
+          <size>75</size>
+          <usableSpace>0.5407624</usableSpace>
+          <baseMetalsAmount>0</baseMetalsAmount>
+          <preciousMetalsAmount>0</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+        <Planet_Class>
+          <planetName>Colosk IV</planetName>
+          <biome>Molten</biome>
+          <biomeID>12</biomeID>
+          <inhabited>false</inhabited>
+          <population>0</population>
+          <size>73</size>
+          <usableSpace>0.2771905</usableSpace>
+          <baseMetalsAmount>78.46185</baseMetalsAmount>
+          <preciousMetalsAmount>46.44512</preciousMetalsAmount>
+          <foodAvailability>0</foodAvailability>
+        </Planet_Class>
+      </Array>
+    </System_Class>
+  </systems>
+  <generatedProduct>
+    <height>20000</height>
+    <width>20000</width>
+    <numberofStars>100</numberofStars>
+    <minimumPlanets>1</minimumPlanets>
+    <maximumPlanets>7</maximumPlanets>
+    <averagePlanetSize>50</averagePlanetSize>
+    <habitableChance>50</habitableChance>
+    <inhabitedChance>50</inhabitedChance>
+    <resourceAbundancy>50</resourceAbundancy>
+    <playerStrength>0</playerStrength>
+    <xenophobia>50</xenophobia>
+    <militarism>0</militarism>
+    <expansionism>50</expansionism>
+    <industrialism>0</industrialism>
+    <funding>50</funding>
+    <toggledAI>
+      <AI_Class>
+        <race>
+          <Species_Name>Orx</Species_Name>
+          <Empire_Name>Orx Territory</Empire_Name>
+          <Source>Core</Source>
+        </race>
+        <difficulty>0</difficulty>
+        <startThreat>0</startThreat>
+        <colour>
+          <r>0.7924528</r>
+          <g>0</g>
+          <b>0</b>
+          <a>1</a>
+        </colour>
+        <nPlanets>4</nPlanets>
+      </AI_Class>
+      <AI_Class>
+        <race>
+          <Species_Name>Ivorian</Species_Name>
+          <Empire_Name>The Ivorian Empire</Empire_Name>
+          <Source>Core</Source>
+        </race>
+        <difficulty>0</difficulty>
+        <startThreat>0</startThreat>
+        <colour>
+          <r>0</r>
+          <g>0.0254663154</g>
+          <b>0.9150943</b>
+          <a>1</a>
+        </colour>
+        <nPlanets>2</nPlanets>
+      </AI_Class>
+      <AI_Class>
+        <race>
+          <Species_Name>Enslavers</Species_Name>
+          <Empire_Name>The Enslavers</Empire_Name>
+          <Source>Core</Source>
+        </race>
+        <difficulty>0</difficulty>
+        <startThreat>0</startThreat>
+        <colour>
+          <r>0.9056604</r>
+          <g>0.890356541</g>
+          <b>0</b>
+          <a>1</a>
+        </colour>
+        <nPlanets>4</nPlanets>
+      </AI_Class>
+    </toggledAI>
+    <selectedTraits>
+      <Trait_Class>
+        <traitName>Hero</traitName>
+        <traitDesc>The hero type</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength>+20</strength>
+        <size />
+        <morale>+30</morale>
+        <breakValue>/5</breakValue>
+        <melee />
+        <ranged />
+        <stealth />
+        <stamina>+40</stamina>
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Strong</traitName>
+        <traitDesc>Unusually strong</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength>+20</strength>
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged />
+        <stealth />
+        <stamina>+10</stamina>
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Jogger</traitName>
+        <traitDesc>Passionate jogger</traitDesc>
+        <source>Core</source>
+        <speed>+10</speed>
+        <agility />
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged />
+        <stealth />
+        <stamina>+20</stamina>
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Sharpshooter</traitName>
+        <traitDesc>Eagle eyed</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged>+25</ranged>
+        <stealth />
+        <stamina />
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Duellist</traitName>
+        <traitDesc>Skilled swordsman</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee>+25</melee>
+        <ranged />
+        <stealth />
+        <stamina />
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Nimble</traitName>
+        <traitDesc>Doesn't hang around</traitDesc>
+        <source>Core</source>
+        <speed>+10</speed>
+        <agility>+20</agility>
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged />
+        <stealth />
+        <stamina />
+      </Trait_Class>
+      <Trait_Class>
+        <traitName>Quiet</traitName>
+        <traitDesc>Strangely silent</traitDesc>
+        <source>Core</source>
+        <speed />
+        <agility />
+        <strength />
+        <size />
+        <morale />
+        <breakValue />
+        <melee />
+        <ranged />
+        <stealth>-20</stealth>
+        <stamina />
+      </Trait_Class>
+    </selectedTraits>
+    <defaultEquipment>
+      <string>Mk1 Helmet</string>
+      <string>Mk1 Armour</string>
+      <string>BDU Casual</string>
+      <string>Rifle1</string>
+      <string>PistolSec1</string>
+      <string>Backpack</string>
+    </defaultEquipment>
+    <defaultPatterns>
+      <string>Primary1</string>
+      <string>Primary1</string>
+      <string>Primary1</string>
+    </defaultPatterns>
+    <chosenLocalisationList>
+      <string>American Names</string>
+      <string>American Hierachy</string>
+      <string>Alphabet Slots</string>
+    </chosenLocalisationList>
+    <playerColours>
+      <Color32>
+        <r>202</r>
+        <g>0</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>36</g>
+        <b>214</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>255</g>
+        <b>37</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>147</r>
+        <g>147</g>
+        <b>147</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>241</r>
+        <g>255</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>202</r>
+        <g>0</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>36</g>
+        <b>214</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>255</g>
+        <b>37</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>147</r>
+        <g>147</g>
+        <b>147</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>241</r>
+        <g>255</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>202</r>
+        <g>0</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>36</g>
+        <b>214</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>255</g>
+        <b>37</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>147</r>
+        <g>147</g>
+        <b>147</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>202</r>
+        <g>0</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>36</g>
+        <b>214</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>202</r>
+        <g>0</g>
+        <b>0</b>
+        <a>255</a>
+      </Color32>
+      <Color32>
+        <r>0</r>
+        <g>36</g>
+        <b>214</b>
+        <a>255</a>
+      </Color32>
+    </playerColours>
+  </generatedProduct>
+  <topSlots>
+    <Slot_Class>
+      <containedSlots>
+        <Slot_Class>
+          <containedSlots>
+            <Slot_Class>
+              <containedSlots>
+                <Slot_Class>
+                  <containedSlots />
+                  <containedTroopers>
+                    <Trooper_Class>
+                      <trooperName>Abigail Quigg</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>9</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>1</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Mia Achilles</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>2</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>2</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Isabella Grant</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>4</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>1</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>3</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Harrison Jackson</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>0</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>4</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Jamie Addington</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>5</trooperFace>
+                      <trooperHair>2</trooperHair>
+                      <hairColour>7</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>5</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Ivy Hall</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>1</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>6</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Grace Reid</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>7</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Bethany Quigg</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>8</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Daniel Taylor</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>9</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Summer Ainsley</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>3</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>10</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                  </containedTroopers>
+                  <slotName>Able Section</slotName>
+                  <positionID>0</positionID>
+                  <squad>true</squad>
+                  <squadRole>0</squadRole>
+                  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <containedSlots />
+                  <containedTroopers>
+                    <Trooper_Class>
+                      <trooperName>Amelia Rogers</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>9</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>1</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Samuel Quill</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>2</trooperHair>
+                      <hairColour>2</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>2</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Connie Wright</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>3</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>3</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Rory Idle</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>0</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>9</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>4</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Ethan O’Hara</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>0</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>5</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>5</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Sienna Miller</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>7</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>6</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Sophia Carter</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>1</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>7</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Orla Morgan</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>9</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>8</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Dylan Cooper</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>7</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>9</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Katherine Russell</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>1</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>5</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>10</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                  </containedTroopers>
+                  <slotName>Baker Section</slotName>
+                  <positionID>0</positionID>
+                  <squad>true</squad>
+                  <squadRole>0</squadRole>
+                  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+                <Slot_Class>
+                  <containedSlots />
+                  <containedTroopers>
+                    <Trooper_Class>
+                      <trooperName>Florence Kelly</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>0</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>2</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>1</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Rory Butler</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>0</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>7</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>2</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Samuel Fletcher</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>6</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>2</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>3</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Darcie Henderson</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>9</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>4</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Scarlett Ford</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>5</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>5</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Darcie Izard</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>0</trooperFace>
+                      <trooperHair>1</trooperHair>
+                      <hairColour>4</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>6</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Jacob Aberman</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>1</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>9</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>7</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Masie Earhart</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>2</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>5</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>8</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Lewis Gibson</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>3</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>8</hairColour>
+                      <gender>1</gender>
+                      <trooperPosition>9</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                    <Trooper_Class>
+                      <trooperName>Layla Nicholes</trooperName>
+                      <trooperRank>Private</trooperRank>
+                      <trooperFace>1</trooperFace>
+                      <trooperHair>0</trooperHair>
+                      <hairColour>3</hairColour>
+                      <gender>0</gender>
+                      <trooperPosition>10</trooperPosition>
+                      <armour>Mk1 Armour</armour>
+                      <helmet>Mk1 Helmet</helmet>
+                      <fatigues>BDU Casual</fatigues>
+                      <armourP>Primary1</armourP>
+                      <helmetP>Primary1</helmetP>
+                      <fatiguesP>Primary1</fatiguesP>
+                      <equipment>Backpack</equipment>
+                      <weapon1>Rifle1</weapon1>
+                      <weapon2>PistolSec1</weapon2>
+                      <movement>0</movement>
+                      <constitution>0</constitution>
+                      <bravery>0</bravery>
+                      <speed>0</speed>
+                      <agility>0</agility>
+                      <strength>0</strength>
+                      <size>0</size>
+                      <morale>0</morale>
+                      <breakValue>0</breakValue>
+                      <melee>0</melee>
+                      <ranged>0</ranged>
+                      <stealth>0</stealth>
+                      <stamina>0</stamina>
+                      <trait1>0</trait1>
+                      <trait2>0</trait2>
+                    </Trooper_Class>
+                  </containedTroopers>
+                  <slotName>Charlie Section</slotName>
+                  <positionID>0</positionID>
+                  <squad>true</squad>
+                  <squadRole>0</squadRole>
+                  <numberOfTroopers>10</numberOfTroopers>
+                  <slotHeight>3</slotHeight>
+                </Slot_Class>
+              </containedSlots>
+              <containedTroopers />
+              <slotName>Alpha Platoon</slotName>
+              <positionID>0</positionID>
+              <squad>false</squad>
+              <squadRole>0</squadRole>
+              <numberOfTroopers>0</numberOfTroopers>
+              <slotHeight>2</slotHeight>
+            </Slot_Class>
+          </containedSlots>
+          <containedTroopers />
+          <slotName>Alpha Company</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>Bravo Company</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>Charlie Company</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>Delta Company</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>Echo Company</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+        <Slot_Class>
+          <containedSlots />
+          <containedTroopers />
+          <slotName>Foxtrot Company</slotName>
+          <positionID>0</positionID>
+          <squad>false</squad>
+          <squadRole>0</squadRole>
+          <numberOfTroopers>0</numberOfTroopers>
+          <slotHeight>1</slotHeight>
+        </Slot_Class>
+      </containedSlots>
+      <containedTroopers />
+      <slotName>Alpha Battalion</slotName>
+      <positionID>0</positionID>
+      <squad>false</squad>
+      <squadRole>0</squadRole>
+      <numberOfTroopers>0</numberOfTroopers>
+      <slotHeight>0</slotHeight>
+    </Slot_Class>
+  </topSlots>
+</Save_Class>

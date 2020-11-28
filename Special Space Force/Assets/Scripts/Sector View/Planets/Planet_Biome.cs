@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Planet_Biome
 {
+    /// <summary>
+    /// This script finds the biome and brings its stats to the front. This script, like the Player_Script, might be outdated.
+    /// </summary>
+    
     public string biomeName;
     float happinessModifier;
+    float foodModifier;
 
     bool surfacePop = false;
     public bool atmo = false;
@@ -40,6 +45,7 @@ public class Planet_Biome
                 {
                     biomeName = b.biomeName;
                     happinessModifier = b.happinessModifier;
+                    foodModifier = b.foodModifier;
                     surfacePop = b.SurfacePop;
                     atmo = b.Atmo;
                 }
@@ -50,6 +56,7 @@ public class Planet_Biome
             int rand = Random.Range(0, biomes.Count);
             biomeName = biomes[rand].biomeName;
             happinessModifier = biomes[rand].happinessModifier;
+            foodModifier = biomes[rand].foodModifier;
             surfacePop = biomes[rand].SurfacePop;
             atmo = biomes[rand].Atmo;
         }

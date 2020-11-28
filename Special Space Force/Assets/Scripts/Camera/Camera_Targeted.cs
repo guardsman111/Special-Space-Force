@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine;
 using System.Collections;
 
 public class Camera_Targeted : MonoBehaviour
 {
+    /// <summary>
+    /// This script moves the camera around the planet in a cool way. Taken from online
+    /// </summary>
     // This Script was taken from an example here - https://answers.unity.com/questions/1257281/how-to-rotate-camera-orbit-around-a-game-object-on.html - and then modified
 
     public Transform target;
@@ -32,14 +34,15 @@ public class Camera_Targeted : MonoBehaviour
             GetComponent<Rigidbody>().freezeRotation = true;
         }
     }
+
     void LateUpdate()
     {
         if (target)
         {
             if (Input.GetMouseButton(0))
             {
-                velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.02f;
-                velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.02f;
+                velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.01f;
+                velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.01f;
             }
             rotationYAxis += velocityX;
             rotationXAxis -= velocityY;
@@ -50,9 +53,9 @@ public class Camera_Targeted : MonoBehaviour
 
             distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 20, distanceMin, distanceMax);
             RaycastHit hit;
-            if (Physics.Linecast(target.position, transform.position, out hit))
+            if (Physics.Linecast(target.position, transform.position, out hit, ~9))
             {
-            distance -= hit.distance;
+                distance -= hit.distance;
             }
             Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
             Vector3 position = rotation * negDistance + target.position;

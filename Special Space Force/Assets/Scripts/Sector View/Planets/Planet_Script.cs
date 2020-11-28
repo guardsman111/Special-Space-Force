@@ -1,27 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Planet_Script : MonoBehaviour
 {
-    ///Testing Scripts
+    /// <summary>
+    /// This script generates planetary stats and sets the UI text the user sees in the system view
+    /// </summary>
     public string planetName;
     public string biome;
     public int population;
+    public float useSpace;
     public Planet_Class planet;
+    public TextMeshPro tName;
+    public TextMeshPro tStats;
 
     public Planet_Stats Stats;
 
     //Linked to the planets mesh renderer so we can change the material, allowing for players to create their own.
     public MeshRenderer planetSkin;
-
-    //Generates then sets planet stats
-    private void Start()
-    {
-        //Put Generation code here
-        Invoke("PlanetGen", 2.0f);
-    }
-
+    
     //Displays Planet Stats in Debug Log
     public void ShowMe()
     {
@@ -37,9 +36,20 @@ public class Planet_Script : MonoBehaviour
     {
         Planet_Class temp = new Planet_Class();
         Stats = new Planet_Stats(temp, planetSkin);
+
+        //Set the texts of the UI with Name, population and happiness
+        tName.text = Stats.PName;
+        if (Stats.Population != 0)
+        {
+            tStats.text = "Population: " + Stats.Population.ToString("00,0") + "\nPopulation Happiness: " + Stats.popHappiness;
+        }
+        else
+        {
+            tStats.text = "Uninhabited";
+        }
     }
 
-    //Generates the planetary stats
+    //Loading the planetary stats
     public void PlanetGen(Planet_Class planetClass)
     {
         //planetSkin = gameObject.transform.Find("PlanetSurface").GetComponent<MeshRenderer>();
@@ -48,5 +58,16 @@ public class Planet_Script : MonoBehaviour
         planetName = planetClass.planetName;
         biome = planetClass.biome;
         population = planetClass.population;
+        useSpace = planetClass.usableSpace;
+        tName.text = Stats.PName;
+        if (Stats.Population != 0)
+        {
+            tStats.text = "Population: " + Stats.Population + "\nPopulation Happiness: " + Stats.popHappiness;
+        }
+        else
+        {
+            tStats.text = "Uninhabited";
+        }
+        //Debug.Log("Generated Planets");
     }
 }

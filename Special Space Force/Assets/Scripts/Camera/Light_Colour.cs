@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Light_Colour : MonoBehaviour
 {
+    /// <summary>
+    /// A currently unused script to set the light effect on planets based on the colour of the sun
+    /// </summary>
     private Light Light;
 
     // Start is called before the first frame update
