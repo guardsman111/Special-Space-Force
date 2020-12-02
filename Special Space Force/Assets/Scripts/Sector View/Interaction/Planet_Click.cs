@@ -63,6 +63,8 @@ public class Planet_Click : MonoBehaviour
             planetScreen.planetPreciousMetals.text = "Precious Metals Abundancy: " + gameObject.GetComponent<Planet_Script>().planet.preciousMetalsAmount.ToString("0.0") + "%";
             planetScreen.planetFood.text = "Arable Land: " + gameObject.GetComponent<Planet_Script>().planet.foodAvailability.ToString("0.0") + "%";
             previous = true;
+            systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
+            systemCamera.GetComponent<Camera_Container_Script>().planetHelper.ShowHelper();
         }
     }
 
@@ -77,6 +79,8 @@ public class Planet_Click : MonoBehaviour
             planetScreenCamera.enabled = false;
             previous = false;
             ToggleVisiblePlanets.TogglePlanetsOn(true);
+            systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
+            systemCamera.GetComponent<Camera_Container_Script>().planetHelper.HideHelper();
         }
     }
 }

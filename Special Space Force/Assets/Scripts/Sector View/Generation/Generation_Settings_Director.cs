@@ -518,7 +518,7 @@ public class Generation_Settings_Director : MonoBehaviour
         }
         else if (temp < 55)
         {
-            input.text = "Neutral";
+            input.text = "Passive";
         }
         else if (temp < 65)
         {

@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1566388a8c3b9b04a8c512c1fa2dbe6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finder: {fileID: 0}
+  finder: {fileID: 3179005509909518484}
 --- !u!1 &3179005509777647183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18657a5784f5a614d9af13611efb31ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpeed: 100
+  cameraSpeed: 10
   cameraMinHeight: 2000
   cameraMaxHeight: 7000
   cameraMinX: -3000
@@ -1144,6 +1144,8 @@ GameObject:
   - component: {fileID: 3179005509909518484}
   - component: {fileID: 3179005509909518487}
   - component: {fileID: 3179005509909518486}
+  - component: {fileID: 611836862}
+  - component: {fileID: 611836864}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -1193,7 +1195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c28eaf822ddb94f8662bd46ab5ad11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savePath: dd
+  savePath: F:\BitSpark Entertainment\Special Space Force\Special-Space-Force\Special
+    Space Force\Assets\Resources
   defaultPath: 
   modsPath: 
   biomeManager: {fileID: 3179005509872979497}
@@ -1220,10 +1223,11 @@ MonoBehaviour:
   cameraTrolley: {fileID: 3179005509777647169}
   fileFinder: {fileID: 3179005509909518484}
   systemGenerator: {fileID: 3179005509909518486}
+  modManager: {fileID: 1924590275}
   biomeManager: {fileID: 3179005509872979497}
   raceManager: {fileID: 966474628}
-  slotGenerator: {fileID: 0}
-  localisationManager: {fileID: 0}
+  slotGenerator: {fileID: 611836864}
+  localisationManager: {fileID: 611836862}
   starNames:
   - Korus
   - Alpho
@@ -1274,6 +1278,55 @@ MonoBehaviour:
   planetPrefab: {fileID: 7490782013786738096, guid: 7535ff93f4637ed4ba7453279420dc25,
     type: 3}
   AIColors: []
+--- !u!114 &611836862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179005509909518482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6d778398a9a8443849463694bdd18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finder: {fileID: 3179005509909518484}
+  surnames: []
+  forenamesM: []
+  forenamesF: []
+  hierachyNames: []
+  squadHierachyNames: []
+  slotNames: []
+  squadNames: []
+  trooperNamesDropdown: {fileID: 0}
+  hierachyNamesDropdown: {fileID: 0}
+  slotNamesDropdown: {fileID: 0}
+--- !u!114 &611836864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179005509909518482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af70f8d008f898446a13e40da4070617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finder: {fileID: 3179005509909518484}
+  manager: {fileID: 0}
+  fileLocation: 
+  genericSlot: {fileID: 967278948403837364, guid: b54679af37f89304daef2c40603be563,
+    type: 3}
+  genericTrooper: {fileID: 2369410201733134574, guid: 9f306604c51154d4f9ac3a76d09189c1,
+    type: 3}
+  slotN1: {fileID: 0}
+  squads: []
+  troopersPerSquad: 10
+  createTroopersFromTemplate: 1
+  nTroopersText: {fileID: 0}
+  templateDropdown: {fileID: 0}
+  templatePreview: {fileID: 0}
 --- !u!1 &3179005510035565004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3179005510035564993}
   - component: {fileID: 3179005510035565005}
+  - component: {fileID: 578669330}
   m_Layer: 0
   m_Name: SystemCamera
   m_TagString: MainCamera
@@ -1348,6 +1402,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &578669330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179005510035565004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90432bd2b06c17644ae4bd99cded4db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sectorHelper: {fileID: 0}
+  systemHelper: {fileID: 0}
+  planetHelper: {fileID: 0}
 --- !u!1 &3179005510078956160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,6 +1566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3179005510138525858}
+  - component: {fileID: 1924590275}
   m_Layer: 0
   m_Name: Mod Manager
   m_TagString: Untagged
@@ -1522,6 +1592,22 @@ Transform:
   m_Father: {fileID: 3179005509909518485}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1924590275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179005510138525857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1048747ac01754b488571222adf1e496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  biomeManager: {fileID: 3179005509872979497}
+  raceManager: {fileID: 966474628}
+  equipmentManager: {fileID: 3899211672308924088}
+  traitManager: {fileID: 2589200914881553882}
 --- !u!1 &3179005510766649519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,14 +2035,13 @@ GameObject:
   m_Component:
   - component: {fileID: 880821242583417022}
   - component: {fileID: 3305764306613066605}
-  - component: {fileID: 61738375532899948}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &880821242583417022
 Transform:
   m_ObjectHideFlags: 0
@@ -1980,7 +2065,7 @@ Camera:
   m_GameObject: {fileID: 4010488823036013618}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -2014,14 +2099,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &61738375532899948
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4010488823036013618}
-  m_Enabled: 1
 --- !u!1 &7250333219486014741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,6 +2109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136901804762985615}
   - component: {fileID: 3899211672308924088}
+  - component: {fileID: 1298017216}
   m_Layer: 0
   m_Name: Equipment
   m_TagString: EquipmentManager
@@ -2065,26 +2143,214 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7e72aecb2b79d459f56e4afa1b7316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finder: {fileID: 0}
-  coreEquipment: {fileID: 0}
+  finder: {fileID: 3179005509909518484}
+  coreEquipment: {fileID: 1298017216}
   playerDefaultColours: []
   HelmetDropdownCustom: {fileID: 0}
   FatiguesDropdownCustom: {fileID: 0}
   ArmourDropdownCustom: {fileID: 0}
   EquipmentDropdownCustom: {fileID: 0}
-  WeaponDropdownCustom: {fileID: 0}
+  Weapon1DropdownCustom: {fileID: 0}
+  Weapon2DropdownCustom: {fileID: 0}
   HelmetPatternCustom: {fileID: 0}
   FatiguesPatternCustom: {fileID: 0}
   ArmourPatternCustom: {fileID: 0}
-  EquipmentPatternCustom: {fileID: 0}
-  WeaponPatternCustom: {fileID: 0}
   HelmetDropdownTrooper: {fileID: 0}
   FatiguesDropdownTrooper: {fileID: 0}
   ArmourDropdownTrooper: {fileID: 0}
   EquipmentDropdownTrooper: {fileID: 0}
-  WeaponDropdownTrooper: {fileID: 0}
+  Weapon1DropdownTrooper: {fileID: 0}
+  Weapon2DropdownTrooper: {fileID: 0}
   HelmetPatternTrooper: {fileID: 0}
   FatiguesPatternTrooper: {fileID: 0}
   ArmourPatternTrooper: {fileID: 0}
-  EquipmentPatternTrooper: {fileID: 0}
-  WeaponPatternTrooper: {fileID: 0}
+  templateTexture: {fileID: 2800000, guid: 593d85d4b700cfd4ea58e41089593d05, type: 3}
+  selectFromTemplate: {fileID: 0}
+--- !u!114 &1298017216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7250333219486014741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0658db1c915c1ee409c661487267a44d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 3899211672308924088}
+  Mk1ArmourP:
+  - {fileID: 21300000, guid: 6d16cceee7550284eb08836353351b90, type: 3}
+  - {fileID: 21300000, guid: 6d084ab3f42cd0840a3146429c3b30fb, type: 3}
+  - {fileID: 21300000, guid: 4f8539517c3fab84d9c963ed3d6d2be3, type: 3}
+  - {fileID: 21300000, guid: 81a39d9b66e3b704ebc5ce4fd220c236, type: 3}
+  Mk1Armour2Camo:
+  - {fileID: 21300000, guid: 6d16cceee7550284eb08836353351b90, type: 3}
+  - {fileID: 21300000, guid: 7871f0b4e597ce44f8b2a69f474c3411, type: 3}
+  - {fileID: 21300000, guid: a16c3d69809d49142913b53b206b3afb, type: 3}
+  - {fileID: 21300000, guid: 4f8539517c3fab84d9c963ed3d6d2be3, type: 3}
+  - {fileID: 21300000, guid: 81a39d9b66e3b704ebc5ce4fd220c236, type: 3}
+  Mk1Armour3Camo:
+  - {fileID: 21300000, guid: 6d16cceee7550284eb08836353351b90, type: 3}
+  - {fileID: 21300000, guid: 86e7208023910a241a83c8d2b32da549, type: 3}
+  - {fileID: 21300000, guid: c2596bba67419824683a1bade566ed38, type: 3}
+  - {fileID: 21300000, guid: f9b9ece2314a5254bb5b72784905dbde, type: 3}
+  - {fileID: 21300000, guid: 4f8539517c3fab84d9c963ed3d6d2be3, type: 3}
+  - {fileID: 21300000, guid: 81a39d9b66e3b704ebc5ce4fd220c236, type: 3}
+  Mk1Armour3CamoDigi:
+  - {fileID: 21300000, guid: 6d16cceee7550284eb08836353351b90, type: 3}
+  - {fileID: 21300000, guid: 435251f03ca33ea4dbee0ebfd6096176, type: 3}
+  - {fileID: 21300000, guid: da7e5bd8ca0975044acb510f34f1f1e1, type: 3}
+  - {fileID: 21300000, guid: 5f9a6a06d8599d345b1aeb6245162ae0, type: 3}
+  - {fileID: 21300000, guid: 4f8539517c3fab84d9c963ed3d6d2be3, type: 3}
+  - {fileID: 21300000, guid: 81a39d9b66e3b704ebc5ce4fd220c236, type: 3}
+  Mk1HelmetP:
+  - {fileID: 21300000, guid: 2e9add9173ef5974da32428956f83b04, type: 3}
+  - {fileID: 21300000, guid: 60ffe819c0e7ee94ca76164cef633e68, type: 3}
+  - {fileID: 21300000, guid: 12e2a001baa5f7e47947175e0ae23c25, type: 3}
+  - {fileID: 21300000, guid: a5d826df8635e62488bcdcd120c03071, type: 3}
+  Mk1HelmetS1:
+  - {fileID: 21300000, guid: 2e9add9173ef5974da32428956f83b04, type: 3}
+  - {fileID: 21300000, guid: 04d86d3439918664993f0d29478c7a0e, type: 3}
+  - {fileID: 21300000, guid: eb06a47436fb58b4e94637c768180dba, type: 3}
+  - {fileID: 21300000, guid: 12e2a001baa5f7e47947175e0ae23c25, type: 3}
+  - {fileID: 21300000, guid: a5d826df8635e62488bcdcd120c03071, type: 3}
+  Mk1HelmetS2:
+  - {fileID: 21300000, guid: 2e9add9173ef5974da32428956f83b04, type: 3}
+  - {fileID: 21300000, guid: 539bc3802fba25044835d41b438f66cd, type: 3}
+  - {fileID: 21300000, guid: f50e16b4d78411648a255aa61ad1fda8, type: 3}
+  - {fileID: 21300000, guid: 12e2a001baa5f7e47947175e0ae23c25, type: 3}
+  - {fileID: 21300000, guid: a5d826df8635e62488bcdcd120c03071, type: 3}
+  Mk1Helmet2Camo:
+  - {fileID: 21300000, guid: 2e9add9173ef5974da32428956f83b04, type: 3}
+  - {fileID: 21300000, guid: 6c7e4f1013ed2aa4c920e034f5ae9ec5, type: 3}
+  - {fileID: 21300000, guid: 50f0f99b5cbe98e48a002cb3a44ba97c, type: 3}
+  - {fileID: 21300000, guid: 12e2a001baa5f7e47947175e0ae23c25, type: 3}
+  - {fileID: 21300000, guid: a5d826df8635e62488bcdcd120c03071, type: 3}
+  Mk1Helmet3Camo:
+  - {fileID: 21300000, guid: 2e9add9173ef5974da32428956f83b04, type: 3}
+  - {fileID: 21300000, guid: 3210cbf76a0099944be40b120fb894bb, type: 3}
+  - {fileID: 21300000, guid: baa06ab221312f3458cf5a5b11412110, type: 3}
+  - {fileID: 21300000, guid: d55f9716fb544a74bbe8c9d91db4d992, type: 3}
+  - {fileID: 21300000, guid: 12e2a001baa5f7e47947175e0ae23c25, type: 3}
+  - {fileID: 21300000, guid: a5d826df8635e62488bcdcd120c03071, type: 3}
+  Mk1Helmet3CamoDigi:
+  - {fileID: 21300000, guid: 2e9add9173ef5974da32428956f83b04, type: 3}
+  - {fileID: 21300000, guid: e000dec462d08324e9d7c47d6d4a5d33, type: 3}
+  - {fileID: 21300000, guid: e90d4b880640e45478339677bc28aec6, type: 3}
+  - {fileID: 21300000, guid: f0799cc3fc0c7a449b10dac677bb5b41, type: 3}
+  - {fileID: 21300000, guid: 12e2a001baa5f7e47947175e0ae23c25, type: 3}
+  - {fileID: 21300000, guid: a5d826df8635e62488bcdcd120c03071, type: 3}
+  Mk1Mod1HelmetP:
+  - {fileID: 21300000, guid: 8d237f9474717494bb310f69e6fbe9b7, type: 3}
+  - {fileID: 21300000, guid: c0eaaa8a0af139e45a025359f0a29f29, type: 3}
+  - {fileID: 21300000, guid: 9192c75249c447e40b847e79fa8d5960, type: 3}
+  - {fileID: 21300000, guid: 375a5ba4818ae664599ecdd977c6205d, type: 3}
+  Mk1Mod1HelmetS1:
+  - {fileID: 21300000, guid: 8d237f9474717494bb310f69e6fbe9b7, type: 3}
+  - {fileID: 21300000, guid: e80cfcda3880e2049947b9b2e90ede3c, type: 3}
+  - {fileID: 21300000, guid: 1ff48e5e1c93f6b48a853bde33fd4b5b, type: 3}
+  - {fileID: 21300000, guid: 9192c75249c447e40b847e79fa8d5960, type: 3}
+  - {fileID: 21300000, guid: 375a5ba4818ae664599ecdd977c6205d, type: 3}
+  Mk1Mod1HelmetS2:
+  - {fileID: 21300000, guid: 8d237f9474717494bb310f69e6fbe9b7, type: 3}
+  - {fileID: 21300000, guid: 3a337d3778d1c504a8968c752c2f58f3, type: 3}
+  - {fileID: 21300000, guid: aef1020cbd134e6428ebbb9cae0b6280, type: 3}
+  - {fileID: 21300000, guid: 9192c75249c447e40b847e79fa8d5960, type: 3}
+  - {fileID: 21300000, guid: 375a5ba4818ae664599ecdd977c6205d, type: 3}
+  Mk1Mod1Helmet2Camo:
+  - {fileID: 21300000, guid: 8d237f9474717494bb310f69e6fbe9b7, type: 3}
+  - {fileID: 21300000, guid: c660c25b72de34543aaa8d980b9675b8, type: 3}
+  - {fileID: 21300000, guid: 98ef83056bed1694db6ca3a6bb500635, type: 3}
+  - {fileID: 21300000, guid: 9192c75249c447e40b847e79fa8d5960, type: 3}
+  - {fileID: 21300000, guid: 375a5ba4818ae664599ecdd977c6205d, type: 3}
+  Mk1Mod1Helmet3Camo:
+  - {fileID: 21300000, guid: 8d237f9474717494bb310f69e6fbe9b7, type: 3}
+  - {fileID: 21300000, guid: 0ff6fa407c2e23b46b6b0a06d010349d, type: 3}
+  - {fileID: 21300000, guid: e1df2927ac0fabc4f940726d7dd89d9e, type: 3}
+  - {fileID: 21300000, guid: 03afc194523ca2d419a116661ae962ba, type: 3}
+  - {fileID: 21300000, guid: 9192c75249c447e40b847e79fa8d5960, type: 3}
+  - {fileID: 21300000, guid: 375a5ba4818ae664599ecdd977c6205d, type: 3}
+  Mk1Mod1Helmet3CamoDigi:
+  - {fileID: 21300000, guid: 8d237f9474717494bb310f69e6fbe9b7, type: 3}
+  - {fileID: 21300000, guid: c2c6f8417d0a77e4799629efe3ae7abc, type: 3}
+  - {fileID: 21300000, guid: f2f4309d6affc574d89729106aa9e56e, type: 3}
+  - {fileID: 21300000, guid: 34e2e578d763c2e40afb5ee7831fb0d8, type: 3}
+  - {fileID: 21300000, guid: 9192c75249c447e40b847e79fa8d5960, type: 3}
+  - {fileID: 21300000, guid: 375a5ba4818ae664599ecdd977c6205d, type: 3}
+  FatiguesCasualP:
+  - {fileID: 21300000, guid: a5075c6f5cc88d249b132969013dfaef, type: 3}
+  - {fileID: 21300000, guid: 238ace36f77f25a4592cf53b14e33312, type: 3}
+  - {fileID: 21300000, guid: da9514b0607d38844b920de5edf68a85, type: 3}
+  - {fileID: 21300000, guid: 57251788f653d4e4093af9f491e1d982, type: 3}
+  FatiguesCasual2Camo:
+  - {fileID: 21300000, guid: a5075c6f5cc88d249b132969013dfaef, type: 3}
+  - {fileID: 21300000, guid: a4fa0bea6f0f96d49800572e4c2fdad8, type: 3}
+  - {fileID: 21300000, guid: 3cb924536d9656544ae29a191ac19fea, type: 3}
+  - {fileID: 21300000, guid: da9514b0607d38844b920de5edf68a85, type: 3}
+  - {fileID: 21300000, guid: 57251788f653d4e4093af9f491e1d982, type: 3}
+  FatiguesCasual3Camo:
+  - {fileID: 21300000, guid: a5075c6f5cc88d249b132969013dfaef, type: 3}
+  - {fileID: 21300000, guid: 9cbedeea3e8ab0f44bf9d750d228d58d, type: 3}
+  - {fileID: 21300000, guid: a6315e82b05007641accfbd0db333dd8, type: 3}
+  - {fileID: 21300000, guid: a08b3cb01960f2e4f8506f3f47fad88d, type: 3}
+  - {fileID: 21300000, guid: da9514b0607d38844b920de5edf68a85, type: 3}
+  - {fileID: 21300000, guid: 57251788f653d4e4093af9f491e1d982, type: 3}
+  FatiguesCasual3CamoDigi:
+  - {fileID: 21300000, guid: a5075c6f5cc88d249b132969013dfaef, type: 3}
+  - {fileID: 21300000, guid: f07595f1284abe4418501ba554d36996, type: 3}
+  - {fileID: 21300000, guid: 4a666a7f9d6f2924f9c63e0b3c82d081, type: 3}
+  - {fileID: 21300000, guid: 7a77885cd155a1a46bdfb8e6c6828e94, type: 3}
+  - {fileID: 21300000, guid: da9514b0607d38844b920de5edf68a85, type: 3}
+  - {fileID: 21300000, guid: 57251788f653d4e4093af9f491e1d982, type: 3}
+  FatiguesUBACSP:
+  - {fileID: 21300000, guid: ad38281cf3c09bc4aac7ca2fe3fc1a8e, type: 3}
+  - {fileID: 21300000, guid: 9241035bff8430a42b981b3c693d7da5, type: 3}
+  - {fileID: 21300000, guid: bd6e7c1df043a074393a1c8fe2a876a6, type: 3}
+  - {fileID: 21300000, guid: 0d8edcebacbdedd45bac587fe5bf9306, type: 3}
+  FatiguesUBACS2Camo:
+  - {fileID: 21300000, guid: ad38281cf3c09bc4aac7ca2fe3fc1a8e, type: 3}
+  - {fileID: 21300000, guid: 47f03f744d69d394f86d2b6034c45733, type: 3}
+  - {fileID: 21300000, guid: 7ee1f738c07bd8c4db3d4420f7fcbca3, type: 3}
+  - {fileID: 21300000, guid: bd6e7c1df043a074393a1c8fe2a876a6, type: 3}
+  - {fileID: 21300000, guid: 0d8edcebacbdedd45bac587fe5bf9306, type: 3}
+  FatiguesUBACS3Camo:
+  - {fileID: 21300000, guid: ad38281cf3c09bc4aac7ca2fe3fc1a8e, type: 3}
+  - {fileID: 21300000, guid: 2122fa08ba9e05644aa61f11411702fd, type: 3}
+  - {fileID: 21300000, guid: 4db44a3f7e109c847a06ace5406f614b, type: 3}
+  - {fileID: 21300000, guid: ad3185a86e0c06c45848a9d451504ec4, type: 3}
+  - {fileID: 21300000, guid: bd6e7c1df043a074393a1c8fe2a876a6, type: 3}
+  - {fileID: 21300000, guid: 0d8edcebacbdedd45bac587fe5bf9306, type: 3}
+  FatiguesUBACS3CamoDigi:
+  - {fileID: 21300000, guid: ad38281cf3c09bc4aac7ca2fe3fc1a8e, type: 3}
+  - {fileID: 21300000, guid: 61db90b45fee70445a0e1cb69b6cf81e, type: 3}
+  - {fileID: 21300000, guid: 2c6547f116fb3d24c8e18d1327439ab0, type: 3}
+  - {fileID: 21300000, guid: 829246f85c1e36f408fa5bc07d691c2d, type: 3}
+  - {fileID: 21300000, guid: bd6e7c1df043a074393a1c8fe2a876a6, type: 3}
+  - {fileID: 21300000, guid: 0d8edcebacbdedd45bac587fe5bf9306, type: 3}
+  Backpack1:
+  - {fileID: 21300000, guid: e1411418eadec904c93c983bdb593d74, type: 3}
+  - {fileID: 21300000, guid: fa5e0e2f71cc5b348b95d0697ea5f325, type: 3}
+  - {fileID: 21300000, guid: 663ff987b39e2374dbe37d3b6b4e9265, type: 3}
+  Pistol1:
+  - {fileID: 21300000, guid: 8863aecfd66163f45bcdbaf0d508e6b1, type: 3}
+  - {fileID: 21300000, guid: f55dcb7981a103e41976e997c53df6ea, type: 3}
+  - {fileID: 21300000, guid: 6b68acc18e3164841917a410e9a81d37, type: 3}
+  PistolS1:
+  - {fileID: 21300000, guid: 375f927990b4ad047807e9da4dd5cd53, type: 3}
+  - {fileID: 21300000, guid: a4eee17c85dafd74294f575c4bfe9424, type: 3}
+  - {fileID: 21300000, guid: b829fbd43167a2a439a11ba57e929db9, type: 3}
+  Rifle1:
+  - {fileID: 21300000, guid: fb0866ff2d2413d4ab43b1ef5ebf59ff, type: 3}
+  - {fileID: 21300000, guid: a6ea9fc92684610469d661cb5fa1d345, type: 3}
+  - {fileID: 21300000, guid: 9104f18cba3397245ba0fae9cd8d75cb, type: 3}
+  Sniper1:
+  - {fileID: 21300000, guid: 593d85d4b700cfd4ea58e41089593d05, type: 3}
+  - {fileID: 21300000, guid: bbc991f5a831eb749bc7aea7e466b430, type: 3}
+  - {fileID: 21300000, guid: ef7faf3cdb91a074199e9855e1b1acab, type: 3}
+  Sword1:
+  - {fileID: 21300000, guid: c9cc96d65db497b4d898759f44b7a814, type: 3}
+  - {fileID: 21300000, guid: 124339654b88f2942ade6af32ac962ba, type: 3}
+  SwordS1:
+  - {fileID: 21300000, guid: 7f44fdcbae2de4345b163a8ddd9a3be8, type: 3}
+  - {fileID: 21300000, guid: bea6904aea721d94fb88aae292055138, type: 3}

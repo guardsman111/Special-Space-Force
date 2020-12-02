@@ -10,14 +10,30 @@ public class Core_Equipment : MonoBehaviour
 
     public Equipment_Manager manager;
 
-    public Sprite[] Mk1ArmourP1;
-    public Sprite[] Mk1ArmourPS1;
-    public Sprite[] Mk1HelmetP1;
-    public Sprite[] Mk1HelmetPS1;
-    public Sprite[] BDUCasual;
-    public Sprite[] BDUUBACSP1;
-    public Sprite[] BDUUBACSPS1;
-    public Sprite[] BDUUBACS3C1;
+    public Sprite[] Mk1ArmourP;
+    public Sprite[] Mk1Armour2Camo;
+    public Sprite[] Mk1Armour3Camo;
+    public Sprite[] Mk1Armour3CamoDigi;
+    public Sprite[] Mk1HelmetP;
+    public Sprite[] Mk1HelmetS1;
+    public Sprite[] Mk1HelmetS2;
+    public Sprite[] Mk1Helmet2Camo;
+    public Sprite[] Mk1Helmet3Camo;
+    public Sprite[] Mk1Helmet3CamoDigi;
+    public Sprite[] Mk1Mod1HelmetP;
+    public Sprite[] Mk1Mod1HelmetS1;
+    public Sprite[] Mk1Mod1HelmetS2;
+    public Sprite[] Mk1Mod1Helmet2Camo;
+    public Sprite[] Mk1Mod1Helmet3Camo;
+    public Sprite[] Mk1Mod1Helmet3CamoDigi;
+    public Sprite[] FatiguesCasualP;
+    public Sprite[] FatiguesCasual2Camo;
+    public Sprite[] FatiguesCasual3Camo;
+    public Sprite[] FatiguesCasual3CamoDigi;
+    public Sprite[] FatiguesUBACSP;
+    public Sprite[] FatiguesUBACS2Camo;
+    public Sprite[] FatiguesUBACS3Camo;
+    public Sprite[] FatiguesUBACS3CamoDigi;
     public Sprite[] Backpack1;
     public Sprite[] Pistol1;
     public Sprite[] PistolS1;
@@ -37,7 +53,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.patternName = "Primary1";
         tempSP.packType = "Armour";
         tempSP.numberOfColours = 1;
-        foreach (Sprite s in Mk1ArmourP1)
+        foreach (Sprite s in Mk1ArmourP)
         {
             tempSP.containedSprites.Add(s);
         }
@@ -47,10 +63,36 @@ public class Core_Equipment : MonoBehaviour
         tempSP = new Sprite_Pack();
         tempSP.containedSprites = new List<Sprite>();
         tempSP.packName = "Mk1 Armour";
-        tempSP.patternName = "Secondary1";
+        tempSP.patternName = "Camo 2C";
         tempSP.packType = "Armour";
         tempSP.numberOfColours = 2;
-        foreach (Sprite s in Mk1ArmourPS1)
+        foreach (Sprite s in Mk1Armour2Camo)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        armourPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Armour";
+        tempSP.patternName = "Camo 3C";
+        tempSP.packType = "Armour";
+        tempSP.numberOfColours = 3;
+        foreach (Sprite s in Mk1Armour3Camo)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        armourPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Armour";
+        tempSP.patternName = "Digital Camo 3C";
+        tempSP.packType = "Armour";
+        tempSP.numberOfColours = 3;
+        foreach (Sprite s in Mk1Armour3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
         }
@@ -71,7 +113,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.patternName = "Primary1";
         tempSP.packType = "Helmet";
         tempSP.numberOfColours = 1;
-        foreach (Sprite s in Mk1HelmetP1)
+        foreach (Sprite s in Mk1HelmetP)
         {
             tempSP.containedSprites.Add(s);
         }
@@ -84,7 +126,137 @@ public class Core_Equipment : MonoBehaviour
         tempSP.patternName = "Secondary1";
         tempSP.packType = "Helmet";
         tempSP.numberOfColours = 2;
-        foreach (Sprite s in Mk1HelmetPS1)
+        foreach (Sprite s in Mk1HelmetS1)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet";
+        tempSP.patternName = "Secondary2";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in Mk1HelmetS2)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet";
+        tempSP.patternName = "Camo 2C";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in Mk1Helmet2Camo)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet";
+        tempSP.patternName = "Camo 3C";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 3;
+        foreach (Sprite s in Mk1Helmet3Camo)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet";
+        tempSP.patternName = "Digital Camo 3C";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 3;
+        foreach (Sprite s in Mk1Helmet3CamoDigi)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet Comms";
+        tempSP.patternName = "Primary1";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 1;
+        foreach (Sprite s in Mk1Mod1HelmetP)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet Comms";
+        tempSP.patternName = "Secondary1";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in Mk1Mod1HelmetS1)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet Comms";
+        tempSP.patternName = "Secondary2";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in Mk1Mod1HelmetS2)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet Comms";
+        tempSP.patternName = "Camo 2C";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in Mk1Mod1Helmet2Camo)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet Comms";
+        tempSP.patternName = "Camo 3C";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 3;
+        foreach (Sprite s in Mk1Mod1Helmet3Camo)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        helmetPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "Mk1 Helmet Comms";
+        tempSP.patternName = "Digital Camo 3C";
+        tempSP.packType = "Helmet";
+        tempSP.numberOfColours = 3;
+        foreach (Sprite s in Mk1Mod1Helmet3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
         }
@@ -105,7 +277,46 @@ public class Core_Equipment : MonoBehaviour
         tempSP.patternName = "Primary1";
         tempSP.packType = "Fatigues";
         tempSP.numberOfColours = 1;
-        foreach (Sprite s in BDUCasual)
+        foreach (Sprite s in FatiguesCasualP)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        fatiguesPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "BDU Casual";
+        tempSP.patternName = "Camo 2C";
+        tempSP.packType = "Fatigues";
+        tempSP.numberOfColours = 2;
+        foreach (Sprite s in FatiguesCasual2Camo)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        fatiguesPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "BDU Casual";
+        tempSP.patternName = "Camo 3C";
+        tempSP.packType = "Fatigues";
+        tempSP.numberOfColours = 3;
+        foreach (Sprite s in FatiguesCasual3Camo)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        fatiguesPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "BDU Casual";
+        tempSP.patternName = "Digital Camo 3C";
+        tempSP.packType = "Fatigues";
+        tempSP.numberOfColours = 3;
+        foreach (Sprite s in FatiguesCasual3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
         }
@@ -118,7 +329,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.patternName = "Primary1";
         tempSP.packType = "Fatigues";
         tempSP.numberOfColours = 1;
-        foreach (Sprite s in BDUUBACSP1)
+        foreach (Sprite s in FatiguesUBACSP)
         {
             tempSP.containedSprites.Add(s);
         }
@@ -128,10 +339,10 @@ public class Core_Equipment : MonoBehaviour
         tempSP = new Sprite_Pack();
         tempSP.containedSprites = new List<Sprite>();
         tempSP.packName = "BDU UBACS";
-        tempSP.patternName = "Secondary1";
+        tempSP.patternName = "Camo 2C";
         tempSP.packType = "Fatigues";
         tempSP.numberOfColours = 2;
-        foreach (Sprite s in BDUUBACSPS1)
+        foreach (Sprite s in FatiguesUBACS2Camo)
         {
             tempSP.containedSprites.Add(s);
         }
@@ -141,10 +352,23 @@ public class Core_Equipment : MonoBehaviour
         tempSP = new Sprite_Pack();
         tempSP.containedSprites = new List<Sprite>();
         tempSP.packName = "BDU UBACS";
-        tempSP.patternName = "3Camo1";
+        tempSP.patternName = "Camo 3C";
         tempSP.packType = "Fatigues";
         tempSP.numberOfColours = 3;
-        foreach (Sprite s in BDUUBACS3C1)
+        foreach (Sprite s in FatiguesUBACS3Camo)
+        {
+            tempSP.containedSprites.Add(s);
+        }
+
+        fatiguesPacks.Add(tempSP);
+
+        tempSP = new Sprite_Pack();
+        tempSP.containedSprites = new List<Sprite>();
+        tempSP.packName = "BDU UBACS";
+        tempSP.patternName = "Digital Camo 3C";
+        tempSP.packType = "Fatigues";
+        tempSP.numberOfColours = 3;
+        foreach (Sprite s in FatiguesUBACS3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
         }

@@ -35,9 +35,13 @@ public class Slot_Manager : MonoBehaviour
     public Sprite_Pack trooperSkinPack;
     public Sprite[] trooperSkinSprites;
     public Sprite_Pack maleHairPack;
+    public Sprite_Pack maleHairOutlinePack;
     public Sprite[] maleHairSprites;
+    public Sprite[] maleHairOutlineSprites;
     public Sprite_Pack femaleHairPack;
+    public Sprite_Pack femaleHairOutlinePack;
     public Sprite[] femaleHairSprites;
+    public Sprite[] femaleHairOutlineSprites;
 
     public Color32[] hairColours;
 
@@ -54,9 +58,13 @@ public class Slot_Manager : MonoBehaviour
         trooperSkinPack = new Sprite_Pack();
         maleHairPack = new Sprite_Pack();
         femaleHairPack = new Sprite_Pack();
+        maleHairOutlinePack = new Sprite_Pack();
+        femaleHairOutlinePack = new Sprite_Pack();
         trooperSkinPack.containedSprites = new List<Sprite>();
         maleHairPack.containedSprites = new List<Sprite>();
         femaleHairPack.containedSprites = new List<Sprite>();
+        maleHairOutlinePack.containedSprites = new List<Sprite>();
+        femaleHairOutlinePack.containedSprites = new List<Sprite>();
 
         foreach (Sprite s in trooperSkinSprites)
         {
@@ -72,11 +80,25 @@ public class Slot_Manager : MonoBehaviour
             maleHairPack.containedSprites.Add(s);
         }
 
+        foreach (Sprite s in maleHairOutlineSprites)
+        {
+            maleHairOutlinePack.packName = "Male Hair Outline";
+            maleHairOutlinePack.packType = "Hair Outline";
+            maleHairOutlinePack.containedSprites.Add(s);
+        }
+
         foreach (Sprite s in femaleHairSprites)
         {
             femaleHairPack.packName = "Female Hair";
             femaleHairPack.packType = "Hair";
             femaleHairPack.containedSprites.Add(s);
+        }
+
+        foreach (Sprite s in femaleHairOutlineSprites)
+        {
+            femaleHairOutlinePack.packName = "Female Hair Outline";
+            femaleHairOutlinePack.packType = "Hair Outline";
+            femaleHairOutlinePack.containedSprites.Add(s);
         }
 
         nTroopers = 0;

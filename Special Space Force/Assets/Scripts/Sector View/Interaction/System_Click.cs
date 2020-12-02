@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class System_Click : MonoBehaviour
 {
@@ -16,12 +17,15 @@ public class System_Click : MonoBehaviour
     [SerializeField]
     private Camera planetCamera;
 
+    public GameObject forceOrg;
+
     //Finds all the cameras
     private void Start()
     {
         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
         systemCamera = GameObject.Find("SystemCamera").GetComponent<Camera>();
         planetCamera = GameObject.Find("PlanetCamera").GetComponent<Camera>();
+        forceOrg = GameObject.Find("User Interface").GetComponentInChildren<Button>().gameObject;
     }
 
     //Toggles the Cameras depending on the current enabled camera
@@ -35,6 +39,9 @@ public class System_Click : MonoBehaviour
                 mainCamera.enabled = true;
                 systemCamera.enabled = false;
                 ToggleVisiblePlanets.TogglePlanetsOn(false);
+                systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
+                forceOrg.SetActive(true);
+                systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.ShowHelper();
             }
             else
             {
@@ -42,6 +49,9 @@ public class System_Click : MonoBehaviour
                 mainCamera.enabled = false;
                 systemCamera.enabled = true;
                 ToggleVisiblePlanets.TogglePlanetsOn(true);
+                systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
+                forceOrg.SetActive(false);
+                systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.HideHelper();
             }
         }
     }

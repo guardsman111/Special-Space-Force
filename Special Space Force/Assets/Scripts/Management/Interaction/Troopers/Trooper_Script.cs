@@ -67,7 +67,7 @@ public class Trooper_Script : MonoBehaviour
     public GameObject image;
     public TMP_InputField input;
 
-    public Image[] trooperImages; //Trooper Outline, T Colour, Hair Colour, Fatigue Primary, F Secondary, F Tertiary, F Special, F Outline,
+    public Image[] trooperImages; //Trooper Outline, T Colour, Hair Outline, Hair Colour, Fatigue Primary, F Secondary, F Tertiary, F Special, F Outline,
                                   //Armour Primary, A Secondary, A Tertiary, A Special, A Equipment, A Force Icon, A Outline, Helmet Primary,
                                   //H Secondary, H Tertiary, H Equipment, H Visor, H Outline, E Outline, E Primary, E Primary, W outline, 
                                   //W Primary, W Secondary
@@ -145,14 +145,16 @@ public class Trooper_Script : MonoBehaviour
 
         if (trooper.gender == 0)
         {
-            trooperImages[2].sprite = manager.femaleHairPack.containedSprites[trooperHair];
+            trooperImages[3].sprite = manager.femaleHairPack.containedSprites[trooperHair];
+            trooperImages[2].sprite = manager.femaleHairOutlinePack.containedSprites[trooperHair];
         }
         if (trooper.gender == 1)
         {
-            trooperImages[2].sprite = manager.maleHairPack.containedSprites[trooperHair];
+            trooperImages[3].sprite = manager.maleHairPack.containedSprites[trooperHair];
+            trooperImages[2].sprite = manager.maleHairOutlinePack.containedSprites[trooperHair];
         }
 
-        trooperImages[2].color = manager.hairColours[hairColour];
+        trooperImages[3].color = manager.hairColours[hairColour];
 
         input.text = trooperName;
 
@@ -509,26 +511,26 @@ public class Trooper_Script : MonoBehaviour
     //Sets the troopers colour scheme
     public void TrooperColours()
     {
-        trooperImages[3].color = equipmentManager.playerDefaultColours[5];
-        trooperImages[4].color = equipmentManager.playerDefaultColours[6];
-        trooperImages[5].color = equipmentManager.playerDefaultColours[7];
-        trooperImages[6].color = equipmentManager.playerDefaultColours[9];
-        trooperImages[7].color = equipmentManager.playerDefaultColours[8];
-        trooperImages[9].color = equipmentManager.playerDefaultColours[0];
-        trooperImages[10].color = equipmentManager.playerDefaultColours[1];
-        trooperImages[11].color = equipmentManager.playerDefaultColours[2];
-        trooperImages[12].color = equipmentManager.playerDefaultColours[4];
-        trooperImages[13].color = equipmentManager.playerDefaultColours[3];
-        trooperImages[16].color = equipmentManager.playerDefaultColours[10];
-        trooperImages[17].color = equipmentManager.playerDefaultColours[11];
-        trooperImages[18].color = equipmentManager.playerDefaultColours[12];
-        trooperImages[19].color = equipmentManager.playerDefaultColours[13];
-        trooperImages[23].color = equipmentManager.playerDefaultColours[16];
-        trooperImages[24].color = equipmentManager.playerDefaultColours[17];
-        trooperImages[26].color = equipmentManager.playerDefaultColours[14];
-        trooperImages[27].color = equipmentManager.playerDefaultColours[15];
-        trooperImages[29].color = equipmentManager.playerDefaultColours[14];
-        trooperImages[30].color = equipmentManager.playerDefaultColours[15];
+        trooperImages[4].color = equipmentManager.playerDefaultColours[5];
+        trooperImages[5].color = equipmentManager.playerDefaultColours[6];
+        trooperImages[6].color = equipmentManager.playerDefaultColours[7];
+        trooperImages[7].color = equipmentManager.playerDefaultColours[9];
+        trooperImages[8].color = equipmentManager.playerDefaultColours[8];
+        trooperImages[10].color = equipmentManager.playerDefaultColours[0];
+        trooperImages[11].color = equipmentManager.playerDefaultColours[1];
+        trooperImages[12].color = equipmentManager.playerDefaultColours[2];
+        trooperImages[13].color = equipmentManager.playerDefaultColours[4];
+        trooperImages[14].color = equipmentManager.playerDefaultColours[3];
+        trooperImages[17].color = equipmentManager.playerDefaultColours[10];
+        trooperImages[18].color = equipmentManager.playerDefaultColours[11];
+        trooperImages[19].color = equipmentManager.playerDefaultColours[12];
+        trooperImages[20].color = equipmentManager.playerDefaultColours[13];
+        trooperImages[24].color = equipmentManager.playerDefaultColours[16];
+        trooperImages[25].color = equipmentManager.playerDefaultColours[17];
+        trooperImages[27].color = equipmentManager.playerDefaultColours[14];
+        trooperImages[28].color = equipmentManager.playerDefaultColours[15];
+        trooperImages[30].color = equipmentManager.playerDefaultColours[14];
+        trooperImages[31].color = equipmentManager.playerDefaultColours[15];
     }
 
     //Changes the troopers name according to the input
