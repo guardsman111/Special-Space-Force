@@ -12,7 +12,7 @@ public class Planet_Biome
     float happinessModifier;
     float foodModifier;
 
-    bool surfacePop = false;
+    public bool surfacePop = false;
     public bool atmo = false;
 
     public Biome_Manager biomeManager;
@@ -64,7 +64,7 @@ public class Planet_Biome
         //change material to the correct biome
         foreach(Material m in biomeMats)
         {
-            if(m.name == biomeName)
+            if (m.name == biomeName)
             {
                 planetSkin.material = m;
                 break;

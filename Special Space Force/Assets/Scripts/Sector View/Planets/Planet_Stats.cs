@@ -13,6 +13,11 @@ public class Planet_Stats
     public Planet_Biome Biome;
     public int Population;
     public float popHappiness = 0.8f;
+    public float popConsumption;
+    public string catagory;
+    public float output;
+    public float popOutput;
+    public float resourceOutput;
 
     //Constructor for Planet_Stats - takes input from planet_script and creates the Planet_Stats
     public Planet_Stats(Planet_Class pClass, MeshRenderer skin)

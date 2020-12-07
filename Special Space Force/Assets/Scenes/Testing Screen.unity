@@ -18940,11 +18940,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2046461951}
-        m_MethodName: Height
-        m_Mode: 3
+        m_MethodName: NumberOfStars
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 675719582}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.InputField, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -22231,6 +22231,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 611836862, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: trooperNamesDropdown
+      value: 
+      objectReference: {fileID: 1741903504}
+    - target: {fileID: 611836862, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: hierachyNamesDropdown
+      value: 
+      objectReference: {fileID: 734076036}
+    - target: {fileID: 611836862, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: slotNamesDropdown
+      value: 
+      objectReference: {fileID: 1099275831}
+    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 732775614}
+    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: slotN1
+      value: 
+      objectReference: {fileID: 280618951}
+    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: nTroopersText
+      value: 
+      objectReference: {fileID: 829893588}
+    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: templateDropdown
+      value: 
+      objectReference: {fileID: 1247037771}
+    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: templatePreview
+      value: 
+      objectReference: {fileID: 1621776920}
     - target: {fileID: 3899211672308924088, guid: f49dfd96ae8ba7246909b769fb8956f5,
         type: 3}
       propertyPath: HelmetDropdownCustom
@@ -22381,38 +22413,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 611836862, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
-      propertyPath: trooperNamesDropdown
-      value: 
-      objectReference: {fileID: 1741903504}
-    - target: {fileID: 611836862, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
-      propertyPath: hierachyNamesDropdown
-      value: 
-      objectReference: {fileID: 734076036}
-    - target: {fileID: 611836862, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
-      propertyPath: slotNamesDropdown
-      value: 
-      objectReference: {fileID: 1099275831}
-    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 732775614}
-    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
-      propertyPath: slotN1
-      value: 
-      objectReference: {fileID: 280618951}
-    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
-      propertyPath: nTroopersText
-      value: 
-      objectReference: {fileID: 829893588}
-    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
-      propertyPath: templateDropdown
-      value: 
-      objectReference: {fileID: 1247037771}
-    - target: {fileID: 611836864, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
-      propertyPath: templatePreview
-      value: 
-      objectReference: {fileID: 1621776920}
     - target: {fileID: 578669330, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
       propertyPath: sectorHelper
       value: 
@@ -22425,6 +22425,78 @@ PrefabInstance:
       propertyPath: planetHelper
       value: 
       objectReference: {fileID: 66761673}
+    - target: {fileID: 2102915120, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 676844545, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427979368, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 251180012, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689853187, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 926474123, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190227693217799950, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924590275, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: factionManager
+      value: 
+      objectReference: {fileID: 768328984}
+    - target: {fileID: 8674545545228229024, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045816916981465706, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4840883829975065193, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2005489163, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782862855435766214, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064322450338659329, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231465985866891283, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020294557668964822, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
 --- !u!114 &768328980 stripped
@@ -22457,6 +22529,18 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 768328979}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &768328984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 768328984, guid: f49dfd96ae8ba7246909b769fb8956f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 768328979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52dc79a9ea5a9144db46da8e9741c743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &778088436
 GameObject:
   m_ObjectHideFlags: 0

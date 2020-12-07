@@ -12,11 +12,18 @@ public class Planet_Script : MonoBehaviour
     public string biome;
     public int population;
     public float useSpace;
+    public float output;
+    public float industrial;
+    public bool inhabited;
     public Planet_Class planet;
     public TextMeshPro tName;
     public TextMeshPro tStats;
+    public Faction_Manager factionManager;
 
     public Planet_Stats Stats;
+    public GameObject clouds;
+    public List<GameObject> moons;
+    public GameObject MoonPrefab;
 
     //Linked to the planets mesh renderer so we can change the material, allowing for players to create their own.
     public MeshRenderer planetSkin;
@@ -50,7 +57,7 @@ public class Planet_Script : MonoBehaviour
     }
 
     //Loading the planetary stats
-    public void PlanetGen(Planet_Class planetClass)
+    public void PlanetGen(Planet_Class planetClass, Faction_Manager factionM)
     {
         //planetSkin = gameObject.transform.Find("PlanetSurface").GetComponent<MeshRenderer>();
         Stats = new Planet_Stats(planetClass, planetSkin);
@@ -60,6 +67,9 @@ public class Planet_Script : MonoBehaviour
         population = planetClass.population;
         useSpace = planetClass.usableSpace;
         tName.text = Stats.PName;
+        factionManager = factionM;
+        industrial = planet.builtIndustry;
+
         if (Stats.Population != 0)
         {
             tStats.text = "Population: " + Stats.Population + "\nPopulation Happiness: " + Stats.popHappiness;
@@ -68,6 +78,41 @@ public class Planet_Script : MonoBehaviour
         {
             tStats.text = "Uninhabited";
         }
+
+        if (Stats.Biome.biomeName.Contains("Giant"))
+        {
+            if(planet.size < 200)
+            {
+                planet.size = Random.Range(500, 2000);
+            }
+        }
+
+        if (!Stats.Biome.surfacePop)
+        {
+            clouds.SetActive(false);
+        }
         //Debug.Log("Generated Planets");
+
+        if (!Stats.Biome.surfacePop)
+        {
+            planet.popProduction *= 10;
+        }
+
+        Stats.output = factionManager.CalculatePlanetOutput(this);
+        output = Stats.output;
+        industrial = planet.builtIndustry;
+
+        if(planet.size < 200)
+        {
+            int random = Random.Range(0, 100);
+
+            if(random < 100)
+            {
+                GameObject tempMoon = Instantiate(MoonPrefab, transform);
+                tempMoon.GetComponent<MoonController>().target = transform;
+                moons.Add(tempMoon);
+                tempMoon.SetActive(false);
+            }
+        }
     }
 }

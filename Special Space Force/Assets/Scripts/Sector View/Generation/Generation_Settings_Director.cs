@@ -23,11 +23,11 @@ public class Generation_Settings_Director : MonoBehaviour
     private int habitableChance = 50;
     private int habitationChance = 50;
     private int resourceAbundancy = 50;
-    private int playerStrength = 0;
+    private int playerStrength = 2;
     private int xenophobia = 50;
-    private int militarism = 0;
+    private int militarism = 2;
     private int expansionism = 50;
-    private int industrialism = 0;
+    private int industrialism = 2;
     private int funding = 50;
 
     private bool[] AIBoolArray;

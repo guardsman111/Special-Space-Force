@@ -12,6 +12,22 @@ public class System_Script : MonoBehaviour
     private System_Class star;
     public string allegiance;
 
+    private List<Planet_Script> systemPlanets;
+
+    public List<Planet_Script> SystemPlanets
+    {
+        get { return systemPlanets; }
+
+        set
+        {
+            if
+              (value != systemPlanets)
+            {
+                systemPlanets = value;
+            }
+        }
+    }
+
     public System_Class Star
     {
         get { return star; }
@@ -32,8 +48,10 @@ public class System_Script : MonoBehaviour
         systemGenerator = sysGen;
         int avgSize = sysGen.AvgPlanetSize;
         float avgResource = sysGen.generatedProduct.resourceAbundancy;
+        float industrialism = sysGen.generatedProduct.industrialism;
         int playerStrength = sysGen.generatedProduct.playerStrength;
         star = new System_Class();
+        systemPlanets = new List<Planet_Script>();
         star.systemName = name;
         this.gameObject.GetComponentInChildren<TextMeshPro>().text = name;
         star.colour = colour;
@@ -125,6 +143,37 @@ public class System_Script : MonoBehaviour
             allegiance = "Player";
         }
 
+        switch (star.allegiance)
+        {
+            case 0:
+                sysGen.factionManager.Factions[0].controlledSystems.Add(this);
+                break;
+
+            case 1:
+                sysGen.factionManager.Factions[1].controlledSystems.Add(this);
+                break;
+
+            case 2:
+                sysGen.factionManager.Factions[2].controlledSystems.Add(this);
+                break;
+
+            case 3:
+                sysGen.factionManager.Factions[3].controlledSystems.Add(this);
+                break;
+
+            case 4:
+                sysGen.factionManager.Factions[4].controlledSystems.Add(this);
+                break;
+
+            case 5:
+                sysGen.factionManager.Factions[5].controlledSystems.Add(this);
+                break;
+
+            case 6:
+                sysGen.factionManager.Factions[6].controlledSystems.Add(this);
+                break;
+        }
+
         //Set Star_Class position
         star.posX = x;
         star.posZ = z;
@@ -187,10 +236,22 @@ public class System_Script : MonoBehaviour
             if (random > systemGenerator.generatedProduct.habitableChance) { habitable = false; }
             if (random2 > systemGenerator.generatedProduct.inhabitedChance && i != 0) { inhabited = false; }
 
-            
+            //Generate size and usable space
+            for (int j = 0; j < 2; j++)
+            {
+                temp.size = Random.Range(50, 100);
+                int sizeR = Random.Range(0, 50);
+                float sizeCalc = Mathf.Abs(avgSize - temp.size);
+                if (sizeCalc < sizeR)
+                {
+                    break;
+                }
+            }
+
             if (habitable)
             {
                 //Set population
+
                 if (inhabited) { random = Random.Range(0, 1000000000); temp.population = (int)random; }
                 else { temp.population = 0; }
 
@@ -202,6 +263,8 @@ public class System_Script : MonoBehaviour
                 }
                 temp.biome = systemGenerator.BiomeManager.Biomes[rand].biomeName;
                 biomeID = rand;
+
+                temp.popProduction = (industrialism * industrialism) / 10;
             } 
             else
             {
@@ -219,27 +282,9 @@ public class System_Script : MonoBehaviour
                 temp.biomeID = rand;
                 biomeID = rand;
 
-                //Turns off SFX clouds on the planets
-                foreach(CloudRotation cr in planetT.gameObject.GetComponentsInChildren<CloudRotation>())
-                {
-                    if (cr.gameObject.name == "Clouds_Stormy")
-                    {
-                        cr.gameObject.SetActive(false);
-                    }
-                }
+                temp.popProduction = (industrialism * industrialism) / 10;
             }
 
-            //Generate size and usable space
-            for (int j = 0; j < 2; j++)
-            {
-                temp.size = Random.Range(50, 100);
-                int sizeR = Random.Range(0, 50);
-                float sizeCalc = Mathf.Abs(avgSize - temp.size);
-                if (sizeCalc < sizeR)
-                {
-                    break;
-                } 
-            }
 
             //Generate Resources
 
@@ -253,6 +298,11 @@ public class System_Script : MonoBehaviour
                 temp.baseMetalsAmount = 0;
             }
 
+            if(temp.baseMetalsAmount > 100)
+            {
+                temp.baseMetalsAmount = 100;
+            }
+
             //Precious Metals
             if (sysGen.BiomeManager.Biomes[temp.biomeID].SurfacePop)
             {
@@ -261,6 +311,11 @@ public class System_Script : MonoBehaviour
             else
             {
                 temp.preciousMetalsAmount = 0;
+            }
+
+            if (temp.preciousMetalsAmount > 100)
+            {
+                temp.preciousMetalsAmount = 100;
             }
 
             //Food Availability
@@ -273,12 +328,40 @@ public class System_Script : MonoBehaviour
                 temp.foodAvailability = 0;
             }
 
+            if (temp.foodAvailability > 100)
+            {
+                temp.foodAvailability = 100;
+            }
+
             //Generate Random Usable space between biome min and max space
             temp.usableSpace = Random.Range(systemGenerator.BiomeManager.Biomes[biomeID].minSpace, systemGenerator.BiomeManager.Biomes[biomeID].maxSpace);
+
+            //Generate Industrial Level
+            if (inhabited)
+            {
+                temp.builtIndustry = (int)Weighting(industrialism * 20);
+                if (temp.builtIndustry == 0)
+                {
+                    temp.builtIndustry = temp.population / 10000000;
+                }
+                if (temp.builtIndustry > temp.usableSpace * 100)
+                {
+                    temp.builtIndustry = (int)(temp.usableSpace * 100);
+                }
+
+            }
+            else
+            {
+                temp.builtIndustry = 0;
+            }
+
+            temp.inhabited = inhabited;
             
             //Generate Planet_Script using the temp Planet_Script and add to Star Array
-            planetT.GetComponent<Planet_Script>().PlanetGen(temp);
+            planetT.GetComponent<Planet_Script>().PlanetGen(temp, sysGen.factionManager);
+            systemPlanets.Add(planetT.GetComponent<Planet_Script>());
             star.Array.Add(temp);
+            planetT.GetComponent<Planet_Script>().inhabited = inhabited;
         }
     }
 
@@ -305,7 +388,7 @@ public class System_Script : MonoBehaviour
 
             Planet_Class temp = new Planet_Class();
             temp = system.Array[i];
-            planetT.GetComponent<Planet_Script>().PlanetGen(temp);
+            planetT.GetComponent<Planet_Script>().PlanetGen(temp, sysGen.factionManager);
         }
     }
 
@@ -324,23 +407,23 @@ public class System_Script : MonoBehaviour
         }
         if (weighting < 90)
         {
-            weight = 50f;
+            weight = 70f;
         }
         if (weighting < 70)
         {
-            weight = 20f;
+            weight = 50f;
         }
         if (weighting < 50)
         {
-            weight = 10f;
+            weight = 30f;
         }
         if (weighting < 30)
         {
-            weight = 5f;
+            weight = 10f;
         }
         if (weighting < 10)
         {
-            weight = 1f;
+            weight = 5f;
         }
 
         float modifier;

@@ -30,15 +30,16 @@ public class System_Generator : MonoBehaviour
 
     public string[] colours;
     [SerializeField]
-    public List<System_Class> systemsList;
+    private List<System_Class> systemsList;
     [SerializeField]
-    public List<GameObject> generatedSystems;
+    private List<GameObject> generatedSystems;
     [SerializeField]
     public GameObject[] prefabs;
     public GameObject planetPrefab;
     public Generation_Class generatedProduct;
     [SerializeField]
     public Color32[] AIColors;
+    public Faction_Manager factionManager;
 
     public int AvgPlanetSize
     {
@@ -46,10 +47,35 @@ public class System_Generator : MonoBehaviour
 
         set
         {
-            if
-              (value != avgPlanetSize)
+            if(value != avgPlanetSize)
             {
                 avgPlanetSize = value;
+            }
+        }
+    }
+
+    public List<System_Class> SystemsList
+    {
+        get { return systemsList; }
+
+        set
+        {
+            if(value != systemsList)
+            {
+                systemsList = value;
+            }
+        }
+    }
+
+    public List<GameObject> GeneratedSystems
+    {
+        get { return generatedSystems; }
+
+        set
+        {
+            if (value != generatedSystems)
+            {
+                generatedSystems = value;
             }
         }
     }
@@ -61,9 +87,23 @@ public class System_Generator : MonoBehaviour
         generatedSystems = new List<GameObject>();
         avgPlanetSize = product.averagePlanetSize;
         generatedProduct = product;
+        factionManager.Factions = new List<Faction_Class>();
+        factionManager.Factions.Add(new Faction_Class());
+        factionManager.Factions[0].factionName = "Player Faction";
+        factionManager.Factions[0].controlledSystems = new List<System_Script>();
+        factionManager.Factions[0].controlledPlanets = new List<Planet_Script>();
+
+        for (int i = 1; i <= product.toggledAI.Count; i++)
+        {
+            factionManager.Factions.Add(new Faction_Class());
+            factionManager.Factions[i].factionName = product.toggledAI[i - 1].race.empireName;
+            factionManager.Factions[i].controlledSystems = new List<System_Script>();
+            factionManager.Factions[i].controlledPlanets = new List<Planet_Script>();
+        }
         
+
         //For each star generate position, colour, #planets and name
-        for(int i = 0; i < product.numberofStars; i++)
+        for(int i = 0; i <= product.numberofStars; i++)
         {
             int posX = Random.Range(-(product.width / 2), (product.width / 2));
             int posZ = Random.Range(-(product.height / 2), (product.height / 2));
@@ -75,6 +115,8 @@ public class System_Generator : MonoBehaviour
         }
         secHeight = product.height;
         secWidth = product.width;
+
+        factionManager.Run(generatedSystems);
     }
 
     //Load and then generate
@@ -95,7 +137,7 @@ public class System_Generator : MonoBehaviour
         {
             if (colour == colours[i])
             {
-                var star = Instantiate(prefabs[i], new Vector3(x, 0, z), this.transform.rotation);
+                GameObject star = Instantiate(prefabs[i], new Vector3(x, 0, z), this.transform.rotation);
                 //Check and re-check (up the 10 times) the position of the system and make sure no systems are within 3000
                 for (int j = 0; j < 10; j++)
                 {
@@ -122,6 +164,8 @@ public class System_Generator : MonoBehaviour
                         Destroy(star);
                     }
                 }
+
+
             }
         }
     }

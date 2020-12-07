@@ -30559,7 +30559,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemCamera: {fileID: 0}
   planetCamera: {fileID: 0}
+  planetScreenCamera: {fileID: 0}
   planetScreen: {fileID: 0}
+  star: {fileID: 0}
 --- !u!114 &5314573060193589924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30576,8 +30578,17 @@ MonoBehaviour:
   biome: 
   population: 0
   useSpace: 0
+  output: 0
+  industrial: 0
+  inhabited: 0
   tName: {fileID: 3700241126581240377}
   tStats: {fileID: 2382609088808121264}
+  factionManager: {fileID: 0}
+  clouds: {fileID: 7489666708470973784}
+  Moon:
+  - {fileID: 0}
+  MoonPrefab: {fileID: 8226410798005092735, guid: 7c64be8c8822c604e9e88e0045177a79,
+    type: 3}
   planetSkin: {fileID: 7467939585733680666}
 --- !u!1 &7490921621009344190
 GameObject:

@@ -18,7 +18,9 @@ public class Planet_Class
     public float baseMetalsAmount;
     public float preciousMetalsAmount;
     public float foodAvailability;
+    public float popProduction;
 
+    public int builtIndustry;
 
     public Planet_Class()
     {

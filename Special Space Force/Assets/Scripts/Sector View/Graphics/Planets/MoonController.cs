@@ -13,11 +13,15 @@ public class MoonController : MonoBehaviour
     public float yRotSpd;
     public float zRotSpd;
 
+    void Start()
+    {
+        yRotSpd = Random.Range(-25f, 25f);
+        zRotSpd = Random.Range(-25f, 25f);
+    }
 
     //Rotates the object around another
-    void FixedUpdate()
+    void Update()
     {
-        transform.RotateAround(target.position, Vector3.left, yRotSpd);
-        transform.RotateAround(target.position, Vector3.down, zRotSpd);
+        transform.Rotate(0, yRotSpd * Time.deltaTime, zRotSpd * Time.deltaTime); //rotates 50 degrees per second around z axis
     }
 }

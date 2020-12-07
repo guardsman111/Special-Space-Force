@@ -39,32 +39,73 @@ public class Planet_Click : MonoBehaviour
     {
         if (!previous)
         {
-            planetCamera.GetComponent<Camera_Targeted>().target = transform;
-            systemCamera.enabled = false;
-            star.enabled = false;
-            planetCamera.enabled = true;
-            planetScreenCamera.enabled = true;
-            ToggleVisiblePlanets.TogglePlanetsOn(false);
-            this.gameObject.SetActive(true);
+            if (!planetCamera.enabled)
+            {
+                planetCamera.GetComponent<Camera_Targeted>().target = transform;
+                systemCamera.enabled = false;
+                star.enabled = false;
+                planetCamera.enabled = true;
+                planetScreenCamera.enabled = true;
+                ToggleVisiblePlanets.TogglePlanetsOn(false);
+                this.gameObject.SetActive(true);
 
-            //Changes the planetScreen text 
-            planetScreen.planetName.text = gameObject.GetComponent<Planet_Script>().planet.planetName;
-            float earthRelativePlanetSize = gameObject.GetComponent<Planet_Script>().planet.size + 25;
-            planetScreen.planetSize.text = "Earth Size Ratio: " + earthRelativePlanetSize / 100.0f + " Earth(s)";
-            if (gameObject.GetComponent<Planet_Script>().planet.population > 0)
-            {
-                planetScreen.planetPopulation.text = "Population: " + gameObject.GetComponent<Planet_Script>().planet.population.ToString("00,0");
+                Planet_Script sPlanet = gameObject.GetComponent<Planet_Script>();
+                foreach(GameObject go in sPlanet.moons)
+                {
+                    go.SetActive(true);
+                }
+                //Changes the planetScreen text 
+                planetScreen.planetName.text = sPlanet.planet.planetName;
+                float earthRelativePlanetSize = sPlanet.planet.size + 25;
+                planetScreen.planetBiome.text = "Prevalent Biome: " + sPlanet.planet.biome;
+                planetScreen.planetSize.text = "Earth Size Ratio: " + earthRelativePlanetSize / 100.0f + " Earth(s)";
+                if (sPlanet.planet.population > 0)
+                {
+                    planetScreen.planetPopulation.text = "Population: " + sPlanet.planet.population.ToString("00,0");
+                    planetScreen.planetType.text = "Main Export: " + sPlanet.Stats.catagory;
+                    planetScreen.planetUsableSpace.enabled = true;
+                    planetScreen.planetIndustry.enabled = true;
+                    planetScreen.planetPopCons.enabled = true;
+
+                    planetScreen.planetPlanetOutput.enabled = true;
+                    planetScreen.planetOrbitalOutput.enabled = true;
+                    planetScreen.planetTotalOutput.enabled = true;
+                    planetScreen.planetUsableSpace.text = "Usable Surface Landmass: " + (sPlanet.planet.usableSpace * 100).ToString("0.0") + "%";
+                    planetScreen.planetIndustry.text = "Surface Used by Industry: " + sPlanet.planet.builtIndustry.ToString("0.0") + "%";
+                    planetScreen.planetPopCons.text = "Output Consumed by Population: " + sPlanet.Stats.popConsumption.ToString("00,0") + " Kilo-Tonnes";
+
+                    planetScreen.planetPlanetOutput.text = "Resources Output: " + sPlanet.Stats.resourceOutput.ToString("00,0") + " Kilo-Tonnes";
+                    planetScreen.planetOrbitalOutput.text = "Population Output: " + sPlanet.Stats.popOutput.ToString("00,0") + " Kilo-Tonnes";
+                    planetScreen.planetTotalOutput.text = "Total Monthly Output: " + sPlanet.Stats.output.ToString("00,0") + " Kilo-Tonnes";
+                }
+                else
+                {
+                    planetScreen.planetPopulation.text = "Uninhabited";
+                    planetScreen.planetType.text = "Main Export: ";
+                    planetScreen.planetUsableSpace.enabled = false;
+                    planetScreen.planetIndustry.enabled = false;
+                    planetScreen.planetPopCons.enabled = false;
+
+                    planetScreen.planetPlanetOutput.enabled = false;
+                    planetScreen.planetOrbitalOutput.enabled = false;
+                    planetScreen.planetTotalOutput.enabled = false;
+                }
+                if (sPlanet.Stats.Biome.surfacePop)
+                {
+                    planetScreen.planetBaseMetals.text = "Base Metals Abundancy: " + sPlanet.planet.baseMetalsAmount.ToString("0.0") + "%";
+                    planetScreen.planetPreciousMetals.text = "Precious Metals Abundancy: " + sPlanet.planet.preciousMetalsAmount.ToString("0.0") + "%";
+                    planetScreen.planetFood.text = "Agricultural Land: " + sPlanet.planet.foodAvailability.ToString("0.0") + "%";
+                }
+                else
+                {
+                    planetScreen.planetBaseMetals.text = "Base Metals Abundancy: " + sPlanet.planet.baseMetalsAmount.ToString("0.0") + "%";
+                    planetScreen.planetPreciousMetals.text = "Precious Metals Abundancy: " + sPlanet.planet.preciousMetalsAmount.ToString("0.0") + "%";
+                    planetScreen.planetFood.text = "Agricultural Land: " + sPlanet.planet.foodAvailability.ToString("0.0") + "%";
+                }
+                previous = true;
+                systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
+                systemCamera.GetComponent<Camera_Container_Script>().planetHelper.ShowHelper();
             }
-            else
-            {
-                planetScreen.planetPopulation.text = "Uninhabited";
-            }
-            planetScreen.planetBaseMetals.text = "Base Metals Abundancy: " + gameObject.GetComponent<Planet_Script>().planet.baseMetalsAmount.ToString("0.0") + "%";
-            planetScreen.planetPreciousMetals.text = "Precious Metals Abundancy: " + gameObject.GetComponent<Planet_Script>().planet.preciousMetalsAmount.ToString("0.0") + "%";
-            planetScreen.planetFood.text = "Arable Land: " + gameObject.GetComponent<Planet_Script>().planet.foodAvailability.ToString("0.0") + "%";
-            previous = true;
-            systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
-            systemCamera.GetComponent<Camera_Container_Script>().planetHelper.ShowHelper();
         }
     }
 
@@ -73,6 +114,10 @@ public class Planet_Click : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            foreach (GameObject go in gameObject.GetComponent<Planet_Script>().moons)
+            {
+                go.SetActive(false);
+            }
             systemCamera.enabled = true;
             star.enabled = true;
             planetCamera.enabled = false;

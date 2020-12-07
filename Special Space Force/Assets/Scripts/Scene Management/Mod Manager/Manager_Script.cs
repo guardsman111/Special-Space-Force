@@ -11,4 +11,5 @@ public class Manager_Script : MonoBehaviour
     public Race_Manager raceManager;
     public Equipment_Manager equipmentManager;
     public Trait_Manager traitManager;
+    public Faction_Manager factionManager;
 }
