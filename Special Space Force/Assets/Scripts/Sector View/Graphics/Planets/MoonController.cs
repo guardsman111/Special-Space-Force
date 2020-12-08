@@ -7,7 +7,9 @@ public class MoonController : MonoBehaviour
     /// <summary>
     /// Currently unused script to rotate moons around planets
     /// </summary>
-    
+
+    public GameObject[] items;
+
     public Transform target;
     public float xRotSpd;
     public float yRotSpd;
@@ -15,8 +17,8 @@ public class MoonController : MonoBehaviour
 
     void Start()
     {
-        yRotSpd = Random.Range(-25f, 25f);
-        zRotSpd = Random.Range(-25f, 25f);
+        yRotSpd = Random.Range(-10f, 10f);
+        zRotSpd = Random.Range(-10f, 10f);
     }
 
     //Rotates the object around another

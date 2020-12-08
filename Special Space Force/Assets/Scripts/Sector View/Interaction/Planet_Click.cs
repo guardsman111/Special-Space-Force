@@ -50,10 +50,27 @@ public class Planet_Click : MonoBehaviour
                 this.gameObject.SetActive(true);
 
                 Planet_Script sPlanet = gameObject.GetComponent<Planet_Script>();
+
+                sPlanet.planetSkin.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+
+                //Sets moons as visible
                 foreach(GameObject go in sPlanet.moons)
                 {
                     go.SetActive(true);
                 }
+
+                int random = Random.Range(0, 100);
+
+                //if(random < 75) Storms do not currently work when in build but o in unity Play, no idea why
+                //{
+                //    sPlanet.storms.SetActive(true);
+                //    sPlanet.storms.GetComponent<Weather_Visuals>().Toggle();
+                //} 
+                //else
+                //{
+                //    sPlanet.storms.SetActive(false);
+                //}
+
                 //Changes the planetScreen text 
                 planetScreen.planetName.text = sPlanet.planet.planetName;
                 float earthRelativePlanetSize = sPlanet.planet.size + 25;
@@ -61,7 +78,7 @@ public class Planet_Click : MonoBehaviour
                 planetScreen.planetSize.text = "Earth Size Ratio: " + earthRelativePlanetSize / 100.0f + " Earth(s)";
                 if (sPlanet.planet.population > 0)
                 {
-                    planetScreen.planetPopulation.text = "Population: " + sPlanet.planet.population.ToString("00,0");
+                    planetScreen.planetPopulation.text = "Population: " + sPlanet.planet.population.ToString("00,0") + ",000";
                     planetScreen.planetType.text = "Main Export: " + sPlanet.Stats.catagory;
                     planetScreen.planetUsableSpace.enabled = true;
                     planetScreen.planetIndustry.enabled = true;

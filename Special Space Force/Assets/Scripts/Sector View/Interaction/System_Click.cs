@@ -15,7 +15,11 @@ public class System_Click : MonoBehaviour
     [SerializeField]
     private Camera systemCamera;
     [SerializeField]
+    private Camera systemScreenCamera;
+    [SerializeField]
     private Camera planetCamera;
+
+    public System_Screen systemScreen;
 
     public GameObject forceOrg;
 
@@ -24,8 +28,10 @@ public class System_Click : MonoBehaviour
     {
         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
         systemCamera = GameObject.Find("SystemCamera").GetComponent<Camera>();
+        systemScreenCamera = GameObject.Find("System Screen Camera").GetComponent<Camera>();
         planetCamera = GameObject.Find("PlanetCamera").GetComponent<Camera>();
         forceOrg = GameObject.Find("User Interface").GetComponentInChildren<Button>().gameObject;
+        systemScreen = systemCamera.GetComponentInChildren<System_Screen>();
     }
 
     //Toggles the Cameras depending on the current enabled camera
@@ -38,6 +44,7 @@ public class System_Click : MonoBehaviour
                 systemCamera.transform.position = mainCamera.transform.position;
                 mainCamera.enabled = true;
                 systemCamera.enabled = false;
+                systemScreenCamera.enabled = false;
                 ToggleVisiblePlanets.TogglePlanetsOn(false);
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                 forceOrg.SetActive(true);
@@ -48,7 +55,15 @@ public class System_Click : MonoBehaviour
                 systemCamera.transform.position = cameraTransform.position;
                 mainCamera.enabled = false;
                 systemCamera.enabled = true;
+                systemScreenCamera.enabled = true;
+                System_Script system = GetComponent<System_Script>();
+
+                systemScreen.name.text = "System: " + system.Star.systemName;
+                systemScreen.allegiance.text = "Owner: " + system.allegiance;
+                systemScreen.output.text = "Total Output: " + system.combinedOutput.ToString("00,0") + " Kilo-Tonnes";
+
                 ToggleVisiblePlanets.TogglePlanetsOn(true);
+
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
                 forceOrg.SetActive(false);
                 systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.HideHelper();

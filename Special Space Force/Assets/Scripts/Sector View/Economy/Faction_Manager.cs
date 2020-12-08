@@ -42,10 +42,16 @@ public class Faction_Manager : MonoBehaviour
         foreach(Faction_Class fc in factions)
         {
             fc.factionIncome = 0;
-            foreach (Planet_Script pc in fc.controlledPlanets)
+            foreach (System_Script sc in fc.controlledSystems)
             {
+                sc.combinedOutput = 0;
+                foreach (Planet_Script pc in sc.SystemPlanets)
+                {
+                    sc.combinedOutput += (int)pc.output;
                     fc.factionIncome += (int)pc.output;
+                }
             }
+
             fc.factionResourcePile += fc.factionIncome;
 
             Debug.Log(fc.factionName + " gains " + fc.factionIncome.ToString() + " resources added to it's stockpile; Stockpile total - " + fc.factionResourcePile.ToString());
@@ -60,57 +66,57 @@ public class Faction_Manager : MonoBehaviour
 
         float popFactor = 1;
 
-        if(planet.population > 1000000)
+        if(planet.population > 1000)
         {
             popFactor = 2;
         }
-        if (planet.population > 10000000)
+        if (planet.population > 10000)
         {
             popFactor = 3;
         }
-        if (planet.population > 50000000)
+        if (planet.population > 50000)
         {
             popFactor = 5;
         }
-        if (planet.population > 100000000)
+        if (planet.population > 100000)
         {
             popFactor = 10;
         }
-        if (planet.population > 300000000)
+        if (planet.population > 300000)
         {
             popFactor = 12;
         }
-        if (planet.population > 600000000)
+        if (planet.population > 600000)
         {
             popFactor = 16;
         }
-        if (planet.population > 900000000)
+        if (planet.population > 900000)
         {
             popFactor = 20;
         }
 
         if (planet.Stats.popHappiness == 0)
         {
-            popFactor = popFactor / 10;
+            popFactor = popFactor / 3;
         } 
         else if(planet.Stats.popHappiness < 0.2)
         {
-            popFactor = popFactor / 5;
+            popFactor = popFactor / 2;
         }
         else if (planet.Stats.popHappiness < 0.4)
         {
-            popFactor = popFactor / 3;
+            popFactor = popFactor / 1.5f;
         }
         else if (planet.Stats.popHappiness < 0.5)
         {
-            popFactor = popFactor / 2;
+            popFactor = popFactor / 1.3f;
         }
 
         float bMetalOutput = planet.planet.baseMetalsAmount * (planet.planet.builtIndustry * popFactor);
         float pMetalOutput = planet.planet.preciousMetalsAmount * (planet.planet.builtIndustry * popFactor);
         float aLandOutput = planet.planet.foodAvailability * (planet.planet.builtIndustry * popFactor);
-        float popOutput = planet.planet.popProduction * (planet.population / 50000);
-        float popRequirement = planet.population / 10000;
+        float popOutput = planet.planet.popProduction * (planet.population / 50);
+        float popRequirement = planet.population / 10;
         planet.Stats.popConsumption = popRequirement;
         planet.Stats.resourceOutput = bMetalOutput + pMetalOutput + aLandOutput;
         planet.Stats.popOutput = popOutput;

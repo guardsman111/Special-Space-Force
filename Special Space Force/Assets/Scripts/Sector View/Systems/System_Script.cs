@@ -10,6 +10,7 @@ public class System_Script : MonoBehaviour
     /// </summary>
     public System_Generator systemGenerator;
     private System_Class star;
+    public float combinedOutput;
     public string allegiance;
 
     private List<Planet_Script> systemPlanets;
@@ -252,8 +253,12 @@ public class System_Script : MonoBehaviour
             {
                 //Set population
 
-                if (inhabited) { random = Random.Range(0, 1000000000); temp.population = (int)random; }
-                else { temp.population = 0; }
+                if(temp.population > 500000)
+                {
+                    random = Random.Range(0f, 10000000f);
+                    random = Mathf.Round(random);
+                    temp.population = random;
+                }
 
                 //Make sure planet biome is a habitable one (to avoid bugs of people living on gas giants)
                 int rand = Random.Range(0, systemGenerator.BiomeManager.CheckCount());
@@ -269,8 +274,12 @@ public class System_Script : MonoBehaviour
             else
             {
                 //Set population
-                if (inhabited) { random = Random.Range(0, 10000000); temp.population = (int)random; } 
-                else { temp.population = 0; }
+                if (inhabited)
+                {
+                    random = Random.Range(0, 10000); 
+                    random = Mathf.Round(random); 
+                    temp.population = (int)random;
+                }
 
                 //Make sure planet biome is an uninhabitable one
                 int rand = Random.Range(0, systemGenerator.BiomeManager.CheckCount());
@@ -284,6 +293,17 @@ public class System_Script : MonoBehaviour
 
                 temp.popProduction = (industrialism * industrialism) / 10;
             }
+
+            //Generate Random Usable space between biome min and max space
+            temp.usableSpace = Random.Range(systemGenerator.BiomeManager.Biomes[biomeID].minSpace, systemGenerator.BiomeManager.Biomes[biomeID].maxSpace);
+
+            if (inhabited && temp.population == 0)
+            {
+                random = Random.Range(0, 1000000 * temp.usableSpace);
+                random = Mathf.Round(random);
+                temp.population = random;
+            }
+            else if(!inhabited) { temp.population = 0; }
 
 
             //Generate Resources
@@ -333,16 +353,14 @@ public class System_Script : MonoBehaviour
                 temp.foodAvailability = 100;
             }
 
-            //Generate Random Usable space between biome min and max space
-            temp.usableSpace = Random.Range(systemGenerator.BiomeManager.Biomes[biomeID].minSpace, systemGenerator.BiomeManager.Biomes[biomeID].maxSpace);
 
             //Generate Industrial Level
             if (inhabited)
             {
                 temp.builtIndustry = (int)Weighting(industrialism * 20);
-                if (temp.builtIndustry == 0)
+                if (temp.builtIndustry <= 5 && sysGen.BiomeManager.Biomes[temp.biomeID].SurfacePop)
                 {
-                    temp.builtIndustry = temp.population / 10000000;
+                    temp.builtIndustry = Random.Range(5,30);
                 }
                 if (temp.builtIndustry > temp.usableSpace * 100)
                 {

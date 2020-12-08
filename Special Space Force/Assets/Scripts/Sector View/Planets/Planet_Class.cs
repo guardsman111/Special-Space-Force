@@ -12,7 +12,7 @@ public class Planet_Class
     public string biome;
     public int biomeID;
     public bool inhabited;
-    public int population;
+    public float population;
     public int size;
     public float usableSpace;
     public float baseMetalsAmount;

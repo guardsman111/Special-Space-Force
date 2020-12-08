@@ -11,7 +11,7 @@ public class Planet_Stats
     
     public string PName;
     public Planet_Biome Biome;
-    public int Population;
+    public float Population;
     public float popHappiness = 0.8f;
     public float popConsumption;
     public string catagory;
