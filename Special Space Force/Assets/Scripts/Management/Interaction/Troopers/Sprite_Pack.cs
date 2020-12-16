@@ -10,6 +10,7 @@ public class Sprite_Pack
     public string packName;
     public string patternName;
     public int numberOfColours;
+    public int CostPerItem;
     public string packType; //Hair, Skin, Armour, Fatigues, Helmet, Equipment
     public List<Sprite> containedSprites;
 

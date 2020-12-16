@@ -23,4 +23,7 @@ public class Planet_Screen : MonoBehaviour
     public Text planetPlanetOutput;
     public Text planetOrbitalOutput;
     public Text planetTotalOutput;
+    public GameObject planetMilitaryWindow;
+    public Text planetGarrisonLevel;
+    public Text planetGarrisonDesc;
 }

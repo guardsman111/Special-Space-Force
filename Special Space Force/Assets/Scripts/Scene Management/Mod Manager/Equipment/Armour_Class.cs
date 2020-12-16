@@ -16,6 +16,8 @@ public class Armour_Class
     public string ArmourEquipmentPath;
     public string ArmourSpecialPath;
 
+    public int CostPerItem;
+
     public Armour_Class()
     {
 

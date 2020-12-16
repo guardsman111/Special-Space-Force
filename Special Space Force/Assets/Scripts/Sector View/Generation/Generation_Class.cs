@@ -23,7 +23,7 @@ public class Generation_Class
     public int expansionism;
     public int industrialism;
     public int funding;
-    public List<AI_Class> toggledAI;
+    public List<Faction_Class> factions;
     public List<Trait_Class> selectedTraits;
     public List<string> defaultEquipment;
     public List<string> defaultPatterns;

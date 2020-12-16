@@ -12,6 +12,7 @@ public class System_Script : MonoBehaviour
     private System_Class star;
     public float combinedOutput;
     public string allegiance;
+    public bool colonising;
 
     private List<Planet_Script> systemPlanets;
 
@@ -65,7 +66,7 @@ public class System_Script : MonoBehaviour
         if (playerRand + (playerStrength * 10) <= 90)
         {
             //For each ai toggled on, generate if star allegiance
-            for (int i = 0; i < sysGen.generatedProduct.toggledAI.Count; i++)
+            for (int i = 1; i < sysGen.generatedProduct.factions.Count; i++)
             {
                 float aiRand = Random.Range(0, 100);
 
@@ -73,62 +74,62 @@ public class System_Script : MonoBehaviour
                 if (star.allegiance == 0) 
                 {
                     //If the star's current owner has a lower start strength than the current AI (i)
-                    if (sysGen.generatedProduct.toggledAI[i].startThreat > sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat)
+                    if (sysGen.generatedProduct.factions[i].AIRace.startThreat > sysGen.generatedProduct.factions[star.allegiance - 1].AIRace.startThreat)
                     {
-                        if (aiRand + ((sysGen.generatedProduct.toggledAI[i].startThreat - sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat / 2) * 10) >= 90 && sysGen.generatedProduct.toggledAI[i].nPlanets > 0)
+                        if (aiRand + ((sysGen.generatedProduct.factions[i].AIRace.startThreat - sysGen.generatedProduct.factions[star.allegiance - 1].AIRace.startThreat / 2) * 10) >= 90 && sysGen.generatedProduct.factions[i].AIRace.nPlanets > 0)
                         {
-                            star.allegiance = i + 1;
-                            allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
-                            gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
-                            sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
+                            star.allegiance = i;
+                            allegiance = sysGen.generatedProduct.factions[i].AIRace.race.empireName;
+                            gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.factions[i].AIRace.colour;
+                            sysGen.generatedProduct.factions[i].AIRace.nPlanets += 1;
                         }
                     }
 
                     //If Star's current owner has same start strength as the current AI (i)
-                    if (sysGen.generatedProduct.toggledAI[i].startThreat == sysGen.generatedProduct.toggledAI[star.allegiance - 1].startThreat)
+                    if (sysGen.generatedProduct.factions[i].AIRace.startThreat == sysGen.generatedProduct.factions[star.allegiance - 1].AIRace.startThreat)
                     {
                         int chanceRand = Random.Range(0, 2);
 
                         //if chanceRand - start threat is greater than current allegiance start threat, set allegiance to this
                         if (chanceRand == 0)
                         {
-                            if (aiRand + (sysGen.generatedProduct.toggledAI[i].startThreat * 10) >= 90 && sysGen.generatedProduct.toggledAI[i].nPlanets > 0)
+                            if (aiRand + (sysGen.generatedProduct.factions[i].AIRace.startThreat * 10) >= 90 && sysGen.generatedProduct.factions[i].AIRace.nPlanets > 0)
                             {
-                                star.allegiance = i + 1;
-                                allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
-                                gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
-                                sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
+                                star.allegiance = i;
+                                allegiance = sysGen.generatedProduct.factions[i].AIRace.race.empireName;
+                                gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.factions[i].AIRace.colour;
+                                sysGen.generatedProduct.factions[i].AIRace.nPlanets += 1;
                             }
                         }
                     }
                     
                     //If current AI has 0 systems and the current owner has more than 1 system, change the system anyway
-                    if (sysGen.generatedProduct.toggledAI[i].nPlanets == 0 && sysGen.generatedProduct.toggledAI[star.allegiance - 1].nPlanets > 1)
+                    if (sysGen.generatedProduct.factions[i].AIRace.nPlanets == 0 && sysGen.generatedProduct.factions[star.allegiance - 1].AIRace.nPlanets > 1)
                     {
-                        star.allegiance = i + 1;
-                        allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
-                        gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
-                        sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
+                        star.allegiance = i;
+                        allegiance = sysGen.generatedProduct.factions[i].AIRace.race.empireName;
+                        gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.factions[i].AIRace.colour;
+                        sysGen.generatedProduct.factions[i].AIRace.nPlanets += 1;
                     }
                 } 
                 //Else, if the random number + start threat is greater than 90, set as this allegiance
                 else
                 {
-                    if (aiRand + (sysGen.generatedProduct.toggledAI[i].startThreat * 10) >= 90)
+                    if (aiRand + (sysGen.generatedProduct.factions[i].AIRace.startThreat * 10) >= 90)
                     {
-                        star.allegiance = i + 1;
-                        allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
-                        gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
-                        sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
+                        star.allegiance = i;
+                        allegiance = sysGen.generatedProduct.factions[i].AIRace.race.empireName;
+                        gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.factions[i].AIRace.colour;
+                        sysGen.generatedProduct.factions[i].AIRace.nPlanets += 1;
                     }
 
                     //If the AI has 0 systems, make this system for that AI
-                    if (sysGen.generatedProduct.toggledAI[i].nPlanets == 0)
+                    if (sysGen.generatedProduct.factions[i].AIRace.nPlanets == 0)
                     {
-                        star.allegiance = i + 1;
-                        allegiance = sysGen.generatedProduct.toggledAI[i].race.empireName;
-                        gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.toggledAI[i].colour;
-                        sysGen.generatedProduct.toggledAI[i].nPlanets += 1;
+                        star.allegiance = i;
+                        allegiance = sysGen.generatedProduct.factions[i].AIRace.race.empireName;
+                        gameObject.GetComponentInChildren<TextMeshPro>().color = sysGen.generatedProduct.factions[i].AIRace.colour;
+                        sysGen.generatedProduct.factions[i].AIRace.nPlanets += 1;
                     }
                 }
             }
@@ -147,31 +148,38 @@ public class System_Script : MonoBehaviour
         switch (star.allegiance)
         {
             case 0:
-                sysGen.factionManager.Factions[0].controlledSystems.Add(this);
+                sysGen.factionManager.Factions[0].controlledSystems.Add(star);
+                sysGen.factionManager.factionScripts[0].controlledSystems.Add(this);
                 break;
 
             case 1:
-                sysGen.factionManager.Factions[1].controlledSystems.Add(this);
+                sysGen.factionManager.Factions[1].controlledSystems.Add(star);
+                sysGen.factionManager.factionScripts[1].controlledSystems.Add(this);
                 break;
 
             case 2:
-                sysGen.factionManager.Factions[2].controlledSystems.Add(this);
+                sysGen.factionManager.Factions[2].controlledSystems.Add(star);
+                sysGen.factionManager.factionScripts[2].controlledSystems.Add(this);
                 break;
 
             case 3:
-                sysGen.factionManager.Factions[3].controlledSystems.Add(this);
+                sysGen.factionManager.Factions[3].controlledSystems.Add(star);
+                sysGen.factionManager.factionScripts[3].controlledSystems.Add(this);
                 break;
 
             case 4:
-                sysGen.factionManager.Factions[4].controlledSystems.Add(this);
+                sysGen.factionManager.Factions[4].controlledSystems.Add(star);
+                sysGen.factionManager.factionScripts[4].controlledSystems.Add(this);
                 break;
 
             case 5:
-                sysGen.factionManager.Factions[5].controlledSystems.Add(this);
+                sysGen.factionManager.Factions[5].controlledSystems.Add(star);
+                sysGen.factionManager.factionScripts[5].controlledSystems.Add(this);
                 break;
 
             case 6:
-                sysGen.factionManager.Factions[6].controlledSystems.Add(this);
+                sysGen.factionManager.Factions[6].controlledSystems.Add(star);
+                sysGen.factionManager.factionScripts[6].controlledSystems.Add(this);
                 break;
         }
 
@@ -376,7 +384,7 @@ public class System_Script : MonoBehaviour
             temp.inhabited = inhabited;
             
             //Generate Planet_Script using the temp Planet_Script and add to Star Array
-            planetT.GetComponent<Planet_Script>().PlanetGen(temp, sysGen.factionManager);
+            planetT.GetComponent<Planet_Script>().PlanetGen(this, temp, sysGen.factionManager);
             systemPlanets.Add(planetT.GetComponent<Planet_Script>());
             star.Array.Add(temp);
             planetT.GetComponent<Planet_Script>().inhabited = inhabited;
@@ -392,8 +400,8 @@ public class System_Script : MonoBehaviour
         star.allegiance = system.allegiance;
         if (star.allegiance > 0)
         {
-            allegiance = save.generatedProduct.toggledAI[star.allegiance - 1].race.empireName;
-            gameObject.GetComponentInChildren<TextMeshPro>().color = save.generatedProduct.toggledAI[star.allegiance - 1].colour;
+            allegiance = save.generatedProduct.factions[star.allegiance - 1].AIRace.race.empireName;
+            gameObject.GetComponentInChildren<TextMeshPro>().color = save.generatedProduct.factions[star.allegiance - 1].AIRace.colour;
         }
 
         this.gameObject.GetComponentInChildren<TextMeshPro>().text = star.systemName;
@@ -406,7 +414,7 @@ public class System_Script : MonoBehaviour
 
             Planet_Class temp = new Planet_Class();
             temp = system.Array[i];
-            planetT.GetComponent<Planet_Script>().PlanetGen(temp, sysGen.factionManager);
+            planetT.GetComponent<Planet_Script>().PlanetGen(this, temp, sysGen.factionManager);
         }
     }
 

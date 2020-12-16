@@ -15,6 +15,16 @@ public class Race_Class
     [XmlElement("Source")]
     public string source;
 
+    [XmlElement("Xenophobia Modifier")]
+    public float xenoMod;
+    [XmlElement("Militarism Modifier")]
+    public float miliMod;
+    [XmlElement("Expansionism Modifier")]
+    public float expaMod;
+    [XmlElement("Industrialism Modifier")]
+    public float induMod;
+
+
     public Race_Class()
     {
 

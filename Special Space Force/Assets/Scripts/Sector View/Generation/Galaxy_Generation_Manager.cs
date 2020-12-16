@@ -185,7 +185,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             localisationManager.LoadStringListClass(product.chosenLocalisationList[2], "SlotNames");
             slotGenerator.LoadSlots(save.topSlots);
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
-            modManager.factionManager.CalculateIncome();
+            modManager.turnManager.FirstTurn(product);
 
         }
         else //Else generate everything from scratch using user inputed creation values
@@ -202,7 +202,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             save.topSlots = slotGenerator.FindDefaultSlots();
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
-            modManager.factionManager.CalculateIncome();
+            modManager.turnManager.FirstTurn(product);
 
         }
 

@@ -12,22 +12,31 @@ public class Slot_Manager : MonoBehaviour
     public Galaxy_Generation_Manager manager;
     public Manager_Script modManager;
     public Slot_Generator generator;
+    public GraphicRaycaster raycaster;
+
     public GameObject prefabSlot;
     public Slot_Script viewedSlot;
-    public List<Slot_Class> slots;
+    public InputField currentName;
+
+    private List<Slot_Class> slots;
+
     public GameObject slotN1;
-    public GraphicRaycaster raycaster;
+
     public Slot_Script Highest;
+
     public Slot_Button moveToDropdown;
     public Slot_Button transferDropdown;
-    public InputField currentName;
+
     public Scrollbar slotFieldScroll;
+
     public Slider slotSlider;
     public GameObject slotOptions;
     public GameObject squadOptions;
     public Dropdown slotRoleDropdown;
+
     public Trooper_Show_Script trooperShowManager;
     public Promote_Script promoter;
+
     public bool menu;
     bool matched = false;
     int selectionExtension = 0;
@@ -49,6 +58,19 @@ public class Slot_Manager : MonoBehaviour
     public List<Trooper_Script> selectedTroopers;
 
     public int nTroopers;
+
+    public List<Slot_Class> Slots
+    {
+        get { return slots; }
+
+        set
+        {
+            if (value != slots)
+            {
+                slots = value;
+            }
+        }
+    }
 
     //Gets the graphics raycaster
     void Start()

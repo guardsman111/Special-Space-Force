@@ -118,7 +118,7 @@ public class Slot_Generator : MonoBehaviour
     //Creates the slots of height 0, which in turn set their children
     public void CreateTopSlots()
     {
-        manager.slots = slots;
+        manager.Slots = slots;
         manager.generator = this;
         manager.slotN1 = slotN1;
         manager.viewedSlot = slotN1.GetComponent<Slot_Script>();

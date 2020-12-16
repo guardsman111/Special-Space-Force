@@ -13,6 +13,7 @@ public class Generation_Settings_Director : MonoBehaviour
     public Slot_Generator slotGenerator;
     public Localisation_Manager localisationManager;
     public Trait_Manager traitManager;
+    public Faction_Manager factionManager;
 
     private int height = 2000;
     private int width = 2000;
@@ -135,7 +136,7 @@ public class Generation_Settings_Director : MonoBehaviour
         product.expansionism = expansionism;
         product.industrialism = industrialism;
         product.funding = funding;
-        product.toggledAI = SortToggledAI();
+        product.factions = factionManager.GenerateFactions(SortToggledAI());
         product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
         product.playerColours = equipmentManager.GetColours(PlayerColours);
         localisationManager.SeperateStringLists();

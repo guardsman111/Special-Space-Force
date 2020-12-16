@@ -7,8 +7,14 @@ public class Faction_Class
     public string factionName;
     public int factionResourcePile;
     public int factionIncome;
-    public List<System_Script> controlledSystems;
-    public List<Planet_Script> controlledPlanets;
+    public AI_Class AIRace;
+    public List<System_Class> controlledSystems;
+    public List<Planet_Class> controlledPlanets;
+
+    public float xenophobia;
+    public float militarism;
+    public float expansionism;
+    public float industrialism;
 
     public Faction_Class()
     {

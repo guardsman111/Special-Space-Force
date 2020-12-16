@@ -61,11 +61,11 @@ public class Planet_Click : MonoBehaviour
 
                 int random = Random.Range(0, 100);
 
-                //if(random < 75) Storms do not currently work when in build but o in unity Play, no idea why
+                //if (random < 75) 
                 //{
                 //    sPlanet.storms.SetActive(true);
                 //    sPlanet.storms.GetComponent<Weather_Visuals>().Toggle();
-                //} 
+                //}
                 //else
                 //{
                 //    sPlanet.storms.SetActive(false);

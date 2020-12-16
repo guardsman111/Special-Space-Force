@@ -6,7 +6,8 @@ public class Faction_Manager : MonoBehaviour
 {
     [SerializeField]
     private List<Faction_Class> factions;
-
+    public List<Faction_Script> factionScripts;
+    public Force_Manager forceManager;
 
     public List<Faction_Class> Factions
     {
@@ -14,22 +15,25 @@ public class Faction_Manager : MonoBehaviour
 
         set
         {
-            if(value != factions)
+            if (value != factions)
             {
-                factions = value; 
+                factions = value;
             }
         }
     }
 
     public void Run(List<GameObject> systemsObjects)
     {
-        foreach(Faction_Class fc in Factions)
+        foreach (Faction_Script fs in factionScripts)
         {
-            foreach(System_Script sc in fc.controlledSystems)
+            foreach (System_Script sc in fs.controlledSystems)
             {
-                foreach(Planet_Script pc in sc.SystemPlanets)
+                foreach (Planet_Script pc in sc.SystemPlanets)
                 {
-                    fc.controlledPlanets.Add(pc);
+                    if (pc.inhabited)
+                    {
+                        fs.controlledPlanets.Add(pc);
+                    }
                 }
             }
         }
@@ -39,23 +43,80 @@ public class Faction_Manager : MonoBehaviour
     {
 
 
-        foreach(Faction_Class fc in factions)
+        foreach (Faction_Script fs in factionScripts)
         {
-            fc.factionIncome = 0;
-            foreach (System_Script sc in fc.controlledSystems)
+            fs.faction.factionIncome = 0;
+            foreach (System_Script sc in fs.controlledSystems)
             {
                 sc.combinedOutput = 0;
                 foreach (Planet_Script pc in sc.SystemPlanets)
                 {
-                    sc.combinedOutput += (int)pc.output;
-                    fc.factionIncome += (int)pc.output;
+                    if (pc.inhabited)
+                    {
+                        sc.combinedOutput += (int)pc.output;
+                        fs.faction.factionIncome += (int)pc.output;
+                    }
                 }
             }
 
-            fc.factionResourcePile += fc.factionIncome;
+            fs.faction.factionResourcePile += fs.faction.factionIncome;
 
-            Debug.Log(fc.factionName + " gains " + fc.factionIncome.ToString() + " resources added to it's stockpile; Stockpile total - " + fc.factionResourcePile.ToString());
+            Debug.Log(fs.faction.factionName + " gains " + fs.faction.factionIncome.ToString() + " resources added to it's stockpile; Stockpile total - " + fs.faction.factionResourcePile.ToString());
         }
+
+
+    }
+
+    public void PlanetScriptToClass()
+    {
+        foreach (Faction_Script fs in factionScripts)
+        {
+            foreach (System_Script sc in fs.controlledSystems)
+            {
+                foreach (Planet_Script pc in sc.SystemPlanets)
+                {
+                    fs.faction.controlledPlanets.Add(pc.planet);
+                }
+            }
+        }
+    } 
+
+    public List<Faction_Class> GenerateFactions(List<AI_Class> AI)
+    {
+
+        factions = new List<Faction_Class>();
+        factions.Add(new Faction_Class());
+        factionScripts = new List<Faction_Script>();
+        factionScripts.Add(new Faction_Script());
+        factions[0].factionName = "Player Faction";
+        factions[0].controlledSystems = new List<System_Class>();
+        factions[0].controlledPlanets = new List<Planet_Class>();
+        factionScripts[0].faction = factions[0];
+        factionScripts[0].controlledSystems = new List<System_Script>();
+        factionScripts[0].controlledPlanets = new List<Planet_Script>();
+
+        for (int i = 1; i <= AI.Count; i++)
+        {
+            factions.Add(new Faction_Class());
+            factionScripts.Add(new Faction_Script());
+            factions[i].factionName = AI[i - 1].race.empireName;
+            factions[i].controlledSystems = new List<System_Class>();
+            factions[i].controlledPlanets = new List<Planet_Class>();
+            factions[i].AIRace = AI[i - 1];
+            factionScripts[i].faction = factions[i];
+            factionScripts[i].controlledSystems = new List<System_Script>();
+            factionScripts[i].controlledPlanets = new List<Planet_Script>();
+        }
+
+        return factions;
+    }
+
+    public void SetupPlayerFaction(Generation_Class product)
+    {
+        factions[0].xenophobia = product.xenophobia;
+        factions[0].militarism = product.militarism;
+        factions[0].expansionism = product.expansionism;
+        factions[0].industrialism = product.industrialism;
 
 
     }
@@ -340,5 +401,107 @@ public class Faction_Manager : MonoBehaviour
 
         return export;
         
+    }
+
+    //Does AI Building for Player Faction
+    public void FactionBuild()
+    {
+        Faction_Script playerFaction = factionScripts[0];
+
+        List<Planet_Script> notBuildingPlanets = new List<Planet_Script>();
+
+        int currentlyBuilding = 0;
+
+        foreach(Planet_Script planet in playerFaction.controlledPlanets)
+        {
+            if (planet.building)
+            {
+                currentlyBuilding += 1;
+                planet.Build();
+            }
+            else
+            {
+                notBuildingPlanets.Add(planet);
+            }
+            planet.Stats.GrowMilitary();
+        }
+
+        int buildingStarted = 0;
+
+        while (currentlyBuilding < playerFaction.maxBuilding && buildingStarted <= (((float)playerFaction.controlledPlanets.Count / 100) * (playerFaction.faction.expansionism / 5)) && notBuildingPlanets.Count > 0)
+        {
+            int random = Random.Range(0, notBuildingPlanets.Count);
+
+            if (notBuildingPlanets[random].planet.usableSpace > notBuildingPlanets[random].planet.builtIndustry / 100)
+            {
+                notBuildingPlanets[random].Build();
+                currentlyBuilding += 1;
+                buildingStarted += 1;
+                Debug.Log("Planet " + notBuildingPlanets[random].planetName + " is now building.");
+            }
+            notBuildingPlanets.RemoveAt(random);
+        }
+
+        Debug.Log(currentlyBuilding + " planets constructing out of max " + playerFaction.maxBuilding);
+
+        //Use again for not colonizing planets
+        notBuildingPlanets.Clear();
+
+        int nColonising = 0;
+        float maxColonising = ((factionScripts[0].faction.expansionism / 10) * factionScripts[0].faction.controlledPlanets.Count) / 100;
+
+        foreach (System_Script system in playerFaction.controlledSystems)
+        {
+            if (!system.colonising)
+            {
+                foreach (Planet_Script planet in system.SystemPlanets)
+                {
+                    if (planet.inhabited == false && planet.colonising == false)
+                    {
+                        notBuildingPlanets.Add(planet);
+                    }
+                    else if (planet.colonising)
+                    {
+                        planet.Colonize();
+                        system.colonising = true;
+                        nColonising += 1;
+                    }
+                }
+            }
+            else
+            {
+                system.colonising = false;
+                foreach (Planet_Script planet in system.SystemPlanets)
+                {
+                    if (planet.colonising)
+                    {
+                        planet.Colonize();
+                        system.colonising = true;
+                        nColonising += 1;
+                    }
+                }
+            }
+        }
+
+        if (notBuildingPlanets.Count > 0 && nColonising < maxColonising)
+        {
+            int newRandom = Random.Range(0, notBuildingPlanets.Count);
+            notBuildingPlanets[newRandom].Colonize();
+            notBuildingPlanets[newRandom].parentSystem.colonising = true;
+            Debug.Log(notBuildingPlanets[newRandom].planetName + " is now being Colonised!");
+        }
+    }
+
+    //Does AI Building for AI Faction
+    public void FactionBuild(Faction_Class faction)
+    {
+
+    }
+
+    public void AddPlanetToFaction(Planet_Script planet)
+    {
+        int allegiance = planet.parentSystem.Star.allegiance;
+        factions[allegiance].controlledPlanets.Add(planet.planet);
+        factionScripts[allegiance].controlledPlanets.Add(planet);
     }
 }

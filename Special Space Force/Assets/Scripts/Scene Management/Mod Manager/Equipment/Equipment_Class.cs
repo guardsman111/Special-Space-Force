@@ -13,6 +13,9 @@ public class Equipment_Class
     public string EquipmentPrimaryPath;
     public string EquipmentSecondaryPath;
 
+    public int CostPerItem;
+
+
     public Equipment_Class()
     {
 

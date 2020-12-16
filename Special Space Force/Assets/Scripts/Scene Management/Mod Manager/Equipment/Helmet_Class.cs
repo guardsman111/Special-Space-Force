@@ -16,6 +16,8 @@ public class Helmet_Class
     public string HelmetEquipmentPath;
     public string HelmetVisorPath;
 
+    public int CostPerItem;
+
     public Helmet_Class()
     {
 

@@ -136,6 +136,7 @@ public class Equipment_Manager : MonoBehaviour
             catch { }
 
             tempSP.packType = "Armour";
+            tempSP.CostPerItem = temp.CostPerItem;
             armourPacks.Add(tempSP);
         }
 
@@ -284,6 +285,7 @@ public class Equipment_Manager : MonoBehaviour
             }
             catch { }
             tempSP.packType = "Helmet";
+            tempSP.CostPerItem = temp.CostPerItem;
             helmetPacks.Add(tempSP);
         }
 
@@ -326,6 +328,7 @@ public class Equipment_Manager : MonoBehaviour
             }
             catch { }
             tempSP.packType = "Equipment";
+            tempSP.CostPerItem = temp.CostPerItem;
             equipmentPacks.Add(tempSP);
         }
 
@@ -370,6 +373,7 @@ public class Equipment_Manager : MonoBehaviour
             catch { }
             
             tempSP.packType = temp.EquipmentType;
+            tempSP.CostPerItem = temp.CostPerItem;
             weaponPacks.Add(tempSP);
         }
 
@@ -397,7 +401,7 @@ public class Equipment_Manager : MonoBehaviour
     {
         //var file = File.Create(finder.defaultPath + "/Equipment/Armour/Mk1/Mk1ArmourPrimary1.xml");
         //file.Close();
-        //Serializer.Serialize(Mk1Primary, finder.defaultPath + "/Equipment/Armour/Mk1/Mk1ArmourPrimary1.xml");
+        //Serializer.Serialize(, finder.defaultPath + "/Equipment/Armour/Mk1/Mk1ArmourPrimary1.xml");
     }
 
     //Gets players default colours

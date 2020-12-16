@@ -14,18 +14,21 @@ public class Core_Equipment : MonoBehaviour
     public Sprite[] Mk1Armour2Camo;
     public Sprite[] Mk1Armour3Camo;
     public Sprite[] Mk1Armour3CamoDigi;
+    public int Mk1ArmourCost;
     public Sprite[] Mk1HelmetP;
     public Sprite[] Mk1HelmetS1;
     public Sprite[] Mk1HelmetS2;
     public Sprite[] Mk1Helmet2Camo;
     public Sprite[] Mk1Helmet3Camo;
     public Sprite[] Mk1Helmet3CamoDigi;
+    public int Mk1HelmetCost;
     public Sprite[] Mk1Mod1HelmetP;
     public Sprite[] Mk1Mod1HelmetS1;
     public Sprite[] Mk1Mod1HelmetS2;
     public Sprite[] Mk1Mod1Helmet2Camo;
     public Sprite[] Mk1Mod1Helmet3Camo;
     public Sprite[] Mk1Mod1Helmet3CamoDigi;
+    public int Mk1Mod1HelmetCost;
     public Sprite[] FatiguesCasualP;
     public Sprite[] FatiguesCasual2Camo;
     public Sprite[] FatiguesCasual3Camo;
@@ -35,12 +38,19 @@ public class Core_Equipment : MonoBehaviour
     public Sprite[] FatiguesUBACS3Camo;
     public Sprite[] FatiguesUBACS3CamoDigi;
     public Sprite[] Backpack1;
+    public int Backpack1Cost;
     public Sprite[] Pistol1;
+    public int Pistol1Cost;
     public Sprite[] PistolS1;
+    public int PistolS1Cost;
     public Sprite[] Rifle1;
+    public int Rifle1Cost;
     public Sprite[] Sniper1;
+    public int Sniper1Cost;
     public Sprite[] Sword1;
+    public int Sword1Cost;
     public Sprite[] SwordS1;
+    public int SwordS1Cost;
 
     //Core armour packs
     public List<Sprite_Pack> CoreArmour()
@@ -52,6 +62,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Armour";
         tempSP.patternName = "Primary1";
         tempSP.packType = "Armour";
+        tempSP.CostPerItem = Mk1ArmourCost;
         tempSP.numberOfColours = 1;
         foreach (Sprite s in Mk1ArmourP)
         {
@@ -65,6 +76,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Armour";
         tempSP.patternName = "Camo 2C";
         tempSP.packType = "Armour";
+        tempSP.CostPerItem = Mk1ArmourCost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Mk1Armour2Camo)
         {
@@ -78,6 +90,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Armour";
         tempSP.patternName = "Camo 3C";
         tempSP.packType = "Armour";
+        tempSP.CostPerItem = Mk1ArmourCost;
         tempSP.numberOfColours = 3;
         foreach (Sprite s in Mk1Armour3Camo)
         {
@@ -91,6 +104,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Armour";
         tempSP.patternName = "Digital Camo 3C";
         tempSP.packType = "Armour";
+        tempSP.CostPerItem = Mk1ArmourCost;
         tempSP.numberOfColours = 3;
         foreach (Sprite s in Mk1Armour3CamoDigi)
         {
@@ -112,6 +126,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet";
         tempSP.patternName = "Primary1";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.numberOfColours = 1;
         foreach (Sprite s in Mk1HelmetP)
         {
@@ -125,6 +140,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet";
         tempSP.patternName = "Secondary1";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Mk1HelmetS1)
         {
@@ -138,6 +154,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet";
         tempSP.patternName = "Secondary2";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Mk1HelmetS2)
         {
@@ -151,6 +168,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet";
         tempSP.patternName = "Camo 2C";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Mk1Helmet2Camo)
         {
@@ -164,6 +182,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet";
         tempSP.patternName = "Camo 3C";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.numberOfColours = 3;
         foreach (Sprite s in Mk1Helmet3Camo)
         {
@@ -177,6 +196,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet";
         tempSP.patternName = "Digital Camo 3C";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.numberOfColours = 3;
         foreach (Sprite s in Mk1Helmet3CamoDigi)
         {
@@ -190,6 +210,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet Comms";
         tempSP.patternName = "Primary1";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.numberOfColours = 1;
         foreach (Sprite s in Mk1Mod1HelmetP)
         {
@@ -203,6 +224,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet Comms";
         tempSP.patternName = "Secondary1";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Mk1Mod1HelmetS1)
         {
@@ -216,6 +238,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet Comms";
         tempSP.patternName = "Secondary2";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Mk1Mod1HelmetS2)
         {
@@ -229,6 +252,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet Comms";
         tempSP.patternName = "Camo 2C";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Mk1Mod1Helmet2Camo)
         {
@@ -242,6 +266,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet Comms";
         tempSP.patternName = "Camo 3C";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.numberOfColours = 3;
         foreach (Sprite s in Mk1Mod1Helmet3Camo)
         {
@@ -255,6 +280,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Mk1 Helmet Comms";
         tempSP.patternName = "Digital Camo 3C";
         tempSP.packType = "Helmet";
+        tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.numberOfColours = 3;
         foreach (Sprite s in Mk1Mod1Helmet3CamoDigi)
         {
@@ -388,6 +414,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Backpack";
         tempSP.patternName = "Primary1";
         tempSP.packType = "Equipment";
+        tempSP.CostPerItem = Backpack1Cost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Backpack1)
         {
@@ -409,6 +436,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Pistol1";
         tempSP.patternName = "Primary1";
         tempSP.packType = "WeaponP";
+        tempSP.CostPerItem = Pistol1Cost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Pistol1)
         {
@@ -422,6 +450,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "PistolSec1";
         tempSP.patternName = "Primary1";
         tempSP.packType = "WeaponS";
+        tempSP.CostPerItem = PistolS1Cost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in PistolS1)
         {
@@ -435,6 +464,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Rifle1";
         tempSP.patternName = "Primary1";
         tempSP.packType = "WeaponP";
+        tempSP.CostPerItem = Rifle1Cost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Rifle1)
         {
@@ -448,6 +478,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Sniper";
         tempSP.patternName = "Primary1";
         tempSP.packType = "WeaponP";
+        tempSP.CostPerItem = Sniper1Cost;
         tempSP.numberOfColours = 2;
         foreach (Sprite s in Sniper1)
         {
@@ -461,6 +492,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "Sword1";
         tempSP.patternName = "Primary1";
         tempSP.packType = "WeaponP";
+        tempSP.CostPerItem = Sword1Cost;
         tempSP.numberOfColours = 1;
         foreach (Sprite s in Sword1)
         {
@@ -474,6 +506,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packName = "SwordSec1";
         tempSP.patternName = "Primary1";
         tempSP.packType = "WeaponS";
+        tempSP.CostPerItem = SwordS1Cost;
         tempSP.numberOfColours = 1;
         foreach (Sprite s in SwordS1)
         {

@@ -87,19 +87,6 @@ public class System_Generator : MonoBehaviour
         generatedSystems = new List<GameObject>();
         avgPlanetSize = product.averagePlanetSize;
         generatedProduct = product;
-        factionManager.Factions = new List<Faction_Class>();
-        factionManager.Factions.Add(new Faction_Class());
-        factionManager.Factions[0].factionName = "Player Faction";
-        factionManager.Factions[0].controlledSystems = new List<System_Script>();
-        factionManager.Factions[0].controlledPlanets = new List<Planet_Script>();
-
-        for (int i = 1; i <= product.toggledAI.Count; i++)
-        {
-            factionManager.Factions.Add(new Faction_Class());
-            factionManager.Factions[i].factionName = product.toggledAI[i - 1].race.empireName;
-            factionManager.Factions[i].controlledSystems = new List<System_Script>();
-            factionManager.Factions[i].controlledPlanets = new List<Planet_Script>();
-        }
         
 
         //For each star generate position, colour, #planets and name

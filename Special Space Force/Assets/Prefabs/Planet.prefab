@@ -215,13 +215,13 @@ GameObject:
   - component: {fileID: 2763734419764447779}
   - component: {fileID: 1251508793092053939}
   - component: {fileID: 2676101854807801696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2763734419764447779
 Transform:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -5205,7 +5205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7958956079074519445
 Transform:
   m_ObjectHideFlags: 0
@@ -5468,13 +5468,13 @@ GameObject:
   - component: {fileID: 7124984540613860019}
   - component: {fileID: 5671059312517606457}
   - component: {fileID: 323743328736927017}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7124984540613860019
 Transform:
   m_ObjectHideFlags: 0
@@ -5500,7 +5500,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -10453,13 +10453,13 @@ GameObject:
   - component: {fileID: 1211154673354590439}
   - component: {fileID: 6573795195617774168}
   - component: {fileID: 4884352767695147416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1211154673354590439
 Transform:
   m_ObjectHideFlags: 0
@@ -10485,7 +10485,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -15438,13 +15438,13 @@ GameObject:
   - component: {fileID: 7489666706685411906}
   - component: {fileID: 7489666706685411904}
   - component: {fileID: 7489666706685411907}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7489666706685411906
 Transform:
   m_ObjectHideFlags: 0
@@ -15470,7 +15470,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -20423,13 +20423,13 @@ GameObject:
   - component: {fileID: 7489666707116549934}
   - component: {fileID: 7489666707116549932}
   - component: {fileID: 7489666707116549935}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7489666707116549934
 Transform:
   m_ObjectHideFlags: 0
@@ -20455,7 +20455,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -25408,13 +25408,13 @@ GameObject:
   - component: {fileID: 7489666707462872844}
   - component: {fileID: 7489666707462872842}
   - component: {fileID: 7489666707462872845}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7489666707462872844
 Transform:
   m_ObjectHideFlags: 0
@@ -25440,7 +25440,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -30393,13 +30393,13 @@ GameObject:
   - component: {fileID: 7489666707808567077}
   - component: {fileID: 7489666707808567075}
   - component: {fileID: 7489666707808567074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7489666707808567077
 Transform:
   m_ObjectHideFlags: 0
@@ -30425,7 +30425,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -35378,13 +35378,13 @@ GameObject:
   - component: {fileID: 7489666708107682736}
   - component: {fileID: 7489666708107682750}
   - component: {fileID: 7489666708107682737}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7489666708107682736
 Transform:
   m_ObjectHideFlags: 0
@@ -35410,7 +35410,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -40456,13 +40456,13 @@ GameObject:
   - component: {fileID: 7489666708513377862}
   - component: {fileID: 7489666708513377860}
   - component: {fileID: 7489666708513377863}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7489666708513377862
 Transform:
   m_ObjectHideFlags: 0
@@ -40488,7 +40488,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
@@ -45734,13 +45734,13 @@ GameObject:
   - component: {fileID: 559757829520782891}
   - component: {fileID: 253065458690262337}
   - component: {fileID: 2114713575868503}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Thunder Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &559757829520782891
 Transform:
   m_ObjectHideFlags: 0
@@ -45766,7 +45766,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
