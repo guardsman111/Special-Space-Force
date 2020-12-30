@@ -5,6 +5,7 @@ using UnityEngine;
 public class Faction_Class
 {
     public string factionName;
+    public int factionID;
     public int factionResourcePile;
     public int factionIncome;
     public AI_Class AIRace;

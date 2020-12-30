@@ -17,6 +17,7 @@ public class Planet_Screen : MonoBehaviour
     public Text planetBaseMetals;
     public Text planetPreciousMetals;
     public Text planetFood;
+    public GameObject planetEconomyWindow;
     public Text planetUsableSpace;
     public Text planetIndustry;
     public Text planetPopCons;
@@ -26,4 +27,6 @@ public class Planet_Screen : MonoBehaviour
     public GameObject planetMilitaryWindow;
     public Text planetGarrisonLevel;
     public Text planetGarrisonDesc;
+    public Text planetGarrisonFleetLevel;
+    public Text planetGarrisonFleetDesc;
 }

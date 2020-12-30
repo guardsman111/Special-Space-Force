@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Slider_Script : MonoBehaviour
 {
     public Vector2 origin;
     public RectTransform rect;
+
+    public Image headerImage;
+    public Sprite pressedImage;
+    public Sprite normalImage;
 
     public GameObject[] siblingSliders;
 
@@ -25,6 +30,7 @@ public class Slider_Script : MonoBehaviour
         if (slide)
         {
             slide = false;
+            headerImage.sprite = normalImage;
         }
         else
         {
@@ -34,6 +40,7 @@ public class Slider_Script : MonoBehaviour
             {
                 go.SetActive(false);
             }
+            headerImage.sprite = pressedImage;
         }
     }
 
@@ -62,6 +69,7 @@ public class Slider_Script : MonoBehaviour
                     go.SetActive(true);
                 }
                 CancelInvoke("DoSlide");
+                rect.anchoredPosition = origin;
             }
             else
             {

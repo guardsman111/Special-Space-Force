@@ -25,6 +25,11 @@ public class Planet_Stats
     public string garrisonDesc;
     public int garrisonGrowth;
 
+    public int garrisonFleetSize; // Up to 10? Each level takes 2* level number turns to generate, which would mean 20 turns to get from level 9-10, or 18 turns to go from level 1-4
+    public int maxGarrisonFleet; //Set by the militarism of the faction, = militarism + 5;
+    public string garrisonFleetDesc;
+    public int garrisonFleetGrowth;
+
     //Constructor for Planet_Stats - takes input from planet_script and creates the Planet_Stats
     public Planet_Stats(Planet_Class pClass, MeshRenderer skin)
     {
@@ -65,6 +70,26 @@ public class Planet_Stats
         {
             garrisonGrowth += 1;
         }
+
+        if (garrisonFleetGrowth >= (garrisonFleetSize + 1) * 2)
+        {
+            garrisonFleetSize += 1;
+            garrisonFleetGrowth = 1;
+            GetMilitaryFleetDesc();
+        }
+        else
+        {
+            garrisonFleetGrowth += 1;
+        }
+
+        if(garrisonSize >= maxGarrison)
+        {
+            garrisonSize = maxGarrison;
+        }
+        if (garrisonFleetSize >= maxGarrisonFleet)
+        {
+            garrisonFleetSize = maxGarrisonFleet;
+        }
     }
 
     public void GetMilitaryDesc()
@@ -99,5 +124,52 @@ public class Planet_Stats
                 garrisonDesc = "Assembly World - An empire-widely renowned producer of all things military - Troops, Tanks, Voidcraft, Nukes - you name it, it's made here";
                 break;
         }
+
+    }
+
+    public void GetMilitaryFleetDesc()
+    {
+        switch (garrisonFleetSize)
+        {
+            case 1:
+                garrisonFleetDesc = "Two Picket Defence Voidcraft";
+                break;
+            case 2:
+                garrisonFleetDesc = "Several Squadrons of Picket Defence Voidcraft";
+                break;
+            case 3:
+                garrisonFleetDesc = "A Frigate and Squadrons of Picket Defence Voidcraft";
+                break;
+            case 4:
+                garrisonFleetDesc = "Several Destroyers, Frigates and Picket Defence Squadrons";
+                break;
+            case 5:
+                garrisonFleetDesc = "A Cruiser supported by Destroyers and Frigates, Orbital Defence Platforms in Geostationary Orbit";
+                break;
+            case 6:
+                garrisonFleetDesc = "A pair of Battlecruisers, each leading a Battlefleet composed of Cruisers, Destroyers and Frigates, and Bolstered Orbital Defences in Low Orbit";
+                break;
+            case 7:
+                garrisonFleetDesc = "Three Battlefleets, each led by a Battleship with a Battlecruiser as support, with Orbital Defences in Low and Geostationary Orbit";
+                break;
+            case 8:
+                garrisonFleetDesc = "Orbital Super-Structures primarily for defence, with multiple Battlefleets using these as Anchorages, and a designated Defence Battlefleet led by a Battleship";
+                break;
+            case 9:
+                garrisonFleetDesc = "Orbital Halo designated for Defence, Large Defensive Super-Structures providing defence for Orbital Shipyards. Defensive Fleets and Anchored Fleets provide exceptionally tough defences";
+                break;
+        }
+    }
+
+    public void GenerateMilitary(int militarism)
+    {
+        maxGarrison = militarism + 5;
+        maxGarrisonFleet = militarism + 5;
+
+        garrisonSize = Random.Range(0, militarism + 6);
+        garrisonFleetSize = Random.Range(0, militarism + 6);
+
+        GetMilitaryDesc();
+        GetMilitaryFleetDesc();
     }
 }

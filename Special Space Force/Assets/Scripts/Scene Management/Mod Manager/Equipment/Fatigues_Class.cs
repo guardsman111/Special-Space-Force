@@ -16,8 +16,6 @@ public class Fatigues_Class
     public string FatiguesEquipmentPath;
     public string FatiguesSpecialPath;
 
-    public int CostPerItem;
-
 
     public Fatigues_Class()
     {

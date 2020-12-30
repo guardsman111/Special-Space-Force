@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Armour_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <armourName>Mk2 Trooper Armour</armourName>  <!-- The first two must always have small-->
+  <patternName>Mod Primary</patternName> <!-- first letters - this could break it!-->
+  <ArmourOutlinePath>Mods\Example Mod\Equipment\Armour\Mk2 Armour\Trooper\Primary\Outline.png</ArmourOutlinePath>
+  <ArmourPrimaryPath>Mods\Example Mod\Equipment\Armour\Mk2 Armour\Trooper\Primary\Primary.png</ArmourPrimaryPath>
+  <ArmourEquipmentPath>Mods\Example Mod\Equipment\Armour\Mk2 Armour\Trooper\Primary\Equipment.png</ArmourEquipmentPath>
+  <ArmourSpecialPath>Mods\Example Mod\Equipment\Armour\Mk2 Armour\Trooper\Primary\Special.png</ArmourSpecialPath>
+  <CostPerItem>75</CostPerItem> <!-- Ideally this should be identical across all items of the same name-->
+</Armour_Class>

@@ -79,6 +79,7 @@ public class Equipment_Manager : MonoBehaviour
                 newTex.filterMode = FilterMode.Point;
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
+                tempSP.numberOfColours = 1;
             }
             catch { }
             try
@@ -89,7 +90,6 @@ public class Equipment_Manager : MonoBehaviour
                 newTex.filterMode = FilterMode.Point;
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
-                tempSP.numberOfColours = 1;
             }
             catch { }
             try
@@ -155,6 +155,7 @@ public class Equipment_Manager : MonoBehaviour
                 newTex.filterMode = FilterMode.Point;
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
+                tempSP.numberOfColours = 1;
             }
             catch { }
             try
@@ -165,7 +166,6 @@ public class Equipment_Manager : MonoBehaviour
                 newTex.filterMode = FilterMode.Point;
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
-                tempSP.numberOfColours = 1;
             }
             catch { }
             try
@@ -617,11 +617,12 @@ public class Equipment_Manager : MonoBehaviour
                 }
                 if (pack.packName == null)
                 {
-                    foreach (Sprite_Pack p in fatiguesPacks)
+                    foreach (Sprite_Pack p in armourPacks)
                     {
                         if (p.packName == dropdown.options[dropdown.value].text)
                         {
                             pack = p;
+                            ArmourPatternCustom.value = 0;
                             break;
                         }
                     }
@@ -674,6 +675,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[16].gameObject.SetActive(false);
                 trooper.armour = "None";
             }
+
         }
 
         if (dropdown.name == "Fatigues Dropdown")
@@ -735,6 +737,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[9].sprite = pack.containedSprites[0];
                 trooper.fatigues = pack.packName;
             }
+
         }
 
         if (dropdown.name == "Helmet Dropdown")

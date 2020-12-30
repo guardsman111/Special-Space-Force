@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Helmet_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <helmetName>Mk1 Helmet</helmetName> <!-- The first two must always have small-->
+  <patternName>Mod Primary</patternName> <!-- first letters - this could break it!-->
+  <HelmetOutlinePath>Mods\Example Mod\Equipment\Helmets\Mk1 Helmet\Primary\Outline.png</HelmetOutlinePath>
+  <HelmetPrimaryPath>Mods\Example Mod\Equipment\Helmets\Mk1 Helmet\Primary\Primary.png</HelmetPrimaryPath>
+  <HelmetEquipmentPath>Mods\Example Mod\Equipment\Helmets\Mk1 Helmet\Primary\Equipment.png</HelmetEquipmentPath>
+  <HelmetVisorPath>Mods\Example Mod\Equipment\Helmets\Mk1 Helmet\Primary\Visor.png</HelmetVisorPath>
+  <CostPerItem>8</CostPerItem> <!-- Ideally this should be identical across all items of the same name-->
+</Helmet_Class>

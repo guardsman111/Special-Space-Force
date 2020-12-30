@@ -13,6 +13,7 @@ public class Trooper_Script : MonoBehaviour
     public string trooperName;
     public string trooperRank;
     public int trooperPosition;
+    public string slotIdentifier;
     public int trooperFace;
     public int trooperHair;
     public int hairColour;
@@ -73,6 +74,8 @@ public class Trooper_Script : MonoBehaviour
                                   //W Primary, W Secondary
 
     public Image_Manager imageManager;
+
+    public Text[] slotLocations;
 
     //Makes trooper from existing trooper_class
     public void MakeTrooper(Trooper_Class trooper, int positionID, Slot_Manager nManager)
@@ -949,6 +952,44 @@ public class Trooper_Script : MonoBehaviour
                     stamina = stamina / int.Parse(newStamina);
                 }
             }
+        }
+    }
+
+    public void ToggleSlotLocation(int modifier)
+    {
+        for(int i = 0; i < slotLocations.Length; i++)
+        {
+            if(slotLocations[i].gameObject.activeSelf == true)
+            {
+                if(modifier == +1 && i == slotLocations.Length - 1)
+                {
+                    slotLocations[0].gameObject.SetActive(true);
+                    slotLocations[i].gameObject.SetActive(false);
+                }
+                else if (modifier == -1 && i == 0)
+                {
+                    slotLocations[slotLocations.Length - 1].gameObject.SetActive(true);
+                    slotLocations[i].gameObject.SetActive(false);
+                }
+                else
+                {
+                    slotLocations[i + modifier].gameObject.SetActive(true);
+                    slotLocations[i].gameObject.SetActive(false);
+                }
+                break;
+            }
+        }
+    }
+
+    public void FindSlotIdentifier()
+    {
+        string temp1 = trooperSquad.slotParent.slotParent.slotName[0].ToString();
+        string temp2 = trooperSquad.slotParent.slotName[0].ToString();
+        string temp3 = trooperSquad.slotName[0].ToString();
+
+        foreach(Text t in slotLocations)
+        {
+            t.text = temp1 + temp2 + temp3;
         }
     }
 }

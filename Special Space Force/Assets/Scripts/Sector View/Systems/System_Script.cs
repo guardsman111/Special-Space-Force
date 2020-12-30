@@ -396,12 +396,13 @@ public class System_Script : MonoBehaviour
     {
         //Simply copies required information from the save to the live map
         star = system;
+        systemPlanets = new List<Planet_Script>();
 
         star.allegiance = system.allegiance;
         if (star.allegiance > 0)
         {
-            allegiance = save.generatedProduct.factions[star.allegiance - 1].AIRace.race.empireName;
-            gameObject.GetComponentInChildren<TextMeshPro>().color = save.generatedProduct.factions[star.allegiance - 1].AIRace.colour;
+            allegiance = save.generatedProduct.factions[star.allegiance].AIRace.race.empireName;
+            gameObject.GetComponentInChildren<TextMeshPro>().color = save.generatedProduct.factions[star.allegiance].AIRace.colour;
         }
 
         this.gameObject.GetComponentInChildren<TextMeshPro>().text = star.systemName;
@@ -415,6 +416,7 @@ public class System_Script : MonoBehaviour
             Planet_Class temp = new Planet_Class();
             temp = system.Array[i];
             planetT.GetComponent<Planet_Script>().PlanetGen(this, temp, sysGen.factionManager);
+            systemPlanets.Add(planetT.GetComponent<Planet_Script>());
         }
     }
 

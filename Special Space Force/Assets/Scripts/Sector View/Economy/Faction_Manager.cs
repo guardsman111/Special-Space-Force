@@ -39,6 +39,40 @@ public class Faction_Manager : MonoBehaviour
         }
     }
 
+    public void Load(List<GameObject> systemsObjects, List<Faction_Class> factionsL)
+    {
+        factions = factionsL;
+        for (int i = 0; i < factionsL.Count; i++)
+        {
+            factionScripts.Add(new Faction_Script());
+            factionScripts[i].faction = factions[i];
+            factionScripts[i].controlledSystems = new List<System_Script>();
+            factionScripts[i].controlledPlanets = new List<Planet_Script>();
+        }
+        
+        foreach (Faction_Script fs in factionScripts)
+        {
+            fs.faction.controlledSystems = new List<System_Class>();
+            foreach (GameObject s in systemsObjects)
+            {
+                System_Script script = s.GetComponent<System_Script>();
+                if (script.Star.allegiance == fs.faction.factionID)
+                {
+                    fs.controlledSystems.Add(script);
+                    fs.faction.controlledSystems.Add(script.Star);
+                    foreach (Planet_Script pc in script.SystemPlanets)
+                    {
+                        if (pc.inhabited)
+                        {
+                            fs.controlledPlanets.Add(pc);
+                            fs.faction.controlledPlanets.Add(pc.planet);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public void CalculateIncome()
     {
 
@@ -100,6 +134,7 @@ public class Faction_Manager : MonoBehaviour
             factions.Add(new Faction_Class());
             factionScripts.Add(new Faction_Script());
             factions[i].factionName = AI[i - 1].race.empireName;
+            factions[i].factionID = i;
             factions[i].controlledSystems = new List<System_Class>();
             factions[i].controlledPlanets = new List<Planet_Class>();
             factions[i].AIRace = AI[i - 1];
@@ -111,6 +146,18 @@ public class Faction_Manager : MonoBehaviour
         return factions;
     }
 
+    public void LoadFactions(List<Faction_Class> factionsL)
+    {
+        factions = factionsL;
+        for (int i = 0; i < factionsL.Count; i++)
+        {
+            factionScripts.Add(new Faction_Script());
+            factionScripts[i].faction = factions[i];
+            factionScripts[i].controlledSystems = new List<System_Script>();
+            factionScripts[i].controlledPlanets = new List<Planet_Script>();
+        }
+    }
+
     public void SetupPlayerFaction(Generation_Class product)
     {
         factions[0].xenophobia = product.xenophobia;
@@ -118,7 +165,10 @@ public class Faction_Manager : MonoBehaviour
         factions[0].expansionism = product.expansionism;
         factions[0].industrialism = product.industrialism;
 
-
+        foreach(Planet_Script planet in factionScripts[0].controlledPlanets)
+        {
+            planet.Stats.GenerateMilitary(product.militarism);
+        }
     }
 
     public float CalculatePlanetOutput(Planet_Script planet)

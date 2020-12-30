@@ -76,10 +76,12 @@ public class Planet_Click : MonoBehaviour
                 float earthRelativePlanetSize = sPlanet.planet.size + 25;
                 planetScreen.planetBiome.text = "Prevalent Biome: " + sPlanet.planet.biome;
                 planetScreen.planetSize.text = "Earth Size Ratio: " + earthRelativePlanetSize / 100.0f + " Earth(s)";
-                if (sPlanet.planet.population > 0)
+                if (sPlanet.planet.population > 0 && sPlanet.parentSystem.Star.allegiance == 0)
                 {
                     planetScreen.planetPopulation.text = "Population: " + sPlanet.planet.population.ToString("00,0") + ",000";
                     planetScreen.planetType.text = "Main Export: " + sPlanet.Stats.catagory;
+                    planetScreen.planetMilitaryWindow.SetActive(true);
+                    planetScreen.planetEconomyWindow.SetActive(true);
                     planetScreen.planetUsableSpace.enabled = true;
                     planetScreen.planetIndustry.enabled = true;
                     planetScreen.planetPopCons.enabled = true;
@@ -94,11 +96,51 @@ public class Planet_Click : MonoBehaviour
                     planetScreen.planetPlanetOutput.text = "Resources Output: " + sPlanet.Stats.resourceOutput.ToString("00,0") + " Kilo-Tonnes";
                     planetScreen.planetOrbitalOutput.text = "Population Output: " + sPlanet.Stats.popOutput.ToString("00,0") + " Kilo-Tonnes";
                     planetScreen.planetTotalOutput.text = "Total Monthly Output: " + sPlanet.Stats.output.ToString("00,0") + " Kilo-Tonnes";
+
+                    planetScreen.planetGarrisonLevel.text = "Grade " + sPlanet.Stats.garrisonSize.ToString();
+                    planetScreen.planetGarrisonDesc.text = sPlanet.Stats.garrisonDesc;
+                    planetScreen.planetGarrisonFleetLevel.text = "Grade " + sPlanet.Stats.garrisonFleetSize.ToString();
+                    planetScreen.planetGarrisonFleetDesc.text = sPlanet.Stats.garrisonFleetDesc;
+
+                }
+                else if(sPlanet.parentSystem.Star.allegiance != 0)
+                {
+                    if(sPlanet.planet.population > 0)
+                    {
+                        planetScreen.planetPopulation.text = "Population: " + sPlanet.planet.population.ToString("00,0") + ",000";
+                        planetScreen.planetType.text = "Main Export: Unknown";
+                        planetScreen.planetUsableSpace.enabled = true;
+                        planetScreen.planetIndustry.enabled = true;
+                        planetScreen.planetPopCons.enabled = false;
+
+                        planetScreen.planetPlanetOutput.enabled = false;
+                        planetScreen.planetOrbitalOutput.enabled = false;
+                        planetScreen.planetTotalOutput.enabled = false;
+                        planetScreen.planetUsableSpace.text = "Usable Surface Landmass: " + (sPlanet.planet.usableSpace * 100).ToString("0.0") + "%";
+                        planetScreen.planetIndustry.text = "Surface Used by Industry: " + sPlanet.planet.builtIndustry.ToString("0.0") + "%";
+                        planetScreen.planetMilitaryWindow.SetActive(false);
+                        planetScreen.planetEconomyWindow.SetActive(false);
+                    }
+                    else
+                    {
+                        planetScreen.planetPopulation.text = "Uninhabited";
+                        planetScreen.planetType.text = "Main Export: Unknown";
+                        planetScreen.planetUsableSpace.enabled = false;
+                        planetScreen.planetIndustry.enabled = false;
+                        planetScreen.planetPopCons.enabled = false;
+
+                        planetScreen.planetPlanetOutput.enabled = false;
+                        planetScreen.planetOrbitalOutput.enabled = false;
+                        planetScreen.planetTotalOutput.enabled = false;
+
+                        planetScreen.planetMilitaryWindow.SetActive(false);
+                        planetScreen.planetEconomyWindow.SetActive(false);
+                    }
                 }
                 else
                 {
                     planetScreen.planetPopulation.text = "Uninhabited";
-                    planetScreen.planetType.text = "Main Export: ";
+                    planetScreen.planetType.text = "Main Export: Unknown";
                     planetScreen.planetUsableSpace.enabled = false;
                     planetScreen.planetIndustry.enabled = false;
                     planetScreen.planetPopCons.enabled = false;
@@ -106,6 +148,9 @@ public class Planet_Click : MonoBehaviour
                     planetScreen.planetPlanetOutput.enabled = false;
                     planetScreen.planetOrbitalOutput.enabled = false;
                     planetScreen.planetTotalOutput.enabled = false;
+
+                    planetScreen.planetMilitaryWindow.SetActive(false);
+                    planetScreen.planetEconomyWindow.SetActive(false);
                 }
                 if (sPlanet.Stats.Biome.surfacePop)
                 {
@@ -115,9 +160,9 @@ public class Planet_Click : MonoBehaviour
                 }
                 else
                 {
-                    planetScreen.planetBaseMetals.text = "Base Metals Abundancy: " + sPlanet.planet.baseMetalsAmount.ToString("0.0") + "%";
-                    planetScreen.planetPreciousMetals.text = "Precious Metals Abundancy: " + sPlanet.planet.preciousMetalsAmount.ToString("0.0") + "%";
-                    planetScreen.planetFood.text = "Agricultural Land: " + sPlanet.planet.foodAvailability.ToString("0.0") + "%";
+                    planetScreen.planetBaseMetals.text = "Unable to extract Base Metal Scan information";
+                    planetScreen.planetPreciousMetals.text = "Unable to extract Precious Metal Scan information";
+                    planetScreen.planetFood.text = "Surface not suitable for Life";
                 }
                 previous = true;
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();

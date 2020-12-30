@@ -110,7 +110,8 @@ public class System_Generator : MonoBehaviour
     public void BeginGeneration(List<System_Class> loadSystems, Save_Class save)
     {
         systemsList = loadSystems;
-        foreach(System_Class s in systemsList)
+        generatedSystems = new List<GameObject>();
+        foreach (System_Class s in systemsList)
         {
             CreateStar(s, save);
         }
@@ -166,6 +167,7 @@ public class System_Generator : MonoBehaviour
             {
                 GameObject star = Instantiate(prefabs[i], new Vector3(system.posX, 0, system.posZ), this.transform.rotation);
                 star.GetComponent<System_Script>().SystemGen(system, planetPrefab, this, save);
+                generatedSystems.Add(star);
                 break;
             }
         }
