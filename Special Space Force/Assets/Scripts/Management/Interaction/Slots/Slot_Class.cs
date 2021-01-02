@@ -15,6 +15,8 @@ public class Slot_Class
     public bool squad;
     public int squadRole;
     public int numberOfTroopers;
+    public List<Color32> squadColours;
+    public bool useSquadColours;
 
     public int slotHeight;
 

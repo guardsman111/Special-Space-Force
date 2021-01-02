@@ -132,7 +132,7 @@ public class System_Generator : MonoBehaviour
                     bool changed = false;
                     foreach (GameObject s in generatedSystems)
                     {
-                        if (Vector3.Distance(s.transform.position, star.transform.position) < 3000)
+                        if (Vector3.Distance(s.transform.position, star.transform.position) < 2000)
                         {
                             star.transform.position = new Vector3(Random.Range(-(secWidth / 2), (secWidth / 2)), 0, Random.Range(-(secHeight / 2), (secHeight / 2)));
                             changed = true;

@@ -8,28 +8,43 @@ public class Show_Hide_Organisation : MonoBehaviour
     /// <summary>
     /// Manages showing/hiding of UI elements between force organisation and sector views
     /// </summary>
-    public GameObject userInterface;
-    public GameObject forceOrganisation;
+    public GameObject Object1;
+    public GameObject Object2;
     public Text TrooperCounterText;
     public Slot_Manager manager;
 
     //SHows or hides depnding on which is currently active
     public void ShowHide()
     {
-        if (userInterface.activeSelf)
+        if (Object1.activeSelf)
         {
-            forceOrganisation.SetActive(true);
+            Object2.SetActive(true);
 
             TrooperCounterText.text = manager.GetTroopers();
 
-            userInterface.SetActive(false);
+            Object1.SetActive(false);
         }
         else
         {
-            userInterface.SetActive(true);
+            Object1.SetActive(true);
 
-            forceOrganisation.SetActive(false);
+            Object2.SetActive(false);
         }
     }
 
+    public void BasicShowHide()
+    {
+        if (Object1.activeSelf)
+        {
+            Object2.SetActive(true);
+
+            Object1.SetActive(false);
+        }
+        else
+        {
+            Object1.SetActive(true);
+
+            Object2.SetActive(false);
+        }
+    }
 }

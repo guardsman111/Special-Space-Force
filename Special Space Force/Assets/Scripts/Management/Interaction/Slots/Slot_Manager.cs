@@ -632,4 +632,68 @@ public class Slot_Manager : MonoBehaviour
         }
         selectedTroopers.Clear();
     }
+
+    public void ToggleUsedColors(Toggle toggle)
+    {
+        if(toggle.isOn == true)
+        {
+            foreach(Trooper_Script ts in viewedSlot.containedTroopers)
+            {
+                ts.trooperImages[17].color = viewedSlot.slotClass.squadColours[0];
+                ts.trooperImages[18].color = viewedSlot.slotClass.squadColours[1];
+                ts.trooperImages[19].color = viewedSlot.slotClass.squadColours[2];
+                ts.trooperImages[20].color = viewedSlot.slotClass.squadColours[3];
+                ts.trooperImages[10].color = viewedSlot.slotClass.squadColours[4];
+                ts.trooperImages[11].color = viewedSlot.slotClass.squadColours[5];
+                ts.trooperImages[12].color = viewedSlot.slotClass.squadColours[6];
+                ts.trooperImages[13].color = viewedSlot.slotClass.squadColours[7];
+                ts.trooperImages[14].color = viewedSlot.slotClass.squadColours[8];
+                ts.trooperImages[4].color = viewedSlot.slotClass.squadColours[9];
+                ts.trooperImages[5].color = viewedSlot.slotClass.squadColours[10];
+                ts.trooperImages[6].color = viewedSlot.slotClass.squadColours[11];
+                ts.trooperImages[7].color = viewedSlot.slotClass.squadColours[12];
+                ts.trooperImages[8].color = viewedSlot.slotClass.squadColours[13];
+                ts.trooperImages[27].color = viewedSlot.slotClass.squadColours[14];
+                ts.trooperImages[28].color = viewedSlot.slotClass.squadColours[15];
+                ts.trooperImages[24].color = viewedSlot.slotClass.squadColours[16];
+                ts.trooperImages[25].color = viewedSlot.slotClass.squadColours[17];
+                ts.trooperImages[30].color = viewedSlot.slotClass.squadColours[14];
+                ts.trooperImages[31].color = viewedSlot.slotClass.squadColours[15];
+                foreach(Text t in ts.slotLocations)
+                {
+                    t.color = viewedSlot.slotClass.squadColours[18];
+                }
+            }
+        }
+        else
+        {
+            foreach (Trooper_Script ts in viewedSlot.containedTroopers)
+            {
+                ts.trooperImages[17].color = manager.modManager.GeneratedProduct.playerColours[10];
+                ts.trooperImages[18].color = manager.modManager.GeneratedProduct.playerColours[11];
+                ts.trooperImages[19].color = manager.modManager.GeneratedProduct.playerColours[12];
+                ts.trooperImages[20].color = manager.modManager.GeneratedProduct.playerColours[13];
+                ts.trooperImages[10].color = manager.modManager.GeneratedProduct.playerColours[0];
+                ts.trooperImages[11].color = manager.modManager.GeneratedProduct.playerColours[1];
+                ts.trooperImages[12].color = manager.modManager.GeneratedProduct.playerColours[2];
+                ts.trooperImages[14].color = manager.modManager.GeneratedProduct.playerColours[3];
+                ts.trooperImages[13].color = manager.modManager.GeneratedProduct.playerColours[4];
+                ts.trooperImages[4].color = manager.modManager.GeneratedProduct.playerColours[5];
+                ts.trooperImages[5].color = manager.modManager.GeneratedProduct.playerColours[6];
+                ts.trooperImages[6].color = manager.modManager.GeneratedProduct.playerColours[7];
+                ts.trooperImages[8].color = manager.modManager.GeneratedProduct.playerColours[8];
+                ts.trooperImages[7].color = manager.modManager.GeneratedProduct.playerColours[9];
+                ts.trooperImages[27].color = manager.modManager.GeneratedProduct.playerColours[14];
+                ts.trooperImages[28].color = manager.modManager.GeneratedProduct.playerColours[15];
+                ts.trooperImages[24].color = manager.modManager.GeneratedProduct.playerColours[16];
+                ts.trooperImages[25].color = manager.modManager.GeneratedProduct.playerColours[17];
+                ts.trooperImages[30].color = manager.modManager.GeneratedProduct.playerColours[14];
+                ts.trooperImages[31].color = manager.modManager.GeneratedProduct.playerColours[15];
+                foreach (Text t in ts.slotLocations)
+                {
+                    t.color = manager.modManager.GeneratedProduct.playerColours[18];
+                }
+            }
+        }
+    }
 }

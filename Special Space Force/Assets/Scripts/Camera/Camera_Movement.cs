@@ -29,6 +29,12 @@ public class Camera_Movement : MonoBehaviour
     private bool isSpeeding;
     private float count;
 
+    // Panning Variables
+    public float panSpeed = 4.0f;
+
+    private Vector3 mouseOrigin;
+    private bool isPanning;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,10 +116,33 @@ public class Camera_Movement : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
-            else
+            else if (Input.GetMouseButtonDown(2))
             {
+                mouseOrigin = Input.mousePosition;
+
+                isPanning = true;
+
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+            }
+            else if (!Input.GetMouseButton(2))
+            {
+
+                isPanning = false;
+            }
+            else if (!Input.GetMouseButton(1))
+            {
+
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+
+            if (isPanning)
+            {
+                Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
+                Vector3 move = new Vector3(-pos.x * panSpeed, 0, -pos.y * panSpeed);
+
+                transform.Translate(move, Space.World);
             }
         }
     }

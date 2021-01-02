@@ -15,58 +15,54 @@ public class Light_Colour : MonoBehaviour
         Light = gameObject.GetComponent<Light>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Changes colour of light to enact star colour
+    public void ChangeColour(string newColour)
     {
-        if (isOrange)
+        if (newColour == "Red")
+        {
+            Light.color = Red;
+        }
+        if (newColour == "Orange")
         {
             Light.color = Orange;
         }
-        if (isYellow)
+        if (newColour == "Yellow")
         {
             Light.color = Yellow;
         }
-        if (isWhite)
+        if (newColour == "White")
         {
             Light.color = White;
         }
-        if (isPurple)
+        if (newColour == "Purple")
         {
             Light.color = Purple;
         }
-        if (isPink)
+        if (newColour == "Pink")
         {
             Light.color = Pink;
         }
-        if (isLBlue)
+        if (newColour == "LBlue")
         {
             Light.color = LBlue;
         }
-        if (isBlue)
+        if (newColour == "Blue")
         {
             Light.color = Blue;
         }
-        if (isLGreen)
+        if (newColour == "LGreen")
         {
             Light.color = LGreen;
         }
-        if (isGreen)
+        if (newColour == "Green")
         {
             Light.color = Green;
         }
     }
 
-    public bool isOrange = false;
-    public bool isYellow = false;
-    public bool isWhite = false;
-    public bool isPurple = false;
-    public bool isPink = false;
-    public bool isLBlue = false;
-    public bool isBlue = false;
-    public bool isLGreen = false;
-    public bool isGreen = false;
 
     //Colours
+    public Color32 Red = new Color32();
     public Color32 Orange = new Color32();
     public Color32 Yellow = new Color32();
     public Color32 White = new Color32();

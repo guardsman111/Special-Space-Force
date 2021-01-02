@@ -23,6 +23,7 @@ public class Planet_Click : MonoBehaviour
     private Text[] planetScreenTexts;
 
     private bool previous;
+    private Vector3 previousPosition;
 
     //Finds all the cameras
     void Start()
@@ -51,7 +52,11 @@ public class Planet_Click : MonoBehaviour
 
                 Planet_Script sPlanet = gameObject.GetComponent<Planet_Script>();
 
-                sPlanet.planetSkin.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                previousPosition = gameObject.transform.position;
+                if (sPlanet.parentSystem.SystemPlanets.Count > 1)
+                {
+                    gameObject.transform.position = sPlanet.parentSystem.SystemPlanets[1].transform.position;
+                }
 
                 //Sets moons as visible
                 foreach(GameObject go in sPlanet.moons)
@@ -174,20 +179,24 @@ public class Planet_Click : MonoBehaviour
     //On escape returns to the system camera
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (planetCamera.enabled)
         {
-            foreach (GameObject go in gameObject.GetComponent<Planet_Script>().moons)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                go.SetActive(false);
+                foreach (GameObject go in gameObject.GetComponent<Planet_Script>().moons)
+                {
+                    go.SetActive(false);
+                }
+                systemCamera.enabled = true;
+                star.enabled = true;
+                planetCamera.enabled = false;
+                planetScreenCamera.enabled = false;
+                previous = false;
+                gameObject.transform.position = previousPosition;
+                ToggleVisiblePlanets.TogglePlanetsOn(true);
+                systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
+                systemCamera.GetComponent<Camera_Container_Script>().planetHelper.HideHelper();
             }
-            systemCamera.enabled = true;
-            star.enabled = true;
-            planetCamera.enabled = false;
-            planetScreenCamera.enabled = false;
-            previous = false;
-            ToggleVisiblePlanets.TogglePlanetsOn(true);
-            systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
-            systemCamera.GetComponent<Camera_Container_Script>().planetHelper.HideHelper();
         }
     }
 }

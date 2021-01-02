@@ -14,6 +14,7 @@ public class Trooper_Script : MonoBehaviour
     public string trooperRank;
     public int trooperPosition;
     public string slotIdentifier;
+    public int identifierLoc;
     public int trooperFace;
     public int trooperHair;
     public int hairColour;
@@ -68,10 +69,10 @@ public class Trooper_Script : MonoBehaviour
     public GameObject image;
     public TMP_InputField input;
 
-    public Image[] trooperImages; //Trooper Outline, T Colour, Hair Outline, Hair Colour, Fatigue Primary, F Secondary, F Tertiary, F Special, F Outline,
-                                  //Armour Primary, A Secondary, A Tertiary, A Special, A Equipment, A Force Icon, A Outline, Helmet Primary,
-                                  //H Secondary, H Tertiary, H Equipment, H Visor, H Outline, E Outline, E Primary, E Primary, W outline, 
-                                  //W Primary, W Secondary
+    public Image[] trooperImages; //0 Trooper Outline, 1 T Colour, 2 Hair Outline, 3 Hair Colour, 4 Fatigue Primary, 5 F Secondary, 6 F Tertiary, 7 F Special, 8 F Equipment,
+                                  //9 F Outline, 10 Armour Primary, 11 A Secondary, 12 A Tertiary, 13 A Special, 14 A Equipment, 15 A Force Icon, 16 A Outline, 17 Helmet Primary,
+                                  //18 H Secondary, 19 H Tertiary, 20 H Equipment, 21 H Visor, 22 H Outline, 23 E Outline, 24 E Primary, 25 E Secondary, 26 W outline, 
+                                  //27 W Primary, 28 W Secondary, 29 W outline, 30 W Primary, 31 W Secondary
 
     public Image_Manager imageManager;
 
@@ -534,6 +535,10 @@ public class Trooper_Script : MonoBehaviour
         trooperImages[28].color = equipmentManager.playerDefaultColours[15];
         trooperImages[30].color = equipmentManager.playerDefaultColours[14];
         trooperImages[31].color = equipmentManager.playerDefaultColours[15];
+        foreach(Text t in slotLocations)
+        {
+            t.color = equipmentManager.playerDefaultColours[18];
+        }
     }
 
     //Changes the troopers name according to the input
@@ -983,13 +988,23 @@ public class Trooper_Script : MonoBehaviour
 
     public void FindSlotIdentifier()
     {
-        string temp1 = trooperSquad.slotParent.slotParent.slotName[0].ToString();
-        string temp2 = trooperSquad.slotParent.slotName[0].ToString();
-        string temp3 = trooperSquad.slotName[0].ToString();
-
-        foreach(Text t in slotLocations)
+        identifierLoc = manager.manager.save.generatedProduct.identifierLoc;
+        if (trooperSquad != null && trooperSquad.slotParent != null)
         {
-            t.text = temp1 + temp2 + temp3;
+            string temp1 = trooperSquad.slotParent.slotParent.slotName[0].ToString();
+            string temp2 = trooperSquad.slotParent.slotName[0].ToString();
+            string temp3 = trooperSquad.slotName[0].ToString();
+            foreach (Text t in slotLocations)
+            {
+                t.text = temp1 + temp2 + temp3;
+            }
         }
+
+        foreach (Text t in slotLocations)
+        {
+            t.gameObject.SetActive(false);
+        }
+
+        slotLocations[identifierLoc].gameObject.SetActive(true);
     }
 }

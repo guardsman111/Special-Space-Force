@@ -30,6 +30,8 @@ public class Generation_Settings_Director : MonoBehaviour
     private int expansionism = 50;
     private int industrialism = 2;
     private int funding = 50;
+    private int identifierLoc = 0;
+    public int nSlotLocations;
 
     private bool[] AIBoolArray;
 
@@ -136,6 +138,7 @@ public class Generation_Settings_Director : MonoBehaviour
         product.expansionism = expansionism;
         product.industrialism = industrialism;
         product.funding = funding;
+        product.identifierLoc = identifierLoc;
         product.factions = factionManager.GenerateFactions(SortToggledAI());
         product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
         product.playerColours = equipmentManager.GetColours(PlayerColours);
@@ -670,5 +673,25 @@ public class Generation_Settings_Director : MonoBehaviour
     public void TurnOnLoadScreen()
     {
         Pages[0].gameObject.SetActive(true);
+    }
+
+    public void SetIdentifierLocation(int modifier)
+    {
+        
+        if (identifierLoc < nSlotLocations)
+        {
+            if (modifier == +1 && identifierLoc == nSlotLocations - 1)
+            {
+                identifierLoc = 0;
+            }
+            else if (modifier == -1 && identifierLoc == 0)
+            {
+                identifierLoc = nSlotLocations - 1;
+            }
+            else
+            {
+                identifierLoc += modifier;
+            }
+        }
     }
 }

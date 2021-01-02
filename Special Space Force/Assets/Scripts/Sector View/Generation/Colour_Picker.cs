@@ -15,13 +15,27 @@ public class Colour_Picker : MonoBehaviour
     public Image pickerImageGrey;
     public RectTransform pickerRect;
     public Image boxBackup;
-    public Image preview;
+    public Image[] previewI;
+    public Text[] previewT;
 
     private void Awake()
     {
         if (boxBackup != null)
         {
-            preview.color = boxBackup.color;
+            if (previewI.Length > 0)
+            {
+                foreach (Image i in previewI)
+                {
+                    i.color = boxBackup.color;
+                }
+            }
+            if (previewT.Length > 0)
+            {
+                foreach (Text t in previewT)
+                {
+                    t.color = boxBackup.color;
+                }
+            }
         }
     }
 
@@ -55,7 +69,20 @@ public class Colour_Picker : MonoBehaviour
         PointerEventData pEventData = eventData as PointerEventData;
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(pickerRect, pEventData.position, null, out localPoint);
-        preview.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
+        if (previewI.Length > 0)
+        {
+            foreach (Image i in previewI)
+            {
+                i.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
+            }
+        }
+        if (previewT.Length > 0)
+        {
+            foreach (Text t in previewT)
+            {
+                t.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
+            }
+        }
         boxBackup.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
     }
 
@@ -65,7 +92,20 @@ public class Colour_Picker : MonoBehaviour
         PointerEventData pEventData = eventData as PointerEventData;
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(pickerRect, pEventData.position, null, out localPoint);
-        preview.color = pickerImageGrey.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
+        if (previewI.Length > 0)
+        {
+            foreach (Image i in previewI)
+            {
+                i.color = pickerImageGrey.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y); ;
+            }
+        }
+        if (previewT.Length > 0)
+        {
+            foreach (Text t in previewT)
+            {
+                t.color = pickerImageGrey.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y); ;
+            }
+        }
         boxBackup.color = pickerImageGrey.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
     }
 }

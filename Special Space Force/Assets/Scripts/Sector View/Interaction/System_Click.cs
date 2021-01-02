@@ -19,6 +19,8 @@ public class System_Click : MonoBehaviour
     [SerializeField]
     private Camera planetCamera;
 
+    private Light starLight;
+
     public System_Screen systemScreen;
 
     public GameObject forceOrg;
@@ -31,6 +33,7 @@ public class System_Click : MonoBehaviour
         systemScreenCamera = GameObject.Find("System Screen Camera").GetComponent<Camera>();
         planetCamera = GameObject.Find("PlanetCamera").GetComponent<Camera>();
         forceOrg = GameObject.Find("User Interface").GetComponentInChildren<Button>().gameObject;
+        starLight = GameObject.Find("Directional Light").GetComponent<Light>();
         systemScreen = systemCamera.GetComponentInChildren<System_Screen>();
     }
 
@@ -61,6 +64,8 @@ public class System_Click : MonoBehaviour
                 systemScreen.name.text = "System: " + system.Star.systemName;
                 systemScreen.allegiance.text = "Owner: " + system.allegiance;
                 systemScreen.output.text = "Total Output: " + system.combinedOutput.ToString("00,0") + " Kilo-Tonnes";
+
+                starLight.GetComponent<Light_Colour>().ChangeColour(gameObject.GetComponent<System_Script>().Star.colour);
 
                 ToggleVisiblePlanets.TogglePlanetsOn(true);
 

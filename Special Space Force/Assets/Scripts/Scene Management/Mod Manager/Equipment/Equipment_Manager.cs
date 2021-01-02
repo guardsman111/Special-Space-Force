@@ -20,6 +20,7 @@ public class Equipment_Manager : MonoBehaviour
     private List<Sprite_Pack> equipmentPacks;
     private List<Sprite_Pack> weaponPacks;
 
+    //Remember that trims and equipments are the wrong way round in code compared to on screen
     public List<Color32> playerDefaultColours;
 
     public Dropdown HelmetDropdownCustom;
@@ -405,6 +406,7 @@ public class Equipment_Manager : MonoBehaviour
     }
 
     //Gets players default colours
+    //Remember that trim and equipment are the wrong way round in code compared to on screen
     public List<Color32> GetColours(Image[] images)
     {
         List<Color32> colours = new List<Color32>();
