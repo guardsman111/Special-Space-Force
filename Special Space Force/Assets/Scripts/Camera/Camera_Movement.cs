@@ -125,12 +125,14 @@ public class Camera_Movement : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
-            else if (!Input.GetMouseButton(2))
+            
+            if (!Input.GetMouseButton(2))
             {
 
                 isPanning = false;
             }
-            else if (!Input.GetMouseButton(1))
+
+            if (!Input.GetMouseButton(1))
             {
 
                 Cursor.lockState = CursorLockMode.None;

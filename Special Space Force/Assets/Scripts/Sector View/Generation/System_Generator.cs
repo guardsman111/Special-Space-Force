@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class System_Generator : MonoBehaviour
@@ -103,6 +104,8 @@ public class System_Generator : MonoBehaviour
         secHeight = product.height;
         secWidth = product.width;
 
+        AllegianceGeneration();
+
         factionManager.Run(generatedSystems);
     }
 
@@ -171,5 +174,82 @@ public class System_Generator : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void AllegianceGeneration()
+    {
+        int totalStrength = 0;
+        int totalSystems;
+        int planetsPerStrength;
+
+        totalSystems = generatedSystems.Count;
+
+        foreach(Faction_Class f in generatedProduct.factions)
+        {
+            if (f.AIRace != null) 
+            {
+                totalStrength += f.AIRace.startThreat + 1;
+            }
+            else
+            {             
+                totalStrength += (generatedProduct.playerStrength + 1);
+            }
+        }
+
+        planetsPerStrength = totalSystems / totalStrength;
+
+        int currentSystem = 0;
+
+        for(int faction = 0; faction < generatedProduct.factions.Count; faction++) //For each faction 
+        {
+            if (generatedProduct.factions[faction].AIRace != null)
+            {
+                for (int f = 0; f < generatedProduct.factions[faction].AIRace.startThreat + 1; f++) //For every strength point the faction has
+                {
+                    for (int i = 0; i < planetsPerStrength; i++)
+                    {
+                        System_Class star = systemsList[currentSystem];
+                        star.allegiance = faction;
+                        generatedSystems[currentSystem].GetComponent<System_Script>().allegiance = generatedProduct.factions[faction].AIRace.race.empireName;
+                        generatedSystems[currentSystem].GetComponentInChildren<TextMeshPro>().color = generatedProduct.factions[faction].AIRace.colour;
+                        generatedProduct.factions[faction].controlledSystems.Add(star);
+                        factionManager.Factions[faction].controlledSystems.Add(star);
+                        factionManager.factionScripts[faction].controlledSystems.Add(GeneratedSystems[currentSystem].GetComponent<System_Script>());
+                        currentSystem += 1;
+
+                    }
+                }
+            } 
+            else
+            {
+                for (int f = 0; f < generatedProduct.playerStrength + 1; f++) //For every strength point the faction has
+                {
+                    for (int i = 0; i < planetsPerStrength; i++)
+                    {
+                        System_Class star = systemsList[currentSystem];
+                        star.allegiance = faction;
+                        GeneratedSystems[currentSystem].GetComponent<System_Script>().allegiance = "Player";
+                        generatedProduct.factions[faction].controlledSystems.Add(star);
+                        factionManager.Factions[faction].controlledSystems.Add(star);
+                        factionManager.factionScripts[faction].controlledSystems.Add(GeneratedSystems[currentSystem].GetComponent<System_Script>());
+                        currentSystem += 1;
+                    }
+                }
+            }
+        }
+
+        foreach(GameObject go in GeneratedSystems)
+        {
+            if (go.GetComponent<System_Script>().allegiance == null)
+            {
+                System_Class star = GeneratedSystems[currentSystem].GetComponent<System_Script>().Star;
+                star.allegiance = 0;
+                GeneratedSystems[currentSystem].GetComponent<System_Script>().allegiance = "Player";
+                generatedProduct.factions[0].controlledSystems.Add(star);
+                factionManager.Factions[0].controlledSystems.Add(star);
+                factionManager.factionScripts[0].controlledSystems.Add(GeneratedSystems[currentSystem].GetComponent<System_Script>());
+            }
+        }
+
     }
 }

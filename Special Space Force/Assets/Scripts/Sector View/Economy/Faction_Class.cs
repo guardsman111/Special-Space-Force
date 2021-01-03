@@ -16,6 +16,8 @@ public class Faction_Class
     public float militarism;
     public float expansionism;
     public float industrialism;
+    public int lowerBuffer;
+    public int upperBuffer;
 
     public Faction_Class()
     {
