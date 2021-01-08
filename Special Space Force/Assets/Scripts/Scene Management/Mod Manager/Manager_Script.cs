@@ -13,6 +13,7 @@ public class Manager_Script : MonoBehaviour
     public Trait_Manager traitManager;
     public Faction_Manager factionManager;
     public Turn_Manager turnManager;
+    public Rank_Manager rankManager;
 
     private Generation_Class generatedProduct;
 

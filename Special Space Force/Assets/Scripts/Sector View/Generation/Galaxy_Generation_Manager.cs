@@ -178,6 +178,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
 
             systemGenerator.BeginGeneration(loadSystems, save);
             product = save.generatedProduct;
+            modManager.rankManager.Begin();
             modManager.traitManager.Run();
             modManager.equipmentManager.playerDefaultColours = product.playerColours;
             localisationManager.LoadStringListClass(product.chosenLocalisationList[0], "TrooperNames");
@@ -193,6 +194,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         {
 
             systemGenerator.BeginGeneration(product, starNames);
+            modManager.rankManager.Begin();
 
             save = new Save_Class();
             save.saveName = "NewSave.Save";

@@ -263,7 +263,8 @@ MonoBehaviour:
   pickerImageGrey: {fileID: 0}
   pickerRect: {fileID: 1136823256}
   boxBackup: {fileID: 0}
-  preview: {fileID: 370489192}
+  previewI: []
+  previewT: []
 --- !u!1 &1136823255
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +846,8 @@ GameObject:
   - component: {fileID: 5476328225402350487}
   - component: {fileID: 152359913815635011}
   - component: {fileID: 8731307076338702567}
+  - component: {fileID: 26842322479796639}
+  - component: {fileID: 4926707654307704438}
   m_Layer: 0
   m_Name: Race
   m_TagString: Untagged
@@ -979,6 +982,40 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_AlphaFadeSpeed: 0.15
+--- !u!114 &26842322479796639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733923788411810933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &4926707654307704438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733923788411810933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c5b53363817114e81d9315c7641744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverObject: {fileID: 0}
 --- !u!1 &5037350410932586693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,6 +2321,8 @@ GameObject:
   - component: {fileID: 5155072124095934890}
   - component: {fileID: 5155072124095934901}
   - component: {fileID: 4009190137722019154}
+  - component: {fileID: 8438182378506581426}
+  - component: {fileID: 7631564852661389085}
   m_Layer: 0
   m_Name: Starting Threat
   m_TagString: Untagged
@@ -2440,6 +2479,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiNumber: 0
+--- !u!114 &8438182378506581426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155072124095934903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &7631564852661389085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155072124095934903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c5b53363817114e81d9315c7641744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverObject: {fileID: 0}
 --- !u!1 &5155072124217938836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,6 +3337,8 @@ GameObject:
   - component: {fileID: 5155072124730837846}
   - component: {fileID: 5155072124730837841}
   - component: {fileID: 5987337881183624904}
+  - component: {fileID: 7625618977871038679}
+  - component: {fileID: 6972693566524783030}
   m_Layer: 0
   m_Name: Difficulty
   m_TagString: Untagged
@@ -3412,6 +3487,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiNumber: 0
+--- !u!114 &7625618977871038679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155072124730837843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &6972693566524783030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155072124730837843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c5b53363817114e81d9315c7641744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverObject: {fileID: 0}
 --- !u!1 &5155072124765528165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3495,6 +3604,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5155072124815115445}
   - component: {fileID: 5155072124815115434}
+  - component: {fileID: 3009729853093161747}
+  - component: {fileID: 3994010944325871151}
   m_Layer: 0
   m_Name: Race-Customisation_UI
   m_TagString: Untagged
@@ -3581,6 +3692,40 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!114 &3009729853093161747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155072124815115444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &3994010944325871151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155072124815115444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c5b53363817114e81d9315c7641744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverObject: {fileID: 0}
 --- !u!1 &5155072124869537246
 GameObject:
   m_ObjectHideFlags: 0

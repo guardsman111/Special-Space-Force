@@ -10,15 +10,58 @@ public class Promote_Script : MonoBehaviour
     /// </summary>
     public Slot_Manager manager;
     public Text rankDisplay;
+    public Dropdown roleDropdown;
     public Dropdown promoteDropdown;
+    public Rank_Manager rankManager;
+
+    public void SetupRoleDropdown(List<Squad_Role_Class> roles)
+    {
+        roleDropdown.options.Clear();
+
+        List<Dropdown.OptionData> options = new List<Dropdown.OptionData>();
+
+        foreach (Squad_Role_Class r in roles)
+        {
+            Dropdown.OptionData option = new Dropdown.OptionData(r.RoleName);
+            options.Add(option);
+        }
+
+        roleDropdown.options = options;
+    }
+
+    public void SetupRankDropdown()
+    {
+        promoteDropdown.options.Clear();
+
+        List<Dropdown.OptionData> options = new List<Dropdown.OptionData>();
+
+        foreach(Rank_Definition r in manager.viewedSlot.squadRole.RankDefs)
+        {
+            Dropdown.OptionData option = new Dropdown.OptionData(r.RankName);
+            options.Add(option);
+        }
+
+        promoteDropdown.options = options;
+    }
 
     //Changes rank from a dropdown
     public void ChangeRank(Dropdown dropdown)
     {
         if (manager.selectedTroopers.Count > 0)
         {
-            manager.selectedTroopers[0].trooperRank = dropdown.options[dropdown.value].text;
-            rankDisplay.text = manager.selectedTroopers[0].trooperRank;
+            int count = 0;
+            for (int i = 0; i < manager.viewedSlot.containedTroopers.Count; i++)
+            {
+                if(manager.viewedSlot.containedTroopers[i].trooperRank == dropdown.options[dropdown.value].text)
+                {
+                    count += 1;
+                }
+            }
+            if (count < manager.viewedSlot.squadRole.RankDefs[dropdown.value].RankLimit || manager.viewedSlot.squadRole.RankDefs[dropdown.value].RankLimit == 0)
+            {
+                manager.selectedTroopers[0].trooperRank = dropdown.options[dropdown.value].text;
+                rankDisplay.text = manager.selectedTroopers[0].trooperRank;
+            }
         }
     }
 

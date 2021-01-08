@@ -230,6 +230,11 @@ public class Generation_Settings_Director : MonoBehaviour
     public void Height(InputField input)
     {
         height = int.Parse(input.text);
+        if(height < 1000)
+        {
+            height = 1000;
+        }
+        input.text = height.ToString();
     }
 
     public void AddHeight(InputField input)
@@ -245,7 +250,11 @@ public class Generation_Settings_Director : MonoBehaviour
         }
         int temp = int.Parse(input.text) + change;
         height = temp;
-        input.text = temp.ToString();
+        if (height > 9999)
+        {
+            height = 9999;
+        }
+        input.text = height.ToString();
     }
 
     public void SubtractHeight(InputField input)
@@ -261,7 +270,11 @@ public class Generation_Settings_Director : MonoBehaviour
         }
         int temp = int.Parse(input.text) - change;
         height = temp;
-        input.text = temp.ToString();
+        if (height < 1000)
+        {
+            height = 1000;
+        }
+        input.text = height.ToString();
     }
 
     //
@@ -270,6 +283,11 @@ public class Generation_Settings_Director : MonoBehaviour
     public void Width(InputField input)
     {
         width = int.Parse(input.text);
+        if (width < 1000)
+        {
+            width = 1000;
+        }
+        input.text = width.ToString();
     }
 
     public void AddWidth(InputField input)
@@ -285,7 +303,11 @@ public class Generation_Settings_Director : MonoBehaviour
         }
         int temp = int.Parse(input.text) + change;
         width = temp;
-        input.text = temp.ToString();
+        if (width > 9999)
+        {
+            width = 9999;
+        }
+        input.text = width.ToString();
     }
 
     public void SubtractWidth(InputField input)
@@ -301,7 +323,11 @@ public class Generation_Settings_Director : MonoBehaviour
         }
         int temp = int.Parse(input.text) - change;
         width = temp;
-        input.text = temp.ToString();
+        if (width < 1000)
+        {
+            width = 1000;
+        }
+        input.text = width.ToString();
     }
 
     //
@@ -310,6 +336,11 @@ public class Generation_Settings_Director : MonoBehaviour
     public void NumberOfStars(InputField input)
     {
         numberofStars = int.Parse(input.text);
+        if (numberofStars < 5)
+        {
+            numberofStars = 5;
+        }
+        input.text = numberofStars.ToString();
     }
 
     public void AddStars(InputField input)
@@ -325,7 +356,11 @@ public class Generation_Settings_Director : MonoBehaviour
         }
         int temp = int.Parse(input.text) + change;
         numberofStars = temp;
-        input.text = temp.ToString();
+        if (numberofStars < 5)
+        {
+            numberofStars = 5;
+        }
+        input.text = numberofStars.ToString();
     }
 
     public void SubtractStars(InputField input)
@@ -341,7 +376,11 @@ public class Generation_Settings_Director : MonoBehaviour
         }
         int temp = int.Parse(input.text) - change;
         numberofStars = temp;
-        input.text = temp.ToString();
+        if (numberofStars < 5)
+        {
+            numberofStars = 5;
+        }
+        input.text = numberofStars.ToString();
     }
 
     //

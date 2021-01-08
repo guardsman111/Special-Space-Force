@@ -34,6 +34,7 @@ public class Hover_Over_Popup : MonoBehaviour
     {
         showing = true;
         hoverObject.SetActive(true);
+        hoverObject.transform.position = Input.mousePosition - new Vector3(30, 50, -3);
     }
 
     public void Hide()
@@ -42,11 +43,4 @@ public class Hover_Over_Popup : MonoBehaviour
         hoverObject.SetActive(false);
     }
 
-    void Update()
-    {
-        if (showing)
-        {
-            hoverObject.transform.position = Input.mousePosition - new Vector3(30, 50, -3);
-        }
-    }
 }

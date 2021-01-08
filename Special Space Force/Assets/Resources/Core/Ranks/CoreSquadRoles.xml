@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<ArrayOfSquad_Role_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Squad_Role_Class>
+    <RoleName>Infantry - Line</RoleName>
+    <RoleType>Infantry</RoleType>
+    <source>Core</source>
+    <RankDefs>
+      <Rank_Definition>
+        <RankName>Sergeant</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Corporal</RankName>
+        <RankLimit>2</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Lance Corporal</RankName>
+        <RankLimit>3</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Private</RankName>
+        <RankLimit>0</RankLimit>
+      </Rank_Definition>
+    </RankDefs>
+  </Squad_Role_Class>
+  <Squad_Role_Class>
+    <RoleName>Infantry - Combat HQ</RoleName>
+    <RoleType>Infantry</RoleType>
+    <source>Core</source>
+    <RankDefs>
+      <Rank_Definition>
+        <RankName>Major</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Captain</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Lieutenant</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Second Lieutenant</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Staff Sergeant</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Sergeant</RankName>
+        <RankLimit>2</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Corporal</RankName>
+        <RankLimit>3</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Lance Corporal</RankName>
+        <RankLimit>3</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Private</RankName>
+        <RankLimit>0</RankLimit>
+      </Rank_Definition>
+    </RankDefs>
+  </Squad_Role_Class>
+  <Squad_Role_Class>
+    <RoleName>Infantry - Command HQ</RoleName>
+    <RoleType>Infantry</RoleType>
+    <source>Core</source>
+    <RankDefs>
+      <Rank_Definition>
+        <RankName>Commander</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Colonel</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Lieutenant-Colonel</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Major</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Captain</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Private</RankName>
+        <RankLimit>0</RankLimit>
+      </Rank_Definition>
+    </RankDefs>
+  </Squad_Role_Class>
+  <Squad_Role_Class>
+    <RoleName>Infantry - Support</RoleName>
+    <RoleType>Infantry</RoleType>
+    <source>Core</source>
+    <RankDefs>
+      <Rank_Definition>
+        <RankName>Gunnery Sergeant</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Sergeant</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Corporal</RankName>
+        <RankLimit>2</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Lance Corporal</RankName>
+        <RankLimit>4</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Private</RankName>
+        <RankLimit>0</RankLimit>
+      </Rank_Definition>
+    </RankDefs>
+  </Squad_Role_Class>
+  <Squad_Role_Class>
+    <RoleName>Infantry - Elite</RoleName>
+    <RoleType>Infantry</RoleType>
+    <source>Core</source>
+    <RankDefs>
+      <Rank_Definition>
+        <RankName>Gunnery Sergeant</RankName>
+        <RankLimit>1</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Sergeant</RankName>
+        <RankLimit>2</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Corporal</RankName>
+        <RankLimit>3</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Lance Corporal</RankName>
+        <RankLimit>4</RankLimit>
+      </Rank_Definition>
+      <Rank_Definition>
+        <RankName>Private</RankName>
+        <RankLimit>0</RankLimit>
+      </Rank_Definition>
+    </RankDefs>
+  </Squad_Role_Class>
+</ArrayOfSquad_Role_Class>

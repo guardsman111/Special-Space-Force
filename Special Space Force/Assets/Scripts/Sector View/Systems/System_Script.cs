@@ -9,6 +9,8 @@ public class System_Script : MonoBehaviour
     /// This Script is generated and uses inputted information to create a star system, including planets and their stats
     /// </summary>
     public System_Generator systemGenerator;
+    public TextMeshPro sName;
+    public TextMeshPro faction;
     private System_Class star;
     public float combinedOutput;
     public string allegiance;
@@ -55,7 +57,7 @@ public class System_Script : MonoBehaviour
         star = new System_Class();
         systemPlanets = new List<Planet_Script>();
         star.systemName = name;
-        this.gameObject.GetComponentInChildren<TextMeshPro>().text = name;
+        sName.text = name;
         star.colour = colour;
 
         //Set Star_Class position

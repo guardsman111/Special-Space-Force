@@ -23,7 +23,7 @@ public class Slot_Script : MonoBehaviour
     public TextMeshProUGUI nTroops;
     public Slot_Manager manager;
     public bool squad;
-    public int squadRole;
+    public Squad_Role_Class squadRole;
 
     public GameObject[] positions4;
     public GameObject[] positions6;
@@ -37,6 +37,7 @@ public class Slot_Script : MonoBehaviour
     //Creates a slot from blank with just a name and height
     public void MakeSlot(string newSlotName, int newSlotHeight, Slot_Manager nManager)
     {
+        manager = nManager;
         slotClass = new Slot_Class();
         slotClass.slotName = newSlotName;
         slotClass.slotHeight = newSlotHeight;
@@ -45,9 +46,8 @@ public class Slot_Script : MonoBehaviour
         containedSlots = new List<Slot_Script>();
         containedTroopers = new List<Trooper_Script>();
         squad = false;
-        squadRole = 0;
+        squadRole = manager.modManager.rankManager.squadRoles[0];
         input.text = slotName;
-        manager = nManager;
         if (uID == 0)
         {
             uID = Random.Range(1, 10000000);
@@ -57,12 +57,12 @@ public class Slot_Script : MonoBehaviour
     //Creates a slot from a slot class
     public void MakeSlot(Slot_Class slot, int positionID, Slot_Manager nManager)
     {
+        manager = nManager;
         slotClass = slot;
         slotHeight = slot.slotHeight;
         containedSlots = new List<Slot_Script>();
         squad = slot.squad;
-        squadRole = slot.squadRole;
-        manager = nManager;
+        squadRole = manager.modManager.rankManager.squadRoles[0];
         ID = positionID;
         slotName = manager.manager.localisationManager.CreateName("SlotNames", this);
         slot.slotName = slotName;
@@ -78,11 +78,11 @@ public class Slot_Script : MonoBehaviour
     //Creates a slot from a slot script and inserts a new parent
     public void MakeSlot(Slot_Script slot, Slot_Script parent, Slot_Manager nManager)
     {
+        manager = nManager;
         slotClass = slot.slotClass;
         slotHeight = slot.slotHeight;
         ID = slot.ID;
         slotParent = parent;
-        manager = nManager;
         background = slot.background;
         containedSlots = slot.containedSlots;
         containedTroopers = slot.containedTroopers;
@@ -103,12 +103,12 @@ public class Slot_Script : MonoBehaviour
     //Creates a slot from a slot class
     public void LoadSlot(Slot_Class slot, int positionID, Slot_Manager nManager)
     {
+        manager = nManager;
         slotClass = slot;
         slotHeight = slot.slotHeight;
         containedSlots = new List<Slot_Script>();
         squad = slot.squad;
-        squadRole = slot.squadRole;
-        manager = nManager;
+        squadRole = manager.modManager.rankManager.squadRoles[0];
         ID = positionID;
         slotName = slot.slotName;
 

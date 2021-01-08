@@ -141,7 +141,7 @@ public class Slot_Manager : MonoBehaviour
             tempS.containedSlots = new List<Slot_Script>();
             tempS.containedTroopers = new List<Trooper_Script>();
             tempS.squad = false;
-            tempS.squadRole = 0;
+            tempS.squadRole = modManager.rankManager.squadRoles[0];
             tempS.MakeSlot(tempS, viewedSlot, this);
             tempS.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
             viewedSlot.containedSlots.Add(tempS);
@@ -166,7 +166,7 @@ public class Slot_Manager : MonoBehaviour
             tempS.slotHeight = viewedSlot.slotHeight + 1;
             tempS.ID = viewedSlot.containedSlots.Count + 1;
             tempS.squad = true;
-            tempS.squadRole = 0;
+            tempS.squadRole = modManager.rankManager.squadRoles[0];
             tempS.containedSlots = new List<Slot_Script>();
             tempS.containedTroopers = new List<Trooper_Script>();
             tempS.MakeSlot(tempS, viewedSlot, this);
@@ -196,7 +196,7 @@ public class Slot_Manager : MonoBehaviour
             tempS.containedSlots = new List<Slot_Script>();
             tempS.containedTroopers = new List<Trooper_Script>();
             tempS.squad = false;
-            tempS.squadRole = 0;
+            tempS.squadRole = modManager.rankManager.squadRoles[0];
             tempS.MakeSlot(tempS, newParent, this);
             newParent.containedSlots.Add(tempS);
             OpenSlot(viewedSlot);
@@ -251,7 +251,8 @@ public class Slot_Manager : MonoBehaviour
             slotSlider.value = 1;
             squadOptions.SetActive(true);
             slotOptions.SetActive(false);
-            slotRoleDropdown.value = viewedSlot.squadRole;
+            promoter.SetupRankDropdown();
+            slotRoleDropdown.value = modManager.rankManager.squadRoles.IndexOf(viewedSlot.squadRole);
         }
         else
         {
@@ -605,7 +606,8 @@ public class Slot_Manager : MonoBehaviour
     //Sets the squad role according to the passed dropdown
     public void SetRole(Dropdown dropdown)
     {
-        viewedSlot.squadRole = dropdown.value;
+        viewedSlot.squadRole = modManager.rankManager.squadRoles[dropdown.value];
+        promoter.SetupRankDropdown();
     }
 
     //Changes the number of troopers 

@@ -211,7 +211,9 @@ public class System_Generator : MonoBehaviour
                         System_Class star = systemsList[currentSystem];
                         star.allegiance = faction;
                         generatedSystems[currentSystem].GetComponent<System_Script>().allegiance = generatedProduct.factions[faction].AIRace.race.empireName;
+                        generatedSystems[currentSystem].GetComponent<System_Script>().faction.text = generatedProduct.factions[faction].AIRace.race.empireName;
                         generatedSystems[currentSystem].GetComponentInChildren<TextMeshPro>().color = generatedProduct.factions[faction].AIRace.colour;
+                        generatedSystems[currentSystem].GetComponent<System_Script>().faction.color = generatedProduct.factions[faction].AIRace.colour;
                         generatedProduct.factions[faction].controlledSystems.Add(star);
                         factionManager.Factions[faction].controlledSystems.Add(star);
                         factionManager.factionScripts[faction].controlledSystems.Add(GeneratedSystems[currentSystem].GetComponent<System_Script>());
@@ -229,6 +231,7 @@ public class System_Generator : MonoBehaviour
                         System_Class star = systemsList[currentSystem];
                         star.allegiance = faction;
                         GeneratedSystems[currentSystem].GetComponent<System_Script>().allegiance = "Player";
+                        GeneratedSystems[currentSystem].GetComponent<System_Script>().faction.text = "Player";
                         generatedProduct.factions[faction].controlledSystems.Add(star);
                         factionManager.Factions[faction].controlledSystems.Add(star);
                         factionManager.factionScripts[faction].controlledSystems.Add(GeneratedSystems[currentSystem].GetComponent<System_Script>());
