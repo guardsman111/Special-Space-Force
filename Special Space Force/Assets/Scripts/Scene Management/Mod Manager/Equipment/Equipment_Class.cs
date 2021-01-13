@@ -15,6 +15,7 @@ public class Equipment_Class
 
     public int CostPerItem;
 
+    public int filterMode;
 
     public Equipment_Class()
     {

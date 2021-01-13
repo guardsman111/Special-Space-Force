@@ -74,10 +74,24 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.containedSprites = new List<Sprite>();
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourOutlinePath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if(temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
@@ -85,20 +99,48 @@ public class Equipment_Manager : MonoBehaviour
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourPrimaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourSecondaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
@@ -106,10 +148,24 @@ public class Equipment_Manager : MonoBehaviour
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourTertiaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 3;
@@ -117,20 +173,48 @@ public class Equipment_Manager : MonoBehaviour
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourEquipmentPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourSpecialPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
             }
@@ -150,10 +234,24 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.containedSprites = new List<Sprite>();
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesOutlinePath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
@@ -161,20 +259,48 @@ public class Equipment_Manager : MonoBehaviour
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesPrimaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesSecondaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
@@ -182,10 +308,24 @@ public class Equipment_Manager : MonoBehaviour
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesTertiaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 3;
@@ -193,20 +333,48 @@ public class Equipment_Manager : MonoBehaviour
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesEquipmentPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesSpecialPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                newTex.PremultiplyAlpha();
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
             }
@@ -224,64 +392,148 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.containedSprites = new List<Sprite>();
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetOutlinePath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
-                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 100);
                 tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetPrimaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
-                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 100);
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
             }
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetSecondaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
-                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 100);
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
             }
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetTertiaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
-                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 100);
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 3;
             }
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetEquipmentPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
-                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 100);
                 tempSP.containedSprites.Add(newSprite);
             }
             catch { }
             try
             {
-                Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
+                Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetVisorPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
-                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 100);
                 tempSP.containedSprites.Add(newSprite);
             }
             catch { }
@@ -301,7 +553,18 @@ public class Equipment_Manager : MonoBehaviour
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentOutlinePath);
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
             }
@@ -311,7 +574,18 @@ public class Equipment_Manager : MonoBehaviour
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentPrimaryPath);
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
@@ -322,7 +596,18 @@ public class Equipment_Manager : MonoBehaviour
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentSecondaryPath);
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
@@ -345,7 +630,18 @@ public class Equipment_Manager : MonoBehaviour
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentOutlinePath);
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
             }
@@ -355,7 +651,18 @@ public class Equipment_Manager : MonoBehaviour
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentPrimaryPath);
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 1;
@@ -366,7 +673,18 @@ public class Equipment_Manager : MonoBehaviour
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.EquipmentSecondaryPath);
                 newTex.LoadImage(bytes);
-                newTex.filterMode = FilterMode.Point;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
                 Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
                 tempSP.containedSprites.Add(newSprite);
                 tempSP.numberOfColours = 2;
@@ -1481,7 +1799,7 @@ public class Equipment_Manager : MonoBehaviour
                 trooper.trooperImages[24].gameObject.SetActive(true);
                 trooper.trooperImages[25].gameObject.SetActive(true);
 
-                foreach (Sprite_Pack p in weaponPacks)
+                foreach (Sprite_Pack p in equipmentPacks)
                 {
                     if (p.packName == name)
                     {
@@ -1491,7 +1809,7 @@ public class Equipment_Manager : MonoBehaviour
                 }
                 if (pack.packName == null)
                 {
-                    foreach (Sprite_Pack p in weaponPacks)
+                    foreach (Sprite_Pack p in equipmentPacks)
                     {
                         if (p.packName == name)
                         {

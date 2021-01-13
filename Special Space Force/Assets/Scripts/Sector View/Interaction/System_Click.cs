@@ -75,4 +75,22 @@ public class System_Click : MonoBehaviour
             }
         }
     }
+
+    private void Update()
+    {
+        if (systemCamera.enabled)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                systemCamera.transform.position = mainCamera.transform.position;
+                mainCamera.enabled = true;
+                systemCamera.enabled = false;
+                systemScreenCamera.enabled = false;
+                ToggleVisiblePlanets.TogglePlanetsOn(false);
+                systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
+                forceOrg.SetActive(true);
+                systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.ShowHelper();
+            }
+        }
+    }
 }

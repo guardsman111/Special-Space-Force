@@ -18,6 +18,8 @@ public class Armour_Class
 
     public int CostPerItem;
 
+    public int filterMode;
+
     public Armour_Class()
     {
 

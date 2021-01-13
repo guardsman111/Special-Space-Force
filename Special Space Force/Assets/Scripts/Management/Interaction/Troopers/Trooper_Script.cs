@@ -998,6 +998,7 @@ public class Trooper_Script : MonoBehaviour
             {
                 t.text = temp1 + temp2 + temp3;
             }
+            slotIdentifier = slotLocations[identifierLoc].text;
         }
 
         foreach (Text t in slotLocations)

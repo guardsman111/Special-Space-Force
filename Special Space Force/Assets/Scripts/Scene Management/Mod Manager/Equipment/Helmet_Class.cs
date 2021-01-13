@@ -18,6 +18,8 @@ public class Helmet_Class
 
     public int CostPerItem;
 
+    public int filterMode;
+
     public Helmet_Class()
     {
 

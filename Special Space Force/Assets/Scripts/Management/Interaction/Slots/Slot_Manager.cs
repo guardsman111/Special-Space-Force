@@ -332,7 +332,7 @@ public class Slot_Manager : MonoBehaviour
         }
     }
 
-    //Moves the Slot to be a child of the selected slot from the dropdown
+    //Moves the selected troopers to be a child of the selected slot from the dropdown
     public void MoveToSquad(GameObject Dropdown)
     {
         if (Dropdown.GetComponent<Dropdown>().value != 0)
@@ -380,8 +380,11 @@ public class Slot_Manager : MonoBehaviour
             int highestSlotHeight;
             highestSlotHeight = -2;
 
-            //Checks through the raycast results and find the component with the highest slot height, which is the one visible to the user
-            Highest = results[0].gameObject.GetComponent<Slot_Script>();
+            if (results.Count == 0)
+            {
+                //Checks through the raycast results and find the component with the highest slot height, which is the one visible to the user
+                Highest = results[0].gameObject.GetComponent<Slot_Script>();
+            }
             foreach (RaycastResult result in results)
             {
                 if (result.gameObject.GetComponent<Slot_Script>() != null)
@@ -539,9 +542,37 @@ public class Slot_Manager : MonoBehaviour
                         ts.gameObject.transform.parent = slot.gameObject.transform;
                         ts.trooperPosition = slot.containedTroopers.Count + 1;
                         ts.trooperSquad = slot;
+                        int count = 0;
+                        foreach(Trooper_Script t in slot.containedTroopers)
+                        {
+                            if(t.trooperRank == ts.trooperRank)
+                            {
+                                count += 1;
+                            }
+                        }
+                        foreach(Rank_Definition r in slot.squadRole.RankDefs)
+                        {
+                            if(r.RankName == ts.trooperRank)
+                            {
+                                if(count < r.RankLimit)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    ts.trooperRank = "Private";
+                                    break;
+                                }
+                            }
+                            if(slot.squadRole.RankDefs.IndexOf(r) == slot.squadRole.RankDefs.Count - 1)
+                            {
+                                ts.trooperRank = "Private";
+                            }
+                        }
                         slot.containedTroopers.Add(ts);
                         viewedSlot.containedTroopers.Remove(ts);
                         slot.gameObject.SetActive(false);
+                        ts.FindSlotIdentifier();
                     } 
                     else
                     {

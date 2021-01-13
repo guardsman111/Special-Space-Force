@@ -340,8 +340,14 @@ public class Localisation_Manager : MonoBehaviour
                 if (number >= 0)
                 {
                     firstString = slotNames[number];
-                    secondString = hierachyNames[slot.slotHeight];
-
+                    try
+                    {
+                        secondString = hierachyNames[slot.slotHeight];
+                    }
+                    catch
+                    {
+                        secondString = "Sub - " + hierachyNames[hierachyNames.Count - 1];
+                    }
                     name = firstString + " " + secondString;
                 }
             }

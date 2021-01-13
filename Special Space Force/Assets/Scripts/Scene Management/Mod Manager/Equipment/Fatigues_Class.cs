@@ -16,6 +16,7 @@ public class Fatigues_Class
     public string FatiguesEquipmentPath;
     public string FatiguesSpecialPath;
 
+    public int filterMode;
 
     public Fatigues_Class()
     {
