@@ -33,6 +33,7 @@ public class Slot_Script : MonoBehaviour
     public Image addImage;
 
     public int slotHeight;
+    public bool cColours = false;
 
     //Creates a slot from blank with just a name and height
     public void MakeSlot(string newSlotName, int newSlotHeight, Slot_Manager nManager)

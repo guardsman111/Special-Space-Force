@@ -250,6 +250,21 @@ public class Slot_Manager : MonoBehaviour
             }
             slotSlider.value = 1;
             squadOptions.SetActive(true);
+            Toggle[] cColours = squadOptions.GetComponentsInChildren<Toggle>();
+            foreach(Toggle t in cColours)
+            {
+                if(t.name == "Squad Colours Toggle")
+                {
+                    if (viewedSlot.cColours == true)
+                    {
+                        t.isOn = true;
+                    }
+                    else 
+                    {
+                        t.isOn = false;
+                    }
+                }
+            }
             slotOptions.SetActive(false);
             promoter.SetupRankDropdown();
             slotRoleDropdown.value = modManager.rankManager.squadRoles.IndexOf(viewedSlot.squadRole);
@@ -670,6 +685,7 @@ public class Slot_Manager : MonoBehaviour
     {
         if(toggle.isOn == true)
         {
+            viewedSlot.cColours = true;
             foreach(Trooper_Script ts in viewedSlot.containedTroopers)
             {
                 ts.trooperImages[17].color = viewedSlot.slotClass.squadColours[0];
@@ -700,6 +716,7 @@ public class Slot_Manager : MonoBehaviour
         }
         else
         {
+            viewedSlot.cColours = false;
             foreach (Trooper_Script ts in viewedSlot.containedTroopers)
             {
                 ts.trooperImages[17].color = manager.modManager.GeneratedProduct.playerColours[10];

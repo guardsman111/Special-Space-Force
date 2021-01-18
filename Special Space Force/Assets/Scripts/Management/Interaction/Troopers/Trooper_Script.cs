@@ -504,12 +504,20 @@ public class Trooper_Script : MonoBehaviour
     public void ChangeEquipment(Dropdown dropdown)
     {
         equipmentManager.ChangeEquipment(this, dropdown);
+        if (trooperClass != null)
+        {
+            trooperClass = SaveTrooper();
+        }
     }
 
     //Changes the troopers pattern of the dropdown type
     public void ChangePattern(Dropdown dropdown)
     {
         equipmentManager.ChangePattern(this, dropdown);
+        if (trooperClass != null)
+        {
+            trooperClass = SaveTrooper();
+        }
     }
 
     //Sets the troopers colour scheme
@@ -539,6 +547,7 @@ public class Trooper_Script : MonoBehaviour
         {
             t.color = equipmentManager.playerDefaultColours[18];
         }
+        trooperClass = SaveTrooper();
     }
 
     //Changes the troopers name according to the input
@@ -565,6 +574,16 @@ public class Trooper_Script : MonoBehaviour
         newClass.hairColour = hairColour;
         newClass.gender = trooperClass.gender;
         newClass.trooperPosition = trooperPosition;
+
+        newClass.armour = armour;
+        newClass.armourP = armourPattern;
+        newClass.helmet = helmet;
+        newClass.helmetP = helmetPattern;
+        newClass.fatigues = fatigues;
+        newClass.fatiguesP = fatiguesPattern;
+        newClass.weapon1 = primaryWeapon;
+        newClass.weapon2 = secondaryWeapon;
+        newClass.equipment = equipment;
 
         newClass.movement = movement;
         newClass.constitution = constitution;
@@ -958,6 +977,7 @@ public class Trooper_Script : MonoBehaviour
                 }
             }
         }
+        trooperClass = SaveTrooper();
     }
 
     public void ToggleSlotLocation(int modifier)
