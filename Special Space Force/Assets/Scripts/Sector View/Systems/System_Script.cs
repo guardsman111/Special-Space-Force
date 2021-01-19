@@ -15,6 +15,7 @@ public class System_Script : MonoBehaviour
     public float combinedOutput;
     public string allegiance;
     public bool colonising;
+    public int id;
 
     private List<Planet_Script> systemPlanets;
 
@@ -47,7 +48,7 @@ public class System_Script : MonoBehaviour
     }
 
     //Generates the system stats and generates planets
-    public void SystemGen(string name, string colour, int x, int z, int planets, GameObject prefab, System_Generator sysGen)
+    public void SystemGen(string name, string colour, int x, int z, int planets, int ID, GameObject prefab, System_Generator sysGen)
     {
         systemGenerator = sysGen;
         int avgSize = sysGen.AvgPlanetSize;
@@ -59,6 +60,8 @@ public class System_Script : MonoBehaviour
         star.systemName = name;
         sName.text = name;
         star.colour = colour;
+        id = ID;
+        star.id = id;
 
         //Set Star_Class position
         star.posX = x;
@@ -273,6 +276,7 @@ public class System_Script : MonoBehaviour
     {
         //Simply copies required information from the save to the live map
         star = system;
+        id = star.id;
         systemPlanets = new List<Planet_Script>();
 
         star.allegiance = system.allegiance;

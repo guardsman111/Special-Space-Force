@@ -14,6 +14,7 @@ public class Manager_Script : MonoBehaviour
     public Faction_Manager factionManager;
     public Turn_Manager turnManager;
     public Rank_Manager rankManager;
+    public Voidcraft_Manager voidcraftManager;
 
     private Generation_Class generatedProduct;
 

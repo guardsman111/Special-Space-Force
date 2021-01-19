@@ -14,6 +14,7 @@ public class System_Class
     public int posX;
     public int posZ;
     public int nPlanets;
+    public int id;
     public List<Planet_Class> Array;
 
     public System_Class()

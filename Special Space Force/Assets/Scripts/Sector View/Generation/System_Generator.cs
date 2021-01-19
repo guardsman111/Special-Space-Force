@@ -144,7 +144,7 @@ public class System_Generator : MonoBehaviour
                     //If star was able to be created generate the system script and add it to the lists
                     if (!changed)
                     {
-                        star.GetComponent<System_Script>().SystemGen(name, colour, (int)star.transform.position.x, (int)star.transform.position.z, nPlanets, planetPrefab, this);
+                        star.GetComponent<System_Script>().SystemGen(name, colour, (int)star.transform.position.x, (int)star.transform.position.z, nPlanets, systemsList.Count, planetPrefab, this);
                         generatedSystems.Add(star);
                         systemsList.Add(star.GetComponent<System_Script>().Star);
                         break;
