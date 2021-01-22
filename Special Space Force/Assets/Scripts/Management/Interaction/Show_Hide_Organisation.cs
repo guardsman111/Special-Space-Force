@@ -20,7 +20,10 @@ public class Show_Hide_Organisation : MonoBehaviour
         {
             Object2.SetActive(true);
 
-            TrooperCounterText.text = manager.GetTroopers();
+            if (manager != null)
+            {
+                TrooperCounterText.text = manager.GetTroopers();
+            }
 
             Object1.SetActive(false);
         }

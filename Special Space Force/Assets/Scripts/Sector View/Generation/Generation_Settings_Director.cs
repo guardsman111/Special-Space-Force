@@ -38,6 +38,7 @@ public class Generation_Settings_Director : MonoBehaviour
     public FileFinder fileFinder;
     public Race_Manager raceManager;
     public Equipment_Manager equipmentManager;
+    public Voidcraft_Manager voidcraftManager;
 
     //AI Stuff, used to remember which AI is set to what.
     public GameObject[] AIBoxes;
@@ -92,6 +93,7 @@ public class Generation_Settings_Director : MonoBehaviour
         slotGenerator.SetupTemplateDropdown();
         localisationManager.FindLocalisationFiles();
         equipmentManager.Begin();
+        voidcraftManager.Begin();
         traitManager.Run();
 
         if (generateOnPlay)
@@ -142,6 +144,7 @@ public class Generation_Settings_Director : MonoBehaviour
         product.factions = factionManager.GenerateFactions(SortToggledAI());
         product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
         product.playerColours = equipmentManager.GetColours(PlayerColours);
+        product.playerFleetColours = voidcraftManager.GetColours(PlayerColours);
         localisationManager.SeperateStringLists();
         product.selectedTraits = traitManager.GetTraits();
         product.defaultEquipment = equipmentManager.GetDefault("Equipment");

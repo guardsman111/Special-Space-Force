@@ -31,7 +31,9 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     public Biome_Manager biomeManager;
     public Race_Manager raceManager;
     public Slot_Generator slotGenerator;
+    public Fleet_Generator fleetGenerator;
     public Localisation_Manager localisationManager;
+    public Voidcraft_Manager voidcraftManager;
 
     public Save_Class save;
 
@@ -181,6 +183,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             modManager.rankManager.Begin();
             modManager.traitManager.Run();
             modManager.equipmentManager.playerDefaultColours = product.playerColours;
+            modManager.voidcraftManager.playerFleetColours = product.playerFleetColours;
             localisationManager.LoadStringListClass(product.chosenLocalisationList[0], "TrooperNames");
             localisationManager.LoadStringListClass(product.chosenLocalisationList[1], "HierachyNames");
             localisationManager.LoadStringListClass(product.chosenLocalisationList[2], "SlotNames");
@@ -203,6 +206,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             save.systems = systemGenerator.SystemsList;
             save.generatedProduct = product;
             save.topSlots = slotGenerator.FindDefaultSlots();
+            save.fleets = fleetGenerator.SetDefaultFleets();
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
             modManager.turnManager.FirstTurn(product);

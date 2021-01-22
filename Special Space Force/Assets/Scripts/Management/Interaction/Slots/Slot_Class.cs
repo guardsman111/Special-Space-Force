@@ -11,6 +11,7 @@ public class Slot_Class
     public List<Slot_Class> containedSlots;
     public List<Trooper_Class> containedTroopers;
     public string slotName;
+    public int uID;
     public int positionID;
     public bool squad;
     public int squadRole;

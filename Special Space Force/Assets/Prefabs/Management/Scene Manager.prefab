@@ -1547,6 +1547,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0}
   rect: {fileID: 0}
+  headerImage: {fileID: 0}
+  pressedImage: {fileID: 0}
+  normalImage: {fileID: 0}
   siblingSliders:
   - {fileID: 8442317075418046994}
   xDistance: 700
@@ -2221,6 +2224,7 @@ MonoBehaviour:
   smoothTime: 30
   thisCamera: {fileID: 3179005510907711595}
   rotationKeeper: {fileID: 571584160}
+  panSpeed: 4
 --- !u!1 &3179005509872979511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,6 +2302,7 @@ GameObject:
   - component: {fileID: 3179005509909518483}
   - component: {fileID: 3179005509909518484}
   - component: {fileID: 3179005509909518487}
+  - component: {fileID: 8876005043171240144}
   - component: {fileID: 3179005509909518486}
   - component: {fileID: 611836862}
   - component: {fileID: 611836864}
@@ -2383,7 +2388,9 @@ MonoBehaviour:
   biomeManager: {fileID: 3179005509872979497}
   raceManager: {fileID: 966474628}
   slotGenerator: {fileID: 611836864}
+  fleetGenerator: {fileID: 0}
   localisationManager: {fileID: 611836862}
+  voidcraftManager: {fileID: 0}
   starNames:
   - Korus
   - Alpho
@@ -2395,6 +2402,25 @@ MonoBehaviour:
   - Colosk
   - Pretentis
   - Othorix
+--- !u!114 &8876005043171240144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179005509909518482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbabf10dce04a04b907b7d46b5f27ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finder: {fileID: 0}
+  fManager: {fileID: 0}
+  fileLocation: 
+  genericFleet: {fileID: 0}
+  genericShip: {fileID: 0}
+  content: {fileID: 0}
+  loading: 0
 --- !u!114 &3179005509909518486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2455,9 +2481,11 @@ MonoBehaviour:
   squadHierachyNames: []
   slotNames: []
   squadNames: []
+  fleetNames: []
   trooperNamesDropdown: {fileID: 0}
   hierachyNamesDropdown: {fileID: 0}
   slotNamesDropdown: {fileID: 0}
+  fleetNamesDropdown: {fileID: 0}
 --- !u!114 &611836864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2693,15 +2721,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14daca08ab9b9d449b7bb565ba2690d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOrange: 0
-  isYellow: 0
-  isWhite: 0
-  isPurple: 0
-  isPink: 0
-  isLBlue: 0
-  isBlue: 0
-  isLGreen: 0
-  isGreen: 0
+  Red:
+    serializedVersion: 2
+    rgba: 0
   Orange:
     serializedVersion: 2
     rgba: 4278225663
@@ -2782,6 +2804,8 @@ MonoBehaviour:
   traitManager: {fileID: 2589200914881553882}
   factionManager: {fileID: 768328984}
   turnManager: {fileID: 651216077}
+  rankManager: {fileID: 0}
+  voidcraftManager: {fileID: 0}
 --- !u!1 &3179005510766649519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,15 +2910,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14daca08ab9b9d449b7bb565ba2690d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOrange: 0
-  isYellow: 0
-  isWhite: 0
-  isPurple: 0
-  isPink: 0
-  isLBlue: 0
-  isBlue: 0
-  isLGreen: 0
-  isGreen: 0
+  Red:
+    serializedVersion: 2
+    rgba: 0
   Orange:
     serializedVersion: 2
     rgba: 4278225663
@@ -3900,7 +3918,6 @@ MonoBehaviour:
   HelmetPatternTrooper: {fileID: 0}
   FatiguesPatternTrooper: {fileID: 0}
   ArmourPatternTrooper: {fileID: 0}
-  templateTexture: {fileID: 2800000, guid: 593d85d4b700cfd4ea58e41089593d05, type: 3}
   selectFromTemplate: {fileID: 0}
 --- !u!114 &1298017216
 MonoBehaviour:
@@ -3941,6 +3958,35 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4f8539517c3fab84d9c963ed3d6d2be3, type: 3}
   - {fileID: 21300000, guid: 81a39d9b66e3b704ebc5ce4fd220c236, type: 3}
   Mk1ArmourCost: 15
+  Mk2ArmourTP: []
+  Mk2ArmourT2Camo: []
+  Mk2ArmourT3Camo: []
+  Mk2ArmourT3CamoDigi: []
+  Mk2ArmourTCost: 0
+  Mk2ArmourRP: []
+  Mk2ArmourR2Camo: []
+  Mk2ArmourR3Camo: []
+  Mk2ArmourR3CamoDigi: []
+  Mk2ArmourRCost: 0
+  Mk2ArmourBP: []
+  Mk2ArmourB2Camo: []
+  Mk2ArmourB3Camo: []
+  Mk2ArmourB3CamoDigi: []
+  Mk2ArmourBCost: 0
+  Mk3ArmourTP: []
+  Mk3ArmourT2Camo: []
+  Mk3ArmourT3Camo: []
+  Mk3ArmourT3CamoDigi: []
+  Mk3ArmourTS1: []
+  Mk3ArmourTS2: []
+  Mk3ArmourTCost: 0
+  Mk3ArmourHP: []
+  Mk3ArmourH2Camo: []
+  Mk3ArmourH3Camo: []
+  Mk3ArmourH3CamoDigi: []
+  Mk3ArmourHS1: []
+  Mk3ArmourHS2: []
+  Mk3ArmourHCost: 0
   Mk1HelmetP:
   - {fileID: 21300000, guid: 2e9add9173ef5974da32428956f83b04, type: 3}
   - {fileID: 21300000, guid: 60ffe819c0e7ee94ca76164cef633e68, type: 3}
@@ -4017,6 +4063,41 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9192c75249c447e40b847e79fa8d5960, type: 3}
   - {fileID: 21300000, guid: 375a5ba4818ae664599ecdd977c6205d, type: 3}
   Mk1Mod1HelmetCost: 10
+  Mk2HelmetTP: []
+  Mk2HelmetTS1: []
+  Mk2HelmetTS2: []
+  Mk2HelmetT2Camo: []
+  Mk2HelmetT3Camo: []
+  Mk2HelmetT3CamoDigi: []
+  Mk2HelmetTCost: 0
+  Mk2HelmetRP: []
+  Mk2HelmetRS1: []
+  Mk2HelmetRS2: []
+  Mk2HelmetR2Camo: []
+  Mk2HelmetR3Camo: []
+  Mk2HelmetR3CamoDigi: []
+  Mk2HelmetRCost: 0
+  Mk2HelmetBP: []
+  Mk2HelmetBS1: []
+  Mk2HelmetBS2: []
+  Mk2HelmetB2Camo: []
+  Mk2HelmetB3Camo: []
+  Mk2HelmetB3CamoDigi: []
+  Mk2HelmetBCost: 0
+  Mk3HelmetTP: []
+  Mk3HelmetTS1: []
+  Mk3HelmetTS2: []
+  Mk3HelmetT2Camo: []
+  Mk3HelmetT3Camo: []
+  Mk3HelmetT3CamoDigi: []
+  Mk3HelmetTCost: 0
+  Mk3HelmetHP: []
+  Mk3HelmetHS1: []
+  Mk3HelmetHS2: []
+  Mk3HelmetH2Camo: []
+  Mk3HelmetH3Camo: []
+  Mk3HelmetH3CamoDigi: []
+  Mk3HelmetHCost: 0
   FatiguesCasualP:
   - {fileID: 21300000, guid: a5075c6f5cc88d249b132969013dfaef, type: 3}
   - {fileID: 21300000, guid: 238ace36f77f25a4592cf53b14e33312, type: 3}
@@ -4067,11 +4148,23 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 829246f85c1e36f408fa5bc07d691c2d, type: 3}
   - {fileID: 21300000, guid: bd6e7c1df043a074393a1c8fe2a876a6, type: 3}
   - {fileID: 21300000, guid: 0d8edcebacbdedd45bac587fe5bf9306, type: 3}
+  FatiguesBSuitP: []
+  FatiguesBSuit2Camo: []
+  FatiguesBSuit3Camo: []
+  FatiguesBSuit3CamoDigi: []
   Backpack1:
   - {fileID: 21300000, guid: e1411418eadec904c93c983bdb593d74, type: 3}
   - {fileID: 21300000, guid: fa5e0e2f71cc5b348b95d0697ea5f325, type: 3}
   - {fileID: 21300000, guid: 663ff987b39e2374dbe37d3b6b4e9265, type: 3}
   Backpack1Cost: 1
+  Grenade1: []
+  Grenade1Cost: 0
+  SGrenade1: []
+  SGrenade1Cost: 0
+  Cloak1: []
+  Cloak1Cost: 0
+  Cloak2: []
+  Cloak2Cost: 0
   Pistol1:
   - {fileID: 21300000, guid: 8863aecfd66163f45bcdbaf0d508e6b1, type: 3}
   - {fileID: 21300000, guid: f55dcb7981a103e41976e997c53df6ea, type: 3}
@@ -4087,6 +4180,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a6ea9fc92684610469d661cb5fa1d345, type: 3}
   - {fileID: 21300000, guid: 9104f18cba3397245ba0fae9cd8d75cb, type: 3}
   Rifle1Cost: 15
+  Revolver1: []
+  Revolver1Cost: 0
+  RevolverS1: []
+  RevolverS1Cost: 0
+  Shotgun1: []
+  Shotgun1Cost: 0
+  ShotgunS1: []
+  ShotgunS1Cost: 0
   Sniper1:
   - {fileID: 21300000, guid: 593d85d4b700cfd4ea58e41089593d05, type: 3}
   - {fileID: 21300000, guid: bbc991f5a831eb749bc7aea7e466b430, type: 3}
@@ -4100,6 +4201,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7f44fdcbae2de4345b163a8ddd9a3be8, type: 3}
   - {fileID: 21300000, guid: bea6904aea721d94fb88aae292055138, type: 3}
   SwordS1Cost: 5
+  ShockPistol1: []
+  ShockPistol1S: []
+  ShockPistol1Cost: 0
+  ShockRifle1: []
+  ShockRifle1Cost: 0
+  AdvancedMG1: []
+  AdvancedMG1Cost: 0
+  RocketLauncher1: []
+  RocketLauncher1Cost: 0
 --- !u!1 &8021591416128440025
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,6 +4466,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0}
   rect: {fileID: 0}
+  headerImage: {fileID: 0}
+  pressedImage: {fileID: 0}
+  normalImage: {fileID: 0}
   siblingSliders:
   - {fileID: 2013071515}
   xDistance: 700

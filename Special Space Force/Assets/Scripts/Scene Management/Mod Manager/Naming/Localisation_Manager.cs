@@ -17,10 +17,12 @@ public class Localisation_Manager : MonoBehaviour
     public List<String_List_Class> trooperNameStrings;
     public List<String_List_Class> hierachyNameStrings;
     public List<String_List_Class> slotNameStrings;
+    public List<String_List_Class> fleetNameStrings;
 
     public String_List_Class chosenTrooperNamesList;
     public String_List_Class chosenHierachyNamesList;
     public String_List_Class chosenSlotNamesList;
+    public String_List_Class chosenFleetNamesList;
     public List<string> surnames;
     public List<string> forenamesM;
     public List<string> forenamesF;
@@ -30,10 +32,12 @@ public class Localisation_Manager : MonoBehaviour
 
     public List<string> slotNames;
     public List<string> squadNames;
+    public List<string> fleetNames;
 
     public Dropdown trooperNamesDropdown;
     public Dropdown hierachyNamesDropdown;
     public Dropdown slotNamesDropdown;
+    public Dropdown fleetNamesDropdown;
 
     //Finds the localisation files from the resources folder and filters them by type. Expandable
     public void FindLocalisationFiles()
@@ -42,12 +46,14 @@ public class Localisation_Manager : MonoBehaviour
         trooperNameStrings = new List<String_List_Class>();
         hierachyNameStrings = new List<String_List_Class>();
         slotNameStrings = new List<String_List_Class>();
+        fleetNameStrings = new List<String_List_Class>();
         List<string> fileLocations = finder.Retrieve("Localisation", ".meta");
         List<string> trooperNames = new List<string>();
         List<string> hierachyNames = new List<string>();
         List<string> squadHierachyNames = new List<string>();
         List<string> slotNames = new List<string>();
         List<string> squadNames = new List<string>();
+        List<string> fleetNames = new List<string>();
 
         foreach (string s in fileLocations)
         {
@@ -70,6 +76,11 @@ public class Localisation_Manager : MonoBehaviour
                     slotNameStrings.Add(temp);
                     slotNames.Add(temp.name);
                 }
+                else if (temp.listType == "FleetNames")
+                {
+                    fleetNameStrings.Add(temp);
+                    fleetNames.Add(temp.name);
+                }
             }
             catch 
             {
@@ -88,6 +99,10 @@ public class Localisation_Manager : MonoBehaviour
         slotNamesDropdown.ClearOptions();
         slotNamesDropdown.AddOptions(slotNames);
         ChangedTemplateDropdown(slotNamesDropdown);
+
+        fleetNamesDropdown.ClearOptions();
+        fleetNamesDropdown.AddOptions(fleetNames);
+        ChangedTemplateDropdown(fleetNamesDropdown);
     }
 
     //Handles changes to the dropdowns on the customisation menu
@@ -105,6 +120,10 @@ public class Localisation_Manager : MonoBehaviour
         {
             chosenSlotNamesList = slotNameStrings[dropdown.value];
         }
+        else if (dropdown.name == "Fleet Names")
+        {
+            chosenFleetNamesList = fleetNameStrings[dropdown.value];
+        }
     }
 
     //Returns the names of all the currently selected string list classes
@@ -118,16 +137,21 @@ public class Localisation_Manager : MonoBehaviour
         }
         if (chosenHierachyNamesList == null)
         {
-            LoadStringListClass(hierachyNamesDropdown.options[hierachyNamesDropdown.value].text, "TrooperNames");
+            LoadStringListClass(hierachyNamesDropdown.options[hierachyNamesDropdown.value].text, "HierarchyNames");
         }
         if (chosenSlotNamesList == null)
         {
-            LoadStringListClass(slotNamesDropdown.options[slotNamesDropdown.value].text, "TrooperNames");
+            LoadStringListClass(slotNamesDropdown.options[slotNamesDropdown.value].text, "SlotNames");
+        }
+        if (chosenSlotNamesList == null)
+        {
+            LoadStringListClass(fleetNamesDropdown.options[fleetNamesDropdown.value].text, "FleetNames");
         }
 
         localisations.Add(chosenTrooperNamesList.name);
         localisations.Add(chosenHierachyNamesList.name);
         localisations.Add(chosenSlotNamesList.name);
+        localisations.Add(chosenFleetNamesList.name);
 
         return localisations;
     }
@@ -162,6 +186,16 @@ public class Localisation_Manager : MonoBehaviour
                 if (slc.name == name)
                 {
                     chosenTrooperNamesList = slc;
+                }
+            }
+        }
+        else if (type == "FleetNames")
+        {
+            foreach (String_List_Class slc in fleetNameStrings)
+            {
+                if (slc.name == name)
+                {
+                    chosenFleetNamesList = slc;
                 }
             }
         }
@@ -281,6 +315,26 @@ public class Localisation_Manager : MonoBehaviour
                 squadHierachyNames.Add(s);
             }
         }
+
+        sectionCounter = -1;
+        foreach (string s in chosenFleetNamesList.stringList)
+        {
+            if (sectionCounter == -1)
+            {
+                if (s.Contains("/Fleets"))
+                {
+                    sectionCounter = 0;
+                }
+                else
+                {
+                    fleetNames.Add(s);
+                }
+            }
+            else if (sectionCounter == 0)
+            {
+                fleetNames.Add(s);
+            }
+        }
     }
 
     //Creates trooper name
@@ -351,6 +405,31 @@ public class Localisation_Manager : MonoBehaviour
                     name = firstString + " " + secondString;
                 }
             }
+        }
+        else
+        {
+            Debug.Log("Type was not recognized");
+        }
+
+        return name;
+    }
+
+    //Creates slot name
+    public string CreateName(string type, Fleet_Script fleet)
+    {
+        string name = "Name";
+        if (type == "FleetNames")
+        {
+            int number = fleet.ID - 1;
+
+            string firstString;
+
+            if (number >= 0)
+            {
+                firstString = fleetNames[number];
+                name = firstString + " ";
+            }
+            
         }
         else
         {

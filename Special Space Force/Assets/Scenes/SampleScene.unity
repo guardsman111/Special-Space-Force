@@ -175,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
@@ -280,7 +280,12 @@ MonoBehaviour:
   useSpace: 0
   output: 0
   industrial: 0
+  colonising: 0
+  colonisingProgress: 0
   inhabited: 0
+  building: 0
+  buildingProgress: 0
+  parentSystem: {fileID: 0}
   tName: {fileID: 0}
   tStats: {fileID: 0}
   factionManager: {fileID: 0}
@@ -288,6 +293,7 @@ MonoBehaviour:
   storms: {fileID: 0}
   moons: []
   MoonPrefab: {fileID: 0}
+  cities: []
   planetSkin: {fileID: 661831119}
 --- !u!114 &454219204
 MonoBehaviour:
@@ -327,7 +333,9 @@ MonoBehaviour:
   cameraTransform: {fileID: 1669739616}
   mainCamera: {fileID: 963194227}
   systemCamera: {fileID: 1701647573}
+  systemScreenCamera: {fileID: 0}
   planetCamera: {fileID: 0}
+  systemScreen: {fileID: 0}
   forceOrg: {fileID: 0}
 --- !u!4 &456765543 stripped
 Transform:
@@ -359,7 +367,12 @@ MonoBehaviour:
   useSpace: 0
   output: 0
   industrial: 0
+  colonising: 0
+  colonisingProgress: 0
   inhabited: 0
+  building: 0
+  buildingProgress: 0
+  parentSystem: {fileID: 0}
   tName: {fileID: 0}
   tStats: {fileID: 0}
   factionManager: {fileID: 0}
@@ -367,6 +380,7 @@ MonoBehaviour:
   storms: {fileID: 0}
   moons: []
   MoonPrefab: {fileID: 0}
+  cities: []
   planetSkin: {fileID: 1858936736}
 --- !u!114 &461198690
 MonoBehaviour:
@@ -440,7 +454,7 @@ PrefabInstance:
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
@@ -562,7 +576,12 @@ MonoBehaviour:
   useSpace: 0
   output: 0
   industrial: 0
+  colonising: 0
+  colonisingProgress: 0
   inhabited: 0
+  building: 0
+  buildingProgress: 0
+  parentSystem: {fileID: 0}
   tName: {fileID: 0}
   tStats: {fileID: 0}
   factionManager: {fileID: 0}
@@ -570,6 +589,7 @@ MonoBehaviour:
   storms: {fileID: 0}
   moons: []
   MoonPrefab: {fileID: 0}
+  cities: []
   planetSkin: {fileID: 516473848}
 --- !u!114 &516473852
 MonoBehaviour:
@@ -650,7 +670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 438282, guid: 9a1096a62ee865344a0549a465aa2f3e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 438282, guid: 9a1096a62ee865344a0549a465aa2f3e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -899,7 +919,7 @@ PrefabInstance:
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
@@ -992,7 +1012,12 @@ MonoBehaviour:
   useSpace: 0
   output: 0
   industrial: 0
+  colonising: 0
+  colonisingProgress: 0
   inhabited: 0
+  building: 0
+  buildingProgress: 0
+  parentSystem: {fileID: 0}
   tName: {fileID: 0}
   tStats: {fileID: 0}
   factionManager: {fileID: 0}
@@ -1000,6 +1025,7 @@ MonoBehaviour:
   storms: {fileID: 0}
   moons: []
   MoonPrefab: {fileID: 0}
+  cities: []
   planetSkin: {fileID: 1536528658}
 --- !u!114 &1128070507
 MonoBehaviour:
@@ -1073,7 +1099,7 @@ PrefabInstance:
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
@@ -11267,7 +11293,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1536528657 stripped
 GameObject:
@@ -11380,7 +11406,7 @@ PrefabInstance:
     - target: {fileID: 7493953184428542820, guid: 7535ff93f4637ed4ba7453279420dc25,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7493953184428542820, guid: 7535ff93f4637ed4ba7453279420dc25,
         type: 3}
@@ -11447,6 +11473,31 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1905256456181138086, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614926324927456493, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960286407832793990, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124984540613860019, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211154673354590439, guid: 7535ff93f4637ed4ba7453279420dc25,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 7489666708513377862, guid: 7535ff93f4637ed4ba7453279420dc25,
         type: 3}
       propertyPath: m_RootOrder
@@ -11467,21 +11518,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 5614926324927456493, guid: 7535ff93f4637ed4ba7453279420dc25,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960286407832793990, guid: 7535ff93f4637ed4ba7453279420dc25,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905256456181138086, guid: 7535ff93f4637ed4ba7453279420dc25,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 559757829520782891, guid: 7535ff93f4637ed4ba7453279420dc25,
         type: 3}
       propertyPath: m_RootOrder
@@ -11491,16 +11527,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7124984540613860019, guid: 7535ff93f4637ed4ba7453279420dc25,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1211154673354590439, guid: 7535ff93f4637ed4ba7453279420dc25,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7535ff93f4637ed4ba7453279420dc25, type: 3}
@@ -16764,7 +16790,7 @@ PrefabInstance:
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
@@ -16886,7 +16912,12 @@ MonoBehaviour:
   useSpace: 0
   output: 0
   industrial: 0
+  colonising: 0
+  colonisingProgress: 0
   inhabited: 0
+  building: 0
+  buildingProgress: 0
+  parentSystem: {fileID: 0}
   tName: {fileID: 0}
   tStats: {fileID: 0}
   factionManager: {fileID: 0}
@@ -16894,6 +16925,7 @@ MonoBehaviour:
   storms: {fileID: 0}
   moons: []
   MoonPrefab: {fileID: 0}
+  cities: []
   planetSkin: {fileID: 1902828989}
 --- !u!114 &1902828993
 MonoBehaviour:
@@ -16963,7 +16995,7 @@ PrefabInstance:
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3332372067187150505, guid: 0e45b887f940d294e80d3872e883c35d,
         type: 3}
@@ -17085,7 +17117,12 @@ MonoBehaviour:
   useSpace: 0
   output: 0
   industrial: 0
+  colonising: 0
+  colonisingProgress: 0
   inhabited: 0
+  building: 0
+  buildingProgress: 0
+  parentSystem: {fileID: 0}
   tName: {fileID: 0}
   tStats: {fileID: 0}
   factionManager: {fileID: 0}
@@ -17093,6 +17130,7 @@ MonoBehaviour:
   storms: {fileID: 0}
   moons: []
   MoonPrefab: {fileID: 0}
+  cities: []
   planetSkin: {fileID: 1913562403}
 --- !u!114 &1913562407
 MonoBehaviour:
@@ -22142,7 +22180,7 @@ PrefabInstance:
     - target: {fileID: 4601597828393768378, guid: 977479832fcff894abbd04d30807fc44,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4601597828393768378, guid: 977479832fcff894abbd04d30807fc44,
         type: 3}
@@ -22226,7 +22264,7 @@ PrefabInstance:
     - target: {fileID: 8787125026164956835, guid: f6b072fcb74965d4d829d7218fa82b4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8787125026164956835, guid: f6b072fcb74965d4d829d7218fa82b4f,
         type: 3}
@@ -22310,7 +22348,7 @@ PrefabInstance:
     - target: {fileID: 7679378229917347869, guid: 6f050820656730c4abafbb3e59ee5dbb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7679378229917347869, guid: 6f050820656730c4abafbb3e59ee5dbb,
         type: 3}
@@ -22394,7 +22432,7 @@ PrefabInstance:
     - target: {fileID: 968163447760756979, guid: bab7a3e3300a945478039416115849b3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 968163447760756979, guid: bab7a3e3300a945478039416115849b3,
         type: 3}
@@ -22478,7 +22516,7 @@ PrefabInstance:
     - target: {fileID: 1600110776119301706, guid: b643d0b2c0631b049945ce8527e2b07d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1600110776119301706, guid: b643d0b2c0631b049945ce8527e2b07d,
         type: 3}
@@ -22562,7 +22600,7 @@ PrefabInstance:
     - target: {fileID: 5809802894206833993, guid: f29046834799e964080cbd0fe8417672,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5809802894206833993, guid: f29046834799e964080cbd0fe8417672,
         type: 3}
@@ -22663,14 +22701,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1908829938, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3179005511494181456, guid: f49dfd96ae8ba7246909b769fb8956f5,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179005510766649504, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179005510766649504, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908829938, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
@@ -22724,7 +22772,7 @@ PrefabInstance:
     - target: {fileID: 5250431722926499138, guid: d83c826cb98bd2f468b33898c69767aa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5250431722926499138, guid: d83c826cb98bd2f468b33898c69767aa,
         type: 3}
@@ -22808,7 +22856,7 @@ PrefabInstance:
     - target: {fileID: 1482186424168066267, guid: d78a4d18dbb0194499313d0213d03b29,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1482186424168066267, guid: d78a4d18dbb0194499313d0213d03b29,
         type: 3}
@@ -22842,6 +22890,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d78a4d18dbb0194499313d0213d03b29, type: 3}
+--- !u!1001 &8347028607465564547
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 911252707586910433, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_Name
+      value: Farsky Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1528.6466
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 311.00864
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1162.7948
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.022992073
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5182461
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.08369296
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.850816
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 62.464005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250890463093086962, guid: c90eeed2aea47cf4d86280f03e0eeb13,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -9.581
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c90eeed2aea47cf4d86280f03e0eeb13, type: 3}
 --- !u!1001 &8659800345776148452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22892,7 +23009,7 @@ PrefabInstance:
     - target: {fileID: 8659800344936651681, guid: 9c02f4c6fe9601e46b6d32cbe2c2c411,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8659800344936651681, guid: 9c02f4c6fe9601e46b6d32cbe2c2c411,
         type: 3}
@@ -22976,7 +23093,7 @@ PrefabInstance:
     - target: {fileID: 204114617023703077, guid: a7b6c28b6fa7734439182441c18f20a6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 204114617023703077, guid: a7b6c28b6fa7734439182441c18f20a6,
         type: 3}

@@ -382,7 +382,6 @@ MonoBehaviour:
   nTroops: {fileID: 3379803276089003552}
   manager: {fileID: 0}
   squad: 0
-  squadRole: 0
   positions4:
   - {fileID: 6530789106921065750}
   positions6:
@@ -394,6 +393,7 @@ MonoBehaviour:
   - {fileID: 2792586649892257780}
   addImage: {fileID: 2478806501866312184}
   slotHeight: 0
+  cColours: 0
 --- !u!222 &7814158911359224679
 CanvasRenderer:
   m_ObjectHideFlags: 0

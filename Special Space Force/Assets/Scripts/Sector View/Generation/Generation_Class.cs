@@ -30,6 +30,7 @@ public class Generation_Class
     public List<string> defaultPatterns;
     public List<string> chosenLocalisationList;
     public List<Color32> playerColours;
+    public List<Color32> playerFleetColours;
 
     public Generation_Class()
     {
