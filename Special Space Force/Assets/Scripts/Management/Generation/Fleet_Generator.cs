@@ -32,7 +32,7 @@ public class Fleet_Generator : MonoBehaviour
         tempFc.containedCraft.Add(tempVc);
 
         tempVc = new Voidcraft_Class();
-        tempVc.className = "Hifran Cruiser";
+        tempVc.className = "Hifrin Cruiser";
         tempVc.craftName = "Bad Motherfucker";
         tempVc.type = "Cruiser";
 
@@ -61,15 +61,23 @@ public class Fleet_Generator : MonoBehaviour
 
             temp.GetComponent<Fleet_Script>().SetPosition(fManager.viewedFleet);
             fManager.FleetsS.Add(temp.GetComponent<Fleet_Script>());
-            int count = 0;
-            foreach (Voidcraft_Class vc in fc.containedCraft)
-            {
-                count += 1;
-                GameObject tempV = Instantiate(genericShip, temp.transform);
-                tempV.GetComponent<Voidcraft_Script>().MakeCraft(vc, modManager, count, temp.GetComponent<Fleet_Script>());
-            }
 
         }
+
+        for (int i = 0; i < fleets.Count; i++)
+        {
+            int count = 0;
+            foreach (Voidcraft_Class vc in fleets[i].containedCraft)
+            {
+                GameObject temp = fManager.FleetsS[i].gameObject;
+                count += 1;
+                GameObject tempV = Instantiate(genericShip, temp.transform);
+                tempV.GetComponent<Voidcraft_Script>().MakeCraft(vc, modManager, fManager, count, temp.GetComponent<Fleet_Script>());
+                tempV.GetComponent<Voidcraft_Script>().SetPosition(null);
+                temp.GetComponent<Fleet_Script>().containedCraft.Add(tempV.GetComponent<Voidcraft_Script>());
+            }
+        }
+
         fManager.gameObject.SetActive(false);
 
         return fleets;

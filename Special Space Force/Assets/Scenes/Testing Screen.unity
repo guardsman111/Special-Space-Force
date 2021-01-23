@@ -3702,9 +3702,10 @@ MonoBehaviour:
   viewedFleet: {fileID: 0}
   currentName: {fileID: 428192797}
   content: {fileID: 1881121412}
+  craftShowManager: {fileID: 0}
   slotFieldScroll: {fileID: 304276043}
   menu: 0
-  selectedTroopers: []
+  selectedCraft: []
 --- !u!114 &87682873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21003,6 +21004,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &563295384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7867798662223489838, guid: af89cb19425bcb4418efe4dab182aaec,
+    type: 3}
+  m_PrefabInstance: {fileID: 157418242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &566448143
 GameObject:
   m_ObjectHideFlags: 0
@@ -30705,6 +30718,38 @@ PrefabInstance:
       propertyPath: fmanager
       value: 
       objectReference: {fileID: 87682871}
+    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: finder
+      value: 
+      objectReference: {fileID: 1791988804}
+    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: fManager
+      value: 
+      objectReference: {fileID: 87682871}
+    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: genericFleet
+      value: 
+      objectReference: {fileID: 3821546428917297320, guid: ccb928d913c30a74d8bb0093cb9e613d,
+        type: 3}
+    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: genericShip
+      value: 
+      objectReference: {fileID: 2340693431572352319, guid: e87dfc6ebae13dd4e9e3b125976b95e9,
+        type: 3}
+    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: content
+      value: 
+      objectReference: {fileID: 1881121411}
+    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: modManager
+      value: 
+      objectReference: {fileID: 1924590275}
     - target: {fileID: 3899211672308924088, guid: f49dfd96ae8ba7246909b769fb8956f5,
         type: 3}
       propertyPath: HelmetDropdownCustom
@@ -33342,38 +33387,6 @@ PrefabInstance:
       propertyPath: fleetGenerator
       value: 
       objectReference: {fileID: 654059986}
-    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: finder
-      value: 
-      objectReference: {fileID: 1791988804}
-    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: fManager
-      value: 
-      objectReference: {fileID: 87682871}
-    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: genericFleet
-      value: 
-      objectReference: {fileID: 3821546428917297320, guid: ccb928d913c30a74d8bb0093cb9e613d,
-        type: 3}
-    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: genericShip
-      value: 
-      objectReference: {fileID: 2340693431572352319, guid: e87dfc6ebae13dd4e9e3b125976b95e9,
-        type: 3}
-    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: content
-      value: 
-      objectReference: {fileID: 1881121411}
-    - target: {fileID: 8876005043171240144, guid: f49dfd96ae8ba7246909b769fb8956f5,
-        type: 3}
-      propertyPath: modManager
-      value: 
-      objectReference: {fileID: 1924590275}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
 --- !u!114 &768328980 stripped
@@ -40238,6 +40251,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870452386}
   m_CullTransparentMesh: 0
+--- !u!114 &874095442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7867798662223489838, guid: af89cb19425bcb4418efe4dab182aaec,
+    type: 3}
+  m_PrefabInstance: {fileID: 711616336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &878358379
 GameObject:
   m_ObjectHideFlags: 0
@@ -41902,6 +41927,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &933860815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7867798662223489838, guid: af89cb19425bcb4418efe4dab182aaec,
+    type: 3}
+  m_PrefabInstance: {fileID: 415425881}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &938235884 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7867798663663879783, guid: af89cb19425bcb4418efe4dab182aaec,
@@ -66732,6 +66769,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &1605567337 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7867798662223489838, guid: af89cb19425bcb4418efe4dab182aaec,
+    type: 3}
+  m_PrefabInstance: {fileID: 793882550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1609682155 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3994010944325871151, guid: c0cc90a7a035a714880cb4cb95a3ac26,
@@ -67183,7 +67232,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 87682871}
         m_MethodName: TopSlot
         m_Mode: 1
         m_Arguments:
@@ -83033,6 +83082,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012283919}
   m_CullTransparentMesh: 0
+--- !u!114 &2012465190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7867798662223489838, guid: af89cb19425bcb4418efe4dab182aaec,
+    type: 3}
+  m_PrefabInstance: {fileID: 678803778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2012600059
 GameObject:
   m_ObjectHideFlags: 0
@@ -84782,6 +84843,12 @@ MonoBehaviour:
   - {fileID: 380379099}
   - {fileID: 1332569274}
   - {fileID: 1427978834}
+  FleetColours:
+  - {fileID: 874095442}
+  - {fileID: 2012465190}
+  - {fileID: 1605567337}
+  - {fileID: 933860815}
+  - {fileID: 563295384}
   Pages:
   - {fileID: 57896914}
   - {fileID: 1511823878}
@@ -89340,7 +89407,7 @@ PrefabInstance:
     - target: {fileID: 3821546428917297319, guid: ccb928d913c30a74d8bb0093cb9e613d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -3066
       objectReference: {fileID: 0}
     - target: {fileID: 3821546428917297319, guid: ccb928d913c30a74d8bb0093cb9e613d,
         type: 3}
@@ -89386,6 +89453,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471021939118849339, guid: ccb928d913c30a74d8bb0093cb9e613d,
+        type: 3}
+      propertyPath: m_text
+      value: "1st Fleet\u200B"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccb928d913c30a74d8bb0093cb9e613d, type: 3}
@@ -89511,6 +89583,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1356807370312378240, guid: b54679af37f89304daef2c40603be563,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 967278948403837369, guid: b54679af37f89304daef2c40603be563,
         type: 3}
       propertyPath: positions.Array.size
@@ -89560,11 +89637,6 @@ PrefabInstance:
         type: 3}
       propertyPath: slotName
       value: Force
-      objectReference: {fileID: 0}
-    - target: {fileID: 1356807370312378240, guid: b54679af37f89304daef2c40603be563,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2329141848989994397, guid: b54679af37f89304daef2c40603be563,
         type: 3}

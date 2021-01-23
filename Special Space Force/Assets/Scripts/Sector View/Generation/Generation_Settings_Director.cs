@@ -52,6 +52,7 @@ public class Generation_Settings_Director : MonoBehaviour
     public Dropdown[] AIBoxesDropDowns; //Race Selection Dropdown
     [SerializeField]
     public Image[] PlayerColours;
+    public Image[] FleetColours;
     public Page_Manager[] Pages;
 
 
@@ -144,7 +145,7 @@ public class Generation_Settings_Director : MonoBehaviour
         product.factions = factionManager.GenerateFactions(SortToggledAI());
         product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
         product.playerColours = equipmentManager.GetColours(PlayerColours);
-        product.playerFleetColours = voidcraftManager.GetColours(PlayerColours);
+        product.playerFleetColours = voidcraftManager.GetColours(FleetColours);
         localisationManager.SeperateStringLists();
         product.selectedTraits = traitManager.GetTraits();
         product.defaultEquipment = equipmentManager.GetDefault("Equipment");

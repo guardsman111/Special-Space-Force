@@ -395,7 +395,7 @@ public class Slot_Manager : MonoBehaviour
             int highestSlotHeight;
             highestSlotHeight = -2;
 
-            if (results.Count == 0)
+            if (results.Count != 0)
             {
                 //Checks through the raycast results and find the component with the highest slot height, which is the one visible to the user
                 Highest = results[0].gameObject.GetComponent<Slot_Script>();

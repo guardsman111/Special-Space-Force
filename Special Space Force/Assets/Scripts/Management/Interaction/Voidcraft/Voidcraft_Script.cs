@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Voidcraft_Script : MonoBehaviour
 {
     public Manager_Script modManager;
+    public Fleet_Manager manager;
 
     public string craftName;
     public int id;
@@ -30,21 +31,30 @@ public class Voidcraft_Script : MonoBehaviour
     public GameObject image;
     public TMP_InputField input;
 
-    public void MakeCraft(Voidcraft_Class craft, Manager_Script m, int ID, Fleet_Script fleet)
+    public Image_Manager imageManager;
+
+    public void MakeCraft(Voidcraft_Class craft, Manager_Script m, Fleet_Manager fm, int ID, Fleet_Script fleet)
     {
         modManager = m;
+        manager = fm;
         id = ID;
+        craftPosition = ID;
         craftFleet = fleet;
+        modManager.voidcraftManager.LoadCraft(this, craft.className);
+
+        craftName = craft.craftName;
+        input.text = craftName;
+        CraftColours();
     }
 
     //Sets the crafts colour scheme
     public void CraftColours()
     {
-        craftImages[1].color = modManager.voidcraftManager.playerFleetColours[1];
-        craftImages[2].color = modManager.voidcraftManager.playerFleetColours[2];
-        craftImages[3].color = modManager.voidcraftManager.playerFleetColours[3];
-        craftImages[4].color = modManager.voidcraftManager.playerFleetColours[4];
-        craftImages[5].color = modManager.voidcraftManager.playerFleetColours[5];
+        craftImages[1].color = modManager.voidcraftManager.playerFleetColours[0];
+        craftImages[2].color = modManager.voidcraftManager.playerFleetColours[1];
+        craftImages[3].color = modManager.voidcraftManager.playerFleetColours[2];
+        craftImages[4].color = modManager.voidcraftManager.playerFleetColours[3];
+        craftImages[5].color = modManager.voidcraftManager.playerFleetColours[4];
     }
 
     public void ChangeCraft(Dropdown dropdown)
@@ -153,89 +163,132 @@ public class Voidcraft_Script : MonoBehaviour
         }
         else if (viewedFleet == null)
         {
-            switch (craftPosition)
+            if (craftFleet.containedCraft.Count < 7)
             {
+                switch (craftPosition)
+                {
 
-                case 1:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position;
-                    break;
+                    case 1:
+                        rTransform.position = craftFleet.craftPositions4[0].transform.position;
+                        break;
 
-                case 2:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175), 0);
-                    break;
+                    case 2:
+                        rTransform.position = craftFleet.craftPositions4[1].transform.position;
+                        break;
 
-                case 3:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 2), 0);
-                    break;
+                    case 3:
+                        rTransform.position = craftFleet.craftPositions4[0].transform.position + new Vector3(0, (-175 * 2));
+                        break;
 
-                case 4:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 3), 0);
-                    break;
+                    case 4:
+                        rTransform.position = craftFleet.craftPositions4[1].transform.position + new Vector3(0, (-175 * 2));
+                        break;
 
-                case 5:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 4), 0);
-                    break;
+                    case 5:
+                        this.gameObject.SetActive(false);
+                        break;
 
-                case 6:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(0, -200);
-                    break;
+                    case 6:
+                        this.gameObject.SetActive(false);
+                        break;
 
-                case 7:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175), -200);
-                    break;
+                    case 7:
+                        this.gameObject.SetActive(false);
+                        break;
 
-                case 8:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 2), -200);
-                    break;
+                    case 8:
+                        this.gameObject.SetActive(false);
+                        break;
 
-                case 9:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 3), -200);
-                    break;
 
-                case 10:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 4), -200);
-                    break;
+                }
+            }
+            else 
+            {
+                switch (craftPosition)
+                {
 
-                case 11:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(0, -400);
-                    break;
+                    case 1:
+                        rTransform.position = craftFleet.craftPositions9[0].transform.position;
+                        break;
 
-                case 12:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175), -400);
-                    break;
+                    case 2:
+                        rTransform.position = craftFleet.craftPositions9[1].transform.position;
+                        break;
 
-                case 13:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 2), -400);
-                    break;
+                    case 3:
+                        rTransform.position = craftFleet.craftPositions9[2].transform.position;
+                        break;
 
-                case 14:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 3), -400);
-                    break;
+                    case 4:
+                        rTransform.position = craftFleet.craftPositions9[0].transform.position - new Vector3(0, 250);
+                        break;
 
-                case 15:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 4), -400);
-                    break;
+                    case 5:
+                        rTransform.position = craftFleet.craftPositions9[1].transform.position - new Vector3(0, 250);
+                        break;
 
-                case 16:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(0, -600);
-                    break;
+                    case 6:
+                        rTransform.position = craftFleet.craftPositions9[2].transform.position - new Vector3(0, 250);
+                        break;
 
-                case 17:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175), -600);
-                    break;
+                    case 7:
+                        rTransform.position = craftFleet.craftPositions9[0].transform.position - new Vector3(0, 250 * 2);
+                        break;
 
-                case 18:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 2), -600);
-                    break;
+                    case 8:
+                        rTransform.position = craftFleet.craftPositions9[1].transform.position - new Vector3(0, 250 * 2);
+                        break;
 
-                case 19:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 3), -600);
-                    break;
+                    case 9:
+                        rTransform.position = craftFleet.craftPositions9[2].transform.position - new Vector3(0, 250 * 2);
+                        break;
 
-                case 20:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3((175 * 4), -600);
-                    break;
+                    case 10:
+                        this.gameObject.SetActive(false);
+                        break;
 
+                    case 11:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                    case 12:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                    case 13:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                    case 14:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                    case 15:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                    case 16:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                    case 17:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                    case 18:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                    case 19:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                    case 20:
+                        this.gameObject.SetActive(false);
+                        break;
+
+                }
             }
 
             input.gameObject.SetActive(true);
@@ -250,4 +303,18 @@ public class Voidcraft_Script : MonoBehaviour
         }
     }
 
+    public void UIPressed(bool setting)
+    {
+        manager.UIPressed(setting);
+    }
+
+    //Sets the craft colour scheme
+    public void TrooperColours()
+    {
+        craftImages[1].color = modManager.voidcraftManager.playerFleetColours[0];
+        craftImages[2].color = modManager.voidcraftManager.playerFleetColours[1];
+        craftImages[3].color = modManager.voidcraftManager.playerFleetColours[2];
+        craftImages[4].color = modManager.voidcraftManager.playerFleetColours[3];
+        craftImages[5].color = modManager.voidcraftManager.playerFleetColours[4];
+    }
 }

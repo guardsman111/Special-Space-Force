@@ -420,7 +420,7 @@ public class Localisation_Manager : MonoBehaviour
         string name = "Name";
         if (type == "FleetNames")
         {
-            int number = fleet.ID - 1;
+            int number = fleet.ID;
 
             string firstString;
 
