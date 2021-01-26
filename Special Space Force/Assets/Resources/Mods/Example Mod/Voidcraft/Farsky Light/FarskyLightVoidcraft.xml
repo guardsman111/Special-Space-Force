@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Voidcraft_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <className>Farsky Transport</className>
+  <type>Destroyer</type>
+  <weapons>
+	<Void_Weapon_Class>
+		<name>"Twin 100MM SABOT Turret"</name>
+		<type>Solid</type>
+		<range>3</range>
+		<damage>65</damage>
+		<number>3</number>
+	</Void_Weapon_Class>
+  </weapons>
+  <CraftOutlinePath>Mods/Example Mod/Voidcraft/Farsky Light/Outline.png</CraftOutlinePath>
+  <CraftPrimaryPath>Mods/Example Mod/Voidcraft/Farsky Light/Primary.png</CraftPrimaryPath>
+  <CraftSecondaryPath>Mods/Example Mod/Voidcraft/Farsky Light/Secondary.png</CraftSecondaryPath>
+  <CraftTertiaryPath>Mods/Example Mod/Voidcraft/Farsky Light/Tertiary.png</CraftTertiaryPath>
+  <CraftTrimPath>Mods/Example Mod/Voidcraft/Farsky Light/Trim.png</CraftTrimPath>
+  <CraftSpecialPath>Mods/Example Mod/Voidcraft/Farsky Light/Special.png</CraftSpecialPath>
+  <filterMode>0</filterMode>
+  <CostPerCraft>200</CostPerCraft>
+  <speed>15</speed>
+  <armour>5</armour>
+</Voidcraft_Class>

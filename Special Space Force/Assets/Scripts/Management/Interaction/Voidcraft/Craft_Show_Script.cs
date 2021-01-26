@@ -21,6 +21,6 @@ public class Craft_Show_Script : MonoBehaviour
         armour.text = craft.GetStat("Armour");
         location.text = craft.GetStat("Location");
 
-
+        weaponBar.SetNewWeapons(craft);
     }
 }

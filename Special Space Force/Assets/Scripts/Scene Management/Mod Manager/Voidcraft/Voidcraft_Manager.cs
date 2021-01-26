@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Voidcraft_Manager : MonoBehaviour
 {
     public FileFinder finder;
     public Core_Voidcraft coreVoidcraft;
+
     public List<Voidcraft_Pack> voidcraftPacks;
 
     public Dropdown CraftDropdownCustom;
@@ -18,10 +20,178 @@ public class Voidcraft_Manager : MonoBehaviour
     {
         voidcraftPacks = coreVoidcraft.Core();
 
+        Voidcraft_Pack tempSP;
+
+        List<string> craftFileLocations = finder.Retrieve("Voidcraft", ".meta", ".png", ".jpg");
+
+        foreach (string s in craftFileLocations)
+        {
+            Voidcraft_Class temp = Serializer.Deserialize<Voidcraft_Class>(s);
+            tempSP = new Voidcraft_Pack();
+            tempSP.className = temp.className;
+            tempSP.containedSprites = new List<Sprite>();
+            try
+            {
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftOutlinePath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
+                newTex.LoadImage(bytes);
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
+            }
+            catch
+            {
+            }
+            try
+            {
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftPrimaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
+                newTex.LoadImage(bytes);
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
+            }
+            catch
+            {
+            }
+            try
+            {
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftSecondaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
+                newTex.LoadImage(bytes);
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
+            }
+            catch
+            {
+            }
+            try
+            {
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftTertiaryPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
+                newTex.LoadImage(bytes);
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
+            }
+            catch
+            {
+            }
+            try
+            {
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftTrimPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
+                newTex.LoadImage(bytes);
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
+            }
+            catch
+            {
+            }
+            try
+            {
+                Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
+                byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftSpecialPath);
+                newTex.alphaIsTransparency = true;
+                newTex.wrapMode = TextureWrapMode.Clamp;
+                if (temp.filterMode == 0)
+                {
+                    newTex.filterMode = FilterMode.Point;
+                }
+                if (temp.filterMode == 1)
+                {
+                    newTex.filterMode = FilterMode.Bilinear;
+                }
+                if (temp.filterMode == 2)
+                {
+                    newTex.filterMode = FilterMode.Trilinear;
+                }
+                newTex.LoadImage(bytes);
+                newTex.PremultiplyAlpha();
+                Sprite newSprite = Sprite.Create(newTex, new Rect(0, 0, newTex.width, newTex.height), new Vector2(0.5f, 0.5f));
+                tempSP.containedSprites.Add(newSprite);
+            }
+            catch
+            {
+            }
+            tempSP.costPerCraft = temp.costPerCraft;
+            voidcraftPacks.Add(tempSP);
+        }
+
         SetupDropdown(CraftDropdownCustom);
-
     }
-
 
     public void SetupDropdown(Dropdown dropdown)
     {
@@ -166,5 +336,20 @@ public class Voidcraft_Manager : MonoBehaviour
             craft.craftImages[5].gameObject.SetActive(false);
         }
 
+    }
+
+    public List<Void_Weapon_Class> FindWeapons(Voidcraft_Class craft)
+    {
+        List<Void_Weapon_Class> returner = new List<Void_Weapon_Class>();
+
+        foreach(Voidcraft_Pack vc in voidcraftPacks)
+        {
+            if(vc.className == craft.className)
+            {
+                returner = vc.weapons;
+            }
+        }
+
+        return returner;
     }
 }

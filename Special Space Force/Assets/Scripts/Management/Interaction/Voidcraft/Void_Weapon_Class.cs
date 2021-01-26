@@ -8,6 +8,7 @@ public class Void_Weapon_Class
     public string type;
     public int range;
     public int damage;
+    public int number;
 
     public Void_Weapon_Class()
     {

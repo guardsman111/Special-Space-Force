@@ -28,6 +28,7 @@ public class Fleet_Generator : MonoBehaviour
         tempVc.className = "Farsky Heavy Destroyer";
         tempVc.craftName = "Hell's Bells";
         tempVc.type = "Destroyer";
+        tempVc.weapons = modManager.voidcraftManager.FindWeapons(tempVc);
 
         tempFc.containedCraft.Add(tempVc);
 
@@ -35,6 +36,7 @@ public class Fleet_Generator : MonoBehaviour
         tempVc.className = "Hifrin Cruiser";
         tempVc.craftName = "Bad Motherfucker";
         tempVc.type = "Cruiser";
+        tempVc.weapons = modManager.voidcraftManager.FindWeapons(tempVc);
 
         tempFc.containedCraft.Add(tempVc);
 
