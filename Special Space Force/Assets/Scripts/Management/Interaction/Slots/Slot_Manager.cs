@@ -293,17 +293,20 @@ public class Slot_Manager : MonoBehaviour
     //Returns to the parent of the viewed slot
     public void UpSlot()
     {
-        viewedSlot = viewedSlot.slotParent;
-        currentName.text = viewedSlot.slotName;
-        foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
+        if (viewedSlot.slotHeight != -1)
         {
-            ss.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
+            viewedSlot = viewedSlot.slotParent;
+            currentName.text = viewedSlot.slotName;
+            foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
+            {
+                ss.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
+            }
+            slotSlider.value = 0;
+            slotSlider.interactable = false;
+            squadOptions.SetActive(false);
+            slotOptions.SetActive(true);
+            DeselectTroopers();
         }
-        slotSlider.value = 0;
-        slotSlider.interactable = false;
-        squadOptions.SetActive(false);
-        slotOptions.SetActive(true);
-        DeselectTroopers();
     }
 
     //Returns to the top slot

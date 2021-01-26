@@ -10,8 +10,7 @@ public class Voidcraft_Script : MonoBehaviour
     public Fleet_Manager manager;
 
     public string craftName;
-    public int id;
-    public int starID;
+    public int uID;
     public Voidcraft_Class craftClass;
     public Fleet_Script craftFleet;
     public int craftPosition;
@@ -33,12 +32,57 @@ public class Voidcraft_Script : MonoBehaviour
 
     public Image_Manager imageManager;
 
+    public void MakeCraft(Voidcraft_Class craft, Fleet_Manager fm, int ID, Fleet_Script fleet)
+    {
+        manager = fm;
+        craftClass = craft;
+        craft.positionID = ID;
+        uID = Random.Range(0, 10000);
+        while (manager.CraftIDs.Contains(uID))
+        {
+            uID = Random.Range(0, 10000);
+        }
+        craft.ID = uID;
+        manager.CraftIDs.Add(uID);
+        craftPosition = ID;
+        craftFleet = fleet;
+        modManager.voidcraftManager.LoadCraft(this, craft.className);
+
+        craftName = craft.craftName;
+        input.text = craftName;
+        CraftColours();
+    }
+
     public void MakeCraft(Voidcraft_Class craft, Manager_Script m, Fleet_Manager fm, int ID, Fleet_Script fleet)
     {
         modManager = m;
+        craftClass = craft;
         manager = fm;
-        id = ID;
+        craft.positionID = ID;
+        uID = Random.Range(0, 10000);
+        while (manager.CraftIDs.Contains(uID))
+        {
+            uID = Random.Range(0, 10000);
+        }
+        craft.ID = uID;
+        manager.CraftIDs.Add(uID);
         craftPosition = ID;
+        craftFleet = fleet;
+        modManager.voidcraftManager.LoadCraft(this, craft.className);
+
+        craftName = craft.craftName;
+        input.text = craftName;
+        CraftColours();
+    }
+
+    public void LoadCraft(Voidcraft_Class craft, Manager_Script m, Fleet_Manager fm, Fleet_Script fleet)
+    {
+        modManager = m;
+        craftClass = craft;
+        manager = fm;
+        uID = craft.ID;
+        manager.CraftIDs.Add(uID);
+        craftPosition = craft.positionID;
         craftFleet = fleet;
         modManager.voidcraftManager.LoadCraft(this, craft.className);
 
@@ -316,5 +360,52 @@ public class Voidcraft_Script : MonoBehaviour
         craftImages[3].color = modManager.voidcraftManager.playerFleetColours[2];
         craftImages[4].color = modManager.voidcraftManager.playerFleetColours[3];
         craftImages[5].color = modManager.voidcraftManager.playerFleetColours[4];
+    }
+
+    //Returns the stat of the given string
+    public string GetStat(string name)
+    {
+        string returner = "";
+        switch (name)
+        {
+            case "Class":
+                returner = craftClass.className;
+                break;
+            case "Speed":
+                returner = craftClass.speed.ToString();
+                break;
+            case "Armour":
+                returner = craftClass.armour.ToString();
+                break;
+            case "Location":
+                string tempS;
+                foreach(System_Script id in manager.modManager.sectorManager.systems)
+                {
+                    if(id.Star.uID == craftClass.starID)
+                    {
+                        tempS = id.Star.systemName;
+                        if (craftClass.planetN > 0)
+                        {
+                            tempS += " " + (id.SystemPlanets[craftClass.planetN - 1].planetName.Replace(tempS, ""));
+                        }
+                        returner = tempS;
+                        break;
+                    }
+                }
+                //returner = craftClass.armour.ToString();
+                break;
+            default:
+                return "0";
+        }
+        return returner;
+    }
+
+    public List<int> GetCarriedSlots()
+    {
+        List<int> returner = new List<int>();
+
+        returner = craftClass.uIDTransported;
+
+        return returner;
     }
 }

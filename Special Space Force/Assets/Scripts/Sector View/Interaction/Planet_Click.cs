@@ -25,6 +25,8 @@ public class Planet_Click : MonoBehaviour
     private bool previous;
     private Vector3 previousPosition;
 
+    private List<GameObject> orbiters;
+
     //Finds all the cameras
     void Start()
     {
@@ -75,6 +77,21 @@ public class Planet_Click : MonoBehaviour
                 //{
                 //    sPlanet.storms.SetActive(false);
                 //}
+
+                //Toggles Orbiters on
+                orbiters = new List<GameObject>();
+                foreach(Voidcraft_Class vc in planetScreen.fManager.Craft)
+                {
+                    if(vc.starID == sPlanet.parentSystem.Star.uID)
+                    {
+                        if (vc.planetN - 1 == sPlanet.parentSystem.SystemPlanets.IndexOf(sPlanet))
+                        {
+                            GameObject tempO = Instantiate(planetScreen.genericOrbiter, sPlanet.gameObject.transform);
+                            tempO.GetComponent<Orbiter_Script>().CreateOrbiter(planetScreen.fManager, vc);
+                            orbiters.Add(tempO);
+                        }
+                    }
+                }
 
                 //Changes the planetScreen text 
                 planetScreen.planetName.text = sPlanet.planet.planetName;
@@ -186,6 +203,11 @@ public class Planet_Click : MonoBehaviour
                 foreach (GameObject go in gameObject.GetComponent<Planet_Script>().moons)
                 {
                     go.SetActive(false);
+                }
+               while(orbiters.Count > 0) //Moons can go here eventually
+                {
+                    Destroy(orbiters[0]);
+                    orbiters.RemoveAt(0);
                 }
                 systemCamera.enabled = true;
                 star.enabled = true;

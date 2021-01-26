@@ -8,6 +8,7 @@ public class Manager_Script : MonoBehaviour
     /// Holds references for the individual mod managers
     /// </summary>
     public Biome_Manager biomeManager;
+    public Sector_Manager sectorManager;
     public Race_Manager raceManager;
     public Equipment_Manager equipmentManager;
     public Trait_Manager traitManager;

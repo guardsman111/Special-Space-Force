@@ -18,6 +18,9 @@ public class Slot_Class
     public int numberOfTroopers;
     public List<Color32> squadColours;
     public bool useSquadColours;
+    public int craftID;
+    public int systemID;
+    public int planetN;
 
     public int slotHeight;
 

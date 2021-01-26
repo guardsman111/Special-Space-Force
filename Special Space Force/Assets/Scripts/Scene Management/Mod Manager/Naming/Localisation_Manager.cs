@@ -33,6 +33,7 @@ public class Localisation_Manager : MonoBehaviour
     public List<string> slotNames;
     public List<string> squadNames;
     public List<string> fleetNames;
+    public List<string> fleetHierachyNames;
 
     public Dropdown trooperNamesDropdown;
     public Dropdown hierachyNamesDropdown;
@@ -212,6 +213,10 @@ public class Localisation_Manager : MonoBehaviour
         surnames = new List<string>();
         forenamesM = new List<string>();
         forenamesF = new List<string>();
+        slotNames = new List<string>();
+        hierachyNames = new List<string>();
+        fleetNames = new List<string>();
+        fleetHierachyNames = new List<string>();
 
         foreach (string s in chosenTrooperNamesList.stringList)
         {
@@ -321,7 +326,7 @@ public class Localisation_Manager : MonoBehaviour
         {
             if (sectionCounter == -1)
             {
-                if (s.Contains("/Fleets"))
+                if (s.Contains("/Fleet"))
                 {
                     sectionCounter = 0;
                 }
@@ -332,7 +337,25 @@ public class Localisation_Manager : MonoBehaviour
             }
             else if (sectionCounter == 0)
             {
-                fleetNames.Add(s);
+                if (s.Contains("/"))
+                {
+                    sectionCounter = 1;
+                }
+                else
+                {
+                    fleetNames.Add(s);
+                }
+            }
+            else if (sectionCounter == 1)
+            {
+                if (s.Contains("/"))
+                {
+                    sectionCounter = 2;
+                }
+                else
+                {
+                    fleetHierachyNames.Add(s);
+                }
             }
         }
     }
@@ -423,11 +446,13 @@ public class Localisation_Manager : MonoBehaviour
             int number = fleet.ID;
 
             string firstString;
+            string secondString;
+            secondString = fleetHierachyNames[0];
 
             if (number >= 0)
             {
-                firstString = fleetNames[number];
-                name = firstString + " ";
+                firstString = fleetNames[number - 1];
+                name = firstString + " " + secondString;
             }
             
         }

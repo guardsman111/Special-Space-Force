@@ -13,6 +13,8 @@ public class Show_Hide_Organisation : MonoBehaviour
     public Text TrooperCounterText;
     public Slot_Manager manager;
 
+    public GameObject secondaryActivation;
+
     //SHows or hides depnding on which is currently active
     public void ShowHide()
     {
@@ -42,12 +44,22 @@ public class Show_Hide_Organisation : MonoBehaviour
             Object2.SetActive(true);
 
             Object1.SetActive(false);
+
+            if (secondaryActivation != null)
+            {
+                secondaryActivation.SetActive(true);
+            }
         }
         else
         {
             Object1.SetActive(true);
 
             Object2.SetActive(false);
+
+            if (secondaryActivation != null)
+            {
+                secondaryActivation.SetActive(false);
+            }
         }
     }
 }

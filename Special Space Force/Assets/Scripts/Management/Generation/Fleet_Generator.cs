@@ -75,6 +75,7 @@ public class Fleet_Generator : MonoBehaviour
                 tempV.GetComponent<Voidcraft_Script>().MakeCraft(vc, modManager, fManager, count, temp.GetComponent<Fleet_Script>());
                 tempV.GetComponent<Voidcraft_Script>().SetPosition(null);
                 temp.GetComponent<Fleet_Script>().containedCraft.Add(tempV.GetComponent<Voidcraft_Script>());
+                fManager.Craft.Add(tempV.GetComponent<Voidcraft_Script>().craftClass);
             }
         }
 

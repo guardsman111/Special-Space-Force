@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class System_Screen : MonoBehaviour
 {
 
-    public Text name;
+    public Text sname;
     public Text allegiance;
     public Text output;
 }

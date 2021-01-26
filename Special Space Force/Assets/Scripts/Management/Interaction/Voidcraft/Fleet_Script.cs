@@ -11,7 +11,6 @@ public class Fleet_Script : MonoBehaviour
     public string fleetName;
     public RectTransform background;
     public int ID;
-    public int uID; // Unique ID given on creation
     public TMP_InputField input;
     public Fleet_Manager manager;
     public bool fColours = false;
@@ -26,15 +25,16 @@ public class Fleet_Script : MonoBehaviour
         manager = fManager;
         fleetClass = fleet;
         ID = fManager.FleetsS.Count + 1;
-        fleetName = manager.manager.localisationManager.CreateName("FleetNames", this);
+        fleetClass.uID = Random.Range(0, 10000);
+        while (manager.FleetIDs.Contains(fleetClass.uID))
+        {
+            fleetClass.uID = Random.Range(0, 10000);
+        }
+        manager.FleetIDs.Add(fleetClass.uID);
         fleetName = fleet.fleetName;
+        fleetClass.fleetColours = manager.modManager.voidcraftManager.playerFleetColours;
 
         input.text = fleetName;
-
-        if (uID == 0)
-        {
-            uID = Random.Range(1, 10000000);
-        }
     }
 
     //Creates a fleet from a fleet script and inserts a new parent
@@ -43,18 +43,20 @@ public class Fleet_Script : MonoBehaviour
         manager = fManager;
         fleetClass = new Fleet_Class();
         ID = fleet.ID;
+        fleetClass.uID = Random.Range(0, 10000);
+        while (manager.FleetIDs.Contains(fleetClass.uID))
+        {
+            fleetClass.uID = Random.Range(0, 10000);
+        }
+        manager.FleetIDs.Add(fleetClass.uID);
         background = fleet.background;
         containedCraft = fleet.containedCraft;
 
         fleetName = manager.manager.localisationManager.CreateName("FleetNames", this);
-        fleet.fleetName = fleetName;
+        fleetClass.fleetName = fleetName;
+        fleetClass.fleetColours = manager.modManager.voidcraftManager.playerFleetColours;
 
         input.text = fleetName;
-
-        if (uID == 0)
-        {
-            uID = Random.Range(1, 10000000);
-        }
     }
 
 

@@ -8,7 +8,7 @@ public class Change_Name : MonoBehaviour
     /// <summary>
     /// Currently Unused
     /// </summary>
-    public Text name;
+    public Text nname;
 
     public void EndEdit()
     {

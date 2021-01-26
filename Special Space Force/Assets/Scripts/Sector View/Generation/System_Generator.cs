@@ -11,6 +11,8 @@ public class System_Generator : MonoBehaviour
     [SerializeField]
     private Biome_Manager biomeManager;
 
+    public Sector_Manager manager;
+
     public Biome_Manager BiomeManager
     {
         get { return biomeManager; }
@@ -88,6 +90,8 @@ public class System_Generator : MonoBehaviour
         generatedSystems = new List<GameObject>();
         avgPlanetSize = product.averagePlanetSize;
         generatedProduct = product;
+
+        manager.systems = new List<System_Script>();
         
 
         //For each star generate position, colour, #planets and name
@@ -114,6 +118,7 @@ public class System_Generator : MonoBehaviour
     {
         systemsList = loadSystems;
         generatedSystems = new List<GameObject>();
+        manager.systems = new List<System_Script>();
         foreach (System_Class s in systemsList)
         {
             CreateStar(s, save);
@@ -147,6 +152,14 @@ public class System_Generator : MonoBehaviour
                         star.GetComponent<System_Script>().SystemGen(name, colour, (int)star.transform.position.x, (int)star.transform.position.z, nPlanets, systemsList.Count, planetPrefab, this);
                         generatedSystems.Add(star);
                         systemsList.Add(star.GetComponent<System_Script>().Star);
+                        int uID = Random.Range(0, 10000);
+                        star.GetComponent<System_Script>().Star.uID = uID;
+                        while (manager.systemIDs.Contains(uID))
+                        {
+                            uID = Random.Range(0, 10000);
+                        }
+                        manager.systems.Add(star.GetComponent<System_Script>());
+                        manager.systemIDs.Add(uID);
                         break;
                     }
                     //If it cannot create the star (after 10 attempts) delete it and move onto the next star

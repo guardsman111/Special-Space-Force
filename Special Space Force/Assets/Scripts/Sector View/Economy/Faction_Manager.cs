@@ -8,6 +8,8 @@ public class Faction_Manager : MonoBehaviour
     private List<Faction_Class> factions;
     public List<Faction_Script> factionScripts;
     public Force_Manager forceManager;
+    public Slot_Manager slotManager;
+    public Fleet_Manager fleetManager;
 
     public List<Faction_Class> Factions
     {
@@ -168,6 +170,22 @@ public class Faction_Manager : MonoBehaviour
         foreach(Planet_Script planet in factionScripts[0].controlledPlanets)
         {
             planet.Stats.GenerateMilitary(product.militarism);
+        }
+        SetupForceAndFleet();
+    }
+
+    public void SetupForceAndFleet()
+    {
+        int planetNumber = Random.Range(1, factionScripts[0].controlledSystems[0].SystemPlanets.Count + 1);
+        foreach (Slot_Class sc in slotManager.Slots)
+        {
+            sc.systemID = factionScripts[0].controlledSystems[0].Star.uID;
+            sc.planetN = planetNumber;
+        }
+        foreach(Voidcraft_Class vc in fleetManager.Craft)
+        {
+            vc.starID = factionScripts[0].controlledSystems[0].Star.uID;
+            vc.planetN = planetNumber;
         }
     }
 

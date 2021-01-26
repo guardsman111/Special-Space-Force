@@ -29,4 +29,7 @@ public class Planet_Screen : MonoBehaviour
     public Text planetGarrisonDesc;
     public Text planetGarrisonFleetLevel;
     public Text planetGarrisonFleetDesc;
+    public Fleet_Manager fManager;
+    public Voidcraft_Manager vManager;
+    public GameObject genericOrbiter;
 }

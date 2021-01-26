@@ -465,12 +465,43 @@ public class Slot_Script : MonoBehaviour
 
         //If the slot should be visible (is child of the viewed slot or one of its children, or is a child of a child of the viewed slot(Mad eh?))
         //then it is set to visible here
-        if (slotParent == viewedSlot || slotParent.slotParent == viewedSlot || slotParent.slotParent.slotParent == viewedSlot)
+
+        if (slotHeight > 1)
         {
-            input.gameObject.SetActive(true);
-            gameObject.GetComponent<Image>().enabled = true;
-            background.gameObject.SetActive(true);
+            if (slotParent == viewedSlot || slotParent.slotParent == viewedSlot || slotParent.slotParent.slotParent == viewedSlot)
+            {
+                input.gameObject.SetActive(true);
+                gameObject.GetComponent<Image>().enabled = true;
+                background.gameObject.SetActive(true);
+            }
         } 
+        else if (slotHeight == 1)
+        {
+            if (slotParent == viewedSlot || slotParent.slotParent == viewedSlot)
+            {
+                input.gameObject.SetActive(true);
+                gameObject.GetComponent<Image>().enabled = true;
+                background.gameObject.SetActive(true);
+            }
+        }
+        else if (slotHeight == 0)
+        {
+            if (slotParent == viewedSlot)
+            {
+                input.gameObject.SetActive(true);
+                gameObject.GetComponent<Image>().enabled = true;
+                background.gameObject.SetActive(true);
+            }
+        }
+        else if (slotHeight == -1)
+        {
+            if (this == viewedSlot)
+            {
+                input.gameObject.SetActive(true);
+                gameObject.GetComponent<Image>().enabled = true;
+                background.gameObject.SetActive(true);
+            }
+        }
         else
         {
             nTroops.enabled = false;
@@ -681,5 +712,41 @@ public class Slot_Script : MonoBehaviour
         {
             ss.ChangeHeight(slotHeight);
         }
+    }
+
+    public int GetLocationIDCraft()
+    {
+        int returner = -1;
+
+        if(slotClass.craftID != 0)
+        {
+            returner = slotClass.craftID;
+        }
+
+        return returner;
+    }
+
+    public int GetLocationIDSystem()
+    {
+        int returner = -1;
+
+        if (slotClass.systemID != 0)
+        {
+            returner = slotClass.systemID;
+        }
+
+        return returner;
+    }
+
+    public int GetLocationPlanetN()
+    {
+        int returner = -1;
+
+        if (slotClass.planetN != 0)
+        {
+            returner = slotClass.planetN;
+        }
+
+        return returner;
     }
 }
