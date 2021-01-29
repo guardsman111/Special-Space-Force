@@ -181,11 +181,25 @@ public class Faction_Manager : MonoBehaviour
         {
             sc.systemID = factionScripts[0].controlledSystems[0].Star.uID;
             sc.planetN = planetNumber;
+            foreach(Slot_Class sc2 in sc.containedSlots)
+            {
+                SetupSlotLocation(sc2, planetNumber);
+            }
         }
         foreach(Voidcraft_Class vc in fleetManager.Craft)
         {
             vc.starID = factionScripts[0].controlledSystems[0].Star.uID;
             vc.planetN = planetNumber;
+        }
+    }
+
+    public void SetupSlotLocation(Slot_Class currentClass, int planetNumber)
+    {
+        currentClass.systemID = factionScripts[0].controlledSystems[0].Star.uID;
+        currentClass.planetN = planetNumber;
+        foreach (Slot_Class sc in currentClass.containedSlots)
+        {
+            SetupSlotLocation(sc, planetNumber);
         }
     }
 

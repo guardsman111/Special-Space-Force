@@ -270,6 +270,7 @@ public class Trooper_Script : MonoBehaviour
         trooperName = trooper.trooperName;
         trooperRank = trooper.trooperRank;
         trooperPosition = trooper.trooperPosition;
+        identifierLoc = trooper.indicatorLoc;
         trooperFace = trooper.trooperFace;
         trooperHair = trooper.trooperHair;
         hairColour = trooper.hairColour;
@@ -329,6 +330,7 @@ public class Trooper_Script : MonoBehaviour
 
         TrooperColours();
         manager.ChangeTroopers(1);
+        FindSlotIdentifier();
     }
 
     //Generates up to 2 random traits
@@ -1034,6 +1036,7 @@ public class Trooper_Script : MonoBehaviour
         trooperClass = SaveTrooper(trooperClass);
     }
 
+    //UI reference to change slot identifier location
     public void ToggleSlotLocation(int modifier)
     {
         for(int i = 0; i < slotLocations.Length; i++)
@@ -1063,7 +1066,7 @@ public class Trooper_Script : MonoBehaviour
     public void FindSlotIdentifier()
     {
         identifierLoc = manager.manager.save.generatedProduct.identifierLoc;
-        if (trooperSquad != null && trooperSquad.slotParent != null)
+        if (trooperSquad != null && trooperSquad.slotParent != null && trooperSquad.slotParent.slotParent != null)
         {
             string temp1 = trooperSquad.slotParent.slotParent.slotName[0].ToString();
             string temp2 = trooperSquad.slotParent.slotName[0].ToString();
@@ -1073,6 +1076,12 @@ public class Trooper_Script : MonoBehaviour
                 t.text = temp1 + temp2 + temp3;
             }
             slotIdentifier = slotLocations[identifierLoc].text;
+            trooperClass.indicatorLoc = identifierLoc;
+            trooperClass.indicatorStr = slotLocations[identifierLoc].text;
+        }
+        else
+        {
+            slotLocations[identifierLoc].text = trooperClass.indicatorStr;
         }
 
         foreach (Text t in slotLocations)
@@ -1080,6 +1089,6 @@ public class Trooper_Script : MonoBehaviour
             t.gameObject.SetActive(false);
         }
 
-        slotLocations[identifierLoc].gameObject.SetActive(true);
+        slotLocations[trooperClass.indicatorLoc].gameObject.SetActive(true);
     }
 }

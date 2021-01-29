@@ -21,6 +21,7 @@ public class Slot_Script : MonoBehaviour
     public int uID; // Unique ID given on creation
     public TMP_InputField input;
     public TextMeshProUGUI nTroops;
+    public Text location;
     public Slot_Manager manager;
     public bool squad;
     public Squad_Role_Class squadRole;
@@ -129,6 +130,8 @@ public class Slot_Script : MonoBehaviour
         uID = slotClass.uID;
 
         slotClass.uID = uID;
+
+        FindLocation();
     }
 
     //Creates a new unique ID
@@ -235,6 +238,7 @@ public class Slot_Script : MonoBehaviour
             //If the height is 1 (meaning it is a middle size slot)
             case 1:
                 input.textComponent.enableWordWrapping = true;
+                location.enabled = false;
                 if (parent.containedSlots.Count < 5)
                 {
                     switch (ID)
@@ -369,6 +373,7 @@ public class Slot_Script : MonoBehaviour
             //If the height difference is -3 (meaning the slot is the smallest visible slot)
             case 2:
                 input.textComponent.enableWordWrapping = true;
+                location.enabled = false;
                 if (parent.containedSlots.Count < 5)
                 {
                     switch (ID)
@@ -877,5 +882,27 @@ public class Slot_Script : MonoBehaviour
         }
 
         return returner;
+    }
+
+    public string FindLocation()
+    {
+        string tempS = "Location: ";
+        if (slotClass.systemID != 0)
+        {
+            foreach (System_Script id in manager.modManager.sectorManager.systems)
+            {
+                if (id.Star.uID == slotClass.systemID)
+                {
+                    tempS += id.Star.systemName;
+                    if (slotClass.planetN > 0)
+                    {
+                        tempS += " " + (id.SystemPlanets[slotClass.planetN - 1].planetName.Replace(id.Star.systemName, ""));
+                    }
+                    location.text = tempS;
+                    break;
+                }
+            }
+        }
+        return tempS;
     }
 }

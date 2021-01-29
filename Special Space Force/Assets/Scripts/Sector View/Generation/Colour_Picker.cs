@@ -83,6 +83,11 @@ public class Colour_Picker : MonoBehaviour
                 t.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
             }
         }
+        Vector2 mousePos = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
+        if (!pickerRect.rect.Contains(localPoint))
+        {
+            TogglePicker();
+        }
         boxBackup.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
     }
 
@@ -107,5 +112,14 @@ public class Colour_Picker : MonoBehaviour
             }
         }
         boxBackup.color = pickerImageGrey.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
+    }
+
+    public void PressedNothing()
+    {
+        Colour_Picker[] Pickers = FindObjectsOfType<Colour_Picker>();
+        foreach (Colour_Picker cp in Pickers)
+        {
+            cp.picker.gameObject.SetActive(false);
+        }
     }
 }

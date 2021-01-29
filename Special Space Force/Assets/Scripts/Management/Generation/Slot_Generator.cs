@@ -269,7 +269,6 @@ public class Slot_Generator : MonoBehaviour
                 Trooper_Script tempS = temp.GetComponent<Trooper_Script>();
                 tempS.MakeTrooper(tc, count, manager, slotParent);
                 tempS.trooperSquad = slotParent;
-                tempS.FindSlotIdentifier();
                 tempTroopers.Add(tempS);
             } 
             else
@@ -299,7 +298,6 @@ public class Slot_Generator : MonoBehaviour
                 Trooper_Script tempS = temp.GetComponent<Trooper_Script>();
                 tempS.MakeTrooper(tc, count, manager, slotParent);
                 tempS.trooperSquad = slotParent;
-                tempS.FindSlotIdentifier();
                 tempTroopers.Add(tempS);
             }
         }

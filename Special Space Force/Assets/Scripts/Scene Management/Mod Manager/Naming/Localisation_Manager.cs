@@ -40,6 +40,8 @@ public class Localisation_Manager : MonoBehaviour
     public Dropdown slotNamesDropdown;
     public Dropdown fleetNamesDropdown;
 
+    public InputField forceName;
+
     //Finds the localisation files from the resources folder and filters them by type. Expandable
     public void FindLocalisationFiles()
     {
@@ -424,6 +426,11 @@ public class Localisation_Manager : MonoBehaviour
                     catch
                     {
                         secondString = "Sub - " + hierachyNames[hierachyNames.Count - 1];
+                        if (number == 0)
+                        {
+                            firstString = forceName.text;
+                            secondString = "";
+                        }
                     }
                     name = firstString + " " + secondString;
                 }

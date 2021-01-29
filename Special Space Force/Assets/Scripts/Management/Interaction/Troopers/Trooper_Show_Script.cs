@@ -20,6 +20,7 @@ public class Trooper_Show_Script : MonoBehaviour
     public Text Stamina;
     public Text Trait1;
     public Text Trait2;
+    public Text Location;
 
     //Updates the UI
     public void ChangeTrooper(Trooper_Script trooper)
@@ -36,5 +37,6 @@ public class Trooper_Show_Script : MonoBehaviour
         Stamina.text = trooper.GetStat("Stamina").ToString();
         Trait1.text = trooper.GetTrait("Trait1");
         Trait2.text = trooper.GetTrait("Trait2");
+        Location.text = trooper.trooperSquad.FindLocation();
     }
 }

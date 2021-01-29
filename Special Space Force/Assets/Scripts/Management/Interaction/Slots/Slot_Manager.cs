@@ -190,24 +190,25 @@ public class Slot_Manager : MonoBehaviour
     //Creates a new squad below the given slot, provided that slot doesn't have 9 squads already
     public void NewSlot(Slot_Script newParent)
     {
-        if (newParent.containedSlots.Count < 9)
+        if (viewedSlot.containedSlots.Count < 9)
         {
             Debug.Log("new Slot " + newParent.slotName);
             GameObject temp = Instantiate(prefabSlot, newParent.transform);
             Slot_Script tempS = temp.GetComponent<Slot_Script>();
             tempS.input.text = "New Slot";
             tempS.slotName = "New Slot";
-            tempS.slotHeight = newParent.slotHeight + 1;
-            tempS.ID = newParent.containedSlots.Count + 1;
-            tempS.containedSlots = new List<Slot_Script>();
-            tempS.containedTroopers = new List<Trooper_Script>();
+            tempS.slotClass = new Slot_Class();
+            tempS.slotClass.slotHeight = newParent.slotClass.slotHeight + 1;
+            tempS.slotClass.positionID = newParent.slotClass.containedSlots.Count + 1;
+            tempS.ID = tempS.slotClass.positionID;
+            tempS.slotClass.containedSlots = new List<Slot_Class>();
+            tempS.slotClass.containedTroopers = new List<Trooper_Class>();
             tempS.squad = false;
             tempS.squadRole = modManager.rankManager.squadRoles[0];
             tempS.MakeSlot(tempS, newParent, this);
-            newParent.containedSlots.Add(tempS);
+            newParent.slotClass.containedSlots.Add(tempS.slotClass);
+            tempS.SetPosition(newParent, 0, viewedSlot);
             OpenSlot(viewedSlot);
-            slots = new List<Slot_Class>();
-            slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
         }
         else
         {
@@ -221,17 +222,15 @@ public class Slot_Manager : MonoBehaviour
         Debug.Log("delete " + slot.slotName);
         foreach (Slot_Script ss in slot.slotParent.containedSlots)
         {
-            if (ss.ID >= slot.ID)
+            if (ss.slotClass.positionID >= slot.ID)
             {
-                ss.ID -= 1;
+                ss.slotClass.positionID -= 1;
             }
         }
-        slot.slotParent.containedSlots.Remove(slot);
+        slot.slotParent.slotClass.containedSlots.Remove(slot.slotClass);
         Slot_Script slotParent = slot.slotParent;
         Destroy(slot.gameObject);
         OpenSlot(viewedSlot);
-        slots = new List<Slot_Class>();
-        slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
     }
 
     //Opens the clicked slot
@@ -306,6 +305,10 @@ public class Slot_Manager : MonoBehaviour
             }
             promoter.SetupRankDropdown();
             slotRoleDropdown.value = modManager.rankManager.squadRoles.IndexOf(viewedSlot.squadRole);
+            if (viewedSlot.containedTroopers.Count > 0)
+            {
+                trooperShowManager.ChangeTrooper(viewedSlot.containedTroopers[0]);
+            }
         }
         else
         {
@@ -346,9 +349,9 @@ public class Slot_Manager : MonoBehaviour
                             else
                             {
                                 tempSS2.containedTroopers = new List<Trooper_Script>();
+                                GameObject tempT = Instantiate(prefabTrooper, tempSS2.transform);
                                 foreach (Trooper_Class tc in tempSS2.slotClass.containedTroopers)
                                 {
-                                    GameObject tempT = Instantiate(prefabTrooper, tempSS2.transform);
                                     Trooper_Script tempTS = tempT.GetComponent<Trooper_Script>();
 
                                     tempTS.LoadTrooper(tc, this, tempSS2);
@@ -550,6 +553,7 @@ public class Slot_Manager : MonoBehaviour
                         }
                     }
                     selectedTroopers.Clear();
+                    break;
                 }
                 if (result.gameObject.transform.parent.CompareTag("Trooper"))
                 {
