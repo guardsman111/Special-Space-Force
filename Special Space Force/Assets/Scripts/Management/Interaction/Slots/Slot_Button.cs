@@ -20,7 +20,7 @@ public class Slot_Button : MonoBehaviour
         GetComponent<Dropdown>().options.Add(basic);
         ids = new List<int>();
         ids.Add(0);
-        AddNames(manager.slotN1.GetComponent<Slot_Script>());
+        AddNames(manager.Slots);
     }
 
     //Sets the squad dropdown with names of all squads the trooper(s) could be moved too
@@ -31,61 +31,64 @@ public class Slot_Button : MonoBehaviour
         GetComponent<Dropdown>().options.Add(basic);
         ids = new List<int>();
         ids.Add(0);
-        AddNames2(manager.slotN1.GetComponent<Slot_Script>());
+        AddNames2(manager.Slots);
     }
 
     //Gathers names for slot dropdown
-    private void AddNames(Slot_Script slot)
+    private void AddNames(List<Slot_Class> slots)
     {
-        //if not a squad, record its name with dashes and give it a unique ID if it doesn't already have one, then check its child slots
-        if (!slot.squad)
+        foreach (Slot_Class slot in slots)
         {
-            string dashes = "";
-            for (int i = 0; i < slot.slotHeight; i++)
+            //if not a squad, record its name with dashes and give it a unique ID if it doesn't already have one, then check its child slots
+            if (!slot.squad)
             {
-                dashes += "-";
-            }
-            OptionData temp = new OptionData(dashes + slot.slotName);
-            GetComponent<Dropdown>().options.Add(temp);
-            while (ids.Contains(slot.uID))
-            {
-                slot.RegenerateUID();
-                Debug.Log("Unique ID not Unique");
-            }
-            ids.Add(slot.uID);
-            foreach (Slot_Script sc in slot.containedSlots)
-            {
-                AddNames(sc);
+                string dashes = "";
+                for (int i = 0; i < slot.slotHeight; i++)
+                {
+                    dashes += "-";
+                }
+                OptionData temp = new OptionData(dashes + slot.slotName);
+                GetComponent<Dropdown>().options.Add(temp);
+                if (!ids.Contains(slot.uID))
+                {
+                    ids.Add(slot.uID);
+                }
+                else
+                {
+                    Debug.Log("Not Unique ID");
+                }
+                AddNames(slot.containedSlots);
             }
         }
     }
 
     //Gathers names for squad dropdown
-    private void AddNames2(Slot_Script slot)
+    private void AddNames2(List<Slot_Class> slots)
     {
-        //if a squad, record its name with dashes and give it a unique ID if it doesn't already have one
-        if (slot.squad)
+        foreach (Slot_Class slot in slots)
         {
-            string dashes = "";
-            for (int i = 0; i < slot.slotHeight; i++)
+            //if a squad, record its name with dashes and give it a unique ID if it doesn't already have one
+            if (slot.squad)
             {
-                dashes += "-";
+                string dashes = "";
+                for (int i = 0; i < slot.slotHeight; i++)
+                {
+                    dashes += "-";
+                }
+                OptionData temp = new OptionData(dashes + slot.slotName);
+                GetComponent<Dropdown>().options.Add(temp);
+                if (!ids.Contains(slot.uID))
+                {
+                    ids.Add(slot.uID);
+                }
+                else
+                {
+                    Debug.Log("Unique ID not Unique");
+                }
             }
-            OptionData temp = new OptionData(dashes + slot.slotName);
-            GetComponent<Dropdown>().options.Add(temp);
-            while (ids.Contains(slot.uID))
+            else
             {
-                slot.RegenerateUID();
-                Debug.Log("Unique ID not Unique");
-            }
-            ids.Add(slot.uID);
-        } 
-        else
-        {
-            //else check its child slots
-            foreach (Slot_Script sc in slot.containedSlots)
-            {
-                AddNames2(sc);
+                AddNames2(slot.containedSlots);
             }
         }
     }

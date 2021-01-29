@@ -45,7 +45,7 @@ public class Squad_Colour_Customisation : MonoBehaviour
             images[17].color = trooper.trooperImages[25].color;
             images[18].color = trooper.slotLocations[0].color;
 
-            screenTrooper.MakeTrooper(trooper.trooperClass, trooper.trooperPosition, trooper.manager);
+            screenTrooper.MakeTrooper(trooper.trooperClass, trooper.trooperPosition, trooper.manager, trooper.trooperSquad);
             screenTrooper.FindSlotIdentifier();
 
 

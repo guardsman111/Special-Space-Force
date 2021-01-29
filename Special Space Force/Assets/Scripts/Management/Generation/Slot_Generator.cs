@@ -85,10 +85,15 @@ public class Slot_Generator : MonoBehaviour
         {
             Slot_Class temp = Serializer.Deserialize<Slot_Class>(fileLocation);
             //For each Slot_Class add it to the permanent slots List
+            Slot_Class tempC = new Slot_Class();
+            tempC.containedSlots = new List<Slot_Class>();
+            tempC.slotName = temp.slotName;
+            tempC.slotHeight = temp.slotHeight;
             foreach (Slot_Class tempS in temp.containedSlots)
             {
-                slots.Add(tempS);
+                tempC.containedSlots.Add(tempS);
             }
+            slots.Add(tempC);
         }
         catch (UnauthorizedAccessException UAEx)
         {
@@ -120,18 +125,21 @@ public class Slot_Generator : MonoBehaviour
     {
         manager.Slots = slots;
         manager.generator = this;
-        manager.slotN1 = slotN1;
+        manager.slotN1 = Instantiate(genericSlot, manager.content.transform);
         manager.viewedSlot = slotN1.GetComponent<Slot_Script>();
+        manager.viewedSlot.MakeSlot(slots[0], 1, manager);
+        manager.slotN1.GetComponent<Slot_Script>().slotClass = slots[0];
 
         int count = 0;
 
         foreach (Slot_Class sc in slots)
         {
-            if(sc.slotHeight == 0)
+            if(sc.slotHeight == -1)
             {
                 count += 1;
                 GameObject temp = Instantiate(genericSlot, slotN1.transform);
                 temp.GetComponent<Slot_Script>().squad = false;
+                temp.GetComponent<Slot_Script>().slotClass = sc;
                 temp.GetComponent<Slot_Script>().ID = count;
                 temp.GetComponent<Slot_Script>().slotParent = slotN1.GetComponent<Slot_Script>();
 
@@ -146,10 +154,11 @@ public class Slot_Generator : MonoBehaviour
                 }
 
                 temp.GetComponent<Slot_Script>().containedSlots = FillSlots(sc, temp.GetComponent<Slot_Script>());
-                temp.GetComponent<Slot_Script>().SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>());
+                temp.GetComponent<Slot_Script>().SetPosition(slotN1.GetComponent<Slot_Script>(), 0, slotN1.GetComponent<Slot_Script>());
                 slotN1.GetComponent<Slot_Script>().containedSlots.Add(temp.GetComponent<Slot_Script>());
             }
         }
+        manager.OpenSlot(manager.viewedSlot);
         manager.gameObject.SetActive(false);
     }
 
@@ -176,6 +185,7 @@ public class Slot_Generator : MonoBehaviour
                 {
                     tempS.MakeSlot(sc, count, manager);
                 }
+                tempS.slotClass = sc;
                 tempS.ID = count;
                 tempS.slotParent = slotScript;
 
@@ -257,7 +267,7 @@ public class Slot_Generator : MonoBehaviour
 
                 GameObject temp = Instantiate(genericTrooper, slotParent.transform);
                 Trooper_Script tempS = temp.GetComponent<Trooper_Script>();
-                tempS.MakeTrooper(tc, count, manager);
+                tempS.MakeTrooper(tc, count, manager, slotParent);
                 tempS.trooperSquad = slotParent;
                 tempS.FindSlotIdentifier();
                 tempTroopers.Add(tempS);
@@ -287,7 +297,7 @@ public class Slot_Generator : MonoBehaviour
                 ////
                 GameObject temp = Instantiate(genericTrooper, slotParent.transform);
                 Trooper_Script tempS = temp.GetComponent<Trooper_Script>();
-                tempS.MakeTrooper(tc, count, manager);
+                tempS.MakeTrooper(tc, count, manager, slotParent);
                 tempS.trooperSquad = slotParent;
                 tempS.FindSlotIdentifier();
                 tempTroopers.Add(tempS);

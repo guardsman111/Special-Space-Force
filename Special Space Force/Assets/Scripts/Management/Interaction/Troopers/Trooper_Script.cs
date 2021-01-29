@@ -79,7 +79,7 @@ public class Trooper_Script : MonoBehaviour
     public Text[] slotLocations;
 
     //Makes trooper from existing trooper_class
-    public void MakeTrooper(Trooper_Class trooper, int positionID, Slot_Manager nManager)
+    public void MakeTrooper(Trooper_Class trooper, int positionID, Slot_Manager nManager, Slot_Script Squad)
     {
         manager = nManager;
         equipmentManager = GameObject.FindGameObjectWithTag("EquipmentManager").GetComponent<Equipment_Manager>();
@@ -229,24 +229,6 @@ public class Trooper_Script : MonoBehaviour
                 trooper.equipment = equipment;
             }
         }
-        else if (trooper.armour != null)
-        {
-            armour = trooper.armour;
-            armourPattern = trooper.armourP;
-            helmet = trooper.helmet;
-            helmetPattern = trooper.helmetP;
-            fatigues = trooper.fatigues;
-            fatiguesPattern = trooper.fatiguesP;
-            primaryWeapon = trooper.weapon1;
-            secondaryWeapon = trooper.weapon2;
-            equipment = trooper.equipment;
-            equipmentManager.LoadEquipment(this, "Armour", armour);
-            equipmentManager.LoadEquipment(this, "Helmet", helmet);
-            equipmentManager.LoadEquipment(this, "Fatigues", fatigues);
-            equipmentManager.LoadEquipment(this, "Weapons", primaryWeapon);
-            equipmentManager.LoadEquipment(this, "Weapons 2", secondaryWeapon);
-            equipmentManager.LoadEquipment(this, "Equipment", equipment);
-        }
         else
         {
             armour = manager.manager.save.generatedProduct.defaultEquipment[1];
@@ -274,6 +256,77 @@ public class Trooper_Script : MonoBehaviour
             equipmentManager.LoadEquipment(this, "Weapons 2", secondaryWeapon);
             equipmentManager.LoadEquipment(this, "Equipment", equipment);
         }
+        SaveTrooper(trooperClass);
+        TrooperColours();
+        manager.ChangeTroopers(1);
+    }
+
+    //Loads a trooper from existing trooper_class
+    public void LoadTrooper(Trooper_Class trooper, Slot_Manager nManager, Slot_Script Squad)
+    {
+        manager = nManager;
+        equipmentManager = GameObject.FindGameObjectWithTag("EquipmentManager").GetComponent<Equipment_Manager>();
+        trooperClass = trooper;
+        trooperName = trooper.trooperName;
+        trooperRank = trooper.trooperRank;
+        trooperPosition = trooper.trooperPosition;
+        trooperFace = trooper.trooperFace;
+        trooperHair = trooper.trooperHair;
+        hairColour = trooper.hairColour;
+        trooperSquad = Squad;
+
+        //Load skills and stats for troopers
+        movement = trooper.movement;
+        constitution = trooper.constitution;
+        bravery = trooper.bravery;
+
+        stamina = trooper.stamina;
+        speed = trooper.speed;
+        agility = trooper.agility;
+        strength = trooper.strength;
+        size = trooper.size;
+        morale = trooper.morale;
+        breakValue = trooper.breakValue;
+        melee = trooper.melee;
+        ranged = trooper.ranged;
+        stealth = trooper.stealth;
+
+        trait1 = trooper.trait1;
+        trait2 = trooper.trait2;
+
+        trooperImages[1].sprite = manager.trooperSkinPack.containedSprites[trooperFace];
+
+        if (trooper.gender == 0)
+        {
+            trooperImages[3].sprite = manager.femaleHairPack.containedSprites[trooperHair];
+            trooperImages[2].sprite = manager.femaleHairOutlinePack.containedSprites[trooperHair];
+        }
+        if (trooper.gender == 1)
+        {
+            trooperImages[3].sprite = manager.maleHairPack.containedSprites[trooperHair];
+            trooperImages[2].sprite = manager.maleHairOutlinePack.containedSprites[trooperHair];
+        }
+
+        trooperImages[3].color = manager.hairColours[hairColour];
+
+        input.text = trooperName;
+
+        armour = trooper.armour;
+        armourPattern = trooper.armourP;
+        helmet = trooper.helmet;
+        helmetPattern = trooper.helmetP;
+        fatigues = trooper.fatigues;
+        fatiguesPattern = trooper.fatiguesP;
+        primaryWeapon = trooper.weapon1;
+        secondaryWeapon = trooper.weapon2;
+        equipment = trooper.equipment;
+        equipmentManager.LoadEquipment(this, "Armour", armour);
+        equipmentManager.LoadEquipment(this, "Helmet", helmet);
+        equipmentManager.LoadEquipment(this, "Fatigues", fatigues);
+        equipmentManager.LoadEquipment(this, "Weapons", primaryWeapon);
+        equipmentManager.LoadEquipment(this, "Weapons 2", secondaryWeapon);
+        equipmentManager.LoadEquipment(this, "Equipment", equipment);
+
         TrooperColours();
         manager.ChangeTroopers(1);
     }
@@ -306,7 +359,7 @@ public class Trooper_Script : MonoBehaviour
     public void SetPosition(Slot_Script parent, Slot_Script viewedSlot)
     {
         RectTransform rTransform = GetComponent<RectTransform>();
-        if (trooperSquad == viewedSlot) 
+        if (parent == viewedSlot) 
         {
             switch (trooperPosition)
             {
@@ -398,6 +451,7 @@ public class Trooper_Script : MonoBehaviour
             input.textComponent.enableWordWrapping = true;
 
             gameObject.transform.localScale = new Vector3(1, 1);
+            gameObject.SetActive(true);
             input.gameObject.SetActive(true);
             image.SetActive(true);
         }
@@ -506,7 +560,7 @@ public class Trooper_Script : MonoBehaviour
         equipmentManager.ChangeEquipment(this, dropdown);
         if (trooperClass != null)
         {
-            trooperClass = SaveTrooper();
+            trooperClass = SaveTrooper(trooperClass);
         }
     }
 
@@ -516,7 +570,7 @@ public class Trooper_Script : MonoBehaviour
         equipmentManager.ChangePattern(this, dropdown);
         if (trooperClass != null)
         {
-            trooperClass = SaveTrooper();
+            trooperClass = SaveTrooper(trooperClass);
         }
     }
 
@@ -547,7 +601,7 @@ public class Trooper_Script : MonoBehaviour
         {
             t.color = equipmentManager.playerDefaultColours[18];
         }
-        trooperClass = SaveTrooper();
+        trooperClass = SaveTrooper(trooperClass);
     }
 
     //Changes the troopers name according to the input
@@ -563,9 +617,9 @@ public class Trooper_Script : MonoBehaviour
     }
 
     //Saves the trooper to a trooper_class
-    public Trooper_Class SaveTrooper()
+    public Trooper_Class SaveTrooper(Trooper_Class trooper)
     {
-        Trooper_Class newClass = new Trooper_Class();
+        Trooper_Class newClass = trooper;
 
         newClass.trooperName = trooperName;
         newClass.trooperRank = trooperRank;
@@ -977,7 +1031,7 @@ public class Trooper_Script : MonoBehaviour
                 }
             }
         }
-        trooperClass = SaveTrooper();
+        trooperClass = SaveTrooper(trooperClass);
     }
 
     public void ToggleSlotLocation(int modifier)

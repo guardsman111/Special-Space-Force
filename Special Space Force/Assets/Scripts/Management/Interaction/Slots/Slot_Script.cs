@@ -24,6 +24,9 @@ public class Slot_Script : MonoBehaviour
     public Slot_Manager manager;
     public bool squad;
     public Squad_Role_Class squadRole;
+    private int craftID;
+    private int systemID;
+    private int planetN;
 
     public GameObject[] positions4;
     public GameObject[] positions6;
@@ -65,15 +68,21 @@ public class Slot_Script : MonoBehaviour
         squad = slot.squad;
         squadRole = manager.modManager.rankManager.squadRoles[0];
         ID = positionID;
+        slotClass.positionID = ID;
         slotName = manager.manager.localisationManager.CreateName("SlotNames", this);
         slot.slotName = slotName;
+        slotClass.slotName = slotName;
 
         input.text = slotName;
 
-        if (uID == 0)
+        while (manager.slotIDs.Contains(uID))
         {
             uID = Random.Range(1, 10000000);
         }
+
+        manager.slotIDs.Add(uID);
+        slotClass.uID = uID;
+
     }
 
     //Creates a slot from a slot script and inserts a new parent
@@ -92,13 +101,16 @@ public class Slot_Script : MonoBehaviour
         squadRole = slot.squadRole;
         slotName = manager.manager.localisationManager.CreateName("SlotNames", this);
         slot.slotName = slotName;
-
+        slotClass.slotName = slotName;
         input.text = slotName;
 
-        if (uID == 0)
+        while (manager.slotIDs.Contains(uID))
         {
             uID = Random.Range(1, 10000000);
         }
+
+        manager.slotIDs.Add(uID);
+        slotClass.uID = uID;
     }
 
     //Creates a slot from a slot class
@@ -110,15 +122,13 @@ public class Slot_Script : MonoBehaviour
         containedSlots = new List<Slot_Script>();
         squad = slot.squad;
         squadRole = manager.modManager.rankManager.squadRoles[0];
-        ID = positionID;
+        ID = slotClass.positionID;
         slotName = slot.slotName;
 
         input.text = slotName;
+        uID = slotClass.uID;
 
-        if (uID == 0)
-        {
-            uID = Random.Range(1, 10000000);
-        }
+        slotClass.uID = uID;
     }
 
     //Creates a new unique ID
@@ -140,7 +150,7 @@ public class Slot_Script : MonoBehaviour
     }
 
     //Sets the position of the slot according to its slot height relative to the currently viewed slot
-    public void SetPosition(Slot_Script parent, int nSlots, Slot_Script viewedSlot)
+    public void SetPosition(Slot_Script parent, int height, Slot_Script viewedSlot)
     {
         RectTransform rTransform = GetComponent<RectTransform>();
 
@@ -154,12 +164,78 @@ public class Slot_Script : MonoBehaviour
         input.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, 400f);
 
         //Set Scale and position depending on its size compared too parent (anything else should not appear)
-        switch (viewedSlot.slotHeight - slotHeight)
+        switch (height)
         {
-            //If the height difference is -2 (meaning it is a middle size slot)
-            case -2:
+            //height 0 is the slot layer just below the selected slot
+            case 0:
+                switch (ID)
+                {
+
+                    case 1:
+                        rTransform.localPosition = new Vector3(0, 0);
+                        break;
+
+                    case 2:
+                        rTransform.localPosition = new Vector3(950, 0);
+                        break;
+
+                    case 3:
+                        rTransform.localPosition = new Vector3(1900, 0);
+                        break;
+
+                    case 4:
+                        rTransform.localPosition = new Vector3(2850, 0);
+                        break;
+
+                    case 5:
+                        rTransform.localPosition = new Vector3(3800, 0);
+                        break;
+
+                    case 6:
+                        rTransform.localPosition = new Vector3(4750, 0);
+                        break;
+
+                    case 7:
+                        rTransform.localPosition = new Vector3(5700, 0);
+                        break;
+
+                    case 8:
+                        rTransform.localPosition = new Vector3(6650, 0);
+                        break;
+
+                    case 9:
+                        rTransform.localPosition = new Vector3(7600, 0);
+                        break;
+
+                    case 10:
+                        rTransform.localPosition = new Vector3(8550, 0);
+                        break;
+
+                    case 11:
+                        rTransform.localPosition = new Vector3(9500, 0);
+                        break;
+
+                    case 12:
+                        rTransform.localPosition = new Vector3(10450, 0);
+                        break;
+
+                }
+                nTroops.enabled = false;
+                gameObject.transform.localScale = new Vector3(1, 1);
+                input.transform.localScale = new Vector3(1, 1);
+                input.textComponent.transform.localScale = new Vector3(1, 1);
+                input.textComponent.fontSize = 36;
                 input.textComponent.enableWordWrapping = true;
-                if (nSlots < 5)
+                input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 400);
+                input.GetComponent<RectTransform>().sizeDelta = new Vector2(500, 60);
+
+                gameObject.transform.localScale = new Vector3(1, 1);
+                gameObject.GetComponent<Image>().color = new Color32(191, 191, 191, 100);
+                break;
+            //If the height is 1 (meaning it is a middle size slot)
+            case 1:
+                input.textComponent.enableWordWrapping = true;
+                if (parent.containedSlots.Count < 5)
                 {
                     switch (ID)
                     {
@@ -188,7 +264,7 @@ public class Slot_Script : MonoBehaviour
                     input.textComponent.fontSize = 36;
                     input.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 60);
                 }
-                if (nSlots >= 5 && nSlots < 7)
+                if (parent.containedSlots.Count >= 5 && parent.containedSlots.Count < 7)
                 {
                     switch (ID)
                     {
@@ -224,7 +300,7 @@ public class Slot_Script : MonoBehaviour
                     input.textComponent.fontSize = 36;
                     input.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 60);
                 }
-                if (nSlots >= 7)
+                if (parent.containedSlots.Count >= 7)
                 {
                     switch (ID)
                     {
@@ -264,6 +340,11 @@ public class Slot_Script : MonoBehaviour
                             rTransform.position = parent.positions9[0].transform.position + new Vector3(600, -530);
                             break;
 
+                        default:
+                            input.gameObject.SetActive(false);
+                            gameObject.GetComponent<Image>().enabled = false;
+                            background.gameObject.SetActive(false);
+                            break;
                     }
 
                     transform.localScale += new Vector3(-((transform.localScale.x / 100) * 71), -((transform.localScale.y / 100) * 71));
@@ -286,9 +367,9 @@ public class Slot_Script : MonoBehaviour
                 gameObject.GetComponent<Image>().color = new Color32(169, 169, 169,100);
                 break;
             //If the height difference is -3 (meaning the slot is the smallest visible slot)
-            case -3:
+            case 2:
                 input.textComponent.enableWordWrapping = true;
-                if (nSlots < 5)
+                if (parent.containedSlots.Count < 5)
                 {
                     switch (ID)
                     {
@@ -318,7 +399,7 @@ public class Slot_Script : MonoBehaviour
                     input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
                     input.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 300);
                 }
-                if (nSlots >= 5 && nSlots < 7)
+                if (parent.containedSlots.Count  >= 5 && parent.containedSlots.Count < 7)
                 {
                     switch (ID)
                     {
@@ -355,7 +436,7 @@ public class Slot_Script : MonoBehaviour
                     input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
                     input.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 300);
                 }
-                if (nSlots >= 7)
+                if (parent.containedSlots.Count >= 7)
                 {
                     switch (ID)
                     {
@@ -409,106 +490,19 @@ public class Slot_Script : MonoBehaviour
                     nTroops.enabled = true;
                     nTroops.fontSize = 200;
                     nTroops.text = containedTroopers.Count.ToString();
-                } else
+                } 
+                else
                 {
                     nTroops.enabled = false;
                 }
                 input.enabled = true;
                 gameObject.GetComponent<Image>().color = new Color32(180, 180, 180, 100);
                 break;
-            //By default, hide the slot and return positions to neutral
-            default:
-                if (viewedSlot.slotHeight - slotHeight > 0)
-                {
-                    input.gameObject.SetActive(false);
-                    gameObject.GetComponent<Image>().enabled = false;
-                    background.gameObject.SetActive(false);
-                    rTransform.localPosition = new Vector3(0, 0);
-                }
-                else
-                {
-                    input.gameObject.SetActive(false);
-                    gameObject.GetComponent<Image>().enabled = false;
-                    background.gameObject.SetActive(false);
-                    rTransform.localPosition = new Vector3(0, 0);
-                }
-                break;
         }
 
-        //If height is the same, set its children using the second method
-        if (slotHeight == viewedSlot.slotHeight)
-        {
-            foreach (Slot_Script ss in containedSlots)
-            {
-                ss.SetPosition(manager.slotN1.GetComponent<Slot_Script>(), viewedSlot);
-                gameObject.SetActive(true);
-            } 
-            rTransform.localPosition = new Vector3(0, 0);
-            gameObject.transform.localScale = new Vector3(1, 1);
-            nTroops.gameObject.SetActive(false);
-            input.gameObject.SetActive(false);
-            gameObject.GetComponent<Image>().enabled = false;
-            background.gameObject.SetActive(false);
-        }
-        //If viewing the top slot, sets the positions of 0 height slots using the second method (They aren't caught by above code individually
-        else if(slotHeight == 0 && viewedSlot.slotHeight == -1)
-        {
-            SetPosition(manager.slotN1.GetComponent<Slot_Script>(), viewedSlot);
-        }
-        else //else set its children with this method
-        {
-            foreach (Slot_Script ss in containedSlots)
-            {
-                ss.SetPosition(ss.slotParent, ss.slotParent.containedSlots.Count, viewedSlot);
-            }
-        }
 
         //If the slot should be visible (is child of the viewed slot or one of its children, or is a child of a child of the viewed slot(Mad eh?))
         //then it is set to visible here
-
-        if (slotHeight > 1)
-        {
-            if (slotParent == viewedSlot || slotParent.slotParent == viewedSlot || slotParent.slotParent.slotParent == viewedSlot)
-            {
-                input.gameObject.SetActive(true);
-                gameObject.GetComponent<Image>().enabled = true;
-                background.gameObject.SetActive(true);
-            }
-        } 
-        else if (slotHeight == 1)
-        {
-            if (slotParent == viewedSlot || slotParent.slotParent == viewedSlot)
-            {
-                input.gameObject.SetActive(true);
-                gameObject.GetComponent<Image>().enabled = true;
-                background.gameObject.SetActive(true);
-            }
-        }
-        else if (slotHeight == 0)
-        {
-            if (slotParent == viewedSlot)
-            {
-                input.gameObject.SetActive(true);
-                gameObject.GetComponent<Image>().enabled = true;
-                background.gameObject.SetActive(true);
-            }
-        }
-        else if (slotHeight == -1)
-        {
-            if (this == viewedSlot)
-            {
-                input.gameObject.SetActive(true);
-                gameObject.GetComponent<Image>().enabled = true;
-                background.gameObject.SetActive(true);
-            }
-        }
-        else
-        {
-            nTroops.enabled = false;
-            input.gameObject.SetActive(false);
-            gameObject.GetComponent<Image>().enabled = false;
-            background.gameObject.SetActive(false);
-        }
 
         if (squad)
         {
@@ -531,51 +525,79 @@ public class Slot_Script : MonoBehaviour
             addImage.enabled = false;
             gameObject.GetComponent<Image>().color = new Color32(120, 233, 136, 255);
         }
+
+        if (uID == 0)
+        {
+            input.gameObject.SetActive(false);
+            gameObject.GetComponent<Image>().enabled = false;
+            background.gameObject.SetActive(false);
+        }
     }
 
     //Sets the position and scale of the slot according to its slot height relative to the currently viewed slot
     public void SetPosition(Slot_Script parent, Slot_Script viewedSlot)
     {
         RectTransform rTransform = GetComponent<RectTransform>();
+
         switch (ID)
         {
 
             case 1:
-                rTransform.localPosition = new Vector3(-420,0);
+                rTransform.localPosition = new Vector3(-4000, 24);
                 break;
 
             case 2:
-                rTransform.localPosition = new Vector3(530, 0);
+                rTransform.localPosition = new Vector3(-3050, 24);
                 break;
 
             case 3:
-                rTransform.localPosition = new Vector3(1480, 0);
+                rTransform.localPosition = new Vector3(-2100, 24);
                 break;
 
             case 4:
-                rTransform.localPosition = new Vector3(2430, 0);
+                rTransform.localPosition = new Vector3(-1150, 24);
                 break;
 
             case 5:
-                rTransform.localPosition = new Vector3(3380, 0);
+                rTransform.localPosition = new Vector3(-200, 24);
                 break;
 
             case 6:
-                rTransform.localPosition = new Vector3(4330, 0);
+                rTransform.localPosition = new Vector3(750, 24);
                 break;
 
             case 7:
-                rTransform.localPosition = new Vector3(5280, 0);
+                rTransform.localPosition = new Vector3(1700, 24);
                 break;
 
             case 8:
-                rTransform.localPosition = new Vector3(6230, 0);
+                rTransform.localPosition = new Vector3(2650, 24);
                 break;
 
             case 9:
-                rTransform.localPosition = new Vector3(7180, 0);
+                rTransform.localPosition = new Vector3(3600, 24);
                 break;
 
+            case 10:
+                rTransform.localPosition = new Vector3(4550, 24);
+                break;
+
+            case 11:
+                rTransform.localPosition = new Vector3(5500, 0);
+                break;
+
+            case 12:
+                rTransform.localPosition = new Vector3(6450, 0);
+                break;
+
+        }
+
+
+        if (uID == 0)
+        {
+            input.gameObject.SetActive(false);
+            gameObject.GetComponent<Image>().enabled = false;
+            background.gameObject.SetActive(false);
         }
         nTroops.enabled = false;
         gameObject.transform.localScale = new Vector3(1, 1);
@@ -619,7 +641,114 @@ public class Slot_Script : MonoBehaviour
             foreach (Slot_Script ss in containedSlots)
             {
                 ss.gameObject.transform.localScale = new Vector3(1, 1);
-                ss.SetPosition(this, containedSlots.Count, viewedSlot);
+                ss.SetPosition(this, 0 + 1, viewedSlot);
+            }
+        }
+    }
+    //Sets the position and scale of the slot according to its slot height relative to the currently viewed slot
+    public void SetPosition(Slot_Script parent, Slot_Script viewedSlot, int i)
+    {
+        RectTransform rTransform = GetComponent<RectTransform>();
+
+        if (i == 0)
+        {
+            rTransform.localPosition = new Vector3(-4000, 24);
+            input.gameObject.SetActive(false);
+            gameObject.GetComponent<Image>().enabled = false;
+            background.gameObject.SetActive(false);
+        }
+        else
+        {
+
+            switch (ID)
+            {
+
+                case 1:
+                    rTransform.localPosition = new Vector3(-4000, 24);
+                    break;
+
+                case 2:
+                    rTransform.localPosition = new Vector3(-3050, 24);
+                    break;
+
+                case 3:
+                    rTransform.localPosition = new Vector3(-2100, 24);
+                    break;
+
+                case 4:
+                    rTransform.localPosition = new Vector3(-1150, 24);
+                    break;
+
+                case 5:
+                    rTransform.localPosition = new Vector3(-200, 24);
+                    break;
+
+                case 6:
+                    rTransform.localPosition = new Vector3(750, 24);
+                    break;
+
+                case 7:
+                    rTransform.localPosition = new Vector3(1700, 24);
+                    break;
+
+                case 8:
+                    rTransform.localPosition = new Vector3(2650, 24);
+                    break;
+
+                case 9:
+                    rTransform.localPosition = new Vector3(3600, 24);
+                    break;
+
+                case 10:
+                    rTransform.localPosition = new Vector3(4550, 24);
+                    break;
+
+                case 11:
+                    rTransform.localPosition = new Vector3(5500, 0);
+                    break;
+
+                case 12:
+                    rTransform.localPosition = new Vector3(6450, 0);
+                    break;
+
+            }
+        }
+
+        if(uID == 0)
+        {
+            input.gameObject.SetActive(false);
+            gameObject.GetComponent<Image>().enabled = false;
+            background.gameObject.SetActive(false);
+        }
+        nTroops.enabled = false;
+        gameObject.transform.localScale = new Vector3(1, 1);
+        input.transform.localScale = new Vector3(1, 1);
+        input.textComponent.transform.localScale = new Vector3(1, 1);
+        input.textComponent.fontSize = 36;
+        input.textComponent.enableWordWrapping = true;
+        input.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 400);
+        input.GetComponent<RectTransform>().sizeDelta = new Vector2(500, 60);
+
+        gameObject.transform.localScale = new Vector3(1, 1);
+        gameObject.GetComponent<Image>().color = new Color32(191, 191, 191, 100);
+
+
+        if (squad)
+        {
+            foreach (Trooper_Script ts in containedTroopers)
+            {
+                ts.SetPosition(this, viewedSlot);
+                gameObject.SetActive(true);
+            }
+            gameObject.GetComponent<Image>().color = new Color32(124, 171, 128, 255);
+        }
+        else
+        {
+            //Sets children's positions with the first method
+            foreach (Slot_Script ss in containedSlots)
+            {
+                ss.gameObject.transform.localScale = new Vector3(1, 1);
+                ss.SetPosition(this, 0 + 1, viewedSlot);
             }
         }
     }
@@ -647,19 +776,16 @@ public class Slot_Script : MonoBehaviour
         slotClass.slotName = slotName;
         slotClass.slotHeight = slotHeight;
         slotClass.positionID = ID;
+        slotClass.uID = uID;
         slotClass.squad = squad;
+        slotClass.useSquadColours = cColours;
+        craftID = slotClass.craftID;
+        systemID = slotClass.systemID;
+        planetN = slotClass.planetN;
+        slotClass.craftID = craftID;
+        slotClass.systemID = systemID;
+        slotClass.planetN = planetN;
 
-        slotClass.containedSlots = new List<Slot_Class>();
-        slotClass.containedTroopers = new List<Trooper_Class>();
-
-        foreach (Slot_Script ss in containedSlots)
-        {
-            slotClass.containedSlots.Add(ss.SaveClass());
-        }
-        foreach (Trooper_Script ts in containedTroopers)
-        {
-            slotClass.containedTroopers.Add(ts.SaveTrooper());
-        }
 
         return slotClass;
     }
@@ -683,6 +809,7 @@ public class Slot_Script : MonoBehaviour
     {
         slotName = nName.text;
         input.text = nName.text;
+        slotClass.slotName = nName.text;
     }
 
     //Sets the squad name according to the input
@@ -690,6 +817,7 @@ public class Slot_Script : MonoBehaviour
     {
         slotName = nName;
         input.text = nName;
+        slotClass.slotName = nName;
     }
 
     //Sets the manager UI pressed value, so that the user can interact easier with the name
@@ -712,6 +840,7 @@ public class Slot_Script : MonoBehaviour
         {
             ss.ChangeHeight(slotHeight);
         }
+        slotClass.slotHeight = Height + 1;
     }
 
     public int GetLocationIDCraft()

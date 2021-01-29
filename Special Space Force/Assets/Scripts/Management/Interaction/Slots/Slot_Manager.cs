@@ -15,10 +15,14 @@ public class Slot_Manager : MonoBehaviour
     public GraphicRaycaster raycaster;
 
     public GameObject prefabSlot;
+    public GameObject prefabTrooper;
     public Slot_Script viewedSlot;
+    public Slot_Class viewedSlotClass;
+    public GameObject content;
     public InputField currentName;
 
     private List<Slot_Class> slots;
+    public List<int> slotIDs;
 
     public GameObject slotN1;
 
@@ -87,6 +91,7 @@ public class Slot_Manager : MonoBehaviour
         femaleHairPack.containedSprites = new List<Sprite>();
         maleHairOutlinePack.containedSprites = new List<Sprite>();
         femaleHairOutlinePack.containedSprites = new List<Sprite>();
+        slotIDs = new List<int>();
 
         foreach (Sprite s in trooperSkinSprites)
         {
@@ -136,17 +141,17 @@ public class Slot_Manager : MonoBehaviour
             Slot_Script tempS = temp.GetComponent<Slot_Script>();
             tempS.input.text = "New Slot";
             tempS.slotName = "New Slot";
-            tempS.slotHeight = viewedSlot.slotHeight + 1;
-            tempS.ID = viewedSlot.containedSlots.Count + 1;
-            tempS.containedSlots = new List<Slot_Script>();
-            tempS.containedTroopers = new List<Trooper_Script>();
+            tempS.slotClass = new Slot_Class();
+            tempS.slotClass.slotHeight = viewedSlot.slotClass.slotHeight + 1;
+            tempS.slotClass.positionID = viewedSlot.slotClass.containedSlots.Count + 1;
+            tempS.ID = tempS.slotClass.positionID;
+            tempS.slotClass.containedSlots = new List<Slot_Class>();
+            tempS.slotClass.containedTroopers = new List<Trooper_Class>();
             tempS.squad = false;
             tempS.squadRole = modManager.rankManager.squadRoles[0];
             tempS.MakeSlot(tempS, viewedSlot, this);
-            tempS.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
-            viewedSlot.containedSlots.Add(tempS);
-            slots = new List<Slot_Class>();
-            slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+            viewedSlot.slotClass.containedSlots.Add(tempS.slotClass);
+            tempS.SetPosition(viewedSlot, 0, viewedSlot);
         }
         else
         {
@@ -161,19 +166,20 @@ public class Slot_Manager : MonoBehaviour
         {
             GameObject temp = Instantiate(prefabSlot, viewedSlot.transform);
             Slot_Script tempS = temp.GetComponent<Slot_Script>();
-            tempS.input.text = "New Squad";
-            tempS.slotName = "New Squad";
-            tempS.slotHeight = viewedSlot.slotHeight + 1;
-            tempS.ID = viewedSlot.containedSlots.Count + 1;
+            tempS.input.text = "New Slot";
+            tempS.slotName = "New Slot";
+            tempS.slotClass = new Slot_Class();
+            tempS.slotClass.slotHeight = viewedSlot.slotClass.slotHeight + 1;
+            tempS.slotClass.positionID = viewedSlot.slotClass.containedSlots.Count + 1;
+            tempS.ID = tempS.slotClass.positionID;
+            tempS.slotClass.containedSlots = new List<Slot_Class>();
+            tempS.slotClass.containedTroopers = new List<Trooper_Class>();
+            tempS.slotClass.squad = true;
             tempS.squad = true;
             tempS.squadRole = modManager.rankManager.squadRoles[0];
-            tempS.containedSlots = new List<Slot_Script>();
-            tempS.containedTroopers = new List<Trooper_Script>();
             tempS.MakeSlot(tempS, viewedSlot, this);
-            tempS.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot);
-            viewedSlot.containedSlots.Add(tempS);
-            slots = new List<Slot_Class>();
-            slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
+            viewedSlot.slotClass.containedSlots.Add(tempS.slotClass);
+            tempS.SetPosition(viewedSlot, 0, viewedSlot);
         }
         else
         {
@@ -231,11 +237,46 @@ public class Slot_Manager : MonoBehaviour
     //Opens the clicked slot
     public void OpenSlot(Slot_Script newViewed)
     {
-        viewedSlot = newViewed;
+        viewedSlotClass = newViewed.slotClass;
+        while(viewedSlot.containedSlots.Count > 0)
+        {
+            Destroy(viewedSlot.containedSlots[0].gameObject);
+            viewedSlot.containedSlots.RemoveAt(0);
+        }
+
+        if(viewedSlot.gameObject != slotN1)
+        {
+            Destroy(viewedSlot.gameObject);
+        }
+
+        GameObject tempS = Instantiate(prefabSlot, slotN1.transform);
+        viewedSlot = tempS.GetComponent<Slot_Script>();
+
+        if (viewedSlotClass != null)
+        {
+            viewedSlot.LoadSlot(viewedSlotClass, viewedSlotClass.positionID, this);
+        } 
+        else
+        {
+            viewedSlot = newViewed;
+        }
         currentName.text = newViewed.slotName;
+        viewedSlot.SetPosition(viewedSlot, viewedSlot, 0);
+        slotN1.GetComponent<Slot_Script>().SetPosition(viewedSlot, viewedSlot);
 
         if (viewedSlot.squad == true)
         {
+            viewedSlot.containedTroopers = new List<Trooper_Script>();
+            foreach (Trooper_Class tc in viewedSlot.slotClass.containedTroopers)
+            {
+                GameObject tempT = Instantiate(prefabTrooper, viewedSlot.transform);
+                Trooper_Script tempTS = tempT.GetComponent<Trooper_Script>();
+
+                tempTS.LoadTrooper(tc, this, viewedSlot);
+                viewedSlot.containedTroopers.Add(tempTS);
+                tempTS.SetPosition(viewedSlot, viewedSlot);
+            }
+
             if (viewedSlot.containedTroopers.Count != 0)
             {
                 slotSlider.interactable = false;
@@ -244,12 +285,10 @@ public class Slot_Manager : MonoBehaviour
             {
                 slotSlider.interactable = true;
             }
-            foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
-            {
-                ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
-            }
+
             slotSlider.value = 1;
             squadOptions.SetActive(true);
+            slotOptions.SetActive(false);
             Toggle[] cColours = squadOptions.GetComponentsInChildren<Toggle>();
             foreach(Toggle t in cColours)
             {
@@ -265,12 +304,87 @@ public class Slot_Manager : MonoBehaviour
                     }
                 }
             }
-            slotOptions.SetActive(false);
             promoter.SetupRankDropdown();
             slotRoleDropdown.value = modManager.rankManager.squadRoles.IndexOf(viewedSlot.squadRole);
         }
         else
         {
+            viewedSlot.containedSlots = new List<Slot_Script>();
+
+            if (viewedSlot.slotClass != null)
+            {
+                foreach (Slot_Class sc in viewedSlot.slotClass.containedSlots)
+                {
+                    GameObject temp = Instantiate(prefabSlot, viewedSlot.transform);
+                    Slot_Script tempSS = temp.GetComponent<Slot_Script>();
+
+                    tempSS.LoadSlot(sc, sc.positionID, this);
+                    viewedSlot.containedSlots.Add(tempSS);
+                    tempSS.slotParent = viewedSlot;
+                    if (tempSS.squad == false)
+                    {
+                        foreach (Slot_Class sc2 in tempSS.slotClass.containedSlots)
+                        {
+                            GameObject temp2 = Instantiate(prefabSlot, tempSS.transform);
+                            Slot_Script tempSS2 = temp2.GetComponent<Slot_Script>();
+
+                            tempSS2.LoadSlot(sc2, sc2.positionID, this);
+                            tempSS.containedSlots.Add(tempSS2);
+                            tempSS2.slotParent = tempSS;
+                            if (tempSS2.squad == false)
+                            {
+                                foreach (Slot_Class sc3 in tempSS2.slotClass.containedSlots)
+                                {
+                                    GameObject temp3 = Instantiate(prefabSlot, tempSS2.transform);
+                                    Slot_Script tempSS3 = temp3.GetComponent<Slot_Script>();
+
+                                    tempSS3.LoadSlot(sc3, sc3.positionID, this);
+                                    tempSS2.containedSlots.Add(tempSS3);
+                                    tempSS3.slotParent = tempSS2;
+                                }
+                            }
+                            else
+                            {
+                                tempSS2.containedTroopers = new List<Trooper_Script>();
+                                foreach (Trooper_Class tc in tempSS2.slotClass.containedTroopers)
+                                {
+                                    GameObject tempT = Instantiate(prefabTrooper, tempSS2.transform);
+                                    Trooper_Script tempTS = tempT.GetComponent<Trooper_Script>();
+
+                                    tempTS.LoadTrooper(tc, this, tempSS2);
+                                    tempSS2.containedTroopers.Add(tempTS);
+                                    tempTS.SetPosition(tempSS2, viewedSlot);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        tempSS.containedTroopers = new List<Trooper_Script>();
+                        foreach (Trooper_Class tc in tempSS.slotClass.containedTroopers)
+                        {
+                            GameObject tempT = Instantiate(prefabTrooper, tempSS.transform);
+                            Trooper_Script tempTS = tempT.GetComponent<Trooper_Script>();
+
+                            tempTS.LoadTrooper(tc, this, tempSS);
+                            tempSS.containedTroopers.Add(tempTS);
+                            tempTS.SetPosition(tempSS, viewedSlot);
+                        }
+                    }
+                }
+            } 
+            else
+            {
+                foreach (Slot_Class sc in manager.save.topSlots)
+                {
+                    GameObject temp = Instantiate(prefabSlot, content.transform);
+                    Slot_Script tempSS = temp.GetComponent<Slot_Script>();
+
+                    tempSS.LoadSlot(sc, sc.positionID, this);
+                    viewedSlot.containedSlots.Add(tempSS);
+                }
+            }
+
             if (viewedSlot.containedSlots.Count != 0)
             {
                 slotSlider.interactable = false;
@@ -279,9 +393,18 @@ public class Slot_Manager : MonoBehaviour
             {
                 slotSlider.interactable = true;
             }
-            foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
+
+            foreach (Slot_Script ss in viewedSlot.containedSlots)
             {
-                ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
+                ss.SetPosition(viewedSlot, 0, viewedSlot);
+                foreach (Slot_Script ss2 in ss.containedSlots)
+                {
+                    ss2.SetPosition(ss, 1, viewedSlot);
+                    foreach (Slot_Script ss3 in ss2.containedSlots)
+                    {
+                        ss3.SetPosition(ss2, 2, viewedSlot);
+                    }
+                }
             }
             slotSlider.value = 0;
             squadOptions.SetActive(false);
@@ -293,31 +416,37 @@ public class Slot_Manager : MonoBehaviour
     //Returns to the parent of the viewed slot
     public void UpSlot()
     {
-        if (viewedSlot.slotHeight != -1)
+        GetSlotAbove(slots[0], viewedSlot.slotClass);
+    }
+
+    //
+    private void GetSlotAbove(Slot_Class checkingSlot, Slot_Class openSlot)
+    {
+        Slot_Class slot = new Slot_Class();
+
+        for (int i = 0; i < checkingSlot.containedSlots.Count; i++)
         {
-            viewedSlot = viewedSlot.slotParent;
-            currentName.text = viewedSlot.slotName;
-            foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
+            if (checkingSlot.containedSlots[i].uID == openSlot.uID)
             {
-                ss.SetPosition(slotN1.GetComponent<Slot_Script>(), viewedSlot.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
+                GameObject tempS = Instantiate(prefabSlot, slotN1.transform);
+                Slot_Script ss = tempS.GetComponent<Slot_Script>();
+                ss.LoadSlot(checkingSlot, checkingSlot.positionID, this);
+                OpenSlot(ss);
+                Destroy(tempS);
             }
-            slotSlider.value = 0;
-            slotSlider.interactable = false;
-            squadOptions.SetActive(false);
-            slotOptions.SetActive(true);
-            DeselectTroopers();
+            else
+            {
+                GetSlotAbove(checkingSlot.containedSlots[i], openSlot);
+            }
         }
+
     }
 
     //Returns to the top slot
     public void TopSlot()
     {
-        viewedSlot = slotN1.GetComponent<Slot_Script>();
-        currentName.text = viewedSlot.slotName;
-        foreach (Slot_Script ss in slotN1.GetComponent<Slot_Script>().containedSlots)
-        {
-            ss.SetPosition(slotN1.GetComponent<Slot_Script>(), slotN1.GetComponent<Slot_Script>().containedSlots.Count, viewedSlot);
-        }
+        slotN1.GetComponent<Slot_Script>().SetName(slots[0].slotName);
+        OpenSlot(slotN1.GetComponent<Slot_Script>());
         slotFieldScroll.value = 0;
         slotSlider.value = 0;
         slotSlider.interactable = false;
@@ -415,7 +544,10 @@ public class Slot_Manager : MonoBehaviour
                     }
                     foreach (Trooper_Script ts in selectedTroopers)
                     {
-                        ts.imageManager.TurnOff("selected");
+                        if (ts.imageManager != null)
+                        {
+                            ts.imageManager.TurnOff("selected");
+                        }
                     }
                     selectedTroopers.Clear();
                 }
@@ -425,7 +557,10 @@ public class Slot_Manager : MonoBehaviour
                     {
                         foreach (Trooper_Script ts in selectedTroopers)
                         {
-                            ts.imageManager.TurnOff("selected");
+                            if (ts.imageManager != null)
+                            {
+                                ts.imageManager.TurnOff("selected");
+                            }
                         }
                         selectedTroopers.Clear();
                         Trooper_Script tempT = result.gameObject.transform.parent.transform.parent.GetComponent<Trooper_Script>();
@@ -477,19 +612,18 @@ public class Slot_Manager : MonoBehaviour
     //Finds the selected string from the dropdown menu
     public void FindSelected(Dropdown dropdown)
     {
-        int newValue = dropdown.value - 1;
-        CheckSlot(slotN1.GetComponent<Slot_Script>(), dropdown.options[dropdown.value].text, dropdown);
+        CheckSlot(slotN1.GetComponent<Slot_Script>().slotClass, dropdown.options[dropdown.value].text, dropdown);
     }
 
     //Finds the selected string from the dropdown menu
     public void FindSelectedSquad(Dropdown dropdown)
     {
-        CheckSquad(slotN1.GetComponent<Slot_Script>(), dropdown.options[dropdown.value].text, dropdown);
+        CheckSquad(slotN1.GetComponent<Slot_Script>().slotClass, dropdown.options[dropdown.value].text, dropdown);
     }
 
     //Converts the dropdown string into a returnable slot and sends the viewed slot to that slot
     //Cannot handle duplicate names, just finds the first name in the list that has that name. need to use some ID's or something
-    private void CheckSlot(Slot_Script slot, string name, Dropdown dropdown)
+    private void CheckSlot(Slot_Class slotS, string name, Dropdown dropdown)
     {
         //Remove the dashes that help the user determine children
         string dash = "-";
@@ -497,123 +631,111 @@ public class Slot_Manager : MonoBehaviour
 
         noDashes = name.Replace(dash, "");
 
-        //Sends and sets details of the slot and its new parent, then saves all slots
-        if (noDashes == slot.slotName)
+        Slot_Class slot = new Slot_Class();
+
+        for (int i = 0; i < slotS.containedSlots.Count; i++)
         {
-            if (dropdown.GetComponent<Slot_Button>().ids[dropdown.value] == slot.uID)
+            if (slotS.containedSlots[i].slotName == noDashes)
             {
-                viewedSlot.transform.position = new Vector3(0, 0, 0);
-                viewedSlot.slotParent.containedSlots.Remove(viewedSlot);
-                foreach (Slot_Script ss in viewedSlot.slotParent.containedSlots)
-                {
-                    if (ss.ID >= viewedSlot.ID)
-                    {
-                        ss.ID -= 1;
-                    }
-                }
-                slot.containedSlots.Add(viewedSlot);
-                viewedSlot.ID = slot.containedSlots.Count;
-                viewedSlot.slotParent = slot;
+                GameObject tempS = Instantiate(prefabSlot, slotN1.transform);
+                Slot_Script ss = tempS.GetComponent<Slot_Script>();
+                ss.LoadSlot(slotS.containedSlots[i], slotS.containedSlots[i].positionID, this);
+                DeleteFromParent(slots[0], viewedSlot.slotClass);
+                ss.slotClass.containedSlots.Add(viewedSlot.slotClass);
+                viewedSlot.slotClass.positionID = ss.slotClass.containedSlots.Count;
                 viewedSlot.ChangeHeight(slot.slotHeight);
-                viewedSlot.transform.SetParent(slot.transform, false);
-                slots = new List<Slot_Class>();
-                slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
-                OpenSlot(slot);
-            }
-        }
-        else
-        {
-            if (slot == viewedSlot)
-            {
-                Debug.Log("Attempting to prevent moving to children");
+                OpenSlot(viewedSlot);
+                Destroy(tempS);
             }
             else
             {
-                //Repeats the process with every slot until a name match is found
-                for (int i = 0; i < slot.containedSlots.Count; i++)
+                if (slotS.containedSlots[i] == viewedSlot.slotClass)
                 {
-                    CheckSlot(slot.containedSlots[i], name, dropdown);
+                    Debug.Log("Attempting to prevent moving to children");
+                }
+                else
+                {
+                    CheckSlot(slotS.containedSlots[i], name, dropdown);
+                }
+            }
+        }
+
+    }
+
+    //Converts the dropdown string into a returnable slot and sends the viewed slot to that slot
+    //Cannot handle duplicate names, just finds the first name in the list that has that name. need to use some ID's or something
+    private void DeleteFromParent(Slot_Class checkingSlot, Slot_Class openSlot)
+    {
+        Slot_Class slot = new Slot_Class();
+
+        for (int i = 0; i < checkingSlot.containedSlots.Count; i++)
+        {
+            if (checkingSlot.containedSlots[i].uID == openSlot.uID)
+            {
+                checkingSlot.containedSlots.RemoveAt(i);
+                break;
+            }
+            else
+            {
+                DeleteFromParent(checkingSlot.containedSlots[i], openSlot);
+            }
+        }
+
+    }
+
+    //Same as checkslot, but for transfering troopers. 
+    private void CheckSquad(Slot_Class slot, string name, Dropdown dropdown)
+    {
+        //Remove the dashes that help the user determine children
+        string dash = "-";
+        string noDashes;
+
+        noDashes = name.Replace(dash, "");
+
+        for (int i = 0; i < slot.containedSlots.Count; i++)
+        {
+            if (slot.containedSlots[i].slotName == noDashes)
+            {
+                GameObject tempS = Instantiate(prefabSlot, slotN1.transform);
+                Slot_Script ss = tempS.GetComponent<Slot_Script>();
+                ss.LoadSlot(slot.containedSlots[i], slot.containedSlots[i].positionID, this);
+                DeleteFromParentSquad(viewedSlot.slotClass);
+                foreach (Trooper_Script ts in selectedTroopers)
+                {
+                    ts.trooperClass.trooperPosition = ss.slotClass.containedTroopers.Count + 1;
+                    ss.slotClass.containedTroopers.Add(ts.trooperClass);
+                }
+                Destroy(tempS);
+            }
+            else
+            {
+                if (slot.containedSlots[i] == viewedSlot.slotClass)
+                {
+                    Debug.Log("Attempting to prevent moving to children");
+                }
+                else
+                {
+                    CheckSquad(slot.containedSlots[i], name, dropdown);
                 }
             }
         }
     }
 
-    //Same as checkslot, but for transfering troopers. 
-    private void CheckSquad(Slot_Script slot, string name, Dropdown dropdown)
+    //Converts the dropdown string into a returnable slot and sends the viewed slot to that slot
+    //Cannot handle duplicate names, just finds the first name in the list that has that name. need to use some ID's or something
+    private void DeleteFromParentSquad(Slot_Class openSlot)
     {
-        //Remove the dashes that help the user determine children
-        string dash = "-";
-        string noDashes;
+        Slot_Class slot = new Slot_Class();
 
-        noDashes = name.Replace(dash, "");
-
-        //Sends and sets details of the slot and its new parent, then saves all slots
-        if (noDashes == slot.slotName)
+        foreach (Trooper_Script ts in selectedTroopers)
         {
-            if (dropdown.GetComponent<Slot_Button>().ids[dropdown.value] == slot.uID)
-            {
-                foreach (Trooper_Script ts in selectedTroopers)
-                {
-                    if (slot.containedTroopers.Count <= 19)
-                    {
-                        slot.gameObject.SetActive(true);
-                        ts.gameObject.transform.parent = slot.gameObject.transform;
-                        ts.trooperPosition = slot.containedTroopers.Count + 1;
-                        ts.trooperSquad = slot;
-                        int count = 0;
-                        foreach(Trooper_Script t in slot.containedTroopers)
-                        {
-                            if(t.trooperRank == ts.trooperRank)
-                            {
-                                count += 1;
-                            }
-                        }
-                        foreach(Rank_Definition r in slot.squadRole.RankDefs)
-                        {
-                            if(r.RankName == ts.trooperRank)
-                            {
-                                if(count < r.RankLimit)
-                                {
-                                    break;
-                                }
-                                else
-                                {
-                                    ts.trooperRank = "Private";
-                                    break;
-                                }
-                            }
-                            if(slot.squadRole.RankDefs.IndexOf(r) == slot.squadRole.RankDefs.Count - 1)
-                            {
-                                ts.trooperRank = "Private";
-                            }
-                        }
-                        slot.containedTroopers.Add(ts);
-                        viewedSlot.containedTroopers.Remove(ts);
-                        slot.gameObject.SetActive(false);
-                        ts.FindSlotIdentifier();
-                    } 
-                    else
-                    {
-                        Debug.Log("Squad Full - " + slot.slotName);
-                    }
-                }
-                int counter = 0;
-                foreach(Trooper_Script ts in viewedSlot.containedTroopers)
-                {
-                    counter += 1;
-                    ts.trooperPosition = counter;
-                }
-                slots = new List<Slot_Class>();
-                slots.Add(slotN1.GetComponent<Slot_Script>().MasterSaveClass());
-            }
+            int index = openSlot.containedTroopers.IndexOf(ts.trooperClass);
+            openSlot.containedTroopers.RemoveAt(index);
         }
-        else
+
+        for(int i = 0; i < openSlot.containedTroopers.Count; i++)
         {
-            //Repeats the process with every slot until a name match is found
-            for (int i = 0; i < slot.containedSlots.Count; i++)
-            {
-                CheckSquad(slot.containedSlots[i], name, dropdown);
-            }
+            openSlot.containedTroopers[i].trooperPosition = i + 1;
         }
     }
 
@@ -624,6 +746,7 @@ public class Slot_Manager : MonoBehaviour
         {
             if (viewedSlot.containedSlots.Count == 0)
             {
+                viewedSlot.slotClass.squad = true;
                 viewedSlot.squad = true;
                 slotOptions.SetActive(false);
                 squadOptions.SetActive(true);
@@ -640,6 +763,7 @@ public class Slot_Manager : MonoBehaviour
             if (viewedSlot.containedTroopers.Count == 0)
             {
                 viewedSlot.squad = false;
+                viewedSlot.slotClass.squad = false;
                 squadOptions.SetActive(false);
                 slotOptions.SetActive(true);
             }

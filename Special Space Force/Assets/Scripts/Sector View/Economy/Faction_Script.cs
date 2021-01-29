@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Faction_Script : MonoBehaviour
+public class Faction_Script
 {
     public Faction_Class faction;
     public List<System_Script> controlledSystems;
