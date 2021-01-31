@@ -7,6 +7,7 @@ public class Voidcraft_Class
     public string className;
     public string craftName;
     public string type;
+    public int FleetID;
     public int ID;
     public int positionID;
     public int starID;

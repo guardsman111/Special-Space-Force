@@ -795,7 +795,7 @@ public class Slot_Script : MonoBehaviour
         return slotClass;
     }
 
-    
+    //
     public void Add()
     {
         if (!squad)
@@ -804,6 +804,7 @@ public class Slot_Script : MonoBehaviour
         }
     }
 
+    //
     public void Delete()
     {
         manager.DeleteSlot(this);

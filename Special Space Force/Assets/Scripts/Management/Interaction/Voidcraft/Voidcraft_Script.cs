@@ -29,6 +29,7 @@ public class Voidcraft_Script : MonoBehaviour
 
     public GameObject image;
     public TMP_InputField input;
+    public TMP_InputField planetLocation;
 
     public Image_Manager imageManager;
 
@@ -46,6 +47,7 @@ public class Voidcraft_Script : MonoBehaviour
         manager.CraftIDs.Add(uID);
         craftPosition = ID;
         craftFleet = fleet;
+        craftClass.FleetID = fleet.fleetClass.uID;
         modManager.voidcraftManager.LoadCraft(this, craft.className);
 
         craftName = craft.craftName;
@@ -68,6 +70,7 @@ public class Voidcraft_Script : MonoBehaviour
         manager.CraftIDs.Add(uID);
         craftPosition = ID;
         craftFleet = fleet;
+        craftClass.FleetID = fleet.fleetClass.uID;
         modManager.voidcraftManager.LoadCraft(this, craft.className);
 
         craftName = craft.craftName;
@@ -75,7 +78,7 @@ public class Voidcraft_Script : MonoBehaviour
         CraftColours();
     }
 
-    public void LoadCraft(Voidcraft_Class craft, Manager_Script m, Fleet_Manager fm, Fleet_Script fleet)
+    public void LoadCraft(Voidcraft_Class craft, Manager_Script m, Fleet_Manager fm)
     {
         modManager = m;
         craftClass = craft;
@@ -83,11 +86,38 @@ public class Voidcraft_Script : MonoBehaviour
         uID = craft.ID;
         manager.CraftIDs.Add(uID);
         craftPosition = craft.positionID;
-        craftFleet = fleet;
+        foreach(Fleet_Script fs in manager.FleetsS)
+        {
+            if(fs.fleetClass.uID == craft.FleetID)
+            {
+                craftFleet = fs;
+            }
+        }
         modManager.voidcraftManager.LoadCraft(this, craft.className);
 
         craftName = craft.craftName;
         input.text = craftName;
+        CraftColours();
+    }
+    public void LoadQuickView(Voidcraft_Class craft, Manager_Script m, Fleet_Manager fm)
+    {
+        modManager = m;
+        craftClass = craft;
+        manager = fm;
+        uID = craft.ID;
+        craftPosition = craft.positionID;
+        foreach (Fleet_Script fs in manager.FleetsS)
+        {
+            if (fs.fleetClass.uID == craft.FleetID)
+            {
+                craftFleet = fs;
+            }
+        }
+        modManager.voidcraftManager.LoadCraft(this, craft.className);
+
+        craftName = craft.craftName;
+        input.text = craftName;
+        planetLocation.text = GetStat("Location");
         CraftColours();
     }
 
@@ -407,5 +437,10 @@ public class Voidcraft_Script : MonoBehaviour
         returner = craftClass.uIDTransported;
 
         return returner;
+    }
+
+    public void MoveShip(Planet_Script newPlanet)
+    {
+        craftClass.planetN = newPlanet.parentSystem.SystemPlanets.IndexOf(newPlanet) + 1;
     }
 }

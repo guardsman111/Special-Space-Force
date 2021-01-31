@@ -32,4 +32,5 @@ public class Planet_Screen : MonoBehaviour
     public Fleet_Manager fManager;
     public Voidcraft_Manager vManager;
     public GameObject genericOrbiter;
+    public System_Screen systemScreen;
 }

@@ -22,6 +22,7 @@ public class System_Click : MonoBehaviour
     private Light starLight;
 
     public System_Screen systemScreen;
+    public GameObject canvas;
 
     public Button[] UIs;
 
@@ -35,6 +36,7 @@ public class System_Click : MonoBehaviour
         UIs = GameObject.Find("User Interface").GetComponentsInChildren<Button>();
         starLight = GameObject.Find("Directional Light").GetComponent<Light>();
         systemScreen = systemCamera.GetComponentInChildren<System_Screen>();
+        canvas = systemCamera.GetComponentInChildren<System_Screen>().gameObject;
     }
 
     //Toggles the Cameras depending on the current enabled camera
@@ -49,17 +51,20 @@ public class System_Click : MonoBehaviour
                 systemCamera.enabled = false;
                 systemScreenCamera.enabled = false;
                 ToggleVisiblePlanets.TogglePlanetsOn(false);
+                systemScreen.QVManager.CloseSystem();
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                 foreach(Button b in UIs)
                 {
                     b.gameObject.SetActive(true);
                 }
                 systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.ShowHelper();
+                canvas.SetActive(false);
             }
             else
             {
                 systemCamera.transform.position = cameraTransform.position;
                 mainCamera.enabled = false;
+                canvas.SetActive(true);
                 systemCamera.enabled = true;
                 systemScreenCamera.enabled = true;
                 System_Script system = GetComponent<System_Script>();
@@ -67,6 +72,7 @@ public class System_Click : MonoBehaviour
                 systemScreen.sname.text = "System: " + system.Star.systemName;
                 systemScreen.allegiance.text = "Owner: " + system.allegiance;
                 systemScreen.output.text = "Total Output: " + system.combinedOutput.ToString("00,0") + " Kilo-Tonnes";
+                systemScreen.QVManager.OpenSystem(system.Star);
 
                 starLight.GetComponent<Light_Colour>().ChangeColour(gameObject.GetComponent<System_Script>().Star.colour);
 
@@ -92,6 +98,7 @@ public class System_Click : MonoBehaviour
                 mainCamera.enabled = true;
                 systemCamera.enabled = false;
                 systemScreenCamera.enabled = false;
+                systemScreen.QVManager.CloseSystem();
                 ToggleVisiblePlanets.TogglePlanetsOn(false);
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                 foreach (Button b in UIs)

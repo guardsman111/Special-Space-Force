@@ -190,6 +190,7 @@ public class Faction_Manager : MonoBehaviour
         {
             vc.starID = factionScripts[0].controlledSystems[0].Star.uID;
             vc.planetN = planetNumber;
+            MoveCraftToSystem();
         }
     }
 
@@ -585,5 +586,9 @@ public class Faction_Manager : MonoBehaviour
         int allegiance = planet.parentSystem.Star.allegiance;
         factions[allegiance].controlledPlanets.Add(planet.planet);
         factionScripts[allegiance].controlledPlanets.Add(planet);
+    }
+
+    public void MoveCraftToSystem()
+    {
     }
 }
