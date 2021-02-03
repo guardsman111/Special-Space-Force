@@ -51,7 +51,7 @@ public class System_Click : MonoBehaviour
                 systemCamera.enabled = false;
                 systemScreenCamera.enabled = false;
                 ToggleVisiblePlanets.TogglePlanetsOn(false);
-                systemScreen.QVManager.CloseSystem();
+                systemScreen.QVManager.CloseManager();
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                 foreach(Button b in UIs)
                 {
@@ -98,7 +98,7 @@ public class System_Click : MonoBehaviour
                 mainCamera.enabled = true;
                 systemCamera.enabled = false;
                 systemScreenCamera.enabled = false;
-                systemScreen.QVManager.CloseSystem();
+                systemScreen.QVManager.CloseManager();
                 ToggleVisiblePlanets.TogglePlanetsOn(false);
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                 foreach (Button b in UIs)

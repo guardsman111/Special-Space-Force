@@ -10,13 +10,19 @@ public class Orbiter_Script : MonoBehaviour
     public MeshRenderer trimHull;
     public MeshRenderer specialHull;
 
+    public Transform location;
+
     public MeshRenderer[] turrets;
+
+    public Voidcraft_Class linkedCraft;
 
     public void CreateOrbiter(Fleet_Manager manager, Voidcraft_Class vClass)
     {
         float rx = Random.Range(0, 360);
         float ry = Random.Range(0, 360);
         float rz = Random.Range(0, 360);
+
+        linkedCraft = vClass;
 
         gameObject.transform.rotation = Quaternion.Euler(new Vector3(rx, ry, rz));
 

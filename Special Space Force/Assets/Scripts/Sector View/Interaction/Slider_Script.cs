@@ -19,6 +19,8 @@ public class Slider_Script : MonoBehaviour
     public bool slide = false;
     public bool pulledOut = false;
 
+    private bool alreadyClosed;
+
     private void Start()
     {
         rect = gameObject.GetComponent<RectTransform>();
@@ -38,6 +40,9 @@ public class Slider_Script : MonoBehaviour
             InvokeRepeating("DoSlide", 0.01f, 0.01f);
             foreach (GameObject go in siblingSliders)
             {
+                if(go.activeSelf == false)
+                {
+                    alreadyClosed = true;                }
                 go.SetActive(false);
             }
             headerImage.sprite = pressedImage;
@@ -50,23 +55,41 @@ public class Slider_Script : MonoBehaviour
         {
             if (!pulledOut)
             {
-                if(rect.anchoredPosition.x <= origin.x - xDistance && rect.anchoredPosition.y <= origin.y - yDistance)
+                if (yDistance >= 0)
                 {
-                    pulledOut = true;
+                    if (rect.anchoredPosition.x <= origin.x - xDistance && rect.anchoredPosition.y <= origin.y - yDistance)
+                    {
+                        pulledOut = true;
+                    }
+                    else
+                    {
+                        rect.anchoredPosition -= new Vector2(xDistance / 30, yDistance / 30);
+                    }
                 }
-                else
+                if(yDistance < 0)
                 {
-                    rect.anchoredPosition -= new Vector2(xDistance / 30, yDistance / 30);
+                    if (rect.anchoredPosition.x >= origin.x - xDistance && rect.anchoredPosition.y >= origin.y - yDistance)
+                    {
+                        pulledOut = true;
+                    }
+                    else
+                    {
+                        rect.anchoredPosition -= new Vector2(xDistance / 30, yDistance / 30);
+                    }
                 }
             }
         }
         else if (!slide)
         {
-            if (rect.anchoredPosition.x >= origin.x && rect.anchoredPosition.y >= origin.y)
+            if (rect.anchoredPosition.x >= origin.x - 0.5 && rect.anchoredPosition.x <= origin.x + 0.5 && rect.anchoredPosition.y >= origin.y - 0.5 && rect.anchoredPosition.y <= origin.y + 0.5)
             {
-                foreach (GameObject go in siblingSliders)
+                //This may cause issues later down the line
+                if (!alreadyClosed)
                 {
-                    go.SetActive(true);
+                    foreach (GameObject go in siblingSliders)
+                    {
+                        go.SetActive(true);
+                    }
                 }
                 CancelInvoke("DoSlide");
                 rect.anchoredPosition = origin;

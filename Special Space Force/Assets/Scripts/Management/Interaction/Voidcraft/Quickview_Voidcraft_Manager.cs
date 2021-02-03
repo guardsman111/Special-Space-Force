@@ -10,7 +10,8 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
     public Manager_Script manager;
     public Fleet_Manager fManager;
     public GraphicRaycaster raycaster;
-    public Camera systemCamera;
+    public Camera screenCamera;
+    public Quickview_Voidcraft_Manager systemQVManger;
 
     public List<Voidcraft_Script> selectedCraft;
 
@@ -19,6 +20,11 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
 
     public GameObject craftSpace1;
 
+    public List<GameObject> Orbiters;
+
+    public float lastClick;
+    public bool DoubleClick = false;
+
     private void Start()
     {
         selectedCraft = new List<Voidcraft_Script>();
@@ -26,10 +32,23 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
 
     private void Update()
     {
-        if (systemCamera.enabled)
+        if (screenCamera.enabled)
         {
             if (Input.GetMouseButtonUp(0))
             {
+                float nowTime = Time.time;
+
+                //Captures double click event
+                if(lastClick != 0)
+                {
+                    if (nowTime - lastClick <= 0.5f)
+                    {
+                        DoubleClick = true;
+                    }
+                }
+
+                lastClick = nowTime;
+
                 PointerEventData pointerData = new PointerEventData(EventSystem.current);
                 List<RaycastResult> results = new List<RaycastResult>();
 
@@ -41,9 +60,23 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
                     if (results[0].gameObject.GetComponent<Voidcraft_Script>() != null)
                     {
                         Voidcraft_Script pressed = results[0].gameObject.GetComponent<Voidcraft_Script>();
-                        pressed.gameObject.GetComponent<Craft_Click>().ClickCraft();
+                        pressed.gameObject.GetComponent<Craft_Click>().ClickCraftPlanet();
+                        if (DoubleClick)
+                        {
+                            if (Orbiters != null)
+                            {
+                                foreach (GameObject os in Orbiters)
+                                {
+                                    if (pressed.craftClass == os.GetComponent<Orbiter_Script>().linkedCraft)
+                                    {
+                                        screenCamera.GetComponent<Camera_Targeted>().SetShipTarget(os.GetComponent<Orbiter_Script>().location);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
+                DoubleClick = false;
             }
         }
     }
@@ -63,16 +96,42 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
         }
     }
 
-    public void CloseSystem()
+    public void OpenPlanet(Planet_Script planet, System_Script system)
+    {
+        foreach (GameObject go in systemQVManger.craft)
+        {
+            if (system.SystemPlanets.IndexOf(planet) + 1 == go.GetComponent<Voidcraft_Script>().craftClass.planetN)
+            {
+                GameObject temp = Instantiate(prefabCraft, content.transform);
+                Voidcraft_Script tempS = temp.GetComponent<Voidcraft_Script>();
+                tempS.LoadQuickView(go.GetComponent<Voidcraft_Script>().craftClass, manager, fManager);
+                temp.transform.position = craftSpace1.transform.position;
+                temp.transform.position += new Vector3(50 * craft.Count, 0, 0);
+                craft.Add(temp);
+            }
+        }
+        if(craft.Count == 0)
+        {
+            GetComponent<Slider_Script>().headerImage.enabled = false;
+        }
+        else
+        {
+            GetComponent<Slider_Script>().headerImage.enabled = true;
+        }
+    }
+
+    public void CloseManager()
     {
         if (craft.Count > 0)
         {
-            foreach (Voidcraft_Script vs in selectedCraft)
+            if (selectedCraft.Count > 0)
             {
-                vs.imageManager.TurnOff("selected");
+                foreach (Voidcraft_Script vs in selectedCraft)
+                {
+                    vs.imageManager.TurnOff("selected");
+                }
             }
             selectedCraft.Clear();
-            selectedCraft.Add(GetComponent<Voidcraft_Script>());
             while (craft.Count > 0)
             {
                 Destroy(craft[0]);
@@ -81,11 +140,14 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
         }
     }
 
+
     public void MoveCraft(Planet_Script nPlanet)
     {
         foreach(Voidcraft_Script vs in selectedCraft)
         {
             vs.MoveShip(nPlanet);
+            vs.imageManager.TurnOff("selected");
         }
+        selectedCraft.Clear();
     }
 }

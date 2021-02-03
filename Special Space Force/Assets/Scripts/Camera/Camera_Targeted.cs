@@ -10,13 +10,13 @@ public class Camera_Targeted : MonoBehaviour
 
     public Transform target;
     public float distance = 70.0f;
-    public float xSpeed = 0.3f;
-    public float ySpeed = 10f;
+    public float xSpeed = 0.15f;
+    public float ySpeed = 5f;
     public float yMinLimit = -90f;
     public float yMaxLimit = 90f;
     public float distanceMin = 40f;
     public float distanceMax = 100f;
-    public float smoothTime = 5f;
+    public float smoothTime = 15f;
     float rotationYAxis = 0.0f;
     float rotationXAxis = 0.0f;
     float velocityX = 0.0f;
@@ -73,5 +73,31 @@ public class Camera_Targeted : MonoBehaviour
         if (angle > 360F)
             angle -= 360F;
         return Mathf.Clamp(angle, min, max);
+    }
+
+    public void SetShipTarget(Transform ship)
+    {
+        target = ship;
+        distance = 5.0f;
+        xSpeed = 3f;
+        ySpeed = 5f;
+        yMinLimit = -90f;
+        yMaxLimit = 90f;
+        distanceMin = 1f;
+        distanceMax = 7f;
+        smoothTime = 15f;
+    }
+
+    public void SetDefaults(GameObject  planet)
+    {
+        target = planet.transform;
+        distance = 70.0f;
+        xSpeed = 0.15f;
+        ySpeed = 5f;
+        yMinLimit = -90f;
+        yMaxLimit = 90f;
+        distanceMin = 40f;
+        distanceMax = 100f;
+        smoothTime = 15f;
     }
 }

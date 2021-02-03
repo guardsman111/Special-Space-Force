@@ -95,11 +95,17 @@ public class Planet_Click : MonoBehaviour
                         }
                     }
 
+                    planetScreen.QVManager.Orbiters = orbiters;
+
                     //Changes the planetScreen text 
                     planetScreen.planetName.text = sPlanet.planet.planetName;
                     float earthRelativePlanetSize = sPlanet.planet.size + 25;
                     planetScreen.planetBiome.text = "Prevalent Biome: " + sPlanet.planet.biome;
                     planetScreen.planetSize.text = "Earth Size Ratio: " + earthRelativePlanetSize / 100.0f + " Earth(s)";
+                    planetScreen.systemScreen.QVManager.enabled = false;
+                    planetScreen.QVManager.enabled = true;
+                    planetScreen.QVManager.OpenPlanet(sPlanet, sPlanet.parentSystem);
+                    planetScreen.QVManager.screenCamera.GetComponent<Camera_Targeted>().SetDefaults(sPlanet.gameObject);
                     if (sPlanet.planet.population > 0 && sPlanet.parentSystem.Star.allegiance == 0)
                     {
                         planetScreen.planetPopulation.text = "Population: " + sPlanet.planet.population.ToString("00,0") + ",000";
@@ -223,6 +229,9 @@ public class Planet_Click : MonoBehaviour
                 planetScreenCamera.enabled = false;
                 previous = false;
                 gameObject.transform.position = previousPosition;
+                planetScreen.systemScreen.QVManager.enabled = true;
+                planetScreen.QVManager.CloseManager();
+                planetScreen.QVManager.enabled = false;
                 ToggleVisiblePlanets.TogglePlanetsOn(true);
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
                 systemCamera.GetComponent<Camera_Container_Script>().planetHelper.HideHelper();
