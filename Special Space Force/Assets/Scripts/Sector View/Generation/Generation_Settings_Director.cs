@@ -11,6 +11,7 @@ public class Generation_Settings_Director : MonoBehaviour
     /// </summary>
     public Galaxy_Generation_Manager generationManager;
     public Slot_Generator slotGenerator;
+    public Fleet_Generator fleetGenerator;
     public Localisation_Manager localisationManager;
     public Trait_Manager traitManager;
     public Faction_Manager factionManager;
@@ -92,6 +93,7 @@ public class Generation_Settings_Director : MonoBehaviour
 
 
         slotGenerator.SetupTemplateDropdown();
+        fleetGenerator.SetupTemplateDropdown();
         localisationManager.FindLocalisationFiles();
         equipmentManager.Begin();
         voidcraftManager.Begin();

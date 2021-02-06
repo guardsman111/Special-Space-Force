@@ -101,4 +101,17 @@ public class Slider_Script : MonoBehaviour
             pulledOut = false;
         }
     }
+
+
+    public void HidePlanets()
+    {
+        if (pulledOut != true)
+        {
+            ToggleVisiblePlanets.TogglePlanetsOn(false);
+        } 
+        else
+        {
+            ToggleVisiblePlanets.TogglePlanetsOn(true);
+        }
+    }
 }

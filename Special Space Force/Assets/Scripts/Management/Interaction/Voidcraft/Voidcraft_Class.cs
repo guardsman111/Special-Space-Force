@@ -16,19 +16,12 @@ public class Voidcraft_Class
     public List<Void_Weapon_Class> weapons;
     public List<int> uIDTransported;
 
-    public string CraftOutlinePath;
-    public string CraftPrimaryPath;
-    public string CraftSecondaryPath;
-    public string CraftTertiaryPath;
-    public string CraftTrimPath;
-    public string CraftSpecialPath;
-
-    public int filterMode;
-
     public int costPerCraft;
 
     public int speed;
     public int armour;
+    public int capacity;
+    public int capacityF;
 
     public Voidcraft_Class()
     {

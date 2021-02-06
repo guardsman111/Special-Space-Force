@@ -192,6 +192,7 @@ public class Faction_Manager : MonoBehaviour
             vc.planetN = planetNumber;
             MoveCraftToSystem();
         }
+        factionScripts[0].controlledSystems[0].ToggleCraft(true);
     }
 
     public void SetupSlotLocation(Slot_Class currentClass, int planetNumber)

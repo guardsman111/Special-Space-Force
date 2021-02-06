@@ -39,6 +39,7 @@ public class Camera_Movement : MonoBehaviour
     void Start()
     {
         cameraSpeedDefault = cameraSpeed;
+        rotationXAxis = thisCamera.transform.rotation.eulerAngles.x;
     }
 
     // Update is called once per frame
@@ -92,14 +93,24 @@ public class Camera_Movement : MonoBehaviour
                     transform.position += new Vector3(0, -cameraSpeed * 50, 0);
                 }
             }
-            if (Input.GetMouseButton(1))
+
+            if (Input.GetMouseButtonDown(2) && Input.GetKey(KeyCode.LeftShift))
+            {
+                mouseOrigin = Input.mousePosition;
+
+                isPanning = true;
+
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else if (Input.GetMouseButton(2))
             {
                 velocityX += cameraSpeed * Input.GetAxis("Mouse X") * 0.01f;
                 velocityY += cameraSpeed * Input.GetAxis("Mouse Y") * 0.01f;
                 rotationYAxis += velocityX;
                 rotationXAxis -= velocityY;
                 rotationXAxis = ClampAngle(rotationXAxis, yMinLimit, yMaxLimit);
-                Quaternion fromRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+                Quaternion fromRotation = Quaternion.Euler(thisCamera.transform.rotation.eulerAngles.x, thisCamera.transform.rotation.eulerAngles.y, 0);
                 Quaternion toRotation = Quaternion.Euler(rotationXAxis, rotationYAxis, 0);
                 Quaternion rotation = toRotation;
 
@@ -115,15 +126,6 @@ public class Camera_Movement : MonoBehaviour
                 }
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-            }
-            else if (Input.GetMouseButtonDown(2))
-            {
-                mouseOrigin = Input.mousePosition;
-
-                isPanning = true;
-
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
             }
             
             if (!Input.GetMouseButton(2))

@@ -9,6 +9,7 @@ public class Voidcraft_Manager : MonoBehaviour
     public FileFinder finder;
     public Core_Voidcraft coreVoidcraft;
 
+    public List<Voidcraft_Build_Class> voidcraftClasses;
     public List<Voidcraft_Pack> voidcraftPacks;
 
     public Dropdown CraftDropdownCustom;
@@ -20,13 +21,29 @@ public class Voidcraft_Manager : MonoBehaviour
     {
         voidcraftPacks = coreVoidcraft.Core();
 
+        voidcraftClasses = new List<Voidcraft_Build_Class>();
+
+        foreach (Voidcraft_Pack vp in voidcraftPacks) 
+        {
+            Voidcraft_Build_Class tempV = new Voidcraft_Build_Class();
+            tempV.className = vp.className;
+            tempV.weapons = vp.weapons;
+            tempV.speed = vp.speed;
+            tempV.costPerCraft = vp.costPerCraft;
+            tempV.armour = vp.armour;
+            tempV.capacity = vp.capacity;
+
+            voidcraftClasses.Add(tempV);
+        }
+
         Voidcraft_Pack tempSP;
 
         List<string> craftFileLocations = finder.Retrieve("Voidcraft", ".meta", ".png", ".jpg");
 
         foreach (string s in craftFileLocations)
         {
-            Voidcraft_Class temp = Serializer.Deserialize<Voidcraft_Class>(s);
+            Voidcraft_Build_Class temp = Serializer.Deserialize<Voidcraft_Build_Class>(s);
+            voidcraftClasses.Add(temp);
             tempSP = new Voidcraft_Pack();
             tempSP.className = temp.className;
             tempSP.containedSprites = new List<Sprite>();

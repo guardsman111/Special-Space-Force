@@ -233,10 +233,12 @@ public class Slot_Generator : MonoBehaviour
                         tempS.containedTroopers = FillSlots(sc, tempS, 0);
                         Debug.Log(troopersPerSquad);
                     }
+                    slot.numberOfTroopers += tempS.containedTroopers.Count;
                 }
                 else
                 {
                     tempS.containedSlots = FillSlots(sc, tempS);
+                    slot.numberOfTroopers += tempS.slotClass.numberOfTroopers;
                 }
                 tempSlots.Add(tempS);
             }

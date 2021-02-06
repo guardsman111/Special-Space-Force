@@ -12,9 +12,9 @@ public class Craft_Click : MonoBehaviour
 
     private void Start()
     {
-        manager = GameObject.Find("CraftWindow").GetComponent<Quickview_Voidcraft_Manager>();
-        managerP = GameObject.Find("CraftWindowP").GetComponent<Quickview_Voidcraft_Manager>();
         attatched = GetComponent<Voidcraft_Script>();
+        manager = attatched.modManager.craftSystem;
+        managerP = attatched.modManager.craftPlanet;
     }
 
 

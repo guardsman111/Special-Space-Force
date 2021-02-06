@@ -231,6 +231,7 @@ public class Planet_Click : MonoBehaviour
                 gameObject.transform.position = previousPosition;
                 planetScreen.systemScreen.QVManager.enabled = true;
                 planetScreen.QVManager.CloseManager();
+                planetScreen.QVManager.ClosePlanetSlider();
                 planetScreen.QVManager.enabled = false;
                 ToggleVisiblePlanets.TogglePlanetsOn(true);
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();

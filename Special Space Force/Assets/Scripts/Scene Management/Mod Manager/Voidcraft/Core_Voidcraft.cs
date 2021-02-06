@@ -19,6 +19,9 @@ public class Core_Voidcraft : MonoBehaviour
         tempVC.containedSprites = new List<Sprite>();
         tempVC.className = "Farsky Heavy Destroyer";
         tempVC.type = "Destroyer";
+        tempVC.armour = 450;
+        tempVC.speed = 12;
+        tempVC.capacity = 35;
         tempVC.costPerCraft = FarskyCost;
         tempVC.weapons = new List<Void_Weapon_Class>();
         Void_Weapon_Class tempW = new Void_Weapon_Class();
@@ -39,6 +42,9 @@ public class Core_Voidcraft : MonoBehaviour
         tempVC.containedSprites = new List<Sprite>();
         tempVC.className = "Hifrin Cruiser";
         tempVC.type = "Cruiser";
+        tempVC.armour = 650;
+        tempVC.speed = 10;
+        tempVC.capacity = 88;
         tempVC.costPerCraft = HifrinCost;
         tempW = new Void_Weapon_Class();
         tempW.name = "Twin 120mm SABOT Turret";

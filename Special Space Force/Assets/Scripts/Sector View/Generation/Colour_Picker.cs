@@ -83,7 +83,6 @@ public class Colour_Picker : MonoBehaviour
                 t.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
             }
         }
-        Vector2 mousePos = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
         if (!pickerRect.rect.Contains(localPoint))
         {
             TogglePicker();

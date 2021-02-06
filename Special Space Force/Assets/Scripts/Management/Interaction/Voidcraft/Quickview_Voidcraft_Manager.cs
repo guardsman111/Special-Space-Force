@@ -60,7 +60,14 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
                     if (results[0].gameObject.GetComponent<Voidcraft_Script>() != null)
                     {
                         Voidcraft_Script pressed = results[0].gameObject.GetComponent<Voidcraft_Script>();
-                        pressed.gameObject.GetComponent<Craft_Click>().ClickCraftPlanet();
+                        if (gameObject.name == "CraftWindow")
+                        {
+                            pressed.gameObject.GetComponent<Craft_Click>().ClickCraft();
+                        }
+                        else
+                        {
+                            pressed.gameObject.GetComponent<Craft_Click>().ClickCraftPlanet();
+                        }
                         if (DoubleClick)
                         {
                             if (Orbiters != null)
@@ -105,8 +112,8 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
                 GameObject temp = Instantiate(prefabCraft, content.transform);
                 Voidcraft_Script tempS = temp.GetComponent<Voidcraft_Script>();
                 tempS.LoadQuickView(go.GetComponent<Voidcraft_Script>().craftClass, manager, fManager);
-                temp.transform.position = craftSpace1.transform.position;
-                temp.transform.position += new Vector3(50 * craft.Count, 0, 0);
+                temp.transform.localPosition = craftSpace1.transform.localPosition;
+                temp.transform.localPosition += new Vector3(500 * craft.Count, 0, 0);
                 craft.Add(temp);
             }
         }
@@ -149,5 +156,10 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
             vs.imageManager.TurnOff("selected");
         }
         selectedCraft.Clear();
+    }
+
+    public void ClosePlanetSlider()
+    {
+        GetComponent<Slider_Script>().Slide();
     }
 }

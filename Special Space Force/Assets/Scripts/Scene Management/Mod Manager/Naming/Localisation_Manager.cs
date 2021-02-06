@@ -18,11 +18,13 @@ public class Localisation_Manager : MonoBehaviour
     public List<String_List_Class> hierachyNameStrings;
     public List<String_List_Class> slotNameStrings;
     public List<String_List_Class> fleetNameStrings;
+    public List<String_List_Class> craftNameStrings;
 
     public String_List_Class chosenTrooperNamesList;
     public String_List_Class chosenHierachyNamesList;
     public String_List_Class chosenSlotNamesList;
     public String_List_Class chosenFleetNamesList;
+    public String_List_Class chosenCraftNamesList;
     public List<string> surnames;
     public List<string> forenamesM;
     public List<string> forenamesF;
@@ -34,11 +36,14 @@ public class Localisation_Manager : MonoBehaviour
     public List<string> squadNames;
     public List<string> fleetNames;
     public List<string> fleetHierachyNames;
+    public List<string> craftNames;
+    public string craftPrefix;
 
     public Dropdown trooperNamesDropdown;
     public Dropdown hierachyNamesDropdown;
     public Dropdown slotNamesDropdown;
     public Dropdown fleetNamesDropdown;
+    public Dropdown craftNamesDropdown;
 
     public InputField forceName;
 
@@ -50,6 +55,7 @@ public class Localisation_Manager : MonoBehaviour
         hierachyNameStrings = new List<String_List_Class>();
         slotNameStrings = new List<String_List_Class>();
         fleetNameStrings = new List<String_List_Class>();
+        craftNameStrings = new List<String_List_Class>();
         List<string> fileLocations = finder.Retrieve("Localisation", ".meta");
         List<string> trooperNames = new List<string>();
         List<string> hierachyNames = new List<string>();
@@ -57,6 +63,7 @@ public class Localisation_Manager : MonoBehaviour
         List<string> slotNames = new List<string>();
         List<string> squadNames = new List<string>();
         List<string> fleetNames = new List<string>();
+        List<string> craftNames = new List<string>();
 
         foreach (string s in fileLocations)
         {
@@ -84,10 +91,15 @@ public class Localisation_Manager : MonoBehaviour
                     fleetNameStrings.Add(temp);
                     fleetNames.Add(temp.name);
                 }
+                else if (temp.listType == "VoidcraftNames")
+                {
+                    craftNameStrings.Add(temp);
+                    craftNames.Add(temp.name);
+                }
             }
             catch 
             {
-                Debug.Log("This File Failed" + s);
+                Debug.Log("This File Failed: " + s);
             }
         }
 
@@ -106,6 +118,10 @@ public class Localisation_Manager : MonoBehaviour
         fleetNamesDropdown.ClearOptions();
         fleetNamesDropdown.AddOptions(fleetNames);
         ChangedTemplateDropdown(fleetNamesDropdown);
+
+        craftNamesDropdown.ClearOptions();
+        craftNamesDropdown.AddOptions(craftNames);
+        ChangedTemplateDropdown(craftNamesDropdown);
     }
 
     //Handles changes to the dropdowns on the customisation menu
@@ -127,6 +143,10 @@ public class Localisation_Manager : MonoBehaviour
         {
             chosenFleetNamesList = fleetNameStrings[dropdown.value];
         }
+        else if (dropdown.name == "Craft Names")
+        {
+            chosenCraftNamesList = craftNameStrings[dropdown.value];
+        }
     }
 
     //Returns the names of all the currently selected string list classes
@@ -146,15 +166,20 @@ public class Localisation_Manager : MonoBehaviour
         {
             LoadStringListClass(slotNamesDropdown.options[slotNamesDropdown.value].text, "SlotNames");
         }
-        if (chosenSlotNamesList == null)
+        if (chosenFleetNamesList == null)
         {
             LoadStringListClass(fleetNamesDropdown.options[fleetNamesDropdown.value].text, "FleetNames");
+        }
+        if (chosenCraftNamesList == null)
+        {
+            LoadStringListClass(craftNamesDropdown.options[craftNamesDropdown.value].text, "CraftNames");
         }
 
         localisations.Add(chosenTrooperNamesList.name);
         localisations.Add(chosenHierachyNamesList.name);
         localisations.Add(chosenSlotNamesList.name);
         localisations.Add(chosenFleetNamesList.name);
+        localisations.Add(chosenCraftNamesList.name);
 
         return localisations;
     }
@@ -199,6 +224,16 @@ public class Localisation_Manager : MonoBehaviour
                 if (slc.name == name)
                 {
                     chosenFleetNamesList = slc;
+                }
+            }
+        }
+        else if (type == "CraftNames")
+        {
+            foreach (String_List_Class slc in craftNameStrings)
+            {
+                if (slc.name == name)
+                {
+                    chosenCraftNamesList = slc;
                 }
             }
         }
@@ -360,6 +395,32 @@ public class Localisation_Manager : MonoBehaviour
                 }
             }
         }
+        sectionCounter = -1;
+        foreach (string s in chosenCraftNamesList.stringList)
+        {
+            if (sectionCounter == -1)
+            {
+                if (s.Contains("/Craft"))
+                {
+                    sectionCounter = 0;
+                }
+                else
+                {
+                    craftPrefix = s;
+                }
+            }
+            else if (sectionCounter == 0)
+            {
+                if (s.Contains("/"))
+                {
+                    sectionCounter = 1;
+                }
+                else
+                {
+                    craftNames.Add(s);
+                }
+            }
+        }
     }
 
     //Creates trooper name
@@ -462,6 +523,27 @@ public class Localisation_Manager : MonoBehaviour
                 name = firstString + " " + secondString;
             }
             
+        }
+        else
+        {
+            Debug.Log("Type was not recognized");
+        }
+
+        return name;
+    }
+    //Creates slot name
+    public string CreateName(string type, Voidcraft_Script craft)
+    {
+        string name = "Name";
+        if (type == "CraftNames")
+        {
+            string secondString;
+
+            int random = UnityEngine.Random.Range(0, craftNames.Count);
+            secondString = craftNames[random];
+
+            name = craftPrefix + " " + secondString;
+
         }
         else
         {
@@ -786,11 +868,148 @@ public class Localisation_Manager : MonoBehaviour
         Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Hierachy Names/BritishLocalisation.xml");
     }
 
+    //Creates default craft names String Lists
+    public void DefaultCraftNames()
+    {
+        //US Hierachy List
+        String_List_Class tempSL = new String_List_Class();
+        tempSL.name = "American Craft";
+        tempSL.listType = "VoidcraftNames";
+        tempSL.stringList = new List<string>
+        {
+            "/Prefix",
+            "USS",
+            "/Craft",
+            "Abraham Lincoln",
+            "America",
+            "Barrack Obama",
+            "Benfold",
+            "California",
+            "Colorado",
+            "Devastator",
+            "Eviee",
+            "Essex",
+            "Florida",
+            "Freedom",
+            "Gerald R. Ford",
+            "George Washington",
+            "Gladiator",
+            "Georgia",
+            "Harry S. Truman",
+            "Hopper",
+            "Independence",
+            "Iwo Jima",
+            "Ivanka Trump",
+            "Jefferson",
+            "Jimmy Carter",
+            "Kentucky",
+            "Kidd",
+            "Lassen",
+            "Louisiana",
+            "Maine",
+            "Mississippi",
+            "New Mexico",
+            "New York",
+            "Nimitz",
+            "Ohio",
+            "Omaha",
+            "Patriot",
+            "Pearl Harbour",
+            "Questor",
+            "Ronald Reagan",
+            "Roosevelt",
+            "Sentry",
+            "Springfield",
+            "Tom Kirkman",
+            "Theodore Roosevelt",
+            "Umbrella",
+            "Vermont",
+            "Virginia",
+            "Washington",
+            "West Virginia",
+            "Wyoming",
+            "Zephr",
+            "Zumwalt",
+        };
+
+        var file = File.Create(finder.defaultPath + "/Localisation/Craft Names/AmericanLocalisation.xml");
+        file.Close();
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Craft Names/AmericanLocalisation.xml");
+
+
+        //British Hierachy List
+        tempSL = new String_List_Class();
+        tempSL.name = "British Craft";
+        tempSL.listType = "VoidcraftNames";
+        tempSL.stringList = new List<string>
+        {
+            "/Prefix",
+            "HMS",
+            "/Craft",
+            "Albion",
+            "Astute",
+            "Bulwark",
+            "Bridgewater",
+            "Caesar",
+            "Challenger",
+            "Dagger",
+            "Daring",
+            "Devon",
+            "Emperor",
+            "Essex",
+            "Falcon",
+            "Fearless",
+            "George IV",
+            "Gorgon",
+            "Hero",
+            "Hunter",
+            "Illustrious",
+            "Intrepid",
+            "Jackal",
+            "Jupiter",
+            "Kent",
+            "King Arthur",
+            "Lion",
+            "Locust",
+            "Mars",
+            "Minotaur",
+            "Nelson",
+            "Northampton",
+            "Oceanic",
+            "Onyx",
+            "Pearl",
+            "Pegasus",
+            "Quebec",
+            "Quality",
+            "Raider",
+            "Resolute",
+            "Salamander",
+            "Saturn",
+            "Storm",
+            "Tabard",
+            "Tribune",
+            "Union",
+            "Ursula",
+            "Valentine",
+            "Volunteer",
+            "Warrior",
+            "Westminister",
+            "Xenophon",
+            "York",
+            "Yarmouth",
+            "Zulu",
+        };
+
+        file = File.Create(finder.defaultPath + "/Localisation/Craft Names/BritishLocalisation.xml");
+        file.Close();
+        Serializer.Serialize(tempSL, finder.defaultPath + "/Localisation/Craft Names/BritishLocalisation.xml");
+    }
     //Saves the default localisation files
     public void SaveDefaults()
     {
         DefaultTrooperNames();
         DefaultSlotNames();
         DefaultHierachyNames();
+        DefaultCraftNames();
     }
 }

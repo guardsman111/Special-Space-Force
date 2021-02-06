@@ -11,6 +11,7 @@ public class System_Script : MonoBehaviour
     public System_Generator systemGenerator;
     public TextMeshPro sName;
     public TextMeshPro faction;
+    public GameObject craftIcon;
     private System_Class star;
     public float combinedOutput;
     public string allegiance;
@@ -68,6 +69,13 @@ public class System_Script : MonoBehaviour
         star.posZ = z;
         star.nPlanets = planets;
         star.Array = new List<Planet_Class>();
+
+        if (star.allegiance > 0)
+        {
+            allegiance = sysGen.generatedProduct.factions[star.allegiance].AIRace.race.empireName;
+            sName.color = sysGen.generatedProduct.factions[star.allegiance].AIRace.colour;
+            faction.color = sysGen.generatedProduct.factions[star.allegiance].AIRace.colour;
+        }
 
         //For each planet 
         for (int i = 0; i < planets; i++)
@@ -283,7 +291,8 @@ public class System_Script : MonoBehaviour
         if (star.allegiance > 0)
         {
             allegiance = save.generatedProduct.factions[star.allegiance].AIRace.race.empireName;
-            gameObject.GetComponentInChildren<TextMeshPro>().color = save.generatedProduct.factions[star.allegiance].AIRace.colour;
+            sName.color = save.generatedProduct.factions[star.allegiance].AIRace.colour;
+            faction.color = save.generatedProduct.factions[star.allegiance].AIRace.colour;
         }
 
         this.gameObject.GetComponentInChildren<TextMeshPro>().text = star.systemName;
@@ -366,5 +375,10 @@ public class System_Script : MonoBehaviour
         }
 
         return modifier;
+    }
+
+    public void ToggleCraft(bool active)
+    {
+        craftIcon.SetActive(active);
     }
 }

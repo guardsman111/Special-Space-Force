@@ -16,8 +16,13 @@ public class Manager_Script : MonoBehaviour
     public Turn_Manager turnManager;
     public Rank_Manager rankManager;
     public Voidcraft_Manager voidcraftManager;
+    public Slot_Manager sManager;
+    public Fleet_Manager fManager;
 
     private Generation_Class generatedProduct;
+
+    public Quickview_Voidcraft_Manager craftSystem;
+    public Quickview_Voidcraft_Manager craftPlanet;
 
     public Generation_Class GeneratedProduct
     {

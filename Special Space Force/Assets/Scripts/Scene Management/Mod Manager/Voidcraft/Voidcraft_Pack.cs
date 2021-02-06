@@ -6,6 +6,9 @@ public class Voidcraft_Pack : MonoBehaviour
 {
     public string type;
     public string className;
+    public int armour;
+    public int speed;
+    public int capacity;
     public int costPerCraft;
 
     public List<Void_Weapon_Class> weapons;

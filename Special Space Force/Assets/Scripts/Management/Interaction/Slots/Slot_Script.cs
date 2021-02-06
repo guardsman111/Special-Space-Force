@@ -150,6 +150,7 @@ public class Slot_Script : MonoBehaviour
     public void AddContainedTroopers(List<Trooper_Script> trooperList)
     {
         containedTroopers = trooperList;
+        slotClass.numberOfTroopers = trooperList.Count;
     }
 
     //Sets the position of the slot according to its slot height relative to the currently viewed slot
@@ -790,6 +791,11 @@ public class Slot_Script : MonoBehaviour
         slotClass.craftID = craftID;
         slotClass.systemID = systemID;
         slotClass.planetN = planetN;
+        if (slotClass.squad == true)
+        {
+            slotClass.numberOfTroopers = slotClass.containedTroopers.Count;
+        }
+
 
 
         return slotClass;
@@ -904,6 +910,24 @@ public class Slot_Script : MonoBehaviour
                 }
             }
         }
+        else if(slotClass.craftID != 0)
+        {
+            foreach (Voidcraft_Class id in manager.modManager.fManager.Craft)
+            {
+                if (id.ID == slotClass.craftID)
+                {
+                    tempS += id.craftName;
+                    location.text = tempS;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            tempS += "Mixed";
+            location.text = tempS;
+        }
         return tempS;
     }
+
 }

@@ -23,6 +23,7 @@ public class System_Click : MonoBehaviour
 
     public System_Screen systemScreen;
     public GameObject canvas;
+    public System_Voidcraft_Script mover;
 
     public Button[] UIs;
 
@@ -37,6 +38,7 @@ public class System_Click : MonoBehaviour
         starLight = GameObject.Find("Directional Light").GetComponent<Light>();
         systemScreen = systemCamera.GetComponentInChildren<System_Screen>();
         canvas = systemCamera.GetComponentInChildren<System_Screen>().gameObject;
+        mover = GameObject.Find("System Craft Viewer").GetComponent<System_Voidcraft_Script>();
     }
 
     //Toggles the Cameras depending on the current enabled camera
@@ -51,7 +53,15 @@ public class System_Click : MonoBehaviour
                 systemCamera.enabled = false;
                 systemScreenCamera.enabled = false;
                 ToggleVisiblePlanets.TogglePlanetsOn(false);
+                System_Script system = GetComponent<System_Script>();
+                system.sName.enabled = true;
+                system.faction.enabled = true;
+                if (systemScreen.QVManager.craft.Count > 0)
+                {
+                    system.craftIcon.gameObject.SetActive(true);
+                }
                 systemScreen.QVManager.CloseManager();
+                systemScreen.aManager.CloseManager();
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                 foreach(Button b in UIs)
                 {
@@ -72,7 +82,11 @@ public class System_Click : MonoBehaviour
                 systemScreen.sname.text = "System: " + system.Star.systemName;
                 systemScreen.allegiance.text = "Owner: " + system.allegiance;
                 systemScreen.output.text = "Total Output: " + system.combinedOutput.ToString("00,0") + " Kilo-Tonnes";
+                system.sName.enabled = false;
+                system.faction.enabled = false;
+                system.craftIcon.gameObject.SetActive(false);
                 systemScreen.QVManager.OpenSystem(system.Star);
+                systemScreen.aManager.OpenSystem(system.Star);
 
                 starLight.GetComponent<Light_Colour>().ChangeColour(gameObject.GetComponent<System_Script>().Star.colour);
 
@@ -88,6 +102,18 @@ public class System_Click : MonoBehaviour
         }
     }
 
+    private void OnMouseOver()
+    {
+        if (mover.canvas.enabled)
+        {
+            if (Input.GetMouseButtonUp(1))
+            {
+                System_Script system = GetComponent<System_Script>();
+                mover.MoveCraft(system);
+            }
+        }
+    }
+
     private void Update()
     {
         if (systemCamera.enabled)
@@ -98,7 +124,15 @@ public class System_Click : MonoBehaviour
                 mainCamera.enabled = true;
                 systemCamera.enabled = false;
                 systemScreenCamera.enabled = false;
+                System_Script system = GetComponent<System_Script>();
+                system.sName.enabled = true;
+                system.faction.enabled = true;
+                if (systemScreen.QVManager.craft.Count > 0)
+                {
+                    system.craftIcon.gameObject.SetActive(true);
+                }
                 systemScreen.QVManager.CloseManager();
+                systemScreen.aManager.CloseManager();
                 ToggleVisiblePlanets.TogglePlanetsOn(false);
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                 foreach (Button b in UIs)

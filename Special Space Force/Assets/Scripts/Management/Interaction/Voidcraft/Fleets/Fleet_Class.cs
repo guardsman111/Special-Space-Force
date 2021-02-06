@@ -9,6 +9,8 @@ public class Fleet_Class
     public int uID; // Unique ID given on creation
     public bool useFleetColours;
 
+    public string TemplateImageLocation;
+
     public List<Color32> fleetColours;
 
     public Fleet_Class()

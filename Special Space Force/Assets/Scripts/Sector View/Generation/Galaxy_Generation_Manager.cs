@@ -188,6 +188,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             localisationManager.LoadStringListClass(product.chosenLocalisationList[1], "HierachyNames");
             localisationManager.LoadStringListClass(product.chosenLocalisationList[2], "SlotNames");
             slotGenerator.LoadSlots(save.topSlots);
+            fleetGenerator.LoadFleets(save.fleets);
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             modManager.factionManager.Load(systemGenerator.GeneratedSystems, product.factions);
             modManager.turnManager.FirstTurn(product);
@@ -206,7 +207,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             save.systems = systemGenerator.SystemsList;
             save.generatedProduct = product;
             save.topSlots = slotGenerator.FindDefaultSlots();
-            save.fleets = fleetGenerator.SetDefaultFleets();
+            save.fleets = fleetGenerator.FindDefaultFleets();
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
             modManager.turnManager.FirstTurn(product);

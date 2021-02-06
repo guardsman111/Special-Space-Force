@@ -877,4 +877,20 @@ public class Slot_Manager : MonoBehaviour
             }
         }
     }
+
+
+    public void MoveSlotLocation(Slot_Class slot, string newLocT, int newID, int planetNumber)
+    {
+        if (newLocT == "Craft")
+        {
+            slot.craftID = newID;
+            slot.systemID = 0;
+        }
+        else if (newLocT == "Planet")
+        {
+            slot.craftID = 0;
+            slot.systemID = newID;
+            slot.planetN = planetNumber;
+        }
+    }
 }
