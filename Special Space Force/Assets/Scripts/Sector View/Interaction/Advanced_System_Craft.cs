@@ -51,6 +51,7 @@ public class Advanced_System_Craft : System_Craft
         capacity.text = linkedCraft.capacity.ToString();
         capacityF.text = linkedCraft.capacityF.ToString();
         location.text = linkedScript.GetStat("Location");
+        advManager.ReloadDropdowns(load, unload, this);
     }
 
     public void LoadSlots(Dropdown dropdown)
@@ -58,7 +59,6 @@ public class Advanced_System_Craft : System_Craft
         if (dropdown.value != 0)
         {
             advManager.LoadSlot(availableSlots[dropdown.value - 1], this, dropdown.value);
-            advManager.ReloadDropdowns(load, unload, this);
             dropdown.value = 0;
         }
 
@@ -69,7 +69,6 @@ public class Advanced_System_Craft : System_Craft
         if (dropdown.value != 0)
         {
             advManager.UnloadSlot(containedSlots[dropdown.value - 1], this, dropdown.value);
-            advManager.ReloadDropdowns(load, unload, this);
             dropdown.value = 0;
         }
 

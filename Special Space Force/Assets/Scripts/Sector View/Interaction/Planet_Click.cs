@@ -51,6 +51,7 @@ public class Planet_Click : MonoBehaviour
                     star.enabled = false;
                     planetCamera.enabled = true;
                     planetScreenCamera.enabled = true;
+                    planetScreen.GetComponent<Canvas>().enabled = true;
                     ToggleVisiblePlanets.TogglePlanetsOn(false);
                     this.gameObject.SetActive(true);
 
@@ -103,6 +104,7 @@ public class Planet_Click : MonoBehaviour
                     planetScreen.planetBiome.text = "Prevalent Biome: " + sPlanet.planet.biome;
                     planetScreen.planetSize.text = "Earth Size Ratio: " + earthRelativePlanetSize / 100.0f + " Earth(s)";
                     planetScreen.systemScreen.QVManager.enabled = false;
+                    planetScreen.QVManager.gameObject.SetActive(true);
                     planetScreen.QVManager.enabled = true;
                     planetScreen.QVManager.OpenPlanet(sPlanet, sPlanet.parentSystem);
                     planetScreen.QVManager.screenCamera.GetComponent<Camera_Targeted>().SetDefaults(sPlanet.gameObject);
@@ -233,6 +235,7 @@ public class Planet_Click : MonoBehaviour
                 planetScreen.QVManager.CloseManager();
                 planetScreen.QVManager.ClosePlanetSlider();
                 planetScreen.QVManager.enabled = false;
+                planetScreen.GetComponent<Canvas>().enabled = false;
                 ToggleVisiblePlanets.TogglePlanetsOn(true);
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
                 systemCamera.GetComponent<Camera_Container_Script>().planetHelper.HideHelper();

@@ -160,6 +160,9 @@ public class Quickview_Voidcraft_Manager : MonoBehaviour
 
     public void ClosePlanetSlider()
     {
-        GetComponent<Slider_Script>().Slide();
+        if (GetComponent<Slider_Script>().pulledOut)
+        {
+            GetComponent<Slider_Script>().Slide();
+        }
     }
 }

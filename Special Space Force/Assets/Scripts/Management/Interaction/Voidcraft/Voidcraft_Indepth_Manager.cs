@@ -119,7 +119,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
             {
                 if (sc.systemID == currentSystem.uID)
                 {
-                    if (sc.numberOfTroopers < voidcraft.linkedCraft.capacity)
+                    if (sc.numberOfTroopers < voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF)
                     {
                         nOptions.Add("-" + sc.slotName);
                         voidcraft.availableSlots.Add(sc);
@@ -174,17 +174,17 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
                         nOptions.Add((additive + "-" + sc.slotName));
                         voidcraft.availableSlots.Add(sc);
                     }
-                    CheckOption(sc, voidcraft, additive + slot.slotName[0]);
+                    CheckOption(sc, voidcraft, additive + sc.slotName[0]);
                 }
                 else //Probably shouldn't do this right here, should change it with a pass through once the child slot locations have been confirmed
                 {
-                    CheckOption(sc, voidcraft, additive + slot.slotName[0]);
+                    CheckOption(sc, voidcraft, additive + sc.slotName[0]);
                     //slot.systemID = 0;
                 }
             }
             else
             {
-                CheckOption(sc, voidcraft, additive + slot.slotName[0]);
+                CheckOption(sc, voidcraft, additive + sc.slotName[0]);
             }
         }
     }
@@ -193,35 +193,48 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
     public void ChangeParent(Slot_Class slot)
     {
         bool found = false;
+        bool different = false;
 
         foreach (Slot_Class sc in manager.sManager.slotN1.GetComponent<Slot_Script>().slotClass.containedSlots)
         {
             if (sc.containedSlots.Contains(slot)) //If sc is parent of slot
             {
-                if (sc.containedSlots.IndexOf(slot) == 0)
+                found = true;
+                different = CheckSiblings(slot, sc);
+                if (different == false)
                 {
                     sc.systemID = slot.systemID;
-                    sc.craftID = slot.craftID;
                     sc.planetN = slot.planetN;
+                    sc.craftID = slot.craftID;
                 }
                 else
                 {
                     sc.systemID = 0;
-                    sc.craftID = 0;
                     sc.planetN = 0;
+                    sc.craftID = 0;
                 }
             }
             else
             {
-                found = ChangeParent(slot, sc); //If not check children of sc 
+                found = ChangeParent(slot, sc);
+                if (found)
+                {
+                    different = CheckSiblings(slot, sc);
+                    if (different == false)
+                    {
+                        sc.systemID = slot.systemID;
+                        sc.planetN = slot.planetN;
+                        sc.craftID = slot.craftID;
+                    }
+                    else
+                    {
+                        sc.systemID = 0;
+                        sc.planetN = 0;
+                        sc.craftID = 0;
+                    }
+                }
             }
 
-            if (found) //If one of the slots deep in the heirarchy is the parent, it returns through all the parent slots and changes their locations
-            {
-                sc.systemID = 0;
-                sc.craftID = 0;
-                sc.planetN = 0;
-            }
         }
 
     }
@@ -229,38 +242,86 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
     public bool ChangeParent(Slot_Class slot, Slot_Class checkingSlot)
     {
         bool found = false;
+        bool different = false;
 
         foreach (Slot_Class sc in checkingSlot.containedSlots)
         {
-            if (sc.containedSlots.Contains(slot))
+            if (sc.containedSlots.Contains(slot)) //If sc is parent of slot
             {
-                if (sc.containedSlots.IndexOf(slot) == 0)
+                Debug.Log("Child is slot");
+                found = true;
+                different = CheckSiblings(slot, sc);
+                if (different == false)
                 {
                     sc.systemID = slot.systemID;
-                    sc.craftID = slot.craftID;
                     sc.planetN = slot.planetN;
+                    checkingSlot.systemID = slot.systemID;
+                    checkingSlot.planetN = slot.planetN;
+                    sc.craftID = slot.craftID;
+                    checkingSlot.craftID = slot.craftID;
                 }
                 else
                 {
                     sc.systemID = 0;
-                    sc.craftID = 0;
                     sc.planetN = 0;
+                    sc.craftID = 0;
+                    checkingSlot.systemID = 0;
+                    checkingSlot.planetN = 0;
+                    checkingSlot.craftID = 0;
                 }
+                break;
             }
-            else
+            else //If not check children of sc if they are parent of slot - returns true if finds the parent in one of it's children
             {
                 found = ChangeParent(slot, sc);
-            }
-
-            if (found) //If one of the slots deep in the heirarchy is the parent, it returns through all the parent slots and changes their locations
-            {
-                sc.systemID = 0;
-                sc.craftID = 0;
-                sc.planetN = 0;
+                if (found)
+                {
+                    different = CheckSiblings(slot, sc);
+                    if (different == false)
+                    {
+                        sc.systemID = slot.systemID;
+                        sc.planetN = slot.planetN;
+                        checkingSlot.systemID = slot.systemID;
+                        checkingSlot.planetN = slot.planetN;
+                        sc.craftID = slot.craftID;
+                        checkingSlot.craftID = slot.craftID;
+                    }
+                    else
+                    {
+                        sc.systemID = 0;
+                        sc.planetN = 0;
+                        sc.craftID = 0;
+                        checkingSlot.systemID = 0;
+                        checkingSlot.planetN = 0;
+                        checkingSlot.craftID = 0;
+                    }
+                    break;
+                }
             }
         }
 
         return found;
+    }
+
+    public bool CheckSiblings(Slot_Class slot, Slot_Class checkingSlot)
+    {
+        bool different = false;
+
+        foreach (Slot_Class sc in checkingSlot.containedSlots)
+        { 
+            if(sc.systemID != slot.systemID)
+            {
+                different = true;
+                break;
+            }
+            else if (sc.craftID != slot.craftID)
+            {
+                different = true;
+                break;
+            }
+        }
+
+        return different;
     }
 
 
@@ -276,30 +337,32 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
         }
     }
 
-    public void LoadSlot(Slot_Class slot, Advanced_System_Craft craft, int value)
+    public void LoadSlot(Slot_Class slot, Advanced_System_Craft voidcraft, int value)
     {
-        manager.sManager.MoveSlotLocation(slot, "Craft", craft.linkedCraft.ID, 0);
-        craft.linkedCraft.uIDTransported.Add(slot.uID);
-        craft.linkedScript.carriedSlots.Add(slot);
+        manager.sManager.MoveSlotLocation(slot, "Craft", voidcraft.linkedCraft.ID, 0);
+        voidcraft.linkedCraft.uIDTransported.Add(slot.uID);
+        voidcraft.linkedScript.carriedSlots.Add(slot);
 
-        RemoveFromDropdown("Load", value, craft);
+        RemoveFromDropdown("Load", value, voidcraft);
 
         foreach (Slot_Class sc in slot.containedSlots)
         {
-            LoadChild(sc, craft, value);
+            LoadChild(sc, voidcraft, value);
         }
 
         int carried = 0;
-        foreach (Slot_Class sc in craft.linkedScript.carriedSlots)
+        foreach (Slot_Class sc in voidcraft.linkedScript.carriedSlots)
         {
             if (sc.squad)
             {
                 carried += sc.numberOfTroopers;
             }
         }
-        craft.linkedCraft.capacityF = carried;
+        voidcraft.linkedCraft.capacityF = carried;
 
-        craft.DoUpdate();
+        ChangeParent(slot);
+
+        UpdateCraft();
     }
 
     public void LoadChild(Slot_Class slot, Advanced_System_Craft craft, int value)
@@ -309,37 +372,34 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
         craft.linkedScript.carriedSlots.Add(slot); //This is linked to the craft's contained slots
 
         RemoveFromDropdown("Load", value, craft);
-
-        foreach (Slot_Class sc in slot.containedSlots)
-        {
-            LoadChild(sc, craft, value);
-        }
     }
 
-    public void UnloadSlot(Slot_Class slot, Advanced_System_Craft craft, int value)
+    public void UnloadSlot(Slot_Class slot, Advanced_System_Craft voidcraft, int value)
     {
-        manager.sManager.MoveSlotLocation(slot, "Planet", craft.linkedCraft.starID, craft.linkedCraft.planetN);
-        craft.linkedCraft.uIDTransported.RemoveAt(value - 1);
-        craft.linkedScript.carriedSlots.RemoveAt(value - 1);
+        manager.sManager.MoveSlotLocation(slot, "Planet", voidcraft.linkedCraft.starID, voidcraft.linkedCraft.planetN);
+        voidcraft.linkedCraft.uIDTransported.RemoveAt(value - 1);
+        voidcraft.linkedScript.carriedSlots.RemoveAt(value - 1);
 
-        RemoveFromDropdown("Unload", value, craft);
+        RemoveFromDropdown("Unload", value, voidcraft);
 
         foreach (Slot_Class sc in slot.containedSlots)
         {
-            UnloadChild(sc, craft, value);
+            UnloadChild(sc, voidcraft, value);
         }
 
         int carried = 0;
-        foreach (Slot_Class sc in craft.linkedScript.carriedSlots)
+        foreach (Slot_Class sc in voidcraft.linkedScript.carriedSlots)
         {
             if (sc.squad)
             {
                 carried += sc.numberOfTroopers;
             }
         }
-        craft.linkedCraft.capacityF = carried;
+        voidcraft.linkedCraft.capacityF = carried;
 
-        craft.DoUpdate();
+        ChangeParent(slot);
+
+        UpdateCraft();
     }
 
     public void UnloadChild(Slot_Class slot, Advanced_System_Craft craft, int value)
