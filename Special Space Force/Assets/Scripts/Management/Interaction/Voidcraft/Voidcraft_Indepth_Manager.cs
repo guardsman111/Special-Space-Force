@@ -16,6 +16,12 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
     public GameObject craftSpace1;
 
+    public Dropdown loadMenu;
+    public Dropdown unloadMenu;
+
+    private Voidcraft_Script selectedCraft;
+    private Advanced_System_Craft advancedCraft;
+
     List<string> nOptions;
 
     public void OpenSystem(System_Class system)
@@ -107,56 +113,183 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
     public void ReloadDropdowns(Dropdown Load, Dropdown Unload, Advanced_System_Craft voidcraft)
     {
-        voidcraft.availableSlots.Clear();
-        Load.ClearOptions();
-        nOptions = new List<string>();
-
-        nOptions.Add("None");
-
-        foreach (Slot_Class sc in manager.sManager.slotN1.GetComponent<Slot_Script>().slotClass.containedSlots)
+        if (currentSystem.allegiance == 0)
         {
-            if (sc.systemID != 0)
+            voidcraft.availableSlots.Clear();
+            Load.ClearOptions();
+            nOptions = new List<string>();
+
+            nOptions.Add("None");
+
+            foreach (Slot_Class sc in manager.sManager.slotN1.GetComponent<Slot_Script>().slotClass.containedSlots)
             {
-                if (sc.systemID == currentSystem.uID)
+                if (sc.systemID != 0)
                 {
-                    if (sc.numberOfTroopers < voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF)
+                    if (sc.systemID == currentSystem.uID)
                     {
-                        nOptions.Add("-" + sc.slotName);
-                        voidcraft.availableSlots.Add(sc);
+                        if (sc.numberOfTroopers < voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF)
+                        {
+                            nOptions.Add("-" + sc.slotName);
+                            voidcraft.availableSlots.Add(sc);
+                        }
+                        CheckOption(sc, voidcraft, "");
                     }
-                    CheckOption(sc, voidcraft, "");
+                    else
+                    {
+                        CheckOption(sc, voidcraft, "");
+                        //ChangeParent(sc);
+                    }
                 }
                 else
                 {
                     CheckOption(sc, voidcraft, "");
-                    //ChangeParent(sc);
                 }
             }
-            else
+
+            if (nOptions.Count > 0)
             {
-                CheckOption(sc, voidcraft, "");
+                Load.AddOptions(nOptions);
+            }
+
+
+            Unload.ClearOptions();
+            nOptions = new List<string>();
+            List<int> removing = new List<int>();
+
+            nOptions.Add("None");
+
+            for (int i = 0; i < voidcraft.linkedScript.carriedSlots.Count; i++)
+            {
+                if (voidcraft.linkedScript.carriedSlots[i].craftID == voidcraft.linkedCraft.ID)
+                {
+                    nOptions.Add("-" + voidcraft.linkedScript.carriedSlots[i].slotName);
+                }
+                else
+                {
+                    removing.Add(i);
+                }
+            }
+
+            if (nOptions.Count > 0)
+            {
+                Unload.AddOptions(nOptions);
+            }
+        }
+        else
+        {
+            Load.ClearOptions();
+            nOptions = new List<string>();
+
+            nOptions.Add("Hostile Territory!");
+            Load.AddOptions(nOptions);
+
+            Unload.ClearOptions();
+            nOptions = new List<string>();
+
+            nOptions.Add("Coming in Version 0.4!");
+            Unload.AddOptions(nOptions);
+        }
+
+    }
+
+    public void MenuCraftDropdowns(Voidcraft_Script voidcraft)
+    {
+        if (advancedCraft == null)
+        {
+            advancedCraft = new Advanced_System_Craft();
+
+            advancedCraft.availableSlots = new List<Slot_Class>();
+            advancedCraft.advManager = this;
+        }
+        advancedCraft.linkedScript = voidcraft;
+        advancedCraft.linkedCraft = voidcraft.craftClass;
+        advancedCraft.containedSlots = voidcraft.carriedSlots;
+
+        selectedCraft = voidcraft;
+
+        foreach(System_Script sc in manager.sectorManager.systems)
+        {
+            if(sc.Star.uID == voidcraft.craftClass.starID)
+            {
+                currentSystem = sc.Star;
             }
         }
 
-        if (nOptions.Count > 0)
+        if (currentSystem.allegiance == 0)
         {
-            Load.AddOptions(nOptions);
+            advancedCraft.availableSlots.Clear();
+            loadMenu.ClearOptions();
+            nOptions = new List<string>();
+
+            nOptions.Add("None");
+
+            foreach (Slot_Class sc in manager.sManager.slotN1.GetComponent<Slot_Script>().slotClass.containedSlots)
+            {
+                if (sc.systemID != 0)
+                {
+                    if (sc.systemID == currentSystem.uID)
+                    {
+                        if (sc.numberOfTroopers < voidcraft.craftClass.capacity - voidcraft.craftClass.capacityF)
+                        {
+                            nOptions.Add("-" + sc.slotName);
+                            advancedCraft.availableSlots.Add(sc);
+                        }
+                        CheckOption(sc, advancedCraft, "");
+                    }
+                    else
+                    {
+                        CheckOption(sc, advancedCraft, "");
+                        //ChangeParent(sc);
+                    }
+                }
+                else
+                {
+                    CheckOption(sc, advancedCraft, "");
+                }
+            }
+
+            if (nOptions.Count > 0)
+            {
+                loadMenu.AddOptions(nOptions);
+            }
+
+
+            unloadMenu.ClearOptions();
+            nOptions = new List<string>();
+            List<int> removing = new List<int>();
+
+            nOptions.Add("None");
+
+            for (int i = 0; i < voidcraft.carriedSlots.Count; i++)
+            {
+                if (voidcraft.carriedSlots[i].craftID == voidcraft.craftClass.ID)
+                {
+                    nOptions.Add("-" + voidcraft.carriedSlots[i].slotName);
+                }
+                else
+                {
+                    removing.Add(i);
+                }
+            }
+
+            if (nOptions.Count > 0)
+            {
+                unloadMenu.AddOptions(nOptions);
+            }
         }
-
-
-        Unload.ClearOptions();
-        nOptions = new List<string>();
-
-        nOptions.Add("None");
-
-        foreach (Slot_Class sc in voidcraft.linkedScript.carriedSlots)
+        else
         {
-            nOptions.Add("-" + sc.slotName);
-        }
+            loadMenu.ClearOptions();
+            nOptions = new List<string>();
 
-        if (nOptions.Count > 0)
-        {
-            Unload.AddOptions(nOptions);
+            nOptions.Add("Hostile Territory!");
+            loadMenu.AddOptions(nOptions);
+
+            loadMenu.ClearOptions();
+            nOptions = new List<string>();
+
+            nOptions.Add("Coming in Version 0.4!");
+            loadMenu.AddOptions(nOptions);
         }
 
     }
@@ -343,7 +476,6 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
         voidcraft.linkedCraft.uIDTransported.Add(slot.uID);
         voidcraft.linkedScript.carriedSlots.Add(slot);
 
-        RemoveFromDropdown("Load", value, voidcraft);
 
         foreach (Slot_Class sc in slot.containedSlots)
         {
@@ -365,39 +497,50 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
         UpdateCraft();
     }
 
-    public void LoadChild(Slot_Class slot, Advanced_System_Craft craft, int value)
+    public void LoadChild(Slot_Class slot, Advanced_System_Craft voidcraft, int value)
     {
-        manager.sManager.MoveSlotLocation(slot, "Craft", craft.linkedCraft.ID, 0);
-        craft.linkedCraft.uIDTransported.Add(slot.uID);
-        craft.linkedScript.carriedSlots.Add(slot); //This is linked to the craft's contained slots
+        manager.sManager.MoveSlotLocation(slot, "Craft", voidcraft.linkedCraft.ID, 0);
+        voidcraft.linkedCraft.uIDTransported.Add(slot.uID);
+        voidcraft.linkedScript.carriedSlots.Add(slot); //This is linked to the craft's contained slots
 
-        RemoveFromDropdown("Load", value, craft);
+        foreach (Slot_Class sc in slot.containedSlots)
+        {
+            LoadChild(sc, voidcraft, value);
+        }
     }
 
     public void UnloadSlot(Slot_Class slot, Advanced_System_Craft voidcraft, int value)
     {
         manager.sManager.MoveSlotLocation(slot, "Planet", voidcraft.linkedCraft.starID, voidcraft.linkedCraft.planetN);
         voidcraft.linkedCraft.uIDTransported.RemoveAt(value - 1);
-        voidcraft.linkedScript.carriedSlots.RemoveAt(value - 1);
-
-        RemoveFromDropdown("Unload", value, voidcraft);
 
         foreach (Slot_Class sc in slot.containedSlots)
         {
             UnloadChild(sc, voidcraft, value);
         }
 
-        int carried = 0;
-        foreach (Slot_Class sc in voidcraft.linkedScript.carriedSlots)
-        {
-            if (sc.squad)
-            {
-                carried += sc.numberOfTroopers;
-            }
-        }
-        voidcraft.linkedCraft.capacityF = carried;
 
         ChangeParent(slot);
+
+        int carried = 0;
+
+        for (int i = 0; i < voidcraft.linkedScript.carriedSlots.Count; i++)
+        {
+            if (voidcraft.linkedScript.carriedSlots[i].craftID == voidcraft.linkedCraft.ID)
+            {
+                if (voidcraft.linkedScript.carriedSlots[i].squad)
+                {
+                    carried += voidcraft.linkedScript.carriedSlots[i].numberOfTroopers;
+                }
+            }
+            else
+            {
+                voidcraft.linkedScript.carriedSlots.RemoveAt(i);
+                i -= 1;
+            }
+        }
+
+        voidcraft.linkedCraft.capacityF = carried;
 
         UpdateCraft();
     }
@@ -406,9 +549,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
     {
         manager.sManager.MoveSlotLocation(slot, "Planet", craft.linkedCraft.starID, craft.linkedCraft.planetN);
         craft.linkedCraft.uIDTransported.RemoveAt(value - 1);
-        craft.linkedScript.carriedSlots.RemoveAt(value - 1);
 
-        RemoveFromDropdown("Unload", value, craft);
 
         foreach (Slot_Class sc in slot.containedSlots)
         {
@@ -416,15 +557,90 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
         }
     }
 
-
-    public void RemoveFromDropdown(string type, int value, Advanced_System_Craft sCraft)
+    public void LoadSlot(Dropdown dropdown)
     {
-        if(type == "Load")
+        Slot_Class slot = advancedCraft.availableSlots[dropdown.value - 1];
+        manager.sManager.MoveSlotLocation(slot, "Craft", selectedCraft.craftClass.ID, 0);
+        selectedCraft.craftClass.uIDTransported.Add(slot.uID);
+        selectedCraft.carriedSlots.Add(slot);
+
+
+        foreach (Slot_Class sc in slot.containedSlots)
         {
+            LoadChild(sc, dropdown.value);
         }
-        if (type == "Unload")
+
+        int carried = 0;
+        foreach (Slot_Class sc in selectedCraft.carriedSlots)
         {
-            sCraft.unload.options.RemoveAt(value);
+            if (sc.squad)
+            {
+                carried += sc.numberOfTroopers;
+            }
+        }
+        selectedCraft.craftClass.capacityF = carried;
+
+        ChangeParent(slot);
+
+        advancedCraft.DoUpdateFake();
+    }
+
+    public void LoadChild(Slot_Class slot,  int value)
+    {
+        manager.sManager.MoveSlotLocation(slot, "Craft", selectedCraft.craftClass.ID, 0);
+        selectedCraft.craftClass.uIDTransported.Add(slot.uID);
+        selectedCraft.carriedSlots.Add(slot);
+
+        foreach (Slot_Class sc in slot.containedSlots)
+        {
+            LoadChild(sc, value);
+        }
+    }
+
+    public void UnloadSlot(Dropdown dropdown)
+    {
+        Slot_Class slot = selectedCraft.carriedSlots[dropdown.value - 1];
+        manager.sManager.MoveSlotLocation(slot, "Planet", selectedCraft.craftClass.starID, selectedCraft.craftClass.planetN);
+        selectedCraft.craftClass.uIDTransported.RemoveAt(dropdown.value - 1);
+
+        foreach (Slot_Class sc in slot.containedSlots)
+        {
+            UnloadChild(sc, dropdown.value);
+        }
+
+        ChangeParent(slot);
+
+        int carried = 0;
+
+        for (int i = 0; i < selectedCraft.carriedSlots.Count; i++)
+        {
+            if (selectedCraft.carriedSlots[i].craftID == selectedCraft.craftClass.ID)
+            {
+                if (selectedCraft.carriedSlots[i].squad)
+                {
+                    carried += selectedCraft.carriedSlots[i].numberOfTroopers;
+                }
+            }
+            else
+            {
+                selectedCraft.carriedSlots.RemoveAt(i);
+                i -= 1;
+            }
+        }
+
+        selectedCraft.craftClass.capacityF = carried;
+
+        advancedCraft.DoUpdateFake();
+    }
+
+    public void UnloadChild(Slot_Class slot, int value)
+    {
+        manager.sManager.MoveSlotLocation(slot, "Planet", selectedCraft.craftClass.starID, selectedCraft.craftClass.planetN);
+        selectedCraft.craftClass.uIDTransported.RemoveAt(value - 1);
+
+        foreach (Slot_Class sc in slot.containedSlots)
+        {
+            UnloadChild(sc, value);
         }
     }
 

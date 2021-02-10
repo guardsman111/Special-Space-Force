@@ -54,6 +54,12 @@ public class Advanced_System_Craft : System_Craft
         advManager.ReloadDropdowns(load, unload, this);
     }
 
+    //Does an update for the Fleet manager menu where we don't need to see a visual change to the advanced craft
+    public void DoUpdateFake()
+    {
+        advManager.MenuCraftDropdowns(linkedScript);
+    }
+
     public void LoadSlots(Dropdown dropdown)
     {
         if (dropdown.value != 0)

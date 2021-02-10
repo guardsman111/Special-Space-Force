@@ -54,8 +54,8 @@ public class System_Click : MonoBehaviour
                 systemScreenCamera.enabled = false;
                 ToggleVisiblePlanets.TogglePlanetsOn(false);
                 System_Script system = GetComponent<System_Script>();
-                system.sName.enabled = true;
-                system.faction.enabled = true;
+                system.SName.enabled = true;
+                system.Faction.enabled = true;
                 if (systemScreen.QVManager.craft.Count > 0)
                 {
                     system.craftIcon.gameObject.SetActive(true);
@@ -82,8 +82,8 @@ public class System_Click : MonoBehaviour
                 systemScreen.sname.text = "System: " + system.Star.systemName;
                 systemScreen.allegiance.text = "Owner: " + system.allegiance;
                 systemScreen.output.text = "Total Output: " + system.combinedOutput.ToString("00,0") + " Kilo-Tonnes";
-                system.sName.enabled = false;
-                system.faction.enabled = false;
+                system.SName.enabled = false;
+                system.Faction.enabled = false;
                 system.craftIcon.gameObject.SetActive(false);
                 systemScreen.QVManager.OpenSystem(system.Star);
                 systemScreen.aManager.OpenSystem(system.Star);
@@ -106,11 +106,33 @@ public class System_Click : MonoBehaviour
     {
         if (mover.canvas.enabled)
         {
+            if (systemScreen.mouseHoverer.active == false)
+            {
+                System_Script system = GetComponent<System_Script>();
+                float distance = Vector3.Distance(mover.CurrentSystem.transform.position, system.transform.position);
+                int turns = (int)distance / 1000;
+                systemScreen.mouseHoverer.Display();
+
+                systemScreen.mouseHoverer.ChangeNTurns(turns);
+
+                systemScreen.mouseHoverer.transform.localPosition = new Vector3(Input.mousePosition.x - (Screen.width/2), Input.mousePosition.y - (Screen.height/2));
+            }
+
             if (Input.GetMouseButtonUp(1))
             {
                 System_Script system = GetComponent<System_Script>();
-                mover.MoveCraft(system);
+                float distance = Vector3.Distance(mover.CurrentSystem.transform.position, system.transform.position);
+                int turns = (int)distance / 1000;
+                mover.MoveCraft(system, turns);
             }
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (systemScreen.mouseHoverer.active == true)
+        {
+            systemScreen.mouseHoverer.DisplayOff();
         }
     }
 
@@ -120,26 +142,30 @@ public class System_Click : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                systemCamera.transform.position = mainCamera.transform.position;
-                mainCamera.enabled = true;
-                systemCamera.enabled = false;
-                systemScreenCamera.enabled = false;
-                System_Script system = GetComponent<System_Script>();
-                system.sName.enabled = true;
-                system.faction.enabled = true;
-                if (systemScreen.QVManager.craft.Count > 0)
+                if (systemCamera.transform.position == cameraTransform.position)
                 {
-                    system.craftIcon.gameObject.SetActive(true);
+                    systemCamera.transform.position = mainCamera.transform.position;
+                    mainCamera.enabled = true;
+                    systemCamera.enabled = false;
+                    systemScreenCamera.enabled = false;
+                    ToggleVisiblePlanets.TogglePlanetsOn(false);
+                    System_Script system = GetComponent<System_Script>();
+                    system.SName.enabled = true;
+                    system.Faction.enabled = true;
+                    if (systemScreen.QVManager.craft.Count > 0)
+                    {
+                        system.craftIcon.gameObject.SetActive(true);
+                    }
+                    systemScreen.QVManager.CloseManager();
+                    systemScreen.aManager.CloseManager();
+                    systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
+                    foreach (Button b in UIs)
+                    {
+                        b.gameObject.SetActive(true);
+                    }
+                    systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.ShowHelper();
+                    canvas.SetActive(false);
                 }
-                systemScreen.QVManager.CloseManager();
-                systemScreen.aManager.CloseManager();
-                ToggleVisiblePlanets.TogglePlanetsOn(false);
-                systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
-                foreach (Button b in UIs)
-                {
-                    b.gameObject.SetActive(true);
-                }
-                systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.ShowHelper();
             }
         }
     }

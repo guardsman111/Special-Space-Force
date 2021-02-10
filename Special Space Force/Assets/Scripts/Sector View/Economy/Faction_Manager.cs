@@ -7,6 +7,7 @@ public class Faction_Manager : MonoBehaviour
     [SerializeField]
     private List<Faction_Class> factions;
     public List<Faction_Script> factionScripts;
+    public Manager_Script modManager;
     public Force_Manager forceManager;
     public Slot_Manager slotManager;
     public Fleet_Manager fleetManager;
@@ -51,7 +52,7 @@ public class Faction_Manager : MonoBehaviour
             factionScripts[i].controlledSystems = new List<System_Script>();
             factionScripts[i].controlledPlanets = new List<Planet_Script>();
         }
-        
+
         foreach (Faction_Script fs in factionScripts)
         {
             fs.faction.controlledSystems = new List<System_Class>();
@@ -115,7 +116,7 @@ public class Faction_Manager : MonoBehaviour
                 }
             }
         }
-    } 
+    }
 
     public List<Faction_Class> GenerateFactions(List<AI_Class> AI)
     {
@@ -167,7 +168,7 @@ public class Faction_Manager : MonoBehaviour
         factions[0].expansionism = product.expansionism;
         factions[0].industrialism = product.industrialism;
 
-        foreach(Planet_Script planet in factionScripts[0].controlledPlanets)
+        foreach (Planet_Script planet in factionScripts[0].controlledPlanets)
         {
             planet.Stats.GenerateMilitary(product.militarism);
         }
@@ -181,16 +182,15 @@ public class Faction_Manager : MonoBehaviour
         {
             sc.systemID = factionScripts[0].controlledSystems[0].Star.uID;
             sc.planetN = planetNumber;
-            foreach(Slot_Class sc2 in sc.containedSlots)
+            foreach (Slot_Class sc2 in sc.containedSlots)
             {
                 SetupSlotLocation(sc2, planetNumber);
             }
         }
-        foreach(Voidcraft_Class vc in fleetManager.Craft)
+        foreach (Voidcraft_Class vc in fleetManager.Craft)
         {
             vc.starID = factionScripts[0].controlledSystems[0].Star.uID;
             vc.planetN = planetNumber;
-            MoveCraftToSystem();
         }
         factionScripts[0].controlledSystems[0].ToggleCraft(true);
     }
@@ -211,7 +211,7 @@ public class Faction_Manager : MonoBehaviour
 
         float popFactor = 1;
 
-        if(planet.population > 1000)
+        if (planet.population > 1000)
         {
             popFactor = 2;
         }
@@ -243,8 +243,8 @@ public class Faction_Manager : MonoBehaviour
         if (planet.Stats.popHappiness == 0)
         {
             popFactor = popFactor / 3;
-        } 
-        else if(planet.Stats.popHappiness < 0.2)
+        }
+        else if (planet.Stats.popHappiness < 0.2)
         {
             popFactor = popFactor / 2;
         }
@@ -284,7 +284,7 @@ public class Faction_Manager : MonoBehaviour
         int pMetals = 0;
         int agri = 0;
 
-        if(planet.planet.baseMetalsAmount < 10)
+        if (planet.planet.baseMetalsAmount < 10)
         {
             bMetals = 0;
         }
@@ -387,7 +387,7 @@ public class Faction_Manager : MonoBehaviour
                 export = "Industrial Materials, Voidcraft Materials";
             }
         }
-        
+
         if (pMetals == 2)
         {
             if (export == null)
@@ -478,13 +478,13 @@ public class Faction_Manager : MonoBehaviour
             }
         }
 
-        if(agri == 0 && bMetals == 0 && pMetals == 0)
+        if (agri == 0 && bMetals == 0 && pMetals == 0)
         {
             export = "Voidcraft and Voidcraft Fuels";
         }
 
         return export;
-        
+
     }
 
     //Does AI Building for Player Faction
@@ -496,7 +496,7 @@ public class Faction_Manager : MonoBehaviour
 
         int currentlyBuilding = 0;
 
-        foreach(Planet_Script planet in playerFaction.controlledPlanets)
+        foreach (Planet_Script planet in playerFaction.controlledPlanets)
         {
             if (planet.building)
             {
@@ -589,7 +589,67 @@ public class Faction_Manager : MonoBehaviour
         factionScripts[allegiance].controlledPlanets.Add(planet);
     }
 
-    public void MoveCraftToSystem()
+    //Sets up the travelling craft to complete its journey in a number of turns
+    public void MoveCraftToSystem(System_Script destinationSystem, System_Script previousSystem, Voidcraft_Class voidcraft, int nTurns)
     {
+        List<Travelling_Voidcraft_Class> tCraft = factions[0].travellingCraft;
+
+        if (tCraft == null)
+        {
+            factions[0].travellingCraft = new List<Travelling_Voidcraft_Class>();
+            tCraft = factions[0].travellingCraft;
+        }
+
+        Travelling_Voidcraft_Class tempVC = new Travelling_Voidcraft_Class();
+
+        tempVC.voidcraftUID = voidcraft.ID;
+        tempVC.departedUID = previousSystem.Star.uID;
+        tempVC.destinationUID = destinationSystem.Star.uID;
+        tempVC.nTurnsLeft = nTurns;
+
+        tCraft.Add(tempVC);
+
+        Debug.Log(factions[0].travellingCraft.Count);
+
+        voidcraft.starID = 0;
+        voidcraft.planetN = 0;
+    }
+
+    //Turn based movement for all travelling craft
+    public void MoveCraft()
+    {
+        List<Travelling_Voidcraft_Class> tCraft = factions[0].travellingCraft;
+        if (tCraft.Count != 0)
+        {
+            foreach (Travelling_Voidcraft_Class tc in tCraft)
+            {
+                if (tc.nTurnsLeft > 1) //if still time left on the journey -1 turn
+                {
+                    tc.nTurnsLeft -= 1;
+                }
+                else //else end the journey
+                {
+                    foreach (Voidcraft_Class vc in fleetManager.Craft) //Find the voidcraft and change it's location
+                    {
+                        if (vc.ID == tc.voidcraftUID)
+                        {
+                            vc.starID = tc.destinationUID;
+                            vc.planetN = 1;
+
+                            foreach (System_Script ss in modManager.sectorManager.systems) //Turn on the indicator of craft in the system
+                            {
+                                if (ss.Star.uID == vc.starID)
+                                {
+                                    if (!ss.craftIcon.activeSelf)
+                                    {
+                                        ss.craftIcon.SetActive(true);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

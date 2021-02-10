@@ -26,5 +26,7 @@ public class Turn_Manager : MonoBehaviour
         manager.factionManager.forceManager.TurnEnd((float)manager.factionManager.Factions[0].factionIncome * ((float)manager.GeneratedProduct.funding / 100));
 
         manager.factionManager.FactionBuild();
+
+        manager.factionManager.MoveCraft();
     }
 }

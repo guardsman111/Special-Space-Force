@@ -9,5 +9,4 @@ public class Weapon_Script : MonoBehaviour
     public Text iNumber;
     public Text iRange;
     public Text iDamage;
-
 }

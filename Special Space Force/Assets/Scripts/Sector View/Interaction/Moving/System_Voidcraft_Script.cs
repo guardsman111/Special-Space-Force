@@ -21,6 +21,11 @@ public class System_Voidcraft_Script : MonoBehaviour
     public GameObject craftSpace1;
     public List<System_Craft> craft;
 
+    public System_Script CurrentSystem
+    {
+        get { return currentSystem; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,14 +77,13 @@ public class System_Voidcraft_Script : MonoBehaviour
         canvas.enabled = false;
     }
 
-    public void MoveCraft(System_Script system)
+    public void MoveCraft(System_Script system, int nTurns)
     {
         foreach(System_Craft sc in craft)
         {
             if(sc.selected.isOn)
             {
-                sc.linkedCraft.starID = system.Star.uID;
-                sc.linkedCraft.planetN = 1;
+                modManager.factionManager.MoveCraftToSystem(system, currentSystem, sc.linkedCraft, nTurns);
             }
         }
         if(craft.Count > 0)

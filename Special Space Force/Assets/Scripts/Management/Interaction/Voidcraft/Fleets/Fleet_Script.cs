@@ -126,7 +126,7 @@ public class Fleet_Script : MonoBehaviour
             input.gameObject.SetActive(false);
             gameObject.GetComponent<Image>().enabled = false;
             background.gameObject.SetActive(false);
-            rTransform.localPosition = new Vector3(-3400, 24);
+            rTransform.localPosition = new Vector3(-4000, 24);
         }
         else
         {

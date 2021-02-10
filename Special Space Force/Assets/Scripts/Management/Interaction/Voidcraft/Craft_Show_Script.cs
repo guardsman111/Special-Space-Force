@@ -10,7 +10,10 @@ public class Craft_Show_Script : MonoBehaviour
     public Text armour;
     public Text location;
 
-    public Weapon_Viewer weaponBar;
+    public Contents_Viewer weaponBar;
+    public Contents_Viewer squadBar;
+
+    public Voidcraft_Indepth_Manager loader;
 
 
     //Updates the UI
@@ -22,5 +25,8 @@ public class Craft_Show_Script : MonoBehaviour
         location.text = craft.GetStat("Location");
 
         weaponBar.SetNewWeapons(craft);
+        squadBar.SetNewSquads(craft);
+
+        loader.MenuCraftDropdowns(craft);
     }
 }

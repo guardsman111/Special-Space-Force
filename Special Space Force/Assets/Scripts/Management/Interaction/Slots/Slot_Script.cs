@@ -122,7 +122,7 @@ public class Slot_Script : MonoBehaviour
         slotHeight = slot.slotHeight;
         containedSlots = new List<Slot_Script>();
         squad = slot.squad;
-        squadRole = manager.modManager.rankManager.squadRoles[0];
+        squadRole = manager.modManager.rankManager.squadRoles[slot.squadRole];
         ID = slotClass.positionID;
         slotName = slot.slotName;
 
@@ -132,6 +132,19 @@ public class Slot_Script : MonoBehaviour
         slotClass.uID = uID;
 
         FindLocation();
+    }
+
+    //Creates a slot from a slot class
+    public void LoadSlotSimple(Slot_Class slot, int positionID, Slot_Manager nManager)
+    {
+        slotClass = slot;
+        slotHeight = slot.slotHeight;
+        squad = slot.squad;
+        squadRole = nManager.modManager.rankManager.squadRoles[slot.squadRole];
+        ID = slotClass.positionID;
+        slotName = slot.slotName;
+
+        uID = slotClass.uID;
     }
 
     //Creates a new unique ID

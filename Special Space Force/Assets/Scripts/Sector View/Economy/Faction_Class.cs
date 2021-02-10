@@ -12,6 +12,8 @@ public class Faction_Class
     public List<System_Class> controlledSystems;
     public List<Planet_Class> controlledPlanets;
 
+    public List<Travelling_Voidcraft_Class> travellingCraft;
+
     public float xenophobia;
     public float militarism;
     public float expansionism;

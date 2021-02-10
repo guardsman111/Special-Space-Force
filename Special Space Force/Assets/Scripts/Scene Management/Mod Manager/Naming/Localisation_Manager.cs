@@ -14,6 +14,7 @@ public class Localisation_Manager : MonoBehaviour
     /// </summary>
     public FileFinder finder;
 
+    public List<String_List_Class> starNameStrings;
     public List<String_List_Class> trooperNameStrings;
     public List<String_List_Class> hierachyNameStrings;
     public List<String_List_Class> slotNameStrings;
@@ -46,6 +47,39 @@ public class Localisation_Manager : MonoBehaviour
     public Dropdown craftNamesDropdown;
 
     public InputField forceName;
+
+    public List<string> FindStarNames()
+    {
+        List<string> names = new List<string>();
+        starNameStrings = new List<String_List_Class>();
+
+        List<string> fileLocations = finder.Retrieve("StarNames", ".meta");
+
+        foreach (string s in fileLocations)
+        {
+            try
+            {
+                String_List_Class temp = Serializer.Deserialize<String_List_Class>(s);
+
+                if (temp.listType == "StarNames")
+                {
+                    starNameStrings.Add(temp);
+                    foreach (string s2 in temp.stringList)
+                    {
+                        names.Add(s2);
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+
+
+        }
+        
+        return names;
+    }
 
     //Finds the localisation files from the resources folder and filters them by type. Expandable
     public void FindLocalisationFiles()

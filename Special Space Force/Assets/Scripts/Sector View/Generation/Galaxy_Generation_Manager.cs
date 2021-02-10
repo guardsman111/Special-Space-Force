@@ -196,6 +196,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         }
         else //Else generate everything from scratch using user inputed creation values
         {
+            StarNames = localisationManager.FindStarNames();
 
             systemGenerator.BeginGeneration(product, starNames);
             modManager.rankManager.Begin();

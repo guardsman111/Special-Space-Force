@@ -9,8 +9,10 @@ public class System_Script : MonoBehaviour
     /// This Script is generated and uses inputted information to create a star system, including planets and their stats
     /// </summary>
     public System_Generator systemGenerator;
-    public TextMeshPro sName;
-    public TextMeshPro faction;
+    [SerializeField]
+    private TextMeshPro sName;
+    [SerializeField]
+    private TextMeshPro faction;
     public GameObject craftIcon;
     private System_Class star;
     public float combinedOutput;
@@ -44,6 +46,33 @@ public class System_Script : MonoBehaviour
               (value != star)
             {
                 star = value;
+            }
+        }
+    }
+
+    public TextMeshPro SName
+    {
+        get { return sName; }
+
+        set
+        {
+            if
+              (value != sName)
+            {
+                sName = value;
+            }
+        }
+    }
+    public TextMeshPro Faction
+    {
+        get { return faction; }
+
+        set
+        {
+            if
+              (value != faction)
+            {
+                faction = value;
             }
         }
     }

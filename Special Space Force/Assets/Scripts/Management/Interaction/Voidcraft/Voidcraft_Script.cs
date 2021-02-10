@@ -197,6 +197,7 @@ public class Voidcraft_Script : MonoBehaviour
         RectTransform rTransform = GetComponent<RectTransform>();
         if (craftFleet == viewedFleet)
         {
+            this.gameObject.SetActive(true);
             switch (craftPosition)
             {
 
@@ -209,75 +210,83 @@ public class Voidcraft_Script : MonoBehaviour
                     break;
 
                 case 3:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(300, 0);
+                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(512, 0);
                     break;
 
                 case 4:
-                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(300, 0);
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(512, 0);
                     break;
 
                 case 5:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(600, 0);
+                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(1024, 0);
                     break;
 
                 case 6:
-                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(600, 0);
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(1024, 0);
                     break;
 
                 case 7:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(900, 0);
+                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(1536, 0);
                     break;
 
                 case 8:
-                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(900, 0);
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(1536, 0);
                     break;
 
                 case 9:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(1200, 0);
+                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(2048, 0);
                     break;
 
                 case 10:
-                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(1200, 0);
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(2048, 0);
                     break;
 
                 case 11:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(1500, 0);
+                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(2560, 0);
                     break;
 
                 case 12:
-                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(1500, 0);
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(2560, 0);
                     break;
 
                 case 13:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(1800, 0);
+                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(3072, 0);
                     break;
 
                 case 14:
-                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(1800, 0);
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(3072, 0);
                     break;
 
                 case 15:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(2100, 0);
+                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(3584, 0);
                     break;
 
                 case 16:
-                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(2100, 0);
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(3584, 0);
                     break;
 
                 case 17:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(2400, 0);
+                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(4096, 0);
                     break;
 
                 case 18:
-                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(2400, 0);
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(4096, 0);
                     break;
 
                 case 19:
-                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(2700, 0);
+                    rTransform.position = craftFleet.craftPositions[0].transform.position + new Vector3(4608, 0);
                     break;
 
                 case 20:
-                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(2700, 0);
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(4608, 0);
+                    break;
+
+                case 21:
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(5120, 0);
+                    break;
+
+                case 22:
+                    rTransform.position = craftFleet.craftPositions[1].transform.position + new Vector3(5120, 0);
                     break;
 
             }
