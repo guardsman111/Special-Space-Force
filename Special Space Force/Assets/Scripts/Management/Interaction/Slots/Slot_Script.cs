@@ -110,6 +110,13 @@ public class Slot_Script : MonoBehaviour
             uID = Random.Range(1, 10000000);
         }
 
+        slotClass.squadColours = new List<Color32>();
+
+        foreach (Color c in manager.modManager.equipmentManager.playerDefaultColours)
+        {
+            slotClass.squadColours.Add(c);
+        }
+
         manager.slotIDs.Add(uID);
         slotClass.uID = uID;
     }
@@ -125,6 +132,7 @@ public class Slot_Script : MonoBehaviour
         squadRole = manager.modManager.rankManager.squadRoles[slot.squadRole];
         ID = slotClass.positionID;
         slotName = slot.slotName;
+        cColours = slot.useSquadColours;
 
         input.text = slotName;
         uID = slotClass.uID;
@@ -941,6 +949,34 @@ public class Slot_Script : MonoBehaviour
             location.text = tempS;
         }
         return tempS;
+    }
+
+    public void GetDefaultSquadColours()
+    {
+        if (squad)
+        {
+            slotClass.squadColours = new List<Color32>(new Color32[19]);
+
+            slotClass.squadColours[0] = manager.modManager.equipmentManager.playerDefaultColours[10];
+            slotClass.squadColours[1] = manager.modManager.equipmentManager.playerDefaultColours[11];
+            slotClass.squadColours[2] = manager.modManager.equipmentManager.playerDefaultColours[12];
+            slotClass.squadColours[3] = manager.modManager.equipmentManager.playerDefaultColours[13];
+            slotClass.squadColours[4] = manager.modManager.equipmentManager.playerDefaultColours[0];
+            slotClass.squadColours[5] = manager.modManager.equipmentManager.playerDefaultColours[1];
+            slotClass.squadColours[6] = manager.modManager.equipmentManager.playerDefaultColours[2];
+            slotClass.squadColours[7] = manager.modManager.equipmentManager.playerDefaultColours[4];
+            slotClass.squadColours[8] = manager.modManager.equipmentManager.playerDefaultColours[3];
+            slotClass.squadColours[9] = manager.modManager.equipmentManager.playerDefaultColours[5];
+            slotClass.squadColours[10] = manager.modManager.equipmentManager.playerDefaultColours[6];
+            slotClass.squadColours[11] = manager.modManager.equipmentManager.playerDefaultColours[7];
+            slotClass.squadColours[12] = manager.modManager.equipmentManager.playerDefaultColours[9];
+            slotClass.squadColours[13] = manager.modManager.equipmentManager.playerDefaultColours[8];
+            slotClass.squadColours[14] = manager.modManager.equipmentManager.playerDefaultColours[14];
+            slotClass.squadColours[15] = manager.modManager.equipmentManager.playerDefaultColours[15];
+            slotClass.squadColours[16] = manager.modManager.equipmentManager.playerDefaultColours[16];
+            slotClass.squadColours[17] = manager.modManager.equipmentManager.playerDefaultColours[17];
+            slotClass.squadColours[18] = manager.modManager.equipmentManager.playerDefaultColours[18];
+        }
     }
 
 }

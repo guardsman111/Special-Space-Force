@@ -1490,6 +1490,8 @@ public class Equipment_Manager : MonoBehaviour
                     }
                 }
 
+                PatternDropdown("Armour", pack.packName, ArmourDropdownTrooper.gameObject.GetComponent<Sprite_Changer>().dropdownChild);
+
                 if (pack.numberOfColours == 1)
                 {
                     trooper.trooperImages[10].sprite = pack.containedSprites[1];

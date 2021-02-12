@@ -90,6 +90,7 @@ public class Trooper_Script : MonoBehaviour
         trooperFace = trooper.trooperFace;
         trooperHair = trooper.trooperHair;
         hairColour = trooper.hairColour;
+        trooperSquad = Squad;
 
         if (trooper.movement == 0)
         {
@@ -579,29 +580,59 @@ public class Trooper_Script : MonoBehaviour
     //Sets the troopers colour scheme
     public void TrooperColours()
     {
-        trooperImages[4].color = equipmentManager.playerDefaultColours[5];
-        trooperImages[5].color = equipmentManager.playerDefaultColours[6];
-        trooperImages[6].color = equipmentManager.playerDefaultColours[7];
-        trooperImages[7].color = equipmentManager.playerDefaultColours[9];
-        trooperImages[8].color = equipmentManager.playerDefaultColours[8];
-        trooperImages[10].color = equipmentManager.playerDefaultColours[0];
-        trooperImages[11].color = equipmentManager.playerDefaultColours[1];
-        trooperImages[12].color = equipmentManager.playerDefaultColours[2];
-        trooperImages[13].color = equipmentManager.playerDefaultColours[4];
-        trooperImages[14].color = equipmentManager.playerDefaultColours[3];
-        trooperImages[17].color = equipmentManager.playerDefaultColours[10];
-        trooperImages[18].color = equipmentManager.playerDefaultColours[11];
-        trooperImages[19].color = equipmentManager.playerDefaultColours[12];
-        trooperImages[20].color = equipmentManager.playerDefaultColours[13];
-        trooperImages[24].color = equipmentManager.playerDefaultColours[16];
-        trooperImages[25].color = equipmentManager.playerDefaultColours[17];
-        trooperImages[27].color = equipmentManager.playerDefaultColours[14];
-        trooperImages[28].color = equipmentManager.playerDefaultColours[15];
-        trooperImages[30].color = equipmentManager.playerDefaultColours[14];
-        trooperImages[31].color = equipmentManager.playerDefaultColours[15];
-        foreach(Text t in slotLocations)
+        if (trooperSquad.slotClass.useSquadColours)
         {
-            t.color = equipmentManager.playerDefaultColours[18];
+            trooperImages[4].color = trooperSquad.slotClass.squadColours[9];
+            trooperImages[5].color = trooperSquad.slotClass.squadColours[10];
+            trooperImages[6].color = trooperSquad.slotClass.squadColours[11];
+            trooperImages[7].color = trooperSquad.slotClass.squadColours[12];
+            trooperImages[8].color = trooperSquad.slotClass.squadColours[13];
+            trooperImages[10].color = trooperSquad.slotClass.squadColours[4];
+            trooperImages[11].color = trooperSquad.slotClass.squadColours[5];
+            trooperImages[12].color = trooperSquad.slotClass.squadColours[6];
+            trooperImages[13].color = trooperSquad.slotClass.squadColours[7];
+            trooperImages[14].color = trooperSquad.slotClass.squadColours[8];
+            trooperImages[17].color = trooperSquad.slotClass.squadColours[0];
+            trooperImages[18].color = trooperSquad.slotClass.squadColours[1];
+            trooperImages[19].color = trooperSquad.slotClass.squadColours[2];
+            trooperImages[20].color = trooperSquad.slotClass.squadColours[3];
+            trooperImages[24].color = trooperSquad.slotClass.squadColours[16];
+            trooperImages[25].color = trooperSquad.slotClass.squadColours[17];
+            trooperImages[27].color = trooperSquad.slotClass.squadColours[14];
+            trooperImages[28].color = trooperSquad.slotClass.squadColours[15];
+            trooperImages[30].color = trooperSquad.slotClass.squadColours[14];
+            trooperImages[31].color = trooperSquad.slotClass.squadColours[15];
+            foreach (Text t in slotLocations)
+            {
+                t.color = trooperSquad.slotClass.squadColours[18];
+            }
+        }
+        else
+        {
+            trooperImages[4].color = equipmentManager.playerDefaultColours[5];
+            trooperImages[5].color = equipmentManager.playerDefaultColours[6];
+            trooperImages[6].color = equipmentManager.playerDefaultColours[7];
+            trooperImages[7].color = equipmentManager.playerDefaultColours[9];
+            trooperImages[8].color = equipmentManager.playerDefaultColours[8];
+            trooperImages[10].color = equipmentManager.playerDefaultColours[0];
+            trooperImages[11].color = equipmentManager.playerDefaultColours[1];
+            trooperImages[12].color = equipmentManager.playerDefaultColours[2];
+            trooperImages[13].color = equipmentManager.playerDefaultColours[4];
+            trooperImages[14].color = equipmentManager.playerDefaultColours[3];
+            trooperImages[17].color = equipmentManager.playerDefaultColours[10];
+            trooperImages[18].color = equipmentManager.playerDefaultColours[11];
+            trooperImages[19].color = equipmentManager.playerDefaultColours[12];
+            trooperImages[20].color = equipmentManager.playerDefaultColours[13];
+            trooperImages[24].color = equipmentManager.playerDefaultColours[16];
+            trooperImages[25].color = equipmentManager.playerDefaultColours[17];
+            trooperImages[27].color = equipmentManager.playerDefaultColours[14];
+            trooperImages[28].color = equipmentManager.playerDefaultColours[15];
+            trooperImages[30].color = equipmentManager.playerDefaultColours[14];
+            trooperImages[31].color = equipmentManager.playerDefaultColours[15];
+            foreach (Text t in slotLocations)
+            {
+                t.color = equipmentManager.playerDefaultColours[18];
+            }
         }
         trooperClass = SaveTrooper(trooperClass);
     }

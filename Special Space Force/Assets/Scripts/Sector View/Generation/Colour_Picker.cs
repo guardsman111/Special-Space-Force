@@ -9,7 +9,8 @@ public class Colour_Picker : MonoBehaviour
     /// <summary>
     /// This script handles picking colours for the AI and will handle colour picking for player uniforms later
     /// </summary>
-    
+    public Generation_Settings_Director Director;
+
     public GameObject picker;
     public Image pickerImageColour;
     public Image pickerImageGrey;
@@ -83,10 +84,6 @@ public class Colour_Picker : MonoBehaviour
                 t.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
             }
         }
-        if (!pickerRect.rect.Contains(localPoint))
-        {
-            TogglePicker();
-        }
         boxBackup.color = pickerImageColour.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
     }
 
@@ -113,12 +110,45 @@ public class Colour_Picker : MonoBehaviour
         boxBackup.color = pickerImageGrey.sprite.texture.GetPixel((int)localPoint.x, (int)localPoint.y);
     }
 
-    public void PressedNothing()
+    public void CopyColour()
     {
-        Colour_Picker[] Pickers = FindObjectsOfType<Colour_Picker>();
-        foreach (Colour_Picker cp in Pickers)
+        Director.CopyColour(this);
+    }
+
+    public void PasteColour()
+    {
+        Director.PasteColour(this);
+    }
+
+    public void OnMouseUp()
+    {
+        if (picker.activeSelf)
         {
-            cp.picker.gameObject.SetActive(false);
+            Vector2 localPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(pickerRect, Input.mousePosition, null, out localPoint);
+            if (!pickerRect.rect.Contains(localPoint))
+            {
+                TogglePicker();
+            }
         }
+    }
+
+    public void SetColour(Color32 nColour)
+    {
+        if (previewI.Length > 0)
+        {
+            foreach (Image i in previewI)
+            {
+                i.color = nColour;
+            }
+        }
+        if (previewT.Length > 0)
+        {
+            foreach (Text t in previewT)
+            {
+                t.color = nColour;
+            }
+        }
+        boxBackup.color = nColour;
     }
 }

@@ -11,6 +11,7 @@ public class Faction_Manager : MonoBehaviour
     public Force_Manager forceManager;
     public Slot_Manager slotManager;
     public Fleet_Manager fleetManager;
+    public GameObject SectorCameraTrolley;
 
     public List<Faction_Class> Factions
     {
@@ -193,6 +194,8 @@ public class Faction_Manager : MonoBehaviour
             vc.planetN = planetNumber;
         }
         factionScripts[0].controlledSystems[0].ToggleCraft(true);
+
+        SectorCameraTrolley.transform.position = new Vector3(factionScripts[0].controlledSystems[0].Star.posX, SectorCameraTrolley.transform.position.y, factionScripts[0].controlledSystems[0].Star.posZ - 1500);
     }
 
     public void SetupSlotLocation(Slot_Class currentClass, int planetNumber)

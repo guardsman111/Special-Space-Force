@@ -234,6 +234,8 @@ public class Slot_Generator : MonoBehaviour
                         Debug.Log(troopersPerSquad);
                     }
                     slot.numberOfTroopers += tempS.containedTroopers.Count;
+
+                    tempS.GetDefaultSquadColours();
                 }
                 else
                 {

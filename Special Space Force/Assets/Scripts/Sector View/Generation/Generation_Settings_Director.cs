@@ -60,6 +60,8 @@ public class Generation_Settings_Director : MonoBehaviour
     public ToggleVisiblePlanets planetToggle;
     public bool generateOnPlay;
 
+    public Color32 copiedColour;
+
     //This starts on Game Start
     void Start()
     {
@@ -738,5 +740,15 @@ public class Generation_Settings_Director : MonoBehaviour
                 identifierLoc += modifier;
             }
         }
+    }
+
+    public void CopyColour(Colour_Picker picker)
+    {
+        copiedColour = picker.boxBackup.color;
+    }
+
+    public void PasteColour(Colour_Picker picker)
+    {
+        picker.SetColour(copiedColour);
     }
 }

@@ -817,7 +817,8 @@ public class Slot_Manager : MonoBehaviour
         if(toggle.isOn == true)
         {
             viewedSlot.cColours = true;
-            foreach(Trooper_Script ts in viewedSlot.containedTroopers)
+            viewedSlot.slotClass.useSquadColours = true;
+            foreach (Trooper_Script ts in viewedSlot.containedTroopers)
             {
                 ts.trooperImages[17].color = viewedSlot.slotClass.squadColours[0];
                 ts.trooperImages[18].color = viewedSlot.slotClass.squadColours[1];
@@ -848,6 +849,7 @@ public class Slot_Manager : MonoBehaviour
         else
         {
             viewedSlot.cColours = false;
+            viewedSlot.slotClass.useSquadColours = false;
             foreach (Trooper_Script ts in viewedSlot.containedTroopers)
             {
                 ts.trooperImages[17].color = manager.modManager.GeneratedProduct.playerColours[10];
