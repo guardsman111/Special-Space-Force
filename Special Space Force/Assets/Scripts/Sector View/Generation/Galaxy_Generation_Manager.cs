@@ -34,6 +34,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
     public Fleet_Generator fleetGenerator;
     public Localisation_Manager localisationManager;
     public Voidcraft_Manager voidcraftManager;
+    public Music_Sound_Script musicPlayer;
 
     public Save_Class save;
 
@@ -192,7 +193,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             modManager.factionManager.Load(systemGenerator.GeneratedSystems, product.factions);
             modManager.turnManager.FirstTurn(product);
-
+            musicPlayer.StartPlaying();
         }
         else //Else generate everything from scratch using user inputed creation values
         {
@@ -212,7 +213,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
             modManager.turnManager.FirstTurn(product);
-
+            musicPlayer.StartPlaying();
         }
 
     }
