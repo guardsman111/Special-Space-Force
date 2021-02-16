@@ -10,7 +10,6 @@ public class Sound_Script : MonoBehaviour
     public AudioSource speaker;
 
 
-    // Update is called once per frame
     public void PlaySound()
     {
         int random = Random.Range(0, sounds.Count);

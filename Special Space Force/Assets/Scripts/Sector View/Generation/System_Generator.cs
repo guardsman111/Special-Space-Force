@@ -184,6 +184,8 @@ public class System_Generator : MonoBehaviour
                 GameObject star = Instantiate(prefabs[i], new Vector3(system.posX, 0, system.posZ), this.transform.rotation);
                 star.GetComponent<System_Script>().SystemGen(system, planetPrefab, this, save);
                 generatedSystems.Add(star);
+                manager.systems.Add(star.GetComponent<System_Script>());
+                manager.systemIDs.Add(system.uID);
                 break;
             }
         }

@@ -315,6 +315,7 @@ public class System_Script : MonoBehaviour
         star = system;
         id = star.id;
         systemPlanets = new List<Planet_Script>();
+        sName.text = system.systemName;
 
         star.allegiance = system.allegiance;
         if (star.allegiance > 0)

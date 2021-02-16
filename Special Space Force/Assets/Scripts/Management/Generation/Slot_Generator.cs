@@ -239,8 +239,14 @@ public class Slot_Generator : MonoBehaviour
                 }
                 else
                 {
-                    tempS.containedSlots = FillSlots(sc, tempS);
-                    slot.numberOfTroopers += tempS.slotClass.numberOfTroopers;
+                    if (loading)
+                    {
+                    }
+                    else
+                    {
+                        tempS.containedSlots = FillSlots(sc, tempS);
+                        slot.numberOfTroopers += tempS.slotClass.numberOfTroopers;
+                    }
                 }
                 tempSlots.Add(tempS);
             }

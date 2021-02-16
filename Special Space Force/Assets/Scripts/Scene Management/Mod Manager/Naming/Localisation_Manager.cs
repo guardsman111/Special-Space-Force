@@ -247,7 +247,7 @@ public class Localisation_Manager : MonoBehaviour
             {
                 if (slc.name == name)
                 {
-                    chosenTrooperNamesList = slc;
+                    chosenSlotNamesList = slc;
                 }
             }
         }

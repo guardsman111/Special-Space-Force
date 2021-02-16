@@ -188,12 +188,13 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             localisationManager.LoadStringListClass(product.chosenLocalisationList[0], "TrooperNames");
             localisationManager.LoadStringListClass(product.chosenLocalisationList[1], "HierachyNames");
             localisationManager.LoadStringListClass(product.chosenLocalisationList[2], "SlotNames");
+            localisationManager.SeperateStringLists();
             slotGenerator.LoadSlots(save.topSlots);
             fleetGenerator.LoadFleets(save.fleets);
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             modManager.factionManager.Load(systemGenerator.GeneratedSystems, product.factions);
-            modManager.turnManager.FirstTurn(product);
-            musicPlayer.StartPlaying();
+            modManager.turnManager.FirstTurn(product, save, true);
+            musicPlayer.StartPlaying();;
         }
         else //Else generate everything from scratch using user inputed creation values
         {
@@ -210,9 +211,9 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             save.generatedProduct = product;
             save.topSlots = slotGenerator.FindDefaultSlots();
             save.fleets = fleetGenerator.FindDefaultFleets();
+            Serializer.Serialize(save, Application.dataPath + "/Resources/Saves/" + save.saveName + ".xml");
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
-            Serializer.Serialize(save, Application.dataPath + "/Resources/" + save.saveName + ".xml");
-            modManager.turnManager.FirstTurn(product);
+            modManager.turnManager.FirstTurn(product, save, false);
             musicPlayer.StartPlaying();
         }
 

@@ -146,7 +146,7 @@ public class Fleet_Generator : MonoBehaviour
             //if loading, load the slots intead
             if (loading)
             {
-                //temp.GetComponent<Fleet_Script>().LoadSlot(fc, count, manager);
+                temp.GetComponent<Fleet_Script>().LoadFleet(fc, fManager);
             }
             else
             {
@@ -158,18 +158,38 @@ public class Fleet_Generator : MonoBehaviour
 
         }
 
-        for (int i = 0; i < fleets.Count; i++)
+        if (loading)
         {
-            int count = 0;
-            foreach (Voidcraft_Class vc in fleets[i].containedCraft)
+            for (int i = 0; i < fleets.Count; i++)
             {
-                GameObject temp = fManager.FleetsS[i].gameObject;
-                count += 1;
-                GameObject tempV = Instantiate(genericShip, temp.transform);
-                tempV.GetComponent<Voidcraft_Script>().MakeCraft(vc, modManager, fManager, count, temp.GetComponent<Fleet_Script>());
-                tempV.GetComponent<Voidcraft_Script>().SetPosition(null);
-                temp.GetComponent<Fleet_Script>().containedCraft.Add(tempV.GetComponent<Voidcraft_Script>());
-                fManager.Craft.Add(tempV.GetComponent<Voidcraft_Script>().craftClass);
+                int count = 0;
+                foreach (Voidcraft_Class vc in fleets[i].containedCraft)
+                {
+                    GameObject temp = fManager.FleetsS[i].gameObject;
+                    count += 1;
+                    GameObject tempV = Instantiate(genericShip, temp.transform);
+                    tempV.GetComponent<Voidcraft_Script>().LoadCraft(vc, modManager, fManager);
+                    tempV.GetComponent<Voidcraft_Script>().SetPosition(null);
+                    temp.GetComponent<Fleet_Script>().containedCraft.Add(tempV.GetComponent<Voidcraft_Script>());
+                    fManager.Craft.Add(tempV.GetComponent<Voidcraft_Script>().craftClass);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < fleets.Count; i++)
+            {
+                int count = 0;
+                foreach (Voidcraft_Class vc in fleets[i].containedCraft)
+                {
+                    GameObject temp = fManager.FleetsS[i].gameObject;
+                    count += 1;
+                    GameObject tempV = Instantiate(genericShip, temp.transform);
+                    tempV.GetComponent<Voidcraft_Script>().MakeCraft(vc, modManager, fManager, count, temp.GetComponent<Fleet_Script>());
+                    tempV.GetComponent<Voidcraft_Script>().SetPosition(null);
+                    temp.GetComponent<Fleet_Script>().containedCraft.Add(tempV.GetComponent<Voidcraft_Script>());
+                    fManager.Craft.Add(tempV.GetComponent<Voidcraft_Script>().craftClass);
+                }
             }
         }
 

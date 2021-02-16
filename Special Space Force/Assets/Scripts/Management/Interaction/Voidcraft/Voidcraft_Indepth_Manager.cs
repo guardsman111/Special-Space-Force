@@ -24,18 +24,26 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
     List<string> nOptions;
 
+    public Sound_Script speakerManager;
+
     public void OpenSystem(System_Class system)
     {
         currentSystem = system;
-        foreach (Voidcraft_Class vc in fManager.Craft)
+        foreach (Fleet_Script fs in fManager.FleetsS)
         {
-            if (vc.starID == system.uID)
+            if (fs.fleetClass.containedCraft != null)
             {
-                GameObject temp = Instantiate(prefabCraft, content.transform);
-                Advanced_System_Craft tempS = temp.GetComponent<Advanced_System_Craft>();
-                tempS.Create(vc, sManager, this);
-                temp.transform.position = craftSpace1.transform.position + new Vector3(0, -200 * craft.Count, 0);
-                craft.Add(tempS);
+                foreach (Voidcraft_Class vc in fs.fleetClass.containedCraft)
+                {
+                    if (vc.starID == system.uID)
+                    {
+                        GameObject temp = Instantiate(prefabCraft, content.transform);
+                        Advanced_System_Craft tempS = temp.GetComponent<Advanced_System_Craft>();
+                        tempS.Create(vc, sManager, this);
+                        temp.transform.position = craftSpace1.transform.position + new Vector3(0, -200 * craft.Count, 0);
+                        craft.Add(tempS);
+                    }
+                }
             }
         }
     }
@@ -55,7 +63,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
                 {
                     if (sc.systemID == currentSystem.uID)
                     {
-                        if (sc.numberOfTroopers < voidcraft.linkedCraft.capacity)
+                        if (sc.numberOfTroopers < (voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF))
                         {
                             nOptions.Add("-" + sc.slotName);
                             voidcraft.availableSlots.Add(sc);
@@ -84,7 +92,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
             nOptions.Add("None");
 
-            foreach (Slot_Class sc in voidcraft.linkedScript.carriedSlots)
+            foreach (Slot_Class sc in voidcraft.linkedScript.CarriedSlots)
             {
                 nOptions.Add("-" + sc.slotName);
             }
@@ -127,7 +135,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
                 {
                     if (sc.systemID == currentSystem.uID)
                     {
-                        if (sc.numberOfTroopers < voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF)
+                        if (sc.numberOfTroopers < (voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF))
                         {
                             nOptions.Add("-" + sc.slotName);
                             voidcraft.availableSlots.Add(sc);
@@ -158,11 +166,11 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
             nOptions.Add("None");
 
-            for (int i = 0; i < voidcraft.linkedScript.carriedSlots.Count; i++)
+            for (int i = 0; i < voidcraft.linkedScript.CarriedSlots.Count; i++)
             {
-                if (voidcraft.linkedScript.carriedSlots[i].craftID == voidcraft.linkedCraft.ID)
+                if (voidcraft.linkedScript.CarriedSlots[i].craftID == voidcraft.linkedCraft.ID)
                 {
-                    nOptions.Add("-" + voidcraft.linkedScript.carriedSlots[i].slotName);
+                    nOptions.Add("-" + voidcraft.linkedScript.CarriedSlots[i].slotName);
                 }
                 else
                 {
@@ -203,7 +211,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
         }
         advancedCraft.linkedScript = voidcraft;
         advancedCraft.linkedCraft = voidcraft.craftClass;
-        advancedCraft.containedSlots = voidcraft.carriedSlots;
+        advancedCraft.containedSlots = voidcraft.CarriedSlots;
 
         selectedCraft = voidcraft;
 
@@ -260,11 +268,11 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
             nOptions.Add("None");
 
-            for (int i = 0; i < voidcraft.carriedSlots.Count; i++)
+            for (int i = 0; i < voidcraft.CarriedSlots.Count; i++)
             {
-                if (voidcraft.carriedSlots[i].craftID == voidcraft.craftClass.ID)
+                if (voidcraft.CarriedSlots[i].craftID == voidcraft.craftClass.ID)
                 {
-                    nOptions.Add("-" + voidcraft.carriedSlots[i].slotName);
+                    nOptions.Add("-" + voidcraft.CarriedSlots[i].slotName);
                 }
                 else
                 {
@@ -302,14 +310,14 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
             {
                 if (sc.systemID == currentSystem.uID)
                 {
-                    if (sc.numberOfTroopers < voidcraft.linkedCraft.capacity)
+                    if (sc.numberOfTroopers < (voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF))
                     {
                         nOptions.Add((additive + "-" + sc.slotName));
                         voidcraft.availableSlots.Add(sc);
                     }
                     CheckOption(sc, voidcraft, additive + sc.slotName[0]);
                 }
-                else //Probably shouldn't do this right here, should change it with a pass through once the child slot locations have been confirmed
+                else
                 {
                     CheckOption(sc, voidcraft, additive + sc.slotName[0]);
                     //slot.systemID = 0;
@@ -474,7 +482,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
     {
         manager.sManager.MoveSlotLocation(slot, "Craft", voidcraft.linkedCraft.ID, 0);
         voidcraft.linkedCraft.uIDTransported.Add(slot.uID);
-        voidcraft.linkedScript.carriedSlots.Add(slot);
+        voidcraft.linkedScript.CarriedSlots.Add(slot);
 
 
         foreach (Slot_Class sc in slot.containedSlots)
@@ -483,7 +491,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
         }
 
         int carried = 0;
-        foreach (Slot_Class sc in voidcraft.linkedScript.carriedSlots)
+        foreach (Slot_Class sc in voidcraft.linkedScript.CarriedSlots)
         {
             if (sc.squad)
             {
@@ -501,7 +509,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
     {
         manager.sManager.MoveSlotLocation(slot, "Craft", voidcraft.linkedCraft.ID, 0);
         voidcraft.linkedCraft.uIDTransported.Add(slot.uID);
-        voidcraft.linkedScript.carriedSlots.Add(slot); //This is linked to the craft's contained slots
+        voidcraft.linkedScript.CarriedSlots.Add(slot); //This is linked to the craft's contained slots
 
         foreach (Slot_Class sc in slot.containedSlots)
         {
@@ -524,18 +532,18 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
         int carried = 0;
 
-        for (int i = 0; i < voidcraft.linkedScript.carriedSlots.Count; i++)
+        for (int i = 0; i < voidcraft.linkedScript.CarriedSlots.Count; i++)
         {
-            if (voidcraft.linkedScript.carriedSlots[i].craftID == voidcraft.linkedCraft.ID)
+            if (voidcraft.linkedScript.CarriedSlots[i].craftID == voidcraft.linkedCraft.ID)
             {
-                if (voidcraft.linkedScript.carriedSlots[i].squad)
+                if (voidcraft.linkedScript.CarriedSlots[i].squad)
                 {
-                    carried += voidcraft.linkedScript.carriedSlots[i].numberOfTroopers;
+                    carried += voidcraft.linkedScript.CarriedSlots[i].numberOfTroopers;
                 }
             }
             else
             {
-                voidcraft.linkedScript.carriedSlots.RemoveAt(i);
+                voidcraft.linkedScript.CarriedSlots.RemoveAt(i);
                 i -= 1;
             }
         }
@@ -562,7 +570,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
         Slot_Class slot = advancedCraft.availableSlots[dropdown.value - 1];
         manager.sManager.MoveSlotLocation(slot, "Craft", selectedCraft.craftClass.ID, 0);
         selectedCraft.craftClass.uIDTransported.Add(slot.uID);
-        selectedCraft.carriedSlots.Add(slot);
+        selectedCraft.CarriedSlots.Add(slot);
 
 
         foreach (Slot_Class sc in slot.containedSlots)
@@ -571,7 +579,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
         }
 
         int carried = 0;
-        foreach (Slot_Class sc in selectedCraft.carriedSlots)
+        foreach (Slot_Class sc in selectedCraft.CarriedSlots)
         {
             if (sc.squad)
             {
@@ -589,7 +597,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
     {
         manager.sManager.MoveSlotLocation(slot, "Craft", selectedCraft.craftClass.ID, 0);
         selectedCraft.craftClass.uIDTransported.Add(slot.uID);
-        selectedCraft.carriedSlots.Add(slot);
+        selectedCraft.CarriedSlots.Add(slot);
 
         foreach (Slot_Class sc in slot.containedSlots)
         {
@@ -599,7 +607,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
     public void UnloadSlot(Dropdown dropdown)
     {
-        Slot_Class slot = selectedCraft.carriedSlots[dropdown.value - 1];
+        Slot_Class slot = selectedCraft.CarriedSlots[dropdown.value - 1];
         manager.sManager.MoveSlotLocation(slot, "Planet", selectedCraft.craftClass.starID, selectedCraft.craftClass.planetN);
         selectedCraft.craftClass.uIDTransported.RemoveAt(dropdown.value - 1);
 
@@ -612,18 +620,18 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
         int carried = 0;
 
-        for (int i = 0; i < selectedCraft.carriedSlots.Count; i++)
+        for (int i = 0; i < selectedCraft.CarriedSlots.Count; i++)
         {
-            if (selectedCraft.carriedSlots[i].craftID == selectedCraft.craftClass.ID)
+            if (selectedCraft.CarriedSlots[i].craftID == selectedCraft.craftClass.ID)
             {
-                if (selectedCraft.carriedSlots[i].squad)
+                if (selectedCraft.CarriedSlots[i].squad)
                 {
-                    carried += selectedCraft.carriedSlots[i].numberOfTroopers;
+                    carried += selectedCraft.CarriedSlots[i].numberOfTroopers;
                 }
             }
             else
             {
-                selectedCraft.carriedSlots.RemoveAt(i);
+                selectedCraft.CarriedSlots.RemoveAt(i);
                 i -= 1;
             }
         }

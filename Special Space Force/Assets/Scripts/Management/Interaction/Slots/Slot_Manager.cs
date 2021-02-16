@@ -41,6 +41,9 @@ public class Slot_Manager : MonoBehaviour
     public Trooper_Show_Script trooperShowManager;
     public Promote_Script promoter;
 
+    public Sound_Script speakerScript;
+    public Sound_Script speakerScript2;
+
     public bool menu;
     bool matched = false;
     int selectionExtension = 0;
@@ -419,6 +422,7 @@ public class Slot_Manager : MonoBehaviour
     //Returns to the parent of the viewed slot
     public void UpSlot()
     {
+        speakerScript.PlaySound();
         GetSlotAbove(slots[0], viewedSlot.slotClass);
     }
 
@@ -448,6 +452,7 @@ public class Slot_Manager : MonoBehaviour
     //Returns to the top slot
     public void TopSlot()
     {
+        speakerScript.PlaySound();
         slotN1.GetComponent<Slot_Script>().SetName(slots[0].slotName);
         OpenSlot(slotN1.GetComponent<Slot_Script>());
         slotFieldScroll.value = 0;
@@ -603,6 +608,7 @@ public class Slot_Manager : MonoBehaviour
             //If there was a slot in the selection and menu isn't open (double checking incase of slowness on a script's part) open the clicked slot
             if (highestSlotHeight > -2 && !menu)
             {
+                speakerScript.PlaySound();
                 OpenSlot(Highest);
             }
 
@@ -812,6 +818,7 @@ public class Slot_Manager : MonoBehaviour
         selectedTroopers.Clear();
     }
 
+    //
     public void ToggleUsedColors(Toggle toggle)
     {
         if(toggle.isOn == true)
@@ -880,7 +887,7 @@ public class Slot_Manager : MonoBehaviour
         }
     }
 
-
+    //
     public void MoveSlotLocation(Slot_Class slot, string newLocT, int newID, int planetNumber)
     {
         if (newLocT == "Craft")

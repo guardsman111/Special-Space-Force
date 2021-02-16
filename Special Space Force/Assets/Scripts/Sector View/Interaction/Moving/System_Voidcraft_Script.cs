@@ -86,10 +86,6 @@ public class System_Voidcraft_Script : MonoBehaviour
                 modManager.factionManager.MoveCraftToSystem(system, currentSystem, sc.linkedCraft, nTurns);
             }
         }
-        if(craft.Count > 0)
-        {
-            system.craftIcon.SetActive(true);
-        }
         DeselectSystem();
     }
 

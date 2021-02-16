@@ -34,4 +34,5 @@ public class Planet_Screen : MonoBehaviour
     public GameObject genericOrbiter;
     public Quickview_Voidcraft_Manager QVManager;
     public System_Screen systemScreen;
+    public Sound_Script speakerManager;
 }

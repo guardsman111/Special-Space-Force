@@ -46,6 +46,7 @@ public class Faction_Manager : MonoBehaviour
     public void Load(List<GameObject> systemsObjects, List<Faction_Class> factionsL)
     {
         factions = factionsL;
+        factionScripts = new List<Faction_Script>();
         for (int i = 0; i < factionsL.Count; i++)
         {
             factionScripts.Add(new Faction_Script());
@@ -64,6 +65,7 @@ public class Faction_Manager : MonoBehaviour
                 {
                     fs.controlledSystems.Add(script);
                     fs.faction.controlledSystems.Add(script.Star);
+                    script.Faction.text = fs.faction.factionName;
                     foreach (Planet_Script pc in script.SystemPlanets)
                     {
                         if (pc.inhabited)
@@ -162,7 +164,7 @@ public class Faction_Manager : MonoBehaviour
         }
     }
 
-    public void SetupPlayerFaction(Generation_Class product)
+    public void SetupPlayerFaction(Generation_Class product, bool loading)
     {
         factions[0].xenophobia = product.xenophobia;
         factions[0].militarism = product.militarism;
@@ -173,7 +175,16 @@ public class Faction_Manager : MonoBehaviour
         {
             planet.Stats.GenerateMilitary(product.militarism);
         }
-        SetupForceAndFleet();
+
+
+        if (loading)
+        {
+
+        }
+        else
+        {
+            SetupForceAndFleet();
+        }
     }
 
     public void SetupForceAndFleet()
@@ -192,6 +203,22 @@ public class Faction_Manager : MonoBehaviour
         {
             vc.starID = factionScripts[0].controlledSystems[0].Star.uID;
             vc.planetN = planetNumber;
+        }
+        foreach (Fleet_Class fc in fleetManager.Fleets)
+        {
+            foreach (Voidcraft_Class vc in fc.containedCraft)
+            {
+                vc.starID = factionScripts[0].controlledSystems[0].Star.uID;
+                vc.planetN = planetNumber;
+            }
+        }
+        foreach (Fleet_Script fc in fleetManager.FleetsS)
+        {
+            foreach (Voidcraft_Class vc in fc.fleetClass.containedCraft)
+            {
+                vc.starID = factionScripts[0].controlledSystems[0].Star.uID;
+                vc.planetN = planetNumber;
+            }
         }
         factionScripts[0].controlledSystems[0].ToggleCraft(true);
 
@@ -621,22 +648,22 @@ public class Faction_Manager : MonoBehaviour
     //Turn based movement for all travelling craft
     public void MoveCraft()
     {
-        List<Travelling_Voidcraft_Class> tCraft = factions[0].travellingCraft;
-        if (tCraft.Count != 0)
+        if (factions[0].travellingCraft != null)
         {
-            foreach (Travelling_Voidcraft_Class tc in tCraft)
+            List<Travelling_Voidcraft_Class> tCraft = factions[0].travellingCraft;
+            for (int i = 0; i < tCraft.Count; i++)
             {
-                if (tc.nTurnsLeft > 1) //if still time left on the journey -1 turn
+                if (tCraft[i].nTurnsLeft > 1) //if still time left on the journey -1 turn
                 {
-                    tc.nTurnsLeft -= 1;
+                    tCraft[i].nTurnsLeft -= 1;
                 }
                 else //else end the journey
                 {
                     foreach (Voidcraft_Class vc in fleetManager.Craft) //Find the voidcraft and change it's location
                     {
-                        if (vc.ID == tc.voidcraftUID)
+                        if (vc.ID == tCraft[i].voidcraftUID)
                         {
-                            vc.starID = tc.destinationUID;
+                            vc.starID = tCraft[i].destinationUID;
                             vc.planetN = 1;
 
                             foreach (System_Script ss in modManager.sectorManager.systems) //Turn on the indicator of craft in the system
@@ -651,8 +678,21 @@ public class Faction_Manager : MonoBehaviour
                             }
                         }
                     }
+                    foreach (Fleet_Class fc in fleetManager.Fleets)
+                    {
+                        foreach (Voidcraft_Class vc in fc.containedCraft)
+                        {
+                            if (vc.ID == tCraft[i].voidcraftUID)
+                            {
+                                vc.starID = tCraft[i].destinationUID;
+                                vc.planetN = 1;
+                            }
+                        }
+                    }
+                    factions[0].travellingCraft.Remove(tCraft[i]);
                 }
             }
         }
+        
     }
 }

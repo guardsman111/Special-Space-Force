@@ -834,6 +834,7 @@ public class Slot_Script : MonoBehaviour
     //
     public void Delete()
     {
+        manager.speakerScript2.PlaySound();
         manager.DeleteSlot(this);
     }
 

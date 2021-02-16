@@ -35,6 +35,8 @@ public class Fleet_Manager : MonoBehaviour
 
     public List<Voidcraft_Script> selectedCraft;
 
+    public Sound_Script speakerManager;
+
     public List<Fleet_Class> Fleets
     {
         get { return fleets; }
@@ -130,6 +132,7 @@ public class Fleet_Manager : MonoBehaviour
 
     public void TopSlot()
     {
+        speakerManager.PlaySound();
         viewedFleet = null;
         currentName.text = "Fleet Overview";
         foreach(Fleet_Script fs in fleetsS)
@@ -290,6 +293,7 @@ public class Fleet_Manager : MonoBehaviour
             //If there was a slot in the selection and menu isn't open (double checking incase of slowness on a script's part) open the clicked slot
             if (highestSlotHeight > -2 && !menu)
             {
+                speakerManager.PlaySound();
                 OpenFleet(Highest);
             }
 

@@ -48,7 +48,7 @@ public class Contents_Viewer : MonoBehaviour
             Destroy(objects[0]);
             objects.RemoveAt(0);
         }
-        foreach (Slot_Class sc in craft.carriedSlots)
+        foreach (Slot_Class sc in craft.CarriedSlots)
         {
             if (sc.squad)
             {

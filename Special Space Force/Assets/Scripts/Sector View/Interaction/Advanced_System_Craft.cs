@@ -37,7 +37,7 @@ public class Advanced_System_Craft : System_Craft
             }
         }
 
-        containedSlots = linkedScript.carriedSlots;
+        containedSlots = linkedScript.CarriedSlots;
 
         capacity.text = craft.capacity.ToString();
         capacityF.text = craft.capacityF.ToString();
@@ -62,6 +62,7 @@ public class Advanced_System_Craft : System_Craft
 
     public void LoadSlots(Dropdown dropdown)
     {
+        advManager.speakerManager.PlaySound();
         if (dropdown.value != 0)
         {
             advManager.LoadSlot(availableSlots[dropdown.value - 1], this, dropdown.value);
@@ -72,6 +73,7 @@ public class Advanced_System_Craft : System_Craft
 
     public void UnloadSlots(Dropdown dropdown)
     {
+        advManager.speakerManager.PlaySound();
         if (dropdown.value != 0)
         {
             advManager.UnloadSlot(containedSlots[dropdown.value - 1], this, dropdown.value);

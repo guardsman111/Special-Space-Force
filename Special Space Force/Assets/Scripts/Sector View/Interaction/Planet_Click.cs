@@ -205,6 +205,7 @@ public class Planet_Click : MonoBehaviour
         else if (Input.GetMouseButtonDown(1))
         {
             Planet_Script sPlanet = gameObject.GetComponent<Planet_Script>();
+            planetScreen.speakerManager.PlaySound();
             planetScreen.systemScreen.QVManager.MoveCraft(sPlanet);
         }
     }

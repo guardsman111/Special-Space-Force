@@ -59,6 +59,19 @@ public class Fleet_Script : MonoBehaviour
         input.text = fleetName;
     }
 
+    //Loads a Fleet from a Fleet class
+    public void LoadFleet(Fleet_Class fleet, Fleet_Manager fManager)
+    {
+        manager = fManager;
+        fleetClass = fleet;
+        ID = fManager.FleetsS.Count + 1;
+        manager.FleetIDs.Add(fleetClass.uID);
+        fleetName = fleet.fleetName;
+        fleetClass.fleetColours = fleet.fleetColours;
+
+        input.text = fleetName;
+    }
+
 
     //Sets the position and scale of the slot according to its slot height relative to the currently viewed slot
     public void SetPosition(Fleet_Script viewedFleet)

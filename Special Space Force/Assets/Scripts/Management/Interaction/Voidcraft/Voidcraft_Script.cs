@@ -32,8 +32,20 @@ public class Voidcraft_Script : MonoBehaviour
     public TMP_InputField planetLocation;
 
     public Image_Manager imageManager;
+    private List<Slot_Class> carriedSlots;
 
-    public List<Slot_Class> carriedSlots;
+    public List<Slot_Class> CarriedSlots
+    {
+        get { return carriedSlots; }
+
+        set
+        {
+            if(value != carriedSlots)
+            {
+                carriedSlots = value;
+            }
+        }
+    }
 
     public void MakeCraft(Voidcraft_Class craft, Fleet_Manager fm, int ID, Fleet_Script fleet)
     {
@@ -92,6 +104,10 @@ public class Voidcraft_Script : MonoBehaviour
 
         craftName = manager.manager.localisationManager.CreateName("CraftNames", this);
         craftClass.craftName = craftName;
+        craft.craftName = craftName;
+        craft.FleetID = fleet.fleetClass.uID;
+        craft.ID = uID;
+        craft.positionID = ID;
         craftClass.uIDTransported = new List<int>();
         carriedSlots = new List<Slot_Class>();
         input.text = craftName;
@@ -126,6 +142,13 @@ public class Voidcraft_Script : MonoBehaviour
                 {
                     carriedSlots.Add(sc);
                 }
+                else
+                {
+                    foreach (Slot_Class sc2 in sc.containedSlots)
+                    {
+                        CheckChildSlotsForTransported(sc2, craft);
+                    }
+                }
             }
         }
 
@@ -133,6 +156,22 @@ public class Voidcraft_Script : MonoBehaviour
         input.text = craftName;
         CraftColours();
     }
+
+    public void CheckChildSlotsForTransported(Slot_Class checkSlot, Voidcraft_Class craft)
+    {
+        if (craft.uIDTransported.Contains(checkSlot.uID))
+        {
+            carriedSlots.Add(checkSlot);
+        }
+        else
+        {
+            foreach (Slot_Class sc in checkSlot.containedSlots)
+            {
+                CheckChildSlotsForTransported(sc, craft);
+            }
+        }
+    }
+
     public void LoadQuickView(Voidcraft_Class craft, Manager_Script m, Fleet_Manager fm)
     {
         modManager = m;
@@ -154,6 +193,7 @@ public class Voidcraft_Script : MonoBehaviour
         planetLocation.text = GetStat("Location");
         CraftColours();
     }
+
     public void LoadAdvancedView(Voidcraft_Class craft, Manager_Script m, Fleet_Manager fm)
     {
         modManager = m;
