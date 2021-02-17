@@ -74,7 +74,6 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourOutlinePath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if(temp.filterMode == 0)
                 {
@@ -99,7 +98,6 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourPrimaryPath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -123,7 +121,6 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourSecondaryPath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -148,7 +145,6 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourTertiaryPath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -173,7 +169,6 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourEquipmentPath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -197,7 +192,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.ArmourSpecialPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -234,7 +229,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesOutlinePath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -259,7 +254,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesPrimaryPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -283,7 +278,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesSecondaryPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -308,7 +303,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesTertiaryPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -333,7 +328,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesEquipmentPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -357,7 +352,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.FatiguesSpecialPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -392,7 +387,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetOutlinePath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -416,7 +411,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetPrimaryPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -441,7 +436,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetSecondaryPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -466,7 +461,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetTertiaryPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -491,7 +486,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetEquipmentPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -515,7 +510,7 @@ public class Equipment_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(512, 512, TextureFormat.RGBA32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.HelmetVisorPath);
-                newTex.alphaIsTransparency = true;
+                
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {

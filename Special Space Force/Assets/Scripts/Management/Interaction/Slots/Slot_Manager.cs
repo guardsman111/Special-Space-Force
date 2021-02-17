@@ -613,10 +613,6 @@ public class Slot_Manager : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.LogError("Hallo, Debugger Here!");
-        }
     }
 
     //Finds the selected string from the dropdown menu

@@ -17,8 +17,6 @@ public class MoonController : MonoBehaviour
 
     void Start()
     {
-        yRotSpd = Random.Range(-10f, 10f);
-        zRotSpd = Random.Range(-10f, 10f);
     }
 
     //Rotates the object around another

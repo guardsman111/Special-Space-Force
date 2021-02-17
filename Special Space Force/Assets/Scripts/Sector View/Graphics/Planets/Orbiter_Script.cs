@@ -67,4 +67,10 @@ public class Orbiter_Script : MonoBehaviour
             m.materials[1].color = colours[2];
         }
     }
+
+    //Rotates the object around another
+    void Update()
+    {
+        transform.Rotate(0, -1f * Time.deltaTime, 0); //rotates 50 degrees per second around z axis
+    }
 }

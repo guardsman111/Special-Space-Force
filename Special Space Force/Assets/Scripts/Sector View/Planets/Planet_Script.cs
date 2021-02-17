@@ -33,6 +33,8 @@ public class Planet_Script : MonoBehaviour
     public List<Texture2D> cities;
     private int currentCityLevel;
 
+    public GameObject buildIcon;
+
 
     //Linked to the planets mesh renderer so we can change the material, allowing for players to create their own.
     public MeshRenderer planetSkin;
@@ -65,7 +67,7 @@ public class Planet_Script : MonoBehaviour
         }
     }
 
-    //Loading the planetary stats
+    //Generating the planetary stats
     public void PlanetGen(System_Script system, Planet_Class planetClass, Faction_Manager factionM)
     {
         //planetSkin = gameObject.transform.Find("PlanetSurface").GetComponent<MeshRenderer>();
@@ -113,32 +115,60 @@ public class Planet_Script : MonoBehaviour
         output = Stats.output;
         industrial = planet.builtIndustry;
 
+        planet.moons = new List<Moon_Class>();
+
         if(planet.size < 200)
         {
             int random = Random.Range(0, 100);
 
-            if(random < 40)
+            if(random < 66)
             {
                 GameObject tempMoon = Instantiate(MoonPrefab, transform);
                 tempMoon.GetComponent<MoonController>().target = transform;
+                tempMoon.GetComponent<MoonController>().yRotSpd = Random.Range(-10f, 10f);
+                tempMoon.GetComponent<MoonController>().zRotSpd = Random.Range(-10f, 10f);
                 moons.Add(tempMoon);
                 tempMoon.SetActive(false);
                 random = Random.Range(0, 100);
+                Moon_Class moonT = new Moon_Class();
+                moonT.moonNumber = 0;
+                moonT.moonScale = tempMoon.transform.localScale;
+                moonT.speeds = new Vector3(tempMoon.GetComponent<MoonController>().xRotSpd, tempMoon.GetComponent<MoonController>().yRotSpd, tempMoon.GetComponent<MoonController>().zRotSpd);
                 foreach (GameObject go in tempMoon.GetComponent<MoonController>().items)
                 {
                     go.transform.position += new Vector3(-0, 0, 0);
+                    if (go.GetComponentInChildren<Light>())
+                    {
+                        go.GetComponentInChildren<Light>().intensity = 1f;
+                        moonT.lightIntensity = 1f;
+                    }
+                    moonT.position = go.transform.position;
                 }
+                planet.moons.Add(moonT);
 
-                if (random < 40)
+                if (random < 33)
                 {
                     GameObject tempMoon2 = Instantiate(MoonPrefab, transform);
                     tempMoon2.GetComponent<MoonController>().target = transform;
+                    tempMoon2.GetComponent<MoonController>().yRotSpd = Random.Range(-10f, 10f);
+                    tempMoon2.GetComponent<MoonController>().zRotSpd = Random.Range(-10f, 10f);
                     moons.Add(tempMoon2);
                     tempMoon2.SetActive(false);
-                    foreach(GameObject go in tempMoon2.GetComponent<MoonController>().items)
+                    moonT = new Moon_Class();
+                    moonT.moonNumber = 1;
+                    moonT.moonScale = tempMoon2.transform.localScale;
+                    moonT.speeds = new Vector3(tempMoon2.GetComponent<MoonController>().xRotSpd, tempMoon2.GetComponent<MoonController>().yRotSpd, tempMoon2.GetComponent<MoonController>().zRotSpd);
+                    foreach (GameObject go in tempMoon2.GetComponent<MoonController>().items)
                     {
                         go.transform.position += new Vector3(-15, 0, 0);
+                        if (go.GetComponentInChildren<Light>())
+                        {
+                            go.GetComponentInChildren<Light>().intensity = 1f;
+                            moonT.lightIntensity = 1f;
+                        }
+                        moonT.position = go.transform.position;
                     }
+                    planet.moons.Add(moonT);
                 }
             }
         }
@@ -151,30 +181,46 @@ public class Planet_Script : MonoBehaviour
             {
                 GameObject tempMoon = Instantiate(MoonPrefab, transform);
                 tempMoon.GetComponent<MoonController>().target = transform;
+                tempMoon.GetComponent<MoonController>().yRotSpd = 0;
+                tempMoon.GetComponent<MoonController>().yRotSpd = Random.Range(-10f, 10f);
+                tempMoon.GetComponent<MoonController>().zRotSpd = Random.Range(-10f, 10f);
                 moons.Add(tempMoon);
                 tempMoon.SetActive(false);
                 random = Random.Range(0, 100);
                 float scaleRandom = Random.Range(0.1f, 0.3f);
                 tempMoon.transform.localScale = new Vector3(scaleRandom, scaleRandom, scaleRandom);
                 float positionRandom = Random.Range(-50, -15);
+                Moon_Class moonT = new Moon_Class();
+                moonT.moonNumber = 0;
+                moonT.moonScale = tempMoon.transform.localScale;
+                moonT.speeds = new Vector3(tempMoon.GetComponent<MoonController>().xRotSpd, tempMoon.GetComponent<MoonController>().yRotSpd, tempMoon.GetComponent<MoonController>().zRotSpd);
                 foreach (GameObject go in tempMoon.GetComponent<MoonController>().items)
                 {
                     go.transform.position += new Vector3(positionRandom, 0, 0);
                     if (go.GetComponentInChildren<Light>())
                     {
                         go.GetComponentInChildren<Light>().intensity = 0.5f;
+                        moonT.lightIntensity = 0.5f;
                     }
+                    moonT.position = go.transform.position;
                 }
+                planet.moons.Add(moonT);
 
                 if (random < 80)
                 {
                     GameObject tempMoon2 = Instantiate(MoonPrefab, transform);
                     tempMoon2.GetComponent<MoonController>().target = transform;
+                    tempMoon2.GetComponent<MoonController>().yRotSpd = Random.Range(-10f, 10f);
+                    tempMoon2.GetComponent<MoonController>().zRotSpd = Random.Range(-10f, 10f);
                     moons.Add(tempMoon2);
                     tempMoon2.SetActive(false);
                     scaleRandom = Random.Range(0.1f, 0.4f);
                     tempMoon2.transform.localScale = new Vector3(scaleRandom, scaleRandom, scaleRandom);
                     positionRandom = Random.Range(-35, -25);
+                    moonT = new Moon_Class();
+                    moonT.moonNumber = planetClass.moons.Count;
+                    moonT.moonScale = tempMoon2.transform.localScale;
+                    moonT.speeds = new Vector3(tempMoon2.GetComponent<MoonController>().xRotSpd, tempMoon2.GetComponent<MoonController>().yRotSpd, tempMoon2.GetComponent<MoonController>().zRotSpd);
                     foreach (GameObject go in tempMoon2.GetComponent<MoonController>().items)
                     {
                         go.transform.position += new Vector3(positionRandom, 0, 0);
@@ -182,60 +228,157 @@ public class Planet_Script : MonoBehaviour
                         {
                             go.GetComponentInChildren<Light>().intensity = 0.5f;
                         }
+                        moonT.position = go.transform.position;
                     }
+                    planet.moons.Add(moonT);
                 }
                 if (random < 60)
                 {
                     GameObject tempMoon2 = Instantiate(MoonPrefab, transform);
                     tempMoon2.GetComponent<MoonController>().target = transform;
+                    tempMoon2.GetComponent<MoonController>().yRotSpd = Random.Range(-10f, 10f);
+                    tempMoon2.GetComponent<MoonController>().zRotSpd = Random.Range(-10f, 10f);
                     moons.Add(tempMoon2);
                     tempMoon2.SetActive(false);
                     scaleRandom = Random.Range(0.1f, 0.3f);
                     tempMoon2.transform.localScale = new Vector3(scaleRandom, scaleRandom, scaleRandom);
                     positionRandom = Random.Range(-45, -35);
+                    moonT = new Moon_Class();
+                    moonT.moonNumber = planetClass.moons.Count;
+                    moonT.moonScale = tempMoon2.transform.localScale;
+                    moonT.speeds = new Vector3(tempMoon2.GetComponent<MoonController>().xRotSpd, tempMoon2.GetComponent<MoonController>().yRotSpd, tempMoon2.GetComponent<MoonController>().zRotSpd);
                     foreach (GameObject go in tempMoon2.GetComponent<MoonController>().items)
                     {
                         go.transform.position += new Vector3(positionRandom, 0, 0);
                         if (go.GetComponentInChildren<Light>())
                         {
                             go.GetComponentInChildren<Light>().intensity = 0.5f;
+                            moonT.lightIntensity = 0.5f;
                         }
+                        moonT.position = go.transform.position;
                     }
+                    planet.moons.Add(moonT);
                 }
                 if (random < 40)
                 {
                     GameObject tempMoon2 = Instantiate(MoonPrefab, transform);
                     tempMoon2.GetComponent<MoonController>().target = transform;
+                    tempMoon2.GetComponent<MoonController>().yRotSpd = Random.Range(-10f, 10f);
+                    tempMoon2.GetComponent<MoonController>().zRotSpd = Random.Range(-10f, 10f);
                     moons.Add(tempMoon2);
                     tempMoon2.SetActive(false);
                     scaleRandom = Random.Range(0.1f, 0.3f);
                     tempMoon2.transform.localScale = new Vector3(scaleRandom, scaleRandom, scaleRandom);
                     positionRandom = Random.Range(-65, -50);
+                    moonT = new Moon_Class();
+                    moonT.moonNumber = planetClass.moons.Count;
+                    moonT.moonScale = tempMoon2.transform.localScale;
+                    moonT.speeds = new Vector3(tempMoon2.GetComponent<MoonController>().xRotSpd, tempMoon2.GetComponent<MoonController>().yRotSpd, tempMoon2.GetComponent<MoonController>().zRotSpd);
                     foreach (GameObject go in tempMoon2.GetComponent<MoonController>().items)
                     {
                         go.transform.position += new Vector3(positionRandom, 0, 0);
                         if (go.GetComponentInChildren<Light>())
                         {
                             go.GetComponentInChildren<Light>().intensity = 0.5f;
+                            moonT.lightIntensity = 0.5f;
                         }
+                        moonT.position = go.transform.position;
                     }
+                    planet.moons.Add(moonT);
                 }
                 if (random < 20)
                 {
                     GameObject tempMoon2 = Instantiate(MoonPrefab, transform);
                     tempMoon2.GetComponent<MoonController>().target = transform;
+                    tempMoon2.GetComponent<MoonController>().yRotSpd = Random.Range(-10f, 10f);
+                    tempMoon2.GetComponent<MoonController>().zRotSpd = Random.Range(-10f, 10f);
                     moons.Add(tempMoon2);
                     tempMoon2.SetActive(false);
                     scaleRandom = Random.Range(0.1f, 0.4f);
                     tempMoon2.transform.localScale = new Vector3(scaleRandom, scaleRandom, scaleRandom);
                     positionRandom = Random.Range(-20, -10);
+                    moonT = new Moon_Class();
+                    moonT.moonNumber = planetClass.moons.Count;
+                    moonT.moonScale = tempMoon2.transform.localScale;
+                    moonT.speeds = new Vector3(tempMoon2.GetComponent<MoonController>().xRotSpd, tempMoon2.GetComponent<MoonController>().yRotSpd, tempMoon2.GetComponent<MoonController>().zRotSpd);
                     foreach (GameObject go in tempMoon2.GetComponent<MoonController>().items)
                     {
                         go.transform.position += new Vector3(positionRandom, 0, 0);
                         if (go.GetComponentInChildren<Light>())
                         {
                             go.GetComponentInChildren<Light>().intensity = 0.5f;
+                            moonT.lightIntensity = 0.5f;
                         }
+                        moonT.position = go.transform.position;
+                    }
+                    planet.moons.Add(moonT);
+                }
+            }
+        }
+
+        if (Stats.Biome.surfacePop)
+        {
+            ChangeCities();
+        }
+
+    }
+
+    //Loading the planetary stats
+    public void PlanetLoad(System_Script system, Planet_Class planetClass, Faction_Manager factionM)
+    {
+        //planetSkin = gameObject.transform.Find("PlanetSurface").GetComponent<MeshRenderer>();
+        Stats = new Planet_Stats(planetClass, planetSkin);
+        planet = planetClass;
+        planetName = planetClass.planetName;
+        inhabited = planetClass.inhabited;
+        biome = planetClass.biome;
+        population = planetClass.population;
+        useSpace = planetClass.usableSpace;
+        tName.text = Stats.PName;
+        factionManager = factionM;
+        industrial = planet.builtIndustry;
+        parentSystem = system;
+        building = planetClass.building;
+        planet.moons = planetClass.moons;
+
+        if (Stats.Population != 0)
+        {
+            tStats.text = "Population: " + Stats.Population + " k" + "\nPopulation Happiness: " + Stats.popHappiness;
+        }
+        else
+        {
+            tStats.text = "Uninhabited";
+        }
+
+        planet.size = planetClass.size;
+
+        if (!Stats.Biome.surfacePop)
+        {
+            clouds.SetActive(false);
+        }
+         
+        Stats.output = factionManager.CalculatePlanetOutput(this);
+        output = Stats.output;
+        industrial = planet.builtIndustry;
+
+        if (planet.moons.Count > 0)
+        {
+            foreach (Moon_Class mc in planet.moons)
+            {
+                GameObject tempMoon = Instantiate(MoonPrefab, transform);
+                tempMoon.GetComponent<MoonController>().target = transform;
+                tempMoon.GetComponent<MoonController>().xRotSpd = mc.speeds.x;
+                tempMoon.GetComponent<MoonController>().yRotSpd = mc.speeds.y;
+                tempMoon.GetComponent<MoonController>().zRotSpd = mc.speeds.z;
+                moons.Add(tempMoon);
+                tempMoon.SetActive(false);
+                tempMoon.transform.localScale = mc.moonScale;
+                foreach (GameObject go in tempMoon.GetComponent<MoonController>().items)
+                {
+                    go.transform.position = mc.position;
+                    if (go.GetComponentInChildren<Light>())
+                    {
+                        go.GetComponentInChildren<Light>().intensity = mc.lightIntensity;
                     }
                 }
             }
@@ -256,6 +399,8 @@ public class Planet_Script : MonoBehaviour
             if(buildingProgress >= 10)
             {
                 building = false;
+                planet.building = false;
+                buildIcon.SetActive(false);
                 industrial += 1;
                 planet.builtIndustry += 1;
             }
@@ -263,6 +408,8 @@ public class Planet_Script : MonoBehaviour
         else
         {
             building = true;
+            planet.building = true;
+            buildIcon.SetActive(true);
         }
     }
 

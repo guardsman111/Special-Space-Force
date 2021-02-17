@@ -14,10 +14,11 @@ public class System_Script : MonoBehaviour
     [SerializeField]
     private TextMeshPro faction;
     public GameObject craftIcon;
+    public GameObject coloIcon;
     private System_Class star;
     public float combinedOutput;
     public string allegiance;
-    public bool colonising;
+    private bool colonising;
     public int id;
 
     private List<Planet_Script> systemPlanets;
@@ -73,6 +74,20 @@ public class System_Script : MonoBehaviour
               (value != faction)
             {
                 faction = value;
+            }
+        }
+    }
+
+    public bool Colonising
+    {
+        get { return colonising; }
+
+        set
+        {
+            if (value != colonising)
+            {
+                colonising = value;
+                star.colonising = value;
             }
         }
     }
@@ -335,8 +350,15 @@ public class System_Script : MonoBehaviour
 
             Planet_Class temp = new Planet_Class();
             temp = system.Array[i];
-            planetT.GetComponent<Planet_Script>().PlanetGen(this, temp, sysGen.factionManager);
+            planetT.GetComponent<Planet_Script>().PlanetLoad(this, temp, sysGen.factionManager);
             systemPlanets.Add(planetT.GetComponent<Planet_Script>());
+        }
+
+        colonising = star.colonising;
+
+        if (colonising)
+        {
+            coloIcon.SetActive(true);
         }
     }
 

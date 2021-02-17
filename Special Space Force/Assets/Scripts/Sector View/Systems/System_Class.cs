@@ -16,6 +16,7 @@ public class System_Class
     public int nPlanets;
     public int id;
     public int uID;
+    public bool colonising;
     public List<Planet_Class> Array;
 
     public System_Class()

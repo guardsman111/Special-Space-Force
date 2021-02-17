@@ -1441,9 +1441,9 @@ MonoBehaviour:
   sName: {fileID: 9015738261427140316}
   faction: {fileID: 2000382664053242144}
   craftIcon: {fileID: 5762473935074673070}
+  coloIcon: {fileID: 4915974166077699897}
   combinedOutput: 0
   allegiance: 
-  colonising: 0
   id: 0
 --- !u!1 &7679378229917071045
 GameObject:
@@ -2101,11 +2101,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7335847585362229321, guid: c93f64d5ab4ef454d8347fbae49316c5,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8899840084113991202, guid: c93f64d5ab4ef454d8347fbae49316c5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2126,30 +2121,25 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5610963873080932001, guid: c93f64d5ab4ef454d8347fbae49316c5,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2116140034957027806, guid: c93f64d5ab4ef454d8347fbae49316c5,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 11
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2116140034957027806, guid: c93f64d5ab4ef454d8347fbae49316c5,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2116140034957027806, guid: c93f64d5ab4ef454d8347fbae49316c5,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2116140034957027806, guid: c93f64d5ab4ef454d8347fbae49316c5,
         type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116140034957027806, guid: c93f64d5ab4ef454d8347fbae49316c5,
+        type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2116140034957027806, guid: c93f64d5ab4ef454d8347fbae49316c5,
         type: 3}
@@ -2161,6 +2151,16 @@ PrefabInstance:
       propertyPath: system
       value: 
       objectReference: {fileID: 7679378229916975115}
+    - target: {fileID: 7335847585362229321, guid: c93f64d5ab4ef454d8347fbae49316c5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5610963873080932001, guid: c93f64d5ab4ef454d8347fbae49316c5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c93f64d5ab4ef454d8347fbae49316c5, type: 3}
 --- !u!4 &849447861485102650 stripped
@@ -2196,6 +2196,12 @@ MonoBehaviour:
 --- !u!1 &5762473935074673070 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3438559387202444972, guid: c93f64d5ab4ef454d8347fbae49316c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6935644615762222850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4915974166077699897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2628220356637583419, guid: c93f64d5ab4ef454d8347fbae49316c5,
     type: 3}
   m_PrefabInstance: {fileID: 6935644615762222850}
   m_PrefabAsset: {fileID: 0}

@@ -42,4 +42,11 @@ public class Force_Manager : MonoBehaviour
     }
 
 
+    // Turn end handles the transition between one turn and the next, for income right now
+    public void Load(float finances)
+    {
+        playerFinances = finances;
+        visibleRequisition1.text = playerFinances.ToString();
+        visibleRequisition2.text = playerFinances.ToString();
+    }
 }

@@ -79,10 +79,9 @@ public class Faction_Manager : MonoBehaviour
         }
     }
 
+    //Calculates income for all factions
     public void CalculateIncome()
     {
-
-
         foreach (Faction_Script fs in factionScripts)
         {
             fs.faction.factionIncome = 0;
@@ -103,8 +102,30 @@ public class Faction_Manager : MonoBehaviour
 
             Debug.Log(fs.faction.factionName + " gains " + fs.faction.factionIncome.ToString() + " resources added to it's stockpile; Stockpile total - " + fs.faction.factionResourcePile.ToString());
         }
+    }
+
+    //Calculates income from a loaded game, not adding it to funding
+    public void CalculateIncome(bool loading)
+    {
+        foreach (Faction_Script fs in factionScripts)
+        {
+            fs.faction.factionIncome = 0;
+            foreach (System_Script sc in fs.controlledSystems)
+            {
+                sc.combinedOutput = 0;
+                foreach (Planet_Script pc in sc.SystemPlanets)
+                {
+                    if (pc.inhabited)
+                    {
+                        sc.combinedOutput += (int)pc.output;
+                        fs.faction.factionIncome += (int)pc.output;
+                    }
+                }
+            }
 
 
+            Debug.Log(fs.faction.factionName + " loads resources to it's stockpile; Stockpile total - " + fs.faction.factionResourcePile.ToString());
+        }
     }
 
     public void PlanetScriptToClass()
@@ -166,23 +187,26 @@ public class Faction_Manager : MonoBehaviour
 
     public void SetupPlayerFaction(Generation_Class product, bool loading)
     {
-        factions[0].xenophobia = product.xenophobia;
-        factions[0].militarism = product.militarism;
-        factions[0].expansionism = product.expansionism;
-        factions[0].industrialism = product.industrialism;
-
-        foreach (Planet_Script planet in factionScripts[0].controlledPlanets)
-        {
-            planet.Stats.GenerateMilitary(product.militarism);
-        }
-
-
         if (loading)
         {
-
+            factions[0].xenophobia = product.xenophobia;
+            factions[0].militarism = product.militarism;
+            factions[0].expansionism = product.expansionism;
+            factions[0].industrialism = product.industrialism;
+            LocateForceAndFleet();
         }
         else
         {
+            factions[0].xenophobia = product.xenophobia;
+            factions[0].militarism = product.militarism;
+            factions[0].expansionism = product.expansionism;
+            factions[0].industrialism = product.industrialism;
+
+            foreach (Planet_Script planet in factionScripts[0].controlledPlanets)
+            {
+                planet.Stats.GenerateMilitary(product.militarism);
+            }
+
             SetupForceAndFleet();
         }
     }
@@ -221,6 +245,21 @@ public class Faction_Manager : MonoBehaviour
             }
         }
         factionScripts[0].controlledSystems[0].ToggleCraft(true);
+
+        SectorCameraTrolley.transform.position = new Vector3(factionScripts[0].controlledSystems[0].Star.posX, SectorCameraTrolley.transform.position.y, factionScripts[0].controlledSystems[0].Star.posZ - 1500);
+    }
+
+    public void LocateForceAndFleet()
+    {
+        foreach (System_Script ss in modManager.sectorManager.systems) {
+            foreach (Voidcraft_Class vc in fleetManager.Craft)
+            {
+                if (vc.starID == ss.Star.uID)
+                {
+                    ss.ToggleCraft(true);
+                }
+            } 
+        }
 
         SectorCameraTrolley.transform.position = new Vector3(factionScripts[0].controlledSystems[0].Star.posX, SectorCameraTrolley.transform.position.y, factionScripts[0].controlledSystems[0].Star.posZ - 1500);
     }
@@ -566,8 +605,9 @@ public class Faction_Manager : MonoBehaviour
 
         foreach (System_Script system in playerFaction.controlledSystems)
         {
-            if (!system.colonising)
+            if (!system.Colonising)
             {
+                system.coloIcon.SetActive(false);
                 foreach (Planet_Script planet in system.SystemPlanets)
                 {
                     if (planet.inhabited == false && planet.colonising == false)
@@ -577,20 +617,23 @@ public class Faction_Manager : MonoBehaviour
                     else if (planet.colonising)
                     {
                         planet.Colonize();
-                        system.colonising = true;
+                        system.Colonising = true;
+                        system.coloIcon.SetActive(true);
                         nColonising += 1;
                     }
                 }
             }
             else
             {
-                system.colonising = false;
+                system.Colonising = false;
+                system.coloIcon.SetActive(false);
                 foreach (Planet_Script planet in system.SystemPlanets)
                 {
                     if (planet.colonising)
                     {
                         planet.Colonize();
-                        system.colonising = true;
+                        system.Colonising = true;
+                        system.coloIcon.SetActive(true);
                         nColonising += 1;
                     }
                 }
@@ -601,7 +644,8 @@ public class Faction_Manager : MonoBehaviour
         {
             int newRandom = Random.Range(0, notBuildingPlanets.Count);
             notBuildingPlanets[newRandom].Colonize();
-            notBuildingPlanets[newRandom].parentSystem.colonising = true;
+            notBuildingPlanets[newRandom].parentSystem.Colonising = true;
+            notBuildingPlanets[newRandom].parentSystem.coloIcon.SetActive(true);
             Debug.Log(notBuildingPlanets[newRandom].planetName + " is now being Colonised!");
         }
     }

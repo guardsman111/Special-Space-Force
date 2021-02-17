@@ -33,6 +33,14 @@ public class Slider_Script : MonoBehaviour
         {
             slide = false;
             headerImage.sprite = normalImage;
+
+            foreach (GameObject go in siblingSliders)
+            {
+                if (alreadyClosed == false)
+                {
+                    go.SetActive(true);
+                }
+            }
         }
         else
         {
@@ -42,7 +50,8 @@ public class Slider_Script : MonoBehaviour
             {
                 if(go.activeSelf == false)
                 {
-                    alreadyClosed = true;                }
+                    alreadyClosed = true;                
+                }
                 go.SetActive(false);
             }
             headerImage.sprite = pressedImage;

@@ -60,6 +60,10 @@ public class System_Click : MonoBehaviour
                 {
                     system.craftIcon.gameObject.SetActive(true);
                 }
+                if (system.Colonising)
+                {
+                    system.coloIcon.gameObject.SetActive(true);
+                }
                 systemScreen.QVManager.CloseManager();
                 systemScreen.aManager.CloseManager();
                 systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
@@ -85,6 +89,7 @@ public class System_Click : MonoBehaviour
                 system.SName.enabled = false;
                 system.Faction.enabled = false;
                 system.craftIcon.gameObject.SetActive(false);
+                system.coloIcon.gameObject.SetActive(false);
                 systemScreen.QVManager.OpenSystem(system.Star);
                 systemScreen.aManager.OpenSystem(system.Star);
 
@@ -155,6 +160,10 @@ public class System_Click : MonoBehaviour
                     if (systemScreen.QVManager.craft.Count > 0)
                     {
                         system.craftIcon.gameObject.SetActive(true);
+                    }
+                    if (system.Colonising)
+                    {
+                        system.coloIcon.gameObject.SetActive(true);
                     }
                     systemScreen.QVManager.CloseManager();
                     systemScreen.aManager.CloseManager();

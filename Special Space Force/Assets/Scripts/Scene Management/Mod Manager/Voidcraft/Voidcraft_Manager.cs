@@ -51,7 +51,6 @@ public class Voidcraft_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftOutlinePath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -77,7 +76,6 @@ public class Voidcraft_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftPrimaryPath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -103,7 +101,6 @@ public class Voidcraft_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftSecondaryPath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -129,7 +126,6 @@ public class Voidcraft_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftTertiaryPath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -155,7 +151,6 @@ public class Voidcraft_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftTrimPath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {
@@ -181,7 +176,6 @@ public class Voidcraft_Manager : MonoBehaviour
             {
                 Texture2D newTex = new Texture2D(4, 4, TextureFormat.ARGB32, false);
                 byte[] bytes = File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + temp.CraftSpecialPath);
-                newTex.alphaIsTransparency = true;
                 newTex.wrapMode = TextureWrapMode.Clamp;
                 if (temp.filterMode == 0)
                 {

@@ -20,7 +20,10 @@ public class Planet_Class
     public float foodAvailability;
     public float popProduction;
 
+    public bool building;
     public int builtIndustry;
+
+    public List<Moon_Class> moons;
 
     public Planet_Class()
     {

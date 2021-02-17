@@ -7,18 +7,38 @@ public class Turn_Manager : MonoBehaviour
     public Manager_Script manager;
     public Save_Class saveClass;
 
-    public void FirstTurn(Generation_Class product, Save_Class save, bool loading)
+    private void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.LogError("Hallo, Debugger Here!");
+        }
+    }
+
+public void FirstTurn(Generation_Class product, Save_Class save, bool loading)
     {
         manager.GeneratedProduct = product;
         saveClass = save;
-        manager.factionManager.SetupPlayerFaction(product,loading);
-        foreach (Faction_Script faction in manager.factionManager.factionScripts)
+        if (loading)
         {
-            faction.maxBuilding = ((float)faction.controlledPlanets.Count / 100) * (faction.faction.industrialism * 20);
+            manager.factionManager.SetupPlayerFaction(product, loading);
+            foreach (Faction_Script faction in manager.factionManager.factionScripts)
+            {
+                faction.maxBuilding = ((float)faction.controlledPlanets.Count / 100) * (faction.faction.industrialism * 20);
+            }
+            manager.factionManager.CalculateIncome(loading);
         }
-        manager.factionManager.CalculateIncome();
-        manager.factionManager.forceManager.TurnEnd((float)manager.factionManager.Factions[0].factionIncome * ((float)manager.GeneratedProduct.funding / 100));
-        manager.factionManager.PlanetScriptToClass();
+        else
+        {
+            manager.factionManager.SetupPlayerFaction(product, loading);
+            foreach (Faction_Script faction in manager.factionManager.factionScripts)
+            {
+                faction.maxBuilding = ((float)faction.controlledPlanets.Count / 100) * (faction.faction.industrialism * 20);
+            }
+            manager.factionManager.CalculateIncome();
+            manager.factionManager.forceManager.TurnEnd((float)manager.factionManager.Factions[0].factionIncome * ((float)manager.GeneratedProduct.funding / 100));
+            manager.factionManager.PlanetScriptToClass();
+        }
         AutoSave();
     }
 
