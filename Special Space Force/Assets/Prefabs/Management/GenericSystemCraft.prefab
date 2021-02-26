@@ -702,6 +702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7355017286159560947}
   - component: {fileID: 7355017286159560946}
+  - component: {fileID: 5993175087647725320}
   m_Layer: 0
   m_Name: GenericSystemCraft
   m_TagString: Untagged
@@ -749,6 +750,19 @@ MonoBehaviour:
   selected: {fileID: 7355017285261565250}
   craftName: {fileID: 7355017285353727830}
   craftClass: {fileID: 7355017285513350485}
+--- !u!65 &5993175087647725320
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355017286159560944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 300, y: 100, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7355017286234690716
 GameObject:
   m_ObjectHideFlags: 0

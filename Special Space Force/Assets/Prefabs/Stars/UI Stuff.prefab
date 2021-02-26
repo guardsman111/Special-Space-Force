@@ -214,8 +214,6 @@ GameObject:
   - component: {fileID: 1131117346994474825}
   - component: {fileID: 2087158740603385029}
   - component: {fileID: 6981848119400272781}
-  - component: {fileID: 3195577563533591438}
-  - component: {fileID: 3606907198261111371}
   m_Layer: 0
   m_Name: Colonising Icon
   m_TagString: Untagged
@@ -283,33 +281,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3195577563533591438
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2628220356637583419}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3606907198261111371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2628220356637583419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b82537a82bfb7143a7ea25b74894afa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  system: {fileID: 0}
-  manager: {fileID: 0}
 --- !u!1 &2938062028771961822
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1094011864940214880
 Transform:
   m_ObjectHideFlags: 0

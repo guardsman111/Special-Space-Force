@@ -10,9 +10,12 @@ public class System_Voidcraft_Script : MonoBehaviour
     public Manager_Script modManager;
     public Fleet_Manager fManager;
     public Camera sectorCamera;
+    public Camera_Movement sectorCameraMover;
 
     private System_Script currentSystem;
-    public Canvas canvas;
+    public GameObject View;
+
+    public GraphicRaycaster raycaster;
 
     public RectTransform UI_Element;
 
@@ -32,10 +35,16 @@ public class System_Voidcraft_Script : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MouseEnter()
     {
+        sectorCameraMover.pause = true;
+        Debug.Log("Mouse Over System Area!");
+    }
 
+    public void MouseExit()
+    {
+        sectorCameraMover.pause = false;
+        Debug.Log("Mouse Over System Area!");
     }
 
     public void SelectSystem(System_Script system)
@@ -45,9 +54,8 @@ public class System_Voidcraft_Script : MonoBehaviour
             DeselectSystem();
         }
         currentSystem = system;
-        gameObject.transform.position = system.craftIcon.transform.position;
         
-        canvas.enabled = true;
+        View.SetActive(true);
 
         foreach (Voidcraft_Class vc in fManager.Craft)
         {
@@ -74,7 +82,7 @@ public class System_Voidcraft_Script : MonoBehaviour
             craft.RemoveAt(0);
         }
         currentSystem = null;
-        canvas.enabled = false;
+        View.SetActive(false);
     }
 
     public void MoveCraft(System_Script system, int nTurns)
@@ -91,7 +99,7 @@ public class System_Voidcraft_Script : MonoBehaviour
 
     public void CheckClose()
     {
-        canvas.enabled = false;
+        View.SetActive(false);
         currentSystem.craftIcon.SetActive(true);
     }
 }

@@ -26,6 +26,8 @@ public class Camera_Movement : MonoBehaviour
     public Camera thisCamera;
     public Transform rotationKeeper;
 
+    public bool pause = false;
+
     private bool isSpeeding;
     private float count;
 
@@ -79,14 +81,14 @@ public class Camera_Movement : MonoBehaviour
                     else transform.position += thisCamera.transform.right * cameraSpeed;
                 }
             }
-            if (Input.GetAxis("Mouse ScrollWheel") < 0.0f)
+            if (Input.GetAxis("Mouse ScrollWheel") < 0.0f && !pause)
             {
                 if (transform.position.y < cameraMaxHeight)
                 {
                     transform.position += new Vector3(0, cameraSpeed * 50, 0);
                 }
             }
-            if (Input.GetAxis("Mouse ScrollWheel") > 0.0f)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0.0f && !pause)
             {
                 if (transform.position.y > cameraMinHeight)
                 {

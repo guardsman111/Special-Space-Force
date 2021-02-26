@@ -15,6 +15,9 @@ public class Music_Sound_Script : Sound_Script
     public List<string> rockNames;
 
     public List<UI_Music_Script> songs;
+    public List<UI_Music_Script> disabledSongs;
+
+    public UI_Music_Script currentSong;
 
     public Toggle ambientTog;
     public Toggle electronicTog;
@@ -82,12 +85,27 @@ public class Music_Sound_Script : Sound_Script
     {
         if (musicTog.isOn == true)
         {
-            int random = Random.Range(0, songs.Count);
-            if (songs[random].toggle.isOn == true)
+            if (currentSong == null)
             {
-                speaker.clip = songs[random].song;
-                songs[random].image.color = orangeC;
-                speaker.Play();
+                int random1 = Random.Range(0, songs.Count);
+                currentSong = songs[random1];
+            }
+            currentSong.image.color = defaultC;
+            int random = Random.Range(0, songs.Count);
+            if (!songs[random].toggle.isOn)
+            {
+                InvokeRepeating("PlayMusic", 0.1f,0.1f);
+            }
+            else
+            {
+                if(currentSong != songs[random])
+                {
+                    currentSong = songs[random];
+                    speaker.clip = songs[random].song;
+                    songs[random].image.color = orangeC;
+                    speaker.Play();
+                    CancelInvoke("PlayMusic");
+                }
             }
         }
     }
@@ -108,11 +126,13 @@ public class Music_Sound_Script : Sound_Script
     {
         if (!uiM.toggle.isOn)
         {
-            if (speaker.clip = uiM.song)
+            if (speaker.clip == uiM.song)
             {
                 uiM.image.color = defaultC;
+
                 PlayMusic();
             }
+            disabledSongs.Add(songs[songs.IndexOf(uiM)]);
         }
     }
 
@@ -123,12 +143,12 @@ public class Music_Sound_Script : Sound_Script
 
     public void ResetSongs()
     {
-        while(songs.Count > 0)
+        if(songs == null)
         {
-            Destroy(songs[0].gameObject);
-            songs.RemoveAt(0);
+            songs = new List<UI_Music_Script>();
         }
 
+        int extraValues = 0;
 
         int count;
         if (ambientTog.isOn)
@@ -136,15 +156,39 @@ public class Music_Sound_Script : Sound_Script
             count = 0;
             foreach(AudioClip ac in ambientSounds)
             {
-                GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
-                UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
-                tempMUI.manager = this;
-                tempMUI.songName.text = ambientNames[count];
-                tempMUI.song = ac;
-                tempGO.transform.position += new Vector3(0, -22 * songs.Count);
-                songs.Add(tempMUI);
-                count += 1;
+                if (songs.Count > ambientSounds.IndexOf(ac))
+                {
+                    if (songs[ambientSounds.IndexOf(ac)].song == ac)
+                    {
+
+                    }
+                    else
+                    {
+                        Destroy(songs[ambientSounds.IndexOf(ac)].gameObject);
+                        songs.RemoveAt(ambientSounds.IndexOf(ac));
+                        GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
+                        UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
+                        tempMUI.manager = this;
+                        tempMUI.songName.text = ambientNames[count];
+                        tempMUI.song = ac;
+                        tempGO.transform.position += new Vector3(0, -22 * songs.Count);
+                        songs.Add(tempMUI);
+                        count += 1;
+                    }
+                }
+                else
+                {
+                    GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
+                    UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
+                    tempMUI.manager = this;
+                    tempMUI.songName.text = ambientNames[count];
+                    tempMUI.song = ac;
+                    tempGO.transform.position += new Vector3(0, -22 * songs.Count);
+                    songs.Add(tempMUI);
+                    count += 1;
+                }
             }
+            extraValues += ambientSounds.Count;
         }
 
         if (electronicTog.isOn)
@@ -152,15 +196,39 @@ public class Music_Sound_Script : Sound_Script
             count = 0;
             foreach (AudioClip ac in electronicSounds)
             {
-                GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
-                UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
-                tempMUI.manager = this;
-                tempMUI.songName.text = electronicNames[count];
-                tempMUI.song = ac;
-                tempGO.transform.position += new Vector3(0, -22 * songs.Count);
-                songs.Add(tempMUI);
-                count += 1;
+                if (songs.Count > electronicSounds.IndexOf(ac) + extraValues)
+                {
+                    if (songs[electronicSounds.IndexOf(ac) + extraValues].song == ac)
+                    {
+
+                    }
+                    else
+                    {
+                        Destroy(songs[electronicSounds.IndexOf(ac) + extraValues].gameObject);
+                        songs.RemoveAt(electronicSounds.IndexOf(ac) + extraValues);
+                        GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
+                        UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
+                        tempMUI.manager = this;
+                        tempMUI.songName.text = electronicNames[count];
+                        tempMUI.song = ac;
+                        tempGO.transform.position += new Vector3(0, -22 * songs.Count);
+                        songs.Add(tempMUI);
+                        count += 1;
+                    }
+                }
+                else
+                {
+                    GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
+                    UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
+                    tempMUI.manager = this;
+                    tempMUI.songName.text = electronicNames[count];
+                    tempMUI.song = ac;
+                    tempGO.transform.position += new Vector3(0, -22 * songs.Count);
+                    songs.Add(tempMUI);
+                    count += 1;
+                }
             }
+            extraValues += electronicSounds.Count;
         }
 
         if (epicTog.isOn)
@@ -168,15 +236,39 @@ public class Music_Sound_Script : Sound_Script
             count = 0;
             foreach (AudioClip ac in epicSounds)
             {
-                GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
-                UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
-                tempMUI.manager = this;
-                tempMUI.songName.text = epicNames[count];
-                tempMUI.song = ac;
-                tempGO.transform.position += new Vector3(0, -22 * songs.Count);
-                songs.Add(tempMUI);
-                count += 1;
+                if (songs.Count > epicSounds.IndexOf(ac) + extraValues)
+                {
+                    if (songs[epicSounds.IndexOf(ac) + extraValues].song == ac)
+                    {
+
+                    }
+                    else
+                    {
+                        Destroy(songs[epicSounds.IndexOf(ac) + extraValues].gameObject);
+                        songs.RemoveAt(epicSounds.IndexOf(ac) + extraValues);
+                        GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
+                        UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
+                        tempMUI.manager = this;
+                        tempMUI.songName.text = epicNames[count];
+                        tempMUI.song = ac;
+                        tempGO.transform.position += new Vector3(0, -22 * songs.Count);
+                        songs.Add(tempMUI);
+                        count += 1;
+                    }
+                }
+                else
+                {
+                    GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
+                    UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
+                    tempMUI.manager = this;
+                    tempMUI.songName.text = epicNames[count];
+                    tempMUI.song = ac;
+                    tempGO.transform.position += new Vector3(0, -22 * songs.Count);
+                    songs.Add(tempMUI);
+                    count += 1;
+                }
             }
+            extraValues += epicSounds.Count;
         }
 
         if (rockTog.isOn)
@@ -184,14 +276,46 @@ public class Music_Sound_Script : Sound_Script
             count = 0;
             foreach (AudioClip ac in rockSounds)
             {
-                GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
-                UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
-                tempMUI.manager = this;
-                tempMUI.songName.text = rockNames[count];
-                tempMUI.song = ac;
-                tempGO.transform.position += new Vector3(0, -22 * songs.Count);
-                songs.Add(tempMUI);
-                count += 1;
+                if (songs.Count > rockSounds.IndexOf(ac) + extraValues)
+                {
+                    if (songs[rockSounds.IndexOf(ac) + extraValues].song == ac)
+                    {
+
+                    }
+                    else
+                    {
+                        Destroy(songs[rockSounds.IndexOf(ac) + extraValues].gameObject);
+                        songs.RemoveAt(rockSounds.IndexOf(ac) + extraValues);
+                        GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
+                        UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
+                        tempMUI.manager = this;
+                        tempMUI.songName.text = rockNames[count];
+                        tempMUI.song = ac;
+                        tempGO.transform.position += new Vector3(0, -22 * songs.Count);
+                        songs.Add(tempMUI);
+                        count += 1;
+                    }
+                }
+                else
+                {
+                    GameObject tempGO = Instantiate(prefabUIMusic, content.transform);
+                    UI_Music_Script tempMUI = tempGO.GetComponent<UI_Music_Script>();
+                    tempMUI.manager = this;
+                    tempMUI.songName.text = rockNames[count];
+                    tempMUI.song = ac;
+                    tempGO.transform.position += new Vector3(0, -22 * songs.Count);
+                    songs.Add(tempMUI);
+                    count += 1;
+                }
+            }
+            extraValues += rockSounds.Count;
+        }
+
+        foreach(UI_Music_Script uiM in songs)
+        {
+            if (disabledSongs.Contains(uiM))
+            {
+                uiM.toggle.isOn = false;
             }
         }
     }

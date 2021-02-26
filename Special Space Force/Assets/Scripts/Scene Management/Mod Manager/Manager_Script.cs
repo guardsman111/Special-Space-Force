@@ -24,6 +24,8 @@ public class Manager_Script : MonoBehaviour
     public Quickview_Voidcraft_Manager craftSystem;
     public Quickview_Voidcraft_Manager craftPlanet;
 
+    public System_Voidcraft_Script craftMover;
+
     public Generation_Class GeneratedProduct
     {
         get { return generatedProduct; }

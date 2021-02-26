@@ -47,11 +47,7 @@ public class Planet_Click : MonoBehaviour
                 if (!planetCamera.enabled)
                 {
                     planetCamera.GetComponent<Camera_Targeted>().target = transform;
-                    systemCamera.enabled = false;
                     star.enabled = false;
-                    planetCamera.enabled = true;
-                    planetScreenCamera.enabled = true;
-                    planetScreen.GetComponent<Canvas>().enabled = true;
                     ToggleVisiblePlanets.TogglePlanetsOn(false);
                     this.gameObject.SetActive(true);
 
@@ -199,6 +195,7 @@ public class Planet_Click : MonoBehaviour
                     previous = true;
                     systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                     systemCamera.GetComponent<Camera_Container_Script>().planetHelper.ShowHelper();
+                    StartCoroutine(ExecuteAfterTime(0.05f));
                 }
             }
         }
@@ -208,6 +205,17 @@ public class Planet_Click : MonoBehaviour
             planetScreen.speakerManager.PlaySound();
             planetScreen.systemScreen.QVManager.MoveCraft(sPlanet);
         }
+    }
+
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        planetCamera.enabled = true;
+        planetScreenCamera.enabled = true;
+        planetScreen.GetComponent<Canvas>().enabled = true;
+        systemCamera.enabled = false;
+        // Code to execute after the delay
     }
 
     //On escape returns to the system camera

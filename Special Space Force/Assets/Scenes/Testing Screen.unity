@@ -3378,9 +3378,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 70808547}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Content
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3402,8 +3402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -7902311}
-  m_SizeDelta: {x: 0, y: 600}
+  m_AnchoredPosition: {x: 0, y: 0.000014187247}
+  m_SizeDelta: {x: 0, y: 2000}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &71147232
 GameObject:
@@ -6107,9 +6107,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117469757}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sliding Area
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9025,6 +9025,7 @@ RectTransform:
   - {fileID: 1369319054}
   - {fileID: 293348653}
   - {fileID: 1191703550}
+  - {fileID: 1464439518}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13251,7 +13252,7 @@ GameObject:
   - component: {fileID: 257760817}
   m_Layer: 5
   m_Name: Music
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13566,12 +13567,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 768328979}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &263014635 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3179005509909518485, guid: f49dfd96ae8ba7246909b769fb8956f5,
-    type: 3}
-  m_PrefabInstance: {fileID: 768328979}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &263014636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13586,6 +13581,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systems: []
   systemIDs: 
+--- !u!114 &263014637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263014633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fd2e641a3dc75489d637678bf7dd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avoiders:
+  - {fileID: 1340578024}
+  - {fileID: 1271274198}
+  - {fileID: 817105483}
+  - {fileID: 1525630685}
+  - {fileID: 1369319053}
+  - {fileID: 586950955}
+  - {fileID: 1369319053}
+  - {fileID: 1369319053}
+  raycaster: {fileID: 0}
 --- !u!1 &264953712
 GameObject:
   m_ObjectHideFlags: 0
@@ -22690,7 +22707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &459621888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22713,9 +22730,9 @@ RectTransform:
   m_Father: {fileID: 1191703550}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150.4, y: 85.6}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -230.4, y: 100.6}
   m_SizeDelta: {x: 140, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459621889
@@ -23339,7 +23356,7 @@ GameObject:
   - component: {fileID: 478466468}
   m_Layer: 5
   m_Name: Electronic
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24123,7 +24140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -26675,6 +26692,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538708025}
   m_CullTransparentMesh: 0
+--- !u!4 &539888575 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3179005510035564993, guid: f49dfd96ae8ba7246909b769fb8956f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 768328979}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &543460311 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7867798662223489838, guid: af89cb19425bcb4418efe4dab182aaec,
@@ -28201,9 +28224,9 @@ GameObject:
   m_Component:
   - component: {fileID: 586950956}
   - component: {fileID: 586950957}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: System Craft Viewer
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28215,13 +28238,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586950955}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -541, y: 524, z: -1672}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1676218500}
-  m_Father: {fileID: 263014635}
-  m_RootOrder: 4
+  m_Children: []
+  m_Father: {fileID: 539888575}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &586950957
 MonoBehaviour:
@@ -28239,8 +28261,10 @@ MonoBehaviour:
   modManager: {fileID: 1924590275}
   fManager: {fileID: 87682871}
   sectorCamera: {fileID: 2093537956}
-  canvas: {fileID: 1676218503}
-  UI_Element: {fileID: 1676218500}
+  sectorCameraMover: {fileID: 1524907380}
+  View: {fileID: 1464439517}
+  raycaster: {fileID: 163858430}
+  UI_Element: {fileID: 163858433}
   content: {fileID: 70808546}
   prefabCraft: {fileID: 7355017286159560944, guid: 98a66f7698d39894bbf062d44a6ae8a6,
     type: 3}
@@ -30850,9 +30874,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -7, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &637003667
 MonoBehaviour:
@@ -33643,7 +33667,7 @@ GameObject:
   - component: {fileID: 690629469}
   m_Layer: 5
   m_Name: Epic
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33862,9 +33886,9 @@ GameObject:
   - component: {fileID: 692220676}
   - component: {fileID: 692220675}
   - component: {fileID: 692220674}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33876,17 +33900,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692220672}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 753121406}
-  m_Father: {fileID: 1676218500}
-  m_RootOrder: 1
+  m_Father: {fileID: 1464439518}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 152, y: -313}
+  m_AnchoredPosition: {x: 151, y: 25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &692220674
@@ -38925,9 +38949,9 @@ GameObject:
   - component: {fileID: 753121406}
   - component: {fileID: 753121408}
   - component: {fileID: 753121407}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40329,7 +40353,7 @@ PrefabInstance:
     - target: {fileID: 3304842007466299086, guid: f49dfd96ae8ba7246909b769fb8956f5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 374.99994
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 3304842007466299086, guid: f49dfd96ae8ba7246909b769fb8956f5,
         type: 3}
@@ -40338,7 +40362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2013071516, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 374.99994
+      value: 375
       objectReference: {fileID: 0}
     - target: {fileID: 2013071516, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
       propertyPath: m_SizeDelta.x
@@ -42958,6 +42982,10 @@ PrefabInstance:
       propertyPath: craftPlanet
       value: 
       objectReference: {fileID: 1458962688}
+    - target: {fileID: 1924590275, guid: f49dfd96ae8ba7246909b769fb8956f5, type: 3}
+      propertyPath: craftMover
+      value: 
+      objectReference: {fileID: 586950957}
     - target: {fileID: 3179005509909518487, guid: f49dfd96ae8ba7246909b769fb8956f5,
         type: 3}
       propertyPath: voidcraftManager
@@ -55037,7 +55065,7 @@ GameObject:
   - component: {fileID: 984466313}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55890,7 +55918,7 @@ GameObject:
   - component: {fileID: 993230990}
   m_Layer: 5
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57071,10 +57099,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -62335,9 +62363,9 @@ GameObject:
   - component: {fileID: 1127365575}
   - component: {fileID: 1127365577}
   - component: {fileID: 1127365576}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62356,8 +62384,8 @@ RectTransform:
   m_Father: {fileID: 117469757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.8}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -64474,7 +64502,7 @@ GameObject:
   - component: {fileID: 1191703554}
   m_Layer: 5
   m_Name: Music
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64637,6 +64665,8 @@ MonoBehaviour:
   rockNames:
   - I Cant Stop
   songs: []
+  disabledSongs: []
+  currentSong: {fileID: 0}
   ambientTog: {fileID: 1673616007}
   electronicTog: {fileID: 478466468}
   epicTog: {fileID: 690629469}
@@ -65889,9 +65919,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1217396962}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Space 1
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65912,7 +65942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: 250}
+  m_AnchoredPosition: {x: 8, y: 950}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1218276320
@@ -67173,8 +67203,8 @@ RectTransform:
   m_Father: {fileID: 751069626}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -67453,7 +67483,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -73363,7 +73393,7 @@ GameObject:
   - component: {fileID: 1369319055}
   m_Layer: 5
   m_Name: End Turn
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77480,13 +77510,13 @@ GameObject:
   - component: {fileID: 1464439521}
   - component: {fileID: 1464439520}
   - component: {fileID: 1464439519}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Scroll View
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1464439518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77494,18 +77524,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464439517}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2090744034}
   - {fileID: 1837639785}
-  m_Father: {fileID: 1676218500}
-  m_RootOrder: 0
+  - {fileID: 692220673}
+  m_Father: {fileID: 163858433}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 154, y: -540}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 163, y: -5}
   m_SizeDelta: {x: 300, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464439519
@@ -79603,6 +79634,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 768328979}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1524907380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3179005509777647169, guid: f49dfd96ae8ba7246909b769fb8956f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 768328979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524907378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18657a5784f5a614d9af13611efb31ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1525630685
 GameObject:
   m_ObjectHideFlags: 0
@@ -87140,7 +87183,7 @@ GameObject:
   - component: {fileID: 1673616007}
   m_Layer: 5
   m_Name: Ambient
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87448,106 +87491,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675967506}
   m_CullTransparentMesh: 0
---- !u!1 &1676218499
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1676218500}
-  - component: {fileID: 1676218503}
-  - component: {fileID: 1676218502}
-  - component: {fileID: 1676218501}
-  m_Layer: 0
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1676218500
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676218499}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1464439518}
-  - {fileID: 692220673}
-  m_Father: {fileID: 586950956}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &1676218501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676218499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1676218502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676218499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
---- !u!223 &1676218503
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676218499}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!114 &1681021094 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7867798662223489838, guid: af89cb19425bcb4418efe4dab182aaec,
@@ -94560,9 +94503,9 @@ GameObject:
   - component: {fileID: 1837639788}
   - component: {fileID: 1837639787}
   - component: {fileID: 1837639786}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Scrollbar Vertical
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94629,8 +94572,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1127365576}
   m_HandleRect: {fileID: 1127365575}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.15
+  m_Value: 1
+  m_Size: 0.2
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -103771,7 +103714,7 @@ GameObject:
   - component: {fileID: 2018734943}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107466,7 +107409,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -107972,9 +107915,9 @@ GameObject:
   - component: {fileID: 2090744037}
   - component: {fileID: 2090744036}
   - component: {fileID: 2090744035}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Viewport
-  m_TagString: Untagged
+  m_TagString: UIForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107995,9 +107938,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2090744035
 MonoBehaviour:

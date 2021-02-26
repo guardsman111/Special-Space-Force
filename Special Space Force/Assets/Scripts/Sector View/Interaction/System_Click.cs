@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class System_Click : MonoBehaviour
@@ -24,6 +25,8 @@ public class System_Click : MonoBehaviour
     public System_Screen systemScreen;
     public GameObject canvas;
     public System_Voidcraft_Script mover;
+    public List<GameObject> avoiders;
+    public Manager_Script manager;
 
     public Button[] UIs;
 
@@ -39,77 +42,103 @@ public class System_Click : MonoBehaviour
         systemScreen = systemCamera.GetComponentInChildren<System_Screen>();
         canvas = systemCamera.GetComponentInChildren<System_Screen>().gameObject;
         mover = GameObject.Find("System Craft Viewer").GetComponent<System_Voidcraft_Script>();
+        avoiders = GameObject.Find("Scene Manager").GetComponent<Scene_Manager>().avoiders;
+        manager = GameObject.Find("Mod Manager").GetComponent<Manager_Script>();
     }
 
     //Toggles the Cameras depending on the current enabled camera
     private void OnMouseDown()
     {
-        if (!planetCamera.enabled)
+        if (!planetCamera.enabled && !manager.sManager.gameObject.activeSelf && !manager.fManager.gameObject.activeSelf)
         {
-            if (systemCamera.transform.position == cameraTransform.position)
+            PointerEventData pointerData = new PointerEventData(EventSystem.current);
+            List<RaycastResult> hits = new List<RaycastResult>();
+            bool stop = false;
+
+            pointerData.position = Input.mousePosition;
+            manager.craftMover.raycaster.Raycast(pointerData, hits);
+
+            foreach (RaycastResult hit in hits)
             {
-                systemCamera.transform.position = mainCamera.transform.position;
-                mainCamera.enabled = true;
-                systemCamera.enabled = false;
-                systemScreenCamera.enabled = false;
-                ToggleVisiblePlanets.TogglePlanetsOn(false);
-                System_Script system = GetComponent<System_Script>();
-                system.SName.enabled = true;
-                system.Faction.enabled = true;
-                if (systemScreen.QVManager.craft.Count > 0)
+                if (avoiders.Contains(hit.gameObject))
                 {
-                    system.craftIcon.gameObject.SetActive(true);
+                    Debug.Log(hit.gameObject.name + " avoider has been clicked, stopping you from opening " + GetComponent<System_Script>().Star.systemName);
+                    stop = true;
                 }
-                if (system.Colonising)
+                if (hit.gameObject.tag == "UIForce")
                 {
-                    system.coloIcon.gameObject.SetActive(true);
+                    Debug.Log(hit.gameObject.name + " has been clicked, stopping you from opening " + GetComponent<System_Script>().Star.systemName);
+                    stop = true;
                 }
-                systemScreen.QVManager.CloseManager();
-                systemScreen.aManager.CloseManager();
-                systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
-                foreach(Button b in UIs)
-                {
-                    b.gameObject.SetActive(true);
-                }
-                systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.ShowHelper();
-                canvas.SetActive(false);
             }
-            else
+
+            if (!stop)
             {
-                systemCamera.transform.position = cameraTransform.position;
-                mainCamera.enabled = false;
-                canvas.SetActive(true);
-                systemCamera.enabled = true;
-                systemScreenCamera.enabled = true;
-                System_Script system = GetComponent<System_Script>();
-
-                systemScreen.sname.text = "System: " + system.Star.systemName;
-                systemScreen.allegiance.text = "Owner: " + system.allegiance;
-                systemScreen.output.text = "Total Output: " + system.combinedOutput.ToString("00,0") + " Kilo-Tonnes";
-                system.SName.enabled = false;
-                system.Faction.enabled = false;
-                system.craftIcon.gameObject.SetActive(false);
-                system.coloIcon.gameObject.SetActive(false);
-                systemScreen.QVManager.OpenSystem(system.Star);
-                systemScreen.aManager.OpenSystem(system.Star);
-
-                starLight.GetComponent<Light_Colour>().ChangeColour(gameObject.GetComponent<System_Script>().Star.colour);
-
-                ToggleVisiblePlanets.TogglePlanetsOn(true);
-
-                systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
-                foreach (Button b in UIs)
+                if (systemCamera.transform.position == cameraTransform.position)
                 {
-                    b.gameObject.SetActive(false);
+                    systemCamera.transform.position = mainCamera.transform.position;
+                    mainCamera.enabled = true;
+                    systemCamera.enabled = false;
+                    systemScreenCamera.enabled = false;
+                    ToggleVisiblePlanets.TogglePlanetsOn(false);
+                    System_Script system = GetComponent<System_Script>();
+                    system.SName.enabled = true;
+                    system.Faction.enabled = true;
+                    if (systemScreen.QVManager.craft.Count > 0)
+                    {
+                        system.craftIcon.gameObject.SetActive(true);
+                    }
+                    if (system.Colonising)
+                    {
+                        system.coloIcon.gameObject.SetActive(true);
+                    }
+                    systemScreen.QVManager.CloseManager();
+                    systemScreen.aManager.CloseManager();
+                    systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
+                    foreach (Button b in UIs)
+                    {
+                        b.gameObject.SetActive(true);
+                    }
+                    systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.ShowHelper();
+                    canvas.SetActive(false);
                 }
-                systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.HideHelper();
+                else
+                {
+                    systemCamera.transform.position = cameraTransform.position;
+                    mainCamera.enabled = false;
+                    canvas.SetActive(true);
+                    systemCamera.enabled = true;
+                    systemScreenCamera.enabled = true;
+                    System_Script system = GetComponent<System_Script>();
+
+                    systemScreen.sname.text = "System: " + system.Star.systemName;
+                    systemScreen.allegiance.text = "Owner: " + system.allegiance;
+                    systemScreen.output.text = "Total Output: " + system.combinedOutput.ToString("00,0") + " Kilo-Tonnes";
+                    system.SName.enabled = false;
+                    system.Faction.enabled = false;
+                    system.craftIcon.gameObject.SetActive(false);
+                    system.coloIcon.gameObject.SetActive(false);
+                    systemScreen.QVManager.OpenSystem(system.Star);
+                    systemScreen.aManager.OpenSystem(system.Star);
+
+                    starLight.GetComponent<Light_Colour>().ChangeColour(gameObject.GetComponent<System_Script>().Star.colour);
+
+                    ToggleVisiblePlanets.TogglePlanetsOn(true);
+
+                    systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
+                    foreach (Button b in UIs)
+                    {
+                        b.gameObject.SetActive(false);
+                    }
+                    systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.HideHelper();
+                }
             }
         }
     }
 
     private void OnMouseOver()
     {
-        if (mover.canvas.enabled)
+        if (mover.View.activeSelf)
         {
             if (systemScreen.mouseHoverer.active == false)
             {
