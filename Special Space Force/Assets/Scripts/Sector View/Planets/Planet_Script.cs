@@ -474,6 +474,11 @@ public class Planet_Script : MonoBehaviour
     public void ChangeCities()
     {
 
+        if(planet.biome == "Glass World")
+        {
+
+        }
+
         if (inhabited)
         {
             if (population < 10000f && currentCityLevel != 1)

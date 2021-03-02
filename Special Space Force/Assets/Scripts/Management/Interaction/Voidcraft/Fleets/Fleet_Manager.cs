@@ -20,6 +20,7 @@ public class Fleet_Manager : MonoBehaviour
 
     private List<Fleet_Class> fleets;
     private List<Fleet_Script> fleetsS;
+    public Fleet_Script mainFleetView;
     private List<Voidcraft_Class> craft;
     private List<int> fleetIDs;
     private List<int> craftIDs;
@@ -133,8 +134,7 @@ public class Fleet_Manager : MonoBehaviour
     public void TopSlot()
     {
         speakerManager.PlaySound();
-        viewedFleet = null;
-        currentName.text = "Fleet Overview";
+        viewedFleet = mainFleetView;
         foreach(Fleet_Script fs in fleetsS)
         {
             fs.SetPosition(viewedFleet);
@@ -146,6 +146,7 @@ public class Fleet_Manager : MonoBehaviour
         slotFieldScroll.value = 0;
         FleetOptions.SetActive(true);
         CraftOptions.SetActive(false);
+        currentName.text = viewedFleet.fleetName;
     }
 
     //Opens the clicked slot
@@ -387,5 +388,10 @@ public class Fleet_Manager : MonoBehaviour
                 vs.craftImages[5].color = manager.modManager.GeneratedProduct.playerFleetColours[4];
             }
         }
+    }
+
+    public void SetName(Text textBox)
+    {
+        viewedFleet.SetName(textBox.text);
     }
 }

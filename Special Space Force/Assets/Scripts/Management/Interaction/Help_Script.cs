@@ -14,19 +14,19 @@ public class Help_Script : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            helperImage.gameObject.SetActive(true);
-            showing = true;
+            if (showing)
+            {
+                helperImage.gameObject.SetActive(false);
+                showing = false;
+            }
+            else
+            {
+                helperImage.gameObject.SetActive(true);
+                showing = true;
+            }
         }
     }
 
-    public void MouseUp()
-    {
-        if (showing)
-        {
-            helperImage.gameObject.SetActive(false);
-            showing = false;
-        }
-    }
 
     public void ShowHelper()
     {

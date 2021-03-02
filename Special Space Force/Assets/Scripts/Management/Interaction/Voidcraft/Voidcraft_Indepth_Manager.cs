@@ -65,7 +65,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
                     {
                         if (sc.numberOfTroopers < (voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF))
                         {
-                            nOptions.Add("-" + sc.slotName);
+                            nOptions.Add("- " + sc.slotName);
                             voidcraft.availableSlots.Add(sc);
                         }
                         CheckOption(sc, voidcraft, "");
@@ -94,7 +94,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
 
             foreach (Slot_Class sc in voidcraft.linkedScript.CarriedSlots)
             {
-                nOptions.Add("-" + sc.slotName);
+                nOptions.Add("- " + sc.slotName);
             }
 
             if (nOptions.Count > 0)
@@ -137,7 +137,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
                     {
                         if (sc.numberOfTroopers < (voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF))
                         {
-                            nOptions.Add("-" + sc.slotName);
+                            nOptions.Add("- " + sc.slotName);
                             voidcraft.availableSlots.Add(sc);
                         }
                         CheckOption(sc, voidcraft, "");
@@ -170,7 +170,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
             {
                 if (voidcraft.linkedScript.CarriedSlots[i].craftID == voidcraft.linkedCraft.ID)
                 {
-                    nOptions.Add("-" + voidcraft.linkedScript.CarriedSlots[i].slotName);
+                    nOptions.Add("- " + voidcraft.linkedScript.CarriedSlots[i].slotName);
                 }
                 else
                 {
@@ -239,7 +239,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
                     {
                         if (sc.numberOfTroopers < voidcraft.craftClass.capacity - voidcraft.craftClass.capacityF)
                         {
-                            nOptions.Add("-" + sc.slotName);
+                            nOptions.Add("- " + sc.slotName);
                             advancedCraft.availableSlots.Add(sc);
                         }
                         CheckOption(sc, advancedCraft, "");
@@ -272,7 +272,7 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
             {
                 if (voidcraft.CarriedSlots[i].craftID == voidcraft.craftClass.ID)
                 {
-                    nOptions.Add("-" + voidcraft.CarriedSlots[i].slotName);
+                    nOptions.Add("- " + voidcraft.CarriedSlots[i].slotName);
                 }
                 else
                 {
@@ -312,20 +312,20 @@ public class Voidcraft_Indepth_Manager : MonoBehaviour
                 {
                     if (sc.numberOfTroopers < (voidcraft.linkedCraft.capacity - voidcraft.linkedCraft.capacityF))
                     {
-                        nOptions.Add((additive + "-" + sc.slotName));
+                        nOptions.Add((additive + "- " + sc.slotName));
                         voidcraft.availableSlots.Add(sc);
                     }
-                    CheckOption(sc, voidcraft, additive + sc.slotName[0]);
+                    CheckOption(sc, voidcraft, additive + sc.slotName[0] + sc.slotName[1] + sc.slotName[2]);
                 }
                 else
                 {
-                    CheckOption(sc, voidcraft, additive + sc.slotName[0]);
+                    CheckOption(sc, voidcraft, additive + sc.slotName[0] + sc.slotName[1] + sc.slotName[2]);
                     //slot.systemID = 0;
                 }
             }
             else
             {
-                CheckOption(sc, voidcraft, additive + sc.slotName[0]);
+                CheckOption(sc, voidcraft, additive + sc.slotName[0] + sc.slotName[1] + sc.slotName[2]);
             }
         }
     }

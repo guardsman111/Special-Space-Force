@@ -110,6 +110,7 @@ public class System_Click : MonoBehaviour
                     systemCamera.enabled = true;
                     systemScreenCamera.enabled = true;
                     System_Script system = GetComponent<System_Script>();
+                    manager.craftMover.DeselectSystem();
 
                     systemScreen.sname.text = "System: " + system.Star.systemName;
                     systemScreen.allegiance.text = "Owner: " + system.allegiance;

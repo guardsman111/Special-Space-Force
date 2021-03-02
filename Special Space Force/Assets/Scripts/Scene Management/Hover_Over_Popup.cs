@@ -34,7 +34,22 @@ public class Hover_Over_Popup : MonoBehaviour
     {
         showing = true;
         hoverObject.SetActive(true);
-        hoverObject.transform.position = Input.mousePosition - new Vector3(30, 50, -3);
+        if(Input.mousePosition.x > Screen.width / 2)
+        {
+            hoverObject.transform.position = new Vector3(Input.mousePosition.x - 300, 0, 0);
+        } 
+        else
+        {
+            hoverObject.transform.position = new Vector3(Input.mousePosition.x + 30, 0, 0);
+        }
+        if (Input.mousePosition.y > Screen.height / 2)
+        {
+            hoverObject.transform.position += new Vector3(0, Input.mousePosition.y - 50, 0);
+        }
+        else
+        {
+            hoverObject.transform.position += new Vector3(0, Input.mousePosition.y + 150, 0);
+        }
     }
 
     public void Hide()

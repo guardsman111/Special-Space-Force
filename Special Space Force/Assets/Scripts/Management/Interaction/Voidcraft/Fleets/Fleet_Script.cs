@@ -77,7 +77,7 @@ public class Fleet_Script : MonoBehaviour
     public void SetPosition(Fleet_Script viewedFleet)
     {
         RectTransform rTransform = GetComponent<RectTransform>();
-        if (viewedFleet == null)
+        if (viewedFleet == manager.mainFleetView || viewedFleet == null)
         {
             input.gameObject.SetActive(true);
             gameObject.GetComponent<Image>().enabled = true;
@@ -161,5 +161,22 @@ public class Fleet_Script : MonoBehaviour
     public void NameDeselected()
     {
         manager.menu = false;
+    }
+
+    public void SetName(string nName)
+    {
+        fleetName = nName;
+        input.text = nName;
+        if(fleetClass != null)
+        {
+            fleetClass.fleetName = nName;
+        }
+    }
+    //Sets the squad name according to the input
+    public void SetName(TMP_Text nName)
+    {
+        fleetName = nName.text;
+        input.text = nName.text;
+        fleetClass.fleetName = nName.text;
     }
 }
