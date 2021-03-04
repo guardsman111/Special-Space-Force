@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Scene_Manager : MonoBehaviour
@@ -15,5 +16,10 @@ public class Scene_Manager : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

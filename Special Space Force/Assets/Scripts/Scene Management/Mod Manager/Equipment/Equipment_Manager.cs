@@ -731,6 +731,26 @@ public class Equipment_Manager : MonoBehaviour
         return colours;
     }
 
+    //Gets players default colours
+    //Remember that trim and equipment are the wrong way round in code compared to on screen
+    public List<Color32> GetColoursBasic(Image[] images)
+    {
+        List<Color32> colours = new List<Color32>
+        {
+            images[0].color, images[1].color, images[2].color, images[3].color, images[4].color,
+            images[0].color, images[1].color, images[2].color, images[3].color, images[4].color,
+            images[0].color, images[1].color, images[2].color, images[3].color,
+            images[0].color, images[1].color,
+            images[0].color, images[1].color,
+            images[4].color,
+        }
+        ;
+
+
+        playerDefaultColours = colours;
+        return colours;
+    }
+
     //Get players chosen starting equipment
     public List<string> GetDefault(string type)
     {

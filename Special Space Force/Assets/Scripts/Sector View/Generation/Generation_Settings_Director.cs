@@ -33,6 +33,9 @@ public class Generation_Settings_Director : MonoBehaviour
     private int funding = 50;
     private int identifierLoc = 0;
     public int nSlotLocations;
+    private string forceName = "91st Special Action Regiment";
+
+    private bool simple = true;
 
     private bool[] AIBoolArray;
 
@@ -54,6 +57,7 @@ public class Generation_Settings_Director : MonoBehaviour
     [SerializeField]
     public Image[] PlayerColours;
     public Image[] FleetColours;
+    public Image[] PlayerColoursSimple;
     public Page_Manager[] Pages;
 
 
@@ -147,9 +151,20 @@ public class Generation_Settings_Director : MonoBehaviour
         product.funding = funding;
         product.identifierLoc = identifierLoc;
         product.factions = factionManager.GenerateFactions(SortToggledAI());
-        product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
-        product.playerColours = equipmentManager.GetColours(PlayerColours);
-        product.playerFleetColours = voidcraftManager.GetColours(FleetColours);
+        if (simple == true)
+        {
+            product.regimentName = forceName;
+            product.playerColours = equipmentManager.GetColoursBasic(PlayerColoursSimple);
+            product.playerFleetColours = voidcraftManager.GetColoursBasic(PlayerColoursSimple);
+            product.chosenLocalisationList = localisationManager.FindChosenLocalisationBasic();
+        }
+        else
+        {
+            product.regimentName = forceName;
+            product.playerColours = equipmentManager.GetColours(PlayerColours);
+            product.playerFleetColours = voidcraftManager.GetColours(FleetColours);
+            product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
+        }
         localisationManager.SeperateStringLists();
         product.selectedTraits = traitManager.GetTraits();
         product.defaultEquipment = equipmentManager.GetDefault("Equipment");
@@ -750,5 +765,15 @@ public class Generation_Settings_Director : MonoBehaviour
     public void PasteColour(Colour_Picker picker)
     {
         picker.SetColour(copiedColour);
+    }
+
+    public void SimpleScreen(bool value)
+    {
+        simple = value;
+    }
+
+    public void ChangeName(InputField value)
+    {
+        forceName = value.text;
     }
 }

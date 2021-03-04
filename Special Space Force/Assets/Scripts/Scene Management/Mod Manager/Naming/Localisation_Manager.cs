@@ -46,7 +46,14 @@ public class Localisation_Manager : MonoBehaviour
     public Dropdown fleetNamesDropdown;
     public Dropdown craftNamesDropdown;
 
+    public Dropdown trooperNamesDropdown2;
+    public Dropdown hierachyNamesDropdown2;
+    public Dropdown slotNamesDropdown2;
+    public Dropdown fleetNamesDropdown2;
+    public Dropdown craftNamesDropdown2;
+
     public InputField forceName;
+    public InputField forceName2;
 
     public List<string> FindStarNames()
     {
@@ -156,6 +163,26 @@ public class Localisation_Manager : MonoBehaviour
         craftNamesDropdown.ClearOptions();
         craftNamesDropdown.AddOptions(craftNames);
         ChangedTemplateDropdown(craftNamesDropdown);
+
+        trooperNamesDropdown2.ClearOptions();
+        trooperNamesDropdown2.AddOptions(trooperNames);
+        ChangedTemplateDropdown(trooperNamesDropdown2);
+
+        hierachyNamesDropdown2.ClearOptions();
+        hierachyNamesDropdown2.AddOptions(hierachyNames);
+        ChangedTemplateDropdown(hierachyNamesDropdown2);
+
+        slotNamesDropdown2.ClearOptions();
+        slotNamesDropdown2.AddOptions(slotNames);
+        ChangedTemplateDropdown(slotNamesDropdown2);
+
+        fleetNamesDropdown2.ClearOptions();
+        fleetNamesDropdown2.AddOptions(fleetNames);
+        ChangedTemplateDropdown(fleetNamesDropdown2);
+
+        craftNamesDropdown2.ClearOptions();
+        craftNamesDropdown2.AddOptions(craftNames);
+        ChangedTemplateDropdown(craftNamesDropdown2);
     }
 
     //Handles changes to the dropdowns on the customisation menu
@@ -207,6 +234,41 @@ public class Localisation_Manager : MonoBehaviour
         if (chosenCraftNamesList == null)
         {
             LoadStringListClass(craftNamesDropdown.options[craftNamesDropdown.value].text, "CraftNames");
+        }
+
+        localisations.Add(chosenTrooperNamesList.name);
+        localisations.Add(chosenHierachyNamesList.name);
+        localisations.Add(chosenSlotNamesList.name);
+        localisations.Add(chosenFleetNamesList.name);
+        localisations.Add(chosenCraftNamesList.name);
+
+        return localisations;
+    }
+
+    //Returns the names of all the currently selected string list classes
+    public List<string> FindChosenLocalisationBasic()
+    {
+        List<string> localisations = new List<string>();
+
+        if (chosenTrooperNamesList == null)
+        {
+            LoadStringListClass(trooperNamesDropdown2.options[trooperNamesDropdown2.value].text, "TrooperNames");
+        }
+        if (chosenHierachyNamesList == null)
+        {
+            LoadStringListClass(hierachyNamesDropdown2.options[hierachyNamesDropdown2.value].text, "HierarchyNames");
+        }
+        if (chosenSlotNamesList == null)
+        {
+            LoadStringListClass(slotNamesDropdown2.options[slotNamesDropdown2.value].text, "SlotNames");
+        }
+        if (chosenFleetNamesList == null)
+        {
+            LoadStringListClass(fleetNamesDropdown2.options[fleetNamesDropdown2.value].text, "FleetNames");
+        }
+        if (chosenCraftNamesList == null)
+        {
+            LoadStringListClass(craftNamesDropdown2.options[craftNamesDropdown2.value].text, "CraftNames");
         }
 
         localisations.Add(chosenTrooperNamesList.name);
@@ -523,7 +585,7 @@ public class Localisation_Manager : MonoBehaviour
                         secondString = "Sub - " + hierachyNames[hierachyNames.Count - 1];
                         if (number == 0)
                         {
-                            firstString = forceName.text;
+                            firstString = slot.manager.modManager.GeneratedProduct.regimentName;
                             secondString = "";
                         }
                     }

@@ -284,6 +284,21 @@ public class Voidcraft_Manager : MonoBehaviour
         return colours;
     }
 
+    //Gets players default colours
+    //Remember that trim and equipment are the wrong way round in code compared to on screen
+    public List<Color32> GetColoursBasic(Image[] images)
+    {
+        List<Color32> colours = new List<Color32>();
+
+        for (int i = 0; i < 5; i ++)
+        {
+            colours.Add(images[i].color);
+        }
+
+        playerFleetColours = colours;
+        return colours;
+    }
+
     //Sets dropdowns on Craft selection - Waiting for UI to complete
     //public void SetDropdowns(Trooper_Script trooper)
     //{

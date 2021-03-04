@@ -152,7 +152,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         if (loading)
         {
             List<System_Class> loadSystems = new List<System_Class>();
-            List<string> tempList = fileFinder.Retrieve("NewSave.Save.xml", ".meta");
+            List<string> tempList = fileFinder.Retrieve("NewSave" + ".Save.xml", ".meta");
 
             try
             {
@@ -181,6 +181,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
 
             systemGenerator.BeginGeneration(loadSystems, save);
             product = save.generatedProduct;
+            modManager.GeneratedProduct = product;
             modManager.rankManager.Begin();
             modManager.traitManager.Run();
             modManager.equipmentManager.playerDefaultColours = product.playerColours;
@@ -204,11 +205,12 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             modManager.rankManager.Begin();
 
             save = new Save_Class();
-            save.saveName = "NewSave.Save";
+            save.saveName = product.regimentName;
             save.height = product.height;
             save.width = product.width;
             save.systems = systemGenerator.SystemsList;
             save.generatedProduct = product;
+            modManager.GeneratedProduct = product;
             save.topSlots = slotGenerator.FindDefaultSlots();
             save.fleets = fleetGenerator.FindDefaultFleets();
             Serializer.Serialize(save, Application.dataPath + "/Resources/Saves/" + save.saveName + ".xml");

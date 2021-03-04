@@ -24,6 +24,7 @@ public class Slot_Generator : MonoBehaviour
     private bool loading = false;
 
     public Text nTroopersText;
+    public Text nTroopersText2;
     public Dropdown templateDropdown;
     public Image templatePreview;
 
@@ -394,5 +395,6 @@ public class Slot_Generator : MonoBehaviour
     {
         troopersPerSquad = (int)slider.value;
         nTroopersText.text = troopersPerSquad.ToString();
+        nTroopersText2.text = troopersPerSquad.ToString();
     }
 }
