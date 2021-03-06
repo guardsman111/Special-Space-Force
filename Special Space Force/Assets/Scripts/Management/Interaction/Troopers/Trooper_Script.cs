@@ -169,7 +169,15 @@ public class Trooper_Script : MonoBehaviour
             if (trooper.armour != null)
             {
                 armour = trooper.armour;
-                armourPattern = trooper.armourP;
+                if (trooper.armourP != null)
+                {
+                    armourPattern = trooper.armourP;
+                }
+                else
+                {
+                    armourPattern = manager.manager.save.generatedProduct.defaultPatterns[1];
+                    trooper.armourP = armourPattern;
+                }
             }
             else
             {
@@ -181,7 +189,15 @@ public class Trooper_Script : MonoBehaviour
             if (trooper.helmet != null)
             {
                 helmet = trooper.helmet;
-                helmetPattern = trooper.helmetP;
+                if (trooper.helmetP != null)
+                {
+                    helmetPattern = trooper.helmetP;
+                }
+                else
+                {
+                    helmetPattern = manager.manager.save.generatedProduct.defaultPatterns[0];
+                    trooper.helmetP = helmetPattern;
+                }
             }
             else
             {
@@ -193,13 +209,21 @@ public class Trooper_Script : MonoBehaviour
             if (trooper.fatigues != null)
             {
                 fatigues = trooper.fatigues;
-                fatiguesPattern = trooper.fatiguesP;
+                if (trooper.fatiguesP != null)
+                {
+                    fatiguesPattern = trooper.fatiguesP;
+                }
+                else
+                {
+                    fatiguesPattern = manager.manager.save.generatedProduct.defaultPatterns[2];
+                    trooper.fatiguesP = fatiguesPattern;
+                }
             }
             else
             {
                 fatigues = manager.manager.save.generatedProduct.defaultEquipment[2];
                 trooper.fatigues = fatigues;
-                fatiguesPattern = manager.manager.save.generatedProduct.defaultPatterns[2]; ;
+                fatiguesPattern = manager.manager.save.generatedProduct.defaultPatterns[2];
                 trooper.fatiguesP = fatiguesPattern;
             }
             if (trooper.weapon1 != null)
@@ -1064,7 +1088,6 @@ public class Trooper_Script : MonoBehaviour
                 }
             }
         }
-        trooperClass = SaveTrooper(trooperClass);
     }
 
     //UI reference to change slot identifier location

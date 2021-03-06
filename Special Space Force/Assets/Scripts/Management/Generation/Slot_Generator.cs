@@ -20,7 +20,7 @@ public class Slot_Generator : MonoBehaviour
     public GameObject slotN1;
     public List<Slot_Script> squads;
     public int troopersPerSquad;
-    public bool createTroopersFromTemplate;
+    private bool createTroopersFromTemplate = false;
     private bool loading = false;
 
     public Text nTroopersText;
@@ -32,6 +32,11 @@ public class Slot_Generator : MonoBehaviour
     //{
     //    SaveDefaults();
     //}
+
+    public bool CreateTroopersFromTemplate
+    {
+        get { return createTroopersFromTemplate; }
+    }
 
     //Sets the dropdown for Force organisation templates
     public void SetupTemplateDropdown()
@@ -200,15 +205,13 @@ public class Slot_Generator : MonoBehaviour
                         {
                             sc.numberOfTroopers = troopersPerSquad;
                         }
-                        sc.containedTroopers = new List<Trooper_Class>();
                         tempS.containedTroopers = new List<Trooper_Script>();
                         for (int i = 0; i < sc.numberOfTroopers; i++)
                         {
-                            Trooper_Class tempTC = new Trooper_Class();
+                            Trooper_Class tempTC = sc.containedTroopers[i];
                             tempTC.trooperName = "Name";
                             tempTC.trooperRank = "Private";
                             tempTC.trooperPosition = i + 1;
-                            sc.containedTroopers.Add(tempTC);
                         }
                         tempS.containedTroopers = FillSlots(sc, tempS, 0);
                         Debug.Log(sc.numberOfTroopers);
@@ -221,18 +224,46 @@ public class Slot_Generator : MonoBehaviour
                     }
                     else
                     {
-                        sc.containedTroopers = new List<Trooper_Class>();
-                        tempS.containedTroopers = new List<Trooper_Script>();
-                        for (int i = 0; i < troopersPerSquad; i++)
+
+                        if (sc.containedTroopers.Count > troopersPerSquad)
                         {
-                            Trooper_Class tempTC = new Trooper_Class();
-                            tempTC.trooperName = "Name";
-                            tempTC.trooperRank = "Private";
-                            tempTC.trooperPosition = i + 1;
-                            sc.containedTroopers.Add(tempTC);
+                            tempS.containedTroopers = new List<Trooper_Script>();
+                            for (int i = 0; i < troopersPerSquad; i++)
+                            {
+                                Trooper_Class tempTC = sc.containedTroopers[i];
+                                tempTC.trooperName = "Name";
+                                tempTC.trooperRank = "Private";
+                                tempTC.trooperPosition = i + 1;
+                            }
+
+                            int numberStarted = sc.containedTroopers.Count;
+                            for (int i = numberStarted; i > troopersPerSquad; i--)
+                            {
+                                sc.containedTroopers.RemoveAt(i-1);
+                            }
+                            tempS.containedTroopers = FillSlots(sc, tempS, 0);
+                            Debug.Log(troopersPerSquad);
                         }
-                        tempS.containedTroopers = FillSlots(sc, tempS, 0);
-                        Debug.Log(troopersPerSquad);
+                        else
+                        {
+                            tempS.containedTroopers = new List<Trooper_Script>();
+                            for (int i = 0; i < sc.containedTroopers.Count; i++)
+                            {
+                                Trooper_Class tempTC = sc.containedTroopers[i];
+                                tempTC.trooperName = "Name";
+                                tempTC.trooperRank = "Private";
+                                tempTC.trooperPosition = i + 1;
+                            }
+
+                            for (int i = sc.containedTroopers.Count; i < troopersPerSquad; i++)
+                            {
+                                Trooper_Class tempTC = new Trooper_Class();
+                                tempTC.trooperName = "Name";
+                                tempTC.trooperRank = "Private";
+                                tempTC.trooperPosition = sc.containedTroopers.Count + 1;
+                                sc.containedTroopers.Add(tempTC);
+                            }
+                        }
                     }
                     slot.numberOfTroopers += tempS.containedTroopers.Count;
 

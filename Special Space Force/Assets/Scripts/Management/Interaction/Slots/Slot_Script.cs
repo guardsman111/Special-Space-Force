@@ -70,9 +70,16 @@ public class Slot_Script : MonoBehaviour
         squadRole = manager.modManager.rankManager.squadRoles[0];
         ID = positionID;
         slotClass.positionID = ID;
-        slotName = manager.manager.localisationManager.CreateName("SlotNames", this);
-        slot.slotName = slotName;
-        slotClass.slotName = slotName;
+        if (slot.slotName != null)
+        {
+            slotName = slot.slotName;
+            slotClass.slotName = slotName;
+        }
+        else
+        {
+            slotName = manager.manager.localisationManager.CreateName("SlotNames", this);
+            slotClass.slotName = slotName;
+        }
 
         input.text = slotName;
 
