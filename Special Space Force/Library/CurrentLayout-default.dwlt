@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -45,7 +45,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 879, y: 494}
   m_MaxSize: {x: 16004, y: 14044}
   vertical: 0
-  controlID: 6564
+  controlID: 77
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 604, y: 494}
   m_MaxSize: {x: 12004, y: 14044}
   vertical: 1
-  controlID: 6696
+  controlID: 83
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 604, y: 222}
   m_MaxSize: {x: 12004, y: 4022}
   vertical: 0
-  controlID: 6697
+  controlID: 84
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -409,9 +409,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: b62f0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 4ed9fefff40cffff966affffa26affffc46affffd46affffe06affffd66bffffee6effffd0c9ffffa8caffff6efbffff7484000096ca0000bce6000096110100c2110100c6110100ee110100fc11010032120100b2120100
+      m_ExpandedIDs: 96c7ffffd4c7ffff24f9ffff28f9ffffb6faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -471,9 +471,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 227.81279, y: 924.8979, z: 2.7461548}
+    m_Target: {x: 629.5355, y: 611.1597, z: 2.034912}
     speed: 2
-    m_Value: {x: 227.81279, y: 924.8979, z: 2.7461548}
+    m_Value: {x: 629.5355, y: 611.1597, z: 2.034912}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -506,9 +506,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.0011892773, y: -0.0018079584, z: -0.0007298404, w: -1.0001178}
   m_Size:
-    m_Target: 714.9444
+    m_Target: 1110.2867
     speed: 2
-    m_Value: 714.9444
+    m_Value: 1062.4753
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -599,21 +599,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Textures/Planets/Alpine
   m_ViewMode: 1
   m_StartGridSize: 87
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Textures/Planets/Alpine
   m_LastFoldersGridSize: 87
   m_LastProjectPath: F:\BitSpark Entertainment\Special Space Force\Special-Space-Force\Special
     Space Force
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 159}
-    m_SelectedIDs: 8a370000
-    m_LastClickedID: 14218
-    m_ExpandedIDs: 00000000fc2e0000262f0000542f0000562f00007a2f0000a42f0000223000002830000022310000243100003431000046320000d633000002340000cc340000fe350000043600008837000002380000cc3800004a39000076390000863900009c390000003a00006c3b0000983b0000fc3b0000483c0000863c0000c63c0000323e0000c63f0000e03f00008640000098400000f44000000e410000fc41000054420000b0420000fe42000020840000228400002484000000ca9a3b
+    scrollPos: {x: 0, y: 731}
+    m_SelectedIDs: 48430000
+    m_LastClickedID: 17224
+    m_ExpandedIDs: 00000000bc2f0000e62f000014300000163000003a30000064300000e0300000e6300000e0310000e2310000f23100000233000090340000ba340000d834000082350000b2360000b836000038380000b03800007c390000fa390000263a0000363a00004c3a0000b03a00001a3c0000463c0000aa3c0000f63c0000343d0000763d0000da3e00006840000082400000284100003a41000096410000b04100009c420000f4420000504300009e43000056470000584700005a47000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -641,7 +641,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fc2e0000262f0000542f0000562f00007a2f0000a42f0000223000002830000022310000243100003431000046320000d633000002340000cc340000fe350000043600008837000002380000cc3800004a39000076390000863900009c390000003a00006c3b0000983b0000fc3b0000483c0000863c0000c63c0000323e0000c63f0000e03f00008640000098400000f44000000e410000fc41000054420000b0420000fe42000020840000228400002484000000ca9a3b
+    m_ExpandedIDs: 00000000bc2f0000e62f000014300000163000003a30000064300000e0300000e6300000e0310000e2310000f23100000233000090340000ba34000082350000b2360000b836000038380000b03800007c390000fa390000263a0000363a00004c3a0000b03a00001a3c0000463c0000aa3c0000f63c0000343d0000763d0000da3e00006840000082400000284100003a41000096410000b04100009c420000f4420000504300009e43000056470000584700005a470000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
