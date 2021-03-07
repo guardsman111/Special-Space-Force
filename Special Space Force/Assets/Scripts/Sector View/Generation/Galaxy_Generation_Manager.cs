@@ -152,19 +152,16 @@ public class Galaxy_Generation_Manager : MonoBehaviour
         if (loading)
         {
             List<System_Class> loadSystems = new List<System_Class>();
-            List<string> tempList = fileFinder.Retrieve("NewSave" + ".Save.xml", ".meta");
 
             try
             {
-                foreach (string s in tempList)
+                save = Serializer.Deserialize<Save_Class>(Scene_Manager.saveString);
+                foreach (System_Class tempS in save.systems)
                 {
-                    save = Serializer.Deserialize<Save_Class>(s);
-                    foreach (System_Class tempS in save.systems)
-                    {
-                        loadSystems.Add(tempS);
-                        //Debug.Log(tempB.biomeName);
-                    }
+                    loadSystems.Add(tempS);
+                    //Debug.Log(tempB.biomeName);
                 }
+                Scene_Manager.saveString = null;
             }
             catch (UnauthorizedAccessException UAEx)
             {
@@ -213,7 +210,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             modManager.GeneratedProduct = product;
             save.topSlots = slotGenerator.FindDefaultSlots();
             save.fleets = fleetGenerator.FindDefaultFleets();
-            Serializer.Serialize(save, Application.dataPath + "/Resources/Saves/" + save.saveName + ".xml");
+            Serializer.Serialize(save, Application.dataPath + "/Resources/Saves/" + save.saveName + ".Save.xml");
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             modManager.turnManager.FirstTurn(product, save, false);
             musicPlayer.StartPlaying();

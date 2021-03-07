@@ -225,7 +225,7 @@ public class Slot_Generator : MonoBehaviour
                     else
                     {
 
-                        if (sc.containedTroopers.Count > troopersPerSquad)
+                        if (sc.containedTroopers.Count >= troopersPerSquad)
                         {
                             tempS.containedTroopers = new List<Trooper_Script>();
                             for (int i = 0; i < troopersPerSquad; i++)
@@ -263,6 +263,8 @@ public class Slot_Generator : MonoBehaviour
                                 tempTC.trooperPosition = sc.containedTroopers.Count + 1;
                                 sc.containedTroopers.Add(tempTC);
                             }
+                            tempS.containedTroopers = FillSlots(sc, tempS, 0);
+                            Debug.Log(troopersPerSquad);
                         }
                     }
                     slot.numberOfTroopers += tempS.containedTroopers.Count;

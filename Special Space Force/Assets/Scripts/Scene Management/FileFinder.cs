@@ -22,6 +22,11 @@ public class FileFinder : MonoBehaviour
     public Galaxy_Generation_Manager GenerationManager;
     public bool foundSave;
 
+    public void Start()
+    {
+        Run();
+    }
+
     //Finds all files under the two paths, Resources and Mods, and places them in arrays.
     public bool Run()
     {
@@ -48,7 +53,7 @@ public class FileFinder : MonoBehaviour
         List<string> fileList = new List<string>();
         DirectoryInfo info = new DirectoryInfo(defaultPath);
         DirectoryInfo modInfo = new DirectoryInfo(modsPath);
-        DirectoryInfo saveInfo = new DirectoryInfo(savePath);
+        DirectoryInfo saveInfo = new DirectoryInfo(Application.dataPath + "/Resources");
 
         try
         {
@@ -76,7 +81,7 @@ public class FileFinder : MonoBehaviour
     }
 
     //Sorts through the file arrays to get the dedicated files the script has called for
-    //by default avoids .meta files but this can be changed if other issues occur
+    //by default should avoid .meta files but this can be changed if other issues occur
     public List<string> Retrieve(string have, string avoid)
     {
         List<string> fileList = new List<string>();

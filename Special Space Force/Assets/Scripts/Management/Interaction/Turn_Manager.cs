@@ -68,6 +68,6 @@ public void FirstTurn(Generation_Class product, Save_Class save, bool loading)
         {
             saveClass.fleets.Add(manager.fManager.FleetsS[i].fleetClass);
         }
-        Serializer.Serialize(saveClass, Application.dataPath + "/Resources/Saves/" + saveClass.saveName + ".xml");
+        Serializer.Serialize(saveClass, Application.dataPath + "/Resources/Saves/" + saveClass.saveName + ".Save.xml");
     }
 }

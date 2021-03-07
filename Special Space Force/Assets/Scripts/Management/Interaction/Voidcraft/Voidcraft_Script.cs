@@ -152,6 +152,8 @@ public class Voidcraft_Script : MonoBehaviour
             }
         }
 
+        craftClass.starID = craft.starID;
+        craftClass.planetN = craft.planetN;
         craftName = craft.craftName;
         input.text = craftName;
         CraftColours();

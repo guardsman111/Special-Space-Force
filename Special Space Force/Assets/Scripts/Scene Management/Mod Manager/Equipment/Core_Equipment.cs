@@ -1506,7 +1506,7 @@ public class Core_Equipment : MonoBehaviour
 
         tempSP = new Sprite_Pack();
         tempSP.containedSprites = new List<Sprite>();
-        tempSP.packName = "Shotgun Sec ";
+        tempSP.packName = "Shotgun Sec";
         tempSP.patternName = "Primary1";
         tempSP.packType = "WeaponS";
         tempSP.CostPerItem = ShotgunS1Cost;

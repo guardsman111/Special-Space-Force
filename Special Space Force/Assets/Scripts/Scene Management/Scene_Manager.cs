@@ -9,17 +9,44 @@ public class Scene_Manager : MonoBehaviour
 {
     public List<GameObject> avoiders;
     public GraphicRaycaster raycaster;
+    public Load_Manager lManager;
 
-    void Update()
+    public static string saveString;
+
+    public Loader_Script loader;
+
+    public void Exit()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) && Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            Application.Quit();
-        }
+        Application.Quit();
+    }
+
+    public void GoToGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadMenu()
+    {
+        lManager.OpenMenu();
+    }
+    public void LoadMenuClose()
+    {
+        lManager.CloseMenu();
+    }
+
+    public void LoadGame(Load_Class selected)
+    {
+        saveString = selected.savePath;
+        SceneManager.LoadScene(1);
     }
 
     public void GoToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
+    }
+
+    public void GoToURL(string url)
+    {
+        Application.OpenURL(url);
     }
 }

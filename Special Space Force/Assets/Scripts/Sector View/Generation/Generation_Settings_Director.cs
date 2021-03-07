@@ -15,6 +15,7 @@ public class Generation_Settings_Director : MonoBehaviour
     public Localisation_Manager localisationManager;
     public Trait_Manager traitManager;
     public Faction_Manager factionManager;
+    public Scene_Manager sceneManager;
 
     private int height = 2000;
     private int width = 2000;
@@ -54,6 +55,13 @@ public class Generation_Settings_Director : MonoBehaviour
     public Image[] AIColour;
     public Toggle[] AIToggles;
     public Dropdown[] AIBoxesDropDowns; //Race Selection Dropdown
+
+    //AI Stuff, used to remember which AI is set to what. Simple menu ones go here
+    public GameObject[] AIBoxesS;
+    [SerializeField]
+    public Image[] AIColourS;
+    public Toggle[] AITogglesS;
+    public Dropdown[] AIBoxesDropDownsS; //Race Selection Dropdown
     [SerializeField]
     public Image[] PlayerColours;
     public Image[] FleetColours;
@@ -85,6 +93,17 @@ public class Generation_Settings_Director : MonoBehaviour
             d.AddOptions(raceNames);
         }
 
+        foreach (Dropdown d in AIBoxesDropDownsS)
+        {
+            d.ClearOptions();
+            List<string> raceNames = new List<string>();
+            foreach (Race_Class r in raceManager.Races)
+            {
+                raceNames.Add(r.raceName);
+            }
+            d.AddOptions(raceNames);
+        }
+
         //Set Default Races
         AIBoolArray = new bool[5] { true, true, true, false, false};
         AIBoxesDropDowns[0].value = 0;
@@ -92,6 +111,11 @@ public class Generation_Settings_Director : MonoBehaviour
         AIBoxesDropDowns[2].value = 2;
         AIBoxesDropDowns[3].value = 0;
         AIBoxesDropDowns[4].value = 0;
+        AIBoxesDropDownsS[0].value = 0;
+        AIBoxesDropDownsS[1].value = 1;
+        AIBoxesDropDownsS[2].value = 2;
+        AIBoxesDropDownsS[3].value = 0;
+        AIBoxesDropDownsS[4].value = 0;
 
         //Turn off AI 4 and 5 for fun
         AIToggle(3);
@@ -105,7 +129,7 @@ public class Generation_Settings_Director : MonoBehaviour
         voidcraftManager.Begin();
         traitManager.Run();
 
-        if (generateOnPlay)
+        if (Scene_Manager.saveString != null)
         {
             StartGeneration(true);
         }
@@ -150,13 +174,13 @@ public class Generation_Settings_Director : MonoBehaviour
         product.industrialism = industrialism;
         product.funding = funding;
         product.identifierLoc = identifierLoc;
-        product.factions = factionManager.GenerateFactions(SortToggledAI());
         if (simple == true)
         {
             product.regimentName = forceName;
             product.playerColours = equipmentManager.GetColoursBasic(PlayerColoursSimple);
             product.playerFleetColours = voidcraftManager.GetColoursBasic(PlayerColoursSimple);
             product.chosenLocalisationList = localisationManager.FindChosenLocalisationBasic();
+            product.factions = factionManager.GenerateFactions(SortToggledAI());
         }
         else
         {
@@ -164,6 +188,7 @@ public class Generation_Settings_Director : MonoBehaviour
             product.playerColours = equipmentManager.GetColours(PlayerColours);
             product.playerFleetColours = voidcraftManager.GetColours(FleetColours);
             product.chosenLocalisationList = localisationManager.FindChosenLocalisation();
+            product.factions = factionManager.GenerateFactions(SortToggledAI());
         }
         localisationManager.SeperateStringLists();
         product.selectedTraits = traitManager.GetTraits();
@@ -231,6 +256,87 @@ public class Generation_Settings_Director : MonoBehaviour
             AI.difficulty = AIDifficulty[3];
             AI.startThreat = AIStartingThreat[3];
             AI.colour = AIColour[3].color;
+            AI.nPlanets = 0;
+
+            ToggledAI.Add(AI);
+        }
+        if (AIBoolArray[4] == true)
+        {
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDowns[4].value];
+            AI.difficulty = AIDifficulty[4];
+            AI.startThreat = AIStartingThreat[4];
+            AI.colour = AIColour[4].color;
+            AI.nPlanets = 0;
+
+            ToggledAI.Add(AI);
+        }
+
+        //Return the List
+        return ToggledAI;
+    }
+
+    //Collects the AI data, packages them into an AI_Class Individually then puts them in a list for easy access. For simple menu
+    private List<AI_Class> SortToggledAISimple()
+    {
+        //Create empty values
+        List<AI_Class> ToggledAI;
+        ToggledAI = new List<AI_Class>();
+
+        //For each AI, if its toggled then copy its data
+        if (AIBoolArray[0] == true)
+        {
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDownsS[0].value];
+            AI.difficulty = AIDifficulty[0];
+            AI.startThreat = AIStartingThreat[0];
+            AI.colour = AIColourS[0].color;
+            AI.nPlanets = 0;
+
+            ToggledAI.Add(AI);
+        }
+
+        if (AIBoolArray[01] == true)
+        {
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDownsS[1].value];
+            AI.difficulty = AIDifficulty[1];
+            AI.startThreat = AIStartingThreat[1];
+            AI.colour = AIColourS[1].color;
+            AI.nPlanets = 0;
+
+            ToggledAI.Add(AI);
+        }
+
+        if (AIBoolArray[2] == true)
+        {
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDownsS[2].value];
+            AI.difficulty = AIDifficulty[2];
+            AI.startThreat = AIStartingThreat[2];
+            AI.colour = AIColourS[2].color;
+            AI.nPlanets = 0;
+
+            ToggledAI.Add(AI);
+        }
+        if (AIBoolArray[3] == true)
+        {
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDownsS[3].value];
+            AI.difficulty = AIDifficulty[3];
+            AI.startThreat = AIStartingThreat[3];
+            AI.colour = AIColourS[3].color;
+            AI.nPlanets = 0;
+
+            ToggledAI.Add(AI);
+        }
+        if (AIBoolArray[4] == true)
+        {
+            AI_Class AI = new AI_Class();
+            AI.race = raceManager.Races[AIBoxesDropDownsS[4].value];
+            AI.difficulty = AIDifficulty[4];
+            AI.startThreat = AIStartingThreat[4];
+            AI.colour = AIColourS[4].color;
             AI.nPlanets = 0;
 
             ToggledAI.Add(AI);
@@ -707,11 +813,13 @@ public class Generation_Settings_Director : MonoBehaviour
         if (AIToggles[AIN].isOn == false)
         {
             AIBoxes[AIN].SetActive(false);
+            AIBoxesS[AIN].SetActive(false);
             AIBoolArray[AIN] = false;
         } 
         else
         {
             AIBoxes[AIN].SetActive(true);
+            AIBoxesS[AIN].SetActive(true);
             AIBoolArray[AIN] = true;
         }
     }
