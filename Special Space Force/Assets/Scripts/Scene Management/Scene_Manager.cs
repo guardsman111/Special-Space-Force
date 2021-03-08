@@ -49,4 +49,12 @@ public class Scene_Manager : MonoBehaviour
     {
         Application.OpenURL(url);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.LogError("Hallo, Debugger Here!");
+        }
+    }
 }

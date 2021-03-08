@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Korvion
   m_Shader: {fileID: 4800000, guid: 2b63a18536f01a84ea44b4a20e3d9950, type: 3}
-  m_ShaderKeywords: _ACTIVATECLOUDS_ON _ACTIVATESPECULAR_ON _CLOUDS_ON _METALLICGLOSSMAP
+  m_ShaderKeywords: _ACTIVATECLOUDS_ON _ACTIVATESPECULAR_ON _CLOUDS_ON _EMISSION _METALLICGLOSSMAP
     _NIGHTEMISSIVECITIES_ON _NORMALMAP _SUBATMOSPHERE_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -24,8 +24,12 @@ Material:
         m_Texture: {fileID: 2800000, guid: 60c1862cb6afa6c4e8891208b9c456b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 5f82340787211ef44a1c9ecdd67086c8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 44b7e08502ebbcb4090249e08c6c88dd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Clouds:
@@ -81,7 +85,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1e3a3a7e53ea34f4f884d92ec60d6b32, type: 3}
+        m_Texture: {fileID: 2800000, guid: 60c1862cb6afa6c4e8891208b9c456b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0.45, y: 0}
     - _MetalRGBRough:
@@ -113,6 +117,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -153,6 +161,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - PixelSnap: 0
     - _ActivateSpecular: 1
     - _Activateclouds: 1
     - _Ambiantalbedo: 0.626
@@ -171,6 +180,7 @@ Material:
     - _Distortionspeed: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
+    - _EnableExternalAlpha: 0
     - _Float15: 0.5
     - _Float2: 0
     - _Float3: 1
@@ -178,7 +188,9 @@ Material:
     - _Float6: 0.9
     - _Float8: 0
     - _Gloss: 0.736
+    - _GlossMapScale: 0
     - _Glossiness: 0.5
+    - _GlossyReflections: 1
     - _MaskClipValue: 0.5
     - _Metallic: 0
     - _Mode: 0
@@ -188,13 +200,15 @@ Material:
     - _Parallax: 0.0186
     - _PlanetSize: 0
     - _Shininess: 0.078125
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
     - _Specularpower: 0.363
     - _SrcBlend: 1
     - _SubAtmosphere: 1
     - _SubAtmospherepower: 3.04
-    - _Subatmosphereglobalintensity: 10
+    - _Subatmosphereglobalintensity: 6
     - _Subatmosphereintensity: 1
-    - _Subatmospherepower: 1.49
+    - _Subatmospherepower: 0.75
     - _Subatmospheresize: 5
     - _ToggleSwitch0: 0
     - _UVSec: 0
@@ -214,7 +228,7 @@ Material:
     - _Ambiantatmospherecolor: {r: 0, g: 0, b: 0, a: 1}
     - _Ambiantcolor: {r: 0, g: 0, b: 0, a: 0}
     - _Ambiantlightcontrol: {r: 0, g: 0, b: 0, a: 0}
-    - _Citiescolor: {r: 1, g: 0.87699604, b: 0.678, a: 0}
+    - _Citiescolor: {r: 1, g: 0.87699604, b: 0.678, a: 1}
     - _Citycolor: {r: 0.547, g: 0.547, b: 0.547, a: 1}
     - _Cloudscolo: {r: 1, g: 1, b: 1, a: 1}
     - _Cloudscolor: {r: 0.541, g: 0.541, b: 0.541, a: 1}
@@ -222,9 +236,11 @@ Material:
     - _Color0: {r: 1, g: 0.21599996, b: 0.21599996, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _Specularcolor: {r: 1, g: 0.8236, b: 0.559, a: 1}
-    - _Subatmospherecolor: {r: 0.24296905, g: 0.4374086, b: 0.5660378, a: 1}
+    - _Subatmospherecolor: {r: 0.17933428, g: 0.42663383, b: 0.5849056, a: 1}
     - _Vector0: {r: 0, g: 0, b: 1, a: 0}
     - _cloudscolor: {r: 1, g: 1, b: 1, a: 0}
     - _node_2409: {r: 0.5, g: 0.5, b: 0.5, a: 1}

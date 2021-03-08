@@ -223,7 +223,7 @@ public class Planet_Click : MonoBehaviour
     {
         if (planetCamera.enabled)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 foreach (GameObject go in gameObject.GetComponent<Planet_Script>().moons)
                 {

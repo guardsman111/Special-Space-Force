@@ -175,7 +175,7 @@ public class System_Click : MonoBehaviour
     {
         if (systemCamera.enabled)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 if (systemCamera.transform.position == cameraTransform.position)
                 {

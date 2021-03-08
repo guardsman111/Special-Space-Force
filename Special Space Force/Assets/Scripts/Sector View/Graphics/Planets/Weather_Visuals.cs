@@ -6,6 +6,12 @@ public class Weather_Visuals : MonoBehaviour
 {
     public GameObject[] stormPoints;
 
+    private void Start()
+    {
+        Toggle();
+        Debug.Log("Starting storms");
+    }
+
     public void Toggle()
     {
         foreach(GameObject go in stormPoints)
