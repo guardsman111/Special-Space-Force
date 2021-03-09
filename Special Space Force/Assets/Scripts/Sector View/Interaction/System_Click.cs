@@ -92,8 +92,8 @@ public class System_Click : MonoBehaviour
                     {
                         system.coloIcon.gameObject.SetActive(true);
                     }
-                    systemScreen.QVManager.CloseManager();
                     systemScreen.aManager.CloseManager();
+                    systemScreen.QVManager.CloseManager();
                     systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                     foreach (Button b in UIs)
                     {
@@ -195,8 +195,8 @@ public class System_Click : MonoBehaviour
                     {
                         system.coloIcon.gameObject.SetActive(true);
                     }
-                    systemScreen.QVManager.CloseManager();
                     systemScreen.aManager.CloseManager();
+                    systemScreen.QVManager.CloseManager();
                     systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
                     foreach (Button b in UIs)
                     {

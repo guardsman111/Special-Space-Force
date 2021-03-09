@@ -164,12 +164,22 @@ public class Voidcraft_Script : MonoBehaviour
         if (craft.uIDTransported.Contains(checkSlot.uID))
         {
             carriedSlots.Add(checkSlot);
+            foreach (Slot_Class sc in checkSlot.containedSlots)
+            {
+                if (!carriedSlots.Contains(sc))
+                {
+                    CheckChildSlotsForTransported(sc, craft);
+                }
+            }
         }
         else
         {
             foreach (Slot_Class sc in checkSlot.containedSlots)
             {
-                CheckChildSlotsForTransported(sc, craft);
+                if (!carriedSlots.Contains(sc))
+                {
+                    CheckChildSlotsForTransported(sc, craft);
+                }
             }
         }
     }

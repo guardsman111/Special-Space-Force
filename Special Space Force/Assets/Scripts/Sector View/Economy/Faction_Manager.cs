@@ -685,6 +685,21 @@ public class Faction_Manager : MonoBehaviour
 
         Debug.Log(factions[0].travellingCraft.Count);
 
+        foreach(Fleet_Script fs in fleetManager.FleetsS)
+        {
+            if(fs.ID == voidcraft.FleetID)
+            {
+                foreach(Voidcraft_Class vc in fs.fleetClass.containedCraft)
+                {
+                    if(vc.ID == voidcraft.ID)
+                    {
+                        vc.starID = 0;
+                        vc.planetN = 0;
+                    }
+                }
+            }
+        }
+
         voidcraft.starID = 0;
         voidcraft.planetN = 0;
     }
@@ -695,7 +710,7 @@ public class Faction_Manager : MonoBehaviour
         if (factions[0].travellingCraft != null)
         {
             List<Travelling_Voidcraft_Class> tCraft = factions[0].travellingCraft;
-            for (int i = 0; i < tCraft.Count; i++)
+            for (int i = tCraft.Count - 1; i >= 0; i--)
             {
                 if (tCraft[i].nTurnsLeft > 1) //if still time left on the journey -1 turn
                 {

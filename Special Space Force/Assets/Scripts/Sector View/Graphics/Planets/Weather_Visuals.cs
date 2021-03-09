@@ -8,8 +8,6 @@ public class Weather_Visuals : MonoBehaviour
 
     private void Start()
     {
-        Toggle();
-        Debug.Log("Starting storms");
     }
 
     public void Toggle()

@@ -29,6 +29,8 @@ public class Fleet_Manager : MonoBehaviour
     public GameObject FleetOptions;
     public GameObject CraftOptions;
 
+    public Show_Hide_Organisation closer;
+
     public bool menu;
     bool matched = false;
     int selectionExtension = 0;
@@ -299,9 +301,13 @@ public class Fleet_Manager : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Delete))
         {
             Debug.LogError("Hallo, Debugger Here!");
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            closer.ShowHide();
         }
     }
 

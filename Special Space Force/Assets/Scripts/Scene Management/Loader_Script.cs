@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Loader_Script : MonoBehaviour
+public class Loader_Script
 {
-    public static string SaveName;
+    public float musicVolume;
+    public float soundVolume;
+    public float cameraRotSpeed;
+    public float cameraMovSpeed;
+    public string uiSize;
+    public int quality;
 
-    public void SetLoad()
+    public Loader_Script()
     {
-        DontDestroyOnLoad(this.gameObject);
+
     }
 }

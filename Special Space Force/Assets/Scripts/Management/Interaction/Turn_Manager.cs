@@ -7,15 +7,8 @@ public class Turn_Manager : MonoBehaviour
     public Manager_Script manager;
     public Save_Class saveClass;
 
-    private void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.LogError("Hallo, Debugger Here!");
-        }
-    }
 
-public void FirstTurn(Generation_Class product, Save_Class save, bool loading)
+    public void FirstTurn(Generation_Class product, Save_Class save, bool loading)
     {
         manager.GeneratedProduct = product;
         saveClass = save;

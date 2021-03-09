@@ -4575,6 +4575,7 @@ MonoBehaviour:
   slotFieldScroll: {fileID: 304276043}
   FleetOptions: {fileID: 301599393}
   CraftOptions: {fileID: 1163964363}
+  closer: {fileID: 1220867838}
   menu: 0
   selectedCraft: []
   speakerManager: {fileID: 87682872}
@@ -14971,7 +14972,21 @@ MonoBehaviour:
   - {fileID: 1369319053}
   raycaster: {fileID: 0}
   lManager: {fileID: 0}
-  loader: {fileID: 0}
+  optionsMenu: {fileID: 0}
+  musicSource: {fileID: 768328989}
+  soundSources:
+  - {fileID: 732775617}
+  - {fileID: 87682877}
+  - {fileID: 84908723}
+  - {fileID: 821004938}
+  - {fileID: 1274779639}
+  - {fileID: 1063683313}
+  - {fileID: 615676968}
+  musicS: {fileID: 0}
+  soundS: {fileID: 0}
+  movS: {fileID: 0}
+  rotS: {fileID: 0}
+  qualityD: {fileID: 0}
 --- !u!1 &264953712
 GameObject:
   m_ObjectHideFlags: 0
@@ -43014,6 +43029,7 @@ MonoBehaviour:
   promoter: {fileID: 2145567305}
   speakerScript: {fileID: 732775616}
   speakerScript2: {fileID: 1048687198}
+  closer: {fileID: 1492394978}
   menu: 0
   trooperSkinSprites:
   - {fileID: 21300000, guid: 5d4761c16e0603c4b8d2996396b56725, type: 3}
@@ -50087,6 +50103,11 @@ PrefabInstance:
         type: 3}
       propertyPath: yMinLimit
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179005509777647169, guid: f49dfd96ae8ba7246909b769fb8956f5,
+        type: 3}
+      propertyPath: cameraRot
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3179005510766649506, guid: f49dfd96ae8ba7246909b769fb8956f5,
         type: 3}
@@ -64262,7 +64283,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2079818972}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

@@ -9,6 +9,7 @@ public class Camera_Movement : MonoBehaviour
     /// </summary>
 
     public float cameraSpeed;
+    public float cameraRot;
     public float cameraMinHeight;
     public float cameraMaxHeight;
     public float cameraMinX;
@@ -40,7 +41,8 @@ public class Camera_Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cameraSpeedDefault = cameraSpeed;
+        cameraSpeedDefault = Scene_Manager.cameraMov;
+        cameraRot = Scene_Manager.cameraRot;
         rotationXAxis = thisCamera.transform.rotation.eulerAngles.x;
     }
 
@@ -107,8 +109,8 @@ public class Camera_Movement : MonoBehaviour
             }
             else if (Input.GetMouseButton(2))
             {
-                velocityX += cameraSpeed * Input.GetAxis("Mouse X") * 0.01f;
-                velocityY += cameraSpeed * Input.GetAxis("Mouse Y") * 0.01f;
+                velocityX += cameraRot * Input.GetAxis("Mouse X") * 0.01f;
+                velocityY += cameraRot * Input.GetAxis("Mouse Y") * 0.01f;
                 rotationYAxis += velocityX;
                 rotationXAxis -= velocityY;
                 rotationXAxis = ClampAngle(rotationXAxis, yMinLimit, yMaxLimit);

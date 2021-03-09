@@ -44,6 +44,8 @@ public class Slot_Manager : MonoBehaviour
     public Sound_Script speakerScript;
     public Sound_Script speakerScript2;
 
+    public Show_Hide_Organisation closer;
+
     public bool menu;
     bool matched = false;
     int selectionExtension = 0;
@@ -612,6 +614,10 @@ public class Slot_Manager : MonoBehaviour
                 OpenSlot(Highest);
             }
 
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            closer.ShowHide();
         }
     }
 

@@ -73,7 +73,7 @@ public class Music_Sound_Script : Sound_Script
 
     public void SetVolume(Slider slider)
     {
-        speaker.volume = slider.value;
+        speaker.volume = slider.value/10;
     }
 
     public void GetVolume()

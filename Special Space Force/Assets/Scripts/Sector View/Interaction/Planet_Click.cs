@@ -67,15 +67,15 @@ public class Planet_Click : MonoBehaviour
 
                     int random = Random.Range(0, 100);
 
-                    //if (random < 75) 
-                    //{
-                    //    sPlanet.storms.SetActive(true);
-                    //    sPlanet.storms.GetComponent<Weather_Visuals>().Toggle();
-                    //}
-                    //else
-                    //{
-                    //    sPlanet.storms.SetActive(false);
-                    //}
+                    if (random < 75 && sPlanet.clouds.activeSelf == true)
+                    {
+                        sPlanet.storms.SetActive(true);
+                        sPlanet.storms.GetComponent<Weather_Visuals>().Toggle();
+                    }
+                    else
+                    {
+                        sPlanet.storms.SetActive(false);
+                    }
 
                     //Toggles Orbiters on
                     orbiters = new List<GameObject>();
