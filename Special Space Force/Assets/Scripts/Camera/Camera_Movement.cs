@@ -26,6 +26,7 @@ public class Camera_Movement : MonoBehaviour
     private float cameraSpeedDefault;
     public Camera thisCamera;
     public Transform rotationKeeper;
+    public Manager_Script manager;
 
     public bool pause = false;
 
@@ -53,7 +54,7 @@ public class Camera_Movement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                if (transform.position.z < cameraMaxZ)
+                if (transform.position.z < cameraMaxZ && transform.position.z > cameraMinZ)
                 {
                     if (transform.position.y > cameraMaxHeight - cameraMinHeight) transform.position += rotationKeeper.forward * cameraSpeed * 2;
                     else transform.position += rotationKeeper.forward * cameraSpeed;
@@ -61,7 +62,7 @@ public class Camera_Movement : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                if (transform.position.z > cameraMinZ)
+                if (transform.position.z < cameraMaxZ && transform.position.z > cameraMinZ)
                 {
                     if (transform.position.y > cameraMaxHeight - cameraMinHeight) transform.position += -rotationKeeper.forward * cameraSpeed * 2;
                     else transform.position += -rotationKeeper.forward * cameraSpeed;
@@ -69,7 +70,7 @@ public class Camera_Movement : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                if (transform.position.x > cameraMinX)
+                if (transform.position.x < cameraMaxX && transform.position.x > cameraMinX)
                 {
                     if (transform.position.y > cameraMaxHeight - cameraMinHeight) transform.position += -thisCamera.transform.right * cameraSpeed * 2;
                     else transform.position += -thisCamera.transform.right * cameraSpeed;
@@ -77,24 +78,30 @@ public class Camera_Movement : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                if (transform.position.x < cameraMaxX)
+                if (transform.position.x < cameraMaxX && transform.position.x > cameraMinX)
                 {
                     if (transform.position.y > cameraMaxHeight - cameraMinHeight) transform.position += thisCamera.transform.right * cameraSpeed * 2;
                     else transform.position += thisCamera.transform.right * cameraSpeed;
                 }
             }
-            if (Input.GetAxis("Mouse ScrollWheel") < 0.0f && !pause)
+            if (Input.GetAxis("Mouse ScrollWheel") < 0.0f && thisCamera.enabled == true)
             {
-                if (transform.position.y < cameraMaxHeight)
+                if (manager.fManager.gameObject.activeSelf == false && manager.sManager.gameObject.activeSelf == false)
                 {
-                    transform.position += new Vector3(0, cameraSpeed * 50, 0);
+                    if (transform.position.y < cameraMaxHeight)
+                    {
+                        transform.position += new Vector3(0, cameraSpeed * 50, 0);
+                    }
                 }
             }
-            if (Input.GetAxis("Mouse ScrollWheel") > 0.0f && !pause)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0.0f && thisCamera.enabled == true)
             {
-                if (transform.position.y > cameraMinHeight)
+                if (manager.fManager.gameObject.activeSelf == false && manager.fManager.gameObject.activeSelf == false)
                 {
-                    transform.position += new Vector3(0, -cameraSpeed * 50, 0);
+                    if (transform.position.y > cameraMinHeight)
+                    {
+                        transform.position += new Vector3(0, -cameraSpeed * 50, 0);
+                    }
                 }
             }
 

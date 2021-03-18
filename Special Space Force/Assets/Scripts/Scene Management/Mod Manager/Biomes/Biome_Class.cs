@@ -35,6 +35,9 @@ public class Biome_Class
     [XmlElement("Material_Mask_Path")]
     public string materialMask;
 
+
+    public List<Category_Class> Categories;
+
     public Biome_Class()
     {
     }

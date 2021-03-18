@@ -59,7 +59,7 @@ public class Equipment_Manager : MonoBehaviour
         List<string> fatigueFileLocations = finder.Retrieve("Fatigues", ".meta", ".png", ".jpg");
         List<string> helmetFileLocations = finder.Retrieve("Helmet", ".meta", ".png", ".jpg");
         List<string> equipmentFileLocations = finder.Retrieve("Equipment", ".meta", ".png", ".jpg");
-        List<string> weaponFileLocations = finder.Retrieve("Weapon", ".meta", ".png", ".jpg");
+        List<string> weaponFileLocations = finder.Retrieve("Weapon.xml", ".meta", ".png", ".jpg");
 
         //For each file in resources with specific naming scheme, takes the file and 
         //turns it into the relevant class then stores it as a Sprite_Pack

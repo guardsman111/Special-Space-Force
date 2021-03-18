@@ -154,13 +154,13 @@ public class Sprite_Changer : MonoBehaviour
     public void Clicked()
     {
         clicked = true;
-        //CancelInvoke("Unclick");
-        //Invoke("Unclick", 2f);
+        CancelInvoke("Unclick");
+        Invoke("Unclick", 4f);
     }
 
     public void Unclick()
     {
         clicked = false;
-        //CancelInvoke("Unclick");
+        CancelInvoke("Unclick");
     }
 }

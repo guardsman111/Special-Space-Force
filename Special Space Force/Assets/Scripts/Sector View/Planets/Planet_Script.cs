@@ -32,8 +32,22 @@ public class Planet_Script : MonoBehaviour
     public GameObject MoonPrefab;
     public List<Texture2D> cities;
     private int currentCityLevel;
+    private List<Defined_Threat_Class> threatsOnPlanet; // Only added after start-up, they are not stored in planet class
+
+    public List<Defined_Threat_Class> ThreatsOnPlanet
+    {
+        get { return threatsOnPlanet; }
+        set
+        {
+            if (value != threatsOnPlanet)
+            {
+                threatsOnPlanet = value;
+            }
+        }
+    }
 
     public GameObject buildIcon;
+    public GameObject threatIcon;
 
 
     //Linked to the planets mesh renderer so we can change the material, allowing for players to create their own.
@@ -82,6 +96,8 @@ public class Planet_Script : MonoBehaviour
         factionManager = factionM;
         industrial = planet.builtIndustry;
         parentSystem = system;
+        threatsOnPlanet = new List<Defined_Threat_Class>();
+        planet.threatsOnPlanet = threatsOnPlanet;
 
         if (Stats.Population != 0)
         {
@@ -340,6 +356,7 @@ public class Planet_Script : MonoBehaviour
         parentSystem = system;
         building = planetClass.building;
         planet.moons = planetClass.moons;
+        threatsOnPlanet = planetClass.threatsOnPlanet;
 
         if (Stats.Population != 0)
         {

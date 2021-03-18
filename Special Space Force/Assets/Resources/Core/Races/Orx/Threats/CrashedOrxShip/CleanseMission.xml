@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Threat_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Mission_Name>Cleanse the Crash</Mission_Name>
+	<Minimum_available_Level>1</Minimum_available_Level> <!-- Minimum level this mission is available at-->
+	<Maximum_available_Level>4</Maximum_available_Level> <!-- Maximum level this mission is available at-->
+	<Level_Reduction>2</Level_Reduction> <!-- Number of levels the threat reduces by if player wins-->
+	<Unit_Descriptions> <!-- Unit Descriptions link to the race Unit List and gives how many of each unit there is-->
+		<Unit_Description>
+			<unitName>Orx Defenders</unitName>
+			<number>1</number>
+		<Unit_Description>
+	</Unit_Descriptions>
+	<Mission_based_Story_Class_List>
+		<Story_Class>
+			<storyName>Town Assault</storyName>
+			<storyType>Mission</storyType>
+			<Story_Strings>
+				<string>//:TrooperName</string>
+				<string> watched the </string>
+				<string>//:OrxSmallSettlement</string>
+				<string> out </string>
+				<string>//:BiomeObjectLocation //:InOpenTerrain</string>
+				<string> </string>
+				<string>//:Trooper //:InFrontOf</string>
+				<string> them. From their vantage point, the members of </string>
+				<string>//:SquadName</string>
+				<string> could make out a few signs of life. The order came over the radio and </string>
+				<string>//:LeaderRank</string>
+				<string>//:LeaderName</string>
+				<string> gave a quick hand signal. </string>
+			</Story_Strings>
+		</Story_Class>
+	</Mission_based_Story_Class_List>
+</Threat_Class>

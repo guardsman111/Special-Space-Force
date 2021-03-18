@@ -424,7 +424,6 @@ public class Slot_Manager : MonoBehaviour
     //Returns to the parent of the viewed slot
     public void UpSlot()
     {
-        speakerScript.PlaySound();
         GetSlotAbove(slots[0], viewedSlot.slotClass);
     }
 
@@ -615,9 +614,17 @@ public class Slot_Manager : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            closer.ShowHide();
+            if(viewedSlot.slotClass.slotHeight == -1)
+            {
+                closer.ShowHide();
+            }
+            else
+            {
+                speakerScript.PlaySound();
+                UpSlot();
+            }
         }
     }
 

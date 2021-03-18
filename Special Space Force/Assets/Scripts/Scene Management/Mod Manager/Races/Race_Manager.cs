@@ -15,6 +15,7 @@ public class Race_Manager : MonoBehaviour
     public FileFinder finder;
     private List<string> raceFiles;
     private List<Race_Class> races;
+    public Manager_Script modManager;
 
     //Retrieves (and saves the core) Race Files. Ignores .meta files
     public bool Run()
@@ -24,6 +25,10 @@ public class Race_Manager : MonoBehaviour
         //SaveDefaults();
         raceFiles = finder.Retrieve("Races.xml", ".meta");
         races = FindRaceFiles();
+        foreach(Race_Class rc in races)
+        {
+            modManager.threatManager.AddThreats(FindThreats(rc));
+        }
         return done;
     }
 
@@ -128,5 +133,35 @@ public class Race_Manager : MonoBehaviour
         tempRace.empireName = empire;
         tempRace.source = sourceFile;
         races.Add(tempRace);
+    }
+
+    public List<Threat_Class> FindThreats(Race_Class race)
+    {
+        List<Threat_Class> threats = new List<Threat_Class>();
+
+        foreach(string s in race.threatPaths)
+        {
+            try
+            {
+                Threat_Class temp = Serializer.Deserialize<Threat_Class>(Application.dataPath + "/Resources/Core" + s);
+                threats.Add(temp);
+            }
+            catch 
+            {
+
+            }
+            try
+            {
+                Threat_Class temp = Serializer.Deserialize<Threat_Class>(Application.dataPath + "/Resources/Mods" + s);
+                threats.Add(temp);
+            }
+            catch
+            {
+
+            }
+
+        }
+
+        return threats;
     }
 }

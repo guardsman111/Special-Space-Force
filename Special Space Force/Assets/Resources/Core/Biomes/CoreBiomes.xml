@@ -13,6 +13,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>in a snowy clearing</string>
+				<string>in a snowy valley</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Arctic</Name>
@@ -27,6 +37,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>on a sheet of ice</string>
+				<string>in an icy valley's frozen river</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Arid</Name>
@@ -41,6 +61,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>across an open plain</string>
+				<string>in a dusty dried up river-bed</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Asteroid</Name>
@@ -55,6 +85,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>on a sheet of ice</string>
+				<string>in an icy valley's frozen river</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Barren</Name>
@@ -69,6 +109,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>across the moon-like surface</string>
+				<string>in the middle of the barren landscape</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Continental</Name>
@@ -83,6 +133,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>in a small clearing free of trees</string>
+				<string>across a small stream</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Desert</Name>
@@ -97,6 +157,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>atop a large sand dune</string>
+				<string>across the open desert landscape</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Gas Giant Helium</Name>
@@ -153,6 +223,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>on a sheet of ice</string>
+				<string>atop the chipped and cracked glacier</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Mediterranean</Name>
@@ -167,6 +247,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>across a dusty field</string>
+				<string>beside a small lake in a clearing</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Molten</Name>
@@ -181,6 +271,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>on the narrow strip of rocks</string>
+				<string>next to a lava river</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Moon</Name>
@@ -195,6 +295,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>on the dusty wasteland</string>
+				<string>in the crater</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Oasis</Name>
@@ -209,6 +319,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>on the banks of a peaceful lake</string>
+				<string>in an area of sandy soil</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Ocean</Name>
@@ -223,6 +343,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>in a clearing</string>
+				<string>on the beach</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Swamp</Name>
@@ -237,6 +367,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>in a cleared section of the swampy marsh</string>
+				<string>, away from the hanging mangroves, </string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Toxic (Phosphor)</Name>
@@ -251,6 +391,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>in a cleared section of the toxic pink marsh</string>
+				<string>, away from the poisonous roots and brambles, </string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Toxic (Sulphur)</Name>
@@ -265,6 +415,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>in a cleared section of the toxic trees</string>
+				<string>, beyond the warped foliage they were using as cover, </string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Tropical</Name>
@@ -279,6 +439,16 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>in the sand</string>
+				<string>, seperated from the tree line, </string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
   <Biome_Class>
     <Name>Tundra</Name>
@@ -293,5 +463,15 @@
     <Material_Texture_Path>Core</Material_Texture_Path>
     <Material_Normal_Path>Core</Material_Normal_Path>
     <Material_Mask_Path>Core</Material_Mask_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>amongst small piles of snow</string>
+				<string>, in a cleared area of snow, </string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
 </ArrayOfBiome_Class>

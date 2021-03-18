@@ -22,6 +22,7 @@ public class Planet_Class
 
     public bool building;
     public int builtIndustry;
+    public List<Defined_Threat_Class> threatsOnPlanet;
 
     public List<Moon_Class> moons;
 

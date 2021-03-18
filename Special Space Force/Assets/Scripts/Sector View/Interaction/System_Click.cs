@@ -92,6 +92,14 @@ public class System_Click : MonoBehaviour
                     {
                         system.coloIcon.gameObject.SetActive(true);
                     }
+                    foreach(Planet_Script ps in system.SystemPlanets)
+                    {
+                        if(ps.ThreatsOnPlanet.Count > 0)
+                        {
+                            system.threatIcon.SetActive(true);
+                            break;
+                        }
+                    }
                     systemScreen.aManager.CloseManager();
                     systemScreen.QVManager.CloseManager();
                     systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
@@ -112,6 +120,14 @@ public class System_Click : MonoBehaviour
                     System_Script system = GetComponent<System_Script>();
                     manager.craftMover.DeselectSystem();
 
+                    foreach (Planet_Script ps in system.SystemPlanets)
+                    {
+                        if (ps.ThreatsOnPlanet.Count > 0)
+                        {
+                            ps.threatIcon.SetActive(true);
+                        }
+                    }
+
                     systemScreen.sname.text = "System: " + system.Star.systemName;
                     systemScreen.allegiance.text = "Owner: " + system.allegiance;
                     systemScreen.output.text = "Total Output: " + system.combinedOutput.ToString("00,0") + " Kilo-Tonnes";
@@ -119,6 +135,7 @@ public class System_Click : MonoBehaviour
                     system.Faction.enabled = false;
                     system.craftIcon.gameObject.SetActive(false);
                     system.coloIcon.gameObject.SetActive(false);
+                    system.threatIcon.gameObject.SetActive(false);
                     systemScreen.QVManager.OpenSystem(system.Star);
                     systemScreen.aManager.OpenSystem(system.Star);
 
@@ -194,6 +211,14 @@ public class System_Click : MonoBehaviour
                     if (system.Colonising)
                     {
                         system.coloIcon.gameObject.SetActive(true);
+                    }
+                    foreach (Planet_Script ps in system.SystemPlanets)
+                    {
+                        if (ps.ThreatsOnPlanet.Count > 0)
+                        {
+                            system.threatIcon.SetActive(true);
+                            break;
+                        }
                     }
                     systemScreen.aManager.CloseManager();
                     systemScreen.QVManager.CloseManager();

@@ -93,7 +93,7 @@ public class Slot_Generator : MonoBehaviour
             //For each Slot_Class add it to the permanent slots List
             Slot_Class tempC = new Slot_Class();
             tempC.containedSlots = new List<Slot_Class>();
-            tempC.slotName = temp.slotName;
+            tempC.slotName = manager.modManager.GeneratedProduct.regimentName;
             tempC.slotHeight = temp.slotHeight;
             foreach (Slot_Class tempS in temp.containedSlots)
             {
@@ -214,13 +214,20 @@ public class Slot_Generator : MonoBehaviour
                             tempTC.trooperPosition = i + 1;
                         }
                         tempS.containedTroopers = FillSlots(sc, tempS, 0);
-                        Debug.Log(sc.numberOfTroopers);
+                        //Debug.Log(sc.numberOfTroopers);
                     }
                     else if (createTroopersFromTemplate)
                     {
+                        if(tempS.slotClass.containedTroopers.Count > tempS.slotClass.numberOfTroopers)
+                        {
+                            for (int i = tempS.slotClass.containedTroopers.Count - 1; i >= tempS.slotClass.numberOfTroopers; i--)
+                            {
+                                tempS.slotClass.containedTroopers.RemoveAt(i);
+                            }
+                        }
                         tempS.containedTroopers = new List<Trooper_Script>();
                         tempS.containedTroopers = FillSlots(sc, tempS, 0);
-                        Debug.Log(sc.numberOfTroopers);
+                        //Debug.Log(sc.numberOfTroopers);
                     }
                     else
                     {
@@ -242,7 +249,7 @@ public class Slot_Generator : MonoBehaviour
                                 sc.containedTroopers.RemoveAt(i-1);
                             }
                             tempS.containedTroopers = FillSlots(sc, tempS, 0);
-                            Debug.Log(troopersPerSquad);
+                            //Debug.Log(troopersPerSquad);
                         }
                         else
                         {
@@ -264,7 +271,7 @@ public class Slot_Generator : MonoBehaviour
                                 sc.containedTroopers.Add(tempTC);
                             }
                             tempS.containedTroopers = FillSlots(sc, tempS, 0);
-                            Debug.Log(troopersPerSquad);
+                            //Debug.Log(troopersPerSquad);
                         }
                     }
                     slot.numberOfTroopers += tempS.containedTroopers.Count;

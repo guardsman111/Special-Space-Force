@@ -740,6 +740,8 @@ MonoBehaviour:
   systemScreen: {fileID: 0}
   canvas: {fileID: 0}
   mover: {fileID: 0}
+  avoiders: []
+  manager: {fileID: 0}
   UIs: []
 --- !u!114 &8659800344937081783
 MonoBehaviour:
@@ -758,6 +760,7 @@ MonoBehaviour:
   faction: {fileID: 7483266810984804202}
   craftIcon: {fileID: 3738908430003656676}
   coloIcon: {fileID: 4044833478465347955}
+  threatIcon: {fileID: 8168738430930203331}
   combinedOutput: 0
   allegiance: 
   id: 0
@@ -2202,6 +2205,12 @@ GameObject:
 --- !u!1 &4044833478465347955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2628220356637583419, guid: c93f64d5ab4ef454d8347fbae49316c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2043353175483582792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8168738430930203331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7856039931090615179, guid: c93f64d5ab4ef454d8347fbae49316c5,
     type: 3}
   m_PrefabInstance: {fileID: 2043353175483582792}
   m_PrefabAsset: {fileID: 0}

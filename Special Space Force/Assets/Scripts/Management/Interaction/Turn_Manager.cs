@@ -33,6 +33,7 @@ public class Turn_Manager : MonoBehaviour
             manager.factionManager.PlanetScriptToClass();
         }
         AutoSave();
+        manager.factionManager.SpawnThreat();
     }
 
     public void EndTurn()

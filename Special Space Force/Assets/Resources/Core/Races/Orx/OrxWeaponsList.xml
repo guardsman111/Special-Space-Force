@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Race_Weapons_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<enemyWeapons>
+		<Enemy_Weapons_Class>
+			<Weapon_Name>Basic Gun</Weapon_Name>
+			<nickname>gun</nickname>
+			<strength>5</strength>
+			<type>Pistol</type>
+			<List_of_Categories>
+				<Category_Class>
+					<categoryName>BasicGunShoot</categoryName>
+					<categoryType>Kill<categoryType>
+					<snippets>
+						<string>Bullets thud into bodies</string>
+					</snippets>
+				</Category_Class>
+			</List_of_Categories>
+		</Enemy_Weapons_Class>
+		<Enemy_Weapons_Class>
+			<Weapon_Name>Basic Knife</Weapon_Name>
+			<nickname>knife</nickname>
+			<strength>2</strength>
+			<type>Melee</type>
+			<List_of_Categories>
+				<Category_Class>
+					<categoryName>BasicKnifeMelee</categoryName>
+					<categoryType>Kill<categoryType>
+					<snippets>
+						<string>slices clean through</string>
+					</snippets>
+				</Category_Class>
+			</List_of_Categories>
+		</Enemy_Weapons_Class>
+	</enemyWeapons>
+</Race_Weapons_Class>

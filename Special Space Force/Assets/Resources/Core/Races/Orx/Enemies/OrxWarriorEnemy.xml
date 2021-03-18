@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Enemy_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<enemyName>Orx Warrior</enemyName>
+	<nicknames>
+		<string>Dumbass</string>
+	</nicknames>
+	<health>5</health>
+	<size>80</size>
+	<speed>60</speed>
+	<strength>90</strength>
+	<Primary_Weapon>Basic Gun</Primary_Weapon>
+	<Secondary_Weapon>Basic Knife</Secondary_Weapon>
+	<List_of_Categories>
+		<Category_Class>
+			<categoryName>OrxWarMove</categoryName>
+			<categoryType>Slow<categoryType>
+			<snippets>
+				<string>The Orx walks forward</string>
+			</snippets>
+		</Category_Class>
+	</List_of_Categories>
+</Enemy_Class>

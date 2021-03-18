@@ -15,6 +15,7 @@ public class System_Script : MonoBehaviour
     private TextMeshPro faction;
     public GameObject craftIcon;
     public GameObject coloIcon;
+    public GameObject threatIcon;
     private System_Class star;
     public float combinedOutput;
     public string allegiance;

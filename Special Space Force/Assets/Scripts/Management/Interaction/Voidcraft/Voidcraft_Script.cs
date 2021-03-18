@@ -351,7 +351,7 @@ public class Voidcraft_Script : MonoBehaviour
             input.gameObject.SetActive(true);
             image.SetActive(true);
         }
-        else if (viewedFleet == null)
+        else if (viewedFleet == manager.mainFleetView || viewedFleet == null)
         {
             if (craftFleet.containedCraft.Count < 7)
             {

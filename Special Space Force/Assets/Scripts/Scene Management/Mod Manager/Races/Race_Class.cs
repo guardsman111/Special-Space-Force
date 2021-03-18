@@ -15,15 +15,22 @@ public class Race_Class
     [XmlElement("Source")]
     public string source;
 
-    [XmlElement("Xenophobia Modifier")]
+    [XmlElement("Xenophobia_Modifier")]
     public float xenoMod;
-    [XmlElement("Militarism Modifier")]
+    [XmlElement("Militarism_Modifier")]
     public float miliMod;
-    [XmlElement("Expansionism Modifier")]
+    [XmlElement("Expansionism_Modifier")]
     public float expaMod;
-    [XmlElement("Industrialism Modifier")]
+    [XmlElement("Industrialism_Modifier")]
     public float induMod;
 
+    [XmlElement("Path_to_Race_Units_Class")]
+    public string raceUnitsPath;
+
+    [XmlElement("List_of_Threat_Class_paths")]
+    public List<string> threatPaths;
+
+    public List<Category_Class> Categories;
 
     public Race_Class()
     {

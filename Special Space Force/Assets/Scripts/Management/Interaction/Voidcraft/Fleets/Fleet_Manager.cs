@@ -305,9 +305,17 @@ public class Fleet_Manager : MonoBehaviour
         {
             Debug.LogError("Hallo, Debugger Here!");
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            closer.ShowHide();
+            if (viewedFleet == null || viewedFleet == mainFleetView)
+            {
+                closer.ShowHide();
+            }
+            else
+            {
+                speakerManager.PlaySound();
+                TopSlot();
+            }
         }
     }
 

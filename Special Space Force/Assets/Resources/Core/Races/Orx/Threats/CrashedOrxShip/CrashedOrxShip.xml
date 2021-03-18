@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Threat_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Threat_Name>Crashed Orx Voidcraft</Threat_Name>
+	<Threat_Faction_Name>Orx Territories</Threat_Faction_Name>
+	<Number_of_levels>7</Number_of_levels>
+	<Level_Growth_Rate>7</Level_Growth_Rate>
+	<levelStrength>
+		<float>100</float>
+		<float>200</float>
+		<float>300</float>
+		<float>500</float>
+		<float>800</float>
+		<float>1200</float>
+		<float>1800</float>
+	</levelStrength>
+	<levelDescriptions>
+		<string>"A small Orx ship has crashed on the planet"</string>
+		<string>"Hordes of Orx have swarmed small villages near a crashed Orx ship"</string>
+		<string>"A settlement of Orx has formed around a crashed Orx voidcraft"</string>
+		<string>"A signal is being launched from a crashed Orx ship"</string>
+		<string>"Two Orx voidcraft have crashed into the planet surface near one another"</string>
+		<string>"Dozens of Orx ships have crash landed on the planet and Orx are attacking cities"</string>
+		<string>"Hordes of Orx have over-run the local defences and the planet is close to lost"</string>
+	</levelDescriptions>
+	<missionPaths>
+		<string>/Races/Orx/Threats/CrashedOrxShip/CleanseMission.xml</string>
+	</missionPaths>
+</Threat_Class>

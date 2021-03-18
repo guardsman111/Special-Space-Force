@@ -39,6 +39,7 @@ public class Slider_Script : MonoBehaviour
                 if (alreadyClosed == false)
                 {
                     go.SetActive(true);
+                    go.GetComponent<Slider_Script>().headerImage.enabled = true;
                 }
             }
         }
@@ -53,6 +54,7 @@ public class Slider_Script : MonoBehaviour
                     alreadyClosed = true;                
                 }
                 go.SetActive(false);
+                go.GetComponent<Slider_Script>().headerImage.enabled = false;
             }
             headerImage.sprite = pressedImage;
         }
@@ -72,6 +74,7 @@ public class Slider_Script : MonoBehaviour
                     }
                     else
                     {
+                        headerImage.rectTransform.anchoredPosition -= new Vector2(xDistance / 30, yDistance / 30);
                         rect.anchoredPosition -= new Vector2(xDistance / 30, yDistance / 30);
                     }
                 }
@@ -98,6 +101,7 @@ public class Slider_Script : MonoBehaviour
                     foreach (GameObject go in siblingSliders)
                     {
                         go.SetActive(true);
+                        go.GetComponent<Slider_Script>().headerImage.enabled = true;
                     }
                 }
                 CancelInvoke("DoSlide");
@@ -105,6 +109,10 @@ public class Slider_Script : MonoBehaviour
             }
             else
             {
+                if (yDistance >= 0)
+                {
+                    headerImage.rectTransform.anchoredPosition += new Vector2(xDistance / 30, yDistance / 30);
+                }
                 rect.anchoredPosition += new Vector2(xDistance / 30, yDistance / 30);
             }
             pulledOut = false;

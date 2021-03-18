@@ -754,4 +754,20 @@ public class Faction_Manager : MonoBehaviour
         }
         
     }
+
+    public void SpawnThreat()
+    {
+        int random = Random.Range(0, factionScripts[0].controlledPlanets.Count);
+
+        int random2 = Random.Range(0, modManager.threatManager.Threats.Count);
+
+        int random3 = Random.Range(0, modManager.threatManager.Threats[random2].nLevels);
+
+        Defined_Threat_Class newDef = new Defined_Threat_Class { threatName = modManager.threatManager.Threats[random2].threatName, level = random3, levelDesc = modManager.threatManager.Threats[random2].levelDescriptions[random3], threatFaction = modManager.threatManager.Threats[random2].threatFaction };
+
+        factionScripts[0].controlledPlanets[random].ThreatsOnPlanet.Add(newDef);
+        factionScripts[0].controlledPlanets[random].parentSystem.threatIcon.SetActive(true);
+
+        Debug.Log("Spawned threat on " + factionScripts[0].controlledPlanets[random].planetName);
+    }
 }

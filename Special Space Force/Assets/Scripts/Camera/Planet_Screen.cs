@@ -35,4 +35,5 @@ public class Planet_Screen : MonoBehaviour
     public Quickview_Voidcraft_Manager QVManager;
     public System_Screen systemScreen;
     public Sound_Script speakerManager;
+    public Threat_Manager threatM;
 }
