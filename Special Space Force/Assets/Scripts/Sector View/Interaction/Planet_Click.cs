@@ -139,7 +139,7 @@ public class Planet_Click : MonoBehaviour
                     {
                         if (sPlanet.planet.population > 0)
                         {
-                            planetScreen.planetPopulation.text = "Population: " + sPlanet.planet.population.ToString("00,0") + ",000";
+                            planetScreen.planetPopulation.text = "Population: " + (sPlanet.planet.population/1000).ToString("00,0") + " million";
                             planetScreen.planetType.text = "Main Export: Unknown";
                             planetScreen.planetUsableSpace.enabled = true;
                             planetScreen.planetIndustry.enabled = true;

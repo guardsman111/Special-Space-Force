@@ -357,6 +357,10 @@ public class Planet_Script : MonoBehaviour
         building = planetClass.building;
         planet.moons = planetClass.moons;
         threatsOnPlanet = planetClass.threatsOnPlanet;
+        if(threatsOnPlanet.Count > 0)
+        {
+            parentSystem.threatIcon.SetActive(true);
+        }
 
         if (Stats.Population != 0)
         {

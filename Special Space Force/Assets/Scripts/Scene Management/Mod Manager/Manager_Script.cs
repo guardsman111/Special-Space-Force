@@ -18,6 +18,7 @@ public class Manager_Script : MonoBehaviour
     public Voidcraft_Manager voidcraftManager;
     public Slot_Manager sManager;
     public Fleet_Manager fManager;
+    public Force_Manager forceManager;
     public Master_Threats_Manager threatManager;
 
     private Generation_Class generatedProduct;

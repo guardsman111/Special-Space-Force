@@ -165,6 +165,7 @@ public class Slot_Generator : MonoBehaviour
             }
         }
         manager.OpenSlot(manager.viewedSlot);
+        manager.GetTroopers();
         manager.gameObject.SetActive(false);
     }
 

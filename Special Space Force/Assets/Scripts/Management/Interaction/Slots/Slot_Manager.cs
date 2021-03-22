@@ -66,7 +66,19 @@ public class Slot_Manager : MonoBehaviour
 
     public List<Trooper_Script> selectedTroopers;
 
-    public int nTroopers;
+    private int nTroopers;
+
+    public int NTroopers
+    {
+        get { return nTroopers; }
+        set
+        {
+            if (value != nTroopers)
+            {
+                nTroopers = value;
+            }
+        }
+    }
 
     public List<Slot_Class> Slots
     {
@@ -133,7 +145,7 @@ public class Slot_Manager : MonoBehaviour
             femaleHairOutlinePack.containedSprites.Add(s);
         }
 
-        nTroopers = 0;
+        NTroopers = 0;
     }
 
 
@@ -805,15 +817,48 @@ public class Slot_Manager : MonoBehaviour
     //Changes the number of troopers 
     public void ChangeTroopers(int change)
     {
-        nTroopers += change;
+        NTroopers += change;
     }
 
     //Returns the number of troopers in the slot
     public string GetTroopers()
     {
-        string number;
+        int number = 0;
 
-        number = nTroopers.ToString();
+        foreach(Slot_Class sc in slots[0].containedSlots)
+        {
+            if(sc.squad == true)
+            {
+                number += sc.containedTroopers.Count;
+                sc.numberOfTroopers = sc.containedTroopers.Count;
+            }
+            else
+            {
+                number += GetTroopersChild(sc);
+            }
+        }
+        return number.ToString();
+    }
+
+    //Returns the number of troopers in the slot
+    public int GetTroopersChild(Slot_Class slot)
+    {
+        int number = 0;
+
+        foreach (Slot_Class sc in slot.containedSlots)
+        {
+            if (sc.squad == true)
+            {
+                number += sc.containedTroopers.Count;
+                sc.numberOfTroopers = sc.containedTroopers.Count;
+            }
+            else
+            {
+                number += GetTroopersChild(sc);
+            }
+        }
+
+        slot.numberOfTroopers = number;
         return number;
     }
 

@@ -47,7 +47,7 @@ public class System_Click : MonoBehaviour
     }
 
     //Toggles the Cameras depending on the current enabled camera
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         if (!planetCamera.enabled && !manager.sManager.gameObject.activeSelf && !manager.fManager.gameObject.activeSelf)
         {

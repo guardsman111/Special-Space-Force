@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Container : MonoBehaviour
+public class Enemy_Container 
 {
     public string enemyName;
     public int nOfEnemies;

@@ -31,9 +31,9 @@ public class Turn_Manager : MonoBehaviour
             manager.factionManager.CalculateIncome();
             manager.factionManager.forceManager.TurnEnd((float)manager.factionManager.Factions[0].factionIncome * ((float)manager.GeneratedProduct.funding / 100));
             manager.factionManager.PlanetScriptToClass();
+            manager.factionManager.SpawnThreat();
         }
         AutoSave();
-        manager.factionManager.SpawnThreat();
     }
 
     public void EndTurn()
@@ -62,6 +62,7 @@ public class Turn_Manager : MonoBehaviour
         {
             saveClass.fleets.Add(manager.fManager.FleetsS[i].fleetClass);
         }
+        saveClass.generatedProduct.force = manager.forceManager.forceClass;
         Serializer.Serialize(saveClass, Application.dataPath + "/Resources/Saves/" + saveClass.saveName + ".Save.xml");
     }
 }

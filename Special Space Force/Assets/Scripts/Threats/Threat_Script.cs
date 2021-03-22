@@ -13,8 +13,21 @@ public class Threat_Script : MonoBehaviour
     public TextMeshProUGUI factionText;
 
 
+
+    private List<Mission_Class> containedMissions;
     private Threat_Class threatC;
 
+    public List<Mission_Class> ContainedMissions
+    {
+        get {return containedMissions; }
+        set 
+        { 
+            if(value != containedMissions)
+            {
+                containedMissions = value;
+            }
+        }
+    }
     public Threat_Class ThreatC
     {
         get { return threatC; }
@@ -38,6 +51,7 @@ public class Threat_Script : MonoBehaviour
             if(tc.threatName == newThreat.threatName && tc.threatFaction == newThreat.threatFaction)
             {
                 threatC = tc;
+                ContainedMissions = manager.GetMissions(tc);
                 Debug.Log("Found Threat and added correctly");
             }
         }

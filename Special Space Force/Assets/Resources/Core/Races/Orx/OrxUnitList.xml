@@ -1,21 +1,20 @@
 <?xml version="1.0"?>
 <Race_Units_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<raceName>Orx</raceName> <!-- The name of the race this unit list belongs too - just in case-->
-	<Race_Weapons_Class_Path>/Races/Orx/OrxWeaponsList</Race_Weapons_Class_Path>
-	<Enemy_Class_Paths>
-		<string></string>
-	</Enemy_Class_Paths>
-	<Units>
+	<raceName>Orx Territories</raceName> <!-- The name of the faction this unit list belongs too - just in case, it means the faction name not the race name-->
+	<Race_Weapons_Class_Path>/Races/Orx/OrxWeaponsList.xml</Race_Weapons_Class_Path>
+	<enemyPaths>
+		<string>/Races/Orx/Enemies/OrxWarriorEnemy.xml</string>
+	</enemyPaths>
+	<units>
 		<Unit_Class>
 			<Unit_Name>Orx Defenders</Unit_Name>
 			<Estimated_unit_strength>100</Estimated_unit_strength>
-			<Contained_Enemies>
+			<containedEnemies>
 				<Enemy_Container>
 					<enemyName>Orx Warrior</enemyName>
 					<nOfEnemies>50</nOfEnemies>
 				</Enemy_Container>
-			</Contained_Enemies>
+			</containedEnemies>
 		</Unit_Class>
-	</Units>
-	
+	</units>
 </Race_Units_Class>

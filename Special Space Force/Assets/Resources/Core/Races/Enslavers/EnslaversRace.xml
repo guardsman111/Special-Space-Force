@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Race_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Species_Name>Enslavers</Species_Name>
+    <Empire_Name>The Enslavers</Empire_Name>
+    <Source>Core</Source>
+	<Xenophobia_Modifier>100</Xenophobia_Modifier> <!-- value between 0-100 where 0 = space commies-->
+	<Militarism_Modifier>1</Militarism_Modifier> <!-- Value between 0-4 where 0 = pacifist-->
+	<Expansionism_Modifier>100</Expansionism_Modifier> <!-- value between 0-100 where 0 = scared of change-->
+	<Industrialism_Modifier>20</Industrialism_Modifier> <!-- Value between 0-4 where 0 = Environmentalists-->
+	<Path_to_Race_Units_Class>/Races/Enslavers/EnslaversUnitList.xml</Path_to_Race_Units_Class> <!-- Gives the path to this Race's units file-->
+	<threatPaths> 
+		<string>/Races/Enslavers/Threats/ScoutFleet/ScoutFleet.xml</string>
+	</threatPaths> 
+	<Categories>
+		<Category_Class>
+			<categoryName>OrxSmallSettlement</categoryName>
+			<categoryType>Settlement</categoryType>
+			<snippets>
+				<string>small town-like structure</string>
+				<string>shanty town</string>
+				<string>rabble of buildings</string>
+				<string>collection of ramshackle constructs</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
+</Race_Class>

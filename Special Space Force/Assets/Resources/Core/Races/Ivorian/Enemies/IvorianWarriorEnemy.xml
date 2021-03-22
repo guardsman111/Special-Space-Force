@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Enemy_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<enemyName>Ivorian Warrior</enemyName>
+	<nicknames>
+		<string>Pointy Ear</string>
+	</nicknames>
+	<health>3</health>
+	<size>60</size>
+	<speed>90</speed>
+	<strength>75</strength>
+	<Primary_Weapon>Basic Gun</Primary_Weapon>
+	<Secondary_Weapon>Basic Knife</Secondary_Weapon>
+	<List_of_Categories>
+		<Category_Class>
+			<categoryName>IvorianWarMoveSlow</categoryName>
+			<categoryType>Present<categoryType>
+			<snippets>
+				<string>The Ivorian leaps forward</string>
+			</snippets>
+		</Category_Class>
+	</List_of_Categories>
+</Enemy_Class>

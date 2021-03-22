@@ -7,6 +7,8 @@ public class Mission_Class
 {
     [XmlElement("Mission_Name")]
     public string missionName;
+    [XmlElement("Mission_Description")]
+    public string missionDescription;
     [XmlElement("Minimum_available_Level")]
     public int minLevel;
     [XmlElement("Maximum_available_Level")]
@@ -14,11 +16,11 @@ public class Mission_Class
     [XmlElement("Level_Reduction")]
     public int reduction;
 
-    [XmlElement("Unit_Descriptions")]
-    public List<Unit_Description> units;
-
-    [XmlElement("Mission_based_Story_Class_List")]
-    public List<Story_Class> stories;
+    public List<Unit_Description> enemyForce;
+    public List<Story_Class> introStories;
+    public List<Story_Class> objectiveStories;
+    public List<Story_Class> victoryStories;
+    public List<Story_Class> defeatStories;
 
     public Mission_Class()
     {

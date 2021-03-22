@@ -189,6 +189,7 @@ public class Galaxy_Generation_Manager : MonoBehaviour
             localisationManager.SeperateStringLists();
             slotGenerator.LoadSlots(save.topSlots);
             fleetGenerator.LoadFleets(save.fleets);
+            modManager.forceManager.Load(product);
             SetCameraLimits(-save.height / 2, save.height / 2, -save.width / 2, save.width / 2);
             modManager.factionManager.Load(systemGenerator.GeneratedSystems, product.factions);
             modManager.turnManager.FirstTurn(product, save, true);

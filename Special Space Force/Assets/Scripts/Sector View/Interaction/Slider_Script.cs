@@ -29,34 +29,37 @@ public class Slider_Script : MonoBehaviour
 
     public void Slide()
     {
-        if (slide)
+        if (headerImage.enabled)
         {
-            slide = false;
-            headerImage.sprite = normalImage;
+            if (slide)
+            {
+                slide = false;
+                headerImage.sprite = normalImage;
 
-            foreach (GameObject go in siblingSliders)
-            {
-                if (alreadyClosed == false)
+                foreach (GameObject go in siblingSliders)
                 {
-                    go.SetActive(true);
-                    go.GetComponent<Slider_Script>().headerImage.enabled = true;
+                    if (alreadyClosed == false)
+                    {
+                        go.SetActive(true);
+                        go.GetComponent<Slider_Script>().headerImage.enabled = true;
+                    }
                 }
             }
-        }
-        else
-        {
-            slide = true;
-            InvokeRepeating("DoSlide", 0.01f, 0.01f);
-            foreach (GameObject go in siblingSliders)
+            else
             {
-                if(go.activeSelf == false)
+                slide = true;
+                InvokeRepeating("DoSlide", 0.01f, 0.01f);
+                foreach (GameObject go in siblingSliders)
                 {
-                    alreadyClosed = true;                
+                    if (go.activeSelf == false)
+                    {
+                        alreadyClosed = true;
+                    }
+                    go.SetActive(false);
+                    go.GetComponent<Slider_Script>().headerImage.enabled = false;
                 }
-                go.SetActive(false);
-                go.GetComponent<Slider_Script>().headerImage.enabled = false;
+                headerImage.sprite = pressedImage;
             }
-            headerImage.sprite = pressedImage;
         }
     }
 

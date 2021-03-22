@@ -354,7 +354,6 @@ public class Trooper_Script : MonoBehaviour
         equipmentManager.LoadEquipment(this, "Equipment", equipment);
 
         TrooperColours();
-        manager.ChangeTroopers(1);
         FindSlotIdentifier();
     }
 

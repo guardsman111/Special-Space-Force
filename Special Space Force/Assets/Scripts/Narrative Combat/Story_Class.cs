@@ -6,11 +6,8 @@ using UnityEngine;
 public class Story_Class
 {
     public string storyName;
-
     public string storyType;
-
-    [XmlElement("Story_Strings")]
-    public List<string> story;
+    public List<string> strings;
 
     public Story_Class()
     {

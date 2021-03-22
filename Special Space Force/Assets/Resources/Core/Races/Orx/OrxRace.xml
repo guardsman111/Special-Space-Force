@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Race_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Species_Name>Orx</Species_Name>
+    <Empire_Name>Orx Territories</Empire_Name>
+    <Source>Core</Source>
+	<Xenophobia_Modifier>80</Xenophobia_Modifier> <!-- value between 0-100 where 0 = space commies-->
+	<Militarism_Modifier>4</Militarism_Modifier> <!-- Value between 0-4 where 0 = pacifist-->
+	<Expansionism_Modifier>80</Expansionism_Modifier> <!-- value between 0-100 where 0 = scared of change-->
+	<Industrialism_Modifier>20</Industrialism_Modifier> <!-- Value between 0-4 where 0 = Environmentalists-->
+	<Path_to_Race_Units_Class>/Races/Orx/OrxUnitList.xml</Path_to_Race_Units_Class> <!-- Gives the path to this Race's units file-->
+	<threatPaths> <!-- All the threats that can spawn from this race - this could be hundreds long potentially-->
+		<string>/Races/Orx/Threats/CrashedOrxShip/CrashedOrxShip.xml</string>
+	</threatPaths> 
+	<Categories>
+		<Category_Class>
+			<categoryName>OrxSmallSettlement</categoryName>
+			<categoryType>Settlement</categoryType>
+			<snippets>
+				<string>small town-like structure</string>
+				<string>shanty town</string>
+				<string>rabble of buildings</string>
+				<string>collection of ramshackle constructs</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
+</Race_Class>

@@ -15,6 +15,8 @@ public class Race_Manager : MonoBehaviour
     public FileFinder finder;
     private List<string> raceFiles;
     private List<Race_Class> races;
+    private List<Race_Units_Class> raceUnits;
+    private List<Race_Weapons_Class> raceWeapons;
     public Manager_Script modManager;
 
     //Retrieves (and saves the core) Race Files. Ignores .meta files
@@ -23,7 +25,7 @@ public class Race_Manager : MonoBehaviour
         bool done = false;
         //CoreRaces();
         //SaveDefaults();
-        raceFiles = finder.Retrieve("Races.xml", ".meta");
+        raceFiles = finder.Retrieve("Race.xml", ".meta");
         races = FindRaceFiles();
         foreach(Race_Class rc in races)
         {
@@ -45,47 +47,107 @@ public class Race_Manager : MonoBehaviour
             }
         }
     }
+    public List<Race_Units_Class> RaceUnits
+    {
+        get { return raceUnits; }
+
+        set
+        {
+            if
+              (value != raceUnits)
+            {
+                raceUnits = value;
+            }
+        }
+    }
+    public List<Race_Weapons_Class> RaceWeapons
+    {
+        get { return raceWeapons; }
+
+        set
+        {
+            if
+              (value != raceWeapons)
+            {
+                raceWeapons = value;
+            }
+        }
+    }
 
     //Send the Files over to the serializer to be converted into Race_Classes, for use in game
     private List<Race_Class> FindRaceFiles()
     {
         List<Race_Class> raceList = new List<Race_Class>();
 
+        raceUnits = new List<Race_Units_Class>();
+        raceWeapons = new List<Race_Weapons_Class>();
+
         try
         {
             //For each race, check for duplicates and if there are duplicates, replace any core ones and remove non-core ones
             foreach (string s in raceFiles)
             {
-                List<Race_Class> temp = Serializer.Deserialize<List<Race_Class>>(s);
-                foreach (Race_Class tempB in temp)
+                Race_Class temp = Serializer.Deserialize<Race_Class>(s);
+                int counter = 0;
+                bool duplicate = false;
+                try
                 {
-                    int counter = 0;
-                    bool duplicate = false;
-                    foreach (Race_Class checkR in raceList)
+                    Race_Units_Class tempUC = Serializer.Deserialize<Race_Units_Class>(Application.dataPath + "/Resources/Core" + temp.raceUnitsPath);
+                    raceUnits.Add(tempUC);
+                    try
                     {
-                        if (tempB.raceName == checkR.raceName)
+                        raceWeapons.Add(Serializer.Deserialize<Race_Weapons_Class>(Application.dataPath + "/Resources/Core" + tempUC.weaponsPath));
+                    }
+                    catch
+                    {
+                        Debug.Log("Error loading Weapons List - " + tempUC.weaponsPath);
+                    }
+                }
+                catch
+                {
+                    Debug.Log("Checking if is mod");
+                    try
+                    {
+                        Race_Units_Class tempUC = Serializer.Deserialize<Race_Units_Class>(Application.dataPath + "/Resources/Mods" + temp.raceUnitsPath);
+                        raceUnits.Add(tempUC);
+                        try
                         {
-                            duplicate = true;
-                            if (checkR.source == "Core")
-                            {
-                                //Debug.Log(counter);
-                                raceList[counter] = tempB;
-                                Debug.Log(tempB.raceName + " Replaced Vanilla");
-                            }
-                            else
-                            {
-                                raceList.Remove(checkR);
-                                //Debug.Log("Duplicates Removed");
-                            }
-                            break;
+                            raceWeapons.Add(Serializer.Deserialize<Race_Weapons_Class>(Application.dataPath + "/Resources/Mods" + tempUC.weaponsPath));
                         }
-                        counter += 1;
+                        catch
+                        {
+                            Debug.Log("Error loading Weapons List - " + tempUC.weaponsPath);
+                        }
                     }
-                    if (!duplicate)
+                    catch
                     {
-                        raceList.Add(tempB);
-                        //Debug.Log(tempB.biomeName);
+                        Debug.Log("Couldn't find in mods either - " + temp.raceUnitsPath);
                     }
+                }
+                foreach (Race_Class checkR in raceList)
+                {
+                    if (temp.raceName == checkR.raceName)
+                    {
+                        duplicate = true;
+                        if (checkR.source == "Core")
+                        {
+                            //Debug.Log(counter);
+                            raceList[counter] = temp;
+                            Debug.Log(temp.raceName + " Replaced Vanilla");
+                        }
+                        else
+                        {
+                            raceList.Remove(checkR);
+                            //Debug.Log("Duplicates Removed");
+                        }
+                        break;
+                    }
+                    counter += 1;
+                }
+                if (!duplicate)
+                {
+                    raceList.Add(temp);
+                    //Debug.Log(tempB.biomeName);
                 }
             }
 

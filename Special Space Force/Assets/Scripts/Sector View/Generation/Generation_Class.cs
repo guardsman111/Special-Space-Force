@@ -9,6 +9,7 @@ public class Generation_Class
     /// </summary>
 
     public string regimentName;
+    public Force_Class force;
     public int height;
     public int width;
     public int numberofStars;

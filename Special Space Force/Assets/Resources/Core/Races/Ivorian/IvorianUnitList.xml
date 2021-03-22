@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Race_Units_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<raceName>The Ivorian Empire</raceName> <!-- The name of the race this unit list belongs too - just in case, it means the faction name not the race name-->
+	<Race_Weapons_Class_Path>/Races/Ivorian/IvorianWeaponsList.xml</Race_Weapons_Class_Path>
+	<enemyPaths>
+		<string>/Races/Ivorian/Enemies/IvorianWarriorEnemy.xml</string>
+	</enemyPaths>
+	<units>
+		<Unit_Class>
+			<Unit_Name>Ivorian Raiders</Unit_Name>
+			<Estimated_unit_strength>60</Estimated_unit_strength>
+			<containedEnemies> 
+				<Enemy_Container>
+					<enemyName>Ivorian Warrior</enemyName>
+					<nOfEnemies>30</nOfEnemies>
+				</Enemy_Container>
+			</containedEnemies>
+		</Unit_Class>
+	</units>
+	
+</Race_Units_Class>

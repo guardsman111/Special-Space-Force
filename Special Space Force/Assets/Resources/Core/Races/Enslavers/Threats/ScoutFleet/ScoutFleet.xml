@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Threat_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Threat_Name>Scout Fleet</Threat_Name>
+	<Threat_Faction_Name>The Enslavers</Threat_Faction_Name>
+	<Number_of_levels>3</Number_of_levels>
+	<Level_Growth_Rate>7</Level_Growth_Rate>
+	<levelStrength>
+		<float>300</float>
+		<float>500</float>
+		<float>800</float>
+	</levelStrength>
+	<levelDescriptions>
+		<string>"An Enslaver scout party has been spotted multiple times on the planet"</string>
+		<string>"Enslaver Scout parties have attacked an outpost"</string>
+		<string>"Enslaver Scout parties have been sending signals from the planet surface"</string>
+	</levelDescriptions>
+	<missionPaths>
+		<string>/Races/Enslavers/Threats/ScoutFleet/MeetingEngagementMission.xml</string>
+	</missionPaths>
+</Threat_Class>

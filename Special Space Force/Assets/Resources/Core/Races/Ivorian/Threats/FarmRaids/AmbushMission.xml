@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Mission_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Mission_Name>Ambush Raid</Mission_Name>
+	<Mission_Description>Track a raiding party and Ambush them before they become aware of your trooper's presence.</Mission_Description>
+	<Minimum_available_Level>1</Minimum_available_Level> <!-- Minimum level this mission is available at-->
+	<Maximum_available_Level>5</Maximum_available_Level> <!-- Maximum level this mission is available at-->
+	<Level_Reduction>1</Level_Reduction> <!-- Number of levels the threat reduces by if player wins-->
+	<enemyForce> <!-- Unit Descriptions link to the race Unit List and gives how many of each unit there is-->
+		<Unit_Description>
+			<unitName>Ivorian Raiders</unitName>
+			<number>1</number>
+		</Unit_Description>
+	</enemyForce>
+	<introStories> <!-- Stories that give an introduction to the mission-->
+		<Story_Class>
+			<storyName>Ambush</storyName>
+			<storyType>Stealth</storyType>
+			<strings>
+				<string>//:TrooperName</string>
+				<string> watched the Ivorians approach them </string>
+				<string>//:BiomeObjectLocation //:InOpenTerrain</string>
+				<string>. Waiting patiently, the members of </string>
+				<string>//:SquadName</string>
+				<string> began to raise there weapons, ready to catch the Ivorian </string>
+				<string>//:Suprise</string>
+			</strings>
+		</Story_Class>
+	</introStories>
+	<objectiveStories> <!-- Stories that directly involve the objective of the mission-->
+	</objectiveStories>
+	<victoryStories> <!-- Stories that are used during a victory-->
+	</victoryStories>
+	<defeatStories> <!-- Stories that are used during a defeat-->
+	</defeatStories>
+</Mission_Class>

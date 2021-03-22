@@ -1,20 +1,21 @@
 <?xml version="1.0"?>
-<Threat_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Mission_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Mission_Name>Cleanse the Crash</Mission_Name>
+	<Mission_Description>Find and Destroy any Orx buildings or wrecked craft to ensure they are not present on the planet anymore.</Mission_Description>
 	<Minimum_available_Level>1</Minimum_available_Level> <!-- Minimum level this mission is available at-->
-	<Maximum_available_Level>4</Maximum_available_Level> <!-- Maximum level this mission is available at-->
+	<Maximum_available_Level>3</Maximum_available_Level> <!-- Maximum level this mission is available at-->
 	<Level_Reduction>2</Level_Reduction> <!-- Number of levels the threat reduces by if player wins-->
-	<Unit_Descriptions> <!-- Unit Descriptions link to the race Unit List and gives how many of each unit there is-->
+	<enemyForce> <!-- Unit Descriptions link to the race Unit List and gives how many of each unit there is-->
 		<Unit_Description>
 			<unitName>Orx Defenders</unitName>
 			<number>1</number>
-		<Unit_Description>
-	</Unit_Descriptions>
-	<Mission_based_Story_Class_List>
+		</Unit_Description>
+	</enemyForce>
+	<introStories> <!-- Stories that give an introduction to the mission-->
 		<Story_Class>
 			<storyName>Town Assault</storyName>
-			<storyType>Mission</storyType>
-			<Story_Strings>
+			<storyType>Stealth</storyType>
+			<strings>
 				<string>//:TrooperName</string>
 				<string> watched the </string>
 				<string>//:OrxSmallSettlement</string>
@@ -28,7 +29,13 @@
 				<string>//:LeaderRank</string>
 				<string>//:LeaderName</string>
 				<string> gave a quick hand signal. </string>
-			</Story_Strings>
+			</strings>
 		</Story_Class>
-	</Mission_based_Story_Class_List>
-</Threat_Class>
+	</introStories>
+	<objectiveStories> <!-- Stories that directly involve the objective of the mission-->
+	</objectiveStories>
+	<victoryStories> <!-- Stories that are used during a victory-->
+	</victoryStories>
+	<defeatStories> <!-- Stories that are used during a defeat-->
+	</defeatStories>
+</Mission_Class>

@@ -27,7 +27,6 @@ public class Race_Class
     [XmlElement("Path_to_Race_Units_Class")]
     public string raceUnitsPath;
 
-    [XmlElement("List_of_Threat_Class_paths")]
     public List<string> threatPaths;
 
     public List<Category_Class> Categories;

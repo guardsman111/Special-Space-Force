@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Mission_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Mission_Name>Meeting Engagement</Mission_Name>
+	<Mission_Description>Engage the enemy scout force head on to force them to retreat.</Mission_Description>
+	<Minimum_available_Level>1</Minimum_available_Level> <!-- Minimum level this mission is available at-->
+	<Maximum_available_Level>3</Maximum_available_Level> <!-- Maximum level this mission is available at-->
+	<Level_Reduction>1</Level_Reduction> <!-- Number of levels the threat reduces by if player wins-->
+	<enemyForce> <!-- Unit Descriptions link to the race Unit List and gives how many of each unit there is-->
+		<Unit_Description>
+			<unitName>Enslavers Combat Unit</unitName>
+			<number>1</number>
+		</Unit_Description>
+	</enemyForce>
+	<introStories> <!-- Stories that give an introduction to the mission-->
+		<Story_Class>
+			<storyName>Battle Lines</storyName>
+			<storyType>Combat</storyType>
+			<strings>
+				<string>When they located the scout party </string>
+				<string>//:BiomeObjectLocation //:InOpenTerrain</string>
+				<string>, </string>
+				<string>//:HighestSlotName</string>
+				<string> moved to engage them. The two forces became aware of one another, engaging in short order.</string>
+			</strings>
+		</Story_Class>
+	</introStories>
+	<objectiveStories> <!-- Stories that directly involve the objective of the mission-->
+	</objectiveStories>
+	<victoryStories> <!-- Stories that are used during a victory-->
+	</victoryStories>
+	<defeatStories> <!-- Stories that are used during a defeat-->
+	</defeatStories>
+</Mission_Class>
