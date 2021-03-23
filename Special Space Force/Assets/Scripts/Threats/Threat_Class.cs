@@ -19,6 +19,9 @@ public class Threat_Class
     public List<string> levelDescriptions;
     public List<string> missionPaths;
 
+    public int growthCounter;
+    public int uID;
+
     public Threat_Class()
     {
 

@@ -9,6 +9,9 @@ public class Defined_Threat_Class
     public string levelDesc;
     public string threatFaction;
 
+    public int growthCounter;
+    public int uID;
+
     public Defined_Threat_Class()
     {
 

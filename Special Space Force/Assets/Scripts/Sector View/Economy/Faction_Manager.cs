@@ -13,6 +13,10 @@ public class Faction_Manager : MonoBehaviour
     public Fleet_Manager fleetManager;
     public GameObject SectorCameraTrolley;
 
+
+    private List<Threat_Class> allThreats;
+    private List<Defined_Threat_Class> dtcRefs;
+
     public List<Faction_Class> Factions
     {
         get { return factions; }
@@ -22,6 +26,32 @@ public class Faction_Manager : MonoBehaviour
             if (value != factions)
             {
                 factions = value;
+            }
+        }
+    }
+
+    public List<Threat_Class> AllThreats
+    {
+        get { return allThreats; }
+
+        set
+        {
+            if (value != allThreats)
+            {
+                allThreats = value;
+            }
+        }
+    }
+
+    public List<Defined_Threat_Class> DTCRefs
+    {
+        get { return dtcRefs; }
+
+        set
+        {
+            if (value != dtcRefs)
+            {
+                dtcRefs = value;
             }
         }
     }
@@ -41,6 +71,9 @@ public class Faction_Manager : MonoBehaviour
                 }
             }
         }
+
+        allThreats = new List<Threat_Class>();
+        dtcRefs = new List<Defined_Threat_Class>();
     }
 
     public void Load(List<GameObject> systemsObjects, List<Faction_Class> factionsL)
@@ -765,9 +798,83 @@ public class Faction_Manager : MonoBehaviour
 
         Defined_Threat_Class newDef = new Defined_Threat_Class { threatName = modManager.threatManager.Threats[random2].threatName, level = random3, levelDesc = modManager.threatManager.Threats[random2].levelDescriptions[random3], threatFaction = modManager.threatManager.Threats[random2].threatFaction };
 
+        int randomID = Random.Range(0, 100000);
+
+        foreach(Threat_Class tc in allThreats)
+        {
+            if(randomID == tc.uID)
+            {
+                randomID = Random.Range(0, 1000000);
+            }
+        }
+        newDef.uID = randomID;
+        modManager.threatManager.Threats[random2].uID = randomID;
+        newDef.growthCounter = 1;
+        modManager.threatManager.Threats[random2].growthCounter = 1;
+
+        allThreats.Add(modManager.threatManager.Threats[random2]);
+        dtcRefs.Add(newDef);
+
         factionScripts[0].controlledPlanets[random].ThreatsOnPlanet.Add(newDef);
         factionScripts[0].controlledPlanets[random].parentSystem.threatIcon.SetActive(true);
 
         Debug.Log("Spawned threat on " + factionScripts[0].controlledPlanets[random].planetName);
+    }
+
+    public void LoadThreatToAll(Defined_Threat_Class dfc)
+    {
+        foreach (Threat_Class tc in modManager.threatManager.Threats)
+        {
+            if (tc.threatName == dfc.threatName && tc.threatFaction == dfc.threatFaction)
+            {
+                Threat_Class newtc = new Threat_Class();
+
+                newtc.growth = tc.growth;
+                newtc.growthCounter = dfc.growthCounter;
+                newtc.levelStrength = tc.levelStrength;
+                newtc.levelDescriptions = tc.levelDescriptions;
+                newtc.missionPaths = tc.missionPaths;
+                newtc.nLevels = tc.nLevels;
+                newtc.threatFaction = tc.threatFaction;
+                newtc.threatName = tc.threatName;
+                newtc.uID = dfc.uID;
+
+                allThreats.Add(newtc);
+                dtcRefs.Add(dfc);
+            }
+        }
+    }
+
+    public void GrowThreats()
+    {
+        foreach(Threat_Class tc in allThreats)
+        {
+            if(tc.growthCounter < tc.growth)
+            {
+                tc.growthCounter += 1;
+            }
+            else
+            {
+                tc.growthCounter = 0;
+
+            }
+
+            foreach (Defined_Threat_Class dtc in dtcRefs)
+            {
+                if (tc.uID == dtc.uID)
+                {
+                    dtc.growthCounter = tc.growthCounter;
+                    if(tc.growthCounter == 0)
+                    {
+                        dtc.level += 1;
+                        if(dtc.level > tc.nLevels - 1)
+                        {
+                            dtc.level = tc.nLevels - 1;
+                        }
+                        dtc.levelDesc = tc.levelDescriptions[dtc.level];
+                    }
+                }
+            }
+        }
     }
 }

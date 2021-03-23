@@ -46,6 +46,8 @@ public class Turn_Manager : MonoBehaviour
 
         manager.factionManager.MoveCraft();
 
+        manager.factionManager.GrowThreats();
+
         AutoSave();
     }
 

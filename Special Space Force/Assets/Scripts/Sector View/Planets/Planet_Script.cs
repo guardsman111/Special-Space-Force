@@ -360,6 +360,10 @@ public class Planet_Script : MonoBehaviour
         if(threatsOnPlanet.Count > 0)
         {
             parentSystem.threatIcon.SetActive(true);
+            foreach(Defined_Threat_Class dfc in threatsOnPlanet)
+            {
+                factionManager.LoadThreatToAll(dfc);
+            }
         }
 
         if (Stats.Population != 0)
