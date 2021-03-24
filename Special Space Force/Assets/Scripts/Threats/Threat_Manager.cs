@@ -110,4 +110,11 @@ public class Threat_Manager : MonoBehaviour
             missions.Add(tempMS);
         }
     }
+
+    public void SelectMission(Mission_Script mission)
+    {
+        selectedMission = mission;
+        modManager.combatSetupManager.gameObject.SetActive(true);
+        modManager.combatSetupManager.SetupMission(mission, currentPlanet);
+    }
 }

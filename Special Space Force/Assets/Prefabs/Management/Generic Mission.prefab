@@ -515,6 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999b773d2c54f444f9a284cadefe22a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   missionName: {fileID: 243267079443015996}
   missionDesc: {fileID: 243267079262547553}
   missionEnemies: {fileID: 243267080647283922}
@@ -637,8 +638,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 243267080487000915}
-        m_MethodName: 
+      - m_Target: {fileID: 3410406819252678086}
+        m_MethodName: SelectMission
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

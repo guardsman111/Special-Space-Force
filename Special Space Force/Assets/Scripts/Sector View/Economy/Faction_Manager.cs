@@ -823,6 +823,8 @@ public class Faction_Manager : MonoBehaviour
 
     public void LoadThreatToAll(Defined_Threat_Class dfc)
     {
+        allThreats = new List<Threat_Class>();
+        dtcRefs = new List<Defined_Threat_Class>();
         foreach (Threat_Class tc in modManager.threatManager.Threats)
         {
             if (tc.threatName == dfc.threatName && tc.threatFaction == dfc.threatFaction)

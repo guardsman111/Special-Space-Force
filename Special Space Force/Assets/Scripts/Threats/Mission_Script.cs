@@ -71,6 +71,6 @@ public class Mission_Script : MonoBehaviour
     //Tells the manager this mission has been selected
     public void SelectMission()
     {
-        manager.selectedMission = this; 
+        manager.SelectMission(this); 
     }
 }

@@ -20,6 +20,7 @@ public class Manager_Script : MonoBehaviour
     public Fleet_Manager fManager;
     public Force_Manager forceManager;
     public Master_Threats_Manager threatManager;
+    public Combat_Setup_Manager combatSetupManager;
 
     private Generation_Class generatedProduct;
 
