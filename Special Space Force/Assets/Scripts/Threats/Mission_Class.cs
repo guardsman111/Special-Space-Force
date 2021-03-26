@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Mission_Class
 {
+    /// <summary>
+    /// Holds all information for missions - editable by the player
+    /// </summary>
     [XmlElement("Mission_Name")]
     public string missionName;
     [XmlElement("Mission_Description")]

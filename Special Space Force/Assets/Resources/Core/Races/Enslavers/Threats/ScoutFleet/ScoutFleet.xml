@@ -1,20 +1,21 @@
 <?xml version="1.0"?>
 <Threat_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Threat_Name>Scout Fleet</Threat_Name>
-	<Threat_Faction_Name>The Enslavers</Threat_Faction_Name>
-	<Number_of_levels>3</Number_of_levels>
-	<Level_Growth_Rate>4</Level_Growth_Rate>
-	<levelStrength>
+	<Threat_Faction_Name>The Enslavers</Threat_Faction_Name> <!-- Must be the same as race's empire name-->
+	<planetType>0</planetType> <!-- Is either 0 - surface population or 1 - no surface population--> 
+	<Number_of_levels>3</Number_of_levels> <!-- How many levels this threat has-->
+	<Level_Growth_Rate>8</Level_Growth_Rate> <!-- How many turns it takes to grow one level-->
+	<levelStrength> <!-- Strength value for each level - Strength Value estimates the total enemy force arrayed against the player to prevent the player becoming overwhlemed with threats too early-->
 		<float>300</float>
-		<float>500</float>
-		<float>800</float>
+		<float>600</float>
+		<float>900</float>
 	</levelStrength>
-	<levelDescriptions>
+	<levelDescriptions> <!-- Description for each level - is displayed on the threat to indicate what level it's at-->
 		<string>"An Enslaver scout party has been spotted multiple times on the planet"</string>
 		<string>"Enslaver Scout parties have attacked an outpost"</string>
 		<string>"Enslaver Scout parties have been sending signals from the planet surface"</string>
 	</levelDescriptions>
-	<missionPaths>
+	<missionPaths> <!-- The path to your mission - don't include the /Mod folder-->
 		<string>/Races/Enslavers/Threats/ScoutFleet/MeetingEngagementMission.xml</string>
 	</missionPaths>
-</Threat_Class>
+</Threat_Class> <!-- Always check you have correctly spelt and closed the variable headers-->

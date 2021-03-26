@@ -217,7 +217,7 @@ public class System_Script : MonoBehaviour
                 //Set population
                 if (inhabited)
                 {
-                    random = Random.Range(0, 10000); 
+                    random = Random.Range(0, 10); 
                     random = Mathf.Round(random); 
                     temp.population = (int)random;
                 }
@@ -240,7 +240,7 @@ public class System_Script : MonoBehaviour
 
             if (inhabited && temp.population == 0)
             {
-                random = Random.Range(0, 1000000 * temp.usableSpace);
+                random = Random.Range(0, 1000 * temp.usableSpace);
                 random = Mathf.Round(random);
                 temp.population = random;
             }

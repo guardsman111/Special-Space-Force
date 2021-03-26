@@ -7,8 +7,8 @@
 	<Level_Reduction>1</Level_Reduction> <!-- Number of levels the threat reduces by if player wins-->
 	<enemyForce> <!-- Unit Descriptions link to the race Unit List and gives how many of each unit there is-->
 		<Unit_Description>
-			<unitName>Ivorian Raiders</unitName>
-			<number>1</number>
+			<unitName>Ivorian Raiders</unitName> <!-- Unit is named in the Race_Units_Class of that race-->
+			<number>2</number>
 		</Unit_Description>
 	</enemyForce>
 	<introStories> <!-- Stories that give an introduction to the mission-->
@@ -32,4 +32,4 @@
 	</victoryStories>
 	<defeatStories> <!-- Stories that are used during a defeat-->
 	</defeatStories>
-</Mission_Class>
+</Mission_Class> <!-- Always check you have correctly spelt and closed the variable headers-->

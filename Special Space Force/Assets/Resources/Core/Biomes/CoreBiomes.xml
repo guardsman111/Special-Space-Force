@@ -3,17 +3,17 @@
   <Biome_Class>
     <Name>Alpine</Name>
     <Source>Core</Source>
-    <Happiness_Modifier>-0.3</Happiness_Modifier>
-    <Food_Production_Modifier>-0.2</Food_Production_Modifier>
-    <Min_Usable_Space>0.2</Min_Usable_Space>
-    <Max_Usable_Space>0.7</Max_Usable_Space>
-    <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
-    <Breathable_Atmosphere>true</Breathable_Atmosphere>
-    <Base_Biome>Alpine</Base_Biome>
-    <Material_Texture_Path>Core</Material_Texture_Path>
-    <Material_Normal_Path>Core</Material_Normal_Path>
-    <Material_Mask_Path>Core</Material_Mask_Path>
-	<Categories>
+    <Happiness_Modifier>-0.3</Happiness_Modifier> <!-- Modifier between -1 and 1 for planet population happiness-->
+    <Food_Production_Modifier>-0.2</Food_Production_Modifier> <!-- Modifier between -1 and 1 for food production-->
+    <Min_Usable_Space>0.2</Min_Usable_Space> <!-- Minimum space available on the planet surface - min 0-->
+    <Max_Usable_Space>0.7</Max_Usable_Space> <!-- Maximum space available on the planet surface - max 1-->
+    <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop> <!-- Is it a gas giant or other body that we can't walk on?-->
+    <Breathable_Atmosphere>true</Breathable_Atmosphere> <!-- Does it have a breathable atmosphere?-->
+    <Base_Biome>Alpine</Base_Biome> <!-- The Base biome it replaces/overrides-->
+    <Material_Texture_Path>Core</Material_Texture_Path> <!-- If core, will use the texture from Base_Biome-->
+    <Material_Normal_Path>Core</Material_Normal_Path> <!-- If core, will use the normal from Base_Biome-->
+    <Material_Mask_Path>Core</Material_Mask_Path> <!-- If core, will use the mask from Base_Biome-->
+	<Categories> <!-- -->
 		<Category_Class>
 			<categoryName>BiomeObjectLocation</categoryName>
 			<categoryType>InOpenTerrain</categoryType>
@@ -616,4 +616,4 @@
 		</Category_Class>
 	</Categories>
   </Biome_Class>
-</ArrayOfBiome_Class>
+</ArrayOfBiome_Class> <!-- Always check you have correctly spelt and closed the variable headers-->

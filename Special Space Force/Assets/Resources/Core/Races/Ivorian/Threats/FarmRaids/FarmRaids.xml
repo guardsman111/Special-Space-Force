@@ -1,24 +1,25 @@
 <?xml version="1.0"?>
 <Threat_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<Threat_Name>Farm Raids</Threat_Name>
-	<Threat_Faction_Name>The Ivorian Empire</Threat_Faction_Name>
-	<Number_of_levels>5</Number_of_levels>
-	<Level_Growth_Rate>3</Level_Growth_Rate>
-	<levelStrength>
+	<Threat_Name>Farm Raids</Threat_Name> 
+	<Threat_Faction_Name>The Ivorian Empire</Threat_Faction_Name> <!-- Must be the same as race's empire name-->
+	<planetType>0</planetType> <!-- Is either 0 - surface population or 1 - no surface population--> 
+	<Number_of_levels>5</Number_of_levels> <!-- How many levels this threat has-->
+	<Level_Growth_Rate>5</Level_Growth_Rate> <!-- How many turns it takes to grow one level-->
+	<levelStrength> <!-- Strength value for each level - Strength Value estimates the total enemy force arrayed against the player to prevent the player becoming overwhlemed with threats too early-->
+		<float>100</float>
 		<float>200</float>
 		<float>300</float>
 		<float>400</float>
-		<float>600</float>
-		<float>800</float>
+		<float>500</float>
 	</levelStrength>
-	<levelDescriptions>
+	<levelDescriptions> <!-- Description for each level - is displayed on the threat to indicate what level it's at-->
 		<string>"A group of Ivorian Raiders are Pillaging farms"</string>
 		<string>"Farms are being burnt down by Ivorian Raiders"</string>
 		<string>"Ivorian ships are carrying off farm goods taken in raids"</string>
 		<string>"Ivorian Raiding ships are regularly pillaging farms"</string>
 		<string>"Ivorian Raiders have formed a planetary base"</string>
 	</levelDescriptions>
-	<missionPaths>
+	<missionPaths> <!-- The path to your mission - don't include the /Mod folder-->
 		<string>/Races/Ivorian/Threats/FarmRaids/AmbushMission.xml</string>
 	</missionPaths>
-</Threat_Class>
+</Threat_Class> <!-- Always check you have correctly spelt and closed the variable headers-->

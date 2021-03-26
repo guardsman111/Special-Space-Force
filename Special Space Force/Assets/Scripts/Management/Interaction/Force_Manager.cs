@@ -8,6 +8,8 @@ public class Force_Manager : MonoBehaviour
     /// <summary>
     /// This script handles all interactions between the player's force and the player faction, such as exchanging of money, research and information
     /// </summary>
+    /// 
+    public Manager_Script modManager;
     public int playerFinances;
     public Faction_Manager factionManager;
     public Force_Class forceClass;
@@ -18,6 +20,8 @@ public class Force_Manager : MonoBehaviour
 
     private int numberOfTroopers;
     public Text nTroopers;
+
+
 
     public List<Stockpile_Class> Stockpile
     {
@@ -70,5 +74,45 @@ public class Force_Manager : MonoBehaviour
         playerFinances = forceClass.funds;
         visibleRequisition1.text = playerFinances.ToString();
         visibleRequisition2.text = playerFinances.ToString();
+    }
+
+    //Calculates the total force strength of the player - currently 2 points per trooper
+    public float GetForceStrength()
+    {
+        float strengthR = 0;
+        foreach(Slot_Class sc in modManager.sManager.Slots[0].containedSlots)
+        {
+            if(sc.squad == true)
+            {
+                strengthR += sc.numberOfTroopers * 3;
+            }
+            else
+            {
+                strengthR += GetStrengthChildren(sc);
+            }
+        }
+
+        return strengthR;
+    }
+
+    //Continuation of above
+    public float GetStrengthChildren(Slot_Class slot)
+    {
+        float strengthR = 0;
+
+
+        foreach (Slot_Class sc in slot.containedSlots)
+        {
+            if (sc.squad == true)
+            {
+                strengthR += sc.numberOfTroopers * 3;
+            }
+            else
+            {
+                strengthR += GetStrengthChildren(sc);
+            }
+        }
+
+        return strengthR;
     }
 }

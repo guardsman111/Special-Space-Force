@@ -2,11 +2,11 @@
 <Race_Units_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<raceName>The Enslavers</raceName> <!-- The name of the race this unit list belongs too - just in case, it means the faction name not the race name-->
 	<Race_Weapons_Class_Path>/Races/Enslavers/EnslaversWeaponsList.xml</Race_Weapons_Class_Path>
-	<enemyPaths>
+	<enemyPaths> <!-- Path to Race's enemy files - all enemies a race can use need to be put here-->
 		<string>/Races/Enslavers/Enemies/EnslaverWarriorEnemy.xml</string>
 	</enemyPaths>
 	<units>
-		<Unit_Class>
+		<Unit_Class> <!-- Describes a unit the race can use, which contains numbers of enemies-->
 			<Unit_Name>Enslavers Combat Unit</Unit_Name>
 			<Estimated_unit_strength>100</Estimated_unit_strength>
 			<containedEnemies>

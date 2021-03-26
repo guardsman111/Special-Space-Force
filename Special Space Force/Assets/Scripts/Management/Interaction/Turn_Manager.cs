@@ -6,8 +6,9 @@ public class Turn_Manager : MonoBehaviour
 {
     public Manager_Script manager;
     public Save_Class saveClass;
+    public int turnNumber;
 
-
+    //Carries out the first turn which is different if creating to when loading
     public void FirstTurn(Generation_Class product, Save_Class save, bool loading)
     {
         manager.GeneratedProduct = product;
@@ -20,6 +21,8 @@ public class Turn_Manager : MonoBehaviour
                 faction.maxBuilding = ((float)faction.controlledPlanets.Count / 100) * (faction.faction.industrialism * 20);
             }
             manager.factionManager.CalculateIncome(loading);
+            turnNumber = saveClass.turnNumber;
+            manager.factionManager.multiplyer = saveClass.enemyMultiplyer;
         }
         else
         {
@@ -31,13 +34,22 @@ public class Turn_Manager : MonoBehaviour
             manager.factionManager.CalculateIncome();
             manager.factionManager.forceManager.TurnEnd((float)manager.factionManager.Factions[0].factionIncome * ((float)manager.GeneratedProduct.funding / 100));
             manager.factionManager.PlanetScriptToClass();
-            manager.factionManager.SpawnThreat();
+            float strength = manager.forceManager.GetForceStrength();
+
+            // Attempt to spawn up to 4 threats, up to half the player's strength in threats.
+            manager.factionManager.SpawnThreats(strength / 2);
+            manager.factionManager.SpawnThreats(strength / 2);
+            manager.factionManager.SpawnThreats(strength / 2);
+            manager.factionManager.SpawnThreats(strength / 2);
         }
         AutoSave();
     }
 
+    //Performs end of turn calculations
     public void EndTurn()
     {
+        float strength = manager.forceManager.GetForceStrength();
+
         manager.factionManager.CalculateIncome();
 
         manager.factionManager.forceManager.TurnEnd((float)manager.factionManager.Factions[0].factionIncome * ((float)manager.GeneratedProduct.funding / 100));
@@ -48,11 +60,17 @@ public class Turn_Manager : MonoBehaviour
 
         manager.factionManager.GrowThreats();
 
+        manager.factionManager.SpawnThreats(strength);
+
+        turnNumber += 1;
         AutoSave();
     }
 
+    //Saves all information to the saveClass variable
     public void AutoSave()
     {
+        saveClass.turnNumber = turnNumber;
+        saveClass.enemyMultiplyer = manager.factionManager.multiplyer;
         saveClass.systems = new List<System_Class>();
         for (int i = 0; i < manager.sectorManager.systems.Count; i++)
         {

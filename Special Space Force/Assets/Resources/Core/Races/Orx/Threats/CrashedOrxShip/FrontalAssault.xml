@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Mission_Class xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Mission_Name>Frontal Assault</Mission_Name>
+	<Mission_Description>A full frontal assault against prepared Orx defences around their settlements with the goal of destroying the settlement.</Mission_Description>
+	<Minimum_available_Level>4</Minimum_available_Level> <!-- Minimum level this mission is available at-->
+	<Maximum_available_Level>7</Maximum_available_Level> <!-- Maximum level this mission is available at-->
+	<Level_Reduction>2</Level_Reduction> <!-- Number of levels the threat reduces by if player wins-->
+	<enemyForce> <!-- Unit Descriptions link to the race Unit List and gives how many of each unit there is-->
+		<Unit_Description>
+			<unitName>Orx Defenders</unitName> <!-- Unit is named in the Race_Units_Class of that race-->
+			<number>5</number>
+		</Unit_Description>
+	</enemyForce>
+	<introStories> <!-- Stories that give an introduction to the mission-->
+		<Story_Class>
+			<storyName>Town Assault</storyName>
+			<storyType>Stealth</storyType>
+			<strings>
+				<string>//:TrooperName</string>
+				<string> watched the </string>
+				<string>//:OrxSmallSettlement</string>
+				<string> out </string>
+				<string>//:BiomeObjectLocation //:InOpenTerrain</string>
+				<string> </string>
+				<string>//:Trooper //:InFrontOf</string>
+				<string> them. From their vantage point, the members of </string>
+				<string>//:SquadName</string>
+				<string> could make out a few signs of life. The order came over the radio and </string>
+				<string>//:LeaderRank</string>
+				<string>//:LeaderName</string>
+				<string> gave a quick hand signal. </string>
+			</strings>
+		</Story_Class>
+	</introStories>
+	<objectiveStories> <!-- Stories that directly involve the objective of the mission-->
+	</objectiveStories>
+	<victoryStories> <!-- Stories that are used during a victory-->
+	</victoryStories>
+	<defeatStories> <!-- Stories that are used during a defeat-->
+	</defeatStories>
+</Mission_Class>

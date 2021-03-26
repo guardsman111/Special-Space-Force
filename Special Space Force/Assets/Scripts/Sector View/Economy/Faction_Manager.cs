@@ -13,6 +13,8 @@ public class Faction_Manager : MonoBehaviour
     public Fleet_Manager fleetManager;
     public GameObject SectorCameraTrolley;
 
+    public float multiplyer = 1;
+
 
     private List<Threat_Class> allThreats;
     private List<Defined_Threat_Class> dtcRefs;
@@ -307,37 +309,38 @@ public class Faction_Manager : MonoBehaviour
         }
     }
 
+    //Calculates theplanet's output based on pop size and happiness
     public float CalculatePlanetOutput(Planet_Script planet)
     {
         float output = 0;
 
         float popFactor = 1;
 
-        if (planet.population > 1000)
+        if (planet.population > 1)
         {
             popFactor = 2;
         }
-        if (planet.population > 10000)
+        if (planet.population > 10)
         {
             popFactor = 3;
         }
-        if (planet.population > 50000)
+        if (planet.population > 50)
         {
             popFactor = 5;
         }
-        if (planet.population > 100000)
+        if (planet.population > 100)
         {
             popFactor = 10;
         }
-        if (planet.population > 300000)
+        if (planet.population > 300)
         {
             popFactor = 12;
         }
-        if (planet.population > 600000)
+        if (planet.population > 600)
         {
             popFactor = 16;
         }
-        if (planet.population > 900000)
+        if (planet.population > 900)
         {
             popFactor = 20;
         }
@@ -788,6 +791,7 @@ public class Faction_Manager : MonoBehaviour
         
     }
 
+    //Spawns a random threat and allocated correct information to correct places
     public void SpawnThreat()
     {
         int random = Random.Range(0, factionScripts[0].controlledPlanets.Count);
@@ -809,22 +813,57 @@ public class Faction_Manager : MonoBehaviour
         }
         newDef.uID = randomID;
         modManager.threatManager.Threats[random2].uID = randomID;
+
+        Threat_Class tempT = modManager.threatManager.Threats[random2];
+
+        allThreats.Add(tempT);
+        tempT.currentLevel = newDef.level;
+
+
+        while (factionScripts[0].controlledPlanets[random].parentSystem.threatIcon.activeSelf == false)
+        {
+            if (tempT.planetType == 0)
+            {
+                if (factionScripts[0].controlledPlanets[random].Stats.Biome.surfacePop)
+                {
+                    factionScripts[0].controlledPlanets[random].ThreatsOnPlanet.Add(newDef);
+                    factionScripts[0].controlledPlanets[random].parentSystem.threatIcon.SetActive(true);
+                }
+                else
+                {
+                    random = Random.Range(0, factionScripts[0].controlledPlanets.Count);
+                }
+            }
+            else
+            {
+                if (!factionScripts[0].controlledPlanets[random].Stats.Biome.surfacePop)
+                {
+                    factionScripts[0].controlledPlanets[random].ThreatsOnPlanet.Add(newDef);
+                    factionScripts[0].controlledPlanets[random].parentSystem.threatIcon.SetActive(true);
+                }
+                else
+                {
+                    random = Random.Range(0, factionScripts[0].controlledPlanets.Count);
+                }
+            }
+        }
+
         newDef.growthCounter = 1;
         modManager.threatManager.Threats[random2].growthCounter = 1;
 
-        allThreats.Add(modManager.threatManager.Threats[random2]);
         dtcRefs.Add(newDef);
-
-        factionScripts[0].controlledPlanets[random].ThreatsOnPlanet.Add(newDef);
-        factionScripts[0].controlledPlanets[random].parentSystem.threatIcon.SetActive(true);
 
         Debug.Log("Spawned threat on " + factionScripts[0].controlledPlanets[random].planetName);
     }
 
+    //Loads a threat from a save and puts it into the main threats lists
     public void LoadThreatToAll(Defined_Threat_Class dfc)
     {
-        allThreats = new List<Threat_Class>();
-        dtcRefs = new List<Defined_Threat_Class>();
+        if (allThreats == null)
+        {
+            allThreats = new List<Threat_Class>();
+            dtcRefs = new List<Defined_Threat_Class>();
+        }
         foreach (Threat_Class tc in modManager.threatManager.Threats)
         {
             if (tc.threatName == dfc.threatName && tc.threatFaction == dfc.threatFaction)
@@ -839,6 +878,7 @@ public class Faction_Manager : MonoBehaviour
                 newtc.nLevels = tc.nLevels;
                 newtc.threatFaction = tc.threatFaction;
                 newtc.threatName = tc.threatName;
+                newtc.currentLevel = dfc.level;
                 newtc.uID = dfc.uID;
 
                 allThreats.Add(newtc);
@@ -847,6 +887,7 @@ public class Faction_Manager : MonoBehaviour
         }
     }
 
+    //grows all threats by 1 turn and if they reach their growth level, adds one level to them.
     public void GrowThreats()
     {
         foreach(Threat_Class tc in allThreats)
@@ -869,14 +910,68 @@ public class Faction_Manager : MonoBehaviour
                     if(tc.growthCounter == 0)
                     {
                         dtc.level += 1;
-                        if(dtc.level > tc.nLevels - 1)
+                        tc.currentLevel = dtc.level;
+                        if (dtc.level > tc.nLevels - 1)
                         {
                             dtc.level = tc.nLevels - 1;
                         }
                         dtc.levelDesc = tc.levelDescriptions[dtc.level];
+                        tc.currentLevel = dtc.level;
                     }
+                    break;
                 }
             }
+        }
+
+        if(modManager.turnManager.turnNumber >= 10 && modManager.turnManager.turnNumber < 25)
+        {
+            multiplyer += 0.004f;
+        }
+        else if (modManager.turnManager.turnNumber >= 25 && modManager.turnManager.turnNumber < 50)
+        {
+            multiplyer += 0.006f;
+        }
+        else if (modManager.turnManager.turnNumber >= 50 && modManager.turnManager.turnNumber < 100)
+        {
+            multiplyer += 0.008f;
+        }
+        else if (modManager.turnManager.turnNumber >= 100 && modManager.turnManager.turnNumber < 150)
+        {
+            multiplyer += 0.01f;
+        }
+        else if (modManager.turnManager.turnNumber >= 150 && modManager.turnManager.turnNumber < 200)
+        {
+            multiplyer += 0.009f;
+        }
+        else if (modManager.turnManager.turnNumber >= 200 && modManager.turnManager.turnNumber < 300)
+        {
+            multiplyer += 0.007f;
+        }
+        else if (modManager.turnManager.turnNumber >= 300 )
+        {
+            multiplyer += 0.00f;
+        }
+    }
+
+    //Spawns a threat if threat strength is lower than player strength * multiplyer
+    public void SpawnThreats(float strength)
+    {
+        float tThreatStrength = 0;
+
+        foreach (Threat_Class tc in allThreats)
+        {
+            tThreatStrength += tc.levelStrength[tc.currentLevel];
+        }
+
+        if(tThreatStrength < (strength * multiplyer))
+        {
+            int random = Random.Range(0, 100);
+
+            if(random > 30)
+            {
+                SpawnThreat();
+            }
+
         }
     }
 }

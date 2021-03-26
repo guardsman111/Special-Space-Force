@@ -45,6 +45,11 @@ public class Threat_Manager : MonoBehaviour
             Destroy(threats[0].gameObject);
             threats.RemoveAt(0);
         }
+        while (missions.Count > 0)
+        {
+            Destroy(missions[0].gameObject);
+            missions.RemoveAt(0);
+        }
 
         currentPlanet = newPlanet;
 
@@ -61,6 +66,7 @@ public class Threat_Manager : MonoBehaviour
         contentThreats.GetComponent<RectTransform>().rect.Set(0,0,0, 200 * threats.Count);
     }
 
+    //Gets the missions from the class
     public List<Mission_Class> GetMissions(Threat_Class mission)
     {
         List<Mission_Class> returner = new List<Mission_Class>();
@@ -101,16 +107,20 @@ public class Threat_Manager : MonoBehaviour
 
         foreach(Mission_Class mc in threat.ContainedMissions)
         {
-            GameObject temp = Instantiate(prefabMission, contentMissions.transform);
-            Mission_Script tempMS = temp.GetComponent<Mission_Script>();
-            tempMS.manager = this;
-            tempMS.CreateMission(mc, this);
-            temp.transform.localPosition = N2.transform.localPosition;
-            temp.transform.localPosition += new Vector3(0, (-400 * missions.Count), 0);
-            missions.Add(tempMS);
+            if (threat.ThreatC.currentLevel >= mc.minLevel - 1 && threat.ThreatC.currentLevel <= mc.maxLevel - 1)
+            {
+                GameObject temp = Instantiate(prefabMission, contentMissions.transform);
+                Mission_Script tempMS = temp.GetComponent<Mission_Script>();
+                tempMS.manager = this;
+                tempMS.CreateMission(mc, this);
+                temp.transform.localPosition = N2.transform.localPosition;
+                temp.transform.localPosition += new Vector3(0, (-400 * missions.Count), 0);
+                missions.Add(tempMS);
+            }
         }
     }
 
+    //Indicates a mission has been selected by the player
     public void SelectMission(Mission_Script mission)
     {
         selectedMission = mission;

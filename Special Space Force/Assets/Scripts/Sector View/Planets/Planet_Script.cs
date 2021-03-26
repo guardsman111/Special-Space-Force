@@ -73,7 +73,7 @@ public class Planet_Script : MonoBehaviour
         tName.text = Stats.PName;
         if (Stats.Population != 0)
         {
-            tStats.text = "Population: " + Stats.Population.ToString("00,0") + "K" + "\nPopulation Happiness: " + Stats.popHappiness;
+            tStats.text = "Population: " + Stats.Population.ToString("00,0") + "M" + "\nPopulation Happiness: " + Stats.popHappiness;
         }
         else
         {
@@ -101,7 +101,7 @@ public class Planet_Script : MonoBehaviour
 
         if (Stats.Population != 0)
         {
-            tStats.text = "Population: " + Stats.Population + " k" + "\nPopulation Happiness: " + Stats.popHappiness;
+            tStats.text = "Population: " + Stats.Population + "0 M" + "\nPopulation Happiness: " + Stats.popHappiness;
         }
         else
         {
@@ -357,6 +357,8 @@ public class Planet_Script : MonoBehaviour
         building = planetClass.building;
         planet.moons = planetClass.moons;
         threatsOnPlanet = planetClass.threatsOnPlanet;
+
+        //loads threats from save
         if(threatsOnPlanet.Count > 0)
         {
             parentSystem.threatIcon.SetActive(true);
@@ -416,6 +418,7 @@ public class Planet_Script : MonoBehaviour
 
     }
 
+    //Builds another level of industry on the planet
     public void Build()
     {
         if (building)
@@ -438,6 +441,7 @@ public class Planet_Script : MonoBehaviour
         }
     }
 
+    //Destroys industry and lowers the population
     public void DestroyIndustry(int destruction)
     {
         industrial -= destruction;
@@ -447,20 +451,21 @@ public class Planet_Script : MonoBehaviour
         }
         
         //Lowers population
-        if (population > 100000)
+        if (population > 100)
         {
             population -= (population / 100) * destruction;
         }
-        else if(population > 10000)
+        else if(population > 10)
         {
             population -= destruction * 1000;
         }
-        else if (population < 5000)
+        else if (population < 5)
         {
             population -= destruction * 100;
         }
     }
 
+    //Does colonisation of the world, takes 25 turns to finish
     public void Colonize()
     {
         if (colonising)
@@ -496,38 +501,33 @@ public class Planet_Script : MonoBehaviour
         }
     }
 
+    //Changes the cities texture on the shader
     public void ChangeCities()
     {
-
-        if(planet.biome == "Glass World")
-        {
-
-        }
-
         if (inhabited)
         {
-            if (population < 10000f && currentCityLevel != 1)
+            if (population < 10f && currentCityLevel != 1)
             {
                 Material newMat = new Material(planetSkin.material);
                 newMat.SetTexture("_Emissivecities", cities[0]);
                 planetSkin.material = newMat;
                 currentCityLevel = 1;
             }
-            else if(population < 1000000f && currentCityLevel != 2)
+            else if(population < 50f && currentCityLevel != 2)
             {
                 Material newMat = new Material(planetSkin.material);
                 newMat.SetTexture("_Emissivecities", cities[1]);
                 planetSkin.material = newMat;
                 currentCityLevel = 2;
             }
-            else if (population < 5000000f && currentCityLevel != 3)
+            else if (population < 100f && currentCityLevel != 3)
             {
                 Material newMat = new Material(planetSkin.material);
                 newMat.SetTexture("_Emissivecities", cities[2]);
                 planetSkin.material = newMat;
                 currentCityLevel = 3;
             }
-            else if (population < 10000000f && currentCityLevel != 4)
+            else if (population < 500f && currentCityLevel != 4)
             {
                 Material newMat = new Material(planetSkin.material);
                 newMat.SetTexture("_Emissivecities", cities[3]);

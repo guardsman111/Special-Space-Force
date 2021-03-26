@@ -40,7 +40,7 @@ public class Planet_Click : MonoBehaviour
     //Toggles the Cameras depending on the current enabled camera
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) // Left Mouse Button
         {
             if (!previous)
             {
@@ -67,14 +67,21 @@ public class Planet_Click : MonoBehaviour
 
                     int random = Random.Range(0, 100);
 
-                    if (random < 75 && sPlanet.clouds.activeSelf == true)
+                    if (sPlanet.Stats.Biome.atmo)
                     {
-                        sPlanet.storms.SetActive(true);
-                        sPlanet.storms.GetComponent<Weather_Visuals>().Toggle();
+                        if (random < 75 && sPlanet.clouds.activeSelf == true)
+                        {
+                            sPlanet.storms.SetActive(true);
+                            sPlanet.storms.GetComponent<Weather_Visuals>().Toggle();
+                        }
+                        else
+                        {
+                            sPlanet.storms.SetActive(false);
+                        }
                     }
                     else
                     {
-                        sPlanet.storms.SetActive(false);
+                        sPlanet.clouds.SetActive(false);
                     }
 
                     //Toggles Orbiters on
@@ -110,7 +117,7 @@ public class Planet_Click : MonoBehaviour
                     planetScreen.QVManager.screenCamera.GetComponent<Camera_Targeted>().SetDefaults(sPlanet.gameObject);
                     if (sPlanet.planet.population > 0 && sPlanet.parentSystem.Star.allegiance == 0)
                     {
-                        planetScreen.planetPopulation.text = "Population: " + sPlanet.planet.population.ToString("00,0") + ",000";
+                        planetScreen.planetPopulation.text = "Population: " + (sPlanet.planet.population * 10).ToString("00,0") + " million";
                         planetScreen.planetType.text = "Main Export: " + sPlanet.Stats.catagory;
                         planetScreen.planetMilitaryWindow.SetActive(true);
                         planetScreen.planetEconomyWindow.SetActive(true);
@@ -139,7 +146,7 @@ public class Planet_Click : MonoBehaviour
                     {
                         if (sPlanet.planet.population > 0)
                         {
-                            planetScreen.planetPopulation.text = "Population: " + (sPlanet.planet.population/1000).ToString("00,0") + " million";
+                            planetScreen.planetPopulation.text = "Population: " + (sPlanet.planet.population/100).ToString("00,0") + " million";
                             planetScreen.planetType.text = "Main Export: Unknown";
                             planetScreen.planetUsableSpace.enabled = true;
                             planetScreen.planetIndustry.enabled = true;
@@ -211,6 +218,7 @@ public class Planet_Click : MonoBehaviour
         }
     }
 
+    //Turns on the camera after movement
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
@@ -222,7 +230,7 @@ public class Planet_Click : MonoBehaviour
         // Code to execute after the delay
     }
 
-    //On escape returns to the system camera
+    //On C returns to system camera
     private void Update()
     {
         if (planetCamera.enabled)
@@ -245,6 +253,20 @@ public class Planet_Click : MonoBehaviour
                 previous = false;
                 gameObject.transform.position = previousPosition;
                 planetScreen.systemScreen.QVManager.enabled = true;
+
+                //Any sliders that are out are returned
+                if (planetScreen.planetEconomyWindow.GetComponent<Slider_Script>().pulledOut)
+                {
+                    planetScreen.planetEconomyWindow.GetComponent<Slider_Script>().Slide();
+                }
+                if (planetScreen.planetMilitaryWindow.GetComponent<Slider_Script>().pulledOut)
+                {
+                    planetScreen.planetMilitaryWindow.GetComponent<Slider_Script>().Slide();
+                }
+                if (planetScreen.threatM.GetComponent<Slider_Script>().pulledOut)
+                {
+                    planetScreen.threatM.GetComponent<Slider_Script>().Slide();
+                }
                 planetScreen.QVManager.CloseManager();
                 planetScreen.QVManager.ClosePlanetSlider();
                 planetScreen.QVManager.enabled = false;

@@ -6,15 +6,15 @@
 <!-- Choose any of the core biomes and write it (ReMeMbEr YoUr CaPiTaL lEtTeRs) into the Base_Biome, and it will set gloss, atmosphere and other things for you-->
   <Biome_Class>
     <Name>Glass World</Name>
-    <Happiness_Modifier>-0.3</Happiness_Modifier>
-    <Food_Production_Modifier>-0.4</Food_Production_Modifier>
-    <Min_Usable_Space>0.1</Min_Usable_Space>
-    <Max_Usable_Space>0.5</Max_Usable_Space>
+    <Happiness_Modifier>-0.4</Happiness_Modifier>
+    <Food_Production_Modifier>-0.5</Food_Production_Modifier>
+    <Min_Usable_Space>0.9</Min_Usable_Space>
+    <Max_Usable_Space>1</Max_Usable_Space>
     <Can_Have_Surface_Pop>true</Can_Have_Surface_Pop>
-    <Breathable_Atmosphere>true</Breathable_Atmosphere>
+    <Breathable_Atmosphere>false</Breathable_Atmosphere>
     <Base_Biome>Glacial</Base_Biome>
-    <Material_Texture_Path>Mods\Example Mod\Biomes\Textures\Glacial_Albedo.png</Material_Texture_Path>
-    <Material_Normal_Path>Mods\Example Mod\Biomes\Textures\Glacial_Normal.png</Material_Normal_Path>
-    <Material_Mask_Path>Mods\Example Mod\Biomes\Textures\Glacial_Metal.png</Material_Mask_Path>
+    <Material_Texture_Path>Mods\Example Mod\Biomes\Textures\Glass_World_Albedo.png</Material_Texture_Path>
+    <Material_Normal_Path>Mods\Example Mod\Biomes\Textures\Glass_World_Normal.png</Material_Normal_Path>
+    <Material_Mask_Path>Mods\Example Mod\Biomes\Textures\Glass_World_Metal.png</Material_Mask_Path>
   </Biome_Class>
 </ArrayOfBiome_Class>

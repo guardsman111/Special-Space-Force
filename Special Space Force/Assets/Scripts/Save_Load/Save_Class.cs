@@ -10,6 +10,8 @@ public class Save_Class
     public string saveName;
     public int height;
     public int width;
+    public int turnNumber;
+    public float enemyMultiplyer;
 
     public List<System_Class> systems;
     public Generation_Class generatedProduct;
