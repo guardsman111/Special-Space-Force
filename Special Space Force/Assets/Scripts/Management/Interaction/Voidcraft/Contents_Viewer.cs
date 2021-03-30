@@ -56,7 +56,7 @@ public class Contents_Viewer : MonoBehaviour
                 Squad_Script sScript = tempW.GetComponent<Squad_Script>();
                 sScript.sName.text = sc.slotName;
                 sScript.sSize.text = sc.numberOfTroopers.ToString();
-                sScript.sType.text = manager.sManager.slotRoleDropdown.options[sc.squadRole].text;
+                sScript.sType.text = sc.squadRole;
                 sScript.slotClass = sc;
                 sScript.parentScript = this;
                 objects.Add(tempW);

@@ -67,7 +67,15 @@ public class Slot_Script : MonoBehaviour
         slotHeight = slot.slotHeight;
         containedSlots = new List<Slot_Script>();
         squad = slot.squad;
-        squadRole = manager.modManager.rankManager.squadRoles[0];
+        if (slotClass.squadRole == null)
+        {
+            slotClass.squadRole = "Infantry - Line";
+            squadRole = manager.modManager.rankManager.squadRoles[0];
+        }
+        else
+        {
+            squadRole = manager.modManager.rankManager.FindRole(slotClass.squadRole);
+        }
         ID = positionID;
         slotClass.positionID = ID;
         if (slot.slotName != null)
@@ -107,6 +115,15 @@ public class Slot_Script : MonoBehaviour
 
         squad = slot.squad;
         squadRole = slot.squadRole;
+        if (slotClass.squadRole == null)
+        {
+            slotClass.squadRole = "Infantry - Line";
+            squadRole = manager.modManager.rankManager.squadRoles[0];
+        }
+        else
+        {
+            squadRole = manager.modManager.rankManager.FindRole(slotClass.squadRole);
+        }
         slotName = manager.manager.localisationManager.CreateName("SlotNames", this);
         slot.slotName = slotName;
         slotClass.slotName = slotName;
@@ -136,7 +153,7 @@ public class Slot_Script : MonoBehaviour
         slotHeight = slot.slotHeight;
         containedSlots = new List<Slot_Script>();
         squad = slot.squad;
-        squadRole = manager.modManager.rankManager.squadRoles[slot.squadRole];
+        squadRole = manager.modManager.rankManager.FindRole(slot.squadRole);
         ID = slotClass.positionID;
         slotName = slot.slotName;
         cColours = slot.useSquadColours;
@@ -155,7 +172,7 @@ public class Slot_Script : MonoBehaviour
         slotClass = slot;
         slotHeight = slot.slotHeight;
         squad = slot.squad;
-        squadRole = nManager.modManager.rankManager.squadRoles[slot.squadRole];
+        squadRole = nManager.modManager.rankManager.FindRole(slot.squadRole);
         ID = slotClass.positionID;
         slotName = slot.slotName;
 

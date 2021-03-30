@@ -810,7 +810,8 @@ public class Slot_Manager : MonoBehaviour
     //Sets the squad role according to the passed dropdown
     public void SetRole(Dropdown dropdown)
     {
-        viewedSlot.squadRole = modManager.rankManager.squadRoles[dropdown.value];
+        viewedSlot.squadRole = modManager.rankManager.FindRole(dropdown.options[dropdown.value].text);
+        viewedSlot.slotClass.squadRole = viewedSlot.squadRole.RoleName;
         promoter.SetupRankDropdown();
     }
 

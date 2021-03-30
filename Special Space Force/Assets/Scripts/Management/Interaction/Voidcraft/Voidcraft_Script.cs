@@ -558,6 +558,34 @@ public class Voidcraft_Script : MonoBehaviour
     public void MoveShip(Planet_Script newPlanet)
     {
         craftClass.planetN = newPlanet.parentSystem.SystemPlanets.IndexOf(newPlanet) + 1;
+        foreach (Voidcraft_Class vc in modManager.fManager.Craft) //Find the voidcraft and change it's location
+        {
+            if (vc.ID == craftClass.ID)
+            {
+                vc.planetN = newPlanet.parentSystem.SystemPlanets.IndexOf(newPlanet) + 1;
+
+                foreach (System_Script ss in modManager.sectorManager.systems) //Turn on the indicator of craft in the system
+                {
+                    if (ss.Star.uID == vc.starID)
+                    {
+                        if (!ss.craftIcon.activeSelf)
+                        {
+                            ss.craftIcon.SetActive(true);
+                        }
+                    }
+                }
+            }
+        }
+        foreach (Fleet_Class fc in modManager.fManager.Fleets)
+        {
+            foreach (Voidcraft_Class vc in fc.containedCraft)
+            {
+                if (vc.ID == craftClass.ID)
+                {
+                    vc.planetN = newPlanet.parentSystem.SystemPlanets.IndexOf(newPlanet) + 1;
+                }
+            }
+        }
         planetLocation.text = GetStat("Location");
     }
 }

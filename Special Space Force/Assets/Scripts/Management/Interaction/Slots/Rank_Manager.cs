@@ -11,6 +11,7 @@ public class Rank_Manager : MonoBehaviour
     /// </summary>
     public FileFinder finder;
 
+
     public List<string> SquadRoleFiles;
     public List<string> RankFiles;
 
@@ -386,5 +387,17 @@ public class Rank_Manager : MonoBehaviour
         role.RankDefs = rankDefs;
 
         squadRoles.Add(role);
+    }
+
+    public Squad_Role_Class FindRole(string squadRole)
+    {
+        foreach(Squad_Role_Class src in squadRoles)
+        {
+            if(src.RoleName == squadRole)
+            {
+                return src;
+            }
+        }
+        return null;
     }
 }
