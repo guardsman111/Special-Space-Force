@@ -21,6 +21,8 @@ public class Combat_Setup_Manager : MonoBehaviour
     public Text tTroopers;
     public bool changing = false;
 
+    public Combat_Screen_Manager combatManager;
+
     private int totalStrength;
     private int totalTroopers;
 
@@ -90,7 +92,7 @@ public class Combat_Setup_Manager : MonoBehaviour
         {
             if (sc.systemID == planetSelected.parentSystem.Star.uID)
             {
-                if (slot.planetN == planetSelected.parentSystem.SystemPlanets.IndexOf(planetSelected))
+                if (slot.planetN - 1 == planetSelected.parentSystem.SystemPlanets.IndexOf(planetSelected))
                 {
                     if (sc.containedSlots.Count == 0)
                     {
@@ -321,5 +323,10 @@ public class Combat_Setup_Manager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void BeginCombat()
+    {
+        combatManager.StartCombatScreen(planetSelected, missionSelected, selectedSlots);
     }
 }

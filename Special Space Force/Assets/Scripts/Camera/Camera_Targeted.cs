@@ -79,8 +79,8 @@ public class Camera_Targeted : MonoBehaviour
     {
         target = ship;
         distance = 5.0f;
-        xSpeed = 3f;
-        ySpeed = 5f;
+        //xSpeed = 3f;
+        //ySpeed = 5f;
         yMinLimit = -90f;
         yMaxLimit = 90f;
         distanceMin = 1f;
@@ -92,8 +92,8 @@ public class Camera_Targeted : MonoBehaviour
     {
         target = planet.transform;
         distance = 70.0f;
-        xSpeed = 0.15f;
-        ySpeed = 5f;
+        //xSpeed = 0.15f;
+        //ySpeed = 5f;
         yMinLimit = -90f;
         yMaxLimit = 90f;
         distanceMin = 40f;

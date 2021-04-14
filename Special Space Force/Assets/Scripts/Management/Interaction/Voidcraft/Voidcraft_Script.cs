@@ -564,16 +564,6 @@ public class Voidcraft_Script : MonoBehaviour
             {
                 vc.planetN = newPlanet.parentSystem.SystemPlanets.IndexOf(newPlanet) + 1;
 
-                foreach (System_Script ss in modManager.sectorManager.systems) //Turn on the indicator of craft in the system
-                {
-                    if (ss.Star.uID == vc.starID)
-                    {
-                        if (!ss.craftIcon.activeSelf)
-                        {
-                            ss.craftIcon.SetActive(true);
-                        }
-                    }
-                }
             }
         }
         foreach (Fleet_Class fc in modManager.fManager.Fleets)

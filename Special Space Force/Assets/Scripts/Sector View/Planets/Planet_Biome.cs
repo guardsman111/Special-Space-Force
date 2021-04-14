@@ -16,8 +16,9 @@ public class Planet_Biome
     public bool atmo = false;
 
     public Biome_Manager biomeManager;
-    private List<Biome_Class> biomes;
-    private List<Material> biomeMats;
+    public Material biomeMaterial;
+
+    public Texture2D biomeImage;
 
     //Linked to the planets mesh renderer so we can change the material, allowing for players to create their own.
     public MeshRenderer planetSkin;
@@ -26,8 +27,6 @@ public class Planet_Biome
     public Planet_Biome(string biome, MeshRenderer PlanetSkin)
     {
         biomeManager = GameObject.FindGameObjectWithTag("BiomeManager").GetComponent<Biome_Manager>();
-        biomes = biomeManager.Biomes;
-        biomeMats = biomeManager.BiomeMats;
         planetSkin = PlanetSkin;
         RunCheck(biome);
     }
@@ -39,7 +38,7 @@ public class Planet_Biome
         if (biome != "")
         {
             //if biomename matches the biome class's name, use its stats.
-            foreach (Biome_Class b in biomes)
+            foreach (Biome_Class b in biomeManager.Biomes)
             {
                 if (b.biomeName == biome)
                 {
@@ -53,16 +52,16 @@ public class Planet_Biome
         }
         else
         {
-            int rand = Random.Range(0, biomes.Count);
-            biomeName = biomes[rand].biomeName;
-            happinessModifier = biomes[rand].happinessModifier;
-            foodModifier = biomes[rand].foodModifier;
-            surfacePop = biomes[rand].SurfacePop;
-            atmo = biomes[rand].Atmo;
+            int rand = Random.Range(0, biomeManager.Biomes.Count);
+            biomeName = biomeManager.Biomes[rand].biomeName;
+            happinessModifier = biomeManager.Biomes[rand].happinessModifier;
+            foodModifier = biomeManager.Biomes[rand].foodModifier;
+            surfacePop = biomeManager.Biomes[rand].SurfacePop;
+            atmo = biomeManager.Biomes[rand].Atmo;
         }
 
         //change material to the correct biome
-        foreach(Material m in biomeMats)
+        foreach(Material m in biomeManager.BiomeMats)
         {
             if (m.name == biomeName)
             {
@@ -70,6 +69,22 @@ public class Planet_Biome
                 break;
             }
         }
+    }
+
+    public Texture2D GetImageForBiome()
+    {
+        Texture2D returner = null;
+
+        //if biomename matches the biome class's name, use its stats.
+        foreach (Biome_Script b in biomeManager.BiomesS)
+        {
+            if (b.biomeName == biomeName)
+            {
+                returner = b.biomeImage;
+            }
+        }
+
+        return returner;
     }
 
     public float GetHappinessModifier() { return (happinessModifier); }

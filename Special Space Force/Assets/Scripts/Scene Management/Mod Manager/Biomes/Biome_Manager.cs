@@ -14,8 +14,11 @@ public class Biome_Manager : MonoBehaviour
     public FileFinder finder;
     private List<string> biomeFiles;
     private List<Biome_Class> biomes;
+    private List<Biome_Script> biomesS;
     [SerializeField]
     private List<Material> biomeMats;
+
+    public List<Texture2D> biomeImages;
     
     //Finds files and saves core biomes. Ignores .meta files
     public bool Run()
@@ -26,6 +29,7 @@ public class Biome_Manager : MonoBehaviour
         biomeFiles = finder.Retrieve("Biomes.xml", ".meta");
         biomes = FindBiomeFiles();
         CreateMaterials();
+        SetupScripts();
         return done;
     }
 
@@ -39,6 +43,20 @@ public class Biome_Manager : MonoBehaviour
                     biomes = value;
                 }
             }
+    }
+
+    public List<Biome_Script> BiomesS
+    {
+        get { return biomesS; }
+
+        set
+        {
+            if
+              (value != biomesS)
+            {
+                biomesS = value;
+            }
+        }
     }
 
     public List<Material> BiomeMats
@@ -93,6 +111,7 @@ public class Biome_Manager : MonoBehaviour
                     }
                     if (!duplicate)
                     {
+
                         biomeList.Add(tempB);
                         //Debug.Log(tempB.biomeName);
                     }
@@ -219,5 +238,40 @@ public class Biome_Manager : MonoBehaviour
     {
         int count = biomes.Count();
         return count;
+    }
+
+    public void SetupScripts()
+    {
+        List<Biome_Script> biomeSList = new List<Biome_Script>();
+
+        for (int i = 0; i < biomes.Count; i++)
+        {
+            Biome_Script tempBS = new Biome_Script();
+
+            tempBS.biomeName = biomes[i].biomeName;
+            tempBS.biomeC = biomes[i];
+            tempBS.biomeMaterial = biomeMats[i];
+            if (i >= biomeImages.Count)
+            {
+                try
+                {
+                    var bytes = System.IO.File.ReadAllBytes(UnityEngine.Application.dataPath + "/Resources/" + biomes[i].imagePath);
+                    Texture2D image = new Texture2D(1, 1);
+                    image.LoadImage(bytes);
+                    tempBS.biomeImage = image;
+                }
+                catch
+                {
+                    Debug.LogError("Couldn't Load image for " + tempBS.biomeName);
+                }
+            }
+            else
+            {
+                tempBS.biomeImage = biomeImages[i];
+            }
+            biomeSList.Add(tempBS);
+        }
+
+        biomesS = biomeSList;
     }
 }
