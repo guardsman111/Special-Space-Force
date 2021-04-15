@@ -20,6 +20,7 @@ public class Combat_Setup_Manager : MonoBehaviour
     public Text tStrength;
     public Text tTroopers;
     public bool changing = false;
+    public Button beginButton;
 
     public Combat_Screen_Manager combatManager;
 
@@ -84,6 +85,7 @@ public class Combat_Setup_Manager : MonoBehaviour
                 }
             }
         }
+        CheckSelected();
     }
 
     public void CheckChildSlotsPlanet(Slot_Class slot)
@@ -194,6 +196,7 @@ public class Combat_Setup_Manager : MonoBehaviour
                 }
             }
         }
+        CheckSelected();
     }
 
     public void AddChildrenSelected(Slot_Class slot)
@@ -286,8 +289,20 @@ public class Combat_Setup_Manager : MonoBehaviour
                 }
             }
         }
+        CheckSelected();
     }
 
+    public void CheckSelected()
+    {
+        if(selectedSlots.Count == 0)
+        {
+            beginButton.interactable = false;
+        }
+        else
+        {
+            beginButton.interactable = true;
+        }
+    }
 
     public void RemoveChildrenSelected(Slot_Class slot)
     {

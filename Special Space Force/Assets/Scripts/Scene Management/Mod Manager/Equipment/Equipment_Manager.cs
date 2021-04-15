@@ -69,6 +69,7 @@ public class Equipment_Manager : MonoBehaviour
             tempSP = new Sprite_Pack();
             tempSP.packName = temp.armourName;
             tempSP.patternName = temp.patternName;
+            tempSP.armourV = temp.armourV;
             tempSP.containedSprites = new List<Sprite>();
             try
             {
@@ -382,6 +383,7 @@ public class Equipment_Manager : MonoBehaviour
             tempSP = new Sprite_Pack();
             tempSP.packName = temp.helmetName;
             tempSP.patternName = temp.patternName;
+            tempSP.armourV = temp.armourV;
             tempSP.containedSprites = new List<Sprite>();
             try
             {
@@ -540,6 +542,11 @@ public class Equipment_Manager : MonoBehaviour
             Equipment_Class temp = Serializer.Deserialize<Equipment_Class>(s);
             tempSP = new Sprite_Pack();
             tempSP.packName = temp.EquipmentName;
+            if(temp.damageV != 0)
+            {
+                tempSP.rangeV = temp.rangeV;
+                tempSP.damageV = temp.damageV;
+            }
             tempSP.containedSprites = new List<Sprite>();
             try
             {
@@ -617,6 +624,8 @@ public class Equipment_Manager : MonoBehaviour
             Equipment_Class temp = Serializer.Deserialize<Equipment_Class>(s);
             tempSP = new Sprite_Pack();
             tempSP.packName = temp.EquipmentName.Replace("_", " ");
+            tempSP.rangeV = temp.rangeV;
+            tempSP.damageV = temp.damageV;
             tempSP.containedSprites = new List<Sprite>();
             try
             {

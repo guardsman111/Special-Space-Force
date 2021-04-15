@@ -14,6 +14,8 @@ public class Equipment_Class
     public string EquipmentSecondaryPath;
 
     public int CostPerItem;
+    public int rangeV;
+    public int damageV;
 
     public int filterMode;
 

@@ -17,6 +17,7 @@ public class Armour_Class
     public string ArmourSpecialPath;
 
     public int CostPerItem;
+    public int armourV;
 
     public int filterMode;
 
