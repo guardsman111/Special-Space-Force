@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public class Enemy_Class : MonoBehaviour
+public class Enemy_Class
 {
     public string enemyName;
 

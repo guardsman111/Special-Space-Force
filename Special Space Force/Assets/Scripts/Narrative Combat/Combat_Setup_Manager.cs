@@ -139,6 +139,15 @@ public class Combat_Setup_Manager : MonoBehaviour
             Destroy(slots[0].gameObject);
             slots.RemoveAt(0);
         }
+        while (selectedSlots.Count > 0)
+        {
+            Destroy(selectedSlots[0].gameObject);
+            selectedSlots.RemoveAt(0);
+        }
+        totalStrength = 0;
+        totalTroopers = 0;
+        tStrength.text = totalStrength.ToString();
+        tTroopers.text = totalTroopers.ToString();
 
         gameObject.SetActive(false);
     }

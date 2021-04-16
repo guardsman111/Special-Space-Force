@@ -6,4 +6,6 @@
   <EquipmentPrimaryPath>Mods/Example Mod/Equipment/Weapon/Awesome Sauce Rifle/Primary.png</EquipmentPrimaryPath>
   <EquipmentSecondaryPath>Mods/Example Mod/Equipment/Weapon/Awesome Sauce Rifle/Secondary.png</EquipmentSecondaryPath>
   <CostPerItem>20</CostPerItem>
+  <rangeV>30</rangeV> <!-- The range of the weapon - Melee weapons should put range 1-->
+  <damageV>10</damageV> <!-- Damage of the weapon-->
 </Equipment_Class>

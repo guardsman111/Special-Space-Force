@@ -7,4 +7,6 @@
   <HelmetEquipmentPath>Mods\Example Mod\Equipment\Helmets\Mk3 Helmet\Trooper\Primary\Equipment.png</HelmetEquipmentPath>
   <HelmetVisorPath>Mods\Example Mod\Equipment\Helmets\Mk3 Helmet\Trooper\Primary\Visor.png</HelmetVisorPath>
   <CostPerItem>200</CostPerItem> <!-- Ideally this should be identical across all items of the same name-->
+  <armourV>45</armourV> <!-- Armour value of the armour, or how effective the armour is at protecting troopers!-->
+  <filterMode>0</filterMode> <!-- 0 = point, 1 = bilinear and 2 = trilinear - if your image doesn't look right at runtime change this value -->
 </Helmet_Class>

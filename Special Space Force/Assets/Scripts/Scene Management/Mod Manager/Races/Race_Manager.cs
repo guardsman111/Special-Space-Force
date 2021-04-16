@@ -226,4 +226,73 @@ public class Race_Manager : MonoBehaviour
 
         return threats;
     }
+
+    public Unit_Class FindUnitClass(string raceName, string unitName)
+    {
+        Unit_Class returner = new Unit_Class();
+
+        for(int i = 0; i < races.Count; i++)
+        {
+            if(Races[i].empireName == raceName)
+            {
+                foreach (Unit_Class uc in RaceUnits[i].units)
+                {
+                    if(uc.unitName == unitName)
+                    {
+                        returner = uc;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if(returner.unitName == null)
+        {
+            Debug.Log("Unit Not Found - " + unitName);
+        }
+
+        return returner;
+    }
+
+    public Enemy_Class FindEnemyClass(string raceName, string enemyName)
+    {
+        Enemy_Class returner = new Enemy_Class();
+        string enemyNameNS = enemyName.Replace(" ", "");
+
+        for (int i = 0; i < races.Count; i++)
+        {
+            if (Races[i].empireName == raceName)
+            {
+                foreach (string s in RaceUnits[i].enemyPaths)
+                {
+                    if (s.Contains("/" + enemyNameNS + "Enemy.xml") == true)
+                    {
+                        try
+                        {
+                            returner = Serializer.Deserialize<Enemy_Class>(Application.dataPath + "/Resources/Core" + s);
+                        }
+                        catch
+                        {
+                            try
+                            {
+                                returner = Serializer.Deserialize<Enemy_Class>(Application.dataPath + "/Resources/Mods" + s);
+                            }
+                            catch
+                            {
+                                Debug.Log("Unable to find path " + s + " in both core and mods");
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (returner.enemyName == null)
+        {
+            Debug.Log("Enemy Not Found - " + enemyName);
+        }
+
+        return returner;
+    }
 }
