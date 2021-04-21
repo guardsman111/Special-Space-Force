@@ -17,5 +17,23 @@
     <Material_Normal_Path>Mods\Example Mod\Biomes\Textures\Glass_World_Normal.png</Material_Normal_Path>
     <Material_Mask_Path>Mods\Example Mod\Biomes\Textures\Glass_World_Metal.png</Material_Mask_Path>
     <Biome_Image_Path>Mods\Example Mod\Biomes\Textures\Combat_Background_Glass.jpg</Biome_Image_Path>
+	<Categories>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InOpenTerrain</categoryType>
+			<snippets>
+				<string>across the solid glass plain</string>
+				<string>in the middle of a blindingly bright patch of glass</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>BiomeObjectLocation</categoryName>
+			<categoryType>InConcealTerrain</categoryType>
+			<snippets>
+				<string>across chunks of broken glass</string>
+				<string>through the chunks of broken glass</string>
+			</snippets>
+		</Category_Class>
+	</Categories>
   </Biome_Class>
 </ArrayOfBiome_Class>

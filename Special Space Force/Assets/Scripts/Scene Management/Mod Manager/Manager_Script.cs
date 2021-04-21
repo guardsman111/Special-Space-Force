@@ -21,6 +21,9 @@ public class Manager_Script : MonoBehaviour
     public Force_Manager forceManager;
     public Master_Threats_Manager threatManager;
     public Combat_Setup_Manager combatSetupManager;
+    public Combat_Screen_Manager combatManager;
+    public Story_Manager storyManager;
+    public Category_Manager categoryManager;
 
     private Generation_Class generatedProduct;
 

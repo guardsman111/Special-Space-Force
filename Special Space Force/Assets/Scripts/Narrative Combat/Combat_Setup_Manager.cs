@@ -30,6 +30,11 @@ public class Combat_Setup_Manager : MonoBehaviour
     private Mission_Script missionSelected;
     private Planet_Script planetSelected;
 
+    public Planet_Script SelectedPlanet
+    {
+        get { return planetSelected; }
+    }
+
     public void SetupMission(Mission_Script mission, Planet_Script planet)
     {
         missionSelected = mission;

@@ -82,7 +82,7 @@ public class Generation_Settings_Director : MonoBehaviour
 
         //Setup Races
         raceManager.Run();
-        foreach(Dropdown d in AIBoxesDropDowns)
+        foreach (Dropdown d in AIBoxesDropDowns)
         {
             d.ClearOptions();
             List<string> raceNames = new List<string>();

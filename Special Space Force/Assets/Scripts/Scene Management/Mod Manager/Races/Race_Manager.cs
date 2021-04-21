@@ -31,6 +31,7 @@ public class Race_Manager : MonoBehaviour
         {
             modManager.threatManager.AddThreats(FindThreats(rc));
         }
+        modManager.categoryManager.Run();
         return done;
     }
 
