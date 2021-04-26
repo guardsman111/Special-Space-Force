@@ -10,6 +10,7 @@ public class Enemy_Weapons_Class
     public string nickname;
 
     public int strength;
+    public int range;
     public string type;
 
     public List<Category_Class> categories;

@@ -206,6 +206,7 @@ public class Core_Equipment : MonoBehaviour
     {
         List<Sprite_Pack> armourPacks = new List<Sprite_Pack>();
 
+
         Sprite_Pack tempSP = new Sprite_Pack();
         tempSP.containedSprites = new List<Sprite>();
         tempSP.packName = "Mk1 Armour";
@@ -213,6 +214,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.packType = "Armour";
         tempSP.CostPerItem = Mk1ArmourCost;
         tempSP.armourV = Mk1ArmourAV;
+        tempSP.coverage = 35;
         tempSP.numberOfColours = 1;
         foreach (Sprite s in Mk1ArmourP)
         {
@@ -229,6 +231,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1ArmourCost;
         tempSP.armourV = Mk1ArmourAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 35;
         foreach (Sprite s in Mk1Armour2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -244,6 +247,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1ArmourCost;
         tempSP.armourV = Mk1ArmourAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 35;
         foreach (Sprite s in Mk1Armour3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -259,6 +263,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1ArmourCost;
         tempSP.armourV = Mk1ArmourAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 35;
         foreach (Sprite s in Mk1Armour3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -276,6 +281,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourTCost;
         tempSP.armourV = Mk2ArmourTAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk2ArmourTP)
         {
             tempSP.containedSprites.Add(s);
@@ -291,6 +297,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourTCost;
         tempSP.armourV = Mk2ArmourTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk2ArmourT2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -306,6 +313,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourTCost;
         tempSP.armourV = Mk2ArmourTAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk2ArmourT3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -321,6 +329,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourTCost;
         tempSP.armourV = Mk2ArmourTAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk2ArmourT3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -336,6 +345,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourRCost;
         tempSP.armourV = Mk2ArmourRAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 35;
         foreach (Sprite s in Mk2ArmourRP)
         {
             tempSP.containedSprites.Add(s);
@@ -351,6 +361,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourRCost;
         tempSP.armourV = Mk2ArmourRAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 35;
         foreach (Sprite s in Mk2ArmourR2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -366,6 +377,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourRCost;
         tempSP.armourV = Mk2ArmourRAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 35;
         foreach (Sprite s in Mk2ArmourR3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -381,6 +393,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourRCost;
         tempSP.armourV = Mk2ArmourRAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 35;
         foreach (Sprite s in Mk2ArmourR3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -396,6 +409,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourBCost;
         tempSP.armourV = Mk2ArmourBAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 60;
         foreach (Sprite s in Mk2ArmourBP)
         {
             tempSP.containedSprites.Add(s);
@@ -411,6 +425,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourBCost;
         tempSP.armourV = Mk2ArmourBAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 60;
         foreach (Sprite s in Mk2ArmourB2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -426,6 +441,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourBCost;
         tempSP.armourV = Mk2ArmourBAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 60;
         foreach (Sprite s in Mk2ArmourB3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -441,6 +457,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2ArmourBCost;
         tempSP.armourV = Mk2ArmourBAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 60;
         foreach (Sprite s in Mk2ArmourB3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -458,6 +475,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourTCost;
         tempSP.armourV = Mk3ArmourTAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourTP)
         {
             tempSP.containedSprites.Add(s);
@@ -473,6 +491,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourTCost;
         tempSP.armourV = Mk3ArmourTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourTS1)
         {
             tempSP.containedSprites.Add(s);
@@ -488,6 +507,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourTCost;
         tempSP.armourV = Mk3ArmourTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourTS2)
         {
             tempSP.containedSprites.Add(s);
@@ -503,6 +523,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourTCost;
         tempSP.armourV = Mk3ArmourTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourT2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -518,6 +539,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourTCost;
         tempSP.armourV = Mk3ArmourTAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourT3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -533,6 +555,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourTCost;
         tempSP.armourV = Mk3ArmourTAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourT3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -548,6 +571,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourHCost;
         tempSP.armourV = Mk3ArmourHAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourHP)
         {
             tempSP.containedSprites.Add(s);
@@ -563,6 +587,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourHCost;
         tempSP.armourV = Mk3ArmourHAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourHS1)
         {
             tempSP.containedSprites.Add(s);
@@ -578,6 +603,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourHCost;
         tempSP.armourV = Mk3ArmourHAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourHS2)
         {
             tempSP.containedSprites.Add(s);
@@ -593,6 +619,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourHCost;
         tempSP.armourV = Mk3ArmourHAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourH2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -608,6 +635,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourHCost;
         tempSP.armourV = Mk3ArmourHAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourH3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -623,6 +651,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3ArmourHCost;
         tempSP.armourV = Mk3ArmourHAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3ArmourH3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -646,6 +675,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.armourV = Mk1HelmetAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1HelmetP)
         {
             tempSP.containedSprites.Add(s);
@@ -661,6 +691,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.armourV = Mk1HelmetAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1HelmetS1)
         {
             tempSP.containedSprites.Add(s);
@@ -676,6 +707,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.armourV = Mk1HelmetAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1HelmetS2)
         {
             tempSP.containedSprites.Add(s);
@@ -691,6 +723,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.armourV = Mk1HelmetAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1Helmet2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -706,6 +739,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.armourV = Mk1HelmetAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1Helmet3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -721,6 +755,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1HelmetCost;
         tempSP.armourV = Mk1HelmetAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1Helmet3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -736,6 +771,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.armourV = Mk1Mod1HelmetAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1Mod1HelmetP)
         {
             tempSP.containedSprites.Add(s);
@@ -751,6 +787,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.armourV = Mk1Mod1HelmetAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1Mod1HelmetS1)
         {
             tempSP.containedSprites.Add(s);
@@ -766,6 +803,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.armourV = Mk1Mod1HelmetAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1Mod1HelmetS2)
         {
             tempSP.containedSprites.Add(s);
@@ -781,6 +819,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.armourV = Mk1Mod1HelmetAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1Mod1Helmet2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -796,6 +835,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.armourV = Mk1Mod1HelmetAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1Mod1Helmet3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -811,6 +851,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk1Mod1HelmetCost;
         tempSP.armourV = Mk1Mod1HelmetAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 50;
         foreach (Sprite s in Mk1Mod1Helmet3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -828,6 +869,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetTCost;
         tempSP.armourV = Mk2HelmetTAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetTP)
         {
             tempSP.containedSprites.Add(s);
@@ -843,6 +885,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetTCost;
         tempSP.armourV = Mk2HelmetTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetTS1)
         {
             tempSP.containedSprites.Add(s);
@@ -858,6 +901,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetTCost;
         tempSP.armourV = Mk2HelmetTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetTS2)
         {
             tempSP.containedSprites.Add(s);
@@ -873,6 +917,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetTCost;
         tempSP.armourV = Mk2HelmetTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetT2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -888,6 +933,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetTCost;
         tempSP.armourV = Mk2HelmetTAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetT3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -903,6 +949,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetTCost;
         tempSP.armourV = Mk2HelmetTAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetT3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -918,6 +965,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetRCost;
         tempSP.armourV = Mk2HelmetRAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetRP)
         {
             tempSP.containedSprites.Add(s);
@@ -933,6 +981,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetRCost;
         tempSP.armourV = Mk2HelmetRAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetRS1)
         {
             tempSP.containedSprites.Add(s);
@@ -948,6 +997,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetRCost;
         tempSP.armourV = Mk2HelmetRAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetRS2)
         {
             tempSP.containedSprites.Add(s);
@@ -963,6 +1013,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetRCost;
         tempSP.armourV = Mk2HelmetRAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetR2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -978,6 +1029,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetRCost;
         tempSP.armourV = Mk2HelmetRAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetR3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -993,6 +1045,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetRCost;
         tempSP.armourV = Mk2HelmetRAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetR3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -1007,6 +1060,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetBCost;
         tempSP.armourV = Mk2HelmetBAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetBP)
         {
             tempSP.containedSprites.Add(s);
@@ -1022,6 +1076,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetBCost;
         tempSP.armourV = Mk2HelmetBAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetBS1)
         {
             tempSP.containedSprites.Add(s);
@@ -1037,6 +1092,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetBCost;
         tempSP.armourV = Mk2HelmetBAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetBS2)
         {
             tempSP.containedSprites.Add(s);
@@ -1052,6 +1108,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetBCost;
         tempSP.armourV = Mk2HelmetBAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetB2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -1067,6 +1124,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetBCost;
         tempSP.armourV = Mk2HelmetBAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetB3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -1082,6 +1140,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk2HelmetBCost;
         tempSP.armourV = Mk2HelmetBAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk2HelmetB3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -1099,6 +1158,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetTCost;
         tempSP.armourV = Mk3HelmetTAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetTP)
         {
             tempSP.containedSprites.Add(s);
@@ -1114,6 +1174,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetTCost;
         tempSP.armourV = Mk3HelmetTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetTS1)
         {
             tempSP.containedSprites.Add(s);
@@ -1129,6 +1190,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetTCost;
         tempSP.armourV = Mk3HelmetTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetTS2)
         {
             tempSP.containedSprites.Add(s);
@@ -1144,6 +1206,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetTCost;
         tempSP.armourV = Mk3HelmetTAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetT2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -1159,6 +1222,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetTCost;
         tempSP.armourV = Mk3HelmetTAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetT3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -1174,6 +1238,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetTCost;
         tempSP.armourV = Mk3HelmetTAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetT3CamoDigi)
         {
             tempSP.containedSprites.Add(s);
@@ -1189,6 +1254,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetHCost;
         tempSP.armourV = Mk3HelmetHAV;
         tempSP.numberOfColours = 1;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetHP)
         {
             tempSP.containedSprites.Add(s);
@@ -1204,6 +1270,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetHCost;
         tempSP.armourV = Mk3HelmetHAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetHS1)
         {
             tempSP.containedSprites.Add(s);
@@ -1219,6 +1286,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetHCost;
         tempSP.armourV = Mk3HelmetHAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetHS2)
         {
             tempSP.containedSprites.Add(s);
@@ -1234,6 +1302,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetHCost;
         tempSP.armourV = Mk3HelmetHAV;
         tempSP.numberOfColours = 2;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetH2Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -1249,6 +1318,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetHCost;
         tempSP.armourV = Mk3HelmetHAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetH3Camo)
         {
             tempSP.containedSprites.Add(s);
@@ -1264,6 +1334,7 @@ public class Core_Equipment : MonoBehaviour
         tempSP.CostPerItem = Mk3HelmetHCost;
         tempSP.armourV = Mk3HelmetHAV;
         tempSP.numberOfColours = 3;
+        tempSP.coverage = 90;
         foreach (Sprite s in Mk3HelmetH3CamoDigi)
         {
             tempSP.containedSprites.Add(s);

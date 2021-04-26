@@ -8,5 +8,6 @@
   <ArmourSpecialPath>Mods\Example Mod\Equipment\Armour\Mk3 Armour\Trooper\Primary\Special.png</ArmourSpecialPath>
   <CostPerItem>380</CostPerItem> <!-- Ideally this should be identical across all items of the same name-->
   <armourV>55</armourV> <!-- Armour value of the armour, or how effective the armour is at protecting troopers!-->
+  <coverage>90</coverage> <!-- Coverage of the armour - how much of the trooper's body is covered by armour?-->
   <filterMode>0</filterMode> <!-- 0 = point, 1 = bilinear and 2 = trilinear - if your image doesn't look right at runtime change this value -->
 </Armour_Class>

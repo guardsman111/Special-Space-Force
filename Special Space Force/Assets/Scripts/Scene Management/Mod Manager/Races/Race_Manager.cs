@@ -32,6 +32,7 @@ public class Race_Manager : MonoBehaviour
             modManager.threatManager.AddThreats(FindThreats(rc));
         }
         modManager.categoryManager.Run();
+        modManager.storyManager.Run();
         return done;
     }
 
@@ -232,7 +233,7 @@ public class Race_Manager : MonoBehaviour
     {
         Unit_Class returner = new Unit_Class();
 
-        for(int i = 0; i < races.Count; i++)
+        for(int i = 0; i < races.Count; i++) // Currently doesn't use the selected Races, just all races which is incorrect - should only use the races that are chosen in the generated product
         {
             if(Races[i].empireName == raceName)
             {
@@ -292,6 +293,21 @@ public class Race_Manager : MonoBehaviour
         if (returner.enemyName == null)
         {
             Debug.Log("Enemy Not Found - " + enemyName);
+        }
+
+        return returner;
+    }
+
+    public Race_Weapons_Class FindRaceWeapons(string raceName)
+    {
+        Race_Weapons_Class returner = new Race_Weapons_Class();
+
+        for(int i = 0; i < Races.Count; i++)
+        {
+            if(Races[i].empireName == raceName)
+            {
+                returner = RaceWeapons[i];
+            }
         }
 
         return returner;

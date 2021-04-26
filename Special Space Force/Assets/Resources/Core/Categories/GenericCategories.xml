@@ -11,5 +11,86 @@
 				<string>completey unaware</string>
 			</snippets>
 		</Category_Class>
+		<Category_Class>
+			<categoryName>MoveSlow</categoryName>
+			<categoryType>Past</categoryType>
+			<snippets>
+				<string>steadily moved</string>
+				<string>carefully walked</string>
+				<string>inched their way</string>
+				<string>cautiously walked</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>MoveQuick</categoryName>
+			<categoryType>Past</categoryType>
+			<snippets>
+				<string>sprinted</string>
+				<string>advanced quickly</string>
+				<string>quickly advanced</string>
+				<string>ran quickly</string>
+				<string>ran</string>
+				<string>jogged fast</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>MoveOver</categoryName>
+			<categoryType>Past</categoryType>
+			<snippets>
+				<string>leapt over</string>
+				<string>jumped over</string>
+				<string>vaulted</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>WeaponsReady</categoryName>
+			<categoryType>Movement</categoryType>
+			<snippets>
+				<string>with their guns up</string>
+				<string>with their weapons readied and level</string>
+				<string>slowly tracking their weapons left to right</string>
+				<string>aiming their weapons at potential target locations</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>CorpsesHuman</categoryName>
+			<categoryType>Civilian</categoryType>
+			<snippets>
+				<string>bodies lay, torn open</string>
+				<string>human corpses in civilian clothes were scattered</string>
+				<string>torsos and a couple of heads were piled</string>
+				<string>scattered remains of civilians lay</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>CorpsesHuman</categoryName>
+			<categoryType>Soldier</categoryType>
+			<snippets>
+				<string>soldiers lay, ripped open by extreme force</string>
+				<string>human corpses in planetary defence gear were scattered</string>
+				<string>torsos and a couple of helmeted heads were piled</string>
+				<string>eviscerated remains of Garrison troops lay</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>CityEnvObjLoc</categoryName>
+			<categoryType>Core</categoryType>
+			<snippets>
+				<string>over the street</string>
+				<string>between two buildings</string>
+				<string>in a narrow alley way</string>
+				<string>along a narrow alley way</string>
+				<string>in the middle of an open plaza</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>SeeFirstPerson</categoryName>
+			<categoryType>Past</categoryType>
+			<snippets>
+				<string>witnessed</string>
+				<string>seen</string>
+				<string>looked at</string>
+			</snippets>
+		</Category_Class>
 	</Categories>
 </Category_Collection>

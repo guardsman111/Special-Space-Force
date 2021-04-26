@@ -13,6 +13,8 @@ public class Enemy_Class
     public int size;
     public int speed;
     public int strength;
+    public int ranged;
+    public int armour;
 
     [XmlElement("Primary_Weapon")]
     public string weapon1;

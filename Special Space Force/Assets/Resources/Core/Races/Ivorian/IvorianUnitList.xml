@@ -4,11 +4,13 @@
 	<Race_Weapons_Class_Path>/Races/Ivorian/IvorianWeaponsList.xml</Race_Weapons_Class_Path>
 	<enemyPaths>
 		<string>/Races/Ivorian/Enemies/IvorianWarriorEnemy.xml</string>
+		<string>/Races/Ivorian/Enemies/IvorianCommanderEnemy.xml</string>
 	</enemyPaths>
 	<units>
 		<Unit_Class>
 			<Unit_Name>Ivorian Raiders</Unit_Name>
-			<Estimated_unit_strength>60</Estimated_unit_strength>
+			<Estimated_unit_strength>60</Estimated_unit_strength><!-- Currently 2x number of enemies in the contained enemies collection-->
+			<Unit_Movement_Speed>1</Unit_Movement_Speed> <!-- 0 = Slow, 1 = Medium, 2 = Fast-->
 			<containedEnemies> 
 				<Enemy_Container>
 					<enemyName>Ivorian Warrior</enemyName>
@@ -18,7 +20,8 @@
 		</Unit_Class>
 		<Unit_Class>
 			<Unit_Name>Ivorian Command</Unit_Name>
-			<Estimated_unit_strength>50</Estimated_unit_strength>
+			<Estimated_unit_strength>22</Estimated_unit_strength><!-- Currently 2x number of enemies in the contained enemies collection-->
+			<Unit_Movement_Speed>1</Unit_Movement_Speed> <!-- 0 = Slow, 1 = Medium, 2 = Fast-->
 			<containedEnemies> 
 				<Enemy_Container>
 					<enemyName>Ivorian Commander</enemyName>

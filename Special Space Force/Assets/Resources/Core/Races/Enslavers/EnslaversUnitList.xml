@@ -8,7 +8,8 @@
 	<units>
 		<Unit_Class> <!-- Describes a unit the race can use, which contains numbers of enemies-->
 			<Unit_Name>Enslavers Combat Unit</Unit_Name>
-			<Estimated_unit_strength>100</Estimated_unit_strength>
+			<Estimated_unit_strength>100</Estimated_unit_strength> <!-- Currently 2x number of enemies in the contained enemies collection-->
+			<Unit_Movement_Speed>0</Unit_Movement_Speed> <!-- 0 = Slow, 1 = Medium, 2 = Fast-->
 			<containedEnemies>
 				<Enemy_Container>
 					<enemyName>Enslaver Warrior</enemyName>

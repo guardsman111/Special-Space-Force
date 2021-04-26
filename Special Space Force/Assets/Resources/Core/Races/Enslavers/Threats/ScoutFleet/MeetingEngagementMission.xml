@@ -15,8 +15,12 @@
 		<Story_Class>
 			<storyName>Battle Lines</storyName>
 			<storyType>Combat</storyType>
+			<storySize>Slot</storySize> <!-- Size of engagement in the story - is it at squad level or slot level?-->
+			<Number_Of_Trooper_Injuries>0</Number_Of_Trooper_Injuries> <!-- Number of troopers injured in this story passage-->
+			<Number_Of_Trooper_Deaths>0</Number_Of_Trooper_Deaths> <!-- Number of troopers killed in this story passage-->
+			<Number_Of_Enemy_Deaths>0</Number_Of_Enemy_Deaths> <!-- Number of enemies killed in this story passage-->
 			<strings>
-				<string> When they located the scout party </string>
+				<string>When they located the scout party </string>
 				<string>//:BiomeObjectLocation //:InOpenTerrain</string>
 				<string>, </string>
 				<string>//:HighestSlotName</string>

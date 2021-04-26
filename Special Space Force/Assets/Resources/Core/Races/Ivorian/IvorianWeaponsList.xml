@@ -4,7 +4,8 @@
 		<Enemy_Weapons_Class>
 			<Weapon_Name>Basic Gun</Weapon_Name>
 			<nickname>gun</nickname>
-			<strength>5</strength>
+			<strength>5</strength> <!-- Weapon Damage - influences the likelyhood of injury or death from weapon attack-->
+			<range>5</range>
 			<type>Pistol</type>
 			<categories>
 				<Category_Class>
@@ -19,7 +20,8 @@
 		<Enemy_Weapons_Class>
 			<Weapon_Name>Basic Knife</Weapon_Name>
 			<nickname>knife</nickname>
-			<strength>2</strength>
+			<strength>2</strength> <!-- Weapon Damage - influences the likelyhood of injury or death from weapon attack-->
+			<range>1</range>
 			<type>Melee</type>
 			<categories>
 				<Category_Class>

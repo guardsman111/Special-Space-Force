@@ -54,7 +54,14 @@ public class Encounter_Manager : MonoBehaviour
                     for (int i = 0; i < ud.number; i++)
                     {
                         Encounter_Class tempEC = new Encounter_Class();
+                        tempEC.stepType = "Move";
+                        tempEC.distance = 50;
                         tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
+                        tempEC.affectedTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.capableTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.deadTroopers = new List<Affected_Trooper_Class>();
                         tempEC.slots = new List<Slot_Class>();
                         Unit_Class tempUC = manager.raceManager.FindUnitClass(mission.parentRace, ud.unitName);
                         CreateEnemyUnitInstance(tempEC, tempUC, mission.parentRace);
@@ -68,7 +75,14 @@ public class Encounter_Manager : MonoBehaviour
                 foreach (Combat_Slot_Script css in slots)
                 {
                     Encounter_Class tempEC = new Encounter_Class();
+                    tempEC.stepType = "Move";
+                    tempEC.distance = 50;
                     tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
+                    tempEC.affectedTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.capableTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.deadTroopers = new List<Affected_Trooper_Class>();
                     tempEC.slots = new List<Slot_Class>();
                     tempEC.slots.Add(css.SlotClass);
                     tempEC.playerStrength += float.Parse(css.strengthText.text);
@@ -91,7 +105,14 @@ public class Encounter_Manager : MonoBehaviour
                     for (int i = 0; i < ud.number; i++)
                     {
                         Encounter_Class tempEC = new Encounter_Class();
+                        tempEC.stepType = "Move";
+                        tempEC.distance = 50;
                         tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
+                        tempEC.affectedTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.capableTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.deadTroopers = new List<Affected_Trooper_Class>();
                         tempEC.slots = new List<Slot_Class>();
                         Unit_Class tempUC = manager.raceManager.FindUnitClass(mission.parentRace, ud.unitName);
                         CreateEnemyUnitInstance(tempEC, tempUC, mission.parentRace);
@@ -106,7 +127,14 @@ public class Encounter_Manager : MonoBehaviour
                 foreach (Combat_Slot_Script css in squads)
                 {
                     Encounter_Class tempEC = new Encounter_Class();
+                    tempEC.stepType = "Move";
+                    tempEC.distance = 50;
                     tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
+                    tempEC.affectedTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.capableTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.deadTroopers = new List<Affected_Trooper_Class>();
                     tempEC.slots = new List<Slot_Class>();
                     tempEC.slots.Add(css.SlotClass);
                     tempEC.playerStrength += float.Parse(css.strengthText.text);
@@ -123,6 +151,7 @@ public class Encounter_Manager : MonoBehaviour
         Enemy_Unit_Instance tempEUI = new Enemy_Unit_Instance();
         tempEUI.enemyRefs = new List<Enemy_Class>();
         tempEUI.enemies = new List<Enemy_Instance>();
+        tempEUI.movement = unit.speed;
         tempEUI.unitName = unit.unitName;
 
         encounter.nEnemies = 0;
@@ -130,15 +159,32 @@ public class Encounter_Manager : MonoBehaviour
         foreach (Enemy_Container ec in unit.containedEnemies)
         {
             Enemy_Class tempEnemy = manager.raceManager.FindEnemyClass(raceName, ec.enemyName);
+            Race_Weapons_Class raceWeapons = manager.raceManager.FindRaceWeapons(raceName);
             tempEUI.enemyRefs.Add(tempEnemy);
 
-            for(int i = 0; i < ec.nOfEnemies; i++)
+            Enemy_Weapons_Class weap1 = new Enemy_Weapons_Class();
+            Enemy_Weapons_Class weap2 = new Enemy_Weapons_Class();
+
+            foreach (Enemy_Weapons_Class ewc in raceWeapons.enemyWeapons)
+            {
+                if(ewc.weaponName == tempEnemy.weapon1)
+                {
+                    weap1 = ewc;
+                }
+                if (ewc.weaponName == tempEnemy.weapon2)
+                {
+                    weap2 = ewc;
+                }
+            }
+
+            for (int i = 0; i < ec.nOfEnemies; i++)
             {
                 Enemy_Instance newInstance = new Enemy_Instance();
-
                 newInstance.enemyClass = tempEnemy;
                 newInstance.enemyName = tempEnemy.enemyName;
                 newInstance.health = tempEnemy.health;
+                newInstance.primaryWeapon = weap1;
+                newInstance.secondaryWeapon = weap2;
 
                 tempEUI.enemies.Add(newInstance);
             }
@@ -157,6 +203,7 @@ public class Encounter_Manager : MonoBehaviour
             {
                 if (squads.Count != 0)
                 {
+                    AllocateTroopers(squads[0].SlotClass, encounter);
                     encounter.slots.Add(squads[0].SlotClass);
                     encounter.playerStrength += float.Parse(squads[0].strengthText.text);
                     squads.RemoveAt(0);
@@ -177,6 +224,7 @@ public class Encounter_Manager : MonoBehaviour
             {
                 if (slots.Count != 0)
                 {
+                    AllocateTroopers(slots[0].SlotClass, encounter);
                     encounter.slots.Add(slots[0].SlotClass);
                     encounter.playerStrength += float.Parse(slots[0].strengthText.text);
                     slots.RemoveAt(0);
@@ -185,6 +233,61 @@ public class Encounter_Manager : MonoBehaviour
                 {
                     break;
                 }
+            }
+        }
+    }
+
+    public void AllocateTroopers(Slot_Class slot, Encounter_Class encounter)
+    {
+        if (slot.squad)
+        {
+            foreach(Trooper_Class tc in slot.containedTroopers)
+            {
+                Affected_Trooper_Class tempATC = new Affected_Trooper_Class();
+                tempATC.squad = slot;
+                tempATC.trooperClass = tc;
+
+                //Bring accross the relevant files for gear
+                foreach(Sprite_Pack sp in manager.equipmentManager.WeaponsPacks)
+                {
+                    if(tc.weapon1 == sp.packName)
+                    {
+                        tempATC.primaryWeapon = sp;
+                    }
+                    if (tc.weapon2 == sp.packName)
+                    {
+                        tempATC.secondaryWeapon = sp;
+                    }
+                }
+                foreach (Sprite_Pack sp in manager.equipmentManager.EquipmentPacks)
+                {
+                    if (tc.equipment == sp.packName)
+                    {
+                        tempATC.equipment = sp;
+                    }
+                }
+                foreach (Sprite_Pack sp in manager.equipmentManager.HelmetPacks)
+                {
+                    if (tc.equipment == sp.packName)
+                    {
+                        tempATC.helmet = sp;
+                    }
+                }
+                foreach (Sprite_Pack sp in manager.equipmentManager.ArmourPacks)
+                {
+                    if (tc.equipment == sp.packName)
+                    {
+                        tempATC.armour = sp;
+                    }
+                }
+                encounter.capableTroopers.Add(tempATC);
+            }
+        }
+        else
+        {
+            foreach(Slot_Class sc in slot.containedSlots)
+            {
+                AllocateTroopers(sc, encounter);
             }
         }
     }

@@ -9,6 +9,8 @@ public class Unit_Class
     public string unitName;
     [XmlElement("Estimated_unit_strength")]
     public float strength;
+    [XmlElement("Unit_Movement_Speed")]
+    public float speed;
 
     public List<Enemy_Container> containedEnemies;
 

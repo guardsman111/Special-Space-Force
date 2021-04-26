@@ -44,6 +44,31 @@ public class Equipment_Manager : MonoBehaviour
     public Dropdown ArmourPatternTrooper;
     public Toggle selectFromTemplate;
 
+    public List<Sprite_Pack> ArmourPacks
+    {
+        get { return armourPacks; }
+    }
+
+    public List<Sprite_Pack> FatiguesPacks
+    {
+        get { return fatiguesPacks; }
+    }
+
+    public List<Sprite_Pack> HelmetPacks
+    {
+        get { return helmetPacks; }
+    }
+
+    public List<Sprite_Pack> EquipmentPacks
+    {
+        get { return equipmentPacks; }
+    }
+
+    public List<Sprite_Pack> WeaponsPacks
+    {
+        get { return weaponPacks; }
+    }
+
     //Sets up sprite packs for all the equipments in files (mod and default) also sets up dropdowns to be usable
     public void Begin()
     {
@@ -70,6 +95,7 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.packName = temp.armourName;
             tempSP.patternName = temp.patternName;
             tempSP.armourV = temp.armourV;
+            tempSP.coverage = temp.coverage;
             tempSP.containedSprites = new List<Sprite>();
             try
             {
@@ -384,6 +410,7 @@ public class Equipment_Manager : MonoBehaviour
             tempSP.packName = temp.helmetName;
             tempSP.patternName = temp.patternName;
             tempSP.armourV = temp.armourV;
+            tempSP.coverage = temp.coverage;
             tempSP.containedSprites = new List<Sprite>();
             try
             {

@@ -14,6 +14,7 @@ public class Sprite_Pack
     public int armourV; /// These 3 variables should probably be seperated into a different class in future
     public int rangeV; //
     public int damageV; //
+    public int coverage;
     public string packType; //Hair, Skin, Armour, Fatigues, Helmet, Equipment
     public List<Sprite> containedSprites;
 

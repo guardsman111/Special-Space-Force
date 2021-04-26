@@ -8,5 +8,6 @@
   <HelmetVisorPath>Mods\Example Mod\Equipment\Helmets\Mk1 Helmet\Primary\Visor.png</HelmetVisorPath>
   <CostPerItem>8</CostPerItem> <!-- Ideally this should be identical across all items of the same name-->
   <armourV>5</armourV> <!-- Armour value of the armour, or how effective the armour is at protecting troopers!-->
+  <coverage>50</coverage> <!-- Coverage of the armour - how much of the trooper's head is covered by the helmet?-->
   <filterMode>0</filterMode> <!-- 0 = point, 1 = bilinear and 2 = trilinear - if your image doesn't look right at runtime change this value -->
 </Helmet_Class>

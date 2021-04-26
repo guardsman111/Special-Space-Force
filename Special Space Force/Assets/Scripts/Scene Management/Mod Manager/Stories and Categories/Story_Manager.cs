@@ -6,34 +6,141 @@ using UnityEngine;
 public class Story_Manager : MonoBehaviour
 {
     public Manager_Script manager;
+    public FileFinder finder;
+
+    private List<Story_Class> moveStories;
+    private List<Story_Class> fightStories;
+    public List<string> storyFiles;
 
     private Encounter_Class currentEncounter;
     private Slot_Class slot;
+    private Slot_Class squad;
+
+    public Trooper_Class currentTrooper;
 
     // Start is called before the first frame update
-    void Start()
+    public void Run()
     {
-        
+        moveStories = new List<Story_Class>();
+        fightStories = new List<Story_Class>();
+
+        storyFiles = finder.Retrieve("Stories.xml", ".meta");
+        FindStories();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FindStories()
     {
-        
+        List<Story_Collection> collection = new List<Story_Collection>();
+
+        foreach(string s in storyFiles)
+        {
+            collection.Add(Serializer.Deserialize<Story_Collection>(s));
+        }
+
+        foreach(Story_Collection col in collection)
+        {
+            foreach(Story_Class story in col.Stories)
+            {
+                if(story.storyType == "Move")
+                {
+                    moveStories.Add(story);
+                }
+
+                if (story.storyType == "Fight")
+                {
+                    fightStories.Add(story);
+                }
+            }
+        }
+
+    }
+
+    public Story_Class FindStory(Encounter_Class encounter)
+    {
+        Story_Class returner = new Story_Class();
+
+        List<int> noGood = new List<int>();
+
+        if (encounter.stepType == "Move")
+        {
+
+            int random = Random.Range(0, moveStories.Count);
+
+            returner = moveStories[random];
+
+            int count = 0;
+
+            while ((returner.nTDeath > encounter.deadTroopers.Count || returner.nEDeath > encounter.nDeadEnemies))
+            {
+                if(count > 100)
+                {
+                    break;
+                }
+                noGood.Add(random);
+
+                while (noGood.Contains(random))
+                {
+                    random = Random.Range(0, moveStories.Count);
+                }
+
+                returner = moveStories[random];
+
+                count += 1;
+            }
+        }
+        else if (encounter.stepType == "Fight")
+        {
+
+            int random = Random.Range(0, fightStories.Count);
+
+            returner = fightStories[random];
+
+            int count = 0;
+
+            while ((returner.nTDeath > encounter.deadTroopers.Count || returner.nEDeath > encounter.nDeadEnemies))
+            {
+                if (count > 100)
+                {
+                    break;
+                }
+                noGood.Add(random);
+
+                while (noGood.Contains(random))
+                {
+                    random = Random.Range(0, fightStories.Count);
+                }
+
+                returner = fightStories[random];
+
+                count += 1;
+            }
+        }
+
+        return returner;
     }
 
     public void Decode(Story_Class story, Encounter_Class encounter)
     {
         currentEncounter = encounter;
         slot = encounter.slots[Random.Range(0, encounter.slots.Count)];
-        if(slot.squad == false)
+
+        if (slot.squad == false)
         {
-            slot = slot.containedSlots[Random.Range(0, slot.containedSlots.Count)];
+            squad = slot.containedSlots[Random.Range(0, slot.containedSlots.Count)];
+            currentTrooper = squad.containedTroopers[Random.Range(0, slot.containedTroopers.Count)];
         }
+        else
+        {
+            squad = slot;
+            currentTrooper = slot.containedTroopers[Random.Range(0, slot.containedTroopers.Count)];
+        }
+
+
         if (manager.combatManager.combatReadout.text != "")
         {
             manager.combatManager.combatReadout.text += "\n";
         }
+
         foreach (string s in story.strings)
         {
             if (s.Contains("//:"))
@@ -81,8 +188,40 @@ public class Story_Manager : MonoBehaviour
         {
             if (code == "TrooperName")
             {
-                returner = slot.containedTroopers[Random.Range(0, slot.containedTroopers.Count)].trooperName;
+                returner = currentTrooper.trooperName;
                 return returner;
+            }
+            if (code == "TrooperLastName")
+            {
+                string[] breakdown = currentTrooper.trooperName.Split(' ');
+                returner = breakdown[1];
+                return returner;
+            }
+            if (code == "TrooperGenderC")
+            {
+                if (currentTrooper.gender == 0)
+                {
+                    returner = "She";
+                    return returner;
+                }
+                else 
+                {
+                    returner = "He";
+                    return returner;
+                }
+            }
+            if (code == "TrooperGender")
+            {
+                if (currentTrooper.gender == 0)
+                {
+                    returner = "she";
+                    return returner;
+                }
+                else
+                {
+                    returner = "he";
+                    return returner;
+                }
             }
         }
 
@@ -104,10 +243,24 @@ public class Story_Manager : MonoBehaviour
 
         if (code.Contains("Squad"))
         {
+            if (code == "SquadNameFull")
+            {
+                if (squad != null)
+                {
+                    returner = slot.slotName + "'s " + squad.slotName;
+                    return returner;
+                }
+                else
+                {
+                    returner = squad.slotName;
+                    return returner;
+                }
+            }
             if (code == "SquadName")
             {
-                returner = slot.slotName;
+                returner = squad.slotName;
                 return returner;
+
             }
         }
 
@@ -115,18 +268,40 @@ public class Story_Manager : MonoBehaviour
         {
             if (code == "LeaderName")
             {
-                returner = slot.containedTroopers[0].trooperName;
+                returner = squad.containedTroopers[0].trooperName;
                 return returner;
             }
             if (code == "LeaderLastName")
             {
-                string[] breakdown = slot.containedTroopers[0].trooperName.Split(' ');
+                string[] breakdown = squad.containedTroopers[0].trooperName.Split(' ');
                 returner = breakdown[1];
                 return returner;
             }
             if (code == "LeaderRank")
             {
-                returner = slot.containedTroopers[0].trooperRank;
+                returner = squad.containedTroopers[0].trooperRank;
+                return returner;
+            }
+            if (code == "LeaderGenderObject")
+            {
+                if (currentTrooper.gender == 0)
+                {
+                    returner = "her";
+                    return returner;
+                }
+                else
+                {
+                    returner = "him";
+                    return returner;
+                }
+            }
+        }
+
+        if (code.Contains("Enemy"))
+        {
+            if(code == "EnemyRace")
+            {
+                returner = currentEncounter.enemyUnits[0].enemies[0].enemyName;
                 return returner;
             }
         }

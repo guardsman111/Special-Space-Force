@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<Story_Collection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Stories>
+		<Story_Class>
+			<storyName>Advance</storyName>
+			<storyType>Move</storyType>
+			<storySize>Squad</storySize> <!-- Size of engagement in the story - is it at squad level or slot level?-->
+			<Number_Of_Trooper_Injuries>0</Number_Of_Trooper_Injuries> <!-- Number of troopers injured in this story passage-->
+			<Number_Of_Trooper_Deaths>0</Number_Of_Trooper_Deaths> <!-- Number of troopers killed in this story passage-->
+			<Number_Of_Enemy_Deaths>0</Number_Of_Enemy_Deaths> <!-- Number of enemies killed in this story passage-->
+			<strings>
+				<string>The members of </string>
+				<string>//:SquadNameFull</string>
+				<string> </string>
+				<string>//:MoveSlow //:Past</string>
+				<string> down the empty streets </string>
+				<string>//:WeaponsReady</string>
+				<string>, ready for anything.</string>
+				<string> Several </string>
+				<string>//:CorpsesHuman //:Soldier</string>
+				<string> </string>
+				<string>//:CityEnvObjLoc</string>
+				<string>, sending a chill down </string>
+				<string>//:TrooperName</string>
+				<string>'s spine. </string>
+				<string>//:TrooperGenderC</string>
+				<string> turned away and tried to dismiss what </string>
+				<string>//:TrooperGender</string>
+				<string> had just </string>
+				<string>//:SeeFirstPerson //:Past</string>
+				<string>.</string>
+			</strings>
+		</Story_Class>
+		<Story_Class>
+			<storyName>Advance</storyName>
+			<storyType>Move</storyType>
+			<storySize>Squad</storySize> <!-- Size of engagement in the story - is it at squad level or slot level?-->
+			<Number_Of_Trooper_Injuries>0</Number_Of_Trooper_Injuries> <!-- Number of troopers injured in this story passage-->
+			<Number_Of_Trooper_Deaths>0</Number_Of_Trooper_Deaths> <!-- Number of troopers killed in this story passage-->
+			<Number_Of_Enemy_Deaths>0</Number_Of_Enemy_Deaths> <!-- Number of enemies killed in this story passage-->
+			<strings>
+				<string>//:SquadNameFull</string>
+				<string> </string>
+				<string>//:MoveQuick //:Past</string>
+				<string> </string>
+				<string>//:BiomeMovement //:InOpenTerrain</string>
+				<string> stopping as they reached a low wall. Looking over it </string>
+				<string>//:WeaponsReady</string>
+				<string>, they waited for any sign of the </string>
+				<string>//:EnemyRace</string>
+				<string>s.</string>
+				<string> After a few tense seconds, </string>
+				<string>//:LeaderRank</string>
+				<string> </string>
+				<string>//:LeaderLastName</string>
+				<string> shouted "</string>
+				<string>//:TrooperShout //:Advance</string>
+				<string>" and </string>
+				<string>//:MoveOver //:Past</string>
+				<string> the wall.</string>
+				<string>//:SquadName</string>
+				<string> rose as one and followed </string>
+				<string>//:LeaderGenderObject</string>
+				<string>.</string>
+			</strings>
+		</Story_Class>
+	</Stories>
+</Story_Collection>

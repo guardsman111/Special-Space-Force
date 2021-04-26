@@ -18,6 +18,7 @@ public class Helmet_Class
 
     public int CostPerItem;
     public int armourV;
+    public int coverage;
 
     public int filterMode;
 
