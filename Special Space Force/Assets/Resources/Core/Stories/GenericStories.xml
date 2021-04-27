@@ -4,6 +4,7 @@
 		<Story_Class>
 			<storyName>Advance</storyName>
 			<storyType>Move</storyType>
+			<storyEnvironment>Urban</storyEnvironment>
 			<storySize>Squad</storySize> <!-- Size of engagement in the story - is it at squad level or slot level?-->
 			<Number_Of_Trooper_Injuries>0</Number_Of_Trooper_Injuries> <!-- Number of troopers injured in this story passage-->
 			<Number_Of_Trooper_Deaths>0</Number_Of_Trooper_Deaths> <!-- Number of troopers killed in this story passage-->
@@ -34,6 +35,7 @@
 		<Story_Class>
 			<storyName>Advance</storyName>
 			<storyType>Move</storyType>
+			<storyEnvironment>Both</storyEnvironment>
 			<storySize>Squad</storySize> <!-- Size of engagement in the story - is it at squad level or slot level?-->
 			<Number_Of_Trooper_Injuries>0</Number_Of_Trooper_Injuries> <!-- Number of troopers injured in this story passage-->
 			<Number_Of_Trooper_Deaths>0</Number_Of_Trooper_Deaths> <!-- Number of troopers killed in this story passage-->
@@ -54,14 +56,72 @@
 				<string> </string>
 				<string>//:LeaderLastName</string>
 				<string> shouted "</string>
-				<string>//:TrooperShout //:Advance</string>
+				<string>//:TrooperShout //:StartAdvance</string>
 				<string>" and </string>
 				<string>//:MoveOver //:Past</string>
-				<string> the wall.</string>
+				<string> the wall. </string>
 				<string>//:SquadName</string>
 				<string> rose as one and followed </string>
 				<string>//:LeaderGenderObject</string>
 				<string>.</string>
+			</strings>
+		</Story_Class>
+		<Story_Class>
+			<storyName>Advance</storyName>
+			<storyType>Move</storyType>
+			<storyEnvironment>Rural</storyEnvironment>
+			<storySize>Squad</storySize> <!-- Size of engagement in the story - is it at squad level or slot level?-->
+			<Number_Of_Trooper_Injuries>0</Number_Of_Trooper_Injuries> <!-- Number of troopers injured in this story passage-->
+			<Number_Of_Trooper_Incapacitated>0</Number_Of_Trooper_Incapacitated> <!-- Number of troopers injured in this story passage-->
+			<Number_Of_Trooper_Deaths>0</Number_Of_Trooper_Deaths> <!-- Number of troopers killed in this story passage-->
+			<Number_Of_Enemy_Deaths>0</Number_Of_Enemy_Deaths> <!-- Number of enemies killed in this story passage-->
+			<strings>
+				<string>//:SquadNameFull</string>
+				<string> </string>
+				<string>//:MoveQuick //:Past</string>
+				<string> </string>
+				<string>//:BiomeMovement //:InOpenTerrain</string>
+				<string> to close with the </string>
+				<string>//:EnemyRace</string>
+				<string>s. They heard the sound of battle to their </string>
+				<string>//:DirectionRandom</string>
+				<string> as another squad engaged. </string>
+				<string> Their squad leader, </string>
+				<string>//:LeaderRank</string>
+				<string> </string>
+				<string>//:LeaderLastName</string>
+				<string> shouted "</string>
+				<string>//:TrooperShout //:KeepAdvance</string>
+				<string>", keeping his squad together. Together they moved into unknown territory.</string>
+			</strings>
+		</Story_Class>
+		<Story_Class>
+			<storyName>Advance</storyName>
+			<storyType>Fight</storyType>
+			<storyEnvironment>Urban</storyEnvironment>
+			<storySize>Squad</storySize> <!-- Size of engagement in the story - is it at squad level or slot level?-->
+			<Number_Of_Trooper_Injuries>1</Number_Of_Trooper_Injuries> <!-- Number of troopers injured in this story passage-->
+			<Number_Of_Trooper_Incapacitated>0</Number_Of_Trooper_Incapacitated> <!-- Number of troopers injured in this story passage-->
+			<Number_Of_Trooper_Deaths>0</Number_Of_Trooper_Deaths> <!-- Number of troopers killed in this story passage-->
+			<Number_Of_Enemy_Deaths>0</Number_Of_Enemy_Deaths> <!-- Number of enemies killed in this story passage-->
+			<strings>
+				<string>//:TrooperName</string>
+				<string> threw </string>
+				<string>//:TrooperGenderReflexive</string>
+				<string> </string>
+				<string>//:IntoCoverUrban //:Dive</string>
+				<string> ,</string>
+				<string>//:CloseMissUrban</string>
+				<string>. Behind </string>
+				<string>//:TrooperGender</string>
+				<string>, </string>
+				<string>//:InjuredTrooper01 //:Name</string>
+				<string> wasn't so lucky, as </string>
+				<string>//:InjuredTrooper01 //:WeaponHit</string>
+				<string>. It wasn't too bad, and </string>
+				<string>//:InjuredTrooper01 //:Gender</string>
+				<string> dove in behind </string>
+				<string>//:TrooperName</string>
 			</strings>
 		</Story_Class>
 	</Stories>

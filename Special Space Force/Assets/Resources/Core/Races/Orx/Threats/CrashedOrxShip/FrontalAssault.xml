@@ -14,7 +14,8 @@
 	<introStories> <!-- Stories that give an introduction to the mission-->
 		<Story_Class>
 			<storyName>Town Assault</storyName>
-			<storyType>Stealth</storyType>
+			<storyType>Move</storyType>
+			<storyEnvironment>Urban</storyEnvironment>
 			<storySize>Squad</storySize> <!-- Size of engagement in the story - is it at squad level or slot level?-->
 			<Number_Of_Trooper_Injuries>0</Number_Of_Trooper_Injuries> <!-- Number of troopers injured in this story passage-->
 			<Number_Of_Trooper_Deaths>0</Number_Of_Trooper_Deaths> <!-- Number of troopers killed in this story passage-->

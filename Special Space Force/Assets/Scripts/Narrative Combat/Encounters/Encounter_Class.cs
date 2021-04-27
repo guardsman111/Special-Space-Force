@@ -8,13 +8,17 @@ public class Encounter_Class
     public List<Enemy_Unit_Instance> enemyUnits;
 
     public float playerStrength;
-    public List<Affected_Trooper_Class> affectedTroopers; //troopers that were affected this round - this is reset each step
+    public List<Affected_Trooper_Class> stepInjuredTroopers; //troopers that were affected this round - this is reset each step
+    public List<Affected_Trooper_Class> stepIncapacitatedTroopers; //troopers that were affected this round - this is reset each step
+    public List<Affected_Trooper_Class> stepBrokenTroopers; //troopers that were affected this round - this is reset each step
+    public List<Affected_Trooper_Class> stepDeadTroopers; //troopers that were affected this round - this is reset each step
     public List<Affected_Trooper_Class> capableTroopers;
     public List<Affected_Trooper_Class> incapacitatedTroopers;
     public List<Affected_Trooper_Class> brokenTroopers;
     public List<Affected_Trooper_Class> deadTroopers;
 
     public string stepType;
+    public string environment;
     public float distance;
     public bool complete;
 

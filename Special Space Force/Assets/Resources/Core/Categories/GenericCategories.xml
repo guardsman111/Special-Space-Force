@@ -92,5 +92,35 @@
 				<string>looked at</string>
 			</snippets>
 		</Category_Class>
+		<Category_Class>
+			<categoryName>DirectionRandom</categoryName>
+			<categoryType>Past</categoryType>
+			<snippets>
+				<string>left</string>
+				<string>right</string>
+				<string>east</string>
+				<string>west</string>
+				<string>north</string>
+				<string>south</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>IntoCoverUrban</categoryName>
+			<categoryType>Dive</categoryType>
+			<snippets>
+				<string>down onto the ground behind a pile of rubble</string>
+				<string>behind a demolished wall</string>
+				<string>over a short wall into relative cover</string>
+				<string>onto the ground, cracking their helmet against a wall</string>
+			</snippets>
+		</Category_Class>
+		<Category_Class>
+			<categoryName>CloseMissUrban</categoryName>
+			<categoryType>Above</categoryType>
+			<snippets>
+				<string>as a stream of bullets flew overhead</string>
+				<string>just as enemy fire stitched into the bricks where /:TrooperGender/ was stood</string>
+			</snippets>
+		</Category_Class>
 	</Categories>
 </Category_Collection>

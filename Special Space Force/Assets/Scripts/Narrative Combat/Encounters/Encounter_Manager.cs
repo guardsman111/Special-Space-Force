@@ -57,7 +57,8 @@ public class Encounter_Manager : MonoBehaviour
                         tempEC.stepType = "Move";
                         tempEC.distance = 50;
                         tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
-                        tempEC.affectedTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.stepInjuredTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.stepDeadTroopers = new List<Affected_Trooper_Class>();
                         tempEC.capableTroopers = new List<Affected_Trooper_Class>();
                         tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
                         tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
@@ -78,7 +79,8 @@ public class Encounter_Manager : MonoBehaviour
                     tempEC.stepType = "Move";
                     tempEC.distance = 50;
                     tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
-                    tempEC.affectedTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.stepInjuredTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.stepDeadTroopers = new List<Affected_Trooper_Class>();
                     tempEC.capableTroopers = new List<Affected_Trooper_Class>();
                     tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
                     tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
@@ -108,7 +110,8 @@ public class Encounter_Manager : MonoBehaviour
                         tempEC.stepType = "Move";
                         tempEC.distance = 50;
                         tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
-                        tempEC.affectedTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.stepInjuredTroopers = new List<Affected_Trooper_Class>();
+                        tempEC.stepDeadTroopers = new List<Affected_Trooper_Class>();
                         tempEC.capableTroopers = new List<Affected_Trooper_Class>();
                         tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
                         tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
@@ -130,7 +133,8 @@ public class Encounter_Manager : MonoBehaviour
                     tempEC.stepType = "Move";
                     tempEC.distance = 50;
                     tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
-                    tempEC.affectedTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.stepInjuredTroopers = new List<Affected_Trooper_Class>();
+                    tempEC.stepDeadTroopers = new List<Affected_Trooper_Class>();
                     tempEC.capableTroopers = new List<Affected_Trooper_Class>();
                     tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
                     tempEC.brokenTroopers = new List<Affected_Trooper_Class>();

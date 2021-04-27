@@ -32,7 +32,9 @@ public class Combat_Screen_Manager : MonoBehaviour
     {
         combatReadout.text = "";
         Encounter_Class EC = eManager.encounters[Random.Range(0, eManager.encounters.Count)];
-        manager.storyManager.Decode(currentMission.MissionC.introStories[Random.Range(0, currentMission.MissionC.introStories.Count)], EC);
+        Story_Class randomIntro = currentMission.MissionC.introStories[Random.Range(0, currentMission.MissionC.introStories.Count)];
+        EC.environment = randomIntro.storyEnvironment;
+        manager.storyManager.Decode(randomIntro, EC);
     }
 
     public void StepButtonPress()
@@ -49,7 +51,10 @@ public class Combat_Screen_Manager : MonoBehaviour
         {
             if (ec.complete == false)
             {
-                ec.affectedTroopers = new List<Affected_Trooper_Class>();
+                ec.stepInjuredTroopers = new List<Affected_Trooper_Class>();
+                ec.stepIncapacitatedTroopers = new List<Affected_Trooper_Class>();
+                ec.stepBrokenTroopers = new List<Affected_Trooper_Class>();
+                ec.stepDeadTroopers = new List<Affected_Trooper_Class>();
                 ec.nDeadEnemies = 0;
                 ec.nInjuredEnemies = 0;
                 if (ec.enemyUnits.Count > 0)
@@ -496,8 +501,10 @@ public class Combat_Screen_Manager : MonoBehaviour
                             tempAC.effectType = "Broken";
                             tempAC.effectName = "Running Away!";
                             atc.effects.Add(tempAC);
+                            encounter.stepBrokenTroopers.Add(atc);
                             encounter.brokenTroopers.Add(atc);
                             encounter.capableTroopers.Remove(atc);
+                            encounter.capableTroopers.TrimExcess();
                         }
                     }
                 }
@@ -545,6 +552,7 @@ public class Combat_Screen_Manager : MonoBehaviour
                     encounter.capableTroopers.Remove(trooper);
                 }
             }
+            encounter.stepInjuredTroopers.Add(trooper);
             trooper.effects.Add(tempAffect);
         }
         else if (damageEffect <= 50)

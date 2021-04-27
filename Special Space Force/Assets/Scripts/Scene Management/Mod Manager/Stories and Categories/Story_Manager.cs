@@ -70,17 +70,28 @@ public class Story_Manager : MonoBehaviour
 
             int count = 0;
 
-            while ((returner.nTDeath > encounter.deadTroopers.Count || returner.nEDeath > encounter.nDeadEnemies))
+            while ((returner.nTInjuries > encounter.stepInjuredTroopers.Count || returner.nTIncapacitated > encounter.stepIncapacitatedTroopers.Count || returner.nTDeath > encounter.stepDeadTroopers.Count || returner.nEDeath > encounter.nDeadEnemies || returner.storyEnvironment != encounter.environment))
             {
                 if(count > 100)
                 {
                     break;
                 }
+                else if((returner.nTInjuries > encounter.stepInjuredTroopers.Count && returner.nTIncapacitated > encounter.stepIncapacitatedTroopers.Count && returner.nTDeath > encounter.stepDeadTroopers.Count && returner.nEDeath > encounter.nDeadEnemies) && returner.storyEnvironment == "Both")
+                {
+                    break;
+                }
                 noGood.Add(random);
+
+                int count2 = 0;
 
                 while (noGood.Contains(random))
                 {
                     random = Random.Range(0, moveStories.Count);
+                    count2 += 1;
+                    if(count2 > 10)
+                    {
+                        break;
+                    }
                 }
 
                 returner = moveStories[random];
@@ -97,17 +108,28 @@ public class Story_Manager : MonoBehaviour
 
             int count = 0;
 
-            while ((returner.nTDeath > encounter.deadTroopers.Count || returner.nEDeath > encounter.nDeadEnemies))
+            while ((returner.nTInjuries > encounter.stepInjuredTroopers.Count || returner.nTIncapacitated > encounter.stepIncapacitatedTroopers.Count || returner.nTDeath > encounter.stepDeadTroopers.Count || returner.nEDeath > encounter.nDeadEnemies || returner.storyEnvironment != encounter.environment))
             {
-                if (count > 100)
+                if (count > 10)
+                {
+                    break;
+                }
+                else if ((returner.nTInjuries > encounter.stepInjuredTroopers.Count && returner.nTIncapacitated > encounter.stepIncapacitatedTroopers.Count && returner.nTDeath > encounter.stepDeadTroopers.Count && returner.nEDeath > encounter.nDeadEnemies) && returner.storyEnvironment == "Both")
                 {
                     break;
                 }
                 noGood.Add(random);
 
+                int count2 = 0;
+
                 while (noGood.Contains(random))
                 {
-                    random = Random.Range(0, fightStories.Count);
+                    random = Random.Range(0, moveStories.Count);
+                    count2 += 1;
+                    if (count2 > 10)
+                    {
+                        break;
+                    }
                 }
 
                 returner = fightStories[random];
@@ -135,10 +157,9 @@ public class Story_Manager : MonoBehaviour
             currentTrooper = slot.containedTroopers[Random.Range(0, slot.containedTroopers.Count)];
         }
 
-
         if (manager.combatManager.combatReadout.text != "")
         {
-            manager.combatManager.combatReadout.text += "\n";
+            manager.combatManager.combatReadout.text += "\n \n";
         }
 
         foreach (string s in story.strings)
@@ -191,6 +212,11 @@ public class Story_Manager : MonoBehaviour
                 returner = currentTrooper.trooperName;
                 return returner;
             }
+            if (code == "TrooperRandomName")
+            {
+                returner = squad.containedTroopers[Random.Range(1, squad.containedTroopers.Count)].trooperName;
+                return returner;
+            }
             if (code == "TrooperLastName")
             {
                 string[] breakdown = currentTrooper.trooperName.Split(' ');
@@ -220,6 +246,19 @@ public class Story_Manager : MonoBehaviour
                 else
                 {
                     returner = "he";
+                    return returner;
+                }
+            }
+            if (code == "TrooperGenderReflexive")
+            {
+                if (currentTrooper.gender == 0)
+                {
+                    returner = "herself";
+                    return returner;
+                }
+                else
+                {
+                    returner = "himself";
                     return returner;
                 }
             }
@@ -320,6 +359,30 @@ public class Story_Manager : MonoBehaviour
                     if(code == category.categoryName)
                     {
                         returner = category.snippets[Random.Range(0, category.snippets.Count)];
+                        if (returner.Contains("//:"))
+                        {
+                            var count = returner.Count(x => x == ':');
+                            if (count > 1)
+                            {
+                                string[] split = returner.Split(':');
+                                for (int i = 0; i < split.Length; i++)
+                                {
+                                    split[i] = split[i].Replace("//", "");
+                                    split[i] = split[i].Replace(" ", "");
+                                    Debug.Log(split[i] + " " + i + " section");
+                                }
+
+                                string sentence = FindCode(split[1], split[2]);
+                                returner = sentence;
+                            }
+                            else
+                            {
+                                string codes = returner.Replace("//:", "");
+                                string sentence = FindCode(codes);
+                                returner = sentence;
+                            }
+                        }
+                        
                         return returner;
                     }
                 }
@@ -353,6 +416,32 @@ public class Story_Manager : MonoBehaviour
     public string FindCode(string code1, string code2) //Returns a string from a double code
     {
         string returner = "";
+
+        if (code1.Contains("Trooper"))
+        {
+            if (code1.Contains("Injured"))
+            {
+                if (code1.Contains("01"))
+                {
+                    if (code2 == "Name")
+                    {
+                        returner = currentEncounter.stepInjuredTroopers[0].trooperClass.trooperName;
+                        return returner;
+                    }
+
+                    if (code2 == "WeaponHit")
+                    {
+                        foreach(Category_Class cat in currentEncounter.stepInjuredTroopers[0].effects[currentEncounter.stepInjuredTroopers[0].effects.Count - 1].effectingWeapon.categories)
+                        {
+                            if(cat.categoryName == "Weapon" && cat.categoryType == "Injure")
+                            {
+                                returner = cat.snippets[Random.Range(0, cat.snippets.Count)];
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         if (code1.Contains("Squad"))
         {
@@ -408,6 +497,58 @@ public class Story_Manager : MonoBehaviour
                         if (code2 == catCol.Categories[i].categoryType)
                         {
                             returner = catCol.Categories[i].snippets[Random.Range(0, catCol.Categories[i].snippets.Count)];
+                            if (returner.Contains("/:")) //if the returner contains a code
+                            {
+                                var count = returner.Count(x => x == ':');
+                                List<string> sending = new List<string>();
+                                //if (count > 2) //if more than one code
+                                //{
+                                //    string[] split = returner.Split(':'); //Split the returner 
+                                //    for (int j = 0; j < split.Length; j++)
+                                //    {
+                                //        if (split[j].Contains(":")) //If the section contains : then add it to the sende
+                                //        {
+                                //            split[j] = split[j].Replace("//", "");
+                                //            split[j] = split[j].Replace(" ", "");
+                                //            sending.Add(split[j]);
+                                //        }
+                                //        Debug.Log(split[j] + " " + j + " section");
+                                //    }
+
+                                //    string sentence = FindCode(sending[0], sending[1]);
+
+                                //    string newReturner = "";
+
+                                //    foreach(string s in split)
+                                //    {
+                                //        if (!sending.Contains(s))
+                                //        {
+                                //            newReturner += s;
+                                //        }
+                                //    }
+
+                                //    returner = newReturner;
+                                //} 
+                                //else 
+                                //{
+                                char seperator = '/';
+                                string[] split = returner.Split(seperator);
+                                returner = "";
+                                foreach(string s in split)
+                                {
+                                    if (s.Contains(":"))
+                                    {
+                                        string codes = s.Replace(":", "");
+                                        string sentence = FindCode(codes);
+                                        returner += sentence;
+                                    }
+                                    else
+                                    {
+                                        returner += s;
+                                    }
+                                }
+                                //}
+                            }
                             return returner;
                         }
                     }
