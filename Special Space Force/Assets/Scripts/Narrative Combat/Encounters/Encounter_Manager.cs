@@ -55,7 +55,7 @@ public class Encounter_Manager : MonoBehaviour
                     {
                         Encounter_Class tempEC = new Encounter_Class();
                         tempEC.stepType = "Move";
-                        tempEC.distance = 50;
+                        tempEC.distance = 60;
                         tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
                         tempEC.stepInjuredTroopers = new List<Affected_Trooper_Class>();
                         tempEC.stepDeadTroopers = new List<Affected_Trooper_Class>();
@@ -77,7 +77,7 @@ public class Encounter_Manager : MonoBehaviour
                 {
                     Encounter_Class tempEC = new Encounter_Class();
                     tempEC.stepType = "Move";
-                    tempEC.distance = 50;
+                    tempEC.distance = 60;
                     tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
                     tempEC.stepInjuredTroopers = new List<Affected_Trooper_Class>();
                     tempEC.stepDeadTroopers = new List<Affected_Trooper_Class>();
@@ -87,6 +87,7 @@ public class Encounter_Manager : MonoBehaviour
                     tempEC.deadTroopers = new List<Affected_Trooper_Class>();
                     tempEC.slots = new List<Slot_Class>();
                     tempEC.slots.Add(css.SlotClass);
+                    AllocateTroopers(css.SlotClass, tempEC);
                     tempEC.playerStrength += float.Parse(css.strengthText.text);
                     encounters.Add(tempEC);
                 }
@@ -108,7 +109,7 @@ public class Encounter_Manager : MonoBehaviour
                     {
                         Encounter_Class tempEC = new Encounter_Class();
                         tempEC.stepType = "Move";
-                        tempEC.distance = 50;
+                        tempEC.distance = 60;
                         tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
                         tempEC.stepInjuredTroopers = new List<Affected_Trooper_Class>();
                         tempEC.stepDeadTroopers = new List<Affected_Trooper_Class>();
@@ -131,7 +132,7 @@ public class Encounter_Manager : MonoBehaviour
                 {
                     Encounter_Class tempEC = new Encounter_Class();
                     tempEC.stepType = "Move";
-                    tempEC.distance = 50;
+                    tempEC.distance = 60;
                     tempEC.enemyUnits = new List<Enemy_Unit_Instance>();
                     tempEC.stepInjuredTroopers = new List<Affected_Trooper_Class>();
                     tempEC.stepDeadTroopers = new List<Affected_Trooper_Class>();
@@ -141,6 +142,7 @@ public class Encounter_Manager : MonoBehaviour
                     tempEC.deadTroopers = new List<Affected_Trooper_Class>();
                     tempEC.slots = new List<Slot_Class>();
                     tempEC.slots.Add(css.SlotClass);
+                    AllocateTroopers(css.SlotClass, tempEC);
                     tempEC.playerStrength += float.Parse(css.strengthText.text);
                     encounters.Add(tempEC);
                 }
@@ -250,6 +252,7 @@ public class Encounter_Manager : MonoBehaviour
                 Affected_Trooper_Class tempATC = new Affected_Trooper_Class();
                 tempATC.squad = slot;
                 tempATC.trooperClass = tc;
+                tempATC.effects = new List<Affect_Class>();
 
                 //Bring accross the relevant files for gear
                 foreach(Sprite_Pack sp in manager.equipmentManager.WeaponsPacks)
@@ -272,14 +275,14 @@ public class Encounter_Manager : MonoBehaviour
                 }
                 foreach (Sprite_Pack sp in manager.equipmentManager.HelmetPacks)
                 {
-                    if (tc.equipment == sp.packName)
+                    if (tc.helmet == sp.packName)
                     {
                         tempATC.helmet = sp;
                     }
                 }
                 foreach (Sprite_Pack sp in manager.equipmentManager.ArmourPacks)
                 {
-                    if (tc.equipment == sp.packName)
+                    if (tc.armour == sp.packName)
                     {
                         tempATC.armour = sp;
                     }

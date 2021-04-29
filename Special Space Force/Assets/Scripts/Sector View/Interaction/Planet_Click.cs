@@ -237,44 +237,49 @@ public class Planet_Click : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                foreach (GameObject go in gameObject.GetComponent<Planet_Script>().moons)
-                {
-                    go.SetActive(false);
-                }
-               while(orbiters.Count > 0) //Moons can go here eventually
-                {
-                    Destroy(orbiters[0]);
-                    orbiters.RemoveAt(0);
-                }
-                systemCamera.enabled = true;
-                star.enabled = true;
-                planetCamera.enabled = false;
-                planetScreenCamera.enabled = false;
-                previous = false;
-                gameObject.transform.position = previousPosition;
-                planetScreen.systemScreen.QVManager.enabled = true;
-
-                //Any sliders that are out are returned
-                if (planetScreen.planetEconomyWindow.GetComponent<Slider_Script>().pulledOut)
-                {
-                    planetScreen.planetEconomyWindow.GetComponent<Slider_Script>().Slide();
-                }
-                if (planetScreen.planetMilitaryWindow.GetComponent<Slider_Script>().pulledOut)
-                {
-                    planetScreen.planetMilitaryWindow.GetComponent<Slider_Script>().Slide();
-                }
-                if (planetScreen.threatM.GetComponent<Slider_Script>().pulledOut)
-                {
-                    planetScreen.threatM.GetComponent<Slider_Script>().Slide();
-                }
-                planetScreen.QVManager.CloseManager();
-                planetScreen.QVManager.ClosePlanetSlider();
-                planetScreen.QVManager.enabled = false;
-                planetScreen.GetComponent<Canvas>().enabled = false;
-                ToggleVisiblePlanets.TogglePlanetsOn(true);
-                systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
-                systemCamera.GetComponent<Camera_Container_Script>().planetHelper.HideHelper();
+                ClosePlanet();
             }
         }
+    }
+
+    public void ClosePlanet()
+    {
+        foreach (GameObject go in gameObject.GetComponent<Planet_Script>().moons)
+        {
+            go.SetActive(false);
+        }
+        while (orbiters.Count > 0) //Moons can go here eventually
+        {
+            Destroy(orbiters[0]);
+            orbiters.RemoveAt(0);
+        }
+        systemCamera.enabled = true;
+        star.enabled = true;
+        planetCamera.enabled = false;
+        planetScreenCamera.enabled = false;
+        previous = false;
+        gameObject.transform.position = previousPosition;
+        planetScreen.systemScreen.QVManager.enabled = true;
+
+        //Any sliders that are out are returned
+        if (planetScreen.planetEconomyWindow.GetComponent<Slider_Script>().pulledOut)
+        {
+            planetScreen.planetEconomyWindow.GetComponent<Slider_Script>().Slide();
+        }
+        if (planetScreen.planetMilitaryWindow.GetComponent<Slider_Script>().pulledOut)
+        {
+            planetScreen.planetMilitaryWindow.GetComponent<Slider_Script>().Slide();
+        }
+        if (planetScreen.threatM.GetComponent<Slider_Script>().pulledOut)
+        {
+            planetScreen.threatM.GetComponent<Slider_Script>().Slide();
+        }
+        planetScreen.QVManager.CloseManager();
+        planetScreen.QVManager.ClosePlanetSlider();
+        planetScreen.QVManager.enabled = false;
+        planetScreen.GetComponent<Canvas>().enabled = false;
+        ToggleVisiblePlanets.TogglePlanetsOn(true);
+        systemCamera.GetComponent<Camera_Container_Script>().systemHelper.ShowHelper();
+        systemCamera.GetComponent<Camera_Container_Script>().planetHelper.HideHelper();
     }
 }

@@ -32,5 +32,15 @@
 				<string>/:TrooperLastName/, focus up and keep moving!</string>
 			</snippets>
 		</Category_Class>
+		<Category_Class>
+			<categoryName>RifleShot</categoryName>
+			<categoryType>Gender</categoryType>
+			<snippets>
+				<string>/:TrooperGender/ raised /:TrooperGenderPossesive/ weapon and fired</string>
+				<string>/:TrooperGender/ was pumping shots towards the enemy</string>
+				<string>/:TrooperGender/ fired a burst of bullets towards the enemy</string>
+				<string>/:TrooperGender/ fired from the hip</string>
+			</snippets>
+		</Category_Class>
 	</Categories>
 </Category_Collection>

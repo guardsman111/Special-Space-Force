@@ -21,6 +21,7 @@ public class Combat_Setup_Manager : MonoBehaviour
     public Text tTroopers;
     public bool changing = false;
     public Button beginButton;
+    public Dropdown stanceDropdown;
 
     public Combat_Screen_Manager combatManager;
 

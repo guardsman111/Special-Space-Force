@@ -100,4 +100,9 @@ public class Camera_Targeted : MonoBehaviour
         distanceMax = 100f;
         smoothTime = 15f;
     }
+
+    public void ClosePlanet()
+    {
+        target.gameObject.GetComponent<Planet_Click>().ClosePlanet();
+    }
 }

@@ -131,6 +131,7 @@ public class System_Click : MonoBehaviour
                     systemScreen.sname.text = "System: " + system.Star.systemName;
                     systemScreen.allegiance.text = "Owner: " + system.allegiance;
                     systemScreen.output.text = "Total Output: " + system.combinedOutput.ToString("00,0") + " Kilo-Tonnes";
+                    systemScreen.currentSystemClicker = this;
                     system.SName.enabled = false;
                     system.Faction.enabled = false;
                     system.craftIcon.gameObject.SetActive(false);
@@ -196,41 +197,46 @@ public class System_Click : MonoBehaviour
             {
                 if (systemCamera.transform.position == cameraTransform.position)
                 {
-                    systemCamera.transform.position = mainCamera.transform.position;
-                    mainCamera.enabled = true;
-                    systemCamera.enabled = false;
-                    systemScreenCamera.enabled = false;
-                    ToggleVisiblePlanets.TogglePlanetsOn(false);
-                    System_Script system = GetComponent<System_Script>();
-                    system.SName.enabled = true;
-                    system.Faction.enabled = true;
-                    if (systemScreen.QVManager.craft.Count > 0)
-                    {
-                        system.craftIcon.gameObject.SetActive(true);
-                    }
-                    if (system.Colonising)
-                    {
-                        system.coloIcon.gameObject.SetActive(true);
-                    }
-                    foreach (Planet_Script ps in system.SystemPlanets)
-                    {
-                        if (ps.ThreatsOnPlanet.Count > 0)
-                        {
-                            system.threatIcon.SetActive(true);
-                            break;
-                        }
-                    }
-                    systemScreen.aManager.CloseManager();
-                    systemScreen.QVManager.CloseManager();
-                    systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
-                    foreach (Button b in UIs)
-                    {
-                        b.gameObject.SetActive(true);
-                    }
-                    systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.ShowHelper();
-                    canvas.SetActive(false);
+                    CloseSystem();
                 }
             }
         }
+    }
+
+    public void CloseSystem()
+    {
+        systemCamera.transform.position = mainCamera.transform.position;
+        mainCamera.enabled = true;
+        systemCamera.enabled = false;
+        systemScreenCamera.enabled = false;
+        ToggleVisiblePlanets.TogglePlanetsOn(false);
+        System_Script system = GetComponent<System_Script>();
+        system.SName.enabled = true;
+        system.Faction.enabled = true;
+        if (systemScreen.QVManager.craft.Count > 0)
+        {
+            system.craftIcon.gameObject.SetActive(true);
+        }
+        if (system.Colonising)
+        {
+            system.coloIcon.gameObject.SetActive(true);
+        }
+        foreach (Planet_Script ps in system.SystemPlanets)
+        {
+            if (ps.ThreatsOnPlanet.Count > 0)
+            {
+                system.threatIcon.SetActive(true);
+                break;
+            }
+        }
+        systemScreen.aManager.CloseManager();
+        systemScreen.QVManager.CloseManager();
+        systemCamera.GetComponent<Camera_Container_Script>().systemHelper.HideHelper();
+        foreach (Button b in UIs)
+        {
+            b.gameObject.SetActive(true);
+        }
+        systemCamera.GetComponent<Camera_Container_Script>().sectorHelper.ShowHelper();
+        canvas.SetActive(false);
     }
 }

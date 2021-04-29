@@ -124,7 +124,7 @@ public class Story_Manager : MonoBehaviour
 
                 while (noGood.Contains(random))
                 {
-                    random = Random.Range(0, moveStories.Count);
+                    random = Random.Range(0, fightStories.Count);
                     count2 += 1;
                     if (count2 > 10)
                     {
@@ -217,6 +217,12 @@ public class Story_Manager : MonoBehaviour
                 returner = squad.containedTroopers[Random.Range(1, squad.containedTroopers.Count)].trooperName;
                 return returner;
             }
+            if (code == "TrooperFirstName")
+            {
+                string[] breakdown = currentTrooper.trooperName.Split(' ');
+                returner = breakdown[0];
+                return returner;
+            }
             if (code == "TrooperLastName")
             {
                 string[] breakdown = currentTrooper.trooperName.Split(' ');
@@ -246,6 +252,32 @@ public class Story_Manager : MonoBehaviour
                 else
                 {
                     returner = "he";
+                    return returner;
+                }
+            }
+            if (code == "TrooperGenderPossesive")
+            {
+                if (currentTrooper.gender == 0)
+                {
+                    returner = "her";
+                    return returner;
+                }
+                else
+                {
+                    returner = "his";
+                    return returner;
+                }
+            }
+            if (code == "TrooperGenderSubject")
+            {
+                if (currentTrooper.gender == 0)
+                {
+                    returner = "her";
+                    return returner;
+                }
+                else
+                {
+                    returner = "him";
                     return returner;
                 }
             }
@@ -398,6 +430,58 @@ public class Story_Manager : MonoBehaviour
                     if (code == catCol.Categories[i].categoryName)
                     {
                         returner = catCol.Categories[i].snippets[Random.Range(0, catCol.Categories[i].snippets.Count)];
+                        if (returner.Contains("/:")) //if the returner contains a code
+                        {
+                            var count = returner.Count(x => x == ':');
+                            List<string> sending = new List<string>();
+                            //if (count > 2) //if more than one code
+                            //{
+                            //    string[] split = returner.Split(':'); //Split the returner 
+                            //    for (int j = 0; j < split.Length; j++)
+                            //    {
+                            //        if (split[j].Contains(":")) //If the section contains : then add it to the sende
+                            //        {
+                            //            split[j] = split[j].Replace("//", "");
+                            //            split[j] = split[j].Replace(" ", "");
+                            //            sending.Add(split[j]);
+                            //        }
+                            //        Debug.Log(split[j] + " " + j + " section");
+                            //    }
+
+                            //    string sentence = FindCode(sending[0], sending[1]);
+
+                            //    string newReturner = "";
+
+                            //    foreach(string s in split)
+                            //    {
+                            //        if (!sending.Contains(s))
+                            //        {
+                            //            newReturner += s;
+                            //        }
+                            //    }
+
+                            //    returner = newReturner;
+                            //} 
+                            //else 
+                            //{
+                            char seperator = '/';
+                            string[] split = returner.Split(seperator);
+                            returner = "";
+                            foreach (string s in split)
+                            {
+                                if (s.Contains(":"))
+                                {
+                                    string codes = s.Replace(":", "");
+                                    string sentence = FindCode(codes);
+                                    returner += sentence;
+                                }
+                                else
+                                {
+                                    returner += s;
+                                }
+                            }
+                            //}
+                        }
                         return returner;
                     }
                 }
@@ -421,21 +505,87 @@ public class Story_Manager : MonoBehaviour
         {
             if (code1.Contains("Injured"))
             {
-                if (code1.Contains("01"))
+                if (currentEncounter.stepInjuredTroopers.Count == 0)
                 {
+                    Debug.Log("No injured troopers and calling for injured - need more stories!");
+                    returner = "No injured troopers";
+                    return returner;
+                }
+                else
+                {
+                    int identifier = 0;
+                    if (code1.Contains("02"))
+                    {
+                        identifier = 1;
+                    }
+                    if (code1.Contains("03"))
+                    {
+                        identifier = 2;
+                    }
+                    if (code1.Contains("04"))
+                    {
+                        identifier = 3;
+                    }
+                    if (code1.Contains("05"))
+                    {
+                        identifier = 4;
+                    }
+
                     if (code2 == "Name")
                     {
-                        returner = currentEncounter.stepInjuredTroopers[0].trooperClass.trooperName;
+                        returner = currentEncounter.stepInjuredTroopers[identifier].trooperClass.trooperName;
                         return returner;
+                    }
+
+                    if (code2 == "Gender")
+                    {
+                        if (currentEncounter.stepInjuredTroopers[identifier].trooperClass.gender == 0)
+                        {
+                            returner = "she";
+                            return returner;
+                        }
+                        else
+                        {
+                            returner = "he";
+                            return returner;
+                        }
+                    }
+                    if (code2 == "GenderSubject")
+                    {
+                        if (currentEncounter.stepInjuredTroopers[identifier].trooperClass.gender == 0)
+                        {
+                            returner = "her";
+                            return returner;
+                        }
+                        else
+                        {
+                            returner = "him";
+                            return returner;
+                        }
+                    }
+                    if (code2 == "GenderReflexive")
+                    {
+                        if (currentEncounter.stepInjuredTroopers[identifier].trooperClass.gender == 0)
+                        {
+                            returner = "herself";
+                            return returner;
+                        }
+                        else
+                        {
+                            returner = "himself";
+                            return returner;
+                        }
                     }
 
                     if (code2 == "WeaponHit")
                     {
-                        foreach(Category_Class cat in currentEncounter.stepInjuredTroopers[0].effects[currentEncounter.stepInjuredTroopers[0].effects.Count - 1].effectingWeapon.categories)
+                        Affected_Trooper_Class afc = currentEncounter.stepInjuredTroopers[identifier];
+                        foreach (Category_Class cat in afc.effects[currentEncounter.stepInjuredTroopers[identifier].effects.Count - 1].effectingWeapon.categories)
                         {
-                            if(cat.categoryName == "Weapon" && cat.categoryType == "Injure")
+                            if (cat.categoryName == "Weapon" && cat.categoryType == afc.effects[currentEncounter.stepInjuredTroopers[identifier].effects.Count - 1].effectType)
                             {
                                 returner = cat.snippets[Random.Range(0, cat.snippets.Count)];
+                                return returner;
                             }
                         }
                     }

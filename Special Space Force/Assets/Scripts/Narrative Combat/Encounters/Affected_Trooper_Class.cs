@@ -11,7 +11,7 @@ public class Affected_Trooper_Class
     public Sprite_Pack equipment;
     public Sprite_Pack armour;
     public Sprite_Pack helmet;
-    public List<Affect_Class> effects;
+    public List<Affect_Class> effects; 
 
     public Affected_Trooper_Class()
     {

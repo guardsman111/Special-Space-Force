@@ -110,10 +110,10 @@
 				<string>//:TrooperGenderReflexive</string>
 				<string> </string>
 				<string>//:IntoCoverUrban //:Dive</string>
-				<string> ,</string>
+				<string>, </string>
 				<string>//:CloseMissUrban</string>
 				<string>. Behind </string>
-				<string>//:TrooperGender</string>
+				<string>//:TrooperGenderSubject</string>
 				<string>, </string>
 				<string>//:InjuredTrooper01 //:Name</string>
 				<string> wasn't so lucky, as </string>
@@ -121,7 +121,27 @@
 				<string>. It wasn't too bad, and </string>
 				<string>//:InjuredTrooper01 //:Gender</string>
 				<string> dove in behind </string>
+				<string>//:TrooperFirstName</string>
+				<string>.</string>
+			</strings>
+		</Story_Class>
+		<Story_Class>
+			<storyName>Advance</storyName>
+			<storyType>Fight</storyType>
+			<storyEnvironment>Urban</storyEnvironment>
+			<storySize>Squad</storySize> <!-- Size of engagement in the story - is it at squad level or slot level?-->
+			<Number_Of_Trooper_Injuries>0</Number_Of_Trooper_Injuries> <!-- Number of troopers injured in this story passage-->
+			<Number_Of_Trooper_Incapacitated>0</Number_Of_Trooper_Incapacitated> <!-- Number of troopers injured in this story passage-->
+			<Number_Of_Trooper_Deaths>0</Number_Of_Trooper_Deaths> <!-- Number of troopers killed in this story passage-->
+			<Number_Of_Enemy_Deaths>0</Number_Of_Enemy_Deaths> <!-- Number of enemies killed in this story passage-->
+			<strings>
+				<string>Shots burst bricks and </string>
 				<string>//:TrooperName</string>
+				<string> turned to face the location of the shooter. Instantaniously, </string>
+				<string>//:RifleShot //:Gender</string>
+				<string>, narrowly missing an </string>
+				<string>//:EnemyRace</string>
+				<string>.</string>
 			</strings>
 		</Story_Class>
 	</Stories>
