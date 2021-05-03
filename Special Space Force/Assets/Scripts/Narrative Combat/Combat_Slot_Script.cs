@@ -13,6 +13,10 @@ public class Combat_Slot_Script : MonoBehaviour
     public Text locationText;
     public Text strengthText;
     public Toggle toggleSelected;
+    public int dead;
+    public int crit;
+    public int inj;
+    public int brok;
 
     private Combat_Setup_Manager manager;
 
@@ -36,6 +40,10 @@ public class Combat_Slot_Script : MonoBehaviour
     {
         slotClass = combatScript;
         manager = cm;
+        dead = 0;
+        crit = 0;
+        inj = 0;
+        brok = 0;
 
         nameText.text = slotClass.slotName;
         strengthText.text = slotClass.numberOfTroopers.ToString();

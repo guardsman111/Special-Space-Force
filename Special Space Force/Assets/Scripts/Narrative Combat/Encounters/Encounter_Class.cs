@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Encounter_Class 
 {
-    public List<Slot_Class> slots;
+    public List<Combat_Slot_Script> slots;
     public List<Enemy_Unit_Instance> enemyUnits;
 
     public float playerStrength;
@@ -27,6 +27,8 @@ public class Encounter_Class
     public float nInjuredEnemies; //Injured enemies this step
     public float nDeadEnemies; //Dead enemies this step
     public float nDeadEnemiesTotal; //Total dead enemies
+
+    public int result; //0 for victory, 1 for defeat, 2 for draw
 
     public Encounter_Class()
     {

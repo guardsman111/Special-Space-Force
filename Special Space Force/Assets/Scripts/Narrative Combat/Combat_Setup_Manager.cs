@@ -155,6 +155,13 @@ public class Combat_Setup_Manager : MonoBehaviour
         tStrength.text = totalStrength.ToString();
         tTroopers.text = totalTroopers.ToString();
 
+        roleDisplay.nLine = 0;
+        roleDisplay.nCombat = 0;
+        roleDisplay.nCommand = 0;
+        roleDisplay.nOther = 0;
+        roleDisplay.nSupport = 0;
+        roleDisplay.nElite = 0;
+
         gameObject.SetActive(false);
     }
 

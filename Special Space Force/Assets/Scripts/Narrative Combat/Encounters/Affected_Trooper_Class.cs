@@ -5,7 +5,7 @@ using UnityEngine;
 public class Affected_Trooper_Class 
 {
     public Trooper_Class trooperClass;
-    public Slot_Class squad;
+    public Combat_Slot_Script squad;
     public Sprite_Pack primaryWeapon;
     public Sprite_Pack secondaryWeapon;
     public Sprite_Pack equipment;

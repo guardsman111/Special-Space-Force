@@ -14,10 +14,14 @@ public class Combat_Screen_Manager : MonoBehaviour
     public Button nextStep;
     public Slider balance;
     public Combat_Setup_Manager setupManager;
+    public After_Action_Report_Manager aManager;
+
+    //Selected Objects for the current mission
     public List<Combat_Slot_Script> selectedSlots;
     public Encounter_Manager eManager;
     public Mission_Script currentMission;
     int countCompleted = 0;
+    string result;
 
     public int stance; //0 - aggressive, 1 - moderate, 2 - defensive
 
@@ -65,7 +69,12 @@ public class Combat_Screen_Manager : MonoBehaviour
                 {
                     foreach (Enemy_Unit_Instance eu in ec.enemyUnits) //Check to see if the enemy units run away
                     {
-                        if (eu.enemies.Count < manager.raceManager.FindUnitClass(currentMission.parentRace, eu.unitName).containedEnemies.Count / 2)
+                        int nEnemies = 0;
+                        for(int i = 0; i < manager.raceManager.FindUnitClass(currentMission.parentRace, eu.unitName).containedEnemies.Count; i++)
+                        {
+                            nEnemies += manager.raceManager.FindUnitClass(currentMission.parentRace, eu.unitName).containedEnemies[i].nOfEnemies;
+                        }
+                        if (eu.enemies.Count < nEnemies / 2)
                         {
                             fleeing.Add(eu);
                             //Run!
@@ -75,9 +84,9 @@ public class Combat_Screen_Manager : MonoBehaviour
                     {
                         ec.enemyUnits.Remove(flee);
                     }
-                    foreach (Slot_Class sc in ec.slots) //Check to see if the player's troopers run away
+                    foreach (Combat_Slot_Script sc in ec.slots) //Check to see if the player's troopers run away
                     {
-                        CheckTroopersFlee(sc, ec);
+                        CheckTroopersFlee(sc.SlotClass, ec);
                     }
                 }
                 if (ec.enemyUnits.Count > 0 && ec.capableTroopers.Count > 0)
@@ -86,30 +95,33 @@ public class Combat_Screen_Manager : MonoBehaviour
                 }
                 else
                 {
-                    if (ec.capableTroopers.Count < 0)
+                    if (ec.capableTroopers.Count > 0)
                     {
                         ec.complete = true;
                         countCompleted += 1;
-                        manager.combatManager.combatReadout.text += "\n \n" + "The enemy fall back, leaving behind " + ec.nDeadEnemiesTotal + " dead on the field. Our troopers celebrate, " +
-                            "before the grim task of collecting the " + ec.deadTroopers + " dead troopers and treating the " + ec.incapacitatedTroopers + " wounded lying on the battlefield.";
+                        manager.combatManager.combatReadout.text += "\n \n" + "The enemy fall back, leaving behind " + ec.nDeadEnemiesTotal.ToString() + " dead on the field. Our troopers celebrate, " +
+                            "before the grim task of collecting the " + ec.deadTroopers.Count.ToString() + " dead troopers and treating the " + ec.incapacitatedTroopers.Count.ToString() + " wounded lying on the battlefield.";
                         //Player's Force wins this encounter
+                        ec.result = 0;
                     }
                     else if (ec.enemyUnits.Count > 0)
                     {
                         ec.complete = true;
                         countCompleted += 1;
-                        manager.combatManager.combatReadout.text += "\n \n" + ec.slots[0].slotName + " retreats, with " + ec.brokenTroopers.Count + " surviving troopers, leaving behind " 
-                            + ec.deadTroopers.Count + " dead and " + ec.incapacitatedTroopers.Count + " injured troopers.";
+                        manager.combatManager.combatReadout.text += "\n \n" + ec.slots[0].SlotClass.slotName + " retreats, with " + ec.brokenTroopers.Count.ToString() + " surviving troopers, leaving behind " 
+                            + ec.deadTroopers.Count + " dead and " + ec.incapacitatedTroopers.Count.ToString() + " injured troopers.";
                         //Enemy Force wins this encounter
+                        ec.result = 1;
                     }
                     else
                     {
                         ec.complete = true;
                         countCompleted += 1;
-                        manager.combatManager.combatReadout.text += "\n \n" + ec.slots[0].slotName + " retreats, with " + ec.brokenTroopers.Count + " surviving troopers, leaving behind "
-                            + ec.deadTroopers.Count + " dead and " + ec.incapacitatedTroopers.Count + " injured troopers. The " + ec.enemyUnits[0].unitName + 
-                            " also fall back, leaving behind " + ec.nDeadEnemiesTotal + " dead.";
+                        manager.combatManager.combatReadout.text += "\n \n" + ec.slots[0].SlotClass.slotName + " retreats, with " + ec.brokenTroopers.Count.ToString() + " surviving troopers, leaving behind "
+                            + ec.deadTroopers.Count + " dead and " + ec.incapacitatedTroopers.Count.ToString() + " injured troopers. The " + ec.enemyUnits[0].unitName + 
+                            " also fall back, leaving behind " + ec.nDeadEnemiesTotal.ToString() + " dead.";
                         //No one wins the encounter
+                        ec.result = 2;
                     }
                 }
             }
@@ -117,7 +129,7 @@ public class Combat_Screen_Manager : MonoBehaviour
             {
                 if(countCompleted >= eManager.encounters.Count)
                 {
-                    manager.combatManager.combatReadout.text += "\n \nThe battle ends, and both sides lick their wounds.";
+                    manager.combatManager.combatReadout.text += "\n \nThe battle ends in a " + result + " for your forces!";
                 }
             }
         }
@@ -316,7 +328,7 @@ public class Combat_Screen_Manager : MonoBehaviour
 
                                     if (armourHitChance > tempATC.helmet.coverage) //Skips armour - can kill
                                     {
-                                        DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, true);
+                                        DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, true);
                                     }
                                     else
                                     {
@@ -328,7 +340,7 @@ public class Combat_Screen_Manager : MonoBehaviour
 
                                             if (random > chance) //Defeats armour and does damage - can kill
                                             {
-                                                DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, true);
+                                                DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, true);
                                             }
                                             else //Armour deflects or otherwise beats damage
                                             {
@@ -343,7 +355,7 @@ public class Combat_Screen_Manager : MonoBehaviour
 
                                             if (random > chance) //Defeats armour and does damage - cannot kill
                                             {
-                                                DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, false);
+                                                DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, false);
                                             }
                                             else //Armour beats damage
                                             {
@@ -358,7 +370,7 @@ public class Combat_Screen_Manager : MonoBehaviour
 
                                     if (armourHitChance > tempATC.armour.coverage) //Skips armour - can kill
                                     {
-                                        DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, true);
+                                        DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, true);
                                     }
                                     else
                                     {
@@ -370,7 +382,7 @@ public class Combat_Screen_Manager : MonoBehaviour
 
                                             if (random > chance) //Defeats armour and does damage - can kill
                                             {
-                                                DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, true);
+                                                DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, true);
                                             }
                                             else //Armour deflects or otherwise beats damage
                                             {
@@ -385,7 +397,7 @@ public class Combat_Screen_Manager : MonoBehaviour
 
                                             if (random > chance) //Defeats armour and does damage - cannot kill
                                             {
-                                                DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, false);
+                                                DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, false);
                                             }
                                             else //Armour beats damage
                                             {
@@ -406,97 +418,99 @@ public class Combat_Screen_Manager : MonoBehaviour
 
                     if (hit < ei.enemyClass.strength) // Successful hit
                     {
-                        int randomTrooper = Random.Range(0, encounter.capableTroopers.Count);
-
-                        Affected_Trooper_Class tempATC = encounter.capableTroopers[randomTrooper];
-
-                        int hitLocation = Random.Range(0, 100);
-
-                        if (hitLocation > 75) //Head hit
+                        if (encounter.capableTroopers.Count != 0)
                         {
-                            int armourHitChance = Random.Range(0, 100);
+                            int randomTrooper = Random.Range(0, encounter.capableTroopers.Count);
 
-                            if (armourHitChance > tempATC.helmet.coverage) //Skips armour - can kill
+                            Affected_Trooper_Class tempATC = encounter.capableTroopers[randomTrooper];
+
+                            int hitLocation = Random.Range(0, 100);
+
+                            if (hitLocation > 75) //Head hit
                             {
-                                DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, true);
-                            }
-                            else
-                            {
-                                if (ei.primaryWeapon.strength > tempATC.helmet.armourV) //Weapon strength higher than armour
+                                int armourHitChance = Random.Range(0, 100);
+
+                                if (armourHitChance > tempATC.helmet.coverage) //Skips armour - can kill
                                 {
-                                    float chance = 100 - ((ei.primaryWeapon.strength - tempATC.helmet.armourV) * 10);
-
-                                    int random = Random.Range(0, 100);
-
-                                    if (random > chance) //Defeats armour and does damage - can kill
-                                    {
-                                        DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, true);
-                                    }
-                                    else //Armour deflects or otherwise beats damage
-                                    {
-                                        //Nothing Happens
-                                    }
+                                    DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, true);
                                 }
                                 else
                                 {
-                                    float chance = 95;
-
-                                    int random = Random.Range(0, 100);
-
-                                    if (random > chance) //Defeats armour and does damage - cannot kill
+                                    if (ei.primaryWeapon.strength > tempATC.helmet.armourV) //Weapon strength higher than armour
                                     {
-                                        DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, false);
+                                        float chance = 100 - ((ei.primaryWeapon.strength - tempATC.helmet.armourV) * 10);
+
+                                        int random = Random.Range(0, 100);
+
+                                        if (random > chance) //Defeats armour and does damage - can kill
+                                        {
+                                            DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, true);
+                                        }
+                                        else //Armour deflects or otherwise beats damage
+                                        {
+                                            //Nothing Happens
+                                        }
                                     }
-                                    else //Armour beats damage
+                                    else
                                     {
+                                        float chance = 95;
 
+                                        int random = Random.Range(0, 100);
+
+                                        if (random > chance) //Defeats armour and does damage - cannot kill
+                                        {
+                                            DealDamageHead(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, false);
+                                        }
+                                        else //Armour beats damage
+                                        {
+
+                                        }
+                                    }
+                                }
+                            }
+                            else //Hits body
+                            {
+                                int armourHitChance = Random.Range(0, 100);
+
+                                if (armourHitChance > tempATC.armour.coverage) //Skips armour - can kill
+                                {
+                                    DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, true);
+                                }
+                                else
+                                {
+                                    if (ei.primaryWeapon.strength > tempATC.armour.armourV) //Weapon strength higher than armour
+                                    {
+                                        float chance = 100 - ((ei.primaryWeapon.strength - tempATC.armour.armourV) * 10);
+
+                                        int random = Random.Range(0, 100);
+
+                                        if (random > chance) //Defeats armour and does damage - can kill
+                                        {
+                                            DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, true);
+                                        }
+                                        else //Armour deflects or otherwise beats damage
+                                        {
+                                            //Nothing Happens
+                                        }
+                                    }
+                                    else
+                                    {
+                                        float chance = 95;
+
+                                        int random = Random.Range(0, 100);
+
+                                        if (random > chance) //Defeats armour and does damage - cannot kill
+                                        {
+                                            DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, tempATC.squad, false);
+                                        }
+                                        else //Armour beats damage
+                                        {
+
+                                        }
                                     }
                                 }
                             }
                         }
-                        else //Hits body
-                        {
-                            int armourHitChance = Random.Range(0, 100);
-
-                            if (armourHitChance > tempATC.armour.coverage) //Skips armour - can kill
-                            {
-                                DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, true);
-                            }
-                            else
-                            {
-                                if (ei.primaryWeapon.strength > tempATC.armour.armourV) //Weapon strength higher than armour
-                                {
-                                    float chance = 100 - ((ei.primaryWeapon.strength - tempATC.armour.armourV) * 10);
-
-                                    int random = Random.Range(0, 100);
-
-                                    if (random > chance) //Defeats armour and does damage - can kill
-                                    {
-                                        DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, true);
-                                    }
-                                    else //Armour deflects or otherwise beats damage
-                                    {
-                                        //Nothing Happens
-                                    }
-                                }
-                                else
-                                {
-                                    float chance = 95;
-
-                                    int random = Random.Range(0, 100);
-
-                                    if (random > chance) //Defeats armour and does damage - cannot kill
-                                    {
-                                        DealDamageBody(tempATC, encounter, ei, ei.primaryWeapon, false);
-                                    }
-                                    else //Armour beats damage
-                                    {
-
-                                    }
-                                }
-                            }
-                        }
-
                     }
                 }
             }
@@ -544,6 +558,7 @@ public class Combat_Screen_Manager : MonoBehaviour
                             tempAC.effectType = "Broken";
                             tempAC.effectName = "Running Away!";
                             encounter.capableTroopers[i].effects.Add(tempAC);
+                            encounter.capableTroopers[i].squad.brok += 1;
                             encounter.stepBrokenTroopers.Add(encounter.capableTroopers[i]);
                             encounter.brokenTroopers.Add(encounter.capableTroopers[i]);
                             encounter.capableTroopers.Remove(encounter.capableTroopers[i]);
@@ -562,7 +577,7 @@ public class Combat_Screen_Manager : MonoBehaviour
         }
     }
 
-    public void DealDamageHead(Affected_Trooper_Class trooper, Encounter_Class encounter, Enemy_Instance enemy, Enemy_Weapons_Class enemyWeapon, bool canKill)
+    public void DealDamageHead(Affected_Trooper_Class trooper, Encounter_Class encounter, Enemy_Instance enemy, Enemy_Weapons_Class enemyWeapon, Combat_Slot_Script slot, bool canKill)
     {
         int damageEffect = Random.Range(0, 80 + enemyWeapon.strength);
 
@@ -573,6 +588,10 @@ public class Combat_Screen_Manager : MonoBehaviour
             tempAffect.effectType = "Injury";
             tempAffect.effectingEnemy = enemy.enemyClass;
             tempAffect.effectingWeapon = enemyWeapon;
+            if(trooper.effects.Count == 0)
+            {
+                trooper.squad.inj += 1;
+            }
             trooper.effects.Add(tempAffect);
             if (trooper.effects.Count > 1)
             {
@@ -584,6 +603,10 @@ public class Combat_Screen_Manager : MonoBehaviour
                         count += 1;
                     }
                 }
+                if(count == 0)
+                {
+                    trooper.squad.inj += 1;
+                }
                 if(count > 4)
                 {
                     Affect_Class tempAffect2 = new Affect_Class();
@@ -592,6 +615,8 @@ public class Combat_Screen_Manager : MonoBehaviour
                     tempAffect.effectingEnemy = enemy.enemyClass;
                     tempAffect.effectingWeapon = enemyWeapon;
                     trooper.effects.Add(tempAffect2);
+                    trooper.squad.inj -= 1;
+                    trooper.squad.crit += 1;
                     encounter.incapacitatedTroopers.Add(trooper);
                     encounter.stepIncapacitatedTroopers.Add(trooper);
                     encounter.capableTroopers.Remove(trooper);
@@ -599,7 +624,7 @@ public class Combat_Screen_Manager : MonoBehaviour
             }
             encounter.stepInjuredTroopers.Add(trooper);
         }
-        else if (damageEffect <= 70)
+        else if (damageEffect <= 60)
         {
             Affect_Class tempAffect = new Affect_Class();
             tempAffect.effectName = "Serious Wound";
@@ -614,17 +639,41 @@ public class Combat_Screen_Manager : MonoBehaviour
             tempAffect2.effectingEnemy = enemy.enemyClass;
             tempAffect2.effectingWeapon = enemyWeapon;
             trooper.effects.Add(tempAffect2);
+            if (trooper.effects.Count > 1)
+            {
+                foreach (Affect_Class affect in trooper.effects)
+                {
+                    if (affect.effectName == "Light Wound" || affect.effectName == "Serious Wound Treated")
+                    {
+                        trooper.squad.inj -= 1;
+                        break;
+                    }
+                }
+            }
+            trooper.squad.crit += 1;
             encounter.incapacitatedTroopers.Add(trooper);
             encounter.stepIncapacitatedTroopers.Add(trooper);
             encounter.capableTroopers.Remove(trooper);
         }
-        else if (damageEffect > 70)
+        else if (damageEffect > 60)
         {
             Affect_Class tempAffect = new Affect_Class();
             tempAffect.effectName = "Dead";
             tempAffect.effectType = "Dead";
             tempAffect.effectingEnemy = enemy.enemyClass;
             tempAffect.effectingWeapon = enemyWeapon;
+            if (trooper.effects.Count > 1)
+            {
+                foreach (Affect_Class affect in trooper.effects)
+                {
+                    if (affect.effectName == "Light Wound" || affect.effectName == "Serious Wound Treated")
+                    {
+                        trooper.squad.inj -= 1;
+                        break;
+                    }
+                }
+            }
+            trooper.squad.dead += 1;
             trooper.effects.Add(tempAffect);
             encounter.deadTroopers.Add(trooper);
             encounter.stepDeadTroopers.Add(trooper);
@@ -632,7 +681,7 @@ public class Combat_Screen_Manager : MonoBehaviour
         }
     }
 
-    public void DealDamageBody(Affected_Trooper_Class trooper, Encounter_Class encounter, Enemy_Instance enemy, Enemy_Weapons_Class enemyWeapon, bool canKill)
+    public void DealDamageBody(Affected_Trooper_Class trooper, Encounter_Class encounter, Enemy_Instance enemy, Enemy_Weapons_Class enemyWeapon, Combat_Slot_Script slot, bool canKill)
     {
         int damageEffect = Random.Range(0, 80 + enemyWeapon.strength);
 
@@ -643,6 +692,10 @@ public class Combat_Screen_Manager : MonoBehaviour
             tempAffect.effectType = "Injury";
             tempAffect.effectingEnemy = enemy.enemyClass;
             tempAffect.effectingWeapon = enemyWeapon;
+            if (trooper.effects.Count == 0)
+            {
+                trooper.squad.inj += 1;
+            }
             trooper.effects.Add(tempAffect);
             if (trooper.effects.Count > 1)
             {
@@ -654,6 +707,10 @@ public class Combat_Screen_Manager : MonoBehaviour
                         count += 1;
                     }
                 }
+                if (count == 0)
+                {
+                    trooper.squad.inj += 1;
+                }
                 if (count > 4)
                 {
                     Affect_Class tempAffect2 = new Affect_Class();
@@ -661,6 +718,8 @@ public class Combat_Screen_Manager : MonoBehaviour
                     tempAffect.effectType = "Unconcious";
                     tempAffect.effectingEnemy = enemy.enemyClass;
                     tempAffect.effectingWeapon = enemyWeapon;
+                    trooper.squad.inj -= 1;
+                    trooper.squad.crit += 1;
                     trooper.effects.Add(tempAffect2);
                     encounter.incapacitatedTroopers.Add(trooper);
                     encounter.stepIncapacitatedTroopers.Add(trooper);
@@ -669,7 +728,7 @@ public class Combat_Screen_Manager : MonoBehaviour
             }
             encounter.stepInjuredTroopers.Add(trooper);
         }
-        else if (damageEffect <= 90)
+        else if (damageEffect <= 80)
         {
             Affect_Class tempAffect = new Affect_Class();
             tempAffect.effectName = "Serious Wound";
@@ -683,18 +742,42 @@ public class Combat_Screen_Manager : MonoBehaviour
             tempAffect2.effectType = "Unconcious";
             tempAffect2.effectingEnemy = enemy.enemyClass;
             tempAffect2.effectingWeapon = enemyWeapon;
+            if (trooper.effects.Count > 1)
+            {
+                foreach (Affect_Class affect in trooper.effects)
+                {
+                    if (affect.effectName == "Light Wound" || affect.effectName == "Serious Wound Treated")
+                    {
+                        trooper.squad.inj -= 1;
+                        break;
+                    }
+                }
+            }
+            trooper.squad.crit += 1;
             trooper.effects.Add(tempAffect2);
             encounter.incapacitatedTroopers.Add(trooper);
             encounter.stepIncapacitatedTroopers.Add(trooper);
             encounter.capableTroopers.Remove(trooper);
         }
-        else if (damageEffect > 90)
+        else if (damageEffect > 80)
         {
             Affect_Class tempAffect = new Affect_Class();
             tempAffect.effectName = "Dead";
             tempAffect.effectType = "Dead";
             tempAffect.effectingEnemy = enemy.enemyClass;
             tempAffect.effectingWeapon = enemyWeapon;
+            if (trooper.effects.Count > 1)
+            {
+                foreach (Affect_Class affect in trooper.effects)
+                {
+                    if (affect.effectName == "Light Wound" || affect.effectName == "Serious Wound Treated")
+                    {
+                        trooper.squad.inj -= 1;
+                        break;
+                    }
+                }
+            }
+            trooper.squad.dead += 1;
             trooper.effects.Add(tempAffect);
             encounter.deadTroopers.Add(trooper);
             encounter.stepDeadTroopers.Add(trooper);
@@ -731,17 +814,66 @@ public class Combat_Screen_Manager : MonoBehaviour
         }
         else if (eManager.encounters.Count < 8)
         {
+            for (int i = 0; i < 3; i++)
+            {
+                int rand = Random.Range(0, eManager.encounters.Count);
+                if (eManager.encounters[rand].complete == false)
+                {
+                    Story_Class tempS = manager.storyManager.FindStory(eManager.encounters[rand]);
+                    manager.storyManager.Decode(tempS, eManager.encounters[rand]);
+                }
+            }
             // 3 stories
         }
         else if (eManager.encounters.Count > 8)
         {
+            for (int i = 0; i < 4; i++)
+            {
+                int rand = Random.Range(0, eManager.encounters.Count);
+                if (eManager.encounters[rand].complete == false)
+                {
+                    Story_Class tempS = manager.storyManager.FindStory(eManager.encounters[rand]);
+                    manager.storyManager.Decode(tempS, eManager.encounters[rand]);
+                }
+            }
             // 4 stories
         }
     }
 
     public void Close()
     {
-        setupManager.CloseManager();
+        int count = 0;
+        while(countCompleted < eManager.encounters.Count) //Runs the encounter to the end
+        {
+            DoCombatStep();
+            count += 1;
+            if (count >= 20)
+            {
+                break;
+            }
+        }
+        aManager.gameObject.SetActive(true);
+        int VictoryCount = 0;
+        foreach(Encounter_Class ec in eManager.encounters)
+        {
+            if(ec.result == 0)
+            {
+                VictoryCount += 1;
+            }
+        }
+        if(VictoryCount > eManager.encounters.Count / 2)
+        {
+            result = "Victory";
+        }
+        else if(VictoryCount == eManager.encounters.Count / 2)
+        {
+            result = "Draw";
+        }
+        else
+        {
+            result = "Defeat";
+        }
+        aManager.OpenAfterActionreport(selectedSlots, result);
         gameObject.SetActive(false);
     }
 }

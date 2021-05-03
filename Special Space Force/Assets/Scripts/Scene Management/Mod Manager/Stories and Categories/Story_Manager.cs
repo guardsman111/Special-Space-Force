@@ -144,7 +144,7 @@ public class Story_Manager : MonoBehaviour
     public void Decode(Story_Class story, Encounter_Class encounter)
     {
         currentEncounter = encounter;
-        slot = encounter.slots[Random.Range(0, encounter.slots.Count)];
+        slot = encounter.slots[Random.Range(0, encounter.slots.Count)].SlotClass;
 
         if (slot.squad == false)
         {
@@ -301,11 +301,11 @@ public class Story_Manager : MonoBehaviour
             if (code == "HighestSlotName")
             {
                 int height = 100;
-                foreach(Slot_Class sc in currentEncounter.slots)
+                foreach(Combat_Slot_Script sc in currentEncounter.slots)
                 {
-                    if(sc.slotHeight < height)
+                    if(sc.SlotClass.slotHeight < height)
                     {
-                        returner = currentEncounter.slots[0].slotName;
+                        returner = currentEncounter.slots[0].SlotClass.slotName;
                     }
                 }
                 return returner;

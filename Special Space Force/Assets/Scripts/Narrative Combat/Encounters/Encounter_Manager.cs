@@ -8,10 +8,11 @@ public class Encounter_Manager : MonoBehaviour
     public int nSlots; //The number of slots required for the calculation to match slots against enemies instead of squads
 
     public List<Encounter_Class> encounters;
+    public List<Combat_Slot_Script> squads;
 
     public void CreateEncounters(List<Combat_Slot_Script> selectedSlots, Mission_Script mission)
     {
-        List<Combat_Slot_Script> squads = new List<Combat_Slot_Script>();
+        squads = new List<Combat_Slot_Script>();
         List<Combat_Slot_Script> slots = new List<Combat_Slot_Script>();
         encounters = new List<Encounter_Class>();
 
@@ -63,7 +64,7 @@ public class Encounter_Manager : MonoBehaviour
                         tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
                         tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
                         tempEC.deadTroopers = new List<Affected_Trooper_Class>();
-                        tempEC.slots = new List<Slot_Class>();
+                        tempEC.slots = new List<Combat_Slot_Script>();
                         Unit_Class tempUC = manager.raceManager.FindUnitClass(mission.parentRace, ud.unitName);
                         CreateEnemyUnitInstance(tempEC, tempUC, mission.parentRace);
                         encounters.Add(tempEC);
@@ -85,9 +86,9 @@ public class Encounter_Manager : MonoBehaviour
                     tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
                     tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
                     tempEC.deadTroopers = new List<Affected_Trooper_Class>();
-                    tempEC.slots = new List<Slot_Class>();
-                    tempEC.slots.Add(css.SlotClass);
-                    AllocateTroopers(css.SlotClass, tempEC);
+                    tempEC.slots = new List<Combat_Slot_Script>();
+                    tempEC.slots.Add(css);
+                    AllocateTroopers(css, tempEC);
                     tempEC.playerStrength += float.Parse(css.strengthText.text);
                     encounters.Add(tempEC);
                 }
@@ -117,7 +118,7 @@ public class Encounter_Manager : MonoBehaviour
                         tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
                         tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
                         tempEC.deadTroopers = new List<Affected_Trooper_Class>();
-                        tempEC.slots = new List<Slot_Class>();
+                        tempEC.slots = new List<Combat_Slot_Script>();
                         Unit_Class tempUC = manager.raceManager.FindUnitClass(mission.parentRace, ud.unitName);
                         CreateEnemyUnitInstance(tempEC, tempUC, mission.parentRace);
                         encounters.Add(tempEC);
@@ -140,9 +141,9 @@ public class Encounter_Manager : MonoBehaviour
                     tempEC.incapacitatedTroopers = new List<Affected_Trooper_Class>();
                     tempEC.brokenTroopers = new List<Affected_Trooper_Class>();
                     tempEC.deadTroopers = new List<Affected_Trooper_Class>();
-                    tempEC.slots = new List<Slot_Class>();
-                    tempEC.slots.Add(css.SlotClass);
-                    AllocateTroopers(css.SlotClass, tempEC);
+                    tempEC.slots = new List<Combat_Slot_Script>();
+                    tempEC.slots.Add(css);
+                    AllocateTroopers(css, tempEC);
                     tempEC.playerStrength += float.Parse(css.strengthText.text);
                     encounters.Add(tempEC);
                 }
@@ -209,8 +210,8 @@ public class Encounter_Manager : MonoBehaviour
             {
                 if (squads.Count != 0)
                 {
-                    AllocateTroopers(squads[0].SlotClass, encounter);
-                    encounter.slots.Add(squads[0].SlotClass);
+                    encounter.slots.Add(squads[0]);
+                    AllocateTroopers(squads[0], encounter);
                     encounter.playerStrength += float.Parse(squads[0].strengthText.text);
                     squads.RemoveAt(0);
                 }
@@ -230,8 +231,8 @@ public class Encounter_Manager : MonoBehaviour
             {
                 if (slots.Count != 0)
                 {
-                    AllocateTroopers(slots[0].SlotClass, encounter);
-                    encounter.slots.Add(slots[0].SlotClass);
+                    encounter.slots.Add(slots[0]);
+                    AllocateTroopers(slots[0], encounter);
                     encounter.playerStrength += float.Parse(slots[0].strengthText.text);
                     slots.RemoveAt(0);
                 }
@@ -243,11 +244,11 @@ public class Encounter_Manager : MonoBehaviour
         }
     }
 
-    public void AllocateTroopers(Slot_Class slot, Encounter_Class encounter)
+    public void AllocateTroopers(Combat_Slot_Script slot, Encounter_Class encounter)
     {
-        if (slot.squad)
+        if (slot.SlotClass.squad)
         {
-            foreach(Trooper_Class tc in slot.containedTroopers)
+            foreach(Trooper_Class tc in slot.SlotClass.containedTroopers)
             {
                 Affected_Trooper_Class tempATC = new Affected_Trooper_Class();
                 tempATC.squad = slot;
@@ -292,9 +293,16 @@ public class Encounter_Manager : MonoBehaviour
         }
         else
         {
-            foreach(Slot_Class sc in slot.containedSlots)
+            foreach(Slot_Class sc in slot.SlotClass.containedSlots)
             {
-                AllocateTroopers(sc, encounter);
+                foreach(Combat_Slot_Script css in squads)
+                {
+                    if(sc == css.SlotClass)
+                    {
+                        AllocateTroopers(css, encounter);
+                        break;
+                    }
+                }
             }
         }
     }
