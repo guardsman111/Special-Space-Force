@@ -24,6 +24,7 @@ public class Manager_Script : MonoBehaviour
     public Combat_Screen_Manager combatManager;
     public Story_Manager storyManager;
     public Category_Manager categoryManager;
+    public Camera_Movement cameraMovement;
 
     private Generation_Class generatedProduct;
 

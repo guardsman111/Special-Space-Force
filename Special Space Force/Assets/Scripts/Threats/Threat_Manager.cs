@@ -112,7 +112,7 @@ public class Threat_Manager : MonoBehaviour
                 GameObject temp = Instantiate(prefabMission, contentMissions.transform);
                 Mission_Script tempMS = temp.GetComponent<Mission_Script>();
                 tempMS.manager = this;
-                tempMS.CreateMission(mc, this, threat.ThreatC);
+                tempMS.CreateMission(mc, this, threat.ThreatC, threat);
                 temp.transform.localPosition = N2.transform.localPosition;
                 temp.transform.localPosition += new Vector3(0, (-400 * missions.Count), 0);
                 missions.Add(tempMS);

@@ -12,6 +12,8 @@ public class Mission_Script : MonoBehaviour
     public TextMeshProUGUI missionEnemies;
     public string parentRace;
 
+    public Threat_Script parentThreatScript;
+
     private Mission_Class missionC;
 
     public Mission_Class MissionC
@@ -26,12 +28,13 @@ public class Mission_Script : MonoBehaviour
         }
     }
 
-    public void CreateMission(Mission_Class mission, Threat_Manager tmanager, Threat_Class parentThreat)
+    public void CreateMission(Mission_Class mission, Threat_Manager tmanager, Threat_Class parentThreat, Threat_Script pThreatScript)
     {
         missionC = mission;
         missionName.text = missionC.missionName;
         missionDesc.text = missionC.missionDescription;
         parentRace = parentThreat.threatFaction;
+        parentThreatScript = pThreatScript;
 
         string enemyText;
 

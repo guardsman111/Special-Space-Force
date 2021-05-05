@@ -344,7 +344,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -5.8, y: 0}
-  m_SizeDelta: {x: 350, y: 120}
+  m_SizeDelta: {x: 400, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1064646735278492657
 CanvasRenderer:
@@ -663,6 +663,10 @@ MonoBehaviour:
   locationText: {fileID: 1064646734965387720}
   strengthText: {fileID: 1064646734790985766}
   toggleSelected: {fileID: 1064646736816304897}
+  dead: 0
+  crit: 0
+  inj: 0
+  brok: 0
 --- !u!1 &1064646736816304899
 GameObject:
   m_ObjectHideFlags: 0

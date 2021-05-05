@@ -68,6 +68,9 @@ public class Generation_Settings_Director : MonoBehaviour
     public Image[] PlayerColoursSimple;
     public Page_Manager[] Pages;
 
+    public InputField simpleName;
+    public InputField advancedName;
+
 
     public ToggleVisiblePlanets planetToggle;
     public bool generateOnPlay;
@@ -878,6 +881,16 @@ public class Generation_Settings_Director : MonoBehaviour
     public void SimpleScreen(bool value)
     {
         simple = value;
+        if(value == true)
+        {
+            simpleName.text = advancedName.text;
+            forceName = advancedName.text;
+        }
+        else
+        {
+            advancedName.text = simpleName.text;
+            forceName = simpleName.text;
+        }
     }
 
     public void ChangeName(InputField value)

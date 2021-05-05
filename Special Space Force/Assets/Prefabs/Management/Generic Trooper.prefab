@@ -1169,7 +1169,7 @@ MonoBehaviour:
   - {fileID: 6193295665565326079}
   imageManager: {fileID: 9203519939444567182}
   slotLocations:
-  - {fileID: 5625713994796482565}
+  - {fileID: 0}
   - {fileID: 4789868258200920564}
   - {fileID: 6101750590876612521}
   - {fileID: 579762718968663399}
@@ -2643,7 +2643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4009101017150767727}
   - component: {fileID: 1335396806013391619}
-  - component: {fileID: 5625713994796482565}
+  - component: {fileID: 2957213309070645825}
   m_Layer: 5
   m_Name: Slot Layer 1
   m_TagString: Untagged
@@ -2678,7 +2678,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7442162633937640878}
   m_CullTransparentMesh: 0
---- !u!114 &5625713994796482565
+--- !u!114 &2957213309070645825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2697,13 +2697,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: cdd946c16e17afe4b911e98e5cecbdc9, type: 3}
-    m_FontSize: 48
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 30
-    m_MaxSize: 48
-    m_Alignment: 4
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2906,6 +2906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: {fileID: 2770212861292285734}
+  travelling: {fileID: 0}
 --- !u!1 &7871636196503544958
 GameObject:
   m_ObjectHideFlags: 0

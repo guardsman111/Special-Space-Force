@@ -11,6 +11,7 @@ public class Turn_Manager : MonoBehaviour
     //Carries out the first turn which is different if creating to when loading
     public void FirstTurn(Generation_Class product, Save_Class save, bool loading)
     {
+        manager.cameraMovement.SetupMaxAngles();
         manager.GeneratedProduct = product;
         saveClass = save;
         if (loading)

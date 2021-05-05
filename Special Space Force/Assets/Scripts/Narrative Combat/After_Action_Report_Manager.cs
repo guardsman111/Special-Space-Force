@@ -11,6 +11,7 @@ public class After_Action_Report_Manager : MonoBehaviour
     public GameObject content;
     public List<After_Action_Slot_Script> slots;
     public GameObject n1;
+    public Combat_Screen_Manager cSManager;
     public string result;
 
     //Visual Elements
@@ -35,6 +36,7 @@ public class After_Action_Report_Manager : MonoBehaviour
         int cStrength = 0;
         int iStrength = 0;
         int bStrength = 0;
+        bool missing = false;
 
         foreach (Combat_Slot_Script css in combatSlots)
         {
@@ -55,6 +57,7 @@ public class After_Action_Report_Manager : MonoBehaviour
                 {
                     rStrength += (css.SlotClass.containedTroopers.Count - (css.dead + css.crit));
                     mStrength += css.crit;
+                    missing = false;
                 }
                 dStrength += css.dead;
                 iStrength += css.inj;
@@ -79,5 +82,13 @@ public class After_Action_Report_Manager : MonoBehaviour
         missingText.text = mStrength.ToString();
         injuredText.text = iStrength.ToString();
         brokenText.text = bStrength.ToString();
+
+        cSManager.ChangeClasses(missing);
+    }
+
+    public void Close()
+    {
+        this.gameObject.SetActive(false);
+        cSManager.setupManager.CloseManager();
     }
 }

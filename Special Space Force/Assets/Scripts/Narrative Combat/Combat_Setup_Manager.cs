@@ -12,7 +12,8 @@ public class Combat_Setup_Manager : MonoBehaviour
     public Manager_Script modManager;
     public GameObject content;
     public GameObject n1;
-    public GameObject combatUnitPrefab;
+    public GameObject combatSlotPrefab;
+    public GameObject combatSquadPrefab;
     public List<Combat_Slot_Script> slots;
     public List<Voidcraft_Class> orbitVoidcraft;
     public List<Combat_Slot_Script> selectedSlots;
@@ -56,7 +57,15 @@ public class Combat_Setup_Manager : MonoBehaviour
             {
                 if (slot.planetN - 1 == planet.parentSystem.SystemPlanets.IndexOf(planet))
                 {
-                    GameObject temp = Instantiate(combatUnitPrefab, content.transform);
+                    GameObject temp;
+                    if (slot.squad)
+                    {
+                        temp = Instantiate(combatSquadPrefab, content.transform);
+                    }
+                    else 
+                    {
+                        temp = Instantiate(combatSlotPrefab, content.transform); 
+                    }
                     Combat_Slot_Script tempCS = temp.GetComponent<Combat_Slot_Script>();
                     tempCS.SetupCombatSlot(slot, this);
                     tempCS.locationText.text = planet.planetName;
@@ -76,7 +85,15 @@ public class Combat_Setup_Manager : MonoBehaviour
             {
                 if (vc.uIDTransported.Contains(slot.uID))
                 {
-                    GameObject temp = Instantiate(combatUnitPrefab, content.transform);
+                    GameObject temp;
+                    if (slot.squad)
+                    {
+                        temp = Instantiate(combatSquadPrefab, content.transform);
+                    }
+                    else
+                    {
+                        temp = Instantiate(combatSlotPrefab, content.transform);
+                    }
                     Combat_Slot_Script tempCS = temp.GetComponent<Combat_Slot_Script>();
                     tempCS.SetupCombatSlot(slot, this);
                     tempCS.locationText.text = vc.craftName;
@@ -104,7 +121,15 @@ public class Combat_Setup_Manager : MonoBehaviour
                 {
                     if (sc.containedSlots.Count == 0)
                     {
-                        GameObject temp = Instantiate(combatUnitPrefab, content.transform);
+                        GameObject temp;
+                        if (sc.squad)
+                        {
+                            temp = Instantiate(combatSquadPrefab, content.transform);
+                        }
+                        else
+                        {
+                            temp = Instantiate(combatSlotPrefab, content.transform);
+                        }
                         Combat_Slot_Script tempCS = temp.GetComponent<Combat_Slot_Script>();
                         tempCS.SetupCombatSlot(sc, this);
                         tempCS.locationText.text = planetSelected.planetName;
@@ -126,7 +151,15 @@ public class Combat_Setup_Manager : MonoBehaviour
         {
             if (sc.craftID == craft.ID)
             {
-                GameObject temp = Instantiate(combatUnitPrefab, content.transform);
+                GameObject temp;
+                if (sc.squad)
+                {
+                    temp = Instantiate(combatSquadPrefab, content.transform);
+                }
+                else
+                {
+                    temp = Instantiate(combatSlotPrefab, content.transform);
+                }
                 Combat_Slot_Script tempCS = temp.GetComponent<Combat_Slot_Script>();
                 tempCS.SetupCombatSlot(sc, this);
                 tempCS.locationText.text = craft.craftName;

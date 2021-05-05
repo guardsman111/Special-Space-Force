@@ -93,7 +93,7 @@ public class Combat_Screen_Manager : MonoBehaviour
                 {
                     EncounterFight(ec);
                 }
-                else
+                if(ec.enemyUnits.Count == 0 || ec.capableTroopers.Count == 0)
                 {
                     if (ec.capableTroopers.Count > 0)
                     {
@@ -112,6 +112,32 @@ public class Combat_Screen_Manager : MonoBehaviour
                             + ec.deadTroopers.Count + " dead and " + ec.incapacitatedTroopers.Count.ToString() + " injured troopers.";
                         //Enemy Force wins this encounter
                         ec.result = 1;
+                        foreach(Encounter_Class ec2 in eManager.encounters)
+                        {
+                            if(ec2.complete == false)
+                            {
+                                if (ec.enemyUnits.Count > 0)
+                                {
+                                    manager.combatManager.combatReadout.text += "\n \nEnemy reinforcements, free up from their fight with " + ec.slots[0].SlotClass.slotName + ", come to join the fight against " + ec2.slots[0].SlotClass.slotName + ".";
+                                    ec2.enemyUnits.Add(ec.enemyUnits[0]);
+                                    ec.enemyUnits.RemoveAt(0);
+                                }
+                            }
+                        }
+                        if (ec.enemyUnits.Count > 0)
+                        {
+                            foreach (Encounter_Class ec2 in eManager.encounters)
+                            {
+                                if (ec2.complete == false)
+                                {
+                                    if (ec.enemyUnits.Count > 0)
+                                    {
+                                        ec2.enemyUnits.Add(ec.enemyUnits[0]);
+                                        ec.enemyUnits.RemoveAt(0);
+                                    }
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -875,5 +901,39 @@ public class Combat_Screen_Manager : MonoBehaviour
         }
         aManager.OpenAfterActionreport(selectedSlots, result);
         gameObject.SetActive(false);
+    }
+
+    public void ChangeClasses(bool missing)
+    {
+        foreach (Encounter_Class ec in eManager.encounters)
+        {
+            foreach (Affected_Trooper_Class afc in ec.deadTroopers)
+            {
+                afc.squad.SlotClass.containedTroopers.Remove(afc.trooperClass);
+            }
+            if (result == "Defeat")
+            {
+                foreach (Affected_Trooper_Class afc in ec.incapacitatedTroopers)
+                {
+                    afc.squad.SlotClass.containedTroopers.Remove(afc.trooperClass);
+                }
+            }
+        }
+
+        foreach(Combat_Slot_Script css in selectedSlots)
+        {
+            if (css.SlotClass.squad)
+            {
+                foreach(Trooper_Class tc in css.SlotClass.containedTroopers)
+                {
+                    tc.trooperPosition = css.SlotClass.containedTroopers.IndexOf(tc) + 1;
+                }
+            }
+        }
+
+        if(result == "Victory")
+        {
+            currentMission.parentThreatScript.ThreatC.currentLevel -= currentMission.MissionC.reduction;
+        }
     }
 }
